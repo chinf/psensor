@@ -1,0 +1,12 @@
+src/main.c
+src/ui_sensorlist.c
+src/ui_appindicator.c
+src/ui_color.c  
+src/ui_notify.c  
+src/ui_pref.c  
+src/rsensor.c
+src/plib/plib_luatpl.c
+src/server/server.c
+src/lib/hdd.c
+src/lib/nvidia.c
+src/lib/lmsensor.c

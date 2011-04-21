@@ -1,0 +1,366 @@
+# Chinese translations for psensor package.
+# Copyright (C) 2011 Free Software Foundation, Inc.
+# This file is distributed under the same license as the psensor package.
+# wpitchoune <wpitchoune@gmail.com>, 2011.
+# Chinese translation from 大宝 <linux.dabao@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: psensor 0.6.0.10\n"
+"Report-Msgid-Bugs-To: wpitchoune@gmail.com\n"
+"POT-Creation-Date: 2011-04-03 18:46+0200\n"
+"PO-Revision-Date: 2011-02-07 22:21+0100\n"
+"Last-Translator: 大宝 <linux.dabao@gmail.com>\n"
+"Language-Team: Chinese (simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/main.c:73 src/server/server.c:80
+#, c-format
+msgid ""
+"Copyright (C) %s wpitchoune@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+
+#: src/main.c:83 src/server/server.c:90
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr ""
+
+#: src/main.c:85
+msgid ""
+"psensor is a GTK application for monitoring hardware sensors, including "
+"temperatures and fan speeds."
+msgstr ""
+
+#: src/main.c:89
+msgid "Options:"
+msgstr ""
+
+#: src/main.c:90 src/server/server.c:97
+msgid ""
+"  -h, --help          display this help and exit\n"
+"  -v, --version       display version information and exit"
+msgstr ""
+
+#: src/main.c:96
+msgid ""
+"  -u, --url=URL       the URL of the psensor-server, example: http://"
+"hostname:3131"
+msgstr ""
+
+#: src/main.c:102 src/server/server.c:110
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr ""
+
+#: src/main.c:104 src/server/server.c:112
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr ""
+
+#: src/main.c:327 src/server/server.c:376
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr ""
+
+#: src/main.c:350
+#, c-format
+msgid "ERROR: lmsensor init failure: %s\n"
+msgstr ""
+
+#: src/main.c:361
+#, c-format
+msgid "ERROR: Not compiled with remote sensor support.\n"
+msgstr ""
+
+#: src/ui_sensorlist.c:285
+msgid "Preferences"
+msgstr "选项"
+
+#: src/ui_sensorlist.c:318
+msgid "Select foreground color"
+msgstr ""
+
+#: src/ui_sensorlist.c:401
+msgid "Sensor"
+msgstr "监视设备"
+
+#: src/ui_sensorlist.c:407
+msgid "Current"
+msgstr "当前"
+
+#: src/ui_sensorlist.c:413
+msgid "Min"
+msgstr "最小值"
+
+#: src/ui_sensorlist.c:419
+msgid "Max"
+msgstr "最大值"
+
+#: src/ui_sensorlist.c:426
+msgid "Color"
+msgstr "颜色"
+
+#: src/ui_sensorlist.c:439
+msgid "Enabled"
+msgstr "激活"
+
+#: src/ui_sensorlist.c:468 src/ui_sensorlist.c:469 src/ui_sensorlist.c:470
+msgid "N/A"
+msgstr ""
+
+#: src/ui_notify.c:36
+#, c-format
+msgid "ERROR: failed gettimeofday\n"
+msgstr ""
+
+#: src/ui_notify.c:64
+msgid "Temperature alert"
+msgstr ""
+
+#: src/rsensor.c:131
+#, c-format
+msgid "ERROR: Fail to connect to: %s\n"
+msgstr ""
+
+#: src/rsensor.c:166
+#, c-format
+msgid "ERROR: Invalid content: %s\n"
+msgstr ""
+
+#: src/rsensor.c:204
+#, c-format
+msgid "ERROR: Invalid JSON: %s\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:121
+#, c-format
+msgid "LUATPL Error: failed to load Lua script: %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:127
+#, c-format
+msgid "LUATPL Error: failed to call init function: %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:133
+#, c-format
+msgid "LUATPL Error:failed to execute Lua script (%s): %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:140
+#, c-format
+msgid "LUATPL Error:lua script (%s) returned a wrong type.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:147
+#, c-format
+msgid "LUATPL Error:failed to open lua state.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:154
+#, c-format
+msgid "LUATPL Error: code: %d.\n"
+msgstr ""
+
+#: src/server/server.c:56
+msgid ""
+"<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
+msgstr ""
+
+#: src/server/server.c:92
+msgid ""
+"psensor-server is an HTTP server for monitoring hardware sensors remotely."
+msgstr ""
+
+#: src/server/server.c:103
+msgid ""
+"  -d,--debug     run in debug mode\n"
+"  -p,--port=PORT webserver port\n"
+"  -w,--wdir=DIR  directory containing webserver pages"
+msgstr ""
+
+#: src/server/server.c:184
+msgid "<html><body><p>Server stop requested</p></body></html>"
+msgstr ""
+
+#: src/server/server.c:315
+#, c-format
+msgid "HTTP Request: %s\n"
+msgstr ""
+
+#: src/server/server.c:382
+#, c-format
+msgid "ERROR: failed to init lm-sensors\n"
+msgstr ""
+
+#: src/server/server.c:389
+#, c-format
+msgid "ERROR: no sensors detected\n"
+msgstr ""
+
+#: src/server/server.c:396
+#, c-format
+msgid "ERROR: Fail to create web server\n"
+msgstr ""
+
+#: src/server/server.c:400
+#, c-format
+msgid "Web server started on port: %d\n"
+msgstr ""
+
+#: src/server/server.c:401
+#, c-format
+msgid "WWW directory: %s\n"
+msgstr ""
+
+#: src/server/server.c:402
+#, c-format
+msgid "URL: http://localhost:%d\n"
+msgstr ""
+
+#: src/lib/hdd.c:59
+#, c-format
+msgid "ERROR: hdd_fetch, failed to open socket\n"
+msgstr ""
+
+#: src/lib/hdd.c:73
+#, c-format
+msgid "ERROR: hdd_fetch, failed to open connection\n"
+msgstr ""
+
+#: src/lib/hdd.c:182
+#, c-format
+msgid "ERROR: wrong hdd string: %s"
+msgstr ""
+
+#: src/lib/hdd.c:252
+#, c-format
+msgid "ERROR: wrong hdd string: %s\n"
+msgstr ""
+
+#: src/lib/nvidia.c:53
+#, c-format
+msgid "ERROR: failed to retrieve nvidia temperature\n"
+msgstr ""
+
+#: src/lib/nvidia.c:85
+#, c-format
+msgid "ERROR: nvidia initialization failure\n"
+msgstr ""
+
+#: src/lib/nvidia.c:99
+#, c-format
+msgid "ERROR: nvidia initialization failure: %d\n"
+msgstr ""
+
+#: src/lib/nvidia.c:132
+#, c-format
+msgid "ERROR: no nvidia chips or initialization failure\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:43
+#, c-format
+msgid "ERROR: Can't get value of subfeature %s: %s\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:122
+#, c-format
+msgid "ERROR: create_sensor, wrong feature type\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:166
+#, c-format
+msgid "ERROR: lm-sensors initialization failure: %s\n"
+msgstr ""
+
+#~ msgid "Graph Colors"
+#~ msgstr "图表颜色"
+
+#~ msgid "Foreground:"
+#~ msgstr "坐标栏:"
+
+#~ msgid "Background:"
+#~ msgstr "背景:"
+
+#~ msgid "Background opacity:"
+#~ msgstr "背景亮度:"
+
+#~ msgid "<i>Min</i>"
+#~ msgstr "<i>最小值</i>"
+
+#~ msgid "<i>Max</i>"
+#~ msgstr "<i>最大值</i>"
+
+#~ msgid "Graph"
+#~ msgstr "图表"
+
+#~ msgid "Interface"
+#~ msgstr "界面"
+
+#~ msgid "Position of sensors table:"
+#~ msgstr "监视设备列表位置:"
+
+#~ msgid "Right"
+#~ msgstr "右侧"
+
+#~ msgid "Left"
+#~ msgstr "左侧"
+
+#~ msgid "Top"
+#~ msgstr "顶部"
+
+#~ msgid "Bottom"
+#~ msgstr "底部"
+
+#~ msgid "Hide window decoration"
+#~ msgstr "隐藏窗口标题栏"
+
+#~ msgid "Keep window below"
+#~ msgstr "保持在最底层"
+
+#, fuzzy
+#~ msgid "Edit Preferences"
+#~ msgstr "监视设备选项"
+
+#~ msgid "Edit Sensor Preferences"
+#~ msgstr "监视设备选项"
+
+#~ msgid "Sensor Information"
+#~ msgstr "设备信息"
+
+#~ msgid "Id:"
+#~ msgstr "标识:"
+
+#~ msgid "Type:"
+#~ msgstr "类型:"
+
+#~ msgid "Name:"
+#~ msgstr "名称:"
+
+#~ msgid "Draw sensor curve"
+#~ msgstr "绘制监视曲线"
+
+#, fuzzy
+#~ msgid "Color:"
+#~ msgstr "颜色:"
+
+#~ msgid "Alarm"
+#~ msgstr "警告信息"
+
+#~ msgid "Activate desktop notifications"
+#~ msgstr "激活桌面气泡提示"
+
+#~ msgid "Temperature limit:"
+#~ msgstr "温度警戒线:"
+
+#~ msgid "Show"
+#~ msgstr "显示主窗口"
+
+#~ msgid "Quit"
+#~ msgstr "退出"

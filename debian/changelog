@@ -1,0 +1,94 @@
+psensor (0.6.1.3-3) lucid; urgency=low
+
+  * bump lucid
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 16 Feb 2011 10:13:55 +0100
+
+psensor (0.6.1.3-2) natty; urgency=low
+
+  * bump natty
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 16 Feb 2011 10:13:08 +0100
+
+psensor (0.6.1.3-1) maverick; urgency=low
+
+  * upgrade upstream
+  * removed debian/tmp in .install files
+  * improved long description of the packages
+  * fixed debian/copyright(add real name and license preamble)
+  * use dh_installman
+  * added debian/watch file
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 16 Feb 2011 09:56:05 +0100
+
+psensor (0.6.1.1-3) lucid; urgency=low
+
+  * bump lucid
+
+ -- jeanfi <jeanfi@gmail.com>  Tue, 15 Feb 2011 12:10:08 +0100
+
+psensor (0.6.1.1-2) natty; urgency=low
+
+  * bump natty
+
+ -- jeanfi <jeanfi@gmail.com>  Tue, 15 Feb 2011 12:09:19 +0100
+
+psensor (0.6.1.1-1) maverick; urgency=low
+
+  * upgrade upstream
+
+ -- jeanfi <jeanfi@gmail.com>  Tue, 15 Feb 2011 11:41:38 +0100
+
+psensor (0.6.1-4) natty; urgency=low
+
+  * bump natty
+
+ -- jeanfi <jeanfi@gmail.com>  Mon, 14 Feb 2011 12:18:28 +0100
+
+psensor (0.6.1-3) lucid; urgency=low
+
+  * bump lucid
+
+ -- jeanfi <jeanfi@gmail.com>  Mon, 14 Feb 2011 12:17:37 +0100
+
+psensor (0.6.1-2) maverick; urgency=low
+
+  * fixed file conflicts concerning doc dir
+
+ -- jeanfi <jeanfi@gmail.com>  Mon, 14 Feb 2011 11:47:16 +0100
+
+psensor (0.6.1-1) maverick; urgency=low
+
+  * upgrade upstream
+
+ -- jeanfi <jeanfi@gmail.com>  Mon, 14 Feb 2011 10:52:24 +0100
+
+psensor (0.6.0.14-5) karmic; urgency=low
+
+  * bump karmic
+
+ -- jeanfi <jeanfi@gmail.com>  Sun, 13 Feb 2011 14:05:07 +0100
+
+psensor (0.6.0.14-4) maverick; urgency=low
+
+  * www/index.lua in the psensor-server package
+
+ -- jeanfi <jeanfi@gmail.com>  Sun, 13 Feb 2011 13:30:30 +0100
+
+psensor (0.6.0.14-3) lucid; urgency=low
+
+  * bump lucid
+
+ -- jeanfi <jeanfi@gmail.com>  Sat, 12 Feb 2011 21:18:22 +0100
+
+psensor (0.6.0.14-2) natty; urgency=low
+
+  * bump natty
+
+ -- jeanfi <jeanfi@gmail.com>  Sat, 12 Feb 2011 21:16:38 +0100
+
+psensor (0.6.0.14-1) maverick; urgency=low
+
+  * upgrade upstream
+
+ -- jeanfi <jeanfi@gmail.com>  Sat, 12 Feb 2011 14:34:42 +0100

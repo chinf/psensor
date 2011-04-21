@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Psensor
+GenericName=Psensor
+Comment=Psensor is a graphical temperature monitor for Linux
+Icon=psensor
+TryExec=psensor
+Exec=psensor
+Categories=Application;System;

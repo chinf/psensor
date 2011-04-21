@@ -1,0 +1,32 @@
+[description]
+
+/psensor is a/
+
+It displays a curve for each sensor, and uses Desktop Notification to
+raise an alarm when a temperature is too high. On Ubuntu an
+Application Indicator is also available, its icon changes when a
+temperature alert is raised.
+
+It can monitor:
+  * the temperature of the motherboard and CPU sensors (using lm\-sensors).
+  * the temperature of the NVidia GPUs (using XNVCtrl).
+  * the temperature of the Hard Disk Drives (using hddtemp).
+  * the rotation speed of the fans (using lm\-sensors).
+  * the sensors of a remote computer (using psensor\-server).
+
+Psensor requires lm\-sensors to be correctly installed and configured,
+it can be checked by running the command 'sensors'. If it has never be
+done, you may need to run the command 'sensors\-detect' and follow the
+instruction. See the manpages of sensors(1) and sensors\-detect(8) for
+more information.
+
+To retrieve the temperature of the Hard Disk Drives, the hddtemp
+daemon must be running.
+
+For remote monitoring:
+  * start psensor\-server(1) on the remote computer
+  * run psensor with '\-\-url' option: 'psensor \-\-url=http://localhost:3131'
+
+[SEE ALSO]
+
+psensor\-server(1), sensors(1), sensors\-detect(8), hddtemp(8)

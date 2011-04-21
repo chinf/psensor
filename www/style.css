@@ -1,0 +1,23 @@
+body {
+    font-family: Ubuntu, Verdana, Helvetica, Arial, sans-serif;
+    background: #fff;
+    color: Black;
+    margin: 1em 0em 0em 1em;
+    padding-left: 0em 0em 0em 0em;
+}
+
+table {
+    border: 1px solid #ddd;
+}
+
+tr.title {
+    background-color: #eee;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: right;
+}

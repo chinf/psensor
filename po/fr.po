@@ -1,0 +1,329 @@
+# Oriya translations for psensor package.
+# Copyright (C) 2011 Free Software Foundation, Inc.
+# This file is distributed under the same license as the psensor package.
+# wpitchoune <wpitchoune@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: psensor 0.6.0.9\n"
+"Report-Msgid-Bugs-To: wpitchoune@gmail.com\n"
+"POT-Creation-Date: 2011-04-03 18:46+0200\n"
+"PO-Revision-Date: 2011-02-07 21:18+0100\n"
+"Last-Translator: wpitchoune <wpitchoune@gmail.com>\n"
+"Language-Team: Oriya\n"
+"Language: or\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: src/main.c:73 src/server/server.c:80
+#, c-format
+msgid ""
+"Copyright (C) %s wpitchoune@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+
+#: src/main.c:83 src/server/server.c:90
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr ""
+
+#: src/main.c:85
+msgid ""
+"psensor is a GTK application for monitoring hardware sensors, including "
+"temperatures and fan speeds."
+msgstr ""
+
+#: src/main.c:89
+msgid "Options:"
+msgstr ""
+
+#: src/main.c:90 src/server/server.c:97
+msgid ""
+"  -h, --help          display this help and exit\n"
+"  -v, --version       display version information and exit"
+msgstr ""
+
+#: src/main.c:96
+msgid ""
+"  -u, --url=URL       the URL of the psensor-server, example: http://"
+"hostname:3131"
+msgstr ""
+
+#: src/main.c:102 src/server/server.c:110
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr ""
+
+#: src/main.c:104 src/server/server.c:112
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr ""
+
+#: src/main.c:327 src/server/server.c:376
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr ""
+
+#: src/main.c:350
+#, fuzzy, c-format
+msgid "ERROR: lmsensor init failure: %s\n"
+msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
+
+#: src/main.c:361
+#, c-format
+msgid "ERROR: Not compiled with remote sensor support.\n"
+msgstr ""
+
+#: src/ui_sensorlist.c:285
+msgid "Preferences"
+msgstr ""
+
+#: src/ui_sensorlist.c:318
+msgid "Select foreground color"
+msgstr ""
+
+#: src/ui_sensorlist.c:401
+msgid "Sensor"
+msgstr "Sonde"
+
+#: src/ui_sensorlist.c:407
+msgid "Current"
+msgstr "Actuelle"
+
+#: src/ui_sensorlist.c:413
+msgid "Min"
+msgstr ""
+
+#: src/ui_sensorlist.c:419
+msgid "Max"
+msgstr ""
+
+#: src/ui_sensorlist.c:426
+msgid "Color"
+msgstr "Couleur"
+
+#: src/ui_sensorlist.c:439
+msgid "Enabled"
+msgstr "Activée"
+
+#: src/ui_sensorlist.c:468 src/ui_sensorlist.c:469 src/ui_sensorlist.c:470
+msgid "N/A"
+msgstr ""
+
+#: src/ui_notify.c:36
+#, c-format
+msgid "ERROR: failed gettimeofday\n"
+msgstr ""
+
+#: src/ui_notify.c:64
+msgid "Temperature alert"
+msgstr ""
+
+#: src/rsensor.c:131
+#, c-format
+msgid "ERROR: Fail to connect to: %s\n"
+msgstr ""
+
+#: src/rsensor.c:166
+#, c-format
+msgid "ERROR: Invalid content: %s\n"
+msgstr ""
+
+#: src/rsensor.c:204
+#, c-format
+msgid "ERROR: Invalid JSON: %s\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:121
+#, c-format
+msgid "LUATPL Error: failed to load Lua script: %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:127
+#, c-format
+msgid "LUATPL Error: failed to call init function: %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:133
+#, c-format
+msgid "LUATPL Error:failed to execute Lua script (%s): %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:140
+#, c-format
+msgid "LUATPL Error:lua script (%s) returned a wrong type.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:147
+#, c-format
+msgid "LUATPL Error:failed to open lua state.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:154
+#, c-format
+msgid "LUATPL Error: code: %d.\n"
+msgstr ""
+
+#: src/server/server.c:56
+msgid ""
+"<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
+msgstr ""
+
+#: src/server/server.c:92
+msgid ""
+"psensor-server is an HTTP server for monitoring hardware sensors remotely."
+msgstr ""
+
+#: src/server/server.c:103
+msgid ""
+"  -d,--debug     run in debug mode\n"
+"  -p,--port=PORT webserver port\n"
+"  -w,--wdir=DIR  directory containing webserver pages"
+msgstr ""
+
+#: src/server/server.c:184
+msgid "<html><body><p>Server stop requested</p></body></html>"
+msgstr ""
+
+#: src/server/server.c:315
+#, c-format
+msgid "HTTP Request: %s\n"
+msgstr ""
+
+#: src/server/server.c:382
+#, c-format
+msgid "ERROR: failed to init lm-sensors\n"
+msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
+
+#: src/server/server.c:389
+#, c-format
+msgid "ERROR: no sensors detected\n"
+msgstr "ERREUR: Aucune sonde detectee\n"
+
+#: src/server/server.c:396
+#, c-format
+msgid "ERROR: Fail to create web server\n"
+msgstr "ERREUR: Echec de la creation du serveur Web\n"
+
+#: src/server/server.c:400
+#, c-format
+msgid "Web server started on port: %d\n"
+msgstr "Server Web demarre sur le port: %d\n"
+
+#: src/server/server.c:401
+#, c-format
+msgid "WWW directory: %s\n"
+msgstr "WWW repertoire: %s\n"
+
+#: src/server/server.c:402
+#, c-format
+msgid "URL: http://localhost:%d\n"
+msgstr ""
+
+#: src/lib/hdd.c:59
+#, c-format
+msgid "ERROR: hdd_fetch, failed to open socket\n"
+msgstr ""
+
+#: src/lib/hdd.c:73
+#, c-format
+msgid "ERROR: hdd_fetch, failed to open connection\n"
+msgstr ""
+
+#: src/lib/hdd.c:182
+#, c-format
+msgid "ERROR: wrong hdd string: %s"
+msgstr ""
+
+#: src/lib/hdd.c:252
+#, c-format
+msgid "ERROR: wrong hdd string: %s\n"
+msgstr ""
+
+#: src/lib/nvidia.c:53
+#, c-format
+msgid "ERROR: failed to retrieve nvidia temperature\n"
+msgstr ""
+
+#: src/lib/nvidia.c:85
+#, c-format
+msgid "ERROR: nvidia initialization failure\n"
+msgstr ""
+
+#: src/lib/nvidia.c:99
+#, c-format
+msgid "ERROR: nvidia initialization failure: %d\n"
+msgstr ""
+
+#: src/lib/nvidia.c:132
+#, c-format
+msgid "ERROR: no nvidia chips or initialization failure\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:43
+#, c-format
+msgid "ERROR: Can't get value of subfeature %s: %s\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:122
+#, c-format
+msgid "ERROR: create_sensor, wrong feature type\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:166
+#, c-format
+msgid "ERROR: lm-sensors initialization failure: %s\n"
+msgstr ""
+
+#~ msgid "Graph Colors"
+#~ msgstr "Couleurs du graphe"
+
+#~ msgid "Background:"
+#~ msgstr "Fond:"
+
+#~ msgid "Background opacity:"
+#~ msgstr "Opacite du fond:"
+
+#~ msgid "Position of sensors table:"
+#~ msgstr "Position de la table des sondes:"
+
+#~ msgid "Right"
+#~ msgstr "Droite"
+
+#~ msgid "Left"
+#~ msgstr "Gauche"
+
+#~ msgid "Top"
+#~ msgstr "Haut"
+
+#~ msgid "Bottom"
+#~ msgstr "Bas"
+
+#~ msgid "Name:"
+#~ msgstr "Nom:"
+
+#~ msgid "Draw sensor curve"
+#~ msgstr "Dessiner la courbe de la sonde"
+
+#, fuzzy
+#~ msgid "Color:"
+#~ msgstr "Couleur"
+
+#~ msgid "Alarm"
+#~ msgstr "Alarme"
+
+#~ msgid "Activate desktop notifications"
+#~ msgstr "Activer les notifications du bureau"
+
+#~ msgid "Show"
+#~ msgstr "Montrer"
+
+#~ msgid "ERROR: Lua support not enabled\n"
+#~ msgstr "ERREUR: Le support de Lua n'est pas active\n"
+
+#~ msgid "Psensor - Temperature Monitor"
+#~ msgstr "Psensor - Surveillance Des Temperatures"

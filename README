@@ -1,0 +1,113 @@
+Psensor - Temperature Monitoring For Linux
+------------------------------------------
+
+Psensor is a graphical temperature monitor for Linux.
+
+It can monitor:
+
+  * the temperature of the motherboard and CPU sensors (using
+    lm-sensors).
+  * the temperature of the NVidia GPUs (using XNVCtrl).
+  * the temperature of the Hard Disk Drives (using hddtemp).
+  * the rotation speed of the fans (using lm-sensors).
+  * the temperature of a remote computer.
+
+Alarms using Desktop Notification can be set to each sensor to notify
+high temperatures.
+
+For Ubuntu users, Psensor is providing an Application Indicator to
+alert users when a temperature is too high.
+
+To monitor the temperature of a remote computer:
+
+  * start psensor-server on the remote computer. The default port is
+    3131 and can be changed by using the '--port=PORT' command line
+    option.
+
+  * start psensor with the '--url' option: 
+  psensor --url=http://hostname:3131
+
+WARNING: 
+psensor-server does not provide any way to restrict the connection to
+the HTTP server, worst, no effort has been made against malicious HTTP
+attacks.  You should make the psensor-server port available only to a
+network or computer you trust by using the usual network security
+tools of the system (for example, iptables).
+
+  
+Installation
+------------
+
+Ubuntu
+------
+
+For Ubuntu, the easy way to install Psensor and Psensor-server is to
+use the dedicated PPA.
+
+For the last stable version:
+sudo apt-get apt-add-repository ppa:/jfi/psensor
+sudo apt-get update
+sudo apt-get install psensor
+
+For the last development version:
+sudo apt-get apt-add-repository ppa:/jfi/psensor-unstable
+sudo apt-get update
+sudo apt-get install psensor
+sudo apt-get install psensor-server
+
+Alternatively, you can download Ubuntu binary packages from:
+http://wpitchoune.net/psensor/files/ubuntu/
+The manual installation of the psensor and psensor-server packages
+requires also the installation of psensor-common which contains
+the multiple languages support.
+
+Installation from source archive
+--------------------------------
+
+Psensor compilation requires:
+
+ * make/gcc	
+ * lm-sensors
+ * library sensors4
+ * library gtk2
+ * library gconf2
+ * help2man 
+ * library libnotify (optional)
+ * library libappindicator (optional)
+ * library libXNVCtrl (optional)
+ * library json0 and curl (optional, required for remote monitoring)
+ * library unity (>=v3.4.2, optional)
+
+Psensor-server compilation requires:
+ * make/gcc	
+ * lm-sensors
+ * library sensors4
+ * help2man 
+ * library libmicrohttpd 
+ * library json0
+ * library LUA5.1 (optional, required to enable HTML page generation	
+ of the psensor-server webserver)
+ * library gtop2 (optional, required for CPU usage)
+
+Compilation and Installation Steps
+----------------------------------
+
+ * Extract files from the source archive
+ * Compilation:
+   ./configure
+   make clean all
+   
+ * Installation:
+   make install
+
+ * Start the sensor detection script: 'sensors-detect' and follows the
+instructions
+
+ * Verify the sensor detection by running: 'sensors'
+
+ * Run 'psensor'
+
+Contact
+-------
+Bugs and comments can be sent to wpitchoune@gmail.com
+Home page: http://wpitchoune.net/psensor

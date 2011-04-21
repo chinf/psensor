@@ -1,0 +1,33 @@
+[DESCRIPTION]
+
+/psensor-server is a/
+
+It provides a JSON Web service which can be used by psensor(1) to
+monitor remotely the hardware sensors of a computer.
+
+It can provide information about:
+  * the temperature of the motherboard and CPU sensors (using lm\-sensors).
+  * the temperature of the Hard Disk Drives (using hddtemp).
+  * the rotation speed of the fans (using lm\-sensors).
+
+The entry point of the JSON Web service is:
+http://hostname:3131/api/1.0/sensors.
+
+It is also possible to connect to the psensor\-server with a browser, a
+simple Web page is displaying the sensors information and the CPU
+usage.
+
+If run in debug mode, psensor\-server can be stopped by sending an HTTP
+request with the URL 'http://hostname:port/api/1.0/server/stop'.
+
+[WARNING]
+
+psensor\-server does not provide any way to restrict the connection to
+the HTTP server, worst, no effort has been made against malicious HTTP
+attacks.  You should make the psensor\-server port available only to a
+network or computer you trust by using the usual network security
+tools of the system (for example, iptables(8) ).
+
+[SEE ALSO]
+
+psensor(1), sensors(1), sensors\-detect(8)
