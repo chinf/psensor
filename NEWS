@@ -54,6 +54,13 @@ unity launcher entry of psensor (requires unity >=3.4.2).
 ** fixed memory leak (label of lmsensor)
 ** some code cleanup/refactoring
 
+* v0.6.1.8
+
+** psensor: added turkish language
+** psensor: fixed freeze when click on preferences appindicator with
+   natty.
+** fixed typo (${X11_LIBS}) in configure.ac
+
 * v0.6.1.7
 
 ** psensor: add support of libnotify 0.7
