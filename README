@@ -38,6 +38,15 @@ tools of the system (for example, iptables).
 Installation
 ------------
 
+Debian
+------
+
+For Debian, the binary and source packages are available in the wheezy
+(testing) and sid (unstable) repositories.
+
+Debian package information are available at:
+http://packages.qa.debian.org/p/psensor.html
+
 Ubuntu
 ------
 
