@@ -3,6 +3,8 @@
 ** psensor: escaped - in manpage
 ** psensor-server: escaped - in manpage
 ** psensor: add support of libnotify 0.7
+** psensor: added turkish support
+** psensor: fixed multi-languages support used by glade
 
 * v0.6.2.7
 

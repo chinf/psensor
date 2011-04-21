@@ -7,13 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: wpitchoune@gmail.com\n"
-"POT-Creation-Date: 2011-04-03 18:46+0200\n"
+"POT-Creation-Date: 2011-04-21 12:24+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: wpitchoune <wpitchoune@gmail.com>\n"
 "Language-Team: Oriya\n"
 "Language: or\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
 #: src/main.c:73 src/server/server.c:80
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Select foreground color"
 msgstr ""
 
-#: src/ui_sensorlist.c:401
+#: src/ui_sensorlist.c:401 src/glade/psensor-pref.glade:185
 msgid "Sensor"
 msgstr "Sonde"
 
@@ -111,6 +111,7 @@ msgid "Enabled"
 msgstr "Activée"
 
 #: src/ui_sensorlist.c:468 src/ui_sensorlist.c:469 src/ui_sensorlist.c:470
+#: src/glade/sensor-edit.glade:25 src/glade/sensor-edit.glade:83
 msgid "N/A"
 msgstr ""
 
@@ -119,7 +120,7 @@ msgstr ""
 msgid "ERROR: failed gettimeofday\n"
 msgstr ""
 
-#: src/ui_notify.c:64
+#: src/ui_notify.c:65 src/ui_notify.c:69
 msgid "Temperature alert"
 msgstr ""
 
@@ -279,17 +280,128 @@ msgstr ""
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr ""
 
-#~ msgid "Graph Colors"
-#~ msgstr "Couleurs du graphe"
+#: src/glade/psensor-pref.glade:7
+msgid "Edit Preferences"
+msgstr ""
 
-#~ msgid "Background:"
-#~ msgstr "Fond:"
+#: src/glade/psensor-pref.glade:25
+msgid "Graph Colors"
+msgstr "Couleurs du graphe"
 
-#~ msgid "Background opacity:"
-#~ msgstr "Opacite du fond:"
+#: src/glade/psensor-pref.glade:40
+#, fuzzy
+msgid "Foreground:"
+msgstr "Fond:"
 
-#~ msgid "Position of sensors table:"
-#~ msgstr "Position de la table des sondes:"
+#: src/glade/psensor-pref.glade:53
+msgid "Background:"
+msgstr "Fond:"
+
+#: src/glade/psensor-pref.glade:66
+msgid "Background opacity:"
+msgstr "Opacite du fond:"
+
+#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:112
+msgid "Graph"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:131
+msgid "Update interval:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:144
+msgid "Monitoring duration:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:156 src/glade/psensor-pref.glade:214
+msgid "second(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:170
+msgid "minute(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:202
+msgid "Measure update interval:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:229
+msgid "Interface"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:246
+msgid "Position of sensors table:"
+msgstr "Position de la table des sondes:"
+
+#: src/glade/psensor-pref.glade:257
+msgid "Hide window decoration"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:274
+msgid "Keep window below"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:365
+msgid "<i>Min</i>"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:388
+msgid "<i>Max</i>"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:407
+#, fuzzy
+msgid "Enable menu"
+msgstr "Activée"
+
+#: src/glade/psensor-pref.glade:423
+msgid "Enable Unity Launcher counter"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:7
+msgid "Edit Sensor Preferences"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:41
+msgid "Name:"
+msgstr "Nom:"
+
+#: src/glade/sensor-edit.glade:70
+msgid "Type:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:98
+msgid "Id:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:129
+#, fuzzy
+msgid "Color:"
+msgstr "Couleur"
+
+#: src/glade/sensor-edit.glade:142
+msgid "Alarm"
+msgstr "Alarme"
+
+#: src/glade/sensor-edit.glade:157
+msgid "Activate desktop notifications"
+msgstr "Activer les notifications du bureau"
+
+#: src/glade/sensor-edit.glade:175
+msgid "Temperature limit:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:189
+msgid "Sensor Information"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:202
+msgid "Draw sensor curve"
+msgstr "Dessiner la courbe de la sonde"
+
+#: src/glade/sensor-edit.glade:241
+msgid "°C"
+msgstr ""
 
 #~ msgid "Right"
 #~ msgstr "Droite"
@@ -302,22 +414,6 @@ msgstr ""
 
 #~ msgid "Bottom"
 #~ msgstr "Bas"
-
-#~ msgid "Name:"
-#~ msgstr "Nom:"
-
-#~ msgid "Draw sensor curve"
-#~ msgstr "Dessiner la courbe de la sonde"
-
-#, fuzzy
-#~ msgid "Color:"
-#~ msgstr "Couleur"
-
-#~ msgid "Alarm"
-#~ msgstr "Alarme"
-
-#~ msgid "Activate desktop notifications"
-#~ msgstr "Activer les notifications du bureau"
 
 #~ msgid "Show"
 #~ msgstr "Montrer"

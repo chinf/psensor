@@ -7,13 +7,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
 "Report-Msgid-Bugs-To: wpitchoune@gmail.com\n"
-"POT-Creation-Date: 2011-04-03 18:46+0200\n"
+"POT-Creation-Date: 2011-04-21 12:24+0200\n"
 "PO-Revision-Date: 2011-02-07 22:21+0100\n"
 "Last-Translator: 大宝 <linux.dabao@gmail.com>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/main.c:73 src/server/server.c:80
@@ -86,7 +86,7 @@ msgstr "选项"
 msgid "Select foreground color"
 msgstr ""
 
-#: src/ui_sensorlist.c:401
+#: src/ui_sensorlist.c:401 src/glade/psensor-pref.glade:185
 msgid "Sensor"
 msgstr "监视设备"
 
@@ -111,6 +111,7 @@ msgid "Enabled"
 msgstr "激活"
 
 #: src/ui_sensorlist.c:468 src/ui_sensorlist.c:469 src/ui_sensorlist.c:470
+#: src/glade/sensor-edit.glade:25 src/glade/sensor-edit.glade:83
 msgid "N/A"
 msgstr ""
 
@@ -119,7 +120,7 @@ msgstr ""
 msgid "ERROR: failed gettimeofday\n"
 msgstr ""
 
-#: src/ui_notify.c:64
+#: src/ui_notify.c:65 src/ui_notify.c:69
 msgid "Temperature alert"
 msgstr ""
 
@@ -279,32 +280,128 @@ msgstr ""
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr ""
 
-#~ msgid "Graph Colors"
-#~ msgstr "图表颜色"
+#: src/glade/psensor-pref.glade:7
+#, fuzzy
+msgid "Edit Preferences"
+msgstr "监视设备选项"
 
-#~ msgid "Foreground:"
-#~ msgstr "坐标栏:"
+#: src/glade/psensor-pref.glade:25
+msgid "Graph Colors"
+msgstr "图表颜色"
 
-#~ msgid "Background:"
-#~ msgstr "背景:"
+#: src/glade/psensor-pref.glade:40
+msgid "Foreground:"
+msgstr "坐标栏:"
 
-#~ msgid "Background opacity:"
-#~ msgstr "背景亮度:"
+#: src/glade/psensor-pref.glade:53
+msgid "Background:"
+msgstr "背景:"
 
-#~ msgid "<i>Min</i>"
-#~ msgstr "<i>最小值</i>"
+#: src/glade/psensor-pref.glade:66
+msgid "Background opacity:"
+msgstr "背景亮度:"
 
-#~ msgid "<i>Max</i>"
-#~ msgstr "<i>最大值</i>"
+#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:112
+msgid "Graph"
+msgstr "图表"
 
-#~ msgid "Graph"
-#~ msgstr "图表"
+#: src/glade/psensor-pref.glade:131
+msgid "Update interval:"
+msgstr ""
 
-#~ msgid "Interface"
-#~ msgstr "界面"
+#: src/glade/psensor-pref.glade:144
+msgid "Monitoring duration:"
+msgstr ""
 
-#~ msgid "Position of sensors table:"
-#~ msgstr "监视设备列表位置:"
+#: src/glade/psensor-pref.glade:156 src/glade/psensor-pref.glade:214
+msgid "second(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:170
+msgid "minute(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:202
+msgid "Measure update interval:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:229
+msgid "Interface"
+msgstr "界面"
+
+#: src/glade/psensor-pref.glade:246
+msgid "Position of sensors table:"
+msgstr "监视设备列表位置:"
+
+#: src/glade/psensor-pref.glade:257
+msgid "Hide window decoration"
+msgstr "隐藏窗口标题栏"
+
+#: src/glade/psensor-pref.glade:274
+msgid "Keep window below"
+msgstr "保持在最底层"
+
+#: src/glade/psensor-pref.glade:365
+msgid "<i>Min</i>"
+msgstr "<i>最小值</i>"
+
+#: src/glade/psensor-pref.glade:388
+msgid "<i>Max</i>"
+msgstr "<i>最大值</i>"
+
+#: src/glade/psensor-pref.glade:407
+#, fuzzy
+msgid "Enable menu"
+msgstr "激活"
+
+#: src/glade/psensor-pref.glade:423
+msgid "Enable Unity Launcher counter"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:7
+msgid "Edit Sensor Preferences"
+msgstr "监视设备选项"
+
+#: src/glade/sensor-edit.glade:41
+msgid "Name:"
+msgstr "名称:"
+
+#: src/glade/sensor-edit.glade:70
+msgid "Type:"
+msgstr "类型:"
+
+#: src/glade/sensor-edit.glade:98
+msgid "Id:"
+msgstr "标识:"
+
+#: src/glade/sensor-edit.glade:129
+#, fuzzy
+msgid "Color:"
+msgstr "颜色:"
+
+#: src/glade/sensor-edit.glade:142
+msgid "Alarm"
+msgstr "警告信息"
+
+#: src/glade/sensor-edit.glade:157
+msgid "Activate desktop notifications"
+msgstr "激活桌面气泡提示"
+
+#: src/glade/sensor-edit.glade:175
+msgid "Temperature limit:"
+msgstr "温度警戒线:"
+
+#: src/glade/sensor-edit.glade:189
+msgid "Sensor Information"
+msgstr "设备信息"
+
+#: src/glade/sensor-edit.glade:202
+msgid "Draw sensor curve"
+msgstr "绘制监视曲线"
+
+#: src/glade/sensor-edit.glade:241
+msgid "°C"
+msgstr ""
 
 #~ msgid "Right"
 #~ msgstr "右侧"
@@ -317,47 +414,6 @@ msgstr ""
 
 #~ msgid "Bottom"
 #~ msgstr "底部"
-
-#~ msgid "Hide window decoration"
-#~ msgstr "隐藏窗口标题栏"
-
-#~ msgid "Keep window below"
-#~ msgstr "保持在最底层"
-
-#, fuzzy
-#~ msgid "Edit Preferences"
-#~ msgstr "监视设备选项"
-
-#~ msgid "Edit Sensor Preferences"
-#~ msgstr "监视设备选项"
-
-#~ msgid "Sensor Information"
-#~ msgstr "设备信息"
-
-#~ msgid "Id:"
-#~ msgstr "标识:"
-
-#~ msgid "Type:"
-#~ msgstr "类型:"
-
-#~ msgid "Name:"
-#~ msgstr "名称:"
-
-#~ msgid "Draw sensor curve"
-#~ msgstr "绘制监视曲线"
-
-#, fuzzy
-#~ msgid "Color:"
-#~ msgstr "颜色:"
-
-#~ msgid "Alarm"
-#~ msgstr "警告信息"
-
-#~ msgid "Activate desktop notifications"
-#~ msgstr "激活桌面气泡提示"
-
-#~ msgid "Temperature limit:"
-#~ msgstr "温度警戒线:"
 
 #~ msgid "Show"
 #~ msgstr "显示主窗口"
