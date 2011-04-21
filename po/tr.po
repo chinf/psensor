@@ -1,0 +1,391 @@
+# Turkish translation for psensor
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the psensor package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: psensor\n"
+"Report-Msgid-Bugs-To: wpitchoune@gmail.com\n"
+"POT-Creation-Date: 2011-04-17 23:27+0200\n"
+"PO-Revision-Date: 2011-04-10 13:11+0000\n"
+"Last-Translator: zeugma <Unknown>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-04-11 05:41+0000\n"
+"X-Generator: Launchpad (build 12735)\n"
+
+#: src/main.c:70 src/server/server.c:74
+#, c-format
+msgid ""
+"Copyright (C) %s wpitchoune@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+
+#: src/main.c:80 src/server/server.c:84
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "Kullanım: %s [SEÇENEK]...\n"
+
+#: src/main.c:82
+msgid ""
+"psensor is a GTK application for monitoring hardware sensors, including "
+"temperatures and fan speeds."
+msgstr ""
+
+#: src/main.c:87 src/server/server.c:91
+msgid ""
+"  -h, --help          display this help and exit\n"
+"  -v, --version       display version information and exit"
+msgstr ""
+
+#: src/main.c:93
+msgid ""
+"  -u, --url=URL       the URL of the psensor-server, example: http://"
+"hostname:3131"
+msgstr ""
+
+#: src/main.c:99 src/server/server.c:103
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr "Hataları rapor et:%s\n"
+
+#: src/main.c:101 src/server/server.c:105
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "%s ana sayfa: <%s>\n"
+
+#: src/main.c:437 src/server/server.c:269
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
+
+#: src/main.c:458
+#, c-format
+msgid "ERROR: lmsensor init failure: %s\n"
+msgstr ""
+
+#: src/main.c:469
+#, c-format
+msgid "ERROR: Not compiled with remote sensor support.\n"
+msgstr ""
+
+#: src/ui_sensorlist.c:186
+msgid "Edit Sensor Preferences"
+msgstr ""
+
+#: src/ui_sensorlist.c:258 src/ui_appindicator.c:63
+msgid "Preferences"
+msgstr "Tercihler"
+
+#: src/ui_sensorlist.c:291
+msgid "Select foreground color"
+msgstr ""
+
+#: src/ui_sensorlist.c:374 src/ui_pref.c:249
+msgid "Sensor"
+msgstr "Algılayıcı"
+
+#: src/ui_sensorlist.c:380
+msgid "Current"
+msgstr ""
+
+#: src/ui_sensorlist.c:386
+msgid "Min"
+msgstr ""
+
+#: src/ui_sensorlist.c:392
+msgid "Max"
+msgstr ""
+
+#: src/ui_sensorlist.c:399
+msgid "Color"
+msgstr "Renk"
+
+#: src/ui_sensorlist.c:412
+msgid "Enabled"
+msgstr ""
+
+#: src/ui_sensorlist.c:441 src/ui_sensorlist.c:442 src/ui_sensorlist.c:443
+msgid "N/A"
+msgstr ""
+
+#: src/ui_appindicator.c:58
+msgid "Show"
+msgstr ""
+
+#: src/ui_appindicator.c:72
+msgid "Quit"
+msgstr ""
+
+#: src/ui_notify.c:36
+#, c-format
+msgid "ERROR: failed gettimeofday\n"
+msgstr ""
+
+#: src/ui_notify.c:65 src/ui_notify.c:69
+msgid "Temperature alert"
+msgstr ""
+
+#: src/ui_pref.c:200
+msgid "Graph Colors"
+msgstr "Grafik Renkleri"
+
+#: src/ui_pref.c:204
+msgid "Foreground:"
+msgstr ""
+
+#: src/ui_pref.c:209
+msgid "Background:"
+msgstr "Arkaplan:"
+
+#: src/ui_pref.c:212
+msgid "Background opacity:"
+msgstr "Arkaplan belirginliği:"
+
+#: src/ui_pref.c:220
+msgid "<i>Min</i>"
+msgstr ""
+
+#: src/ui_pref.c:224
+msgid "<i>Max</i>"
+msgstr ""
+
+#: src/ui_pref.c:234 src/ui_sensorpref.c:80
+msgid "Graph"
+msgstr "Grafik"
+
+#: src/ui_pref.c:236
+msgid "Graph update interval:"
+msgstr ""
+
+#: src/ui_pref.c:241
+msgid "Graph monitoring duration:"
+msgstr ""
+
+#: src/ui_pref.c:251
+msgid "Measure update interval:"
+msgstr ""
+
+#: src/ui_pref.c:258
+msgid "Interface"
+msgstr "Arayüz"
+
+#: src/ui_pref.c:260
+msgid "Position of sensors table:"
+msgstr ""
+
+#: src/ui_pref.c:263
+msgid "Right"
+msgstr "Sağ"
+
+#: src/ui_pref.c:265
+msgid "Left"
+msgstr "Sol"
+
+#: src/ui_pref.c:267
+msgid "Top"
+msgstr "Üstte"
+
+#: src/ui_pref.c:269
+msgid "Bottom"
+msgstr ""
+
+#: src/ui_pref.c:284
+msgid "Hide window decoration"
+msgstr ""
+
+#: src/ui_pref.c:289
+msgid "Keep window below"
+msgstr ""
+
+#: src/ui_pref.c:307
+msgid "Edit Preferences"
+msgstr "Tercihleri düzenle"
+
+#: src/ui_sensorpref.c:67
+msgid "Sensor Information"
+msgstr ""
+
+#: src/ui_sensorpref.c:69
+msgid "Id:"
+msgstr ""
+
+#: src/ui_sensorpref.c:73
+msgid "Type:"
+msgstr "Tür:"
+
+#: src/ui_sensorpref.c:77
+msgid "Name:"
+msgstr "İsim:"
+
+#: src/ui_sensorpref.c:83
+msgid "Draw sensor curve"
+msgstr ""
+
+#: src/ui_sensorpref.c:86
+msgid "Color:"
+msgstr "Renk :"
+
+#: src/ui_sensorpref.c:89
+msgid "Alarm"
+msgstr "Alarm"
+
+#: src/ui_sensorpref.c:93
+msgid "Activate desktop notifications"
+msgstr ""
+
+#: src/ui_sensorpref.c:98
+msgid "Temperature limit:"
+msgstr ""
+
+#: src/rsensor.c:131
+#, c-format
+msgid "ERROR: Fail to connect to: %s\n"
+msgstr ""
+
+#: src/rsensor.c:166
+#, c-format
+msgid "ERROR: Invalid content: %s\n"
+msgstr ""
+
+#: src/rsensor.c:204
+#, c-format
+msgid "ERROR: Invalid JSON: %s\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:121
+#, c-format
+msgid "LUATPL Error: failed to load Lua script: %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:127
+#, c-format
+msgid "LUATPL Error: failed to call init function: %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:133
+#, c-format
+msgid "LUATPL Error:failed to execute Lua script (%s): %s.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:140
+#, c-format
+msgid "LUATPL Error:lua script (%s) returned a wrong type.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:147
+#, c-format
+msgid "LUATPL Error:failed to open lua state.\n"
+msgstr ""
+
+#: src/plib/plib_luatpl.c:154
+#, c-format
+msgid "LUATPL Error: code: %d.\n"
+msgstr ""
+
+#: src/server/server.c:86
+msgid ""
+"psensor-server is an HTTP server for monitoring hardware sensors remotely."
+msgstr ""
+
+#: src/server/server.c:97
+msgid ""
+"  -p,--port=PORT webserver port\n"
+"  -w,--wdir=DIR  directory containing webserver pages"
+msgstr ""
+
+#: src/server/server.c:198
+msgid "ERROR: Lua support not enabled\n"
+msgstr ""
+
+#: src/server/server.c:275
+#, c-format
+msgid "ERROR: failed to init lm-sensors\n"
+msgstr ""
+
+#: src/server/server.c:282
+#, c-format
+msgid "ERROR: no sensors detected\n"
+msgstr ""
+
+#: src/server/server.c:289
+#, c-format
+msgid "ERROR: Fail to create web server\n"
+msgstr ""
+
+#: src/server/server.c:293
+#, c-format
+msgid "Web server started on port: %d\n"
+msgstr ""
+
+#: src/server/server.c:294
+#, c-format
+msgid "WWW directory: %s\n"
+msgstr ""
+
+#: src/server/server.c:295
+#, c-format
+msgid "URL: http://localhost:%d\n"
+msgstr ""
+
+#: src/lib/hdd.c:59
+#, c-format
+msgid "ERROR: hdd_fetch, failed to open socket\n"
+msgstr ""
+
+#: src/lib/hdd.c:73
+#, c-format
+msgid "ERROR: hdd_fetch, failed to open connection\n"
+msgstr ""
+
+#: src/lib/hdd.c:182
+#, c-format
+msgid "ERROR: wrong hdd string: %s"
+msgstr ""
+
+#: src/lib/hdd.c:252
+#, c-format
+msgid "ERROR: wrong hdd string: %s\n"
+msgstr ""
+
+#: src/lib/nvidia.c:53
+#, c-format
+msgid "ERROR: failed to retrieve nvidia temperature\n"
+msgstr ""
+
+#: src/lib/nvidia.c:85
+#, c-format
+msgid "ERROR: nvidia initialization failure\n"
+msgstr ""
+
+#: src/lib/nvidia.c:99
+#, c-format
+msgid "ERROR: nvidia initialization failure: %d\n"
+msgstr ""
+
+#: src/lib/nvidia.c:132
+#, c-format
+msgid "ERROR: no nvidia chips or initialization failure\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:43
+#, c-format
+msgid "ERROR: Can't get value of subfeature %s: %s\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:127
+#, c-format
+msgid "ERROR: create_sensor, wrong feature type\n"
+msgstr ""
+
+#: src/lib/lmsensor.c:171
+#, c-format
+msgid "ERROR: lm-sensors initialization failure: %s\n"
+msgstr ""
