@@ -2,9 +2,11 @@
 
 ** psensor: escaped - in manpage
 ** psensor-server: escaped - in manpage
-** psensor: add support of libnotify 0.7
+** psensor: added support of libnotify 0.7
 ** psensor: added turkish support
 ** psensor: fixed multi-languages support used by glade
+** switched from wpitchoune@gmail.com to jeanfi@gmail.com (my usual
+   email)
 
 * v0.6.2.7
 
@@ -30,7 +32,7 @@
 ** psensor, graph: fixed padding bugs 
 ** psensor, graph: drawing code refactored
 ** psensor: the value of the first detected sensor is displayed in the
-unity launcher entry of psensor (requires unity >=3.4.2).
+   unity launcher entry of psensor (requires unity >=3.4.2).
 
 * v0.6.2.3
 
