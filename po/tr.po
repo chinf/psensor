@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
-"Report-Msgid-Bugs-To: wpitchoune@gmail.com\n"
+"Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2011-04-21 12:24+0200\n"
 "PO-Revision-Date: 2011-04-10 13:11+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: src/main.c:73 src/server/server.c:80
 #, c-format
 msgid ""
-"Copyright (C) %s wpitchoune@gmail.com\n"
+"Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
 "This is free software: you are free to change and redistribute it.\n"

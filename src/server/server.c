@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2010-2011 wpitchoune@gmail.com
+    Copyright (C) 2010-2011 jeanfi@gmail.com
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -77,7 +77,7 @@ static int server_stop_requested;
 void print_version()
 {
 	printf("psensor-server %s\n", VERSION);
-	printf(_("Copyright (C) %s wpitchoune@gmail.com\n\
+	printf(_("Copyright (C) %s jeanfi@gmail.com\n\
 License GPLv2: GNU GPL version 2 or later \
 <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>\n\
 This is free software: you are free to change and redistribute it.\n\

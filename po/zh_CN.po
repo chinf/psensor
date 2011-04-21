@@ -1,12 +1,12 @@
 # Chinese translations for psensor package.
 # Copyright (C) 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the psensor package.
-# wpitchoune <wpitchoune@gmail.com>, 2011.
+# wpitchoune <jeanfi@gmail.com>, 2011.
 # Chinese translation from 大宝 <linux.dabao@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
-"Report-Msgid-Bugs-To: wpitchoune@gmail.com\n"
+"Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2011-04-21 12:24+0200\n"
 "PO-Revision-Date: 2011-02-07 22:21+0100\n"
 "Last-Translator: 大宝 <linux.dabao@gmail.com>\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: src/main.c:73 src/server/server.c:80
 #, c-format
 msgid ""
-"Copyright (C) %s wpitchoune@gmail.com\n"
+"Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
 "This is free software: you are free to change and redistribute it.\n"
