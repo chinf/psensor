@@ -175,7 +175,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		g_mutex_unlock(ui->sensors_mutex);
 
-		ui_main_box_create(ui);
+		ui_sensor_box_create(ui);
 	}
 	g_object_unref(G_OBJECT(builder));
 	gtk_widget_destroy(GTK_WIDGET(diag));

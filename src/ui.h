@@ -42,7 +42,17 @@ struct ui_psensor {
 
 	GtkWidget *main_window;
 
+	/*
+	   The main vertical box, top contains the menubar, bottom
+	   contains the sensor_box.
+	*/
 	GtkWidget *main_box;
+
+	/*
+	   The box which contains the sensors graph and the sensors
+	   information list.
+	*/
+	GtkWidget *sensor_box;
 
 	GtkWidget *w_sensorlist;
 
@@ -52,7 +62,7 @@ struct ui_psensor {
 
 #ifdef HAVE_LIBNOTIFY
 	/*
-	 * Time of the last notification
+	   Time of the last notification
 	 */
 	struct timeval *notification_last_time;
 #endif
@@ -62,7 +72,11 @@ struct ui_psensor {
 #endif
 };
 
-void ui_main_box_create(struct ui_psensor *);
+/*
+  Creates or re-creates the sensor_box according to the position of
+  the list of sensors in the configuration.
+*/
+void ui_sensor_box_create(struct ui_psensor *);
 
 /*
   Must be called to terminate Psensor UI.

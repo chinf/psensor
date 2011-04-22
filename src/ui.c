@@ -78,18 +78,18 @@ GtkWidget *ui_window_create(struct ui_psensor * ui)
 	return window;
 }
 
-void ui_main_box_create(struct ui_psensor *ui)
+void ui_sensor_box_create(struct ui_psensor *ui)
 {
 	struct config *cfg;
 	GtkWidget *w_sensorlist;
 
 	cfg = ui->config;
 
-	if (ui->main_box) {
+	if (ui->sensor_box) {
 		ui_sensorlist_create_widget(ui->ui_sensorlist);
 
 		gtk_container_remove(GTK_CONTAINER(ui->main_window),
-				     ui->main_box);
+				     ui->sensor_box);
 
 		ui->w_graph = ui_graph_create(ui);
 		ui->w_sensorlist = ui->ui_sensorlist->widget;
@@ -97,9 +97,9 @@ void ui_main_box_create(struct ui_psensor *ui)
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
 	    || cfg->sensorlist_position == SENSORLIST_POSITION_LEFT)
-		ui->main_box = gtk_hpaned_new();
+		ui->sensor_box = gtk_hpaned_new();
 	else
-		ui->main_box = gtk_vpaned_new();
+		ui->sensor_box = gtk_vpaned_new();
 
 	w_sensorlist = gtk_scrolled_window_new(NULL, NULL);
 	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(w_sensorlist),
@@ -107,20 +107,20 @@ void ui_main_box_create(struct ui_psensor *ui)
 	gtk_container_add(GTK_CONTAINER(w_sensorlist),
 			  ui->ui_sensorlist->widget);
 
-	gtk_container_add(GTK_CONTAINER(ui->main_window), ui->main_box);
+	gtk_container_add(GTK_CONTAINER(ui->main_window), ui->sensor_box);
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
 	    || cfg->sensorlist_position == SENSORLIST_POSITION_BOTTOM) {
-		gtk_paned_pack1(GTK_PANED(ui->main_box),
+		gtk_paned_pack1(GTK_PANED(ui->sensor_box),
 				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
-		gtk_paned_pack2(GTK_PANED(ui->main_box),
+		gtk_paned_pack2(GTK_PANED(ui->sensor_box),
 				w_sensorlist, FALSE, TRUE);
 	} else {
-		gtk_paned_pack1(GTK_PANED(ui->main_box),
+		gtk_paned_pack1(GTK_PANED(ui->sensor_box),
 				w_sensorlist, FALSE, TRUE);
-		gtk_paned_pack2(GTK_PANED(ui->main_box),
+		gtk_paned_pack2(GTK_PANED(ui->sensor_box),
 				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
 	}
 
-	gtk_widget_show_all(ui->main_box);
+	gtk_widget_show_all(ui->sensor_box);
 }

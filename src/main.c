@@ -381,7 +381,7 @@ int main(int argc, char **argv)
 
 	/* main window */
 	ui.main_window = ui_window_create(&ui);
-	ui.main_box = NULL;
+	ui.sensor_box = NULL;
 
 	/* drawing box */
 	ui.w_graph = ui_graph_create(&ui);
@@ -389,7 +389,7 @@ int main(int argc, char **argv)
 	/* sensor list */
 	ui.ui_sensorlist = ui_sensorlist_create(ui.sensors);
 
-	ui_main_box_create(&ui);
+	ui_sensor_box_create(&ui);
 
 	gtk_widget_show_all(ui.main_window);
 
