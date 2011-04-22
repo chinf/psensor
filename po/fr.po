@@ -1,7 +1,7 @@
 # Oriya translations for psensor package.
 # Copyright (C) 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the psensor package.
-# wpitchoune <jeanfi@gmail.com>, 2011.
+# Jean-Philippe Orsini <jeanfi@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2011-04-21 12:24+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
-"Last-Translator: wpitchoune <jeanfi@gmail.com>\n"
+"Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
 "Language: or\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 
 #: src/main.c:73 src/server/server.c:80
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
@@ -25,17 +25,26 @@ msgid ""
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
+"Copyright (C) %s wpitchoune@gmail.com\n"
+"License GPLv2: GNU GPL version 3 ou ultérieure<http://www.gnu.org/licenses/"
+"old-licenses/gpl-2.0.html>\n"
+"Ceci est un logiciel libre, vous êtes libre de le modifier et de le \n"
+"redistribuer.\n"
+"Ce logiciel n'est accompagné d'ABSOLUMENT AUCUNE GARANTIE, dans les limites\n"
+"autorisees par la loi applicable.\n"
 
 #: src/main.c:83 src/server/server.c:90
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
-msgstr ""
+msgstr "Utilisation: %s [OPTION]...\n"
 
 #: src/main.c:85
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
+"psensor est une application GTK pour surveiller les sondes matérielles "
+"thermiques et les ventilateurs."
 
 #: src/main.c:89
 msgid "Options:"
@@ -46,27 +55,30 @@ msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
+"  -h, --help          afficher cette aider et quitter\n"
+"  -v, --version       afficher les informations de version et quitter"
 
 #: src/main.c:96
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr ""
+"  -u, --url=URL       l'URL de psensor-server, example: http://hostname:3131"
 
 #: src/main.c:102 src/server/server.c:110
 #, c-format
 msgid "Report bugs to: %s\n"
-msgstr ""
+msgstr "Signaler les bugs à: %s\n"
 
 #: src/main.c:104 src/server/server.c:112
 #, c-format
 msgid "%s home page: <%s>\n"
-msgstr ""
+msgstr "%s page d'acceuil: <%s>\n"
 
 #: src/main.c:327 src/server/server.c:376
 #, c-format
 msgid "Try `%s --help' for more information.\n"
-msgstr ""
+msgstr "Essayez `%s --help' pour plus d'informations.\n"
 
 #: src/main.c:350
 #, fuzzy, c-format
@@ -77,14 +89,16 @@ msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
+"ERREUR: Psensor n'a pas ete compilé avec le support de surveillance à "
+"distance.\n"
 
 #: src/ui_sensorlist.c:285
 msgid "Preferences"
-msgstr ""
+msgstr "Configuration"
 
 #: src/ui_sensorlist.c:318
 msgid "Select foreground color"
-msgstr ""
+msgstr "Selectionner la couleur d'avant-plan"
 
 #: src/ui_sensorlist.c:401 src/glade/psensor-pref.glade:185
 msgid "Sensor"
@@ -96,11 +110,11 @@ msgstr "Actuelle"
 
 #: src/ui_sensorlist.c:413
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 #: src/ui_sensorlist.c:419
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 #: src/ui_sensorlist.c:426
 msgid "Color"
@@ -113,61 +127,61 @@ msgstr "Activée"
 #: src/ui_sensorlist.c:468 src/ui_sensorlist.c:469 src/ui_sensorlist.c:470
 #: src/glade/sensor-edit.glade:25 src/glade/sensor-edit.glade:83
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/ui_notify.c:36
 #, c-format
 msgid "ERROR: failed gettimeofday\n"
-msgstr ""
+msgstr "ERREUR: échec gettimeofday\n"
 
 #: src/ui_notify.c:65 src/ui_notify.c:69
 msgid "Temperature alert"
-msgstr ""
+msgstr "Alerte thermique"
 
 #: src/rsensor.c:131
 #, c-format
 msgid "ERROR: Fail to connect to: %s\n"
-msgstr ""
+msgstr "ERREUR: Echer de la connectio à: %s\n"
 
 #: src/rsensor.c:166
 #, c-format
 msgid "ERROR: Invalid content: %s\n"
-msgstr ""
+msgstr "ERREUR: Contenu invalide: %s\n"
 
 #: src/rsensor.c:204
 #, c-format
 msgid "ERROR: Invalid JSON: %s\n"
-msgstr ""
+msgstr "ERREUR: Invalide JSON: %s\n"
 
 #: src/plib/plib_luatpl.c:121
 #, c-format
 msgid "LUATPL Error: failed to load Lua script: %s.\n"
-msgstr ""
+msgstr "LUATPL Erreur: échec du chargement du script LUA: %s.\n"
 
 #: src/plib/plib_luatpl.c:127
 #, c-format
 msgid "LUATPL Error: failed to call init function: %s.\n"
-msgstr ""
+msgstr "LUATPL Erreur: échec du lancement de la fonction init: %s.\n"
 
 #: src/plib/plib_luatpl.c:133
 #, c-format
 msgid "LUATPL Error:failed to execute Lua script (%s): %s.\n"
-msgstr ""
+msgstr "LUATP Erreur: échec de l'exécution du script Lua (%s): %s.\n"
 
 #: src/plib/plib_luatpl.c:140
 #, c-format
 msgid "LUATPL Error:lua script (%s) returned a wrong type.\n"
-msgstr ""
+msgstr "LUATPL Errur: le script Lua (%s) a retourné le mauvais type.\n"
 
 #: src/plib/plib_luatpl.c:147
 #, c-format
 msgid "LUATPL Error:failed to open lua state.\n"
-msgstr ""
+msgstr "LUATPL Errur: écher de creation du Lua state.\n"
 
 #: src/plib/plib_luatpl.c:154
 #, c-format
 msgid "LUATPL Error: code: %d.\n"
-msgstr ""
+msgstr "LUATPL Erreur: code: %d.\n"
 
 #: src/server/server.c:56
 msgid ""
@@ -178,13 +192,18 @@ msgstr ""
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
+"psensor-server est un serveur HTTP pour surveiller à distance les sondes "
+"matérielles."
 
 #: src/server/server.c:103
+#, fuzzy
 msgid ""
 "  -d,--debug     run in debug mode\n"
 "  -p,--port=PORT webserver port\n"
 "  -w,--wdir=DIR  directory containing webserver pages"
 msgstr ""
+"  -p,--port=PORT port du serveur Web\n"
+"  -w,--wdir=DIR  répertoire contenant les pages du serveur Web"
 
 #: src/server/server.c:184
 msgid "<html><body><p>Server stop requested</p></body></html>"
@@ -223,75 +242,75 @@ msgstr "WWW repertoire: %s\n"
 #: src/server/server.c:402
 #, c-format
 msgid "URL: http://localhost:%d\n"
-msgstr ""
+msgstr "URL: http://localhost:%d\n"
 
 #: src/lib/hdd.c:59
 #, c-format
 msgid "ERROR: hdd_fetch, failed to open socket\n"
-msgstr ""
+msgstr "ERREUR: hdd_fetch, écher d'ouverture de la socket\n"
 
 #: src/lib/hdd.c:73
 #, c-format
 msgid "ERROR: hdd_fetch, failed to open connection\n"
-msgstr ""
+msgstr "ERREUR: hdd_fetch, écher de l'ouverture de la connection\n"
 
 #: src/lib/hdd.c:182
 #, c-format
 msgid "ERROR: wrong hdd string: %s"
-msgstr ""
+msgstr "ERREUR: mauvaise chaine hdd: %s"
 
 #: src/lib/hdd.c:252
 #, c-format
 msgid "ERROR: wrong hdd string: %s\n"
-msgstr ""
+msgstr "ERREUR: mauvaise chaine hdd: %s\n"
 
 #: src/lib/nvidia.c:53
 #, c-format
 msgid "ERROR: failed to retrieve nvidia temperature\n"
-msgstr ""
+msgstr "ERREUR: échec de la récupération des températures nvidia\n"
 
 #: src/lib/nvidia.c:85
 #, c-format
 msgid "ERROR: nvidia initialization failure\n"
-msgstr ""
+msgstr "ERREUR: échec de l'initialisation nvidia\n"
 
 #: src/lib/nvidia.c:99
 #, c-format
 msgid "ERROR: nvidia initialization failure: %d\n"
-msgstr ""
+msgstr "ERREUR: échec de l'initialisation nvidia: %d\n"
 
 #: src/lib/nvidia.c:132
 #, c-format
 msgid "ERROR: no nvidia chips or initialization failure\n"
-msgstr ""
+msgstr "ERREUR: aucunes puces nvidia ou échec de l'initialisation\n"
 
 #: src/lib/lmsensor.c:43
 #, c-format
 msgid "ERROR: Can't get value of subfeature %s: %s\n"
 msgstr ""
+"ERREUR: Impossible de récuperer la valeur de la sous-fonctionnalité %s: %s\n"
 
 #: src/lib/lmsensor.c:122
 #, c-format
 msgid "ERROR: create_sensor, wrong feature type\n"
-msgstr ""
+msgstr "ERREUR: create_sensor, mauvais type de fonctionnalité\n"
 
 #: src/lib/lmsensor.c:166
 #, c-format
 msgid "ERROR: lm-sensors initialization failure: %s\n"
-msgstr ""
+msgstr "ERREUR: échec de l'initialisation de lm-sensors: %s\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
-msgstr ""
+msgstr "Editer la configuration"
 
 #: src/glade/psensor-pref.glade:25
 msgid "Graph Colors"
 msgstr "Couleurs du graphe"
 
 #: src/glade/psensor-pref.glade:40
-#, fuzzy
 msgid "Foreground:"
-msgstr "Fond:"
+msgstr "Avant-plan:"
 
 #: src/glade/psensor-pref.glade:53
 msgid "Background:"
@@ -299,19 +318,21 @@ msgstr "Fond:"
 
 #: src/glade/psensor-pref.glade:66
 msgid "Background opacity:"
-msgstr "Opacite du fond:"
+msgstr "Opacité du fond:"
 
 #: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:112
 msgid "Graph"
-msgstr ""
+msgstr "Graphe"
 
 #: src/glade/psensor-pref.glade:131
+#, fuzzy
 msgid "Update interval:"
-msgstr ""
+msgstr "Interval de mise à jour du graphe:"
 
 #: src/glade/psensor-pref.glade:144
+#, fuzzy
 msgid "Monitoring duration:"
-msgstr ""
+msgstr "Durée de surveillance du graphe:"
 
 #: src/glade/psensor-pref.glade:156 src/glade/psensor-pref.glade:214
 msgid "second(s)"
@@ -323,11 +344,11 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:202
 msgid "Measure update interval:"
-msgstr ""
+msgstr "Interval de mise à jour des mesures:"
 
 #: src/glade/psensor-pref.glade:229
 msgid "Interface"
-msgstr ""
+msgstr "Interface"
 
 #: src/glade/psensor-pref.glade:246
 msgid "Position of sensors table:"
@@ -335,19 +356,19 @@ msgstr "Position de la table des sondes:"
 
 #: src/glade/psensor-pref.glade:257
 msgid "Hide window decoration"
-msgstr ""
+msgstr "Cacher les décorations de la fenêtre"
 
 #: src/glade/psensor-pref.glade:274
 msgid "Keep window below"
-msgstr ""
+msgstr "Garder la fenêtre en arrière-plan"
 
 #: src/glade/psensor-pref.glade:365
 msgid "<i>Min</i>"
-msgstr ""
+msgstr "<i>Min</i>"
 
 #: src/glade/psensor-pref.glade:388
 msgid "<i>Max</i>"
-msgstr ""
+msgstr "<i>Max</i>"
 
 #: src/glade/psensor-pref.glade:407
 #, fuzzy
@@ -360,7 +381,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:7
 msgid "Edit Sensor Preferences"
-msgstr ""
+msgstr "Editer La Configuration Des Sondes"
 
 #: src/glade/sensor-edit.glade:41
 msgid "Name:"
@@ -368,11 +389,11 @@ msgstr "Nom:"
 
 #: src/glade/sensor-edit.glade:70
 msgid "Type:"
-msgstr ""
+msgstr "Type:"
 
 #: src/glade/sensor-edit.glade:98
 msgid "Id:"
-msgstr ""
+msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:129
 #, fuzzy
@@ -389,11 +410,11 @@ msgstr "Activer les notifications du bureau"
 
 #: src/glade/sensor-edit.glade:175
 msgid "Temperature limit:"
-msgstr ""
+msgstr "Limite de température:"
 
 #: src/glade/sensor-edit.glade:189
 msgid "Sensor Information"
-msgstr ""
+msgstr "Information sonde"
 
 #: src/glade/sensor-edit.glade:202
 msgid "Draw sensor curve"
@@ -402,6 +423,12 @@ msgstr "Dessiner la courbe de la sonde"
 #: src/glade/sensor-edit.glade:241
 msgid "°C"
 msgstr ""
+
+#~ msgid "Show"
+#~ msgstr "Montrer"
+
+#~ msgid "Quit"
+#~ msgstr "Quitter"
 
 #~ msgid "Right"
 #~ msgstr "Droite"
@@ -415,11 +442,8 @@ msgstr ""
 #~ msgid "Bottom"
 #~ msgstr "Bas"
 
-#~ msgid "Show"
-#~ msgstr "Montrer"
-
 #~ msgid "ERROR: Lua support not enabled\n"
-#~ msgstr "ERREUR: Le support de Lua n'est pas active\n"
+#~ msgstr "ERREUR: Le support de Lua n'est pas activé\n"
 
 #~ msgid "Psensor - Temperature Monitor"
 #~ msgstr "Psensor - Surveillance Des Temperatures"

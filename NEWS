@@ -62,6 +62,7 @@
 ** psensor: fixed freeze when click on preferences appindicator with
    natty.
 ** fixed typo (${X11_LIBS}) in configure.ac
+** psensor: full french language support
 
 * v0.6.1.7
 
