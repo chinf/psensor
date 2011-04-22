@@ -81,7 +81,7 @@ void ui_sensor_box_create(struct ui_psensor *);
 /*
   Must be called to terminate Psensor UI.
 */
-void ui_psensor_exit();
+void ui_psensor_quit();
 
 /*
   Creates the main GTK window

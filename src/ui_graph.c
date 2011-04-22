@@ -35,7 +35,7 @@ static GtkItemFactoryEntry menu_items[] = {
 	 NULL, NULL, 0, "<Separator>"},
 
 	{N_("/Quit"),
-	 "", ui_psensor_exit, 0, "<StockItem>", GTK_STOCK_QUIT},
+	 "", ui_psensor_quit, 0, "<StockItem>", GTK_STOCK_QUIT},
 };
 
 static gint nmenu_items = sizeof(menu_items) / sizeof(menu_items[0]);

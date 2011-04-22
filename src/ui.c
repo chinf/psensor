@@ -22,12 +22,12 @@
 #include "ui_graph.h"
 #include "ui_sensorlist.h"
 
-void on_destroy(GtkWidget *widget, gpointer data)
+static void on_destroy(GtkWidget *widget, gpointer data)
 {
-	ui_psensor_exit();
+	ui_psensor_quit();
 }
 
-void ui_psensor_exit()
+void ui_psensor_quit()
 {
 	gtk_main_quit();
 }

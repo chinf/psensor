@@ -42,7 +42,7 @@ static void cb_appindicator_quit(gpointer data,
 					guint cb_action,
 					GtkWidget *item)
 {
-	ui_psensor_exit(data);
+	ui_psensor_quit(data);
 }
 
 static void cb_appindicator_preferences(gpointer data,
