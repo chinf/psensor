@@ -62,6 +62,13 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		name = strdup(sensor->name);
 
 #ifdef NOTIFY_VERSION_MAJOR
+		/*
+		   since libnotify 0.7 notify_notification_new has
+		   only 3 parameters.
+
+		   libnotify < 0.7 does not define
+		   NOTIFY_VERSION_MAJOR
+		*/
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
 						NULL);
