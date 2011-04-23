@@ -210,7 +210,13 @@ AC_CONFIG_FILES([
  src/libpsensor_json/Makefile
  src/server/Makefile
  pixmaps/scalable/Makefile
+ pixmaps/14x14/Makefile
+ pixmaps/16x16/Makefile
+ pixmaps/22x22/Makefile
+ pixmaps/24x24/Makefile
+ pixmaps/32x32/Makefile
  pixmaps/48x48/Makefile
+ pixmaps/64x64/Makefile
  www/Makefile
  po/Makefile.in
  tests/Makefile
