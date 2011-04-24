@@ -72,7 +72,7 @@ static GtkItemFactoryEntry menu_items[] = {
 };
 
 static gint nmenu_items = sizeof(menu_items) / sizeof(menu_items[0]);
-GtkWidget *ui_appindicator_get_menu(struct ui_psensor *ui)
+static GtkWidget *get_menu(struct ui_psensor *ui)
 {
 	GtkItemFactory *item_factory;
 
@@ -126,6 +126,6 @@ void ui_appindicator_init(struct ui_psensor *ui)
 	app_indicator_set_status(ui->indicator, APP_INDICATOR_STATUS_ACTIVE);
 	app_indicator_set_attention_icon(ui->indicator, "psensor_hot");
 
-	indicatormenu = ui_appindicator_get_menu(ui);
+	indicatormenu = get_menu(ui);
 	app_indicator_set_menu(ui->indicator, GTK_MENU(indicatormenu));
 }

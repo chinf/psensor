@@ -380,7 +380,7 @@ int main(int argc, char **argv)
 	associate_cb_alarm_raised(ui.sensors, &ui);
 
 	/* main window */
-	ui.main_window = ui_window_create(&ui);
+	ui_window_create(&ui);
 	ui.sensor_box = NULL;
 
 	/* drawing box */

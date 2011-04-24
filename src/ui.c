@@ -32,13 +32,36 @@ void ui_psensor_quit()
 	gtk_main_quit();
 }
 
-GtkWidget *ui_window_create(struct ui_psensor * ui)
+static GtkItemFactoryEntry menu_items[] = {
+	{"/Psensor", NULL, NULL, 0, "<Branch>"},
+	{"/Psensor/Preferences",
+	 NULL, NULL, 0, "<Item>"},
+	{"/Psensor/sep1",
+	 NULL, NULL, 0, "<Separator>"},
+	{"/Psensor/Quit",
+	 "", NULL, 0, "<StockItem>", GTK_STOCK_QUIT},
+};
+
+static gint nmenu_items = sizeof(menu_items) / sizeof(menu_items[0]);
+static GtkWidget *get_menu()
+{
+	GtkItemFactory *item_factory;
+
+	item_factory = gtk_item_factory_new(GTK_TYPE_MENU_BAR, "<main>", NULL);
+
+	gtk_item_factory_create_items(item_factory,
+				      nmenu_items, menu_items, NULL);
+	return gtk_item_factory_get_widget(item_factory, "<main>");
+}
+
+void ui_window_create(struct ui_psensor * ui)
 {
 	GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	GdkScreen *screen;
 	GdkColormap *colormap;
 	GdkPixbuf *icon;
 	GtkIconTheme *icon_theme;
+	GtkWidget *menubar;
 
 	gtk_window_set_default_size(GTK_WINDOW(window), 800, 200);
 
@@ -75,7 +98,17 @@ GtkWidget *ui_window_create(struct ui_psensor * ui)
 	gtk_window_set_keep_below(GTK_WINDOW(window),
 				  ui->config->window_keep_below_enabled);
 
-	return window;
+	/* main box */
+	menubar = get_menu();
+
+	ui->main_box = gtk_vbox_new(FALSE, 1);
+
+	gtk_box_pack_start(GTK_BOX(ui->main_box), menubar,
+			   FALSE, TRUE, 0);
+
+	gtk_container_add(GTK_CONTAINER(window), ui->main_box);
+
+	ui->main_window = window;
 }
 
 void ui_sensor_box_create(struct ui_psensor *ui)
@@ -88,7 +121,7 @@ void ui_sensor_box_create(struct ui_psensor *ui)
 	if (ui->sensor_box) {
 		ui_sensorlist_create_widget(ui->ui_sensorlist);
 
-		gtk_container_remove(GTK_CONTAINER(ui->main_window),
+		gtk_container_remove(GTK_CONTAINER(ui->main_box),
 				     ui->sensor_box);
 
 		ui->w_graph = ui_graph_create(ui);
@@ -107,7 +140,7 @@ void ui_sensor_box_create(struct ui_psensor *ui)
 	gtk_container_add(GTK_CONTAINER(w_sensorlist),
 			  ui->ui_sensorlist->widget);
 
-	gtk_container_add(GTK_CONTAINER(ui->main_window), ui->sensor_box);
+	gtk_box_pack_end(GTK_BOX(ui->main_box), ui->sensor_box, TRUE, TRUE, 2);
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
 	    || cfg->sensorlist_position == SENSORLIST_POSITION_BOTTOM) {
