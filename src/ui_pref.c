@@ -52,7 +52,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		*w_s_update_interval;
 	GtkComboBox *w_sensorlist_pos;
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
-		*w_enable_menu;
+		*w_enable_menu, *w_enable_launcher_counter;
 
 	cfg = ui->config;
 
@@ -125,6 +125,11 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_toggle_button_set_active(w_enable_menu,
 				     !cfg->menu_bar_disabled);
 
+	w_enable_launcher_counter = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder,
+					"enable_launcher_counter"));
+	gtk_toggle_button_set_active(w_enable_launcher_counter,
+				     !cfg->unity_launcher_count_disabled);
 
 	result = gtk_dialog_run(diag);
 
@@ -161,6 +166,10 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		cfg->menu_bar_disabled
 			= !gtk_toggle_button_get_active(w_enable_menu);
+
+		cfg->unity_launcher_count_disabled
+			= !gtk_toggle_button_get_active
+			(w_enable_launcher_counter);
 
 		gtk_window_set_decorated(GTK_WINDOW(ui->main_window),
 					 cfg->window_decoration_enabled);

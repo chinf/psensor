@@ -23,15 +23,27 @@
 
 static int initialized;
 static UnityLauncherEntry *psensor_entry;
+static unsigned int last_visible = -1;
 
-void ui_unity_launcher_entry_update(struct psensor **sensors)
+void ui_unity_launcher_entry_update(struct psensor **sensors,
+				    unsigned int show)
 {
 	if (!initialized) {
 		psensor_entry = unity_launcher_entry_get_for_desktop_file
 			("psensor.desktop");
-		unity_launcher_entry_set_count_visible(psensor_entry, TRUE);
+
 		unity_launcher_entry_set_count(psensor_entry, 0);
 		initialized = 1;
+	}
+
+	if (last_visible != show) {
+		if (show)
+			unity_launcher_entry_set_count_visible(psensor_entry,
+							       TRUE);
+		else
+			unity_launcher_entry_set_count_visible(psensor_entry,
+							       FALSE);
+		last_visible = show;
 	}
 
 	if (sensors && *sensors) {

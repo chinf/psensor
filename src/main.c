@@ -175,7 +175,8 @@ gboolean ui_refresh_thread(gpointer data)
 #endif
 
 #ifdef HAVE_UNITY
-	ui_unity_launcher_entry_update(ui->sensors);
+	ui_unity_launcher_entry_update(ui->sensors,
+				       !cfg->unity_launcher_count_disabled);
 #endif
 
 	if (ui->graph_update_interval != cfg->graph_update_interval) {

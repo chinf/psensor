@@ -51,6 +51,8 @@ struct config {
 	int sensor_update_interval;
 
 	int menu_bar_disabled;
+
+	int unity_launcher_count_disabled;
 };
 
 /*

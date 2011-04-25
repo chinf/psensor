@@ -55,10 +55,12 @@
 #define KEY_INTERFACE_MENU_BAR_DISABLED \
 "/apps/psensor/interface/menu_bar_disabled"
 
+#define KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED \
+"/apps/psensor/interface/unity_launcher_count_disabled"
 
 GConfClient *client;
 
-char *config_get_string(char *key, char *default_value)
+static char *get_string(char *key, char *default_value)
 {
 	char *value = gconf_client_get_string(client,
 					      key,
@@ -76,7 +78,7 @@ char *config_get_string(char *key, char *default_value)
 struct color *config_get_background_color()
 {
 
-	char *scolor = config_get_string(KEY_GRAPH_BACKGROUND_COLOR,
+	char *scolor = get_string(KEY_GRAPH_BACKGROUND_COLOR,
 					 DEFAULT_GRAPH_BACKGROUND_COLOR);
 
 	struct color *c = string_to_color(scolor);
@@ -91,8 +93,8 @@ struct color *config_get_background_color()
 
 struct color *config_get_foreground_color()
 {
-	char *scolor = config_get_string(KEY_GRAPH_FOREGROUND_COLOR,
-					 DEFAULT_GRAPH_FOREGROUND_COLOR);
+	char *scolor = get_string(KEY_GRAPH_FOREGROUND_COLOR,
+				  DEFAULT_GRAPH_FOREGROUND_COLOR);
 
 	struct color *c = string_to_color(scolor);
 
@@ -438,6 +440,11 @@ struct config *config_load()
 		 KEY_INTERFACE_MENU_BAR_DISABLED,
 		 NULL);
 
+	cfg->unity_launcher_count_disabled = gconf_client_get_bool
+		(client,
+		 KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED,
+		 NULL);
+
 	return cfg;
 }
 
@@ -466,4 +473,7 @@ void config_save(struct config *cfg)
 			      KEY_INTERFACE_MENU_BAR_DISABLED,
 			      cfg->menu_bar_disabled, NULL);
 
+	gconf_client_set_bool(client,
+			      KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED,
+			      cfg->unity_launcher_count_disabled, NULL);
 }
