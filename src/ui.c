@@ -20,12 +20,28 @@
 #include "cfg.h"
 #include "ui.h"
 #include "ui_graph.h"
+#include "ui_pref.h"
 #include "ui_sensorlist.h"
 
 static void on_destroy(GtkWidget *widget, gpointer data)
 {
 	ui_psensor_quit();
 }
+
+static void cb_menu_quit(gpointer data,
+			 guint cb_action,
+			 GtkWidget *item)
+{
+	ui_psensor_quit();
+}
+
+static void cb_menu_preferences(gpointer data,
+				guint cb_action,
+				GtkWidget *item)
+{
+	ui_pref_dialog_run((struct ui_psensor *)data);
+}
+
 
 void ui_psensor_quit()
 {
@@ -35,26 +51,27 @@ void ui_psensor_quit()
 static GtkItemFactoryEntry menu_items[] = {
 	{"/Psensor", NULL, NULL, 0, "<Branch>"},
 	{"/Psensor/Preferences",
-	 NULL, NULL, 0, "<Item>"},
+	 NULL, cb_menu_preferences, 0, "<Item>"},
 	{"/Psensor/sep1",
 	 NULL, NULL, 0, "<Separator>"},
 	{"/Psensor/Quit",
-	 "", NULL, 0, "<StockItem>", GTK_STOCK_QUIT},
+	 "", cb_menu_quit, 0, "<StockItem>", GTK_STOCK_QUIT},
 };
 
 static gint nmenu_items = sizeof(menu_items) / sizeof(menu_items[0]);
-static GtkWidget *get_menu()
+
+static GtkWidget *get_menu(struct ui_psensor *ui)
 {
 	GtkItemFactory *item_factory;
 
 	item_factory = gtk_item_factory_new(GTK_TYPE_MENU_BAR, "<main>", NULL);
 
 	gtk_item_factory_create_items(item_factory,
-				      nmenu_items, menu_items, NULL);
+				      nmenu_items, menu_items, ui);
 	return gtk_item_factory_get_widget(item_factory, "<main>");
 }
 
-void ui_window_create(struct ui_psensor * ui)
+void ui_window_create(struct ui_psensor *ui)
 {
 	GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	GdkScreen *screen;
@@ -99,7 +116,7 @@ void ui_window_create(struct ui_psensor * ui)
 				  ui->config->window_keep_below_enabled);
 
 	/* main box */
-	menubar = get_menu();
+	menubar = get_menu(ui);
 
 	ui->main_box = gtk_vbox_new(FALSE, 1);
 

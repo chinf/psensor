@@ -29,25 +29,25 @@
 #include "ui_appindicator.h"
 #include "ui_pref.h"
 
-static void cb_appindicator_show(gpointer data,
-				 guint cb_action,
-				 GtkWidget *item)
+static void cb_menu_show(gpointer data,
+			 guint cb_action,
+			 GtkWidget *item)
 {
 	struct ui_psensor *ui = (struct ui_psensor *)data;
 
 	gtk_window_present(GTK_WINDOW(ui->main_window));
 }
 
-static void cb_appindicator_quit(gpointer data,
-					guint cb_action,
-					GtkWidget *item)
+static void cb_menu_quit(gpointer data,
+			 guint cb_action,
+			 GtkWidget *item)
 {
 	ui_psensor_quit(data);
 }
 
-static void cb_appindicator_preferences(gpointer data,
-					guint cb_action,
-					GtkWidget *item)
+static void cb_menu_preferences(gpointer data,
+				guint cb_action,
+				GtkWidget *item)
 {
 #ifdef HAVE_APPINDICATOR_029
 	gdk_threads_enter();
@@ -62,13 +62,13 @@ static void cb_appindicator_preferences(gpointer data,
 
 static GtkItemFactoryEntry menu_items[] = {
 	{"/Show",
-	 NULL, cb_appindicator_show, 0, "<Item>"},
+	 NULL, cb_menu_show, 0, "<Item>"},
 	{"/Preferences",
-	 NULL, cb_appindicator_preferences, 0, "<Item>"},
+	 NULL, cb_menu_preferences, 0, "<Item>"},
 	{"/sep1",
 	 NULL, NULL, 0, "<Separator>"},
 	{"/Quit",
-	 "", cb_appindicator_quit, 0, "<StockItem>", GTK_STOCK_QUIT},
+	 "", cb_menu_quit, 0, "<StockItem>", GTK_STOCK_QUIT},
 };
 
 static gint nmenu_items = sizeof(menu_items) / sizeof(menu_items[0]);

@@ -86,6 +86,6 @@ void ui_psensor_quit();
 /*
   Creates the main GTK window
 */
-void ui_window_create(struct ui_psensor * ui);
+void ui_window_create(struct ui_psensor *ui);
 
 #endif

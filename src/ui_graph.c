@@ -40,7 +40,7 @@ static GtkItemFactoryEntry menu_items[] = {
 
 static gint nmenu_items = sizeof(menu_items) / sizeof(menu_items[0]);
 
-GtkWidget *ui_graph_create_popupmenu(struct ui_psensor *ui)
+static GtkWidget *get_menu(struct ui_psensor *ui)
 {
 	GtkItemFactory *item_factory;
 
@@ -57,7 +57,7 @@ int on_graph_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	if (event->type != GDK_BUTTON_PRESS)
 		return FALSE;
 
-	menu = ui_graph_create_popupmenu((struct ui_psensor *)data);
+	menu = get_menu((struct ui_psensor *)data);
 
 	gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
 		       event->button, event->time);
