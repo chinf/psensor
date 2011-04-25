@@ -42,7 +42,6 @@ static void cb_menu_preferences(gpointer data,
 	ui_pref_dialog_run((struct ui_psensor *)data);
 }
 
-
 void ui_psensor_quit()
 {
 	gtk_main_quit();
