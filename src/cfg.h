@@ -49,6 +49,8 @@ struct config {
 
 	int sensor_values_max_length;
 	int sensor_update_interval;
+
+	int menu_bar_disabled;
 };
 
 /*

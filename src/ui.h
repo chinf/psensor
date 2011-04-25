@@ -42,6 +42,8 @@ struct ui_psensor {
 
 	GtkWidget *main_window;
 
+	GtkWidget *menu_bar;
+
 	/*
 	   The main vertical box, top contains the menubar, bottom
 	   contains the sensor_box.
@@ -73,10 +75,14 @@ struct ui_psensor {
 };
 
 /*
+  Update the window according to the configuration.
+
   Creates or re-creates the sensor_box according to the position of
   the list of sensors in the configuration.
+
+  Show or hide the menu bar.
 */
-void ui_sensor_box_create(struct ui_psensor *);
+void ui_window_update(struct ui_psensor *);
 
 /*
   Must be called to terminate Psensor UI.
@@ -87,5 +93,7 @@ void ui_psensor_quit();
   Creates the main GTK window
 */
 void ui_window_create(struct ui_psensor *ui);
+
+void ui_menu_bar_show(unsigned int show, struct ui_psensor *ui);
 
 #endif

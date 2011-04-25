@@ -52,6 +52,10 @@
 #define KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED \
 "/apps/psensor/interface/window_keep_below_enabled"
 
+#define KEY_INTERFACE_MENU_BAR_DISABLED \
+"/apps/psensor/interface/menu_bar_disabled"
+
+
 GConfClient *client;
 
 char *config_get_string(char *key, char *default_value)
@@ -429,6 +433,11 @@ struct config *config_load()
 	if (cfg->sensor_values_max_length < 3)
 		cfg->sensor_values_max_length = 3;
 
+	cfg->menu_bar_disabled = gconf_client_get_bool
+		(client,
+		 KEY_INTERFACE_MENU_BAR_DISABLED,
+		 NULL);
+
 	return cfg;
 }
 
@@ -452,5 +461,9 @@ void config_save(struct config *cfg)
 	gconf_client_set_int(client,
 			     KEY_SENSOR_UPDATE_INTERVAL,
 			     cfg->sensor_update_interval, NULL);
+
+	gconf_client_set_bool(client,
+			      KEY_INTERFACE_MENU_BAR_DISABLED,
+			      cfg->menu_bar_disabled, NULL);
 
 }

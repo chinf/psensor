@@ -125,9 +125,20 @@ void ui_window_create(struct ui_psensor *ui)
 	gtk_container_add(GTK_CONTAINER(window), ui->main_box);
 
 	ui->main_window = window;
+	ui->menu_bar = menubar;
+
+	gtk_widget_show_all(ui->main_window);
 }
 
-void ui_sensor_box_create(struct ui_psensor *ui)
+static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
+{
+	if (show)
+		gtk_widget_show(ui->menu_bar);
+	else
+		gtk_widget_hide(ui->menu_bar);
+}
+
+void ui_window_update(struct ui_psensor *ui)
 {
 	struct config *cfg;
 	GtkWidget *w_sensorlist;
@@ -172,4 +183,9 @@ void ui_sensor_box_create(struct ui_psensor *ui)
 	}
 
 	gtk_widget_show_all(ui->sensor_box);
+
+	if (cfg->menu_bar_disabled)
+		menu_bar_show(0, ui);
+	else
+		menu_bar_show(1, ui);
 }

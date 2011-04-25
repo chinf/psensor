@@ -51,7 +51,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkSpinButton *w_update_interval, *w_monitoring_duration,
 		*w_s_update_interval;
 	GtkComboBox *w_sensorlist_pos;
-	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below;
+	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
+		*w_enable_menu;
 
 	cfg = ui->config;
 
@@ -118,6 +119,13 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_toggle_button_set_active(w_keep_window_below,
 				     cfg->window_keep_below_enabled);
 
+	w_enable_menu = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder,
+					"enable_menu"));
+	gtk_toggle_button_set_active(w_enable_menu,
+				     !cfg->menu_bar_disabled);
+
+
 	result = gtk_dialog_run(diag);
 
 	if (result == GTK_RESPONSE_ACCEPT) {
@@ -151,6 +159,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		cfg->window_keep_below_enabled
 			= gtk_toggle_button_get_active(w_keep_window_below);
 
+		cfg->menu_bar_disabled
+			= !gtk_toggle_button_get_active(w_enable_menu);
+
 		gtk_window_set_decorated(GTK_WINDOW(ui->main_window),
 					 cfg->window_decoration_enabled);
 
@@ -175,7 +186,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		g_mutex_unlock(ui->sensors_mutex);
 
-		ui_sensor_box_create(ui);
+		ui_window_update(ui);
 	}
 	g_object_unref(G_OBJECT(builder));
 	gtk_widget_destroy(GTK_WIDGET(diag));

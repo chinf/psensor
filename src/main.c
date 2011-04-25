@@ -389,9 +389,7 @@ int main(int argc, char **argv)
 	/* sensor list */
 	ui.ui_sensorlist = ui_sensorlist_create(ui.sensors);
 
-	ui_sensor_box_create(&ui);
-
-	gtk_widget_show_all(ui.main_window);
+	ui_window_update(&ui);
 
 	thread = g_thread_create((GThreadFunc) update_psensor_measures,
 				 &ui, TRUE, &error);
@@ -413,8 +411,6 @@ int main(int argc, char **argv)
 	sensors_cleanup();
 
 	psensor_list_free(ui.sensors);
-
-	/* gdk_threads_leave(); */
 
 	return 0;
 }
