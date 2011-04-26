@@ -30,7 +30,6 @@ Architecture: any
 Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: hddtemp
 Description: Psensor server for monitoring hardware sensors remotely
- .
  Psensor server is an HTTP server providing a JSON Web service which can be
  used by Psensor GTK+ Application to monitor remotely the hardware sensors
  of a computer.
@@ -49,6 +48,5 @@ Package: psensor-common
 Architecture: all
 Depends: ${misc:Depends}
 Description: common files for Psensor and Psensor server
- . 
  It contains languages packs for both Psensor and Psensor server.
  .
