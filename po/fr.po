@@ -314,7 +314,7 @@ msgstr "Avant-plan:"
 
 #: src/glade/psensor-pref.glade:53
 msgid "Background:"
-msgstr "Fond:"
+msgstr "Arrière-plan :"
 
 #: src/glade/psensor-pref.glade:66
 msgid "Background opacity:"
