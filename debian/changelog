@@ -8,8 +8,9 @@ psensor (0.6.1.8-1) unstable; urgency=low
 
   * New upstream release
   * debian/control:
-	- removed empty paragraphs. (Closes: #624236)
-	- added build-dep to autoconf,automake,gettext,autopoint
+      - removed empty paragraphs. (Closes: #624236)
+      - added build-dep to autoconf,automake,gettext,autopoint
+      - switched to Standards-Version 3.9.2
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 21 Apr 2011 15:19:35 +0200
 
