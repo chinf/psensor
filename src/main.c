@@ -130,7 +130,6 @@ void update_psensor_measures(struct ui_psensor *ui)
 	struct config *cfg = ui->config;
 
 	while (1) {
-		/*gdk_threads_enter();*/
 		g_mutex_lock(ui->sensors_mutex);
 
 		if (!sensors)
@@ -146,7 +145,6 @@ void update_psensor_measures(struct ui_psensor *ui)
 		nvidia_psensor_list_update(sensors);
 #endif
 
-		/*gdk_threads_leave();*/
 		g_mutex_unlock(ui->sensors_mutex);
 
 		sleep(cfg->sensor_update_interval);
@@ -163,7 +161,6 @@ gboolean ui_refresh_thread(gpointer data)
 	cfg = ui->config;
 
 	g_mutex_lock(ui->sensors_mutex);
-	/*gdk_threads_enter();*/
 
 	graph_update(ui->sensors, ui->w_graph, ui->config);
 
@@ -184,7 +181,6 @@ gboolean ui_refresh_thread(gpointer data)
 	}
 
 	g_mutex_unlock(ui->sensors_mutex);
-	/*gdk_threads_leave();*/
 
 	if (ret == FALSE)
 		g_timeout_add(1000 * ui->graph_update_interval,
