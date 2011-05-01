@@ -13,6 +13,7 @@
 ** psensor: added menu
 ** psensor: added enable/disable unity launcher counter
 ** psensor: unity launcher counter displays the higher temperature
+** avoid fetching hddtemp daemon when no hdd in the sensors list
 
 * v0.6.2.7
 
@@ -61,6 +62,10 @@
    using http://hostname:port/api/1.0/server/stop
 ** fixed memory leak (label of lmsensor)
 ** some code cleanup/refactoring
+
+* v0.6.1.9
+
+** avoid fetching hddtemp daemon when no hdd in the sensors list
 
 * v0.6.1.8
 
