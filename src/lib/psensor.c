@@ -418,5 +418,7 @@ const char *psensor_type_to_str(unsigned int type)
 void psensor_list_update_measures(struct psensor **sensors)
 {
 	lmsensor_psensor_list_update(sensors);
-	hdd_psensor_list_update(sensors);
+
+	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDD_TEMP))
+		hdd_psensor_list_update(sensors);
 }
