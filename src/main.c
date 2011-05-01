@@ -33,7 +33,6 @@
 #include "config.h"
 
 #include "cfg.h"
-#include "hdd.h"
 #include "psensor.h"
 #include "graph.h"
 #include "ui.h"
