@@ -14,6 +14,8 @@
 ** psensor: added enable/disable unity launcher counter
 ** psensor: unity launcher counter displays the higher temperature
 ** avoid fetching hddtemp daemon when no hdd in the sensors list
+** psensor: closing the window hides psensor instead of quitting when
+   application indicator support is enabled. 
 
 * v0.6.2.7
 

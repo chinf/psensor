@@ -23,9 +23,16 @@
 #include "ui_pref.h"
 #include "ui_sensorlist.h"
 
-static void on_destroy(GtkWidget *widget, gpointer data)
+static gboolean
+on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 {
+#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+	gtk_widget_hide(((struct ui_psensor *)data)->main_window);
+#else
 	ui_psensor_quit();
+#endif
+
+	return TRUE;
 }
 
 static void cb_menu_quit(gpointer data,
@@ -106,7 +113,8 @@ void ui_window_create(struct ui_psensor *ui)
 	else
 		fprintf(stderr, _("ERROR: Failed to load psensor icon.\n"));
 
-	g_signal_connect(window, "destroy", G_CALLBACK(on_destroy), ui);
+	g_signal_connect(window,
+			 "delete_event", G_CALLBACK(on_delete_event_cb), ui);
 
 	gtk_window_set_decorated(GTK_WINDOW(window),
 				 ui->config->window_decoration_enabled);
