@@ -45,7 +45,7 @@ struct cb_data {
 	struct psensor *sensor;
 };
 
-int col_index_to_col(int idx)
+static int col_index_to_col(int idx)
 {
 	if (idx == 5)
 		return COL_ENABLED;
@@ -96,9 +96,10 @@ void ui_sensorlist_update(struct ui_sensorlist *list)
  *
  * <null> if none.
  */
-struct psensor *ui_sensorlist_get_sensor_at_pos(GtkTreeView * view,
-						int x,
-						int y, struct psensor **sensors)
+static struct psensor *
+ui_sensorlist_get_sensor_at_pos(GtkTreeView *view,
+				int x,
+				int y, struct psensor **sensors)
 {
 	GtkTreePath *path;
 
@@ -118,7 +119,7 @@ struct psensor *ui_sensorlist_get_sensor_at_pos(GtkTreeView * view,
  *
  * -1 if none
  */
-int ui_sensorlist_get_col_index_at_pos(GtkTreeView *view, int x)
+static int ui_sensorlist_get_col_index_at_pos(GtkTreeView *view, int x)
 {
 	GList *columns = gtk_tree_view_get_columns(view);
 	GList *node;
@@ -298,7 +299,7 @@ static GtkWidget *create_sensor_popup(struct ui_sensorlist *ui_sensorlist,
 	return menu;
 }
 
-int
+static int
 cb_sensor_line_clicked(GtkWidget *widget,
 		       GdkEventButton *event, gpointer data)
 {
@@ -334,7 +335,7 @@ cb_sensor_line_clicked(GtkWidget *widget,
 	return FALSE;
 }
 
-void
+static void
 ui_sensorlist_on_toggled(GtkCellRendererToggle *cell,
 			 gchar *path_str, gpointer data)
 {
