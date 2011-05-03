@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-04-25 13:46+0200\n"
+"POT-Creation-Date: 2011-05-03 09:31+0200\n"
 "PO-Revision-Date: 2011-04-10 13:11+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-04-11 05:41+0000\n"
 "X-Generator: Launchpad (build 12735)\n"
 
-#: src/main.c:73 src/server/server.c:80
+#: src/main.c:72 src/server/server.c:80
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -28,54 +28,54 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:83 src/server/server.c:90
+#: src/main.c:82 src/server/server.c:90
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Kullanım: %s [SEÇENEK]...\n"
 
-#: src/main.c:85
+#: src/main.c:84
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
 
-#: src/main.c:89
+#: src/main.c:88
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:90 src/server/server.c:97
+#: src/main.c:89 src/server/server.c:97
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
 
-#: src/main.c:96
+#: src/main.c:95
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr ""
 
-#: src/main.c:102 src/server/server.c:110
+#: src/main.c:101 src/server/server.c:110
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Hataları rapor et:%s\n"
 
-#: src/main.c:104 src/server/server.c:112
+#: src/main.c:103 src/server/server.c:112
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s ana sayfa: <%s>\n"
 
-#: src/main.c:328 src/server/server.c:376
+#: src/main.c:323 src/server/server.c:376
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
 
-#: src/main.c:351
+#: src/main.c:346
 #, c-format
 msgid "ERROR: lmsensor init failure: %s\n"
 msgstr ""
 
-#: src/main.c:362
+#: src/main.c:357
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""

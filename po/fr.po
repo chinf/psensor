@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-04-25 13:46+0200\n"
+"POT-Creation-Date: 2011-05-03 09:31+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: src/main.c:73 src/server/server.c:80
+#: src/main.c:72 src/server/server.c:80
 #, fuzzy, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -33,12 +33,12 @@ msgstr ""
 "Ce logiciel n'est accompagné d'ABSOLUMENT AUCUNE GARANTIE, dans les limites\n"
 "autorisees par la loi applicable.\n"
 
-#: src/main.c:83 src/server/server.c:90
+#: src/main.c:82 src/server/server.c:90
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Utilisation: %s [OPTION]...\n"
 
-#: src/main.c:85
+#: src/main.c:84
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -46,11 +46,11 @@ msgstr ""
 "psensor est une application GTK pour surveiller les sondes matérielles "
 "thermiques et les ventilateurs."
 
-#: src/main.c:89
+#: src/main.c:88
 msgid "Options:"
 msgstr "Options:"
 
-#: src/main.c:90 src/server/server.c:97
+#: src/main.c:89 src/server/server.c:97
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -58,34 +58,34 @@ msgstr ""
 "  -h, --help          afficher cette aider et quitter\n"
 "  -v, --version       afficher les informations de version et quitter"
 
-#: src/main.c:96
+#: src/main.c:95
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr ""
 "  -u, --url=URL       l'URL de psensor-server, example: http://hostname:3131"
 
-#: src/main.c:102 src/server/server.c:110
+#: src/main.c:101 src/server/server.c:110
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Signaler les bugs à: %s\n"
 
-#: src/main.c:104 src/server/server.c:112
+#: src/main.c:103 src/server/server.c:112
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s page d'acceuil: <%s>\n"
 
-#: src/main.c:328 src/server/server.c:376
+#: src/main.c:323 src/server/server.c:376
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez `%s --help' pour plus d'informations.\n"
 
-#: src/main.c:351
+#: src/main.c:346
 #, fuzzy, c-format
 msgid "ERROR: lmsensor init failure: %s\n"
 msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
 
-#: src/main.c:362
+#: src/main.c:357
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""

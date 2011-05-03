@@ -125,6 +125,12 @@ double get_min_rpm(struct psensor **sensors);
 double get_max_rpm(struct psensor **sensors);
 
 /*
+  Get the maximal current value of all sensors of a given type.
+*/
+double
+psensor_get_max_current_value(struct psensor **sensors, unsigned int type);
+
+/*
   Converts the value of a sensor to a string.
 
   parameter 'type' is SENSOR_TYPE_LMSENSOR_TEMP, SENSOR_TYPE_NVIDIA,

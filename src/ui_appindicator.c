@@ -41,7 +41,7 @@ static void cb_menu_quit(gpointer data, guint cb_action, GtkWidget *item)
 	ui_psensor_quit(data);
 }
 
-static void 
+static void
 cb_menu_preferences(gpointer data, guint cb_action, GtkWidget *item)
 {
 #ifdef HAVE_APPINDICATOR_029

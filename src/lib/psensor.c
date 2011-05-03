@@ -324,6 +324,28 @@ static double get_max_value(struct psensor **sensors, int type)
 	return m;
 }
 
+double
+psensor_get_max_current_value(struct psensor **sensors, unsigned int type)
+{
+	double m = UNKNOWN_VALUE;
+	struct psensor **s_cur = sensors;
+
+	while (*s_cur) {
+		struct psensor *s = *s_cur;
+
+		if (s->enabled && (s->type & type)) {
+			double v = psensor_get_current_value(s);
+
+			if (m == UNKNOWN_VALUE || v > m)
+				m = v;
+		}
+
+		s_cur++;
+	}
+
+	return m;
+}
+
 double get_min_temp(struct psensor **sensors)
 {
 	return get_min_value(sensors, SENSOR_TYPE_TEMP);

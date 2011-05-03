@@ -47,7 +47,7 @@ void ui_unity_launcher_entry_update(struct psensor **sensors,
 	}
 
 	if (sensors && *sensors) {
-		double v = get_max_temp(sensors);
+		double v = psensor_get_max_current_value(sensors, SENSOR_TYPE_TEMP);
 
 		unity_launcher_entry_set_count(psensor_entry, v);
 	}
