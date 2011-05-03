@@ -29,25 +29,20 @@
 #include "ui_appindicator.h"
 #include "ui_pref.h"
 
-static void cb_menu_show(gpointer data,
-			 guint cb_action,
-			 GtkWidget *item)
+static void cb_menu_show(gpointer data, guint cb_action, GtkWidget *item)
 {
 	struct ui_psensor *ui = (struct ui_psensor *)data;
 
 	gtk_window_present(GTK_WINDOW(ui->main_window));
 }
 
-static void cb_menu_quit(gpointer data,
-			 guint cb_action,
-			 GtkWidget *item)
+static void cb_menu_quit(gpointer data, guint cb_action, GtkWidget *item)
 {
 	ui_psensor_quit(data);
 }
 
-static void cb_menu_preferences(gpointer data,
-				guint cb_action,
-				GtkWidget *item)
+static void 
+cb_menu_preferences(gpointer data, guint cb_action, GtkWidget *item)
 {
 #ifdef HAVE_APPINDICATOR_029
 	gdk_threads_enter();
