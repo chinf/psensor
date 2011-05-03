@@ -35,16 +35,14 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 	return TRUE;
 }
 
-static void cb_menu_quit(gpointer data,
-			 guint cb_action,
-			 GtkWidget *item)
+static void
+cb_menu_quit(gpointer data, guint cb_action, GtkWidget *item)
 {
 	ui_psensor_quit();
 }
 
-static void cb_menu_preferences(gpointer data,
-				guint cb_action,
-				GtkWidget *item)
+static void
+cb_menu_preferences(gpointer data, guint cb_action, GtkWidget *item)
 {
 	ui_pref_dialog_run((struct ui_psensor *)data);
 }
