@@ -266,8 +266,8 @@ static void cb_sensor_settings_activated(GtkWidget *menu_item, gpointer data)
 	gtk_widget_destroy(GTK_WIDGET(diag));
 }
 
-GtkWidget *create_sensor_popup(struct ui_sensorlist *ui_sensorlist,
-			       struct psensor *sensor)
+static GtkWidget *create_sensor_popup(struct ui_sensorlist *ui_sensorlist,
+				      struct psensor *sensor)
 {
 	GtkWidget *menu;
 	GtkWidget *item;

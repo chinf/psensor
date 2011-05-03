@@ -26,6 +26,7 @@
 static gboolean
 on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 {
+
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	gtk_widget_hide(((struct ui_psensor *)data)->main_window);
 #else

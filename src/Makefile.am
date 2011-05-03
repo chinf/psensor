@@ -40,7 +40,8 @@ psensor_SOURCES = \
 	ui_color.h ui_color.c \
 	ui_graph.h ui_graph.c \
 	ui_pref.h ui_pref.c \
-	ui_sensorlist.h ui_sensorlist.c 
+	ui_sensorlist.h ui_sensorlist.c \
+	ui_sensorpref.h ui_sensorpref.c
 
 if LIBNOTIFY
 psensor_SOURCES += ui_notify.h ui_notify.c
