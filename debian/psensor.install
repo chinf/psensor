@@ -4,5 +4,7 @@
 /usr/share/icons/hicolor/48x48/apps/psensor.png
 /usr/share/icons/hicolor/48x48/apps/psensor_hot.png
 /usr/share/applications/psensor.desktop
+/usr/share/psensor/psensor-pref.glade
+/usr/share/psensor/sensor-edit.glade
 
 
