@@ -56,8 +56,6 @@ struct ui_psensor {
 	*/
 	GtkWidget *sensor_box;
 
-	GtkWidget *w_sensorlist;
-
 	int graph_update_interval;
 
 	GMutex *sensors_mutex;

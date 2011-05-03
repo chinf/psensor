@@ -159,7 +159,6 @@ void ui_window_update(struct ui_psensor *ui)
 				     ui->sensor_box);
 
 		ui->w_graph = ui_graph_create(ui);
-		ui->w_sensorlist = ui->ui_sensorlist->widget;
 	}
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
