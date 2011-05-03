@@ -97,9 +97,7 @@ void ui_sensorlist_update(struct ui_sensorlist *list)
  * <null> if none.
  */
 static struct psensor *
-ui_sensorlist_get_sensor_at_pos(GtkTreeView *view,
-				int x,
-				int y, struct psensor **sensors)
+get_sensor_at_pos(GtkTreeView *view, int x, int y, struct psensor **sensors)
 {
 	GtkTreePath *path;
 
@@ -119,7 +117,7 @@ ui_sensorlist_get_sensor_at_pos(GtkTreeView *view,
  *
  * -1 if none
  */
-static int ui_sensorlist_get_col_index_at_pos(GtkTreeView *view, int x)
+static int get_col_index_at_pos(GtkTreeView *view, int x)
 {
 	GList *columns = gtk_tree_view_get_columns(view);
 	GList *node;
@@ -306,14 +304,14 @@ cb_sensor_line_clicked(GtkWidget *widget,
 	struct ui_sensorlist *list = (struct ui_sensorlist *)data;
 	GtkTreeView *view = GTK_TREE_VIEW(list->widget);
 
-	struct psensor *sensor = ui_sensorlist_get_sensor_at_pos(view,
-								 event->x,
-								 event->y,
-								 list->sensors);
+	struct psensor *sensor = get_sensor_at_pos(view,
+						   event->x,
+						   event->y,
+						   list->sensors);
 
 	if (sensor) {
-		int coli = col_index_to_col(ui_sensorlist_get_col_index_at_pos
-					    (view, event->x));
+		int coli = col_index_to_col(get_col_index_at_pos(view,
+								 event->x));
 
 		if (coli == COL_COLOR) {
 			if (ui_change_color(_("Select foreground color"),
