@@ -148,17 +148,22 @@ static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
 void ui_window_update(struct ui_psensor *ui)
 {
 	struct config *cfg;
-	GtkWidget *w_sensorlist;
+	int init = 1;
 
 	cfg = ui->config;
 
 	if (ui->sensor_box) {
-		ui_sensorlist_create_widget(ui->ui_sensorlist);
+		g_object_ref(GTK_WIDGET(ui->ui_sensorlist->widget));
+
+		gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
+				     ui->ui_sensorlist->widget);
 
 		gtk_container_remove(GTK_CONTAINER(ui->main_box),
 				     ui->sensor_box);
 
 		ui->w_graph = ui_graph_create(ui);
+
+		init = 0;
 	}
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
@@ -167,12 +172,6 @@ void ui_window_update(struct ui_psensor *ui)
 	else
 		ui->sensor_box = gtk_vpaned_new();
 
-	w_sensorlist = gtk_scrolled_window_new(NULL, NULL);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(w_sensorlist),
-				       GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-	gtk_container_add(GTK_CONTAINER(w_sensorlist),
-			  ui->ui_sensorlist->widget);
-
 	gtk_box_pack_end(GTK_BOX(ui->main_box), ui->sensor_box, TRUE, TRUE, 2);
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
@@ -180,13 +179,16 @@ void ui_window_update(struct ui_psensor *ui)
 		gtk_paned_pack1(GTK_PANED(ui->sensor_box),
 				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
 		gtk_paned_pack2(GTK_PANED(ui->sensor_box),
-				w_sensorlist, FALSE, TRUE);
+				ui->ui_sensorlist->widget, FALSE, TRUE);
 	} else {
 		gtk_paned_pack1(GTK_PANED(ui->sensor_box),
-				w_sensorlist, FALSE, TRUE);
+				ui->ui_sensorlist->widget, FALSE, TRUE);
 		gtk_paned_pack2(GTK_PANED(ui->sensor_box),
 				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
 	}
+
+	if (!init)
+		g_object_unref(GTK_WIDGET(ui->ui_sensorlist->widget));
 
 	gtk_widget_show_all(ui->sensor_box);
 

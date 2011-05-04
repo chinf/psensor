@@ -59,7 +59,7 @@ void ui_sensorlist_update(struct ui_sensorlist *list)
 {
 	GtkTreeIter iter;
 	GtkTreeModel *model
-	    = gtk_tree_view_get_model(GTK_TREE_VIEW(list->widget));
+	    = gtk_tree_view_get_model(list->treeview);
 	gboolean valid = gtk_tree_model_get_iter_first(model, &iter);
 	struct psensor **sensor = list->sensors;
 
@@ -142,7 +142,7 @@ void ui_sensorlist_update_sensors_preferences(struct ui_sensorlist *list)
 {
 	GtkTreeIter iter;
 	GtkTreeModel *model
-	    = gtk_tree_view_get_model(GTK_TREE_VIEW(list->widget));
+	    = gtk_tree_view_get_model(list->treeview);
 	gboolean valid = gtk_tree_model_get_iter_first(model, &iter);
 	struct psensor **sensor = list->sensors;
 
@@ -172,7 +172,7 @@ void ui_sensorlist_update_sensors_preferences(struct ui_sensorlist *list)
 	}
 }
 
-static void cb_sensor_settings_activated(GtkWidget *menu_item, gpointer data)
+static void on_preferences_activated(GtkWidget *menu_item, gpointer data)
 {
 	struct cb_data *cb_data = data;
 	struct psensor *sensor = cb_data->sensor;
@@ -290,19 +290,17 @@ static GtkWidget *create_sensor_popup(struct ui_sensorlist *ui_sensorlist,
 
 	g_signal_connect(item,
 			 "activate",
-			 G_CALLBACK(cb_sensor_settings_activated), data);
+			 G_CALLBACK(on_preferences_activated), data);
 
 	gtk_widget_show_all(menu);
 
 	return menu;
 }
 
-static int
-cb_sensor_line_clicked(GtkWidget *widget,
-		       GdkEventButton *event, gpointer data)
+static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
 	struct ui_sensorlist *list = (struct ui_sensorlist *)data;
-	GtkTreeView *view = GTK_TREE_VIEW(list->widget);
+	GtkTreeView *view = list->treeview;
 
 	struct psensor *sensor = get_sensor_at_pos(view,
 						   event->x,
@@ -334,12 +332,11 @@ cb_sensor_line_clicked(GtkWidget *widget,
 }
 
 static void
-ui_sensorlist_on_toggled(GtkCellRendererToggle *cell,
-			 gchar *path_str, gpointer data)
+on_toggled(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 {
 	struct ui_sensorlist *list = (struct ui_sensorlist *)data;
 	GtkTreeModel *model
-	    = gtk_tree_view_get_model(GTK_TREE_VIEW(list->widget));
+	    = gtk_tree_view_get_model(list->treeview);
 	GtkTreeIter iter;
 	GtkTreePath *path = gtk_tree_path_new_from_string(path_str);
 	gboolean fixed;
@@ -366,14 +363,11 @@ ui_sensorlist_on_toggled(GtkCellRendererToggle *cell,
 	gtk_tree_path_free(path);
 }
 
-void ui_sensorlist_create_widget(struct ui_sensorlist *ui)
+static void create_widget(struct ui_sensorlist *ui)
 {
 	GtkListStore *store;
 	GtkCellRenderer *renderer;
-	struct psensor **sensor_cur;
-	struct psensor **sensors;
-
-	sensors = ui->sensors;
+	struct psensor **s_cur;
 
 	store = gtk_list_store_new(COLS_COUNT,
 				   G_TYPE_STRING,
@@ -384,43 +378,39 @@ void ui_sensorlist_create_widget(struct ui_sensorlist *ui)
 				   G_TYPE_STRING,
 				   G_TYPE_BOOLEAN, G_TYPE_STRING);
 
-	if (ui->widget)
-		gtk_widget_destroy(ui->widget);
+	ui->treeview = GTK_TREE_VIEW
+		(gtk_tree_view_new_with_model(GTK_TREE_MODEL(store)));
 
-	ui->widget =
-	    GTK_WIDGET(gtk_tree_view_new_with_model(GTK_TREE_MODEL(store)));
-
-	gtk_tree_selection_set_mode(gtk_tree_view_get_selection
-				    (GTK_TREE_VIEW(ui->widget)),
+	gtk_tree_selection_set_mode(gtk_tree_view_get_selection(ui->treeview),
 				    GTK_SELECTION_NONE);
 
 	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(ui->widget),
+	gtk_tree_view_insert_column_with_attributes(ui->treeview,
 						    -1,
 						    _("Sensor"),
 						    renderer,
 						    "text", COL_NAME, NULL);
 
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(ui->widget),
+	gtk_tree_view_insert_column_with_attributes(ui->treeview,
 						    -1,
 						    _("Current"),
 						    renderer,
 						    "text", COL_TEMP, NULL);
 
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(ui->widget),
+	gtk_tree_view_insert_column_with_attributes(ui->treeview,
 						    -1,
 						    _("Min"),
 						    renderer,
 						    "text", COL_TEMP_MIN, NULL);
 
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(ui->widget),
+	gtk_tree_view_insert_column_with_attributes(ui->treeview,
 						    -1,
 						    _("Max"),
 						    renderer,
 						    "text", COL_TEMP_MAX, NULL);
 
 	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(ui->widget),
+	gtk_tree_view_insert_column_with_attributes(ui->treeview,
 						    -1,
 						    _("Color"),
 						    renderer,
@@ -428,52 +418,57 @@ void ui_sensorlist_create_widget(struct ui_sensorlist *ui)
 						    "background", COL_COLOR_STR,
 						    NULL);
 
-	g_signal_connect(ui->widget,
-			 "button-press-event",
-			 (GCallback) cb_sensor_line_clicked, ui);
+	g_signal_connect(ui->treeview,
+			 "button-press-event", (GCallback) on_clicked, ui);
 
 	renderer = gtk_cell_renderer_toggle_new();
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(ui->widget),
+	gtk_tree_view_insert_column_with_attributes(ui->treeview,
 						    -1,
 						    _("Enabled"),
 						    renderer,
 						    "active", COL_ENABLED,
 						    NULL);
-	g_signal_connect(G_OBJECT(renderer), "toggled",
-			 (GCallback) ui_sensorlist_on_toggled, ui);
+	g_signal_connect(G_OBJECT(renderer),
+			 "toggled", (GCallback) on_toggled, ui);
 
 	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(GTK_TREE_VIEW(ui->widget),
+	gtk_tree_view_insert_column_with_attributes(ui->treeview,
 						    -1,
 						    "",
 						    renderer,
 						    "text", COL_EMPTY, NULL);
 
-	sensor_cur = sensors;
-	while (*sensor_cur) {
+	s_cur = ui->sensors;
+	while (*s_cur) {
 		GtkTreeIter iter;
 		GdkColor color;
 		gchar *scolor;
+		struct psensor *s = *s_cur;
 
-		color.red = (*sensor_cur)->color->red;
-		color.green = (*sensor_cur)->color->green;
-		color.blue = (*sensor_cur)->color->blue;
+		color.red = s->color->red;
+		color.green = s->color->green;
+		color.blue = s->color->blue;
 
 		scolor = gdk_color_to_string(&color);
 
 		gtk_list_store_append(store, &iter);
 		gtk_list_store_set(store, &iter,
-				   COL_NAME, (*sensor_cur)->name,
+				   COL_NAME, s->name,
 				   COL_TEMP, _("N/A"),
 				   COL_TEMP_MIN, _("N/A"),
 				   COL_TEMP_MAX, _("N/A"),
 				   COL_COLOR_STR, scolor,
-				   COL_ENABLED, (*sensor_cur)->enabled, -1);
+				   COL_ENABLED, s->enabled, -1);
 
 		free(scolor);
 
-		sensor_cur++;
+		s_cur++;
 	}
+
+	ui->widget = gtk_scrolled_window_new(NULL, NULL);
+	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(ui->widget),
+				       GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
+	gtk_container_add(GTK_CONTAINER(ui->widget), GTK_WIDGET(ui->treeview));
 }
 
 struct ui_sensorlist *ui_sensorlist_create(struct psensor **sensors)
@@ -482,9 +477,8 @@ struct ui_sensorlist *ui_sensorlist_create(struct psensor **sensors)
 
 	list = malloc(sizeof(struct ui_sensorlist));
 	list->sensors = sensors;
-	list->widget = NULL;
 
-	ui_sensorlist_create_widget(list);
+	create_widget(list);
 
 	return list;
 
