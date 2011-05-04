@@ -164,7 +164,7 @@ gboolean ui_refresh_thread(gpointer data)
 
 	graph_update(ui->sensors, ui->w_graph, ui->config);
 
-	ui_sensorlist_update(ui->ui_sensorlist);
+	ui_sensorlist_update(ui);
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	ui_appindicator_update(ui);
@@ -383,7 +383,7 @@ int main(int argc, char **argv)
 	ui.w_graph = ui_graph_create(&ui);
 
 	/* sensor list */
-	ui.ui_sensorlist = ui_sensorlist_create(ui.sensors);
+	ui_sensorlist_create(&ui);
 
 	ui_window_update(&ui);
 

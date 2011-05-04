@@ -109,7 +109,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		color_set(sensor->color, color->red, color->green, color->blue);
 		config_set_sensor_color(sensor->id, sensor->color);
 
-		ui_sensorlist_update_sensors_preferences(ui->ui_sensorlist);
+		ui_sensorlist_update_sensors_preferences(ui);
 	}
 
 	g_object_unref(G_OBJECT(builder));

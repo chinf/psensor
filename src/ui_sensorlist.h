@@ -28,16 +28,17 @@ struct ui_sensorlist {
 	/* The GtkTreeView widget containing the list of sensors */
 	GtkTreeView *treeview;
 
+	/* Scrolled widget containing the GtkTreeView */
 	GtkWidget *widget;
 
 	struct psensor **sensors;
 };
 
-struct ui_sensorlist *ui_sensorlist_create(struct psensor **);
+void ui_sensorlist_create(struct ui_psensor *);
 
 /* Update values current/min/max */
-void ui_sensorlist_update(struct ui_sensorlist *list);
+void ui_sensorlist_update(struct ui_psensor *ui);
 
-void ui_sensorlist_update_sensors_preferences(struct ui_sensorlist *);
+void ui_sensorlist_update_sensors_preferences(struct ui_psensor *);
 
 #endif
