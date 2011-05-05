@@ -398,7 +398,7 @@ msgstr "Id:"
 #: src/glade/sensor-edit.glade:129
 #, fuzzy
 msgid "Color:"
-msgstr "Couleur"
+msgstr "Couleur:"
 
 #: src/glade/sensor-edit.glade:142
 msgid "Alarm"
