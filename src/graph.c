@@ -314,7 +314,7 @@ graph_update(struct psensor **sensors,
 		}
 	}
 
-	cr_pixmap = gdk_cairo_create(w_graph->window);
+	cr_pixmap = gdk_cairo_create(gtk_widget_get_window(w_graph));
 
 	if (cr_pixmap) {
 
