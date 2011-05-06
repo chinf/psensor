@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-05-03 09:31+0200\n"
+"POT-Creation-Date: 2011-05-06 22:58+0200\n"
 "PO-Revision-Date: 2011-02-07 22:21+0100\n"
 "Last-Translator: 大宝 <linux.dabao@gmail.com>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -78,40 +78,40 @@ msgstr ""
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 
-#: src/ui_sensorlist.c:285
+#: src/ui_sensorlist.c:200
 msgid "Preferences"
 msgstr "选项"
 
-#: src/ui_sensorlist.c:318
+#: src/ui_sensorlist.c:231
 msgid "Select foreground color"
 msgstr ""
 
-#: src/ui_sensorlist.c:401 src/glade/psensor-pref.glade:185
+#: src/ui_sensorlist.c:308 src/glade/psensor-pref.glade:185
 msgid "Sensor"
 msgstr "监视设备"
 
-#: src/ui_sensorlist.c:407
+#: src/ui_sensorlist.c:314
 msgid "Current"
 msgstr "当前"
 
-#: src/ui_sensorlist.c:413
+#: src/ui_sensorlist.c:320
 msgid "Min"
 msgstr "最小值"
 
-#: src/ui_sensorlist.c:419
+#: src/ui_sensorlist.c:326
 msgid "Max"
 msgstr "最大值"
 
-#: src/ui_sensorlist.c:426
+#: src/ui_sensorlist.c:333
 msgid "Color"
 msgstr "颜色"
 
-#: src/ui_sensorlist.c:439
+#: src/ui_sensorlist.c:345
 msgid "Enabled"
 msgstr "激活"
 
-#: src/ui_sensorlist.c:468 src/ui_sensorlist.c:469 src/ui_sensorlist.c:470
-#: src/glade/sensor-edit.glade:25 src/glade/sensor-edit.glade:83
+#: src/ui_sensorlist.c:374 src/ui_sensorlist.c:375 src/ui_sensorlist.c:376
+#: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgstr "背景:"
 msgid "Background opacity:"
 msgstr "背景亮度:"
 
-#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:112
+#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:184
 msgid "Graph"
 msgstr "图表"
 
@@ -358,48 +358,48 @@ msgstr "激活"
 msgid "Enable Unity Launcher counter"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:7
+#: src/glade/sensor-edit.glade:8
 msgid "Edit Sensor Preferences"
 msgstr "监视设备选项"
 
-#: src/glade/sensor-edit.glade:41
+#: src/glade/sensor-edit.glade:104
 msgid "Name:"
 msgstr "名称:"
 
-#: src/glade/sensor-edit.glade:70
+#: src/glade/sensor-edit.glade:139
 msgid "Type:"
 msgstr "类型:"
 
-#: src/glade/sensor-edit.glade:98
+#: src/glade/sensor-edit.glade:169
 msgid "Id:"
 msgstr "标识:"
 
-#: src/glade/sensor-edit.glade:129
+#: src/glade/sensor-edit.glade:202
 #, fuzzy
 msgid "Color:"
 msgstr "颜色:"
 
-#: src/glade/sensor-edit.glade:142
+#: src/glade/sensor-edit.glade:216
 msgid "Alarm"
 msgstr "警告信息"
 
-#: src/glade/sensor-edit.glade:157
+#: src/glade/sensor-edit.glade:231
 msgid "Activate desktop notifications"
 msgstr "激活桌面气泡提示"
 
-#: src/glade/sensor-edit.glade:175
+#: src/glade/sensor-edit.glade:251
 msgid "Temperature limit:"
 msgstr "温度警戒线:"
 
-#: src/glade/sensor-edit.glade:189
+#: src/glade/sensor-edit.glade:266
 msgid "Sensor Information"
 msgstr "设备信息"
 
-#: src/glade/sensor-edit.glade:202
+#: src/glade/sensor-edit.glade:279
 msgid "Draw sensor curve"
 msgstr "绘制监视曲线"
 
-#: src/glade/sensor-edit.glade:241
+#: src/glade/sensor-edit.glade:327
 msgid "°C"
 msgstr ""
 

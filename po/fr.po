@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-05-03 09:31+0200\n"
+"POT-Creation-Date: 2011-05-06 22:58+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -92,40 +92,40 @@ msgstr ""
 "ERREUR: Psensor n'a pas ete compilé avec le support de surveillance à "
 "distance.\n"
 
-#: src/ui_sensorlist.c:285
+#: src/ui_sensorlist.c:200
 msgid "Preferences"
 msgstr "Configuration"
 
-#: src/ui_sensorlist.c:318
+#: src/ui_sensorlist.c:231
 msgid "Select foreground color"
 msgstr "Selectionner la couleur d'avant-plan"
 
-#: src/ui_sensorlist.c:401 src/glade/psensor-pref.glade:185
+#: src/ui_sensorlist.c:308 src/glade/psensor-pref.glade:185
 msgid "Sensor"
 msgstr "Sonde"
 
-#: src/ui_sensorlist.c:407
+#: src/ui_sensorlist.c:314
 msgid "Current"
 msgstr "Actuelle"
 
-#: src/ui_sensorlist.c:413
+#: src/ui_sensorlist.c:320
 msgid "Min"
 msgstr "Min"
 
-#: src/ui_sensorlist.c:419
+#: src/ui_sensorlist.c:326
 msgid "Max"
 msgstr "Max"
 
-#: src/ui_sensorlist.c:426
+#: src/ui_sensorlist.c:333
 msgid "Color"
 msgstr "Couleur"
 
-#: src/ui_sensorlist.c:439
+#: src/ui_sensorlist.c:345
 msgid "Enabled"
 msgstr "Activée"
 
-#: src/ui_sensorlist.c:468 src/ui_sensorlist.c:469 src/ui_sensorlist.c:470
-#: src/glade/sensor-edit.glade:25 src/glade/sensor-edit.glade:83
+#: src/ui_sensorlist.c:374 src/ui_sensorlist.c:375 src/ui_sensorlist.c:376
+#: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr "N/A"
 
@@ -320,7 +320,7 @@ msgstr "Arrière-plan :"
 msgid "Background opacity:"
 msgstr "Opacité du fond:"
 
-#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:112
+#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:184
 msgid "Graph"
 msgstr "Graphe"
 
@@ -379,48 +379,48 @@ msgstr "Activée"
 msgid "Enable Unity Launcher counter"
 msgstr "Activer le compteur du lanceur de Unity"
 
-#: src/glade/sensor-edit.glade:7
+#: src/glade/sensor-edit.glade:8
 msgid "Edit Sensor Preferences"
 msgstr "Editer La Configuration Des Sondes"
 
-#: src/glade/sensor-edit.glade:41
+#: src/glade/sensor-edit.glade:104
 msgid "Name:"
 msgstr "Nom:"
 
-#: src/glade/sensor-edit.glade:70
+#: src/glade/sensor-edit.glade:139
 msgid "Type:"
 msgstr "Type:"
 
-#: src/glade/sensor-edit.glade:98
+#: src/glade/sensor-edit.glade:169
 msgid "Id:"
 msgstr "Id:"
 
-#: src/glade/sensor-edit.glade:129
+#: src/glade/sensor-edit.glade:202
 #, fuzzy
 msgid "Color:"
 msgstr "Couleur:"
 
-#: src/glade/sensor-edit.glade:142
+#: src/glade/sensor-edit.glade:216
 msgid "Alarm"
 msgstr "Alarme"
 
-#: src/glade/sensor-edit.glade:157
+#: src/glade/sensor-edit.glade:231
 msgid "Activate desktop notifications"
 msgstr "Activer les notifications du bureau"
 
-#: src/glade/sensor-edit.glade:175
+#: src/glade/sensor-edit.glade:251
 msgid "Temperature limit:"
 msgstr "Limite de température:"
 
-#: src/glade/sensor-edit.glade:189
+#: src/glade/sensor-edit.glade:266
 msgid "Sensor Information"
 msgstr "Information sonde"
 
-#: src/glade/sensor-edit.glade:202
+#: src/glade/sensor-edit.glade:279
 msgid "Draw sensor curve"
 msgstr "Dessiner la courbe de la sonde"
 
-#: src/glade/sensor-edit.glade:241
+#: src/glade/sensor-edit.glade:327
 msgid "°C"
 msgstr "°C"
 

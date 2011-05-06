@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-05-03 09:31+0200\n"
+"POT-Creation-Date: 2011-05-06 22:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,40 +79,40 @@ msgstr ""
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 
-#: src/ui_sensorlist.c:285
+#: src/ui_sensorlist.c:200
 msgid "Preferences"
 msgstr ""
 
-#: src/ui_sensorlist.c:318
+#: src/ui_sensorlist.c:231
 msgid "Select foreground color"
 msgstr ""
 
-#: src/ui_sensorlist.c:401 src/glade/psensor-pref.glade:185
+#: src/ui_sensorlist.c:308 src/glade/psensor-pref.glade:185
 msgid "Sensor"
 msgstr ""
 
-#: src/ui_sensorlist.c:407
+#: src/ui_sensorlist.c:314
 msgid "Current"
 msgstr ""
 
-#: src/ui_sensorlist.c:413
+#: src/ui_sensorlist.c:320
 msgid "Min"
 msgstr ""
 
-#: src/ui_sensorlist.c:419
+#: src/ui_sensorlist.c:326
 msgid "Max"
 msgstr ""
 
-#: src/ui_sensorlist.c:426
+#: src/ui_sensorlist.c:333
 msgid "Color"
 msgstr ""
 
-#: src/ui_sensorlist.c:439
+#: src/ui_sensorlist.c:345
 msgid "Enabled"
 msgstr ""
 
-#: src/ui_sensorlist.c:468 src/ui_sensorlist.c:469 src/ui_sensorlist.c:470
-#: src/glade/sensor-edit.glade:25 src/glade/sensor-edit.glade:83
+#: src/ui_sensorlist.c:374 src/ui_sensorlist.c:375 src/ui_sensorlist.c:376
+#: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr ""
 
@@ -301,7 +301,7 @@ msgstr ""
 msgid "Background opacity:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:112
+#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:184
 msgid "Graph"
 msgstr ""
 
@@ -357,46 +357,46 @@ msgstr ""
 msgid "Enable Unity Launcher counter"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:7
+#: src/glade/sensor-edit.glade:8
 msgid "Edit Sensor Preferences"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:41
+#: src/glade/sensor-edit.glade:104
 msgid "Name:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:70
+#: src/glade/sensor-edit.glade:139
 msgid "Type:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:98
+#: src/glade/sensor-edit.glade:169
 msgid "Id:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:129
+#: src/glade/sensor-edit.glade:202
 msgid "Color:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:142
+#: src/glade/sensor-edit.glade:216
 msgid "Alarm"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:157
+#: src/glade/sensor-edit.glade:231
 msgid "Activate desktop notifications"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:175
+#: src/glade/sensor-edit.glade:251
 msgid "Temperature limit:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:189
+#: src/glade/sensor-edit.glade:266
 msgid "Sensor Information"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:202
+#: src/glade/sensor-edit.glade:279
 msgid "Draw sensor curve"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:241
+#: src/glade/sensor-edit.glade:327
 msgid "°C"
 msgstr ""

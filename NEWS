@@ -16,6 +16,7 @@
 ** avoid fetching hddtemp daemon when no hdd in the sensors list
 ** psensor: closing the window hides psensor instead of quitting when
    application indicator support is enabled. 
+** psensor: dialog window for editing all sensors preferences.
 
 * v0.6.2.7
 
