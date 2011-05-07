@@ -201,29 +201,28 @@ graph_update(struct psensor **sensors,
 	double maxt = get_max_temp(sensors);
 	char *strmax = psensor_value_to_string(SENSOR_TYPE_TEMP, maxt);
 
-	int width = w_graph->allocation.width;
-	int height = w_graph->allocation.height;
-
-	int g_width, g_height;
+	int width, height, g_width, g_height;
 
 	/* horizontal and vertical offset of the graph */
 	int g_xoff, g_yoff;
 
-	cairo_surface_t *cst = cairo_image_surface_create(CAIRO_FORMAT_ARGB32,
-							  width,
-							  height);
-	cairo_t *cr = cairo_create(cst);
-	cairo_t *cr_pixmap;
+	cairo_surface_t *cst;
+	cairo_t *cr, *cr_pixmap;
 
 	char *str_btime = time_to_str(get_graph_begin_time_s(config));
-	cairo_text_extents_t te_btime;
-
 	char *str_etime = time_to_str(get_graph_end_time_s());
-	cairo_text_extents_t te_etime;
 
-	cairo_text_extents_t te_max, te_min;
+	cairo_text_extents_t te_btime, te_etime, te_max, te_min;
 
 	struct psensor **sensor_cur;
+	GtkAllocation galloc;
+
+	gtk_widget_get_allocation(w_graph, &galloc);
+	width = galloc.width;
+	height = galloc.height;
+
+	cst = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
+	cr = cairo_create(cst);
 
 	draw_graph_background(cr, width, height, config);
 
