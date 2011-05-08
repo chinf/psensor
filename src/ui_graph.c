@@ -76,7 +76,8 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 }
 
 
-int on_graph_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
+static int 
+on_graph_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
 	GtkWidget *menu;
 
@@ -91,7 +92,7 @@ int on_graph_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	return TRUE;
 }
 
-gboolean
+static gboolean
 on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 {
 	struct ui_psensor *ui_psensor = (struct ui_psensor *)data;
@@ -110,7 +111,6 @@ GtkWidget *ui_graph_create(struct ui_psensor * ui)
 
 	g_signal_connect(GTK_WIDGET(w_graph),
 			 "expose-event", G_CALLBACK(on_expose_event), ui);
-
 
 	gtk_widget_add_events(w_graph, GDK_BUTTON_PRESS_MASK);
 
