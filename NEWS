@@ -18,7 +18,8 @@
    application indicator support is enabled. 
 ** psensor: dialog window for editing all sensors preferences.
 ** psensor: added support of GTK3.0 (without removing GTK2.0 support) except
-   code related to Ubuntu Application Indicator 
+   code related to Ubuntu Application Indicator.
+** psensor: fixed crash when glade files cannot be read.
 
 * v0.6.2.7
 
