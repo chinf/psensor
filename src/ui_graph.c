@@ -20,6 +20,7 @@
 #include "graph.h"
 #include "ui_graph.h"
 #include "ui_pref.h"
+#include "ui_sensorpref.h"
 
 static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
 {
@@ -31,10 +32,19 @@ static void cb_preferences(GtkMenuItem *mi, gpointer data)
 	ui_pref_dialog_run((struct ui_psensor *)data);
 }
 
+static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
+{
+	struct ui_psensor *ui = data;
+
+	if (ui->sensors && *ui->sensors)
+		ui_sensorpref_dialog_run(*ui->sensors, ui);
+}
+
 static const char *menu_desc =
 "<ui>"
 "  <popup name='MainMenu'>"
 "      <menuitem name='Preferences' action='PreferencesAction' />"
+"      <menuitem name='SensorPreferences' action='SensorPreferencesAction' />"
 "      <separator />"
 "      <menuitem name='Quit' action='QuitAction' />"
 "  </popup>"
@@ -47,6 +57,11 @@ static GtkActionEntry entries[] = {
     "_Preferences", NULL,                           /* label, accelerator */
     "Preferences",                                  /* tooltip */
     G_CALLBACK(cb_preferences) },
+
+  { "SensorPreferencesAction", GTK_STOCK_PREFERENCES,/* name, stock id */
+    "_Sensor Preferences", NULL,                     /* label, accelerator */
+    "Sensor Preferences",                            /* tooltip */
+    G_CALLBACK(cb_sensor_preferences) },
 
   { "QuitAction",
     GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }
