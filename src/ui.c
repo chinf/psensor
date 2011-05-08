@@ -42,7 +42,7 @@ static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
 	ui_psensor_quit();
 }
 
-static void cb_menu_preferences(GtkMenuItem *mi, gpointer data)
+static void cb_preferences(GtkMenuItem *mi, gpointer data)
 {
 	ui_pref_dialog_run((struct ui_psensor *)data);
 }
@@ -78,7 +78,7 @@ static GtkActionEntry entries[] = {
   { "PreferencesAction", GTK_STOCK_PREFERENCES,     /* name, stock id */
     "_Preferences", NULL,                           /* label, accelerator */
     "Preferences",                                  /* tooltip */
-    G_CALLBACK(cb_menu_preferences) },
+    G_CALLBACK(cb_preferences) },
 
   { "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
     "_Sensor Preferences",
