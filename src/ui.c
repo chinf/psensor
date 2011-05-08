@@ -113,11 +113,32 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	return gtk_ui_manager_get_widget(menu_manager, "/MainMenu");
 }
 
+static unsigned int enable_alpha_channel(GtkWidget *w)
+{
+	GdkScreen *screen = gtk_widget_get_screen(w);
+
+#if (GTK_CHECK_VERSION(3, 0, 0))
+	GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+
+	if (visual) {
+		gtk_widget_set_visual(w, visual);
+		return 1;
+	}
+#else
+	GdkColormap *colormap = gdk_screen_get_rgba_colormap(screen);
+
+	if (colormap) {
+		gtk_widget_set_colormap(w, colormap);
+		return 1;
+	}
+#endif
+	return 0;
+}
+
 void ui_window_create(struct ui_psensor *ui)
 {
 	GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	GdkScreen *screen;
-	GdkColormap *colormap;
 	GdkPixbuf *icon;
 	GtkIconTheme *icon_theme;
 	GtkWidget *menubar;
@@ -132,11 +153,7 @@ void ui_window_create(struct ui_psensor *ui)
 
 	if (ui->config->alpha_channel_enabled
 	    && gdk_screen_is_composited(screen)) {
-
-		colormap = gdk_screen_get_rgba_colormap(screen);
-		if (colormap)
-			gtk_widget_set_colormap(window, colormap);
-		else
+		if (!enable_alpha_channel(window))
 			ui->config->alpha_channel_enabled = 0;
 	} else {
 		ui->config->alpha_channel_enabled = 0;
