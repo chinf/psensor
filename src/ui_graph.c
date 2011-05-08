@@ -91,7 +91,7 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 }
 
 
-static int 
+static int
 on_graph_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
 	GtkWidget *menu;
