@@ -27,6 +27,7 @@
 #include "psensor.h"
 #include "ui.h"
 #include "ui_appindicator.h"
+#include "ui_sensorpref.h"
 #include "ui_pref.h"
 
 static void cb_menu_show(gpointer data, guint cb_action, GtkWidget *item)
@@ -55,11 +56,22 @@ cb_menu_preferences(gpointer data, guint cb_action, GtkWidget *item)
 #endif
 }
 
+static void
+cb_sensor_preferences(gpointer data, guint cb_action, GtkWidget *item)
+{
+	struct ui_psensor *ui = data;
+
+	if (ui->sensors && *ui->sensors)
+		ui_sensorpref_dialog_run(*ui->sensors, ui);
+}
+
 static GtkItemFactoryEntry menu_items[] = {
 	{"/Show",
 	 NULL, cb_menu_show, 0, "<Item>"},
 	{"/Preferences",
 	 NULL, cb_menu_preferences, 0, "<Item>"},
+	{"/Sensor Preferences",
+	 NULL, cb_sensor_preferences, 0, "<Item>"},
 	{"/sep1",
 	 NULL, NULL, 0, "<Separator>"},
 	{"/Quit",
