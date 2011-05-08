@@ -32,12 +32,12 @@ int ui_change_color(const char *title, struct color *col)
 	color.green = col->green;
 	color.blue = col->blue;
 
-	colordlg = (GtkColorSelectionDialog *)
-	    gtk_color_selection_dialog_new(title);
+	colordlg = GTK_COLOR_SELECTION_DIALOG
+		(gtk_color_selection_dialog_new(title));
 
-	colorsel = GTK_COLOR_SELECTION(colordlg->colorsel);
+	colorsel = GTK_COLOR_SELECTION
+		(gtk_color_selection_dialog_get_color_selection(colordlg));
 
-	gtk_color_selection_set_previous_color(colorsel, &color);
 	gtk_color_selection_set_current_color(colorsel, &color);
 
 	res = gtk_dialog_run(GTK_DIALOG(colordlg));
