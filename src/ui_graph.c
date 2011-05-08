@@ -21,34 +21,60 @@
 #include "ui_graph.h"
 #include "ui_pref.h"
 
-static void
-cb_preferences(gpointer data, guint callback_action, GtkWidget *item)
+static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
+{
+	ui_psensor_quit();
+}
+
+static void cb_preferences(GtkMenuItem *mi, gpointer data)
 {
 	ui_pref_dialog_run((struct ui_psensor *)data);
 }
 
-static GtkItemFactoryEntry menu_items[] = {
-	{N_("/Preferences"),
-	 NULL, cb_preferences, 0, "<Item>"},
+static const char *menu_desc =
+"<ui>"
+"  <popup name='MainMenu'>"
+"      <menuitem name='Preferences' action='PreferencesAction' />"
+"      <separator />"
+"      <menuitem name='Quit' action='QuitAction' />"
+"  </popup>"
+"</ui>";
 
-	{"/sep1",
-	 NULL, NULL, 0, "<Separator>"},
+static GtkActionEntry entries[] = {
+  { "PsensorMenuAction", NULL, "_Psensor" }, /* name, stock id, label */
 
-	{N_("/Quit"),
-	 "", ui_psensor_quit, 0, "<StockItem>", GTK_STOCK_QUIT},
+  { "PreferencesAction", GTK_STOCK_PREFERENCES,     /* name, stock id */
+    "_Preferences", NULL,                           /* label, accelerator */
+    "Preferences",                                  /* tooltip */
+    G_CALLBACK(cb_preferences) },
+
+  { "QuitAction",
+    GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }
 };
-
-static gint nmenu_items = sizeof(menu_items) / sizeof(menu_items[0]);
+static guint n_entries = G_N_ELEMENTS(entries);
 
 static GtkWidget *get_menu(struct ui_psensor *ui)
 {
-	GtkItemFactory *item_factory;
+	GtkActionGroup      *action_group;
+	GtkUIManager        *menu_manager;
+	GError              *error;
 
-	item_factory = gtk_item_factory_new(GTK_TYPE_MENU, "<main>", NULL);
-	gtk_item_factory_create_items(item_factory,
-				      nmenu_items, menu_items, ui);
-	return gtk_item_factory_get_widget(item_factory, "<main>");
+	action_group = gtk_action_group_new("PsensorActions");
+	gtk_action_group_set_translation_domain(action_group, PACKAGE);
+	menu_manager = gtk_ui_manager_new();
+
+	gtk_action_group_add_actions(action_group, entries, n_entries, ui);
+	gtk_ui_manager_insert_action_group(menu_manager, action_group, 0);
+
+	error = NULL;
+	gtk_ui_manager_add_ui_from_string(menu_manager, menu_desc, -1, &error);
+
+	if (error)
+		g_error(_("building menus failed: %s"), error->message);
+
+	return gtk_ui_manager_get_widget(menu_manager, "/MainMenu");
 }
+
 
 int on_graph_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
@@ -82,11 +108,13 @@ GtkWidget *ui_graph_create(struct ui_psensor * ui)
 
 	w_graph = gtk_drawing_area_new();
 
-	g_signal_connect(G_OBJECT(w_graph),
+	g_signal_connect(GTK_WIDGET(w_graph),
 			 "expose-event", G_CALLBACK(on_expose_event), ui);
 
+
 	gtk_widget_add_events(w_graph, GDK_BUTTON_PRESS_MASK);
-	gtk_signal_connect(GTK_OBJECT(w_graph),
+
+	g_signal_connect(GTK_WIDGET(w_graph),
 			   "button_press_event",
 			   (GCallback) on_graph_clicked, ui);
 
