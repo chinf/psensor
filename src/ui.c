@@ -75,19 +75,18 @@ static const char *menu_desc =
 static GtkActionEntry entries[] = {
   { "PsensorMenuAction", NULL, "_Psensor" }, /* name, stock id, label */
 
-  { "PreferencesAction", GTK_STOCK_PREFERENCES,     /* name, stock id */
-    "_Preferences", NULL,                           /* label, accelerator */
-    "Preferences",                                  /* tooltip */
+  { "PreferencesAction", GTK_STOCK_PREFERENCES,   /* name, stock id */
+    N_("_Preferences"), NULL,                     /* label, accelerator */
+    N_("Preferences"),                            /* tooltip */
     G_CALLBACK(cb_preferences) },
 
   { "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
-    "_Sensor Preferences",
-    NULL,
-    "SensorPreferences",
+    N_("_Sensor Preferences"), NULL,
+    N_("Sensor Preferences"),
     G_CALLBACK(cb_sensor_preferences) },
 
   { "QuitAction",
-    GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }
+    GTK_STOCK_QUIT, N_("_Quit"), NULL, N_("Quit"), G_CALLBACK(cb_menu_quit) }
 };
 static guint n_entries = G_N_ELEMENTS(entries);
 

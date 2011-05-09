@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-05-06 22:58+0200\n"
+"POT-Creation-Date: 2011-05-10 01:41+0200\n"
 "PO-Revision-Date: 2011-02-07 22:21+0100\n"
 "Last-Translator: 大宝 <linux.dabao@gmail.com>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -78,39 +78,77 @@ msgstr ""
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 
-#: src/ui_sensorlist.c:200
+#: src/ui.c:79
+#, fuzzy
+msgid "_Preferences"
+msgstr "选项"
+
+#: src/ui.c:80 src/ui_sensorlist.c:201
 msgid "Preferences"
 msgstr "选项"
 
-#: src/ui_sensorlist.c:231
+#: src/ui.c:84
+#, fuzzy
+msgid "_Sensor Preferences"
+msgstr "监视设备选项"
+
+#: src/ui.c:85
+#, fuzzy
+msgid "Sensor Preferences"
+msgstr "监视设备选项"
+
+#: src/ui.c:89
+#, fuzzy
+msgid "_Quit"
+msgstr "退出"
+
+#: src/ui.c:89
+msgid "Quit"
+msgstr "退出"
+
+#: src/ui.c:110 src/ui_appindicator.c:152
+#, c-format
+msgid "building menus failed: %s"
+msgstr ""
+
+#: src/ui.c:148
+msgid "Psensor - Temperature Monitor"
+msgstr ""
+
+#: src/ui.c:166
+#, c-format
+msgid "ERROR: Failed to load psensor icon.\n"
+msgstr ""
+
+#: src/ui_sensorlist.c:232
 msgid "Select foreground color"
 msgstr ""
 
-#: src/ui_sensorlist.c:308 src/glade/psensor-pref.glade:185
+#: src/ui_sensorlist.c:309 src/glade/psensor-pref.glade:185
 msgid "Sensor"
 msgstr "监视设备"
 
-#: src/ui_sensorlist.c:314
+#: src/ui_sensorlist.c:315
 msgid "Current"
 msgstr "当前"
 
-#: src/ui_sensorlist.c:320
+#: src/ui_sensorlist.c:321
 msgid "Min"
 msgstr "最小值"
 
-#: src/ui_sensorlist.c:326
+#: src/ui_sensorlist.c:327
 msgid "Max"
 msgstr "最大值"
 
-#: src/ui_sensorlist.c:333
+#: src/ui_sensorlist.c:334
 msgid "Color"
 msgstr "颜色"
 
-#: src/ui_sensorlist.c:345
+#: src/ui_sensorlist.c:346
 msgid "Enabled"
 msgstr "激活"
 
-#: src/ui_sensorlist.c:374 src/ui_sensorlist.c:375 src/ui_sensorlist.c:376
+#: src/ui_sensorlist.c:375 src/ui_sensorlist.c:376 src/ui_sensorlist.c:377
 #: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr ""
@@ -123,6 +161,11 @@ msgstr ""
 #: src/ui_notify.c:72 src/ui_notify.c:76
 msgid "Temperature alert"
 msgstr ""
+
+#: src/ui_sensorpref.c:398
+#, fuzzy
+msgid "Sensor Name"
+msgstr "监视设备"
 
 #: src/rsensor.c:131
 #, c-format
@@ -417,6 +460,3 @@ msgstr ""
 
 #~ msgid "Show"
 #~ msgstr "显示主窗口"
-
-#~ msgid "Quit"
-#~ msgstr "退出"

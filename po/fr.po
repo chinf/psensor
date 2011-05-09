@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-05-06 22:58+0200\n"
+"POT-Creation-Date: 2011-05-10 01:41+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -92,39 +92,77 @@ msgstr ""
 "ERREUR: Psensor n'a pas ete compilé avec le support de surveillance à "
 "distance.\n"
 
-#: src/ui_sensorlist.c:200
+#: src/ui.c:79
+#, fuzzy
+msgid "_Preferences"
+msgstr "Configuration"
+
+#: src/ui.c:80 src/ui_sensorlist.c:201
 msgid "Preferences"
 msgstr "Configuration"
 
-#: src/ui_sensorlist.c:231
+#: src/ui.c:84
+#, fuzzy
+msgid "_Sensor Preferences"
+msgstr "Editer La Configuration Des Sondes"
+
+#: src/ui.c:85
+#, fuzzy
+msgid "Sensor Preferences"
+msgstr "Editer La Configuration Des Sondes"
+
+#: src/ui.c:89
+#, fuzzy
+msgid "_Quit"
+msgstr "Quitter"
+
+#: src/ui.c:89
+msgid "Quit"
+msgstr "Quitter"
+
+#: src/ui.c:110 src/ui_appindicator.c:152
+#, c-format
+msgid "building menus failed: %s"
+msgstr ""
+
+#: src/ui.c:148
+msgid "Psensor - Temperature Monitor"
+msgstr "Psensor - Surveillance Des Temperatures"
+
+#: src/ui.c:166
+#, fuzzy, c-format
+msgid "ERROR: Failed to load psensor icon.\n"
+msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
+
+#: src/ui_sensorlist.c:232
 msgid "Select foreground color"
 msgstr "Selectionner la couleur d'avant-plan"
 
-#: src/ui_sensorlist.c:308 src/glade/psensor-pref.glade:185
+#: src/ui_sensorlist.c:309 src/glade/psensor-pref.glade:185
 msgid "Sensor"
 msgstr "Sonde"
 
-#: src/ui_sensorlist.c:314
+#: src/ui_sensorlist.c:315
 msgid "Current"
 msgstr "Actuelle"
 
-#: src/ui_sensorlist.c:320
+#: src/ui_sensorlist.c:321
 msgid "Min"
 msgstr "Min"
 
-#: src/ui_sensorlist.c:326
+#: src/ui_sensorlist.c:327
 msgid "Max"
 msgstr "Max"
 
-#: src/ui_sensorlist.c:333
+#: src/ui_sensorlist.c:334
 msgid "Color"
 msgstr "Couleur"
 
-#: src/ui_sensorlist.c:345
+#: src/ui_sensorlist.c:346
 msgid "Enabled"
 msgstr "Activée"
 
-#: src/ui_sensorlist.c:374 src/ui_sensorlist.c:375 src/ui_sensorlist.c:376
+#: src/ui_sensorlist.c:375 src/ui_sensorlist.c:376 src/ui_sensorlist.c:377
 #: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr "N/A"
@@ -137,6 +175,11 @@ msgstr "ERREUR: échec gettimeofday\n"
 #: src/ui_notify.c:72 src/ui_notify.c:76
 msgid "Temperature alert"
 msgstr "Alerte thermique"
+
+#: src/ui_sensorpref.c:398
+#, fuzzy
+msgid "Sensor Name"
+msgstr "Sonde"
 
 #: src/rsensor.c:131
 #, c-format
@@ -427,9 +470,6 @@ msgstr "°C"
 #~ msgid "Show"
 #~ msgstr "Montrer"
 
-#~ msgid "Quit"
-#~ msgstr "Quitter"
-
 #~ msgid "Right"
 #~ msgstr "Droite"
 
@@ -444,6 +484,3 @@ msgstr "°C"
 
 #~ msgid "ERROR: Lua support not enabled\n"
 #~ msgstr "ERREUR: Le support de Lua n'est pas activé\n"
-
-#~ msgid "Psensor - Temperature Monitor"
-#~ msgstr "Psensor - Surveillance Des Temperatures"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-05-06 22:58+0200\n"
+"POT-Creation-Date: 2011-05-10 01:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,39 +79,73 @@ msgstr ""
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 
-#: src/ui_sensorlist.c:200
+#: src/ui.c:79
+msgid "_Preferences"
+msgstr ""
+
+#: src/ui.c:80 src/ui_sensorlist.c:201
 msgid "Preferences"
 msgstr ""
 
-#: src/ui_sensorlist.c:231
+#: src/ui.c:84
+msgid "_Sensor Preferences"
+msgstr ""
+
+#: src/ui.c:85
+msgid "Sensor Preferences"
+msgstr ""
+
+#: src/ui.c:89
+msgid "_Quit"
+msgstr ""
+
+#: src/ui.c:89
+msgid "Quit"
+msgstr ""
+
+#: src/ui.c:110 src/ui_appindicator.c:152
+#, c-format
+msgid "building menus failed: %s"
+msgstr ""
+
+#: src/ui.c:148
+msgid "Psensor - Temperature Monitor"
+msgstr ""
+
+#: src/ui.c:166
+#, c-format
+msgid "ERROR: Failed to load psensor icon.\n"
+msgstr ""
+
+#: src/ui_sensorlist.c:232
 msgid "Select foreground color"
 msgstr ""
 
-#: src/ui_sensorlist.c:308 src/glade/psensor-pref.glade:185
+#: src/ui_sensorlist.c:309 src/glade/psensor-pref.glade:185
 msgid "Sensor"
 msgstr ""
 
-#: src/ui_sensorlist.c:314
+#: src/ui_sensorlist.c:315
 msgid "Current"
 msgstr ""
 
-#: src/ui_sensorlist.c:320
+#: src/ui_sensorlist.c:321
 msgid "Min"
 msgstr ""
 
-#: src/ui_sensorlist.c:326
+#: src/ui_sensorlist.c:327
 msgid "Max"
 msgstr ""
 
-#: src/ui_sensorlist.c:333
+#: src/ui_sensorlist.c:334
 msgid "Color"
 msgstr ""
 
-#: src/ui_sensorlist.c:345
+#: src/ui_sensorlist.c:346
 msgid "Enabled"
 msgstr ""
 
-#: src/ui_sensorlist.c:374 src/ui_sensorlist.c:375 src/ui_sensorlist.c:376
+#: src/ui_sensorlist.c:375 src/ui_sensorlist.c:376 src/ui_sensorlist.c:377
 #: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr ""
@@ -123,6 +157,10 @@ msgstr ""
 
 #: src/ui_notify.c:72 src/ui_notify.c:76
 msgid "Temperature alert"
+msgstr ""
+
+#: src/ui_sensorpref.c:398
+msgid "Sensor Name"
 msgstr ""
 
 #: src/rsensor.c:131
