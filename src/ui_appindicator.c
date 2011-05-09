@@ -30,20 +30,20 @@
 #include "ui_sensorpref.h"
 #include "ui_pref.h"
 
-static void cb_menu_show(gpointer data, guint cb_action, GtkWidget *item)
+static void cb_menu_show(GtkMenuItem *mi, gpointer data)
 {
 	struct ui_psensor *ui = (struct ui_psensor *)data;
 
 	gtk_window_present(GTK_WINDOW(ui->main_window));
 }
 
-static void cb_menu_quit(gpointer data, guint cb_action, GtkWidget *item)
+static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
 {
 	ui_psensor_quit(data);
 }
 
 static void
-cb_menu_preferences(gpointer data, guint cb_action, GtkWidget *item)
+cb_menu_preferences(GtkMenuItem *mi, gpointer data)
 {
 #ifdef HAVE_APPINDICATOR_029
 	gdk_threads_enter();
@@ -57,7 +57,7 @@ cb_menu_preferences(gpointer data, guint cb_action, GtkWidget *item)
 }
 
 static void
-cb_sensor_preferences(gpointer data, guint cb_action, GtkWidget *item)
+cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 {
 	struct ui_psensor *ui = data;
 
@@ -65,30 +65,63 @@ cb_sensor_preferences(gpointer data, guint cb_action, GtkWidget *item)
 		ui_sensorpref_dialog_run(*ui->sensors, ui);
 }
 
-static GtkItemFactoryEntry menu_items[] = {
-	{"/Show",
-	 NULL, cb_menu_show, 0, "<Item>"},
-	{"/Preferences",
-	 NULL, cb_menu_preferences, 0, "<Item>"},
-	{"/Sensor Preferences",
-	 NULL, cb_sensor_preferences, 0, "<Item>"},
-	{"/sep1",
-	 NULL, NULL, 0, "<Separator>"},
-	{"/Quit",
-	 "", cb_menu_quit, 0, "<StockItem>", GTK_STOCK_QUIT},
-};
+static const char *menu_desc =
+"<ui>"
+"  <popup name='MainMenu'>"
+"      <menuitem name='Show' action='ShowAction' />"
+"      <menuitem name='Preferences' action='PreferencesAction' />"
+"      <menuitem name='SensorPreferences' action='SensorPreferencesAction' />"
+"      <separator />"
+"      <menuitem name='Quit' action='QuitAction' />"
+"  </popup>"
+"</ui>";
 
-static gint nmenu_items = sizeof(menu_items) / sizeof(menu_items[0]);
+static GtkActionEntry entries[] = {
+  { "PsensorMenuAction", NULL, "_Psensor" }, /* name, stock id, label */
+
+  { "ShowAction", NULL,        /* name, stock id */
+    "_Show", NULL, /* label, accelerator */
+    "Show",                    /* tooltip */
+    G_CALLBACK(cb_menu_show) },
+
+  { "PreferencesAction", GTK_STOCK_PREFERENCES,     /* name, stock id */
+    "_Preferences", NULL,                           /* label, accelerator */
+    "Preferences",                                  /* tooltip */
+    G_CALLBACK(cb_menu_preferences) },
+
+  { "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
+    "S_ensor Preferences",
+    NULL,
+    "SensorPreferences",
+    G_CALLBACK(cb_sensor_preferences) },
+
+  { "QuitAction",
+    GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }
+};
+static guint n_entries = G_N_ELEMENTS(entries);
+
 static GtkWidget *get_menu(struct ui_psensor *ui)
 {
-	GtkItemFactory *item_factory;
+	GtkActionGroup      *action_group;
+	GtkUIManager        *menu_manager;
+	GError              *error;
 
-	item_factory = gtk_item_factory_new(GTK_TYPE_MENU, "<main>", NULL);
+	action_group = gtk_action_group_new("PsensorActions");
+	gtk_action_group_set_translation_domain(action_group, PACKAGE);
+	menu_manager = gtk_ui_manager_new();
 
-	gtk_item_factory_create_items(item_factory,
-				      nmenu_items, menu_items, ui);
-	return gtk_item_factory_get_widget(item_factory, "<main>");
+	gtk_action_group_add_actions(action_group, entries, n_entries, ui);
+	gtk_ui_manager_insert_action_group(menu_manager, action_group, 0);
+
+	error = NULL;
+	gtk_ui_manager_add_ui_from_string(menu_manager, menu_desc, -1, &error);
+
+	if (error)
+		g_error(_("building menus failed: %s"), error->message);
+
+	return gtk_ui_manager_get_widget(menu_manager, "/MainMenu");
 }
+
 
 void ui_appindicator_update(struct ui_psensor *ui)
 {
