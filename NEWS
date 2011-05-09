@@ -1,25 +1,25 @@
 * v0.6.2.8
 
-** psensor: escaped - in manpage
-** psensor-server: escaped - in manpage
-** psensor: added support of libnotify 0.7
-** psensor: added turkish support
-** psensor: fixed multi-languages support used by glade
+** psensor: escaped - in manpage.
+** psensor-server: escaped - in manpage.
+** psensor: added support of libnotify 0.7.
+** psensor: added turkish support.
+** psensor: fixed multi-languages support used by glade.
 ** switched from wpitchoune@gmail.com to jeanfi@gmail.com (my usual
-   email)
-** merged french translation from v0.6.1.8
-** added missing french translation
-** added different sizes of psensor.png 
-** psensor: added menu
-** psensor: added enable/disable unity launcher counter
-** psensor: unity launcher counter displays the higher temperature
-** avoid fetching hddtemp daemon when no hdd in the sensors list
+   email).
+** merged french translation from v0.6.1.8.
+** added missing french translation.
+** added different sizes of psensor.png .
+** psensor: added menu.
+** psensor: added enable/disable unity launcher counter.
+** psensor: unity launcher counter displays the higher temperature.
+** avoid fetching hddtemp daemon when no hdd in the sensors list.
 ** psensor: closing the window hides psensor instead of quitting when
    application indicator support is enabled. 
 ** psensor: dialog window for editing all sensors preferences.
-** psensor: added support of GTK3.0 (without removing GTK2.0 support) except
-   code related to Ubuntu Application Indicator.
+** psensor: added support of GTK3.0 (GTK2.0 still supported).
 ** psensor: fixed crash when glade files cannot be read.
+** psensor: display sensors information in the application indicator.
 
 * v0.6.2.7
 

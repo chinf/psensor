@@ -30,6 +30,8 @@
 #include "ui_sensorpref.h"
 #include "ui_pref.h"
 
+static GtkMenuItem **sensor_menu_items;
+
 static void cb_menu_show(GtkMenuItem *mi, gpointer data)
 {
 	struct ui_psensor *ui = (struct ui_psensor *)data;
@@ -69,6 +71,8 @@ static const char *menu_desc =
 "<ui>"
 "  <popup name='MainMenu'>"
 "      <menuitem name='Show' action='ShowAction' />"
+"      <separator />"
+"      <separator />"
 "      <menuitem name='Preferences' action='PreferencesAction' />"
 "      <menuitem name='SensorPreferences' action='SensorPreferencesAction' />"
 "      <separator />"
@@ -100,11 +104,39 @@ static GtkActionEntry entries[] = {
 };
 static guint n_entries = G_N_ELEMENTS(entries);
 
+static void update_sensor_menu_item(GtkMenuItem *item, struct psensor *s)
+{
+	gchar *str;
+
+	str = g_strdup_printf("%s: %2.f",
+			      s->name,
+			      psensor_get_current_value(s));
+
+	gtk_menu_item_set_label(item, str);
+
+	g_free(str);
+}
+
+static void update_sensor_menu_items(struct psensor **sensors)
+{
+	int n = psensor_list_size(sensors);
+	int i;
+
+	for (i = 0; i < n; i++)
+		update_sensor_menu_item(sensor_menu_items[i],
+					sensors[i]);
+}
+
 static GtkWidget *get_menu(struct ui_psensor *ui)
 {
-	GtkActionGroup      *action_group;
-	GtkUIManager        *menu_manager;
-	GError              *error;
+	GtkActionGroup *action_group;
+	GtkUIManager *menu_manager;
+	GError *error;
+	GtkMenu *menu;
+	int i;
+	int n = psensor_list_size(ui->sensors);
+	struct psensor **sensors = ui->sensors;
+
 
 	action_group = gtk_action_group_new("PsensorActions");
 	gtk_action_group_set_translation_domain(action_group, PACKAGE);
@@ -119,7 +151,25 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	if (error)
 		g_error(_("building menus failed: %s"), error->message);
 
-	return gtk_ui_manager_get_widget(menu_manager, "/MainMenu");
+	menu = GTK_MENU(gtk_ui_manager_get_widget(menu_manager, "/MainMenu"));
+
+	sensor_menu_items = malloc(sizeof(GtkWidget *)*n);
+	for (i = 0; i < n; i++) {
+		struct psensor *s = sensors[i];
+
+		sensor_menu_items[i]
+			= GTK_MENU_ITEM(gtk_menu_item_new_with_label(s->name));
+
+		gtk_menu_shell_insert(GTK_MENU_SHELL(menu),
+				      GTK_WIDGET(sensor_menu_items[i]),
+				      i+2);
+
+		update_sensor_menu_item(sensor_menu_items[i],
+					s);
+	}
+
+
+	return GTK_WIDGET(menu);
 }
 
 
@@ -152,6 +202,8 @@ void ui_appindicator_update(struct ui_psensor *ui)
 	if (attention && status == APP_INDICATOR_STATUS_ACTIVE)
 		app_indicator_set_status
 		    (ui->indicator, APP_INDICATOR_STATUS_ATTENTION);
+
+	update_sensor_menu_items(ui->sensors);
 }
 
 void ui_appindicator_init(struct ui_psensor *ui)
@@ -167,5 +219,8 @@ void ui_appindicator_init(struct ui_psensor *ui)
 	app_indicator_set_attention_icon(ui->indicator, "psensor_hot");
 
 	indicatormenu = get_menu(ui);
+
+	gtk_widget_show_all(indicatormenu);
+
 	app_indicator_set_menu(ui->indicator, GTK_MENU(indicatormenu));
 }
