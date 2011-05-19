@@ -1,3 +1,4 @@
 /usr/bin/psensor-server
-/usr/share/psensor/www/index.lua
+/usr/share/psensor/www
+
 
