@@ -314,6 +314,7 @@ psensor_SOURCES = compat.h cfg.h cfg.c graph.h graph.c main.c ui.h \
 	ui_sensorpref.c $(am__append_3) $(am__append_6) \
 	$(am__append_13)
 dist_man_MANS = psensor.1
+EXTRA_DIST = description.txt
 all: all-recursive
 
 .SUFFIXES:

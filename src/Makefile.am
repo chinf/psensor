@@ -74,7 +74,7 @@ endif
 endif
 
 dist_man_MANS = psensor.1
-
+EXTRA_DIST = description.txt
 
 psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)
