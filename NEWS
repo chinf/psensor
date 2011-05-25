@@ -1,3 +1,8 @@
+* v0.6.2.9
+
+** psensor: fixed UI freeze on Ubuntu Lucid when 'sensor preferences'
+   is selected with application indicator.
+
 * v0.6.2.8
 
 ** psensor: escaped - in manpage.

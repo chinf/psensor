@@ -77,7 +77,7 @@ AC_SUBST(LIBNOTIFY_LIBS)
 # Checks AppIndicator 
 APPINDICATOR_LIBS=
 PKG_CHECK_MODULES(APPINDICATOR, 
-     appindicator-0.1 = 0.2.9 , 
+     appindicator-0.1 <= 0.2.9 , 
      [AC_DEFINE([HAVE_APPINDICATOR],[1],[Use AppIndicator 0.2.9])
       AC_DEFINE([HAVE_APPINDICATOR_029],[1],[Use AppIndicator 0.2.9])
      ],

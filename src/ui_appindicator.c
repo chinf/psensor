@@ -63,8 +63,16 @@ cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 {
 	struct ui_psensor *ui = data;
 
+#ifdef HAVE_APPINDICATOR_029
+	gdk_threads_enter();
+#endif
+
 	if (ui->sensors && *ui->sensors)
 		ui_sensorpref_dialog_run(*ui->sensors, ui);
+
+#ifdef HAVE_APPINDICATOR_029
+	gdk_threads_leave();
+#endif
 }
 
 static const char *menu_desc =
