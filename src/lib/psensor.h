@@ -156,6 +156,8 @@ struct measure *psensor_get_current_measure(struct psensor *sensor);
 */
 const char *psensor_type_to_str(unsigned int type);
 
+const char *psensor_type_to_unit_str(unsigned int type);
+
 void psensor_list_update_measures(struct psensor **sensors);
 
 #endif

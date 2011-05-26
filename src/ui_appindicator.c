@@ -116,9 +116,10 @@ static void update_sensor_menu_item(GtkMenuItem *item, struct psensor *s)
 {
 	gchar *str;
 
-	str = g_strdup_printf("%s: %2.f",
+	str = g_strdup_printf("%s: %2.f %s",
 			      s->name,
-			      psensor_get_current_value(s));
+			      psensor_get_current_value(s),
+			      psensor_type_to_unit_str(s->type));
 
 	gtk_menu_item_set_label(item, str);
 

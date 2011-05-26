@@ -12,5 +12,6 @@ src/server/server.c
 src/lib/hdd.c
 src/lib/nvidia.c
 src/lib/lmsensor.c
+src/lib/psensor.c
 src/glade/psensor-pref.glade
 src/glade/sensor-edit.glade

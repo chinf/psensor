@@ -1,8 +1,9 @@
 * v0.6.2.9
 
-** psensor: fixed UI freeze on Ubuntu Lucid when 'sensor preferences'
+** psensor: fixed UI freeze on Ubuntu Lucid when 'sensor preferences'.
    is selected with application indicator.
-** added missing src/description.txt file into source archive
+** added missing src/description.txt file into source archive.
+** psensor: appindicator displays unit of sensor values.
 
 * v0.6.2.8
 
