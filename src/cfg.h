@@ -53,6 +53,8 @@ struct config {
 	int menu_bar_disabled;
 
 	int unity_launcher_count_disabled;
+
+	int hide_on_startup;
 };
 
 /*

@@ -58,6 +58,9 @@
 #define KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED \
 "/apps/psensor/interface/unity_launcher_count_disabled"
 
+#define KEY_INTERFACE_HIDE_ON_STARTUP \
+"/apps/psensor/interface/hide_on_startup"
+
 GConfClient *client;
 
 static char *get_string(char *key, char *default_value)
@@ -75,7 +78,7 @@ static char *get_string(char *key, char *default_value)
 	return value;
 }
 
-struct color *config_get_background_color()
+static struct color *config_get_background_color()
 {
 
 	char *scolor = get_string(KEY_GRAPH_BACKGROUND_COLOR,
@@ -91,7 +94,7 @@ struct color *config_get_background_color()
 	return c;
 }
 
-struct color *config_get_foreground_color()
+static struct color *config_get_foreground_color()
 {
 	char *scolor = get_string(KEY_GRAPH_FOREGROUND_COLOR,
 				  DEFAULT_GRAPH_FOREGROUND_COLOR);
@@ -106,7 +109,7 @@ struct color *config_get_foreground_color()
 	return c;
 }
 
-int config_is_alpha_channel_enabled()
+static int config_is_alpha_channel_enabled()
 {
 	gboolean b = gconf_client_get_bool(client,
 					   KEY_ALPHA_CHANNEL_ENABLED,
@@ -115,29 +118,19 @@ int config_is_alpha_channel_enabled()
 	return b == TRUE;
 }
 
-void config_set_alpha_channel_enabled(int enabled)
-{
-	if (enabled)
-		gconf_client_set_bool(client,
-				      KEY_ALPHA_CHANNEL_ENABLED, TRUE, NULL);
-	else
-		gconf_client_set_bool(client,
-				      KEY_ALPHA_CHANNEL_ENABLED, FALSE, NULL);
-}
-
-int config_get_sensorlist_position()
+static int config_get_sensorlist_position()
 {
 	return gconf_client_get_int(client,
 				    KEY_INTERFACE_SENSORLIST_POSITION, NULL);
 }
 
-void config_set_sensorlist_position(int pos)
+static void config_set_sensorlist_position(int pos)
 {
 	gconf_client_set_int(client,
 			     KEY_INTERFACE_SENSORLIST_POSITION, pos, NULL);
 }
 
-double config_get_graph_background_alpha()
+static double config_get_graph_background_alpha()
 {
 	double a = gconf_client_get_float(client,
 					  KEY_GRAPH_BACKGROUND_ALPHA,
@@ -149,12 +142,12 @@ double config_get_graph_background_alpha()
 	return a;
 }
 
-void config_set_graph_background_alpha(double alpha)
+static void config_set_graph_background_alpha(double alpha)
 {
 	gconf_client_set_float(client, KEY_GRAPH_BACKGROUND_ALPHA, alpha, NULL);
 }
 
-void config_set_background_color(struct color *color)
+static void config_set_background_color(struct color *color)
 {
 	char *scolor = color_to_string(color);
 
@@ -167,7 +160,7 @@ void config_set_background_color(struct color *color)
 	free(scolor);
 }
 
-void config_set_foreground_color(struct color *color)
+static void config_set_foreground_color(struct color *color)
 {
 	char *scolor = color_to_string(color);
 
@@ -180,7 +173,7 @@ void config_set_foreground_color(struct color *color)
 	free(scolor);
 }
 
-char *config_get_sensor_key(char *sensor_name)
+static char *config_get_sensor_key(char *sensor_name)
 {
 	char *escaped_name = gconf_escape_key(sensor_name, -1);
 	/* /apps/psensor/sensors/[sensor_name]/color */
@@ -350,7 +343,7 @@ void config_set_sensor_name(char *sid, const char *name)
 	free(escaped_name);
 }
 
-int config_is_window_decoration_enabled()
+static int config_is_window_decoration_enabled()
 {
 	gboolean b;
 
@@ -361,7 +354,7 @@ int config_is_window_decoration_enabled()
 	return b == FALSE;
 }
 
-int config_is_window_keep_below_enabled()
+static int config_is_window_keep_below_enabled()
 {
 	gboolean b;
 
@@ -372,7 +365,7 @@ int config_is_window_keep_below_enabled()
 	return b == TRUE;
 }
 
-void config_set_window_decoration_enabled(int enabled)
+static void config_set_window_decoration_enabled(int enabled)
 {
 	if (enabled)
 		gconf_client_set_bool
@@ -384,7 +377,7 @@ void config_set_window_decoration_enabled(int enabled)
 		     KEY_INTERFACE_WINDOW_DECORATION_DISABLED, TRUE, NULL);
 }
 
-void config_set_window_keep_below_enabled(int enabled)
+static void config_set_window_keep_below_enabled(int enabled)
 {
 	if (enabled)
 		gconf_client_set_bool(client,
@@ -445,6 +438,11 @@ struct config *config_load()
 		 KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED,
 		 NULL);
 
+	cfg->hide_on_startup = gconf_client_get_bool
+		(client,
+		 KEY_INTERFACE_HIDE_ON_STARTUP,
+		 NULL);
+
 	return cfg;
 }
 
@@ -476,4 +474,8 @@ void config_save(struct config *cfg)
 	gconf_client_set_bool(client,
 			      KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED,
 			      cfg->unity_launcher_count_disabled, NULL);
+
+	gconf_client_set_bool(client,
+			      KEY_INTERFACE_HIDE_ON_STARTUP,
+			      cfg->hide_on_startup, NULL);
 }

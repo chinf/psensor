@@ -217,6 +217,9 @@ graph_update(struct psensor **sensors,
 	struct psensor **sensor_cur;
 	GtkAllocation galloc;
 
+	if (!gtk_widget_is_drawable(w_graph))
+		return ;
+
 	gtk_widget_get_allocation(w_graph, &galloc);
 	width = galloc.width;
 	height = galloc.height;
