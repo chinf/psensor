@@ -52,7 +52,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		*w_s_update_interval;
 	GtkComboBox *w_sensorlist_pos;
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
-		*w_enable_menu, *w_enable_launcher_counter;
+		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup;
 
 	cfg = ui->config;
 
@@ -103,33 +103,31 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 				  cfg->graph_monitoring_duration);
 
 	w_sensorlist_pos = GTK_COMBO_BOX
-		(gtk_builder_get_object(builder,
-					"sensors_list_position"));
+		(gtk_builder_get_object(builder, "sensors_list_position"));
 	gtk_combo_box_set_active(w_sensorlist_pos, cfg->sensorlist_position);
 
 	w_hide_window_decoration = GTK_TOGGLE_BUTTON
-		(gtk_builder_get_object(builder,
-					"hide_window_decoration"));
+		(gtk_builder_get_object(builder, "hide_window_decoration"));
 	gtk_toggle_button_set_active(w_hide_window_decoration,
 				     !cfg->window_decoration_enabled);
 
 	w_keep_window_below = GTK_TOGGLE_BUTTON
-		(gtk_builder_get_object(builder,
-					"keep_window_below"));
+		(gtk_builder_get_object(builder, "keep_window_below"));
 	gtk_toggle_button_set_active(w_keep_window_below,
 				     cfg->window_keep_below_enabled);
 
 	w_enable_menu = GTK_TOGGLE_BUTTON
-		(gtk_builder_get_object(builder,
-					"enable_menu"));
-	gtk_toggle_button_set_active(w_enable_menu,
-				     !cfg->menu_bar_disabled);
+		(gtk_builder_get_object(builder, "enable_menu"));
+	gtk_toggle_button_set_active(w_enable_menu, !cfg->menu_bar_disabled);
 
 	w_enable_launcher_counter = GTK_TOGGLE_BUTTON
-		(gtk_builder_get_object(builder,
-					"enable_launcher_counter"));
+		(gtk_builder_get_object(builder, "enable_launcher_counter"));
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
 				     !cfg->unity_launcher_count_disabled);
+
+	w_hide_on_startup = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder, "hide_on_startup"));
+	gtk_toggle_button_set_active(w_hide_on_startup, cfg->hide_on_startup);
 
 	result = gtk_dialog_run(diag);
 
@@ -190,6 +188,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		cfg->sensor_values_max_length
 		    = (cfg->graph_monitoring_duration * 60) /
 		    cfg->sensor_update_interval;
+
+		cfg->hide_on_startup
+			= gtk_toggle_button_get_active(w_hide_on_startup);
 
 		config_save(cfg);
 

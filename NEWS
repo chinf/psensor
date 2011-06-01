@@ -4,6 +4,7 @@
    is selected with application indicator.
 ** added missing src/description.txt file into source archive.
 ** psensor: appindicator displays unit of sensor values.
+** psensor: added preference for hiding main window on startup.
 
 * v0.6.2.8
 
