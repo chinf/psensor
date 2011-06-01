@@ -187,10 +187,15 @@ void ui_window_create(struct ui_psensor *ui)
 	ui->main_window = window;
 	ui->menu_bar = menubar;
 
+#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	if (ui->config->hide_on_startup)
 		gtk_widget_show_all(ui->main_box);
 	else
 		gtk_widget_show_all(ui->main_window);
+#else
+	gtk_widget_show_all(ui->main_window);
+#endif
+
 }
 
 static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
