@@ -37,6 +37,28 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 	return TRUE;
 }
 
+void ui_show_about_dialog()
+{
+	gtk_show_about_dialog(NULL,
+			      "comments",
+			      _("Psensor is a GTK+ application for monitoring "
+				"hardware sensors"),
+			      "copyright",
+			      _("Copyright(c) 2010-2011\njeanfi@gmail.com"),
+			      "logo-icon-name", "psensor",
+			      "program-name", "Psensor",
+			      "title", _("About Psensor"),
+			      "version", VERSION,
+			      "website", PACKAGE_URL,
+			      "website-label", _("Psensor Homepage"),
+			      NULL);
+}
+
+static void cb_about(GtkMenuItem *mi, gpointer data)
+{
+	ui_show_about_dialog();
+}
+
 static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
 {
 	ui_psensor_quit();
@@ -69,6 +91,9 @@ static const char *menu_desc =
 "      <separator />"
 "      <menuitem name='Quit' action='QuitAction' />"
 "    </menu>"
+"    <menu name='Help' action='HelpMenuAction'>"
+"      <menuitem name='About' action='AboutAction' />"
+"    </menu>"
 "  </menubar>"
 "</ui>";
 
@@ -86,7 +111,14 @@ static GtkActionEntry entries[] = {
     G_CALLBACK(cb_sensor_preferences) },
 
   { "QuitAction",
-    GTK_STOCK_QUIT, N_("_Quit"), NULL, N_("Quit"), G_CALLBACK(cb_menu_quit) }
+    GTK_STOCK_QUIT, N_("_Quit"), NULL, N_("Quit"), G_CALLBACK(cb_menu_quit) },
+
+  { "HelpMenuAction", NULL, "_Help" },
+
+  { "AboutAction", GTK_STOCK_PREFERENCES,
+    N_("_About"), NULL,
+    N_("About"),
+    G_CALLBACK(cb_about) }
 };
 static guint n_entries = G_N_ELEMENTS(entries);
 

@@ -32,6 +32,11 @@ static void cb_preferences(GtkMenuItem *mi, gpointer data)
 	ui_pref_dialog_run((struct ui_psensor *)data);
 }
 
+static void cb_about(GtkMenuItem *mi, gpointer data)
+{
+	ui_show_about_dialog();
+}
+
 static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 {
 	struct ui_psensor *ui = data;
@@ -45,6 +50,8 @@ static const char *menu_desc =
 "  <popup name='MainMenu'>"
 "      <menuitem name='Preferences' action='PreferencesAction' />"
 "      <menuitem name='SensorPreferences' action='SensorPreferencesAction' />"
+"      <separator />"
+"      <menuitem name='About' action='AboutAction' />"
 "      <separator />"
 "      <menuitem name='Quit' action='QuitAction' />"
 "  </popup>"
@@ -62,6 +69,11 @@ static GtkActionEntry entries[] = {
     "_Sensor Preferences", NULL,                     /* label, accelerator */
     "Sensor Preferences",                            /* tooltip */
     G_CALLBACK(cb_sensor_preferences) },
+
+  { "AboutAction", NULL,
+    "_About", NULL,
+    "About",
+    G_CALLBACK(cb_about) },
 
   { "QuitAction",
     GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }

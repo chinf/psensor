@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-05-26 11:54+0200\n"
+"POT-Creation-Date: 2011-06-06 10:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,40 +79,66 @@ msgstr ""
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 
-#: src/ui.c:79
+#: src/ui.c:44
+msgid "Psensor is a GTK+ application for monitoring hardware sensors"
+msgstr ""
+
+#: src/ui.c:47
+msgid ""
+"Copyright(c) 2010-2011\n"
+"jeanfi@gmail.com"
+msgstr ""
+
+#: src/ui.c:50
+msgid "About Psensor"
+msgstr ""
+
+#: src/ui.c:53
+msgid "Psensor Homepage"
+msgstr ""
+
+#: src/ui.c:104
 msgid "_Preferences"
 msgstr ""
 
-#: src/ui.c:80 src/ui_sensorlist.c:201
+#: src/ui.c:105 src/ui_sensorlist.c:201
 msgid "Preferences"
 msgstr ""
 
-#: src/ui.c:84
+#: src/ui.c:109
 msgid "_Sensor Preferences"
 msgstr ""
 
-#: src/ui.c:85
+#: src/ui.c:110
 msgid "Sensor Preferences"
 msgstr ""
 
-#: src/ui.c:89
+#: src/ui.c:114
 msgid "_Quit"
 msgstr ""
 
-#: src/ui.c:89
+#: src/ui.c:114
 msgid "Quit"
 msgstr ""
 
-#: src/ui.c:110 src/ui_appindicator.c:161
+#: src/ui.c:119
+msgid "_About"
+msgstr ""
+
+#: src/ui.c:120
+msgid "About"
+msgstr ""
+
+#: src/ui.c:142 src/ui_appindicator.c:174
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:148
+#: src/ui.c:180
 msgid "Psensor - Temperature Monitor"
 msgstr ""
 
-#: src/ui.c:166
+#: src/ui.c:198
 #, c-format
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr ""
@@ -121,7 +147,7 @@ msgstr ""
 msgid "Select foreground color"
 msgstr ""
 
-#: src/ui_sensorlist.c:309 src/glade/psensor-pref.glade:185
+#: src/ui_sensorlist.c:309 src/glade/psensor-pref.glade:243
 msgid "Sensor"
 msgstr ""
 
@@ -327,80 +353,84 @@ msgstr ""
 msgid "RPM"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:7
+#: src/glade/psensor-pref.glade:8
 msgid "Edit Preferences"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:25
+#: src/glade/psensor-pref.glade:72
 msgid "Graph Colors"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:40
+#: src/glade/psensor-pref.glade:88
 msgid "Foreground:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:53
+#: src/glade/psensor-pref.glade:102
 msgid "Background:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:66
+#: src/glade/psensor-pref.glade:116
 msgid "Background opacity:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:114 src/glade/sensor-edit.glade:184
+#: src/glade/psensor-pref.glade:167 src/glade/sensor-edit.glade:184
 msgid "Graph"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:131
+#: src/glade/psensor-pref.glade:185
 msgid "Update interval:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:144
+#: src/glade/psensor-pref.glade:199
 msgid "Monitoring duration:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:156 src/glade/psensor-pref.glade:214
+#: src/glade/psensor-pref.glade:212 src/glade/psensor-pref.glade:274
 msgid "second(s)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:170
+#: src/glade/psensor-pref.glade:227
 msgid "minute(s)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:202
+#: src/glade/psensor-pref.glade:261
 msgid "Measure update interval:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:229
+#: src/glade/psensor-pref.glade:290
 msgid "Interface"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:246
+#: src/glade/psensor-pref.glade:308
 msgid "Position of sensors table:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:257
+#: src/glade/psensor-pref.glade:319
 msgid "Hide window decoration"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:274
+#: src/glade/psensor-pref.glade:337
 msgid "Keep window below"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:365
+#: src/glade/psensor-pref.glade:444
 msgid "<i>Min</i>"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:388
+#: src/glade/psensor-pref.glade:471
 msgid "<i>Max</i>"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:407
+#: src/glade/psensor-pref.glade:491
 msgid "Enable menu"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:423
+#: src/glade/psensor-pref.glade:508
 msgid "Enable Unity Launcher counter"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:526
+msgid "Hide window on startup"
 msgstr ""
 
 #: src/glade/sensor-edit.glade:8

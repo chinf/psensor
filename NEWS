@@ -5,6 +5,7 @@
 ** added missing src/description.txt file into source archive.
 ** psensor: appindicator displays unit of sensor values.
 ** psensor: added preference for hiding main window on startup.
+** psensor: added 'about' dialog.
 
 * v0.6.2.8
 

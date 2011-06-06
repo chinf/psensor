@@ -75,6 +75,11 @@ cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 #endif
 }
 
+static void cb_about(GtkMenuItem *mi, gpointer data)
+{
+	ui_show_about_dialog();
+}
+
 static const char *menu_desc =
 "<ui>"
 "  <popup name='MainMenu'>"
@@ -83,6 +88,8 @@ static const char *menu_desc =
 "      <separator />"
 "      <menuitem name='Preferences' action='PreferencesAction' />"
 "      <menuitem name='SensorPreferences' action='SensorPreferencesAction' />"
+"      <separator />"
+"      <menuitem name='About' action='AboutAction' />"
 "      <separator />"
 "      <menuitem name='Quit' action='QuitAction' />"
 "  </popup>"
@@ -106,6 +113,12 @@ static GtkActionEntry entries[] = {
     NULL,
     "SensorPreferences",
     G_CALLBACK(cb_sensor_preferences) },
+
+  { "AboutAction", NULL,
+    "_About",
+    NULL,
+    "About",
+    G_CALLBACK(cb_about) },
 
   { "QuitAction",
     GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }
