@@ -1,20 +1,22 @@
 # Chinese translations for psensor package.
 # Copyright (C) 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the psensor package.
-# Jean-Philippe Orsini <jeanfi@gmail.com>, 2011.
+# wpitchoune <wpitchoune@gmail.com>, 2011.
 # Chinese translation from 大宝 <linux.dabao@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2011-06-06 10:51+0200\n"
-"PO-Revision-Date: 2011-02-07 22:21+0100\n"
-"Last-Translator: 大宝 <linux.dabao@gmail.com>\n"
+"PO-Revision-Date: 2011-06-06 08:57+0000\n"
+"Last-Translator: royclark <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2011-06-06 09:00+0000\n"
+"X-Generator: Launchpad (build 13144)\n"
 
 #: src/main.c:72 src/server/server.c:80
 #, c-format
@@ -29,13 +31,13 @@ msgstr ""
 #: src/main.c:82 src/server/server.c:90
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
-msgstr ""
+msgstr "用法：%s [选项]...\n"
 
 #: src/main.c:84
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
-msgstr ""
+msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温度和风扇转速。"
 
 #: src/main.c:88
 msgid "Options:"
@@ -46,12 +48,14 @@ msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
+"  -h, --help 显示这个帮助并退出\n"
+"  -v, --version 显示版本信息并退出"
 
 #: src/main.c:95
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
-msgstr ""
+msgstr "  -u, --url=URL psensor服务器的 URL ，比如：http://hostname:3131"
 
 #: src/main.c:101 src/server/server.c:110
 #, c-format
@@ -79,8 +83,9 @@ msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 
 #: src/ui.c:44
+#, fuzzy
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr ""
+msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温度和风扇转速。"
 
 #: src/ui.c:47
 msgid ""
@@ -97,28 +102,24 @@ msgid "Psensor Homepage"
 msgstr ""
 
 #: src/ui.c:104
-#, fuzzy
 msgid "_Preferences"
-msgstr "选项"
+msgstr ""
 
 #: src/ui.c:105 src/ui_sensorlist.c:201
 msgid "Preferences"
 msgstr "选项"
 
 #: src/ui.c:109
-#, fuzzy
 msgid "_Sensor Preferences"
-msgstr "监视设备选项"
+msgstr ""
 
 #: src/ui.c:110
-#, fuzzy
 msgid "Sensor Preferences"
-msgstr "监视设备选项"
+msgstr ""
 
 #: src/ui.c:114
-#, fuzzy
 msgid "_Quit"
-msgstr "退出"
+msgstr ""
 
 #: src/ui.c:114
 msgid "Quit"
@@ -148,7 +149,7 @@ msgstr ""
 
 #: src/ui_sensorlist.c:232
 msgid "Select foreground color"
-msgstr ""
+msgstr "选择前景色"
 
 #: src/ui_sensorlist.c:309 src/glade/psensor-pref.glade:243
 msgid "Sensor"
@@ -186,12 +187,11 @@ msgstr ""
 
 #: src/ui_notify.c:72 src/ui_notify.c:76
 msgid "Temperature alert"
-msgstr ""
+msgstr "温度报警"
 
 #: src/ui_sensorpref.c:398
-#, fuzzy
 msgid "Sensor Name"
-msgstr "监视设备"
+msgstr ""
 
 #: src/rsensor.c:131
 #, c-format
@@ -246,7 +246,7 @@ msgstr ""
 #: src/server/server.c:92
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
-msgstr ""
+msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
 
 #: src/server/server.c:103
 msgid ""
@@ -358,9 +358,8 @@ msgid "RPM"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:8
-#, fuzzy
 msgid "Edit Preferences"
-msgstr "监视设备选项"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:72
 msgid "Graph Colors"
@@ -427,9 +426,8 @@ msgid "<i>Max</i>"
 msgstr "<i>最大值</i>"
 
 #: src/glade/psensor-pref.glade:491
-#, fuzzy
 msgid "Enable menu"
-msgstr "激活"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:508
 msgid "Enable Unity Launcher counter"
@@ -457,9 +455,8 @@ msgid "Id:"
 msgstr "标识:"
 
 #: src/glade/sensor-edit.glade:202
-#, fuzzy
 msgid "Color:"
-msgstr "颜色:"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:216
 msgid "Alarm"
@@ -499,3 +496,9 @@ msgstr ""
 
 #~ msgid "Show"
 #~ msgstr "显示主窗口"
+
+#~ msgid "Graph update interval:"
+#~ msgstr "图表更新间隔："
+
+#~ msgid "Graph monitoring duration:"
+#~ msgstr "图表监视持续时间："

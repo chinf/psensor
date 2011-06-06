@@ -6,6 +6,7 @@
 ** psensor: appindicator displays unit of sensor values.
 ** psensor: added preference for hiding main window on startup.
 ** psensor: added 'about' dialog.
+** psensor: merged Chinese Simplified translation from royclarck 
 
 * v0.6.2.8
 
