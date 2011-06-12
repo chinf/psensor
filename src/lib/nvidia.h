@@ -22,20 +22,16 @@
 
 #include "psensor.h"
 
-int nvidia_get_sensor_temp(struct psensor *);
-
-struct psensor *nvidia_create_sensor(int id, int values_max_length);
-
-int nvidia_init();
-
+/*
+  Updates temperatures of NVidia sensors.
+*/
 void nvidia_psensor_list_update(struct psensor **sensors);
-
 
 /*
   Adds NVIDIA sensors to a given list of sensors.
 
-  Returns the new allocated list of sensors if sensors have been added otherwise
-  returns 'sensors'. The list is 'NULL' terminated.
+  Returns the new allocated list of sensors if sensors have been added
+  otherwise returns 'sensors'. The list is 'NULL' terminated.
  */
 struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
 					 int values_max_length);

@@ -30,32 +30,33 @@
 #include <NVCtrl/NVCtrl.h>
 #include <NVCtrl/NVCtrlLib.h>
 
-
 #include "psensor.h"
 
-Display *nvidia_sensors_dpy;
+Display *display;
 
-int nvidia_get_sensor_temp(struct psensor *sensor)
+/*
+  Returns the temperature (Celcius) of a NVidia GPU.
+*/
+static int get_temp(struct psensor *sensor)
 {
 	int temp;
 	Bool res;
 
-	res = XNVCTRLQueryTargetAttribute(nvidia_sensors_dpy,
+	res = XNVCTRLQueryTargetAttribute(display,
 					  NV_CTRL_TARGET_TYPE_GPU,
 					  sensor->nvidia_id,
 					  0,
-					  NV_CTRL_GPU_CORE_TEMPERATURE, &temp);
+					  NV_CTRL_GPU_CORE_TEMPERATURE,
+					  &temp);
 
-	if (res == True) {
+	if (res == True)
 		return temp;
-	} else {
-		fprintf(stderr,
-			_("ERROR: failed to retrieve nvidia temperature\n"));
-		return 0;
-	}
+
+	fprintf(stderr, _("ERROR: failed to retrieve nvidia temperature\n"));
+	return 0;
 }
 
-struct psensor *nvidia_create_sensor(int id, int values_max_length)
+static struct psensor *create_sensor(int id, int values_len)
 {
 	char name[200];
 	char *sid;
@@ -67,84 +68,74 @@ struct psensor *nvidia_create_sensor(int id, int values_max_length)
 	sprintf(sid, "nvidia %s", name);
 
 	s = psensor_create(sid, strdup(name),
-			   SENSOR_TYPE_NVIDIA, values_max_length);
+			   SENSOR_TYPE_NVIDIA, values_len);
 
 	s->nvidia_id = id;
 
 	return s;
 }
 
-int nvidia_init()
+/*
+  Opens connection to X server and returns the number
+  of NVidia GPUs.
+
+  Return 0 if no NVidia gpus or cannot get information.
+*/
+static int init()
 {
-	int event_base, error_base;
-	int num_gpus;
+	int evt, err, n;
 
-	nvidia_sensors_dpy = XOpenDisplay(NULL);
+	display = XOpenDisplay(NULL);
 
-	if (!nvidia_sensors_dpy) {
-		fprintf(stderr, _("ERROR: nvidia initialization failure\n"));
+	if (!display) {
+		fprintf(stderr,
+			_("ERROR: Cannot open connection to X Server\n"));
 		return 0;
 	}
 
-	if (XNVCTRLQueryExtension(nvidia_sensors_dpy, &event_base,
-				  &error_base)) {
-		if (XNVCTRLQueryTargetCount(nvidia_sensors_dpy,
-					    NV_CTRL_TARGET_TYPE_GPU,
-					    &num_gpus)) {
-			return num_gpus;
-		}
+	if (XNVCTRLQueryExtension(display, &evt, &err) &&
+	    XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_GPU, &n))
+		return n;
 
-	}
-
-	fprintf(stderr, _("ERROR: nvidia initialization failure: %d\n"),
-		error_base);
+	fprintf(stderr, _("ERROR: Cannot retrieve NVidia information\n"));
 
 	return 0;
 }
 
 void nvidia_psensor_list_update(struct psensor **sensors)
 {
-	struct psensor **s_ptr = sensors;
+	struct psensor **ss, *s;
 
-	while (*s_ptr) {
-		struct psensor *sensor = *s_ptr;
+	ss = sensors;
+	while (*ss) {
+		s = *ss;
 
-		if (sensor->type == SENSOR_TYPE_NVIDIA) {
-			int val = nvidia_get_sensor_temp(sensor);
+		if (s->type == SENSOR_TYPE_NVIDIA)
+			psensor_set_current_value(s, get_temp(s));
 
-			psensor_set_current_value(sensor, (double)val);
-		}
-
-		s_ptr++;
+		ss++;
 	}
 }
 
-struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
-					 int values_max_length)
+struct psensor * *
+nvidia_psensor_list_add(struct psensor **sensors, int values_len)
 {
-	int i;
-	int nvidia_gpus_count = nvidia_init();
-	struct psensor **res = sensors;
+	int i, n;
+	struct psensor **tmp, **ss, *s;
 
+	n = init();
 
-	if (!nvidia_gpus_count) {
-		fprintf(stderr,
-			_("ERROR: "
-			  "no nvidia chips or initialization failure\n"));
+	ss = sensors;
+	for (i = 0; i < n; i++) {
+		s = create_sensor(i, values_len);
+
+		tmp = psensor_list_add(ss, s);
+
+		if (ss != tmp)
+			free(ss);
+
+		ss = tmp;
 	}
 
-	for (i = 0; i < nvidia_gpus_count; i++) {
-		struct psensor *sensor
-			= nvidia_create_sensor(i, values_max_length);
-
-		struct psensor **tmp_psensors = psensor_list_add(res,
-								 sensor);
-
-		if (res != sensors)
-			free(res);
-
-		res = tmp_psensors;
-	}
-
-	return res;
+	return ss;
 }
