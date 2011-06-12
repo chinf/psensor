@@ -8,6 +8,9 @@
 ** psensor: added 'about' dialog.
 ** psensor: merged Chinese Simplified translation from royclarck 
 ** psensor: autostarted by default
+** nvidia: code cleanup
+** nvidia: fixed init, error var not initialized
+** nvidia: fixed nvidia_psensor_list_add, incorrect memory free
 
 * v0.6.2.8
 
