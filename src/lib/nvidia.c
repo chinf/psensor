@@ -75,6 +75,13 @@ static struct psensor *create_sensor(int id, int values_len)
 	return s;
 }
 
+static void close_display()
+{
+	XCloseDisplay(display);
+	display = NULL;
+
+}
+
 /*
   Opens connection to X server and returns the number
   of NVidia GPUs.
@@ -138,4 +145,10 @@ nvidia_psensor_list_add(struct psensor **sensors, int values_len)
 	}
 
 	return ss;
+}
+
+void nvidia_cleanup()
+{
+	if (display) 
+		close_display();
 }

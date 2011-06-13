@@ -408,5 +408,9 @@ int main(int argc, char **argv)
 
 	psensor_list_free(ui.sensors);
 
+#ifdef HAVE_NVIDIA
+	nvidia_cleanup();
+#endif
+
 	return 0;
 }
