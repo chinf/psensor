@@ -149,6 +149,6 @@ nvidia_psensor_list_add(struct psensor **sensors, int values_len)
 
 void nvidia_cleanup()
 {
-	if (display) 
+	if (display)
 		close_display();
 }
