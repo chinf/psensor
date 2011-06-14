@@ -358,16 +358,9 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 #endif
 	} else {
-#ifdef HAVE_NVIDIA
-		struct psensor **tmp;
-
-		tmp = get_all_sensors(600);
-		ui.sensors = nvidia_psensor_list_add(tmp, 600);
-
-		if (tmp != ui.sensors)
-			free(tmp);
-#else
 		ui.sensors = get_all_sensors(600);
+#ifdef HAVE_NVIDIA
+		ui.sensors = nvidia_psensor_list_add(ui.sensors, 600);
 #endif
 	}
 
