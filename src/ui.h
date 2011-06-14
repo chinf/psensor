@@ -85,7 +85,7 @@ void ui_window_update(struct ui_psensor *);
 /*
   Must be called to terminate Psensor UI.
 */
-void ui_psensor_quit();
+void ui_psensor_quit(struct ui_psensor *ui);
 
 /*
   Creates the main GTK window

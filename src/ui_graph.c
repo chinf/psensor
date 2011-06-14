@@ -24,7 +24,7 @@
 
 static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
 {
-	ui_psensor_quit();
+	ui_psensor_quit((struct ui_psensor *)data);
 }
 
 static void cb_preferences(GtkMenuItem *mi, gpointer data)

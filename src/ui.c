@@ -61,7 +61,7 @@ static void cb_about(GtkMenuItem *mi, gpointer data)
 
 static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
 {
-	ui_psensor_quit();
+	ui_psensor_quit((struct ui_psensor *)data);
 }
 
 static void cb_preferences(GtkMenuItem *mi, gpointer data)
@@ -77,8 +77,9 @@ static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 		ui_sensorpref_dialog_run(*ui->sensors, ui);
 }
 
-void ui_psensor_quit()
+void ui_psensor_quit(struct ui_psensor *ui)
 {
+	gtk_widget_destroy(ui->main_window);
 	gtk_main_quit();
 }
 
