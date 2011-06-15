@@ -13,9 +13,12 @@ SUBDIRS = po\
 
 dist_doc_DATA = README COPYING NEWS AUTHORS INSTALL
 
-desktopdir = $(sysconfdir)/xdg/autostart
+autostartdir = $(sysconfdir)/xdg/autostart
+autostart_DATA = psensor.desktop
+
+desktopdir = $(datadir)/applications
 desktop_DATA = psensor.desktop
 
-EXTRA_DIST = $(desktop_DATA)
+EXTRA_DIST = $(desktop_DATA) $(autostart_DATA)
 
 

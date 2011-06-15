@@ -80,8 +80,9 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(docdir)"
-DATA = $(desktop_DATA) $(dist_doc_DATA)
+am__installdirs = "$(DESTDIR)$(autostartdir)" \
+	"$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(docdir)"
+DATA = $(autostart_DATA) $(desktop_DATA) $(dist_doc_DATA)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
@@ -284,9 +285,11 @@ SUBDIRS = po\
  tests
 
 dist_doc_DATA = README COPYING NEWS AUTHORS INSTALL
-desktopdir = $(sysconfdir)/xdg/autostart
+autostartdir = $(sysconfdir)/xdg/autostart
+autostart_DATA = psensor.desktop
+desktopdir = $(datadir)/applications
 desktop_DATA = psensor.desktop
-EXTRA_DIST = $(desktop_DATA)
+EXTRA_DIST = $(desktop_DATA) $(autostart_DATA)
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
@@ -342,6 +345,26 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
+install-autostartDATA: $(autostart_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(autostartdir)" || $(MKDIR_P) "$(DESTDIR)$(autostartdir)"
+	@list='$(autostart_DATA)'; test -n "$(autostartdir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(autostartdir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(autostartdir)" || exit $$?; \
+	done
+
+uninstall-autostartDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(autostart_DATA)'; test -n "$(autostartdir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	test -n "$$files" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(autostartdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(autostartdir)" && rm -f $$files
 install-desktopDATA: $(desktop_DATA)
 	@$(NORMAL_INSTALL)
 	test -z "$(desktopdir)" || $(MKDIR_P) "$(DESTDIR)$(desktopdir)"
@@ -698,7 +721,7 @@ check: check-recursive
 all-am: Makefile $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(docdir)"; do \
+	for dir in "$(DESTDIR)$(autostartdir)" "$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(docdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -747,7 +770,8 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-desktopDATA install-dist_docDATA
+install-data-am: install-autostartDATA install-desktopDATA \
+	install-dist_docDATA
 
 install-dvi: install-dvi-recursive
 
@@ -793,7 +817,8 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-desktopDATA uninstall-dist_docDATA
+uninstall-am: uninstall-autostartDATA uninstall-desktopDATA \
+	uninstall-dist_docDATA
 
 .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) all \
 	ctags-recursive install-am install-strip tags-recursive
@@ -804,16 +829,17 @@ uninstall-am: uninstall-desktopDATA uninstall-dist_docDATA
 	dist-lzma dist-shar dist-tarZ dist-xz dist-zip distcheck \
 	distclean distclean-generic distclean-hdr distclean-tags \
 	distcleancheck distdir distuninstallcheck dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-desktopDATA install-dist_docDATA \
-	install-dvi install-dvi-am install-exec install-exec-am \
-	install-html install-html-am install-info install-info-am \
-	install-man install-pdf install-pdf-am install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs installdirs-am maintainer-clean \
+	html-am info info-am install install-am install-autostartDATA \
+	install-data install-data-am install-desktopDATA \
+	install-dist_docDATA install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs installdirs-am maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
 	pdf-am ps ps-am tags tags-recursive uninstall uninstall-am \
-	uninstall-desktopDATA uninstall-dist_docDATA
+	uninstall-autostartDATA uninstall-desktopDATA \
+	uninstall-dist_docDATA
 
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
