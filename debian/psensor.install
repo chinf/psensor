@@ -1,5 +1,6 @@
 /etc/xdg/autostart
 /usr/bin/psensor
+/usr/share/applications
 /usr/share/icons/hicolor/scalable/apps/psensor.svg
 /usr/share/icons/hicolor/scalable/apps/psensor_hot.svg
 /usr/share/icons/hicolor/48x48/apps/psensor.png
