@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-06-06 10:51+0200\n"
+"POT-Creation-Date: 2011-06-26 17:39+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -92,73 +92,73 @@ msgstr ""
 "ERREUR: Psensor n'a pas ete compilé avec le support de surveillance à "
 "distance.\n"
 
-#: src/ui.c:44
+#: src/ui.c:49
 #, fuzzy
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
 "psensor est une application GTK pour surveiller les sondes matérielles "
 "thermiques et les ventilateurs."
 
-#: src/ui.c:47
+#: src/ui.c:52
 msgid ""
 "Copyright(c) 2010-2011\n"
 "jeanfi@gmail.com"
 msgstr ""
 
-#: src/ui.c:50
+#: src/ui.c:55
 msgid "About Psensor"
 msgstr ""
 
-#: src/ui.c:53
+#: src/ui.c:58
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:104
+#: src/ui.c:110
 #, fuzzy
 msgid "_Preferences"
 msgstr "Configuration"
 
-#: src/ui.c:105 src/ui_sensorlist.c:201
+#: src/ui.c:111 src/ui_sensorlist.c:201
 msgid "Preferences"
 msgstr "Configuration"
 
-#: src/ui.c:109
+#: src/ui.c:115
 #, fuzzy
 msgid "_Sensor Preferences"
 msgstr "Editer La Configuration Des Sondes"
 
-#: src/ui.c:110
+#: src/ui.c:116
 #, fuzzy
 msgid "Sensor Preferences"
 msgstr "Editer La Configuration Des Sondes"
 
-#: src/ui.c:114
+#: src/ui.c:120
 #, fuzzy
 msgid "_Quit"
 msgstr "Quitter"
 
-#: src/ui.c:114
+#: src/ui.c:120
 msgid "Quit"
 msgstr "Quitter"
 
-#: src/ui.c:119
+#: src/ui.c:125
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:120
+#: src/ui.c:126
 msgid "About"
 msgstr ""
 
-#: src/ui.c:142 src/ui_appindicator.c:174
+#: src/ui.c:148 src/ui_appindicator.c:176
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:180
+#: src/ui.c:186
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Surveillance Des Temperatures"
 
-#: src/ui.c:198
+#: src/ui.c:204
 #, fuzzy, c-format
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
@@ -336,25 +336,20 @@ msgstr "ERREUR: mauvaise chaine hdd: %s"
 msgid "ERROR: wrong hdd string: %s\n"
 msgstr "ERREUR: mauvaise chaine hdd: %s\n"
 
-#: src/lib/nvidia.c:53
+#: src/lib/nvidia.c:55
 #, c-format
 msgid "ERROR: failed to retrieve nvidia temperature\n"
 msgstr "ERREUR: échec de la récupération des températures nvidia\n"
 
-#: src/lib/nvidia.c:85
-#, c-format
-msgid "ERROR: nvidia initialization failure\n"
-msgstr "ERREUR: échec de l'initialisation nvidia\n"
-
 #: src/lib/nvidia.c:99
-#, c-format
-msgid "ERROR: nvidia initialization failure: %d\n"
-msgstr "ERREUR: échec de l'initialisation nvidia: %d\n"
+#, fuzzy, c-format
+msgid "ERROR: Cannot open connection to X Server\n"
+msgstr "ERREUR: Echer de la connectio à: %s\n"
 
-#: src/lib/nvidia.c:132
-#, c-format
-msgid "ERROR: no nvidia chips or initialization failure\n"
-msgstr "ERREUR: aucunes puces nvidia ou échec de l'initialisation\n"
+#: src/lib/nvidia.c:107
+#, fuzzy, c-format
+msgid "ERROR: Cannot retrieve NVidia information\n"
+msgstr "ERREUR: échec de la récupération des températures nvidia\n"
 
 #: src/lib/lmsensor.c:43
 #, c-format
@@ -508,6 +503,15 @@ msgstr "Dessiner la courbe de la sonde"
 #: src/glade/sensor-edit.glade:327
 msgid "°C"
 msgstr "°C"
+
+#~ msgid "ERROR: nvidia initialization failure\n"
+#~ msgstr "ERREUR: échec de l'initialisation nvidia\n"
+
+#~ msgid "ERROR: nvidia initialization failure: %d\n"
+#~ msgstr "ERREUR: échec de l'initialisation nvidia: %d\n"
+
+#~ msgid "ERROR: no nvidia chips or initialization failure\n"
+#~ msgstr "ERREUR: aucunes puces nvidia ou échec de l'initialisation\n"
 
 #~ msgid "Show"
 #~ msgstr "Montrer"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-06-06 10:51+0200\n"
+"POT-Creation-Date: 2011-06-26 17:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,66 +79,66 @@ msgstr ""
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 
-#: src/ui.c:44
+#: src/ui.c:49
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
 
-#: src/ui.c:47
+#: src/ui.c:52
 msgid ""
 "Copyright(c) 2010-2011\n"
 "jeanfi@gmail.com"
 msgstr ""
 
-#: src/ui.c:50
+#: src/ui.c:55
 msgid "About Psensor"
 msgstr ""
 
-#: src/ui.c:53
+#: src/ui.c:58
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:104
+#: src/ui.c:110
 msgid "_Preferences"
 msgstr ""
 
-#: src/ui.c:105 src/ui_sensorlist.c:201
+#: src/ui.c:111 src/ui_sensorlist.c:201
 msgid "Preferences"
 msgstr ""
 
-#: src/ui.c:109
+#: src/ui.c:115
 msgid "_Sensor Preferences"
 msgstr ""
 
-#: src/ui.c:110
+#: src/ui.c:116
 msgid "Sensor Preferences"
 msgstr ""
 
-#: src/ui.c:114
+#: src/ui.c:120
 msgid "_Quit"
 msgstr ""
 
-#: src/ui.c:114
+#: src/ui.c:120
 msgid "Quit"
 msgstr ""
 
-#: src/ui.c:119
+#: src/ui.c:125
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:120
+#: src/ui.c:126
 msgid "About"
 msgstr ""
 
-#: src/ui.c:142 src/ui_appindicator.c:174
+#: src/ui.c:148 src/ui_appindicator.c:176
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:180
+#: src/ui.c:186
 msgid "Psensor - Temperature Monitor"
 msgstr ""
 
-#: src/ui.c:198
+#: src/ui.c:204
 #, c-format
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr ""
@@ -310,24 +310,19 @@ msgstr ""
 msgid "ERROR: wrong hdd string: %s\n"
 msgstr ""
 
-#: src/lib/nvidia.c:53
+#: src/lib/nvidia.c:55
 #, c-format
 msgid "ERROR: failed to retrieve nvidia temperature\n"
 msgstr ""
 
-#: src/lib/nvidia.c:85
-#, c-format
-msgid "ERROR: nvidia initialization failure\n"
-msgstr ""
-
 #: src/lib/nvidia.c:99
 #, c-format
-msgid "ERROR: nvidia initialization failure: %d\n"
+msgid "ERROR: Cannot open connection to X Server\n"
 msgstr ""
 
-#: src/lib/nvidia.c:132
+#: src/lib/nvidia.c:107
 #, c-format
-msgid "ERROR: no nvidia chips or initialization failure\n"
+msgid "ERROR: Cannot retrieve NVidia information\n"
 msgstr ""
 
 #: src/lib/lmsensor.c:43
