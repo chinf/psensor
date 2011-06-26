@@ -230,7 +230,7 @@ void ui_appindicator_update(struct ui_psensor *ui)
 	update_sensor_menu_items(ui->sensors);
 }
 
-static GtkStatusIcon* unity_fallback(AppIndicator *indicator)
+static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 {
 	gtk_widget_show_all(main_window);
 
