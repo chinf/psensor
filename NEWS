@@ -11,6 +11,9 @@
 ** nvidia: code cleanup
 ** nvidia: fixed init, error var not initialized
 ** nvidia: fixed nvidia_psensor_list_add, incorrect memory free
+** psensor: when appindicator is not support by wm:
+   - psensor quit on window close
+   - show psensor even if hide on startup is enabled
 
 * v0.6.2.8
 
