@@ -31,6 +31,8 @@
 #include "ui_pref.h"
 
 static GtkMenuItem **sensor_menu_items;
+static GtkWidget *main_window;
+static int appindicator_supported = 1;
 
 static void cb_menu_show(GtkMenuItem *mi, gpointer data)
 {
@@ -228,14 +230,35 @@ void ui_appindicator_update(struct ui_psensor *ui)
 	update_sensor_menu_items(ui->sensors);
 }
 
+static GtkStatusIcon* unity_fallback(AppIndicator *indicator)
+{
+	gtk_widget_show_all(main_window);
+
+	appindicator_supported = 0;
+
+	return NULL;
+}
+
+static void unity_unfallback(AppIndicator *indicator,
+			     GtkStatusIcon *status_icon)
+{
+	appindicator_supported = 1;
+}
+
+
 void ui_appindicator_init(struct ui_psensor *ui)
 {
 	GtkWidget *indicatormenu;
+
+	main_window = ui->main_window;
 
 	ui->indicator
 	    = app_indicator_new("psensor",
 				"psensor",
 				APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
+
+	APP_INDICATOR_GET_CLASS(ui->indicator)->fallback = unity_fallback;
+	APP_INDICATOR_GET_CLASS(ui->indicator)->unfallback = unity_unfallback;
 
 	app_indicator_set_status(ui->indicator, APP_INDICATOR_STATUS_ACTIVE);
 	app_indicator_set_attention_icon(ui->indicator, "psensor_hot");
@@ -245,4 +268,9 @@ void ui_appindicator_init(struct ui_psensor *ui)
 	gtk_widget_show_all(indicatormenu);
 
 	app_indicator_set_menu(ui->indicator, GTK_MENU(indicatormenu));
+}
+
+int is_appindicator_supported()
+{
+	return appindicator_supported;
 }

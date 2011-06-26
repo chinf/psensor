@@ -24,5 +24,6 @@
 
 void ui_appindicator_init(struct ui_psensor *ui);
 void ui_appindicator_update(struct ui_psensor *ui);
+int is_appindicator_supported();
 
 #endif

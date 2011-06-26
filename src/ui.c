@@ -23,15 +23,20 @@
 #include "ui_pref.h"
 #include "ui_sensorpref.h"
 #include "ui_sensorlist.h"
+#include "ui_appindicator.h"
 
 static gboolean
 on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 {
+	struct ui_psensor *ui = data;
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
-	gtk_widget_hide(((struct ui_psensor *)data)->main_window);
+	if (is_appindicator_supported()) 
+		gtk_widget_hide(ui->main_window);
+	else 
+		ui_psensor_quit(ui);
 #else
-	ui_psensor_quit();
+	ui_psensor_quit(ui);
 #endif
 
 	return TRUE;
