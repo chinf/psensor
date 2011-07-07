@@ -160,6 +160,8 @@ create_response_api(const char *nurl,
 		    const char *method,
 		    unsigned int *rp_code)
 {
+	struct MHD_Response *resp;
+	struct psensor *s;
 	char *page = NULL;
 
 	if (!strcmp(nurl, URL_BASE_API_1_0_SENSORS))  {
@@ -172,8 +174,7 @@ create_response_api(const char *nurl,
 
 		const char *sid = nurl + strlen(URL_BASE_API_1_0_SENSORS) + 1;
 
-		struct psensor *s
-			= psensor_list_get_by_id(server_data.sensors, sid);
+		s = psensor_list_get_by_id(server_data.sensors, sid);
 
 		if (s)
 			page = sensor_to_json_string(s);
@@ -188,8 +189,13 @@ create_response_api(const char *nurl,
 	if (page) {
 		*rp_code = MHD_HTTP_OK;
 
-		return MHD_create_response_from_data
-			(strlen(page), page, MHD_YES, MHD_NO);
+		resp = MHD_create_response_from_data(strlen(page), page,
+						     MHD_YES, MHD_NO);
+		
+		MHD_add_response_header(resp, MHD_HTTP_HEADER_CONTENT_TYPE,
+					"application/json");
+		
+		return resp;
 	}
 
 	return NULL;
