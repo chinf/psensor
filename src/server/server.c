@@ -191,10 +191,10 @@ create_response_api(const char *nurl,
 
 		resp = MHD_create_response_from_data(strlen(page), page,
 						     MHD_YES, MHD_NO);
-		
+
 		MHD_add_response_header(resp, MHD_HTTP_HEADER_CONTENT_TYPE,
 					"application/json");
-		
+
 		return resp;
 	}
 

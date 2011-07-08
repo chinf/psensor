@@ -27,7 +27,6 @@ static glibtop_cpu *cpu;
 static float last_used;
 static float last_total;
 
-
 void sysinfo_update(struct psysinfo *info)
 {
 	unsigned long int used = 0;
