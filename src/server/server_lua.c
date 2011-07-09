@@ -96,9 +96,7 @@ int init_lua(lua_State *L, void *data)
 	lua_pushnumber(L, server_data->psysinfo.sysinfo.mem_unit);
 	lua_settable(L, -3);
 
-
 	lua_setglobal(L, "sysinfo");
-
 
 	lua_newtable(L);
 
