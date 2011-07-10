@@ -100,13 +100,13 @@ if sysinfo then
    str = str .. h2("CPU")
 
    str = str .. "<table>"
-      .. tr("title",
+      .. "<thead>" .. tr("title",
 	    th(nil,"Current usage"),
 	    th(nil,"Load 1mn"),
 	    th(nil,"Load 5mn"),
-	    th(nil,"Load 15mn"))
+	    th(nil,"Load 15mn")) .. "</thead>"
 
-   str = str .. "<tr>"
+   str = str .. "<tbody><tr>"
 
    if sysinfo["load"] then
       str = str .. td(math.ceil(100*sysinfo["load"]) .. "%")
@@ -117,7 +117,7 @@ if sysinfo then
    str = str  .. td(string.format("%.2f",sysinfo["load_1mn"])) ..
    td(string.format("%.2f",sysinfo["load_5mn"])) ..
    td(string.format("%.2f",sysinfo["load_15mn"])) ..
-   "</tr>" ..
+   "</tbody></tr>" ..
    "</table>"
 
 --
