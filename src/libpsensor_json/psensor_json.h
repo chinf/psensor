@@ -28,5 +28,4 @@ json_object *sensor_to_json_object(struct psensor *s);
 char *sensor_to_json_string(struct psensor *s);
 char *sensors_to_json_string(struct psensor **sensors);
 
-
 #endif
