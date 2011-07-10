@@ -26,6 +26,7 @@
 #define URL_BASE_API_1_0 "/api/1.0"
 #define URL_BASE_API_1_0_SENSORS "/api/1.0/sensors"
 #define URL_API_1_0_SERVER_STOP "/api/1.0/server/stop"
+#define URL_API_1_0_SYSINFO "/api/1.0/sysinfo"
 
 struct server_data {
 	struct psensor **sensors;

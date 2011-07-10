@@ -26,9 +26,13 @@ struct psysinfo {
 	float cpu_rate;
 
 	struct sysinfo sysinfo;
+
+	char **interfaces;
 };
 
 void sysinfo_update(struct psysinfo *sysinfo);
 void sysinfo_cleanup();
+
+char *sysinfo_to_json_string(const struct psysinfo *sysinfo);
 
 #endif

@@ -1,23 +1,123 @@
 body {
-    font-family: Ubuntu, Verdana, Helvetica, Arial, sans-serif;
-    background: #fff;
-    color: Black;
-    margin: 1em 0em 0em 1em;
-    padding-left: 0em 0em 0em 0em;
+    font-family: Ubuntu, 'Bitstream Ver Sans', 'DejaVu Sans', 'Tahoma', sans-serif;
+    color: #333333;
+    font-size: 12px;
+    font-height: 16px;
+    margin: 0;
+    padding: 0;
+
+    background-color: #f0f0f0;
+}
+
+.page {
+    background-color: #ffffff;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #333333;
+    border-radius: 8px 8px 0px 0px;
+    border: 3px #aea79f solid;
+    box-shadow: 2px 2px 2px #333333; 
+}
+
+.page-header {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.page-content {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    background-color: #f7f7f7;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.page-footer {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 2px;
+    padding-left: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: #aea79f;
+    border-radius: 0px 0px 4px 4px;
+    font-size: 10px;
+    line-height: 14px;
+    color: #333333;
+}
+
+h1 {
+    font-size: 36px;
+    line-height: 40px;
+    font-weight: normal;
+    color: #333333;
+    margin: 0;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: normal;
+    color: #333333;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 12px;
+    line-height: 16px;
+    color: #333333;
+    margin-bottom: 8px;
 }
 
 table {
-    border: 1px solid #ddd;
+	text-align: left;
+	width: 100%;
+	padding-left: 8px;
+	padding-right: 8px;
 }
 
-tr.title {
-    background-color: #eee;
+thead {
+    background-color: #aea79f;
+    font-size: 12px;
+    line-height: 16px;
+    color: #ffffff;
+    font-weight: bold;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
-th {
-    text-align: center;
+tbody {
+    font-size: 12px;
+    line-height: 16px;
+    color: #333333;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
-td {
-    text-align: right;
+th, td {
+    padding: 4px 4px 4px 4px;
+}
+
+a:link, a:visited, a:active {
+    text-decoration: none;
+    color: #333333;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #333333;
+}
+
+tr {
+    padding-left: 30px;
 }

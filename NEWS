@@ -1,3 +1,9 @@
+* v0.6.2.10
+** psensor-server: added network, cpu load and memory information in
+   JSON web interface.
+** psensor-server: added monitor.html using jquery and retrieving
+   monitoring data from the JSON web interface.
+
 * v0.6.2.9
 
 ** psensor: fixed UI freeze on Ubuntu Lucid when 'sensor preferences'.

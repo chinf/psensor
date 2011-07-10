@@ -215,7 +215,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 defaultwwwdir = $(pkgdatadir)/www
-defaultwww_DATA = monitor.lua style.css favicon.ico index.lua
+defaultwww_DATA = monitor.lua style.css favicon.ico index.lua monitor.html jquery.js
 EXTRA_DIST = $(defaultwww_DATA)
 all: all-am
 

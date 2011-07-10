@@ -168,6 +168,11 @@ create_response_api(const char *nurl,
 
 		page = sensors_to_json_string(server_data.sensors);
 
+#ifdef HAVE_GTOP
+	} else if (!strcmp(nurl, URL_API_1_0_SYSINFO)) {
+
+		page = sysinfo_to_json_string(&server_data.psysinfo);
+#endif
 	} else if (!strncmp(nurl, URL_BASE_API_1_0_SENSORS,
 			    strlen(URL_BASE_API_1_0_SENSORS))
 		   && nurl[strlen(URL_BASE_API_1_0_SENSORS)] == '/') {
@@ -351,6 +356,7 @@ int main(int argc, char *argv[])
 #endif
 
 	server_data.www_dir = DEFAULT_WWW_DIR;
+	server_data.psysinfo.interfaces = NULL;
 
 	while ((optc = getopt_long(argc, argv,
 				   "vhp:w:d", long_options, NULL)) != -1) {

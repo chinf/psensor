@@ -19,7 +19,11 @@
 
 #include <stdlib.h>
 #include <glibtop/cpu.h>
+#include <glibtop/netlist.h>
+#include <glibtop/netload.h>
 #include <sys/sysinfo.h>
+
+#include <json/json.h>
 
 #include "sysinfo.h"
 
@@ -31,6 +35,9 @@ void sysinfo_update(struct psysinfo *info)
 {
 	unsigned long int used = 0;
 	unsigned long int dt;
+	glibtop_netlist buf;
+	char **interfaces;
+	guint32 i;
 
 	/* cpu */
 	if (!cpu)
@@ -50,10 +57,125 @@ void sysinfo_update(struct psysinfo *info)
 
 	/* memory */
 	sysinfo(&info->sysinfo);
+
+	/* network */
+	if (!info->interfaces)
+		info->interfaces = glibtop_get_netlist(&buf);
 }
 
 void sysinfo_cleanup()
 {
 	if (cpu)
 		free(cpu);
+}
+
+static json_object *ram_to_json_object(const struct sysinfo *s)
+{
+	json_object *obj = json_object_new_object();
+
+	json_object_object_add(obj, "total",
+			       json_object_new_double(s->totalram));
+
+	json_object_object_add(obj, "free",
+			       json_object_new_double(s->freeram));
+
+	json_object_object_add(obj, "shared",
+			       json_object_new_double(s->sharedram));
+
+	json_object_object_add(obj, "buffer",
+			       json_object_new_double(s->bufferram));
+
+	return obj;
+}
+
+static json_object *swap_to_json_object(const struct sysinfo *s)
+{
+	json_object *obj = json_object_new_object();
+
+	json_object_object_add(obj, "total",
+			       json_object_new_double(s->totalswap));
+
+	json_object_object_add(obj, "free",
+			       json_object_new_double(s->freeswap));
+
+	return obj;
+}
+
+static json_object *netif_to_json_object(const char *netif)
+{
+	glibtop_netload buf;
+	json_object *obj = json_object_new_object();
+
+	json_object_object_add(obj, "name", json_object_new_string(netif));
+
+	glibtop_get_netload(&buf, netif);
+
+	json_object_object_add(obj, "bytes_in",
+			       json_object_new_double(buf.bytes_in));
+
+	json_object_object_add(obj, "bytes_out",
+			       json_object_new_double(buf.bytes_out));
+
+	return obj;
+}
+
+static json_object *net_to_json_object(const struct psysinfo *s)
+{
+	char **netif = s->interfaces;
+	json_object *net = json_object_new_array();
+
+	while (*netif) {
+		json_object_array_add(net, netif_to_json_object(*netif));
+
+		netif++;
+	}
+
+	return net;
+}
+
+static json_object *sysinfo_to_json_object(const struct psysinfo *s)
+{
+	static float load_scale = 1 << SI_LOAD_SHIFT;
+	json_object *mo;
+	json_object *obj = json_object_new_object();
+	struct measure *m;
+
+	json_object_object_add(obj, "load",
+			       json_object_new_double(s->cpu_rate));
+
+	json_object_object_add
+		(obj, "load_1",
+		 json_object_new_double(s->sysinfo.loads[0] / load_scale));
+
+	json_object_object_add
+		(obj, "load_5",
+		 json_object_new_double(s->sysinfo.loads[1] / load_scale));
+
+	json_object_object_add
+		(obj, "load_15",
+		 json_object_new_double(s->sysinfo.loads[2] / load_scale));
+
+	json_object_object_add
+		(obj, "uptime", json_object_new_double(s->sysinfo.uptime));
+
+	json_object_object_add
+		(obj, "mem_unit", json_object_new_double(s->sysinfo.mem_unit));
+
+	json_object_object_add(obj, "ram", ram_to_json_object(&s->sysinfo));
+	json_object_object_add(obj, "swap", swap_to_json_object(&s->sysinfo));
+	json_object_object_add(obj, "net", net_to_json_object(s));
+
+	return obj;
+}
+
+char *sysinfo_to_json_string(const struct psysinfo *s)
+{
+	char *str;
+	json_object *obj = sysinfo_to_json_object(s);
+
+	str = strdup(json_object_to_json_string(obj));
+
+	json_object_put(obj);
+
+	return str;
 }
