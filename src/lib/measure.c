@@ -19,6 +19,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+
 #include "measure.h"
 
 struct measure *measures_create(int size)
@@ -43,6 +45,5 @@ void measures_free(struct measure *measures)
 
 void measure_copy(struct measure *src, struct measure *dst)
 {
-	dst->time = src->time;
-	dst->value = src->value;
+	memcpy(dst, src, sizeof(struct measure));
 }
