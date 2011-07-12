@@ -22,17 +22,22 @@
 
 #include <sys/time.h>
 #include <float.h>
+#include <stdint.h>
 
-#define UNKNOWN_VALUE DBL_MIN
+#define UNKNOWN_DBL_VALUE DBL_MIN
 
 struct measure {
-	double value;
+	union value {
+		double d_num;
+		uint64_t ui64_num;
+	} value;
+
 	struct timeval time;
 };
 
 void measure_copy(struct measure *src, struct measure *dst);
 
-struct measure *measures_create(int size);
+struct measure *measures_dbl_create(int size);
 
 void measures_free(struct measure *measures);
 

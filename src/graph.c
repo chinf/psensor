@@ -165,9 +165,9 @@ static void draw_sensor_curve(struct psensor *s,
 		double v;
 
 		t = s->measures[i].time.tv_sec;
-		v = s->measures[i].value;
+		v = s->measures[i].value.d_num;
 
-		if (v == UNKNOWN_VALUE || !t || (t - bt) < 0)
+		if (v == UNKNOWN_DBL_VALUE || !t || (t - bt) < 0)
 			continue;
 
 		x = (t - bt) * g_width / (et - bt) + g_xoff;

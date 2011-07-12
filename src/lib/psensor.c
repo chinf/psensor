@@ -40,13 +40,13 @@ struct psensor *psensor_create(char *id, char *name,
 	psensor->id = id;
 	psensor->name = name;
 	psensor->enabled = 1;
-	psensor->min = UNKNOWN_VALUE;
-	psensor->max = UNKNOWN_VALUE;
+	psensor->min = UNKNOWN_DBL_VALUE;
+	psensor->max = UNKNOWN_DBL_VALUE;
 
 	psensor->type = type;
 
 	psensor->values_max_length = values_max_length;
-	psensor->measures = measures_create(values_max_length);
+	psensor->measures = measures_dbl_create(values_max_length);
 
 	psensor->alarm_limit = 0;
 
@@ -70,7 +70,7 @@ void psensor_values_resize(struct psensor *s, int new_size)
 
 	cur_size = s->values_max_length;
 	cur_ms = s->measures;
-	new_ms = measures_create(new_size);
+	new_ms = measures_dbl_create(new_size);
 
 	if (cur_ms) {
 		int i;
@@ -233,13 +233,13 @@ psensor_set_current_measure(struct psensor *s,
 		&s->measures[1],
 		(s->values_max_length - 1) * sizeof(struct measure));
 
-	s->measures[s->values_max_length - 1].value = v;
+	s->measures[s->values_max_length - 1].value.d_num = v;
 	s->measures[s->values_max_length - 1].time = tv;
 
-	if (s->min == UNKNOWN_VALUE || v < s->min)
+	if (s->min == UNKNOWN_DBL_VALUE || v < s->min)
 		s->min = v;
 
-	if (s->max == UNKNOWN_VALUE || v > s->max)
+	if (s->max == UNKNOWN_DBL_VALUE || v > s->max)
 		s->max = v;
 
 	if (s->alarm_limit && s->alarm_enabled) {
@@ -257,7 +257,7 @@ psensor_set_current_measure(struct psensor *s,
 
 double psensor_get_current_value(struct psensor *sensor)
 {
-	return sensor->measures[sensor->values_max_length - 1].value;
+	return sensor->measures[sensor->values_max_length - 1].value.d_num;
 }
 
 struct measure *psensor_get_current_measure(struct psensor *sensor)
@@ -271,7 +271,7 @@ struct measure *psensor_get_current_measure(struct psensor *sensor)
  */
 double get_min_value(struct psensor **sensors, int type)
 {
-	double m = UNKNOWN_VALUE;
+	double m = UNKNOWN_DBL_VALUE;
 	struct psensor **s = sensors;
 
 	while (*s) {
@@ -282,12 +282,12 @@ double get_min_value(struct psensor **sensors, int type)
 			double t;
 
 			for (i = 0; i < sensor->values_max_length; i++) {
-				t = sensor->measures[i].value;
+				t = sensor->measures[i].value.d_num;
 
-				if (t == UNKNOWN_VALUE)
+				if (t == UNKNOWN_DBL_VALUE)
 					continue;
 
-				if (m == UNKNOWN_VALUE || t < m)
+				if (m == UNKNOWN_DBL_VALUE || t < m)
 					m = t;
 			}
 		}
@@ -303,7 +303,7 @@ double get_min_value(struct psensor **sensors, int type)
  */
 static double get_max_value(struct psensor **sensors, int type)
 {
-	double m = UNKNOWN_VALUE;
+	double m = UNKNOWN_DBL_VALUE;
 	struct psensor **s = sensors;
 
 	while (*s) {
@@ -313,12 +313,12 @@ static double get_max_value(struct psensor **sensors, int type)
 			int i;
 			double t;
 			for (i = 0; i < sensor->values_max_length; i++) {
-				t = sensor->measures[i].value;
+				t = sensor->measures[i].value.d_num;
 
-				if (t == UNKNOWN_VALUE)
+				if (t == UNKNOWN_DBL_VALUE)
 					continue;
 
-				if (m == UNKNOWN_VALUE || t > m)
+				if (m == UNKNOWN_DBL_VALUE || t > m)
 					m = t;
 			}
 		}
@@ -331,7 +331,7 @@ static double get_max_value(struct psensor **sensors, int type)
 double
 psensor_get_max_current_value(struct psensor **sensors, unsigned int type)
 {
-	double m = UNKNOWN_VALUE;
+	double m = UNKNOWN_DBL_VALUE;
 	struct psensor **s_cur = sensors;
 
 	while (*s_cur) {
@@ -340,7 +340,7 @@ psensor_get_max_current_value(struct psensor **sensors, unsigned int type)
 		if (s->enabled && (s->type & type)) {
 			double v = psensor_get_current_value(s);
 
-			if (m == UNKNOWN_VALUE || v > m)
+			if (m == UNKNOWN_DBL_VALUE || v > m)
 				m = v;
 		}
 

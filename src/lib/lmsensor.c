@@ -42,7 +42,7 @@ lmsensor_get_value(const sensors_chip_name *name,
 		fprintf(stderr,
 			_("ERROR: Can't get value of subfeature %s: %s\n"),
 			sub->name, sensors_strerror(err));
-		val = UNKNOWN_VALUE;
+		val = UNKNOWN_DBL_VALUE;
 	}
 	return val;
 }
@@ -59,7 +59,7 @@ double lmsensor_get_temp_input(struct psensor *sensor)
 	if (sf)
 		return lmsensor_get_value(chip, sf);
 	else
-		return UNKNOWN_VALUE;
+		return UNKNOWN_DBL_VALUE;
 }
 
 double lmsensor_get_fan_input(struct psensor *sensor)
@@ -74,7 +74,7 @@ double lmsensor_get_fan_input(struct psensor *sensor)
 	if (sf)
 		return lmsensor_get_value(chip, sf);
 	else
-		return UNKNOWN_VALUE;
+		return UNKNOWN_DBL_VALUE;
 }
 
 void lmsensor_psensor_list_update(struct psensor **sensors)
@@ -149,7 +149,7 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	psensor->feature = feature;
 
 	if (feature->type == SENSORS_FEATURE_TEMP
-	    && (lmsensor_get_temp_input(psensor) == UNKNOWN_VALUE)) {
+	    && (lmsensor_get_temp_input(psensor) == UNKNOWN_DBL_VALUE)) {
 		free(psensor);
 		return NULL;
 	}

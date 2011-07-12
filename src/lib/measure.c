@@ -23,7 +23,7 @@
 
 #include "measure.h"
 
-struct measure *measures_create(int size)
+struct measure *measures_dbl_create(int size)
 {
 	int i;
 	struct measure *result;
@@ -31,7 +31,7 @@ struct measure *measures_create(int size)
 	result = malloc(size * sizeof(struct measure));
 
 	for (i = 0; i < size; i++) {
-		result[i].value = UNKNOWN_VALUE;
+		result[i].value.d_num = UNKNOWN_DBL_VALUE;
 		timerclear(&result[i].time);
 	}
 
