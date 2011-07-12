@@ -93,7 +93,6 @@ struct psensor {
 #endif
 
 	char *url;
-
 };
 
 struct psensor *psensor_create(char *id,
