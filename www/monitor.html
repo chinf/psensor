@@ -5,32 +5,9 @@
 
     <link type="text/css" href="style.css" rel="stylesheet" />	
     <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="psensor.js"></script>
 
     <script>
-      function format_mem_size(s) {
-          var mo_bytes = 1024 * 1024;
-          var go_bytes = 1024 * mo_bytes;
-
-          var o = s % 1024;
-          var k = Math.round((s / 1024) % 1024);
-          var m = Math.round((s / (1024*1024)) % 1024);
-          var g = Math.round(s / (1024*1024*1024));
-
-          if (g >= 1)
-               return g+"Go ";
-
-          if (m >= 1)
-               return m+"Mo";
-
-          if (k >= 1)
-               return k+"Ko";
- 
-          if (o > 0)
-               return o+"o";
-
-          return "0";
-      };
-
       $(document).ready(function() {          
           $.getJSON("/api/1.0/sensors", function(data) {
               $.each(data, function(i, item) {
@@ -39,26 +16,12 @@
                   var smin = item["min"];
                   var smax = item["max"];
                   var stype = item["type"];
-                  var stype_str = "N/A";
-                  var unit = "";
+                  var stype_str;
+                  var unit;
 
-                  if (stype & 0x0100) {
-                      stype_str = "Sensor";
-                  } else if (stype & 0x0200) {
-                      stype_str = "NVidia";
-                  } else if (stype & 0x0400) {
-                      stype_str = "HDD";
-                  } else if (stype & 0x0800) {
-                      stype_str = "Fan";
-                  }
+                  unit = type_to_unit(stype);
+                  stype_str = type_to_str(stype);
 
-                  if (stype & 0x0001) {
-                      stype_str += " Temperature";
-                      unit = " C";
-                  } else if (stype & 0x0002) {
-                      unit = " RPM";
-                  }
-      
                   $("#sensors").append("<tr><td>"+sname+"</td><td>"+svalue+unit+"</td><td>"+smin+unit+"</td><td>"+smax+unit+"</td><td>"+stype_str+"</td></tr>");                 
               });          
           });
