@@ -108,12 +108,12 @@ th, td {
     padding: 4px 4px 4px 4px;
 }
 
-a:link, a:visited, a:active {
+.page-footer a:link , .page-footer a:visited, .page-footer a:active {
     text-decoration: none;
     color: #333333;
 }
 
-a:hover {
+.page-footer a:hover {
     text-decoration: underline;
     color: #333333;
 }
