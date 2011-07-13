@@ -134,7 +134,7 @@ char *get_path(const char *url, const char *www_dir)
 	char *res;
 
 	if (!strlen(url) || !strcmp(url, ".") || !strcmp(url, "/"))
-		p = "/index.lua";
+		p = "/index.html";
 	else
 		p = url;
 
