@@ -153,24 +153,6 @@ AM_CONDITIONAL(UNITY, test -n "$UNITY_LIBS")
 
 ############### psensor-server
 
-# Checks Lua 5.1 
-LUA_LIBS=
-PKG_CHECK_MODULES(LUA, 
-  lua, 
-  [AC_DEFINE([HAVE_LUA],[1],[Use Lua])], 
-  [AC_MSG_WARN(Lua not present, checks Lua5.1)])
-
-# Ubuntu pkg module is lua5.1 not lua
-if test "$LUA_LIBS" == ""; then
-   PKG_CHECK_MODULES(LUA, 
-     lua5.1, 
-     [AC_DEFINE([HAVE_LUA],[1],[Use Lua5.1])], 
-     [AC_MSG_WARN(Lua5.1 not present, psensor-server will NOT be built")])
-fi
-AM_CONDITIONAL(LUA, test -n "$LUA_LIBS")
-AC_SUBST(LUA_CFLAGS)
-AC_SUBST(LUA_LIBS)
-
 # libmicrohttpd, mandatory for psensor-server
 LIBMICROHTTPD_LIBS=
 PKG_CHECK_MODULES(LIBMICROHTTPD, 

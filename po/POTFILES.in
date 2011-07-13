@@ -7,7 +7,6 @@ src/ui_notify.c
 src/ui_pref.c
 src/ui_sensorpref.c  
 src/rsensor.c
-src/plib/plib_luatpl.c
 src/server/server.c
 src/lib/hdd.c
 src/lib/nvidia.c

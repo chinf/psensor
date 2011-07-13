@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-07-10 23:30+0200\n"
+"POT-Creation-Date: 2011-07-13 11:01+0200\n"
 "PO-Revision-Date: 2011-06-06 08:57+0000\n"
 "Last-Translator: royclark <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-06-06 09:00+0000\n"
 "X-Generator: Launchpad (build 13144)\n"
 
-#: src/main.c:72 src/server/server.c:80
+#: src/main.c:72 src/server/server.c:76
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -28,7 +28,7 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:82 src/server/server.c:90
+#: src/main.c:82 src/server/server.c:86
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "用法：%s [选项]...\n"
@@ -43,7 +43,7 @@ msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温�
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:89 src/server/server.c:97
+#: src/main.c:89 src/server/server.c:93
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -57,17 +57,17 @@ msgid ""
 "hostname:3131"
 msgstr "  -u, --url=URL psensor服务器的 URL ，比如：http://hostname:3131"
 
-#: src/main.c:101 src/server/server.c:110
+#: src/main.c:101 src/server/server.c:106
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:103 src/server/server.c:112
+#: src/main.c:103 src/server/server.c:108
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:323 src/server/server.c:388
+#: src/main.c:323 src/server/server.c:346
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
@@ -208,88 +208,58 @@ msgstr ""
 msgid "ERROR: Invalid JSON: %s\n"
 msgstr ""
 
-#: src/plib/plib_luatpl.c:121
-#, c-format
-msgid "LUATPL Error: failed to load Lua script: %s.\n"
-msgstr ""
-
-#: src/plib/plib_luatpl.c:127
-#, c-format
-msgid "LUATPL Error: failed to call init function: %s.\n"
-msgstr ""
-
-#: src/plib/plib_luatpl.c:133
-#, c-format
-msgid "LUATPL Error:failed to execute Lua script (%s): %s.\n"
-msgstr ""
-
-#: src/plib/plib_luatpl.c:140
-#, c-format
-msgid "LUATPL Error:lua script (%s) returned a wrong type.\n"
-msgstr ""
-
-#: src/plib/plib_luatpl.c:147
-#, c-format
-msgid "LUATPL Error:failed to open lua state.\n"
-msgstr ""
-
-#: src/plib/plib_luatpl.c:154
-#, c-format
-msgid "LUATPL Error: code: %d.\n"
-msgstr ""
-
-#: src/server/server.c:56
+#: src/server/server.c:52
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 
-#: src/server/server.c:92
+#: src/server/server.c:88
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
 
-#: src/server/server.c:103
+#: src/server/server.c:99
 msgid ""
 "  -d,--debug     run in debug mode\n"
 "  -p,--port=PORT webserver port\n"
 "  -w,--wdir=DIR  directory containing webserver pages"
 msgstr ""
 
-#: src/server/server.c:190
+#: src/server/server.c:173
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
-#: src/server/server.c:326
+#: src/server/server.c:284
 #, c-format
 msgid "HTTP Request: %s\n"
 msgstr ""
 
-#: src/server/server.c:394
+#: src/server/server.c:352
 #, c-format
 msgid "ERROR: failed to init lm-sensors\n"
 msgstr ""
 
-#: src/server/server.c:401
+#: src/server/server.c:359
 #, c-format
 msgid "ERROR: no sensors detected\n"
 msgstr ""
 
-#: src/server/server.c:408
+#: src/server/server.c:366
 #, c-format
 msgid "ERROR: Fail to create web server\n"
 msgstr ""
 
-#: src/server/server.c:412
+#: src/server/server.c:370
 #, c-format
 msgid "Web server started on port: %d\n"
 msgstr ""
 
-#: src/server/server.c:413
+#: src/server/server.c:371
 #, c-format
 msgid "WWW directory: %s\n"
 msgstr ""
 
-#: src/server/server.c:414
+#: src/server/server.c:372
 #, c-format
 msgid "URL: http://localhost:%d\n"
 msgstr ""

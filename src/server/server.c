@@ -40,10 +40,6 @@
 #include "sysinfo.h"
 #endif
 
-#ifdef HAVE_LUA
-#include "server_lua.h"
-#endif
-
 #include "psensor_json.h"
 #include "plib/url.h"
 #include "plib/plib_io.h"
@@ -110,19 +106,6 @@ void print_help()
 	printf(_("Report bugs to: %s\n"), PACKAGE_BUGREPORT);
 	puts("");
 	printf(_("%s home page: <%s>\n"), PACKAGE_NAME, PACKAGE_URL);
-}
-
-/*
-  Returns '1' if the path denotates a Lua file, otherwise returns 0.
- */
-int is_path_lua(const char *path)
-{
-	char *dot = rindex(path, '.');
-
-	if (dot && !strcasecmp(dot, ".lua"))
-		return 1;
-
-	return 0;
 }
 
 /*
@@ -207,26 +190,6 @@ create_response_api(const char *nurl,
 }
 
 struct MHD_Response *
-create_response_lua(const char *nurl,
-		    const char *method,
-		    unsigned int *rp_code,
-		    const char *fpath)
-{
-#ifdef HAVE_LUA
-	char *page = lua_to_html_page(&server_data, fpath);
-
-	if (page) {
-		*rp_code = MHD_HTTP_OK;
-
-		return MHD_create_response_from_data
-			(strlen(page), page, MHD_YES, MHD_NO);
-	}
-#endif
-
-	return NULL;
-}
-
-struct MHD_Response *
 create_response_file(const char *nurl,
 		     const char *method,
 		     unsigned int *rp_code,
@@ -270,12 +233,7 @@ create_response(const char *nurl, const char *method, unsigned int *rp_code)
 	} else {
 		char *fpath = get_path(nurl, server_data.www_dir);
 
-		if (is_path_lua(fpath))
-			resp = create_response_lua
-				(nurl, method, rp_code, fpath);
-		else
-			resp = create_response_file
-				(nurl, method, rp_code, fpath);
+		resp = create_response_file(nurl, method, rp_code, fpath);
 
 		free(fpath);
 	}

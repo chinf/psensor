@@ -19,13 +19,6 @@ LIBS = \
 	$(JSON_LIBS) \
 	$(LIBMICROHTTPD_LIBS)
 
-if LUA
-AM_CPPFLAGS += $(LUA_CFLAGS)
-LIBS += ../plib/libplib_luatpl.a \
-	$(LUA_LIBS)
-psensor_server_SOURCES += server_lua.h server_lua.c
-endif
-
 if GTOP
 AM_CPPFLAGS += $(GTOP_CFLAGS)
 LIBS += $(GTOP_LIBS) 

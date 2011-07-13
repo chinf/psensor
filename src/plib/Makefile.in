@@ -34,7 +34,6 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@LUA_TRUE@am__append_1 = libplib_luatpl.a
 subdir = src/plib
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -53,12 +52,6 @@ libplib_a_LIBADD =
 am_libplib_a_OBJECTS = libplib_a-url.$(OBJEXT) \
 	libplib_a-plib_io.$(OBJEXT)
 libplib_a_OBJECTS = $(am_libplib_a_OBJECTS)
-libplib_luatpl_a_AR = $(AR) $(ARFLAGS)
-libplib_luatpl_a_LIBADD =
-am__libplib_luatpl_a_SOURCES_DIST = plib_luatpl.h plib_luatpl.c
-@LUA_TRUE@am_libplib_luatpl_a_OBJECTS =  \
-@LUA_TRUE@	libplib_luatpl_a-plib_luatpl.$(OBJEXT)
-libplib_luatpl_a_OBJECTS = $(am_libplib_luatpl_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -67,9 +60,8 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(libplib_a_SOURCES) $(libplib_luatpl_a_SOURCES)
-DIST_SOURCES = $(libplib_a_SOURCES) \
-	$(am__libplib_luatpl_a_SOURCES_DIST)
+SOURCES = $(libplib_a_SOURCES)
+DIST_SOURCES = $(libplib_a_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -128,8 +120,6 @@ LIBS = @LIBS@
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
-LUA_CFLAGS = @LUA_CFLAGS@
-LUA_LIBS = @LUA_LIBS@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
 MSGFMT = @MSGFMT@
@@ -220,17 +210,11 @@ top_srcdir = @top_srcdir@
 AM_CPPFLAGS = \
 	-I$(top_srcdir)/src
 
-noinst_LIBRARIES = libplib.a $(am__append_1)
+noinst_LIBRARIES = libplib.a
 libplib_a_CFLAGS = -pedantic
 libplib_a_SOURCES = \
 	url.c url.h \
 	plib_io.h plib_io.c
-
-@LUA_TRUE@libplib_luatpl_a_CFLAGS = -pedantic \
-@LUA_TRUE@	$(LUA_CFLAGS)
-
-@LUA_TRUE@libplib_luatpl_a_SOURCES = \
-@LUA_TRUE@	plib_luatpl.h plib_luatpl.c 
 
 all: all-am
 
@@ -273,10 +257,6 @@ libplib.a: $(libplib_a_OBJECTS) $(libplib_a_DEPENDENCIES)
 	-rm -f libplib.a
 	$(libplib_a_AR) libplib.a $(libplib_a_OBJECTS) $(libplib_a_LIBADD)
 	$(RANLIB) libplib.a
-libplib_luatpl.a: $(libplib_luatpl_a_OBJECTS) $(libplib_luatpl_a_DEPENDENCIES) 
-	-rm -f libplib_luatpl.a
-	$(libplib_luatpl_a_AR) libplib_luatpl.a $(libplib_luatpl_a_OBJECTS) $(libplib_luatpl_a_LIBADD)
-	$(RANLIB) libplib_luatpl.a
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -286,7 +266,6 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libplib_a-plib_io.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libplib_a-url.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libplib_luatpl_a-plib_luatpl.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -329,20 +308,6 @@ libplib_a-plib_io.obj: plib_io.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plib_io.c' object='libplib_a-plib_io.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_a_CFLAGS) $(CFLAGS) -c -o libplib_a-plib_io.obj `if test -f 'plib_io.c'; then $(CYGPATH_W) 'plib_io.c'; else $(CYGPATH_W) '$(srcdir)/plib_io.c'; fi`
-
-libplib_luatpl_a-plib_luatpl.o: plib_luatpl.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_luatpl_a_CFLAGS) $(CFLAGS) -MT libplib_luatpl_a-plib_luatpl.o -MD -MP -MF $(DEPDIR)/libplib_luatpl_a-plib_luatpl.Tpo -c -o libplib_luatpl_a-plib_luatpl.o `test -f 'plib_luatpl.c' || echo '$(srcdir)/'`plib_luatpl.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libplib_luatpl_a-plib_luatpl.Tpo $(DEPDIR)/libplib_luatpl_a-plib_luatpl.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plib_luatpl.c' object='libplib_luatpl_a-plib_luatpl.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_luatpl_a_CFLAGS) $(CFLAGS) -c -o libplib_luatpl_a-plib_luatpl.o `test -f 'plib_luatpl.c' || echo '$(srcdir)/'`plib_luatpl.c
-
-libplib_luatpl_a-plib_luatpl.obj: plib_luatpl.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_luatpl_a_CFLAGS) $(CFLAGS) -MT libplib_luatpl_a-plib_luatpl.obj -MD -MP -MF $(DEPDIR)/libplib_luatpl_a-plib_luatpl.Tpo -c -o libplib_luatpl_a-plib_luatpl.obj `if test -f 'plib_luatpl.c'; then $(CYGPATH_W) 'plib_luatpl.c'; else $(CYGPATH_W) '$(srcdir)/plib_luatpl.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libplib_luatpl_a-plib_luatpl.Tpo $(DEPDIR)/libplib_luatpl_a-plib_luatpl.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plib_luatpl.c' object='libplib_luatpl_a-plib_luatpl.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_luatpl_a_CFLAGS) $(CFLAGS) -c -o libplib_luatpl_a-plib_luatpl.obj `if test -f 'plib_luatpl.c'; then $(CYGPATH_W) 'plib_luatpl.c'; else $(CYGPATH_W) '$(srcdir)/plib_luatpl.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

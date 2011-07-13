@@ -125,8 +125,6 @@ LIBS = @LIBS@
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
-LUA_CFLAGS = @LUA_CFLAGS@
-LUA_LIBS = @LUA_LIBS@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
 MSGFMT = @MSGFMT@
@@ -215,7 +213,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 defaultwwwdir = $(pkgdatadir)/www
-defaultwww_DATA = monitor.lua style.css favicon.ico index.lua monitor.html jquery.js
+defaultwww_DATA = index.html style.css favicon.ico monitor.html jquery.js
 EXTRA_DIST = $(defaultwww_DATA)
 all: all-am
 

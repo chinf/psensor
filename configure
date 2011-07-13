@@ -607,10 +607,6 @@ LIBMICROHTTPD_FALSE
 LIBMICROHTTPD_TRUE
 LIBMICROHTTPD_LIBS
 LIBMICROHTTPD_CFLAGS
-LUA_FALSE
-LUA_TRUE
-LUA_LIBS
-LUA_CFLAGS
 UNITY_FALSE
 UNITY_TRUE
 UNITY_LIBS
@@ -798,8 +794,6 @@ JSON_CFLAGS
 JSON_LIBS
 UNITY_CFLAGS
 UNITY_LIBS
-LUA_CFLAGS
-LUA_LIBS
 LIBMICROHTTPD_CFLAGS
 LIBMICROHTTPD_LIBS
 GTOP_CFLAGS
@@ -1483,8 +1477,6 @@ Some influential environment variables:
   UNITY_CFLAGS
               C compiler flags for UNITY, overriding pkg-config
   UNITY_LIBS  linker flags for UNITY, overriding pkg-config
-  LUA_CFLAGS  C compiler flags for LUA, overriding pkg-config
-  LUA_LIBS    linker flags for LUA, overriding pkg-config
   LIBMICROHTTPD_CFLAGS
               C compiler flags for LIBMICROHTTPD, overriding pkg-config
   LIBMICROHTTPD_LIBS
@@ -8074,169 +8066,6 @@ fi
 
 ############### psensor-server
 
-# Checks Lua 5.1
-LUA_LIBS=
-
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for LUA" >&5
-$as_echo_n "checking for LUA... " >&6; }
-
-if test -n "$LUA_CFLAGS"; then
-    pkg_cv_LUA_CFLAGS="$LUA_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"lua\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "lua") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_LUA_CFLAGS=`$PKG_CONFIG --cflags "lua" 2>/dev/null`
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$LUA_LIBS"; then
-    pkg_cv_LUA_LIBS="$LUA_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"lua\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "lua") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_LUA_LIBS=`$PKG_CONFIG --libs "lua" 2>/dev/null`
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-
-
-
-if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "lua" 2>&1`
-        else
-	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors "lua" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$LUA_PKG_ERRORS" >&5
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Lua not present" >&5
-$as_echo "$as_me: WARNING: Lua not present" >&2;}
-elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Lua not present" >&5
-$as_echo "$as_me: WARNING: Lua not present" >&2;}
-else
-	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-	LUA_LIBS=$pkg_cv_LUA_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-
-$as_echo "#define HAVE_LUA 1" >>confdefs.h
-
-fi
-
-# Ubuntu pkg module is lua5.1 not lua
-if test "$LUA_LIBS" == ""; then
-
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for LUA" >&5
-$as_echo_n "checking for LUA... " >&6; }
-
-if test -n "$LUA_CFLAGS"; then
-    pkg_cv_LUA_CFLAGS="$LUA_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"lua5.1\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "lua5.1") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_LUA_CFLAGS=`$PKG_CONFIG --cflags "lua5.1" 2>/dev/null`
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$LUA_LIBS"; then
-    pkg_cv_LUA_LIBS="$LUA_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"lua5.1\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "lua5.1") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_LUA_LIBS=`$PKG_CONFIG --libs "lua5.1" 2>/dev/null`
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-
-
-
-if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        LUA_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "lua5.1" 2>&1`
-        else
-	        LUA_PKG_ERRORS=`$PKG_CONFIG --print-errors "lua5.1" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$LUA_PKG_ERRORS" >&5
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Lua5.1 not present" >&5
-$as_echo "$as_me: WARNING: Lua5.1 not present" >&2;}
-elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: Lua5.1 not present" >&5
-$as_echo "$as_me: WARNING: Lua5.1 not present" >&2;}
-else
-	LUA_CFLAGS=$pkg_cv_LUA_CFLAGS
-	LUA_LIBS=$pkg_cv_LUA_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-
-$as_echo "#define HAVE_LUA 1" >>confdefs.h
-
-fi
-fi
- if test -n "$LUA_LIBS"; then
-  LUA_TRUE=
-  LUA_FALSE='#'
-else
-  LUA_TRUE='#'
-  LUA_FALSE=
-fi
-
-
-
-
 # libmicrohttpd, mandatory for psensor-server
 LIBMICROHTTPD_LIBS=
 
@@ -8606,10 +8435,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${UNITY_TRUE}" && test -z "${UNITY_FALSE}"; then
   as_fn_error $? "conditional \"UNITY\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${LUA_TRUE}" && test -z "${LUA_FALSE}"; then
-  as_fn_error $? "conditional \"LUA\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIBMICROHTTPD_TRUE}" && test -z "${LIBMICROHTTPD_FALSE}"; then

@@ -8,9 +8,7 @@ endif
 
 if LIBMICROHTTPD
 if JSON
-if LUA
 SUBDIRS += server
-endif
 endif
 endif
 

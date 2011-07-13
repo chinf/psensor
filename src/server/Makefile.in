@@ -35,14 +35,9 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 bin_PROGRAMS = psensor-server$(EXEEXT)
-@LUA_TRUE@am__append_1 = $(LUA_CFLAGS)
-@LUA_TRUE@am__append_2 = ../plib/libplib_luatpl.a \
-@LUA_TRUE@	$(LUA_LIBS)
-
-@LUA_TRUE@am__append_3 = server_lua.h server_lua.c
-@GTOP_TRUE@am__append_4 = $(GTOP_CFLAGS)
-@GTOP_TRUE@am__append_5 = $(GTOP_LIBS) 
-@GTOP_TRUE@am__append_6 = sysinfo.h sysinfo.c
+@GTOP_TRUE@am__append_1 = $(GTOP_CFLAGS)
+@GTOP_TRUE@am__append_2 = $(GTOP_LIBS) 
+@GTOP_TRUE@am__append_3 = sysinfo.h sysinfo.c
 subdir = src/server
 DIST_COMMON = $(dist_man_MANS) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in
@@ -56,12 +51,10 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(man1dir)"
 PROGRAMS = $(bin_PROGRAMS)
-am__psensor_server_SOURCES_DIST = server.c server.h server_lua.h \
-	server_lua.c sysinfo.h sysinfo.c
-@LUA_TRUE@am__objects_1 = server_lua.$(OBJEXT)
-@GTOP_TRUE@am__objects_2 = sysinfo.$(OBJEXT)
-am_psensor_server_OBJECTS = server.$(OBJEXT) $(am__objects_1) \
-	$(am__objects_2)
+am__psensor_server_SOURCES_DIST = server.c server.h sysinfo.h \
+	sysinfo.c
+@GTOP_TRUE@am__objects_1 = sysinfo.$(OBJEXT)
+am_psensor_server_OBJECTS = server.$(OBJEXT) $(am__objects_1)
 psensor_server_OBJECTS = $(am_psensor_server_OBJECTS)
 psensor_server_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
@@ -154,13 +147,10 @@ LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
 LIBS = ../plib/libplib.a ../lib/libpsensor.a \
 	../libpsensor_json/libpsensor_json.a $(SENSORS_LIBS) \
-	$(JSON_LIBS) $(LIBMICROHTTPD_LIBS) $(am__append_2) \
-	$(am__append_5)
+	$(JSON_LIBS) $(LIBMICROHTTPD_LIBS) $(am__append_2)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
-LUA_CFLAGS = @LUA_CFLAGS@
-LUA_LIBS = @LUA_LIBS@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
 MSGFMT = @MSGFMT@
@@ -248,13 +238,12 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-psensor_server_SOURCES = server.c server.h $(am__append_3) \
-	$(am__append_6)
+psensor_server_SOURCES = server.c server.h $(am__append_3)
 AM_CPPFLAGS = -pedantic -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" -I$(top_srcdir)/src \
 	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/libpsensor_json \
 	$(SENSORS_CFLAGS) $(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) \
-	$(am__append_1) $(am__append_4)
+	$(am__append_1)
 @GTOP_TRUE@AM_LDFLAGS = -Wl,--as-needed
 dist_man_MANS = psensor-server.1
 EXTRA_DIST = description.txt
@@ -340,7 +329,6 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/server.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/server_lua.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sysinfo.Po@am__quote@
 
 .c.o:
