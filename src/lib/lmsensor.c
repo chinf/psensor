@@ -30,9 +30,8 @@
 
 #include "psensor.h"
 
-double
-lmsensor_get_value(const sensors_chip_name *name,
-		   const sensors_subfeature *sub)
+static double get_value(const sensors_chip_name *name,
+			const sensors_subfeature *sub)
 {
 	double val;
 	int err;
@@ -47,7 +46,7 @@ lmsensor_get_value(const sensors_chip_name *name,
 	return val;
 }
 
-double lmsensor_get_temp_input(struct psensor *sensor)
+static double get_temp_input(struct psensor *sensor)
 {
 	const sensors_chip_name *chip = sensor->iname;
 	const sensors_feature *feature = sensor->feature;
@@ -57,12 +56,12 @@ double lmsensor_get_temp_input(struct psensor *sensor)
 	sf = sensors_get_subfeature(chip,
 				    feature, SENSORS_SUBFEATURE_TEMP_INPUT);
 	if (sf)
-		return lmsensor_get_value(chip, sf);
+		return get_value(chip, sf);
 	else
 		return UNKNOWN_DBL_VALUE;
 }
 
-double lmsensor_get_fan_input(struct psensor *sensor)
+static double get_fan_input(struct psensor *sensor)
 {
 	const sensors_chip_name *chip = sensor->iname;
 	const sensors_feature *feature = sensor->feature;
@@ -72,7 +71,7 @@ double lmsensor_get_fan_input(struct psensor *sensor)
 	sf = sensors_get_subfeature(chip,
 				    feature, SENSORS_SUBFEATURE_FAN_INPUT);
 	if (sf)
-		return lmsensor_get_value(chip, sf);
+		return get_value(chip, sf);
 	else
 		return UNKNOWN_DBL_VALUE;
 }
@@ -86,10 +85,10 @@ void lmsensor_psensor_list_update(struct psensor **sensors)
 
 		if (sensor->type == SENSOR_TYPE_LMSENSOR_TEMP)
 			psensor_set_current_value
-			    (sensor, lmsensor_get_temp_input(sensor));
+			    (sensor, get_temp_input(sensor));
 		else if (sensor->type == SENSOR_TYPE_LMSENSOR_FAN)
-			psensor_set_current_value
-			    (sensor, lmsensor_get_fan_input(sensor));
+			psensor_set_current_value(sensor,
+						  get_fan_input(sensor));
 
 		s_ptr++;
 	}
@@ -124,7 +123,7 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	}
 
 	sf = sensors_get_subfeature(chip, feature, fault_subfeature);
-	if (sf && lmsensor_get_value(chip, sf))
+	if (sf && get_value(chip, sf))
 		return NULL;
 
 	label = sensors_get_label(chip, feature);
@@ -149,7 +148,7 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	psensor->feature = feature;
 
 	if (feature->type == SENSORS_FEATURE_TEMP
-	    && (lmsensor_get_temp_input(psensor) == UNKNOWN_DBL_VALUE)) {
+	    && (get_temp_input(psensor) == UNKNOWN_DBL_VALUE)) {
 		free(psensor);
 		return NULL;
 	}
