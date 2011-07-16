@@ -6,8 +6,7 @@
     <link type="text/css" href="style.css" rel="stylesheet" />	
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="psensor.js"></script>
-
-    <script>
+    <script>  
       $(document).ready(function() {          
           $.getJSON("/api/1.0/sensors", function(data) {
               $.each(data, function(i, item) {
@@ -73,70 +72,86 @@
     </script>
   </head>
   <body>
-
     <div class='page'>
       <div class='page-header'>
 	<h1>Psensor Server Monitoring</h1>
       </div>
 
       <div class='page-content'>
+
 	<p id='uptime'><strong>Uptime</strong>: </p>
-	
+
 	<h2>CPU</h2>
-	
-	<table id='cpu' border='0' cellspacing='0' cellpadding='0'>
-	  <thead>
-	    <tr>
-	      <th>Current usage</th>
-	      <th>Load 1mn</th>
-	      <th>Load 5mn</th>
-	      <th>Load 15mn</th>
-	  </tr>
-	  </thead>
-	  <tbody></tbody>
-	</table>
+
+	<div>
+	  <table id='cpu' border='0' cellspacing='0' cellpadding='0'>
+	    <thead>
+	      <tr>
+		<th>Current usage</th>
+		<th>Load 1mn</th>
+		<th>Load 5mn</th>
+		<th>Load 15mn</th>
+	      </tr>
+	    </thead>
+	    <tbody></tbody>
+	  </table>
+	</div>
 	
 	<h2>Memory</h2>
-	
-	<table border='0' cellspacing='0' cellpadding='0'>
-	  <thead>
-	    <tr>
-              <th></th>
-	      <th>Total</th>
-	      <th>Used</th>
-	      <th>Free</th>
-	      <th>Shared</th>
-	      <th>Buffer</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <tr id='memory'><td>Memory</td></tr>
-	    <tr id='swap'><td>Swap</td></tr>
-	  </tbody>
-	</table>
+
+	<div>
+	  <table border='0' cellspacing='0' cellpadding='0'>
+	    <thead>
+	      <tr>
+		<th></th>
+		<th>Total</th>
+		<th>Used</th>
+		<th>Free</th>
+		<th>Shared</th>
+		<th>Buffer</th>
+	      </tr>
+	    </thead>
+	      <tbody>
+		<tr id='memory'><td>Memory</td></tr>
+		<tr id='swap'><td>Swap</td></tr>
+	      </tbody>
+	    </table>
+	</div>
 
 	<h2>Network</h2>
 
-	<table id='net' border='0' cellspacing='0' cellpadding='0'>
-	  <thead>
-	    <tr>
-	      <th>Interface</th>
-	      <th>Bytes In</th>
-	      <th>Bytes Out</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  </tbody>
-	</table>
-	
-	<h2>Sensors</h2>
-	
-	<table id='sensors' border='0' cellspacing='0' cellpadding='0'>
-	  <thead><tr><th>Name</th><th>Value</th><th>Min</th><th>Max</th><th>Type</th></thead>
-	  <tbody></tbody>
-	</table>
-      </div>
+	<div>
+	  <table id='net' border='0' cellspacing='0' cellpadding='0'>
+	    <thead>
+	      <tr>
+		<th>Interface</th>
+		<th>Bytes In</th>
+		<th>Bytes Out</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    </tbody>
+	  </table>
+	</div>
 
+	<h2>Sensors</h2>
+
+	<div>
+	  <table id='sensors' border='0' cellspacing='0' cellpadding='0'>
+	    <thead>
+	      <tr>
+		<th>Name</th>
+		<th>Value</th>
+		<th>Min</th>
+		<th>Max</th>
+		<th>Type</th>
+	      </tr>
+	    </thead>
+	    <tbody></tbody>
+	  </table>
+	</div>
+      </div>
+      </div>
     </div>
       <div class='page-footer'>
 	<a href='http://wpitchoune.net/psensor'>Psensor Server</a> - (c)2011 jeanfi@gmail.com 
