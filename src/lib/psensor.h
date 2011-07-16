@@ -159,4 +159,8 @@ const char *psensor_type_to_unit_str(unsigned int type);
 
 void psensor_list_update_measures(struct psensor **sensors);
 
+void psensor_init();
+
+void psensor_cleanup();
+
 #endif

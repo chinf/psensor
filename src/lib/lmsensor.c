@@ -30,6 +30,8 @@
 
 #include "psensor.h"
 
+static int init_done;
+
 static double get_value(const sensors_chip_name *name,
 			const sensors_subfeature *sub)
 {
@@ -79,6 +81,9 @@ static double get_fan_input(struct psensor *sensor)
 void lmsensor_psensor_list_update(struct psensor **sensors)
 {
 	struct psensor **s_ptr = sensors;
+
+	if (!init_done)
+		return ;
 
 	while (*s_ptr) {
 		struct psensor *sensor = *s_ptr;
@@ -156,20 +161,6 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	return psensor;
 }
 
-int lmsensor_init()
-{
-	int err = sensors_init(NULL);
-
-	if (err) {
-		fprintf(stderr,
-			_("ERROR: lm-sensors initialization failure: %s\n"),
-			sensors_strerror(err));
-		return 0;
-	} else {
-		return 1;
-	}
-}
-
 struct psensor **lmsensor_psensor_list_add(struct psensor **sensors,
 					   int vn)
 {
@@ -179,6 +170,9 @@ struct psensor **lmsensor_psensor_list_add(struct psensor **sensors,
 	const sensors_feature *feature;
 	struct psensor *s;
 	int i;
+
+	if (!init_done)
+		return ;
 
 	result = sensors;
 	while ((chip = sensors_get_detected_chips(NULL, &chip_nr))) {
@@ -204,4 +198,24 @@ struct psensor **lmsensor_psensor_list_add(struct psensor **sensors,
 	}
 
 	return result;
+}
+
+void lmsensor_init()
+{
+	int err = sensors_init(NULL);
+
+	if (err) {
+		fprintf(stderr,
+			_("ERROR: lm-sensors initialization failure: %s\n"),
+			sensors_strerror(err));
+		init_done = 0;
+	} else {
+		init_done = 1;
+	}
+}
+
+void lmsensor_cleanup()
+{
+	if (init_done)
+		sensors_cleanup();
 }

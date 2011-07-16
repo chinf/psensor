@@ -27,9 +27,6 @@
 
 #include <gtk/gtk.h>
 
-#include <sensors/sensors.h>
-#include <sensors/error.h>
-
 #include "config.h"
 
 #include "cfg.h"
@@ -287,7 +284,7 @@ int main(int argc, char **argv)
 	struct ui_psensor ui;
 	GError *error;
 	GThread *thread;
-	int err, optc;
+	int optc;
 	char *url = NULL;
 	int cmdok = 1;
 
@@ -341,12 +338,7 @@ int main(int argc, char **argv)
 
 	ui.config = config_load();
 
-	err = lmsensor_init();
-	if (!err) {
-		fprintf(stderr, _("ERROR: lmsensor init failure: %s\n"),
-			sensors_strerror(err));
-		exit(EXIT_FAILURE);
-	}
+	psensor_init();
 
 	if (url) {
 #ifdef HAVE_REMOTE_SUPPORT
@@ -397,7 +389,7 @@ int main(int argc, char **argv)
 	/* main loop */
 	gtk_main();
 
-	sensors_cleanup();
+	psensor_cleanup();
 
 	psensor_list_free(ui.sensors);
 

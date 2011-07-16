@@ -428,3 +428,13 @@ void psensor_list_update_measures(struct psensor **sensors)
 	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDD_TEMP))
 		hdd_psensor_list_update(sensors);
 }
+
+void psensor_init()
+{
+	lmsensor_init();
+}
+
+void psensor_cleanup()
+{
+	lmsensor_cleanup();
+}
