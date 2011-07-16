@@ -117,8 +117,8 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 	}
 }
 
-struct psensor * *
-nvidia_psensor_list_add(struct psensor **sensors, int values_len)
+struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
+					 int values_len)
 {
 	int i, n;
 	struct psensor **tmp, **ss, *s;
