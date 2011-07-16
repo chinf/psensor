@@ -36,7 +36,6 @@ void nvidia_psensor_list_update(struct psensor **sensors);
 struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
 					 int values_max_length);
 
-
 void nvidia_cleanup();
 
 #endif
