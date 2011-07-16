@@ -24,9 +24,6 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
-#include <sensors/sensors.h>
-#include <sensors/error.h>
-
 #include "hdd.h"
 #include "psensor.h"
 #include "lmsensor.h"
@@ -373,38 +370,9 @@ double get_max_temp(struct psensor **sensors)
 struct psensor **get_all_sensors(int values_max_length)
 {
 	struct psensor **psensors = NULL;
-	int count = 0;
-	const sensors_chip_name *chip;
-	int chip_nr = 0;
 	struct psensor **tmp_psensors;
-	const sensors_feature *feature;
-	struct psensor *psensor;
-	int i;
 
-	while ((chip = sensors_get_detected_chips(NULL, &chip_nr))) {
-		i = 0;
-		while ((feature = sensors_get_features(chip, &i))) {
-
-			if (feature->type == SENSORS_FEATURE_TEMP
-			    || feature->type == SENSORS_FEATURE_FAN) {
-
-				psensor = lmsensor_psensor_create
-					(chip, feature, values_max_length);
-
-				if (psensor) {
-					tmp_psensors
-						= psensor_list_add(psensors,
-								   psensor);
-
-					free(psensors);
-
-					psensors = tmp_psensors;
-
-					count++;
-				}
-			}
-		}
-	}
+	psensors = lmsensor_psensor_list_add(NULL, values_max_length);
 
 	tmp_psensors = hdd_psensor_list_add(psensors, values_max_length);
 
