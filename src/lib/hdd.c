@@ -45,7 +45,7 @@ struct hdd_info {
 	int temp;
 };
 
-char *hdd_fetch()
+static char *fetch()
 {
 	int sockfd;
 	ssize_t n = 1;
@@ -56,7 +56,7 @@ char *hdd_fetch()
 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd == -1) {
-		fprintf(stderr, _("ERROR: hdd_fetch, failed to open socket\n"));
+		fprintf(stderr, _("ERROR: hdd fetch, failed to open socket\n"));
 		return NULL;
 	}
 
@@ -70,7 +70,7 @@ char *hdd_fetch()
 		    (struct sockaddr *)&address,
 		    (socklen_t) sizeof(address)) == -1) {
 		fprintf(stderr,
-			_("ERROR: hdd_fetch, failed to open connection\n"));
+			_("ERROR: hdd fetch, failed to open connection\n"));
 	} else {
 		buffer = malloc(HDDTEMP_OUTPUT_BUFFER_LENGTH);
 
@@ -92,7 +92,7 @@ char *hdd_fetch()
 	return buffer;
 }
 
-int str_index(char *str, char d)
+static int str_index(char *str, char d)
 {
 	char *c;
 	int i;
@@ -113,13 +113,14 @@ int str_index(char *str, char d)
 	return -1;
 }
 
-struct psensor *hdd_create_sensor(char *id, char *name, int values_max_length)
+static struct psensor *
+create_sensor(char *id, char *name, int values_max_length)
 {
 	return psensor_create(id, name, SENSOR_TYPE_HDD_TEMP,
 			      values_max_length);
 }
 
-char *next_hdd_info(char *string, struct hdd_info *info)
+static char *next_hdd_info(char *string, struct hdd_info *info)
 {
 	char *c;
 	int idx_name_n, i, temp;
@@ -169,7 +170,7 @@ char *next_hdd_info(char *string, struct hdd_info *info)
 struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 				      int values_max_length)
 {
-	char *hddtemp_output = hdd_fetch();
+	char *hddtemp_output = fetch();
 	char *c;
 	struct hdd_info info;
 	struct psensor **result;
@@ -198,7 +199,7 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 		strcpy(id, "hdd ");
 		strcat(id, info.name);
 
-		sensor = hdd_create_sensor(id, info.name, values_max_length);
+		sensor = create_sensor(id, info.name, values_max_length);
 
 		tmp_sensors = psensor_list_add(result, sensor);
 
@@ -213,7 +214,7 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 	return result;
 }
 
-void hdd_psensor_update(struct psensor **sensors, struct hdd_info *info)
+static void update(struct psensor **sensors, struct hdd_info *info)
 {
 	struct psensor **sensor_cur = sensors;
 
@@ -229,7 +230,7 @@ void hdd_psensor_update(struct psensor **sensors, struct hdd_info *info)
 
 void hdd_psensor_list_update(struct psensor **sensors)
 {
-	char *hddtemp_output = hdd_fetch();
+	char *hddtemp_output = fetch();
 
 	if (!hddtemp_output)
 		return;
@@ -243,7 +244,7 @@ void hdd_psensor_list_update(struct psensor **sensors)
 
 		while (c && (c = next_hdd_info(c, &info))) {
 
-			hdd_psensor_update(sensors, &info);
+			update(sensors, &info);
 
 			free(info.name);
 		}
