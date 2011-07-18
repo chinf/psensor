@@ -35,6 +35,7 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 @NVIDIA_TRUE@am__append_1 = nvidia.c
+@LIBATIADL_TRUE@am__append_2 = $(LIBATIADL_LIBS)
 subdir = src/lib
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -116,6 +117,8 @@ INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 JSON_CFLAGS = @JSON_CFLAGS@
 JSON_LIBS = @JSON_LIBS@
 LDFLAGS = @LDFLAGS@
+LIBATIADL_CFLAGS = @LIBATIADL_CFLAGS@
+LIBATIADL_LIBS = @LIBATIADL_LIBS@
 LIBICONV = @LIBICONV@
 LIBINTL = @LIBINTL@
 LIBMICROHTTPD_CFLAGS = @LIBMICROHTTPD_CFLAGS@
@@ -123,7 +126,7 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = @LIBS@
+LIBS = @LIBS@ $(am__append_2)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -219,6 +222,7 @@ libpsensor_a_CFLAGS = -pedantic -Werror
 libpsensor_a_SOURCES = measure.h measure.c color.h color.c psensor.h \
 	psensor.c hdd.h hdd.c nvidia.h lmsensor.h lmsensor.c \
 	$(am__append_1)
+@LIBATIADL_TRUE@AM_CPPFLAGS = $(LIBATIADL_CFLAGS)
 all: all-am
 
 .SUFFIXES:

@@ -607,6 +607,10 @@ LIBMICROHTTPD_FALSE
 LIBMICROHTTPD_TRUE
 LIBMICROHTTPD_LIBS
 LIBMICROHTTPD_CFLAGS
+LIBATIADL_LIBS
+LIBATIADL_CFLAGS
+LIBATIADL_FALSE
+LIBATIADL_TRUE
 UNITY_FALSE
 UNITY_TRUE
 UNITY_LIBS
@@ -761,6 +765,7 @@ with_gnu_ld
 enable_rpath
 with_libiconv_prefix
 with_libintl_prefix
+with_libatiadl
 with_gtop
 '
       ac_precious_vars='build_alias
@@ -1436,6 +1441,7 @@ Optional Packages:
   --without-libiconv-prefix     don't search for libiconv in includedir and libdir
   --with-libintl-prefix[=DIR]  search for libintl in DIR/include and DIR/lib
   --without-libintl-prefix     don't search for libintl in includedir and libdir
+  --with-libatiadl=DIR   use libatiadlxx in DIR
   --with-gtop=yes|no   use gtop
 
 Some influential environment variables:
@@ -8064,6 +8070,88 @@ else
 fi
 
 
+# libatiadl
+
+# Check whether --with-libatiadl was given.
+if test "${with_libatiadl+set}" = set; then :
+  withval=$with_libatiadl;
+		   ATIADL_DIR=${withval}
+		   CPPFLAGS="${CPPFLAGS} -I${ATIADL_DIR}/include"
+	      	   LIBS="$LIBS -L/usr/lib/fglrx"
+
+
+fi
+
+
+for ac_header in adl_defines.h
+do :
+  ac_fn_c_check_header_mongrel "$LINENO" "adl_defines.h" "ac_cv_header_adl_defines_h" "$ac_includes_default"
+if test "x$ac_cv_header_adl_defines_h" = x""yes; then :
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_ADL_DEFINES_H 1
+_ACEOF
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for ADL_Main_Control_Refresh in -latiadlxx" >&5
+$as_echo_n "checking for ADL_Main_Control_Refresh in -latiadlxx... " >&6; }
+if test "${ac_cv_lib_atiadlxx_ADL_Main_Control_Refresh+set}" = set; then :
+  $as_echo_n "(cached) " >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-latiadlxx  $LIBS"
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.  */
+#ifdef __cplusplus
+extern "C"
+#endif
+char ADL_Main_Control_Refresh ();
+int
+main ()
+{
+return ADL_Main_Control_Refresh ();
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_link "$LINENO"; then :
+  ac_cv_lib_atiadlxx_ADL_Main_Control_Refresh=yes
+else
+  ac_cv_lib_atiadlxx_ADL_Main_Control_Refresh=no
+fi
+rm -f core conftest.err conftest.$ac_objext \
+    conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_atiadlxx_ADL_Main_Control_Refresh" >&5
+$as_echo "$ac_cv_lib_atiadlxx_ADL_Main_Control_Refresh" >&6; }
+if test "x$ac_cv_lib_atiadlxx_ADL_Main_Control_Refresh" = x""yes; then :
+
+
+$as_echo "#define HAVE_LIBATIADL 1" >>confdefs.h
+
+			LIBATIADL_CFLAGS="-I${ATIADL_DIR}/include"
+			LIBATIADL_LIBS="-L/usr/lib/fglrx -latiadlxx"
+
+fi
+
+fi
+
+done
+
+
+ if test -n "$LIBATIADL_LIBS"; then
+  LIBATIADL_TRUE=
+  LIBATIADL_FALSE='#'
+else
+  LIBATIADL_TRUE='#'
+  LIBATIADL_FALSE=
+fi
+
+
+
+
 ############### psensor-server
 
 # libmicrohttpd, mandatory for psensor-server
@@ -8435,6 +8523,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${UNITY_TRUE}" && test -z "${UNITY_FALSE}"; then
   as_fn_error $? "conditional \"UNITY\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${LIBATIADL_TRUE}" && test -z "${LIBATIADL_FALSE}"; then
+  as_fn_error $? "conditional \"LIBATIADL\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${LIBMICROHTTPD_TRUE}" && test -z "${LIBMICROHTTPD_FALSE}"; then

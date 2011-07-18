@@ -13,3 +13,8 @@ libpsensor_a_SOURCES = \
 if NVIDIA
 libpsensor_a_SOURCES += nvidia.c
 endif
+
+if LIBATIADL
+LIBS += $(LIBATIADL_LIBS)
+AM_CPPFLAGS = $(LIBATIADL_CFLAGS)
+endif

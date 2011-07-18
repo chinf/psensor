@@ -4,6 +4,9 @@
    language is requested. */
 #undef ENABLE_NLS
 
+/* Define to 1 if you have the <adl_defines.h> header file. */
+#undef HAVE_ADL_DEFINES_H
+
 /* Use AppIndicator > 0.2.9 */
 #undef HAVE_APPINDICATOR
 
@@ -48,6 +51,9 @@
 
 /* Use JSON */
 #undef HAVE_JSON
+
+/* libatiadl is available */
+#undef HAVE_LIBATIADL
 
 /* Use libmicrohttpd */
 #undef HAVE_LIBMICROHTTPD

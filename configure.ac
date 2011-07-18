@@ -151,6 +151,27 @@ AC_SUBST(UNITY_CFLAGS)
 AC_SUBST(UNITY_LIBS)
 AM_CONDITIONAL(UNITY, test -n "$UNITY_LIBS")
 
+# libatiadl
+AC_ARG_WITH(libatiadl,
+[  --with-libatiadl[=DIR]   use libatiadlxx in DIR],[
+		   ATIADL_DIR=${withval}
+		   CPPFLAGS="${CPPFLAGS} -I${ATIADL_DIR}/include"
+	      	   LIBS="$LIBS -L/usr/lib/fglrx"
+		  ]
+)
+
+AC_CHECK_HEADERS(adl_defines.h,
+	AC_CHECK_LIB(atiadlxx,ADL_Main_Control_Refresh,
+		[
+			AC_DEFINE(HAVE_LIBATIADL,1,[libatiadl is available])
+			LIBATIADL_CFLAGS="-I${ATIADL_DIR}/include"
+			LIBATIADL_LIBS="-L/usr/lib/fglrx -latiadlxx"
+		]))
+
+AM_CONDITIONAL(LIBATIADL, test -n "$LIBATIADL_LIBS")
+AC_SUBST(LIBATIADL_CFLAGS)
+AC_SUBST(LIBATIADL_LIBS)
+
 ############### psensor-server
 
 # libmicrohttpd, mandatory for psensor-server
