@@ -12,12 +12,17 @@ SUBDIRS += server
 endif
 endif
 
-AM_CPPFLAGS = -Wall -pedantic -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
+AM_CPPFLAGS = -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
 	-I$(top_srcdir)/src/lib \
 	-I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS)\
 	$(GCONF_CFLAGS)\
 	$(SENSORS_CFLAGS)
+
+if LIBATIADL
+else
+AM_CPPFLAGS += -pedantic 
+endif
 
 DEFS = -DPACKAGE_DATA_DIR=\"$(pkgdatadir)\" -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
