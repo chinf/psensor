@@ -126,8 +126,8 @@ static struct psensor *create_sensor(int id, int values_len)
 		sensor_type = SENSOR_TYPE_AMD_TEMP;
 	}
 
-	sid = malloc(strlen("AMD") + 1 + strlen(name) + 1);
-	sprintf(sid, "AMD %s", name);
+	sid = malloc(strlen("amd") + 1 + strlen(name) + 1);
+	sprintf(sid, "amd %s", name);
 
 	s = psensor_create(sid, strdup(name),
 			   sensor_type, values_len);
