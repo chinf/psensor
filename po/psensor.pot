@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-07-13 11:01+0200\n"
+"POT-Creation-Date: 2011-07-18 18:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:72 src/server/server.c:76
+#: src/main.c:73 src/server/server.c:76
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -27,54 +27,49 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:82 src/server/server.c:86
+#: src/main.c:83 src/server/server.c:86
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr ""
 
-#: src/main.c:84
+#: src/main.c:85
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
 
-#: src/main.c:88
+#: src/main.c:89
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:89 src/server/server.c:93
+#: src/main.c:90 src/server/server.c:93
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
 
-#: src/main.c:95
+#: src/main.c:96
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr ""
 
-#: src/main.c:101 src/server/server.c:106
+#: src/main.c:102 src/server/server.c:106
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:103 src/server/server.c:108
+#: src/main.c:104 src/server/server.c:108
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:323 src/server/server.c:346
+#: src/main.c:326 src/server/server.c:346
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:346
-#, c-format
-msgid "ERROR: lmsensor init failure: %s\n"
-msgstr ""
-
-#: src/main.c:357
+#: src/main.c:355
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
@@ -260,22 +255,42 @@ msgstr ""
 msgid "URL: http://localhost:%d\n"
 msgstr ""
 
+#: src/lib/amd.c:159
+#, c-format
+msgid "ERROR: ADL library not found!\n"
+msgstr ""
+
+#: src/lib/amd.c:184
+#, c-format
+msgid "ERROR: ADL's API is missing!\n"
+msgstr ""
+
+#: src/lib/amd.c:193
+#, c-format
+msgid "ERROR: ADL Initialization Error!\n"
+msgstr ""
+
+#: src/lib/amd.c:201
+#, c-format
+msgid "ERROR: Cannot get the number of adapters!\n"
+msgstr ""
+
 #: src/lib/hdd.c:59
 #, c-format
-msgid "ERROR: hdd_fetch, failed to open socket\n"
+msgid "ERROR: hdd fetch, failed to open socket\n"
 msgstr ""
 
 #: src/lib/hdd.c:73
 #, c-format
-msgid "ERROR: hdd_fetch, failed to open connection\n"
+msgid "ERROR: hdd fetch, failed to open connection\n"
 msgstr ""
 
-#: src/lib/hdd.c:182
+#: src/lib/hdd.c:183
 #, c-format
 msgid "ERROR: wrong hdd string: %s"
 msgstr ""
 
-#: src/lib/hdd.c:252
+#: src/lib/hdd.c:253
 #, c-format
 msgid "ERROR: wrong hdd string: %s\n"
 msgstr ""
@@ -285,36 +300,36 @@ msgstr ""
 msgid "ERROR: failed to retrieve nvidia temperature\n"
 msgstr ""
 
-#: src/lib/nvidia.c:99
+#: src/lib/nvidia.c:92
 #, c-format
 msgid "ERROR: Cannot open connection to X Server\n"
 msgstr ""
 
-#: src/lib/nvidia.c:107
+#: src/lib/nvidia.c:100
 #, c-format
 msgid "ERROR: Cannot retrieve NVidia information\n"
 msgstr ""
 
-#: src/lib/lmsensor.c:43
+#: src/lib/lmsensor.c:44
 #, c-format
 msgid "ERROR: Can't get value of subfeature %s: %s\n"
 msgstr ""
 
-#: src/lib/lmsensor.c:122
+#: src/lib/lmsensor.c:126
 #, c-format
 msgid "ERROR: create_sensor, wrong feature type\n"
 msgstr ""
 
-#: src/lib/lmsensor.c:166
+#: src/lib/lmsensor.c:209
 #, c-format
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr ""
 
-#: src/lib/psensor.c:448
+#: src/lib/psensor.c:422
 msgid "C"
 msgstr ""
 
-#: src/lib/psensor.c:451
+#: src/lib/psensor.c:425
 msgid "RPM"
 msgstr ""
 

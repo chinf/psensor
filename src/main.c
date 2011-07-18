@@ -47,6 +47,10 @@
 #include "nvidia.h"
 #endif
 
+#ifdef HAVE_LIBATIADL
+#include "amd.h"
+#endif
+
 #ifdef HAVE_REMOTE_SUPPORT
 #include "rsensor.h"
 #endif
@@ -141,7 +145,9 @@ void update_psensor_measures(struct ui_psensor *ui)
 #ifdef HAVE_NVIDIA
 		nvidia_psensor_list_update(sensors);
 #endif
-
+#ifdef HAVE_LIBATIADL
+		amd_psensor_list_update(sensors);
+#endif
 		g_mutex_unlock(ui->sensors_mutex);
 
 		sleep(cfg->sensor_update_interval);
@@ -354,6 +360,9 @@ int main(int argc, char **argv)
 #ifdef HAVE_NVIDIA
 		ui.sensors = nvidia_psensor_list_add(ui.sensors, 600);
 #endif
+#ifdef HAVE_LIBATIADL
+		ui.sensors = amd_psensor_list_add(ui.sensors, 600);
+#endif
 	}
 
 	associate_preferences(ui.sensors);
@@ -396,6 +405,8 @@ int main(int argc, char **argv)
 #ifdef HAVE_NVIDIA
 	nvidia_cleanup();
 #endif
-
+#ifdef HAVE_LIBATIADL
+	amd_cleanup();
+#endif
 	return 0;
 }

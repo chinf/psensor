@@ -34,7 +34,10 @@ enum psensor_type {
 	SENSOR_TYPE_LMSENSOR_TEMP = 0x0100 | SENSOR_TYPE_TEMP,
 	SENSOR_TYPE_NVIDIA = 0x0200 | SENSOR_TYPE_TEMP,
 	SENSOR_TYPE_HDD_TEMP = 0x0400 | SENSOR_TYPE_TEMP,
-	SENSOR_TYPE_LMSENSOR_FAN = 0x0800 | SENSOR_TYPE_FAN
+	SENSOR_TYPE_LMSENSOR_FAN = 0x0800 | SENSOR_TYPE_FAN,
+	SENSOR_TYPE_AMD = 0x1000,
+	SENSOR_TYPE_AMD_TEMP = SENSOR_TYPE_AMD | SENSOR_TYPE_TEMP,
+	SENSOR_TYPE_AMD_FAN = SENSOR_TYPE_AMD | SENSOR_TYPE_FAN
 };
 
 struct psensor {
@@ -90,6 +93,10 @@ struct psensor {
 #ifdef HAVE_NVIDIA
 	/* Nvidia id for the nvctrl */
 	int nvidia_id;
+#endif
+#ifdef HAVE_LIBATIADL
+	/* AMD id for the aticonfig */
+	int amd_id;
 #endif
 
 	char *url;

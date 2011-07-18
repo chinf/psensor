@@ -3,6 +3,7 @@
    JSON web interface.
 ** psensor-server: added monitor.html using jquery and retrieving
    monitoring data from the JSON web interface.
+** added support for ATI/AMD gpus and fans.
 
 * v0.6.2.9
 

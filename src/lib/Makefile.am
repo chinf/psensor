@@ -1,8 +1,9 @@
 noinst_LIBRARIES = libpsensor.a
 
-libpsensor_a_CFLAGS = -pedantic -Werror
+libpsensor_a_CFLAGS = -Werror
 
 libpsensor_a_SOURCES = \
+	amd.h \
 	measure.h measure.c \
 	color.h color.c \
 	psensor.h psensor.c\
@@ -17,4 +18,10 @@ endif
 if LIBATIADL
 LIBS += $(LIBATIADL_LIBS)
 AM_CPPFLAGS = $(LIBATIADL_CFLAGS)
+else
+libpsensor_a_CFLAGS += -pedantic
 endif
+
+EXTRA_DIST=$(libpsensor_a_SOURCES) \
+	amd.c \
+	nvidia.c

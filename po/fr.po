@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-07-13 11:01+0200\n"
+"POT-Creation-Date: 2011-07-18 18:20+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: src/main.c:72 src/server/server.c:76
+#: src/main.c:73 src/server/server.c:76
 #, fuzzy, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -33,12 +33,12 @@ msgstr ""
 "Ce logiciel n'est accompagné d'ABSOLUMENT AUCUNE GARANTIE, dans les limites\n"
 "autorisees par la loi applicable.\n"
 
-#: src/main.c:82 src/server/server.c:86
+#: src/main.c:83 src/server/server.c:86
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Utilisation: %s [OPTION]...\n"
 
-#: src/main.c:84
+#: src/main.c:85
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -46,11 +46,11 @@ msgstr ""
 "psensor est une application GTK pour surveiller les sondes matérielles "
 "thermiques et les ventilateurs."
 
-#: src/main.c:88
+#: src/main.c:89
 msgid "Options:"
 msgstr "Options:"
 
-#: src/main.c:89 src/server/server.c:93
+#: src/main.c:90 src/server/server.c:93
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -58,34 +58,29 @@ msgstr ""
 "  -h, --help          afficher cette aider et quitter\n"
 "  -v, --version       afficher les informations de version et quitter"
 
-#: src/main.c:95
+#: src/main.c:96
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr ""
 "  -u, --url=URL       l'URL de psensor-server, example: http://hostname:3131"
 
-#: src/main.c:101 src/server/server.c:106
+#: src/main.c:102 src/server/server.c:106
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Signaler les bugs à: %s\n"
 
-#: src/main.c:103 src/server/server.c:108
+#: src/main.c:104 src/server/server.c:108
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s page d'acceuil: <%s>\n"
 
-#: src/main.c:323 src/server/server.c:346
+#: src/main.c:326 src/server/server.c:346
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez `%s --help' pour plus d'informations.\n"
 
-#: src/main.c:346
-#, fuzzy, c-format
-msgid "ERROR: lmsensor init failure: %s\n"
-msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
-
-#: src/main.c:357
+#: src/main.c:355
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
@@ -286,22 +281,43 @@ msgstr "WWW repertoire: %s\n"
 msgid "URL: http://localhost:%d\n"
 msgstr "URL: http://localhost:%d\n"
 
-#: src/lib/hdd.c:59
+#: src/lib/amd.c:159
 #, c-format
-msgid "ERROR: hdd_fetch, failed to open socket\n"
+msgid "ERROR: ADL library not found!\n"
+msgstr ""
+
+#: src/lib/amd.c:184
+#, c-format
+msgid "ERROR: ADL's API is missing!\n"
+msgstr ""
+
+#: src/lib/amd.c:193
+#, fuzzy, c-format
+msgid "ERROR: ADL Initialization Error!\n"
+msgstr "ERREUR: échec de l'initialisation nvidia\n"
+
+#: src/lib/amd.c:201
+#, fuzzy, c-format
+msgid "ERROR: Cannot get the number of adapters!\n"
+msgstr ""
+"ERREUR: Impossible de récuperer la valeur de la sous-fonctionnalité %s: %s\n"
+
+#: src/lib/hdd.c:59
+#, fuzzy, c-format
+msgid "ERROR: hdd fetch, failed to open socket\n"
 msgstr "ERREUR: hdd_fetch, écher d'ouverture de la socket\n"
 
 #: src/lib/hdd.c:73
-#, c-format
-msgid "ERROR: hdd_fetch, failed to open connection\n"
+#, fuzzy, c-format
+msgid "ERROR: hdd fetch, failed to open connection\n"
 msgstr "ERREUR: hdd_fetch, écher de l'ouverture de la connection\n"
 
-#: src/lib/hdd.c:182
+#: src/lib/hdd.c:183
 #, c-format
 msgid "ERROR: wrong hdd string: %s"
 msgstr "ERREUR: mauvaise chaine hdd: %s"
 
-#: src/lib/hdd.c:252
+#: src/lib/hdd.c:253
 #, c-format
 msgid "ERROR: wrong hdd string: %s\n"
 msgstr "ERREUR: mauvaise chaine hdd: %s\n"
@@ -311,37 +327,37 @@ msgstr "ERREUR: mauvaise chaine hdd: %s\n"
 msgid "ERROR: failed to retrieve nvidia temperature\n"
 msgstr "ERREUR: échec de la récupération des températures nvidia\n"
 
-#: src/lib/nvidia.c:99
+#: src/lib/nvidia.c:92
 #, fuzzy, c-format
 msgid "ERROR: Cannot open connection to X Server\n"
 msgstr "ERREUR: Echer de la connectio à: %s\n"
 
-#: src/lib/nvidia.c:107
+#: src/lib/nvidia.c:100
 #, fuzzy, c-format
 msgid "ERROR: Cannot retrieve NVidia information\n"
 msgstr "ERREUR: échec de la récupération des températures nvidia\n"
 
-#: src/lib/lmsensor.c:43
+#: src/lib/lmsensor.c:44
 #, c-format
 msgid "ERROR: Can't get value of subfeature %s: %s\n"
 msgstr ""
 "ERREUR: Impossible de récuperer la valeur de la sous-fonctionnalité %s: %s\n"
 
-#: src/lib/lmsensor.c:122
+#: src/lib/lmsensor.c:126
 #, c-format
 msgid "ERROR: create_sensor, wrong feature type\n"
 msgstr "ERREUR: create_sensor, mauvais type de fonctionnalité\n"
 
-#: src/lib/lmsensor.c:166
+#: src/lib/lmsensor.c:209
 #, c-format
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr "ERREUR: échec de l'initialisation de lm-sensors: %s\n"
 
-#: src/lib/psensor.c:448
+#: src/lib/psensor.c:422
 msgid "C"
 msgstr ""
 
-#: src/lib/psensor.c:451
+#: src/lib/psensor.c:425
 msgid "RPM"
 msgstr ""
 
@@ -474,6 +490,10 @@ msgstr "Dessiner la courbe de la sonde"
 msgid "°C"
 msgstr "°C"
 
+#, fuzzy
+#~ msgid "ERROR: lmsensor init failure: %s\n"
+#~ msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
+
 #~ msgid "LUATPL Error: failed to load Lua script: %s.\n"
 #~ msgstr "LUATPL Erreur: échec du chargement du script LUA: %s.\n"
 
@@ -491,9 +511,6 @@ msgstr "°C"
 
 #~ msgid "LUATPL Error: code: %d.\n"
 #~ msgstr "LUATPL Erreur: code: %d.\n"
-
-#~ msgid "ERROR: nvidia initialization failure\n"
-#~ msgstr "ERREUR: échec de l'initialisation nvidia\n"
 
 #~ msgid "ERROR: nvidia initialization failure: %d\n"
 #~ msgstr "ERREUR: échec de l'initialisation nvidia: %d\n"

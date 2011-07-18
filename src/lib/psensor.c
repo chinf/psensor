@@ -403,6 +403,12 @@ const char *psensor_type_to_str(unsigned int type)
 	if (type & SENSOR_TYPE_NVIDIA)
 		return "NVidia GPU Temperature";
 
+	if (type & SENSOR_TYPE_AMD_TEMP)
+		return "AMD GPU Temperature";
+
+	if (type & SENSOR_TYPE_AMD_FAN)
+		return "AMD GPU Fan Speed";
+
 	if (type & SENSOR_TYPE_HDD_TEMP)
 		return "HDD Temperature";
 

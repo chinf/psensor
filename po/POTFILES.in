@@ -8,6 +8,7 @@ src/ui_pref.c
 src/ui_sensorpref.c  
 src/rsensor.c
 src/server/server.c
+src/lib/amd.c
 src/lib/hdd.c
 src/lib/nvidia.c
 src/lib/lmsensor.c
