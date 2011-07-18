@@ -68,7 +68,7 @@ static struct psensor *create_sensor(int id, int values_len)
 	sprintf(sid, "nvidia %s", name);
 
 	s = psensor_create(sid, strdup(name),
-			   SENSOR_TYPE_NVIDIA, values_len);
+			   SENSOR_TYPE_NVIDIA_TEMP, values_len);
 
 	s->nvidia_id = id;
 
@@ -110,7 +110,7 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 	while (*ss) {
 		s = *ss;
 
-		if (s->type == SENSOR_TYPE_NVIDIA)
+		if (s->type == SENSOR_TYPE_NVIDIA_TEMP)
 			psensor_set_current_value(s, get_temp(s));
 
 		ss++;
