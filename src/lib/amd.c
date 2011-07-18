@@ -205,22 +205,24 @@ static int init()
 	if (!inumberadapters)
 		return 0;
 
-    lpadapterinfo = malloc(sizeof(AdapterInfo) * inumberadapters);
-    memset(lpadapterinfo, '\0', sizeof(AdapterInfo) * inumberadapters);
+	lpadapterinfo = malloc(sizeof(AdapterInfo) * inumberadapters);
+	memset(lpadapterinfo, '\0', sizeof(AdapterInfo) * inumberadapters);
+	
+	/* Get the AdapterInfo structure for all adapters in the system */
+	adl_adapter_adapterinfo_get(lpadapterinfo,
+				    sizeof(AdapterInfo) * inumberadapters);
 
-    /* Get the AdapterInfo structure for all adapters in the system */
-    adl_adapter_adapterinfo_get(lpadapterinfo,
-		 sizeof(AdapterInfo) * inumberadapters);
-
-    /* Repeat for all available adapters in the system */
-    for (i = 0; i < inumberadapters; i++) {
+	/* Repeat for all available adapters in the system */
+	for (i = 0; i < inumberadapters; i++) {
+		
 		iadapterindex = lpadapterinfo[i].iAdapterIndex;
+		
 		if (ADL_OK != adl_adapter_active_get(iadapterindex, &lpstatus))
 			continue;
 		if (lpstatus != ADL_TRUE)
 			/* count only if the adapter is active */
 			continue;
-
+		
 		if (!active_amd_adapters) {
 			active_amd_adapters = (int *) malloc(sizeof(int));
 			inumberadaptersactive = 1;
@@ -228,16 +230,16 @@ static int init()
 			++inumberadaptersactive;
 			active_amd_adapters =
 				 (int *) realloc(active_amd_adapters,
-				 sizeof(int)*inumberadaptersactive);
+						 sizeof(int)*inumberadaptersactive);
 		}
 		active_amd_adapters[inumberadaptersactive-1] = iadapterindex;
-    }
+	}
 
-    adl_main_memory_free((void **) &lpadapterinfo);
-
-    /* Each Adapter has one GPU temperature
-       sensor and one fan control sensor */
-    return 2*inumberadaptersactive;
+	adl_main_memory_free((void **) &lpadapterinfo);
+	
+	/* Each Adapter has one GPU temperature sensor and one fan
+	   control sensor */
+	return 2*inumberadaptersactive;
 }
 
 void amd_psensor_list_update(struct psensor **sensors)
