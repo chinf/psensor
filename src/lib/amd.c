@@ -146,7 +146,7 @@ static struct psensor *create_sensor(int id, int values_len)
 static int init()
 {
 	LPAdapterInfo lpadapterinfo = NULL;
-	int  i, inumberadapters, inumberadaptersactive = 0;
+	int i, inumberadapters, inumberadaptersactive = 0;
 	int lpstatus, iadapterindex;
 
 	hdll = NULL;
