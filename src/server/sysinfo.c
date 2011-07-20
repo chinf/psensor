@@ -36,8 +36,6 @@ void sysinfo_update(struct psysinfo *info)
 	unsigned long int used = 0;
 	unsigned long int dt;
 	glibtop_netlist buf;
-	char **interfaces;
-	guint32 i;
 
 	/* cpu */
 	if (!cpu)
@@ -136,9 +134,7 @@ static json_object *net_to_json_object(const struct psysinfo *s)
 static json_object *sysinfo_to_json_object(const struct psysinfo *s)
 {
 	static float load_scale = 1 << SI_LOAD_SHIFT;
-	json_object *mo;
 	json_object *obj = json_object_new_object();
-	struct measure *m;
 
 	json_object_object_add(obj, "load",
 			       json_object_new_double(s->cpu_rate));
