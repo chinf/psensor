@@ -31,12 +31,14 @@ function type_to_str(stype) {
         stype_str = "NVidia";
     } else if (stype & 0x0400) {
         stype_str = "HDD";
-    } else if (stype & 0x0800) {
-        stype_str = "Fan";
+    } else if (stype & 0x1000) {
+        stype_str = "AMD";
     }
 
    if (stype & 0x0001) {
-        stype_str += " Temperature";
+       stype_str += " Temperature";
+   } else if (stype & 0x0002) {
+       stype_str += " Fan";
    }
 
     return stype_str;
