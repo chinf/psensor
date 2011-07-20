@@ -22,9 +22,6 @@
 
 #include <sensors/sensors.h>
 
-struct psensor *lmsensor_psensor_create(const sensors_chip_name *chip,
-					const sensors_feature *feature,
-					int values_max_length);
 void lmsensor_psensor_list_update(struct psensor **sensors);
 
 /*
