@@ -41,6 +41,10 @@ psensor_SOURCES = \
 	ui_sensorlist.h ui_sensorlist.c \
 	ui_sensorpref.h ui_sensorpref.c
 
+if GTOP
+LIBS += $(GTOP_LIBS)
+endif
+
 if LIBNOTIFY
 psensor_SOURCES += ui_notify.h ui_notify.c
 LIBS += $(LIBNOTIFY_LIBS)

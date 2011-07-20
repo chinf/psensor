@@ -300,6 +300,11 @@ graph_update(struct psensor **sensors,
 				if (is_fan_type(s->type)) {
 					min = min_rpm;
 					max = max_rpm;
+				} else if (s->type & SENSOR_TYPE_CPU_USAGE) {
+					min = 0;
+					max = get_max_value
+						(sensors,
+						 SENSOR_TYPE_CPU_USAGE);
 				} else {
 					min = mint;
 					max = maxt;

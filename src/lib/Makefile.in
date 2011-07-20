@@ -36,8 +36,12 @@ build_triplet = @build@
 host_triplet = @host@
 @NVIDIA_TRUE@am__append_1 = nvidia.c
 @LIBATIADL_TRUE@am__append_2 = $(LIBATIADL_LIBS)
-@LIBATIADL_TRUE@am__append_3 = amd.c
-@LIBATIADL_FALSE@am__append_4 = -pedantic
+@LIBATIADL_TRUE@am__append_3 = $(LIBATIADL_CFLAGS)
+@LIBATIADL_TRUE@am__append_4 = amd.c
+@LIBATIADL_FALSE@am__append_5 = -pedantic
+@GTOP_TRUE@am__append_6 = cpu.c
+@GTOP_TRUE@am__append_7 = $(GTOP_LIBS)
+@GTOP_TRUE@am__append_8 = $(GTOP_CFLAGS)
 subdir = src/lib
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -53,15 +57,16 @@ AR = ar
 ARFLAGS = cru
 libpsensor_a_AR = $(AR) $(ARFLAGS)
 libpsensor_a_LIBADD =
-am__libpsensor_a_SOURCES_DIST = amd.h measure.h measure.c color.h \
-	color.c psensor.h psensor.c hdd.h hdd.c nvidia.h lmsensor.h \
-	lmsensor.c nvidia.c amd.c
+am__libpsensor_a_SOURCES_DIST = amd.h cpu.h measure.h measure.c \
+	color.h color.c psensor.h psensor.c hdd.h hdd.c nvidia.h \
+	lmsensor.h lmsensor.c nvidia.c amd.c cpu.c
 @NVIDIA_TRUE@am__objects_1 = libpsensor_a-nvidia.$(OBJEXT)
 @LIBATIADL_TRUE@am__objects_2 = libpsensor_a-amd.$(OBJEXT)
+@GTOP_TRUE@am__objects_3 = libpsensor_a-cpu.$(OBJEXT)
 am_libpsensor_a_OBJECTS = libpsensor_a-measure.$(OBJEXT) \
 	libpsensor_a-color.$(OBJEXT) libpsensor_a-psensor.$(OBJEXT) \
 	libpsensor_a-hdd.$(OBJEXT) libpsensor_a-lmsensor.$(OBJEXT) \
-	$(am__objects_1) $(am__objects_2)
+	$(am__objects_1) $(am__objects_2) $(am__objects_3)
 libpsensor_a_OBJECTS = $(am_libpsensor_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -129,7 +134,7 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = @LIBS@ $(am__append_2)
+LIBS = @LIBS@ $(am__append_2) $(am__append_7)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -221,13 +226,14 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libpsensor.a
-libpsensor_a_CFLAGS = -Werror $(am__append_4)
-libpsensor_a_SOURCES = amd.h measure.h measure.c color.h color.c \
+libpsensor_a_CFLAGS = -Werror $(am__append_5)
+libpsensor_a_SOURCES = amd.h cpu.h measure.h measure.c color.h color.c \
 	psensor.h psensor.c hdd.h hdd.c nvidia.h lmsensor.h lmsensor.c \
-	$(am__append_1) $(am__append_3)
-@LIBATIADL_TRUE@AM_CPPFLAGS = $(LIBATIADL_CFLAGS)
+	$(am__append_1) $(am__append_4) $(am__append_6)
+AM_CPPFLAGS = $(am__append_3) $(am__append_8)
 EXTRA_DIST = $(libpsensor_a_SOURCES) \
 	amd.c \
+	cpu.c \
 	nvidia.c
 
 all: all-am
@@ -280,6 +286,7 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-amd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-color.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-cpu.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-hdd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-lmsensor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-measure.Po@am__quote@
@@ -397,6 +404,20 @@ libpsensor_a-amd.obj: amd.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='amd.c' object='libpsensor_a-amd.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-amd.obj `if test -f 'amd.c'; then $(CYGPATH_W) 'amd.c'; else $(CYGPATH_W) '$(srcdir)/amd.c'; fi`
+
+libpsensor_a-cpu.o: cpu.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-cpu.o -MD -MP -MF $(DEPDIR)/libpsensor_a-cpu.Tpo -c -o libpsensor_a-cpu.o `test -f 'cpu.c' || echo '$(srcdir)/'`cpu.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-cpu.Tpo $(DEPDIR)/libpsensor_a-cpu.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cpu.c' object='libpsensor_a-cpu.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-cpu.o `test -f 'cpu.c' || echo '$(srcdir)/'`cpu.c
+
+libpsensor_a-cpu.obj: cpu.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-cpu.obj -MD -MP -MF $(DEPDIR)/libpsensor_a-cpu.Tpo -c -o libpsensor_a-cpu.obj `if test -f 'cpu.c'; then $(CYGPATH_W) 'cpu.c'; else $(CYGPATH_W) '$(srcdir)/cpu.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-cpu.Tpo $(DEPDIR)/libpsensor_a-cpu.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='cpu.c' object='libpsensor_a-cpu.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-cpu.obj `if test -f 'cpu.c'; then $(CYGPATH_W) 'cpu.c'; else $(CYGPATH_W) '$(srcdir)/cpu.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

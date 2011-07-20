@@ -73,6 +73,7 @@ void ui_sensorlist_update(struct ui_psensor *ui)
 		str = psensor_value_to_string(s->type,
 					      s->measures[s->values_max_length -
 							  1].value.d_num);
+
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter, COL_TEMP, str,
 				   -1);
 		free(str);

@@ -28,6 +28,11 @@
 #include "psensor.h"
 #include "lmsensor.h"
 
+#ifdef HAVE_GTOP
+#include "cpu.h"
+#endif
+
+
 struct psensor *psensor_create(char *id, char *name,
 			       unsigned int type, int values_max_length)
 {
@@ -204,6 +209,8 @@ char *psensor_value_to_string(unsigned int type, double value)
 
 	if (is_temp_type(type))
 		unit = "C";
+	else if (type & SENSOR_TYPE_CPU_USAGE)
+		unit = "%";
 	else
 		unit = "";
 
@@ -298,7 +305,7 @@ double get_min_value(struct psensor **sensors, int type)
   Returns the maximal value of a given 'type' (SENSOR_TYPE_TEMP or
   SENSOR_TYPE_FAN)
  */
-static double get_max_value(struct psensor **sensors, int type)
+double get_max_value(struct psensor **sensors, int type)
 {
 	double m = UNKNOWN_DBL_VALUE;
 	struct psensor **s = sensors;
@@ -375,7 +382,6 @@ struct psensor **get_all_sensors(int values_max_length)
 	psensors = lmsensor_psensor_list_add(NULL, values_max_length);
 
 	tmp_psensors = hdd_psensor_list_add(psensors, values_max_length);
-
 	if (tmp_psensors != psensors) {
 		free(psensors);
 		psensors = tmp_psensors;
@@ -412,6 +418,9 @@ const char *psensor_type_to_str(unsigned int type)
 	if (type & SENSOR_TYPE_HDD_TEMP)
 		return "HDD Temperature";
 
+	if (type & SENSOR_TYPE_CPU_USAGE)
+		return "CPU Usage";
+
 	return "N/A";		/* should not be possible */
 }
 
@@ -424,12 +433,19 @@ const char *psensor_type_to_unit_str(unsigned int type)
 	if (type & SENSOR_TYPE_FAN)
 		return _("RPM");
 
+	if (type & SENSOR_TYPE_CPU_USAGE)
+		return _("%");
+
 	return "N/A";
 }
 
 void psensor_list_update_measures(struct psensor **sensors)
 {
 	lmsensor_psensor_list_update(sensors);
+
+#ifdef HAVE_GTOP
+	cpu_psensor_list_update(sensors);
+#endif
 
 	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDD_TEMP))
 		hdd_psensor_list_update(sensors);

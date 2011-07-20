@@ -63,6 +63,10 @@
 #include "ui_notify.h"
 #endif
 
+#ifdef HAVE_GTOP
+#include "cpu.h"
+#endif
+
 #include "compat.h"
 
 static const char *program_name;
@@ -362,6 +366,9 @@ int main(int argc, char **argv)
 #endif
 #ifdef HAVE_LIBATIADL
 		ui.sensors = amd_psensor_list_add(ui.sensors, 600);
+#endif
+#ifdef HAVE_GTOP
+		ui.sensors = cpu_psensor_list_add(ui.sensors, 600);
 #endif
 	}
 

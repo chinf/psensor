@@ -34,6 +34,7 @@ enum psensor_type {
 	SENSOR_TYPE_LMSENSOR = 0x0100,
 	SENSOR_TYPE_NVIDIA_TEMP = 0x0200 | SENSOR_TYPE_TEMP,
 	SENSOR_TYPE_HDD_TEMP = 0x0400 | SENSOR_TYPE_TEMP,
+	SENSOR_TYPE_CPU_USAGE = 0x0800,
 	SENSOR_TYPE_AMD = 0x1000,
 
 	SENSOR_TYPE_AMD_TEMP = SENSOR_TYPE_AMD | SENSOR_TYPE_TEMP,
@@ -172,5 +173,7 @@ void psensor_list_update_measures(struct psensor **sensors);
 void psensor_init();
 
 void psensor_cleanup();
+
+double get_max_value(struct psensor **sensors, int type);
 
 #endif
