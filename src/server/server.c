@@ -263,7 +263,6 @@ cbk_http_request(void *cls,
 	int ret;
 	char *nurl;
 	unsigned int resp_code;
-	char *page = NULL;
 
 	if (strcmp(method, "GET"))
 		return MHD_NO;
@@ -348,10 +347,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	if (!lmsensor_init()) {
-		fprintf(stderr, _("ERROR: failed to init lm-sensors\n"));
-		exit(EXIT_FAILURE);
-	}
+	psensor_init();
 
 	server_data.sensors = get_all_sensors(1);
 
