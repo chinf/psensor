@@ -349,7 +349,7 @@ int main(int argc, char *argv[])
 
 	psensor_init();
 
-	server_data.sensors = get_all_sensors(1);
+	server_data.sensors = get_all_sensors(600);
 
 	if (!*server_data.sensors)
 		fprintf(stderr, _("ERROR: no sensors detected\n"));

@@ -27,14 +27,46 @@
 #define ATT_SENSOR_MIN "min"
 #define ATT_SENSOR_MAX "max"
 #define ATT_SENSOR_LAST_MEASURE "last_measure"
+#define ATT_SENSOR_MEASURES "measures"
 #define ATT_MEASURE_VALUE "value"
 #define ATT_MEASURE_TIME "time"
 
+static json_object *
+measure_to_json_object(struct measure *m)
+{
+	json_object *o = json_object_new_object();
+
+	json_object_object_add(o,
+			       ATT_MEASURE_VALUE,
+			       json_object_new_double(m->value.d_num));
+	json_object_object_add(o, ATT_MEASURE_TIME,
+			       json_object_new_int((m->time).tv_sec));
+	return o;
+}
+
+static json_object *
+measures_to_json_object(struct psensor *s)
+{
+	json_object *o;
+	int i;
+
+	o = json_object_new_array();
+
+	for (i = 0; i < s->values_max_length; i++)
+		if (s->measures[i].time.tv_sec)
+			json_object_array_add
+				(o, measure_to_json_object(&s->measures[i]));
+
+
+	return o;
+}
+
 json_object *sensor_to_json_object(struct psensor *s)
 {
-	json_object *mo;
-	json_object *obj = json_object_new_object();
+	json_object *mo, *obj;
 	struct measure *m;
+
+	obj = json_object_new_object();
 
 	json_object_object_add(obj,
 			       ATT_SENSOR_ID,
@@ -48,6 +80,9 @@ json_object *sensor_to_json_object(struct psensor *s)
 			       ATT_SENSOR_MIN, json_object_new_double(s->min));
 	json_object_object_add(obj,
 			       ATT_SENSOR_MAX, json_object_new_double(s->max));
+	json_object_object_add(obj,
+			       ATT_SENSOR_MEASURES,
+			       measures_to_json_object(s));
 
 	m = psensor_get_current_measure(s);
 	mo = json_object_new_object();
@@ -77,7 +112,6 @@ char *sensors_to_json_string(struct psensor **sensors)
 {
 	struct psensor **sensors_cur;
 	char *str;
-
 	json_object *obj = json_object_new_array();
 
 	sensors_cur = sensors;

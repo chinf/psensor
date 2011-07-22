@@ -1,6 +1,6 @@
 noinst_LIBRARIES = libpsensor_json.a
 
-libpsensor_json_a_CFLAGS = -pedantic -Werror
+libpsensor_json_a_CFLAGS = -pedantic -Wall -Werror
 
 libpsensor_json_a_SOURCES = \
 	psensor_json.h psensor_json.c 

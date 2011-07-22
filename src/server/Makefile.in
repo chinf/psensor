@@ -241,7 +241,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 psensor_server_SOURCES = server.c server.h $(am__append_3)
-AM_CPPFLAGS = -pedantic -Werror \
+AM_CPPFLAGS = -pedantic -Wall -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" -I$(top_srcdir)/src \
 	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/libpsensor_json \
 	$(SENSORS_CFLAGS) $(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) \

@@ -21,7 +21,11 @@
                   unit = type_to_unit(stype);
                   stype_str = type_to_str(stype);
 
-                  $("#sensors").append("<tr><td>"+sname+"</td><td>"+svalue+unit+"</td><td>"+smin+unit+"</td><td>"+smax+unit+"</td><td>"+stype_str+"</td></tr>");                 
+                  $("#sensors").append("<tr>"
+	                               +"<td>"
+	                               +"<a href='details.html?id="+escape(item["id"])
+                                       +"'>"+sname+"</a></td>"
+	                               +"<td>"+svalue+unit+"</td><td>"+smin+unit+"</td><td>"+smax+unit+"</td><td>"+stype_str+"</td></tr>");                 
               });          
           });
 

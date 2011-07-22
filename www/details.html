@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sensor details</title>
+
+    <link type="text/css" href="style.css" rel="stylesheet" />	
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="psensor.js"></script>
+    <script type="text/javascript" src="jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="jqplot.dateAxisRenderer.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+          var params = get_url_params();
+          var url_id = params["id"];
+
+
+          $.getJSON("/api/1.0/sensors/"+url_id, function(data) {
+              var measures = data["measures"];
+              var data_chart = [];
+
+              $("#title").append(data["name"]);
+
+              $.each(measures, function(i, item) {
+                  var d = new Date(item["time"]*1000);
+                  var entry = [d, item["value"]];
+                  data_chart.push(entry);
+              });
+
+              var plot1 = $.jqplot ('chart1', [data_chart], 
+                  {
+                      title:'Temperature',
+                      axes:{
+                          xaxis:{
+                              renderer:$.jqplot.DateAxisRenderer,
+                              tickOptions:{formatString:'%H:%M:%S'}
+                          }
+                      },
+                      series: [{lineWidth:1,showMarker:false}]
+                  });
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div class='page'>
+      <div class='page-header'>
+	 <h1 id='title'>Details </h1>
+      </div>
+
+      <div class='page-content'>
+	<div id='chart1'></div>
+      </div>
+    </div>
+
+    <div class='page-footer'>
+      <a href='http://wpitchoune.net/psensor'>Psensor Server</a> - (c)2011 jeanfi@gmail.com 
+    </div>    
+
+  </body>
+</html>

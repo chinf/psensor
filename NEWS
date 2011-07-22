@@ -4,6 +4,8 @@
 ** psensor-server: added monitor.html using jquery and retrieving
    monitoring data from the JSON web interface.
 ** added support for ATI/AMD gpus and fans.
+** psensor: added support of CPU usage monitoring.
+** psensor-server: display graph of sensors (web server).
 
 * v0.6.2.9
 
