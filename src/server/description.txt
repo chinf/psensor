@@ -10,12 +10,42 @@ It can provide information about:
   * the temperature of the Hard Disk Drives (using hddtemp).
   * the rotation speed of the fans (using lm\-sensors).
 
-The entry point of the JSON Web service is:
-http://hostname:3131/api/1.0/sensors.
-
 It is also possible to connect to the psensor\-server with a browser, a
 simple Web page is displaying the sensors information and the CPU
 usage.
+
+The URL http://hostname:3131/api/1.0/sensors/[id] returns a JSON
+object containing all information about a sensor. [id] is the uniq
+identifier of the sensor.
+
+Here is an example of the JSON object of type 'sensor':
+
+{ "id": "lmsensor acpitz\-virtual\-0 temp1", 
+  "name": "temp1", 
+  "type": 257, 
+  "min": 47.800000, 
+  "max": 60.800000,
+  "measures": [ { "value": 47.800000, "time": 1311374873 },
+                { "value": 49.800000, "time": 1311374878 },
+                { "value": 49.800000, "time": 1311374883 } ],
+  "last_measure": { "value": 49.800000, "time": 1311374883 }
+}
+
+Fields of the type 'sensor':
+
+   * id: the uniq identifier of the sensor.
+   * name: a humean readable name of the sensor (might not be uniq).
+   * type: the type of sensor. Look at src/lib/psensor.h for the
+     different types.
+   * min: the minimal value of the sensor.
+   * max: the maximal value of the sensor.
+   * measures: all measures of the sensor.
+   * last_measure: the last value of the sensor.
+   * time: the time of a measure as the number of seconds since
+     1970/01/01.
+
+The URL http://hostname:3131/api/1.0/sensors returns a JSON array
+containing all JSON objects of type 'sensor'.
 
 If run in debug mode, psensor\-server can be stopped by sending an HTTP
 request with the URL 'http://hostname:port/api/1.0/server/stop'.

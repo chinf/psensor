@@ -10,6 +10,7 @@ temperature alert is raised.
 It can monitor:
   * the temperature of the motherboard and CPU sensors (using lm\-sensors).
   * the temperature of the NVidia GPUs (using XNVCtrl).
+  * the temperature and fan rotation speed of the ATI GPUs.
   * the temperature of the Hard Disk Drives (using hddtemp).
   * the rotation speed of the fans (using lm\-sensors).
   * the sensors of a remote computer (using psensor\-server).
@@ -26,6 +27,10 @@ daemon must be running.
 For remote monitoring:
   * start psensor\-server(1) on the remote computer
   * run psensor with '\-\-url' option: 'psensor \-\-url=http://localhost:3131'
+
+ATI/AMD GPUs monitoring is available if the library libatiadlxx is
+present in the directory /usr/lib and psensor has been compiled with
+the ATI ADL SDK.
 
 [SEE ALSO]
 
