@@ -405,9 +405,9 @@ int main(int argc, char **argv)
 	/* main loop */
 	gtk_main();
 
-	psensor_cleanup();
+	g_mutex_lock(ui.sensors_mutex);
 
-	psensor_list_free(ui.sensors);
+	psensor_cleanup();
 
 #ifdef HAVE_NVIDIA
 	nvidia_cleanup();
@@ -415,5 +415,11 @@ int main(int argc, char **argv)
 #ifdef HAVE_LIBATIADL
 	amd_cleanup();
 #endif
+
+	psensor_list_free(ui.sensors);
+	ui.sensors = NULL;
+
+	g_mutex_unlock(ui.sensors_mutex);
+
 	return 0;
 }
