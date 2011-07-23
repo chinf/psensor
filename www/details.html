@@ -29,7 +29,7 @@
 
               var plot1 = $.jqplot ('chart1', [data_chart], 
                   {
-                      title:'Temperature',
+                      title: type_to_str(data["type"]),
                       axes:{
                           xaxis:{
                               renderer:$.jqplot.DateAxisRenderer,
