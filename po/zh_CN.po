@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-07-18 18:20+0200\n"
+"POT-Creation-Date: 2011-07-23 01:42+0200\n"
 "PO-Revision-Date: 2011-06-06 08:57+0000\n"
 "Last-Translator: royclark <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-06-06 09:00+0000\n"
 "X-Generator: Launchpad (build 13144)\n"
 
-#: src/main.c:73 src/server/server.c:76
+#: src/main.c:77 src/server/server.c:76
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -28,22 +28,22 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:83 src/server/server.c:86
+#: src/main.c:87 src/server/server.c:86
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "用法：%s [选项]...\n"
 
-#: src/main.c:85
+#: src/main.c:89
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温度和风扇转速。"
 
-#: src/main.c:89
+#: src/main.c:93
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:90 src/server/server.c:93
+#: src/main.c:94 src/server/server.c:93
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -51,28 +51,28 @@ msgstr ""
 "  -h, --help 显示这个帮助并退出\n"
 "  -v, --version 显示版本信息并退出"
 
-#: src/main.c:96
+#: src/main.c:100
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr "  -u, --url=URL psensor服务器的 URL ，比如：http://hostname:3131"
 
-#: src/main.c:102 src/server/server.c:106
+#: src/main.c:106 src/server/server.c:106
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:104 src/server/server.c:108
+#: src/main.c:108 src/server/server.c:108
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:326 src/server/server.c:346
+#: src/main.c:330 src/server/server.c:345
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:355
+#: src/main.c:359
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
@@ -100,7 +100,7 @@ msgstr ""
 msgid "_Preferences"
 msgstr ""
 
-#: src/ui.c:111 src/ui_sensorlist.c:201
+#: src/ui.c:111 src/ui_sensorlist.c:202
 msgid "Preferences"
 msgstr "选项"
 
@@ -142,35 +142,35 @@ msgstr ""
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr ""
 
-#: src/ui_sensorlist.c:232
+#: src/ui_sensorlist.c:233
 msgid "Select foreground color"
 msgstr "选择前景色"
 
-#: src/ui_sensorlist.c:309 src/glade/psensor-pref.glade:243
+#: src/ui_sensorlist.c:310 src/glade/psensor-pref.glade:243
 msgid "Sensor"
 msgstr "监视设备"
 
-#: src/ui_sensorlist.c:315
+#: src/ui_sensorlist.c:316
 msgid "Current"
 msgstr "当前"
 
-#: src/ui_sensorlist.c:321
+#: src/ui_sensorlist.c:322
 msgid "Min"
 msgstr "最小值"
 
-#: src/ui_sensorlist.c:327
+#: src/ui_sensorlist.c:328
 msgid "Max"
 msgstr "最大值"
 
-#: src/ui_sensorlist.c:334
+#: src/ui_sensorlist.c:335
 msgid "Color"
 msgstr "颜色"
 
-#: src/ui_sensorlist.c:346
+#: src/ui_sensorlist.c:347
 msgid "Enabled"
 msgstr "激活"
 
-#: src/ui_sensorlist.c:375 src/ui_sensorlist.c:376 src/ui_sensorlist.c:377
+#: src/ui_sensorlist.c:376 src/ui_sensorlist.c:377 src/ui_sensorlist.c:378
 #: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr ""
@@ -224,37 +224,32 @@ msgstr ""
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
-#: src/server/server.c:284
+#: src/server/server.c:283
 #, c-format
 msgid "HTTP Request: %s\n"
 msgstr ""
 
-#: src/server/server.c:352
-#, c-format
-msgid "ERROR: failed to init lm-sensors\n"
-msgstr ""
-
-#: src/server/server.c:359
+#: src/server/server.c:355
 #, c-format
 msgid "ERROR: no sensors detected\n"
 msgstr ""
 
-#: src/server/server.c:366
+#: src/server/server.c:362
 #, c-format
 msgid "ERROR: Fail to create web server\n"
 msgstr ""
 
-#: src/server/server.c:370
+#: src/server/server.c:366
 #, c-format
 msgid "Web server started on port: %d\n"
 msgstr ""
 
-#: src/server/server.c:371
+#: src/server/server.c:367
 #, c-format
 msgid "WWW directory: %s\n"
 msgstr ""
 
-#: src/server/server.c:372
+#: src/server/server.c:368
 #, c-format
 msgid "URL: http://localhost:%d\n"
 msgstr ""
@@ -329,12 +324,16 @@ msgstr ""
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr ""
 
-#: src/lib/psensor.c:422
+#: src/lib/psensor.c:431
 msgid "C"
 msgstr ""
 
-#: src/lib/psensor.c:425
+#: src/lib/psensor.c:434
 msgid "RPM"
+msgstr ""
+
+#: src/lib/psensor.c:437
+msgid "%"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:8

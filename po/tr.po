@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-07-18 18:20+0200\n"
+"POT-Creation-Date: 2011-07-23 01:42+0200\n"
 "PO-Revision-Date: 2011-04-10 13:11+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-04-11 05:41+0000\n"
 "X-Generator: Launchpad (build 12735)\n"
 
-#: src/main.c:73 src/server/server.c:76
+#: src/main.c:77 src/server/server.c:76
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -28,49 +28,49 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:83 src/server/server.c:86
+#: src/main.c:87 src/server/server.c:86
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Kullanım: %s [SEÇENEK]...\n"
 
-#: src/main.c:85
+#: src/main.c:89
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
 
-#: src/main.c:89
+#: src/main.c:93
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:90 src/server/server.c:93
+#: src/main.c:94 src/server/server.c:93
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
 
-#: src/main.c:96
+#: src/main.c:100
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr ""
 
-#: src/main.c:102 src/server/server.c:106
+#: src/main.c:106 src/server/server.c:106
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Hataları rapor et:%s\n"
 
-#: src/main.c:104 src/server/server.c:108
+#: src/main.c:108 src/server/server.c:108
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s ana sayfa: <%s>\n"
 
-#: src/main.c:326 src/server/server.c:346
+#: src/main.c:330 src/server/server.c:345
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
 
-#: src/main.c:355
+#: src/main.c:359
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
@@ -98,7 +98,7 @@ msgstr ""
 msgid "_Preferences"
 msgstr "Tercihler"
 
-#: src/ui.c:111 src/ui_sensorlist.c:201
+#: src/ui.c:111 src/ui_sensorlist.c:202
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -142,35 +142,35 @@ msgstr ""
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr ""
 
-#: src/ui_sensorlist.c:232
+#: src/ui_sensorlist.c:233
 msgid "Select foreground color"
 msgstr ""
 
-#: src/ui_sensorlist.c:309 src/glade/psensor-pref.glade:243
+#: src/ui_sensorlist.c:310 src/glade/psensor-pref.glade:243
 msgid "Sensor"
 msgstr "Algılayıcı"
 
-#: src/ui_sensorlist.c:315
+#: src/ui_sensorlist.c:316
 msgid "Current"
 msgstr ""
 
-#: src/ui_sensorlist.c:321
+#: src/ui_sensorlist.c:322
 msgid "Min"
 msgstr ""
 
-#: src/ui_sensorlist.c:327
+#: src/ui_sensorlist.c:328
 msgid "Max"
 msgstr ""
 
-#: src/ui_sensorlist.c:334
+#: src/ui_sensorlist.c:335
 msgid "Color"
 msgstr "Renk"
 
-#: src/ui_sensorlist.c:346
+#: src/ui_sensorlist.c:347
 msgid "Enabled"
 msgstr ""
 
-#: src/ui_sensorlist.c:375 src/ui_sensorlist.c:376 src/ui_sensorlist.c:377
+#: src/ui_sensorlist.c:376 src/ui_sensorlist.c:377 src/ui_sensorlist.c:378
 #: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr ""
@@ -225,37 +225,32 @@ msgstr ""
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
-#: src/server/server.c:284
+#: src/server/server.c:283
 #, c-format
 msgid "HTTP Request: %s\n"
 msgstr ""
 
-#: src/server/server.c:352
-#, c-format
-msgid "ERROR: failed to init lm-sensors\n"
-msgstr ""
-
-#: src/server/server.c:359
+#: src/server/server.c:355
 #, c-format
 msgid "ERROR: no sensors detected\n"
 msgstr ""
 
-#: src/server/server.c:366
+#: src/server/server.c:362
 #, c-format
 msgid "ERROR: Fail to create web server\n"
 msgstr ""
 
-#: src/server/server.c:370
+#: src/server/server.c:366
 #, c-format
 msgid "Web server started on port: %d\n"
 msgstr ""
 
-#: src/server/server.c:371
+#: src/server/server.c:367
 #, c-format
 msgid "WWW directory: %s\n"
 msgstr ""
 
-#: src/server/server.c:372
+#: src/server/server.c:368
 #, c-format
 msgid "URL: http://localhost:%d\n"
 msgstr ""
@@ -330,12 +325,16 @@ msgstr ""
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr ""
 
-#: src/lib/psensor.c:422
+#: src/lib/psensor.c:431
 msgid "C"
 msgstr ""
 
-#: src/lib/psensor.c:425
+#: src/lib/psensor.c:434
 msgid "RPM"
+msgstr ""
+
+#: src/lib/psensor.c:437
+msgid "%"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:8
