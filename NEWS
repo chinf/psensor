@@ -1,11 +1,13 @@
 * v0.6.2.10
 ** psensor-server: added network, cpu load and memory information in
    JSON web interface.
-** psensor-server: added monitor.html using jquery and retrieving
-   monitoring data from the JSON web interface.
-** added support for ATI/AMD gpus and fans.
+** psensor-server: added monitor.html and details.html using jquery
+   and retrieving monitoring data from the JSON web interface.
+** added experimental support for ATI/AMD gpus and fans.
 ** psensor: added support of CPU usage monitoring.
 ** psensor-server: display graph of sensors (web server).
+** psensor: bug fixed compilation with -Wall.
+** psensor: bug fixed unallocated memory read during termination.
 
 * v0.6.2.9
 
@@ -94,6 +96,12 @@
    using http://hostname:port/api/1.0/server/stop
 ** fixed memory leak (label of lmsensor)
 ** some code cleanup/refactoring
+
+* v0.6.1.10
+
+** psensor: support of appindicator < 0.2.9
+** psensor: closing the window hides psensor instead of quitting when
+   application indicator support is enabled. 
 
 * v0.6.1.9
 
