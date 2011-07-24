@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -pedantic -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
+AM_CPPFLAGS = -pedantic -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
 	-I$(top_srcdir)/src \
 	-I$(top_srcdir)/src/lib \
 	$(LUA_CFLAGS)\

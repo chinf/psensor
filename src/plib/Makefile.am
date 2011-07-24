@@ -4,7 +4,7 @@ AM_CPPFLAGS = \
 
 noinst_LIBRARIES = libplib.a
 
-libplib_a_CFLAGS = -pedantic
+libplib_a_CFLAGS = -pedantic -Wall -Werror
 
 libplib_a_SOURCES = \
 	url.c url.h \

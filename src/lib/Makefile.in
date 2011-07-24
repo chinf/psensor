@@ -226,7 +226,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libpsensor.a
-libpsensor_a_CFLAGS = -Werror $(am__append_5)
+libpsensor_a_CFLAGS = -Wall -Werror $(am__append_5)
 libpsensor_a_SOURCES = amd.h cpu.h measure.h measure.c color.h color.c \
 	psensor.h psensor.c hdd.h hdd.c nvidia.h lmsensor.h lmsensor.c \
 	$(am__append_1) $(am__append_4) $(am__append_6)

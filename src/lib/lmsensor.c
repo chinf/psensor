@@ -172,7 +172,7 @@ struct psensor **lmsensor_psensor_list_add(struct psensor **sensors,
 	int i;
 
 	if (!init_done)
-		return ;
+		return NULL;
 
 	result = sensors;
 	while ((chip = sensors_get_detected_chips(NULL, &chip_nr))) {

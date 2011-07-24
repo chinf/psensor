@@ -1,6 +1,6 @@
 noinst_LIBRARIES = libpsensor.a
 
-libpsensor_a_CFLAGS = -Werror
+libpsensor_a_CFLAGS = -Wall -Werror
 
 libpsensor_a_SOURCES = \
 	amd.h \
