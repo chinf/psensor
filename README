@@ -86,6 +86,7 @@ Psensor compilation requires:
  * library libXNVCtrl (optional)
  * library json0 and curl (optional, required for remote monitoring)
  * library unity (>=v3.4.2, optional)
+ * library gtop2 (optional, required for CPU usage)
 
 Psensor-server compilation requires:
  * make/gcc	
@@ -94,8 +95,6 @@ Psensor-server compilation requires:
  * help2man 
  * library libmicrohttpd 
  * library json0
- * library LUA5.1 (optional, required to enable HTML page generation	
- of the psensor-server webserver)
  * library gtop2 (optional, required for CPU usage)
 
 Compilation and Installation Steps
