@@ -188,37 +188,33 @@ static void draw_sensor_curve(struct psensor *s,
 
 void
 graph_update(struct psensor **sensors,
-	     GtkWidget *w_graph, struct config *config)
+	     GtkWidget *w_graph,
+	     struct config *config)
 {
 	struct color *fgcolor = config->graph_fgcolor;
-	int et, bt;
-	double min_rpm = get_min_rpm(sensors);
-	double max_rpm = get_max_rpm(sensors);
-
-	double mint = get_min_temp(sensors);
-	char *strmin = psensor_value_to_string(SENSOR_TYPE_TEMP, mint);
-
-	double maxt = get_max_temp(sensors);
-	char *strmax = psensor_value_to_string(SENSOR_TYPE_TEMP, maxt);
-
-	int width, height, g_width, g_height;
-
+	int et, bt, width, height, g_width, g_height;
+	double min_rpm, max_rpm, mint, maxt;
+	char *strmin, *strmax;
 	/* horizontal and vertical offset of the graph */
 	int g_xoff, g_yoff;
-
 	cairo_surface_t *cst;
 	cairo_t *cr, *cr_pixmap;
-
-	char *str_btime;
-	char *str_etime;
-
+	char *str_btime, *str_etime;
 	cairo_text_extents_t te_btime, te_etime, te_max, te_min;
-
 	struct psensor **sensor_cur;
 	GtkAllocation galloc;
 
 	if (!gtk_widget_is_drawable(w_graph))
 		return ;
+
+	min_rpm = get_min_rpm(sensors);
+	max_rpm = get_max_rpm(sensors);
+
+	mint = get_min_temp(sensors);
+	strmin = psensor_value_to_string(SENSOR_TYPE_TEMP, mint);
+
+	maxt = get_max_temp(sensors);
+	strmax = psensor_value_to_string(SENSOR_TYPE_TEMP, maxt);
 
 	str_btime = time_to_str(get_graph_begin_time_s(config));
 	str_etime = time_to_str(get_graph_end_time_s());

@@ -8,6 +8,7 @@
 ** psensor-server: display graph of sensors (web server).
 ** psensor: bug fixed compilation with -Wall.
 ** psensor: bug fixed unallocated memory read during termination.
+** psensor: fixed memleak when window not drawable.
 
 * v0.6.2.9
 
