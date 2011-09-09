@@ -336,7 +336,7 @@ int main(int argc, char **argv)
 	gdk_threads_init();
 	/* gdk_threads_enter(); */
 
-	gtk_init(&argc, &argv);
+	gtk_init(NULL, NULL);
 
 #ifdef HAVE_LIBNOTIFY
 	ui.notification_last_time = NULL;

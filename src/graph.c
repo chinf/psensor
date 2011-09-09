@@ -209,8 +209,8 @@ graph_update(struct psensor **sensors,
 	cairo_surface_t *cst;
 	cairo_t *cr, *cr_pixmap;
 
-	char *str_btime = time_to_str(get_graph_begin_time_s(config));
-	char *str_etime = time_to_str(get_graph_end_time_s());
+	char *str_btime;
+	char *str_etime;
 
 	cairo_text_extents_t te_btime, te_etime, te_max, te_min;
 
@@ -219,6 +219,9 @@ graph_update(struct psensor **sensors,
 
 	if (!gtk_widget_is_drawable(w_graph))
 		return ;
+
+	str_btime = time_to_str(get_graph_begin_time_s(config));
+	str_etime = time_to_str(get_graph_end_time_s());
 
 	gtk_widget_get_allocation(w_graph, &galloc);
 	width = galloc.width;
