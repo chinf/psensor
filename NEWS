@@ -9,6 +9,7 @@
 ** psensor: bug fixed compilation with -Wall.
 ** psensor: bug fixed unallocated memory read during termination.
 ** psensor: fixed memleak when window not drawable.
+** psensor: release GConfClient when quitting.
 
 * v0.6.2.9
 

@@ -394,6 +394,14 @@ void config_init()
 	client = gconf_client_get_default();
 }
 
+void config_cleanup()
+{
+	if (client) {
+		g_object_unref(client);
+		client = NULL;
+	}
+}
+
 struct config *config_load()
 {
 	struct config *cfg = malloc(sizeof(struct config));

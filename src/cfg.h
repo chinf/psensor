@@ -66,6 +66,8 @@ void config_save(struct config *);
 
 void config_init();
 
+void config_cleanup();
+
 struct color *config_get_sensor_color(char *sensor_name,
 				      struct color *default_color);
 

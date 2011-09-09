@@ -421,5 +421,7 @@ int main(int argc, char **argv)
 
 	g_mutex_unlock(ui.sensors_mutex);
 
+	config_cleanup();
+
 	return 0;
 }
