@@ -18,7 +18,7 @@
           var url_id = params["id"];
 
 
-          $.getJSON("/api/1.0/sensors/"+url_id, function(data) {
+          $.getJSON(url_id, function(data) {
               var measures = data["measures"];
               var data_chart = [];
 

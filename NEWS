@@ -1,3 +1,6 @@
+* v0.6.2.11
+** psensor-server/web interface: use jqplot default css.
+
 * v0.6.2.10
 ** psensor-server: added network, cpu load and memory information in
    JSON web interface.

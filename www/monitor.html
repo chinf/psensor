@@ -23,7 +23,7 @@
 
                   $("#sensors").append("<tr>"
 	                               +"<td>"
-	                               +"<a href='details.html?id="+escape(item["id"])
+	                               +"<a href='details.html?id="+escape("/api/1.0/sensors/"+item["id"])
                                        +"'>"+sname+"</a></td>"
 	                               +"<td>"+svalue+unit+"</td><td>"+smin+unit+"</td><td>"+smax+unit+"</td><td>"+stype_str+"</td></tr>");                 
               });          
