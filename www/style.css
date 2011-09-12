@@ -4,6 +4,11 @@ body {
     font-size: 100%;
     color: #000;
     background-color: #fff;
+    margin: 0 0 0 0;
+}
+
+body div {
+    background-color: #fff;
 }
 
 a {
@@ -18,6 +23,8 @@ a:hover {
 
 h1 {
     text-transform: uppercase;
+    margin: 0 0 1em 0;
+    padding: 0 0 0 0;
 }
 
 #footer {
@@ -62,24 +69,26 @@ th, td {
     color: #000;
 }
 
-#menu-list {
+ul {
     list-style: none;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
- }
+}
 
-#menu {
-    background: #000;
-    color: #fff;
-    padding-top: 1em;
-    padding-bottom: 1em;
+ul li ul li {
     padding-left: 1em;
 }
 
-.sub-menu {
+#menu {
+    float: left;
+    width: 20%;
     padding: 0 0 0 0;
     margin: 0 0 0 0;
-    list-style: none;
-    display: none;
-    color: #fff;
+}
+
+#main {
+    float: right;
+    width: 80%;
+    padding: 0 0 0 0;
+    margin: 0 0em 0 0;
 }

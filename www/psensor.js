@@ -148,7 +148,7 @@ function update_menu() {
     var name, link, url, str;
 
     $.getJSON("/api/1.0/sensors", function(data) {
-	str = "<li class='menu-item'>Sensors\n<ul class='sub-menu'>";
+	str = "<li>Sensors\n<ul>";
 
 	$.each(data, function(i, item) {
             name = item["name"];
@@ -162,7 +162,4 @@ function update_menu() {
 	$("#menu-list").append(str);
     });
 
-    $("#menu-list").click(function() {
-	$("ul.sub-menu").slideToggle('medium');
-    });
 }
