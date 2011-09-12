@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Sensor details</title>
+    <title>Sensor </title>
 
     <link type="text/css" href="style.css" rel="stylesheet" />	
 
@@ -17,12 +17,12 @@
           var params = get_url_params();
           var url_id = params["id"];
 
-
           $.getJSON(url_id, function(data) {
               var measures = data["measures"];
               var data_chart = [];
 
               $("#title").append(data["name"]);
+              $("title").append(data["name"]);
 
               $.each(measures, function(i, item) {
                   var d = new Date(item["time"]*1000);
@@ -48,7 +48,7 @@
   <body>
     <div class='page'>
       <div class='page-header'>
-	 <h1 id='title'>Details </h1>
+	 <h1 id='title'></h1>
       </div>
 
       <div class='page-content'>
