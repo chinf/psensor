@@ -143,3 +143,26 @@ function update_chart(chart_id, title, data) {
 
     $.jqplot (chart_id, [data_chart], style);
 }
+
+function update_menu() {
+    var name, link, url, str;
+
+    $.getJSON("/api/1.0/sensors", function(data) {
+	str = "<li class='menu-item'>Sensors\n<ul class='sub-menu'>";
+
+	$.each(data, function(i, item) {
+            name = item["name"];
+	    url = "details.html?id="+escape("/api/1.0/sensors/"+item["id"]);
+	    link = "<a href='"+url+"'>"+name+"</a>";
+	    str += "<li>"+link+"</li>";
+	});
+
+	str += "</ul>";
+
+	$("#menu-list").append(str);
+    });
+
+    $("#menu-list").click(function() {
+	$("ul.sub-menu").slideToggle('medium');
+    });
+}

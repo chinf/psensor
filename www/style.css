@@ -1,6 +1,7 @@
 body {
     padding: 1em 1em 1em 1em;
     font-family: "Ubuntu", sans-serif;
+    font-size: 100%;
     color: #000;
     background-color: #fff;
 }
@@ -28,9 +29,7 @@ h1 {
 }
 
 p {
-    font-size: 12px;
-    line-height: 16px;
-    color: #333333;
+    font-size: 100%;
     margin-bottom: 8px;
 }
 
@@ -43,8 +42,6 @@ table {
 
 thead {
     background-color: #aea79f;
-    font-size: 12px;
-    line-height: 16px;
     color: #ffffff;
     font-weight: bold;
     padding-top: 4px;
@@ -52,8 +49,6 @@ thead {
 }
 
 tbody {
-    font-size: 12px;
-    line-height: 16px;
     color: #333333;
     padding-top: 4px;
     padding-bottom: 4px;
@@ -65,4 +60,26 @@ th, td {
 
 .chart {
     color: #000;
+}
+
+#menu-list {
+    list-style: none;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+ }
+
+#menu {
+    background: #000;
+    color: #fff;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+}
+
+.sub-menu {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    list-style: none;
+    display: none;
+    color: #fff;
 }

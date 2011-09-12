@@ -22,6 +22,8 @@ href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 
       	  url_id = get_url_params()["id"];
 
+      update_menu();
+      
           $.getJSON(url_id, function(data) {
 		update_chart("chart", type_to_str(data["type"]), data);
       	  });
@@ -29,6 +31,11 @@ href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
     </script>
   </head>
   <body>
+    <div id="menu">
+      <ul id="menu-list">
+      </ul>
+    </div>
+
     <h1></h1>
 
     <div class="chart" id="chart"></div>
