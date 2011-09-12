@@ -1,75 +1,30 @@
 body {
-    font-family: Ubuntu, 'Bitstream Ver Sans', 'DejaVu Sans', 'Tahoma', sans-serif;
-    color: #333333;
-    font-size: 12px;
-    font-height: 16px;
-    margin: 0;
-    padding: 0;
-
-    background-color: #f0f0f0;
+    padding: 1em 1em 1em 1em;
+    font-family: "Ubuntu", sans-serif;
+    color: #000;
+    background-color: #fff;
 }
 
-.page {
-    background-color: #ffffff;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: #333333;
-    border-radius: 8px 8px 0px 0px;
-    border: 3px #aea79f solid;
-    box-shadow: 2px 2px 2px #333333; 
+a {
+    color: #1982D1;
+    font-style: normal;
+    text-decoration: none;
 }
 
-.page-header {
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.page-content {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 60px;
-    padding-right: 60px;
-    background-color: #f7f7f7;
-    border-radius: 4px 4px 4px 4px;
-}
-
-.page-footer {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    margin-top: 2px;
-    padding-left: 20px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    background-color: #aea79f;
-    border-radius: 0px 0px 4px 4px;
-    font-size: 10px;
-    line-height: 14px;
-    color: #333333;
+a:hover {
+    text-decoration: underline;
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 40px;
-    font-weight: normal;
-    color: #333333;
-    margin: 0;
+    text-transform: uppercase;
 }
 
-h2 {
-    font-size: 24px;
-    line-height: 28px;
-    font-weight: normal;
-    color: #333333;
-    margin-top: 16px;
-    margin-bottom: 8px;
+#footer {
+    padding-top: 2em;
+    color: #666;
+    clear: both;
+    text-align: right;
+    font-size: 75%;
 }
 
 p {
@@ -108,16 +63,6 @@ th, td {
     padding: 4px 4px 4px 4px;
 }
 
-.page-footer a:link , .page-footer a:visited, .page-footer a:active {
-    text-decoration: none;
-    color: #333333;
-}
-
-.page-footer a:hover {
-    text-decoration: underline;
-    color: #333333;
-}
-
-tr {
-    padding-left: 30px;
+chart {
+    color: #000;
 }
