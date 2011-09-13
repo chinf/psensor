@@ -173,9 +173,7 @@ function update_summary_sensors() {
     $.getJSON("/api/1.0/sensors", function(data) {
 	$("#sensors tbody").html("");
 
-        $.each(data, function(i, item) {
-	    
-
+        $.each(data, function(i, item) {	    
             name = item["name"];
             type = item["type"];
             value_str = value_to_str(item["last_measure"]["value"], type);

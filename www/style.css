@@ -20,14 +20,25 @@ a:hover {
 }
 
 h1 {
+    font-size: 140%;
+    font-style: normal;
+    font-weight: bold;
     text-transform: uppercase;
     margin: 0 0 1em 0;
     padding: 0 0 0 0;
 }
 
-#footer {
+
+h2 {
+    font-size: 110%;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 2em 0em 1em 0em;
+    padding: 0 0 0 0;
+}
+
+#footer {
     padding-top: 2em;
     color: #666;
     clear: both;
@@ -41,31 +52,31 @@ p {
 }
 
 table {
-	text-align: left;
-	padding-left: 8px;
-	padding-right: 8px;
-	min-width: 50%;
+    text-align: left;
+    padding: 0 0 0 0;
+    min-width: 50%;
+    border-spacing: 0;
+    border: 0;
 }
 
 thead {
     background-color: #000;
     color: #fff;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding: 0 0 0 0;    
 }
 
 tbody {
-    padding-top: 4px;
-    padding-bottom: 4px;
-}
-
-th, td {
-    padding: 4px 4px 4px 4px;
+    padding: 0 0 0 0;
 }
 
 th {
+    padding: 0.25em 0.5em 0.25em 0.5em;
     font-style: normal;
     font-weight: normal;
+}
+
+td {
+    padding: 0.25em 0.25em 0em 0.25em;
 }
 
 .chart {
@@ -105,5 +116,17 @@ em {
 
 #uptime {
     font-weight: normal;
-    font-style: normal;
 }
+
+#menu-list em {
+    text-transform: uppercase;
+}
+
+#menu ul li {
+    padding-bottom: 1em;
+}
+
+#menu-list ul li {
+    padding: 0 0 0 1em;
+}
+
