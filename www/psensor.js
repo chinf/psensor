@@ -67,11 +67,15 @@ function type_to_str(stype) {
 
 function type_to_unit(stype) {
     if (stype & 0x0001)
-        unit = " C";
+        unit = "C";
     else if (stype & 0x0002)
-        unit = " RPM";
+        unit = "RPM";
 
     return unit;
+}
+
+function value_to_str(value, type) {
+    return value+type_to_unit(type);
 }
 
 function get_url_params()
@@ -162,4 +166,28 @@ function update_menu() {
 	$("#menu-list").append(str);
     });
 
+}
+
+function update_summary_sensors() {
+    var name, value_str, min_str, max_str, type, type_str, url;
+
+    $.getJSON("/api/1.0/sensors", function(data) {
+        $.each(data, function(i, item) {
+            name = item["name"];
+            type = item["type"];
+            value_str = value_to_str(item["last_measure"]["value"], type);
+            min_str = value_to_str(item["min"], type);
+            max_str = value_to_str(item["max"], type);
+	    type_str = type_to_str(type);
+	    url = "details.html?id="+escape("/api/1.0/sensors/"+item["id"]);
+
+            $("#sensors").append("<tr>"
+	                         +"<td><a href='"+url+"'>"+name+"</a></td>"
+	                         +"<td>"+value_str+"</td>"
+				 +"<td>"+min_str+"</td>"
+				 +"<td>"+max_str+"</td>"
+				 +"<td>"+type_str+"</td>"
+				 +"</tr>");                 
+        });          
+    });
 }

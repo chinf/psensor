@@ -8,26 +8,8 @@
     <script type="text/javascript" src="psensor.js"></script>
     <script>  
       $(document).ready(function() {          
-          $.getJSON("/api/1.0/sensors", function(data) {
-              $.each(data, function(i, item) {
-                  var sname = item["name"];
-                  var svalue = item["last_measure"]["value"];
-                  var smin = item["min"];
-                  var smax = item["max"];
-                  var stype = item["type"];
-                  var stype_str;
-                  var unit;
-
-                  unit = type_to_unit(stype);
-                  stype_str = type_to_str(stype);
-
-                  $("#sensors").append("<tr>"
-	                               +"<td>"
-	                               +"<a href='details.html?id="+escape("/api/1.0/sensors/"+item["id"])
-                                       +"'>"+sname+"</a></td>"
-	                               +"<td>"+svalue+unit+"</td><td>"+smin+unit+"</td><td>"+smax+unit+"</td><td>"+stype_str+"</td></tr>");                 
-              });          
-          });
+      
+          update_summary_sensors();
 
           $.getJSON("/api/1.0/sysinfo", function(data) {
               var load = Math.round(data["load"] * 100);
