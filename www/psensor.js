@@ -41,7 +41,7 @@ function format_mem_size(s) {
         return o+"o";
 
     return "0";
-};
+}
 
 function type_to_str(stype) {
     var stype_str;
@@ -63,7 +63,7 @@ function type_to_str(stype) {
        stype_str += " Fan";
 
     return stype_str;
-};
+}
 
 function type_to_unit(stype) {
     if (stype & 0x0001)
@@ -78,8 +78,7 @@ function value_to_str(value, type) {
     return value+type_to_unit(type);
 }
 
-function get_url_params()
-{
+function get_url_params() {
     var vars, hashes, i;
 
     vars = [];
@@ -172,7 +171,11 @@ function update_summary_sensors() {
     var name, value_str, min_str, max_str, type, type_str, url;
 
     $.getJSON("/api/1.0/sensors", function(data) {
+	$("#sensors tbody").html("");
+
         $.each(data, function(i, item) {
+	    
+
             name = item["name"];
             type = item["type"];
             value_str = value_to_str(item["last_measure"]["value"], type);
@@ -181,7 +184,7 @@ function update_summary_sensors() {
 	    type_str = type_to_str(type);
 	    url = "details.html?id="+escape("/api/1.0/sensors/"+item["id"]);
 
-            $("#sensors").append("<tr>"
+            $("#sensors tbody").append("<tr>"
 	                         +"<td><a href='"+url+"'>"+name+"</a></td>"
 	                         +"<td>"+value_str+"</td>"
 				 +"<td>"+min_str+"</td>"
@@ -189,5 +192,62 @@ function update_summary_sensors() {
 				 +"<td>"+type_str+"</td>"
 				 +"</tr>");                 
         });          
+    });
+}
+
+function update_summary_sysinfo() {
+    $.getJSON("/api/1.0/sysinfo", function(data) {
+	$("#uptime").html("");
+	$("#cpu tbody").html("");
+	$("#memory").html("");
+	$("#swap").html("");
+	$("#net tbody").html("");
+
+        var load = Math.round(data["load"] * 100);
+        var load_1 = Math.round(data["load_1"]*1000)/1000;
+        var load_5 = Math.round(data["load_5"]*1000)/1000;
+        var load_15 = Math.round(data["load_15"]*1000)/1000;
+        var uptime = data["uptime"];
+        var uptime_s = uptime % 60;
+        var uptime_mn = Math.floor((uptime / 60) % 60);
+        var uptime_h = Math.floor((uptime / (60*60)) % 24);
+        var uptime_d = Math.floor(uptime / (60*60*24));
+	
+        $("#cpu").append("<tr><td>"+load+"%</td><td>"
+			 +load_1+"</td><td>"
+			 +load_5+"</td><td>"
+			 +load_15+"</td></tr>");
+	
+        $("#uptime").append(uptime_d+"d "+uptime_h+"h "+uptime_mn+"mn");
+	
+        var ram = data["ram"];
+        var swap = data["swap"];
+        var mu = data["mem_unit"];
+	
+	var ramtotal = ram["total"]*mu;
+        var ramfree = ram["free"]*mu;
+        var ramused = (ram["total"] - ram["free"])*mu;
+        var ramshared = ram["shared"]*mu;
+        var rambuffer = ram["buffer"]*mu;
+        
+	
+        $("#memory").append("<td>Memory</td>"
+			    +"<td>"+format_mem_size(ramtotal)+"</td>"
+			    +"<td>"+format_mem_size(ramused)+"</td>"
+			    +"<td>"+format_mem_size(ramfree)+"</td>"
+			    +"<td>"+format_mem_size(ramshared)+"</td>"
+			    +"<td>"+format_mem_size(rambuffer)+"</td>");
+	
+        $("#swap").append("<td>Swap</td>"
+			  +"<td>"+format_mem_size(swap["total"]*mu)+"</td>"
+			  +"<td>"+format_mem_size(swap["total"]*mu-swap["free"]*mu)+"</td>"
+			  +"<td>"+format_mem_size(swap["free"]*mu)+"</td>");
+	
+        var netdata = data["net"];
+        $.each(netdata, function(i, item) {
+            $("#net").append("<tr><td>"+item["name"]+"</td>"
+                             +"<td>"+format_mem_size(item["bytes_in"])+"</td>"
+                             +"<td>"+format_mem_size(item["bytes_out"])+"</td></tr>");
+        });
     });
 }
