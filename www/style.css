@@ -2,6 +2,8 @@ body {
     padding: 1em 1em 1em 1em;
     font-family: "Ubuntu", sans-serif;
     font-size: 100%;
+    font-style: normal;
+    font-weight: normal;
     color: #000;
     background-color: #fff;
     margin: 0 0 0 0;
@@ -24,6 +26,8 @@ h1 {
 }
 
 #footer {
+    font-style: normal;
+    font-weight: normal;
     padding-top: 2em;
     color: #666;
     clear: both;
@@ -65,6 +69,8 @@ th {
 
 .chart {
     color: #000;
+    font-style: normal;
+    font-weight: normal;
 }
 
 ul {
