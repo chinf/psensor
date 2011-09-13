@@ -137,7 +137,7 @@ function update_chart(chart_id, title, data) {
 	},
 	series: [ { 
 	    lineWidth: 1, 
-	    showMarker:false 
+	    showMarker: false 
 	} ]
     };
 
@@ -148,7 +148,7 @@ function update_menu() {
     var name, link, url, str;
 
     $.getJSON("/api/1.0/sensors", function(data) {
-	str = "<li>Sensors\n<ul>";
+	str = "<li><em>Sensors</em>\n<ul>";
 
 	$.each(data, function(i, item) {
             name = item["name"];

@@ -7,10 +7,6 @@ body {
     margin: 0 0 0 0;
 }
 
-body div {
-    background-color: #fff;
-}
-
 a {
     color: #1982D1;
     font-style: normal;
@@ -91,4 +87,9 @@ ul li ul li {
     width: 80%;
     padding: 0 0 0 0;
     margin: 0 0em 0 0;
+}
+
+em {
+    font-weight: bold;
+    font-style: normal;
 }
