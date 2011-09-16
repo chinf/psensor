@@ -1,5 +1,6 @@
 * v0.6.2.11
 ** psensor-server/web interface: use jqplot default css.
+** psensor-server/web interface: added excanvas for ie < 9 support.
 
 * v0.6.2.10
 ** psensor-server: added network, cpu load and memory information in
