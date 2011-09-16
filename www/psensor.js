@@ -222,7 +222,7 @@ function update_summary_sysinfo() {
         var uptime_h = Math.floor((uptime / (60*60)) % 24);
         var uptime_d = Math.floor(uptime / (60*60*24));
 	
-        $("#cpu").append("<tr><td>"+load+"%</td><td>"
+        $("#cpu").append("<tr><td><a href='details.html?id=/api/1.0/cpu/usage'>"+load+"%</a></td><td>"
 			 +load_1+"</td><td>"
 			 +load_5+"</td><td>"
 			 +load_15+"</td></tr>");
