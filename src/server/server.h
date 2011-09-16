@@ -27,8 +27,10 @@
 #define URL_BASE_API_1_0_SENSORS "/api/1.0/sensors"
 #define URL_API_1_0_SERVER_STOP "/api/1.0/server/stop"
 #define URL_API_1_0_SYSINFO "/api/1.0/sysinfo"
+#define URL_API_1_0_CPU_USAGE "/api/1.0/cpu/usage"
 
 struct server_data {
+	struct psensor *cpu_usage;
 	struct psensor **sensors;
 	struct psysinfo psysinfo;
 	char *www_dir;

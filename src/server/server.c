@@ -38,6 +38,7 @@
 
 #ifdef HAVE_GTOP
 #include "sysinfo.h"
+#include "cpu.h"
 #endif
 
 #include "psensor_json.h"
@@ -155,6 +156,8 @@ create_response_api(const char *nurl,
 	} else if (!strcmp(nurl, URL_API_1_0_SYSINFO)) {
 
 		page = sysinfo_to_json_string(&server_data.psysinfo);
+	} else if (!strcmp(nurl, URL_API_1_0_CPU_USAGE)) {
+		page = sensor_to_json_string(server_data.cpu_usage);
 #endif
 	} else if (!strncmp(nurl, URL_BASE_API_1_0_SENSORS,
 			    strlen(URL_BASE_API_1_0_SENSORS))
@@ -351,6 +354,10 @@ int main(int argc, char *argv[])
 
 	server_data.sensors = get_all_sensors(600);
 
+#ifdef HAVE_GTOP
+	server_data.cpu_usage = create_cpu_usage_sensor(600);
+#endif
+
 	if (!*server_data.sensors)
 		fprintf(stderr, _("ERROR: no sensors detected\n"));
 
@@ -372,6 +379,7 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_GTOP
 		sysinfo_update(&server_data.psysinfo);
+		cpu_usage_sensor_update(server_data.cpu_usage);
 #endif
 		psensor_list_update_measures(server_data.sensors);
 
@@ -383,11 +391,15 @@ int main(int argc, char *argv[])
 
 	/* sanity cleanup for valgrind */
 	psensor_list_free(server_data.sensors);
+#ifdef HAVE_GTOP
+	psensor_free(server_data.cpu_usage);
+#endif
 	free(server_data.www_dir);
 	sensors_cleanup();
 
 #ifdef HAVE_GTOP
 	sysinfo_cleanup();
+	cpu_cleanup();
 #endif
 
 	return EXIT_SUCCESS;

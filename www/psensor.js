@@ -54,6 +54,8 @@ function type_to_str(stype) {
         stype_str = "NVidia";
     else if (stype & 0x0400)
         stype_str = "HDD";
+    else if (stype & 0x0800)
+        stype_str = "CPU Usage Percentage";
     else if (stype & 0x1000) 
         stype_str = "AMD";
  
@@ -150,8 +152,10 @@ function update_chart(chart_id, title, data) {
 function update_menu() {
     var name, link, url, str;
 
+    str = "";
+
     $.getJSON("/api/1.0/sensors", function(data) {
-	str = "<li><em>Sensors</em>\n<ul>";
+	str += "<li><em>Sensors</em>\n<ul>";
 
 	$.each(data, function(i, item) {
             name = item["name"];
@@ -159,10 +163,17 @@ function update_menu() {
 	    link = "<a href='"+url+"'>"+name+"</a>";
 	    str += "<li>"+link+"</li>";
 	});
+	str += "</li></ul>";
 
-	str += "</ul>";
-
+	str += "<li><em>CPU</em><ul>";
+	url = "details.html?id="+escape("/api/1.0/cpu/usage");
+	link = "<a href='"+url+"'>usage</a>";
+	str += "<li>"+link+"</li>";
+	
+	str += "</li></ul>";
+	
 	$("#menu-list").append(str);
+
     });
 
 }

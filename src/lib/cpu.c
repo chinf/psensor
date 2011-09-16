@@ -31,7 +31,7 @@ static glibtop_cpu *cpu;
 static float last_used;
 static float last_total;
 
-static struct psensor *create_sensor(int measures_len)
+struct psensor *create_cpu_usage_sensor(int measures_len)
 {
 	char *label;
 	int type;
@@ -52,7 +52,7 @@ cpu_psensor_list_add(struct psensor **sensors, int measures_len)
 {
 	struct psensor *s;
 
-	s = create_sensor(measures_len);
+	s = create_cpu_usage_sensor(measures_len);
 
 	return psensor_list_add(sensors, s);
 }
@@ -81,6 +81,11 @@ static double get_usage()
 	return cpu_rate;
 }
 
+void cpu_usage_sensor_update(struct psensor *s)
+{
+	psensor_set_current_value(s, get_usage());
+}
+
 void cpu_psensor_list_update(struct psensor **sensors)
 {
 	struct psensor **ss, *s;
@@ -90,7 +95,7 @@ void cpu_psensor_list_update(struct psensor **sensors)
 		s = *ss;
 
 		if (s->type == SENSOR_TYPE_CPU_USAGE)
-			psensor_set_current_value(s, get_usage());
+			cpu_usage_sensor_update(s);
 
 		ss++;
 	}

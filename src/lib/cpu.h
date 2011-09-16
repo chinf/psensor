@@ -22,8 +22,12 @@
 
 #include "psensor.h"
 
-void cpu_psensor_list_update(struct psensor **sensors);
-struct psensor **cpu_psensor_list_add(struct psensor **sensors,
+struct psensor *create_cpu_usage_sensor(int measures_len);
+
+void cpu_usage_sensor_update(struct psensor *);
+void cpu_psensor_list_update(struct psensor **);
+
+struct psensor **cpu_psensor_list_add(struct psensor **,
 				      int values_max_len);
 
 void cpu_cleanup();
