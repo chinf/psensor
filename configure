@@ -8341,7 +8341,7 @@ fi
 
 
 
-ac_config_files="$ac_config_files Makefile src/Makefile src/glade/Makefile src/plib/Makefile src/lib/Makefile src/unity/Makefile src/libpsensor_json/Makefile src/server/Makefile pixmaps/scalable/Makefile pixmaps/14x14/Makefile pixmaps/16x16/Makefile pixmaps/22x22/Makefile pixmaps/24x24/Makefile pixmaps/32x32/Makefile pixmaps/48x48/Makefile pixmaps/64x64/Makefile www/Makefile po/Makefile.in tests/Makefile"
+ac_config_files="$ac_config_files Makefile src/Makefile src/glade/Makefile src/plib/Makefile src/lib/Makefile src/unity/Makefile src/libpsensor_json/Makefile src/server/Makefile icons/scalable/Makefile icons/14x14/Makefile icons/16x16/Makefile icons/22x22/Makefile icons/24x24/Makefile icons/32x32/Makefile icons/48x48/Makefile icons/64x64/Makefile www/Makefile po/Makefile.in tests/Makefile"
 
 
 for ac_prog in help2man
@@ -9159,14 +9159,14 @@ do
     "src/unity/Makefile") CONFIG_FILES="$CONFIG_FILES src/unity/Makefile" ;;
     "src/libpsensor_json/Makefile") CONFIG_FILES="$CONFIG_FILES src/libpsensor_json/Makefile" ;;
     "src/server/Makefile") CONFIG_FILES="$CONFIG_FILES src/server/Makefile" ;;
-    "pixmaps/scalable/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/scalable/Makefile" ;;
-    "pixmaps/14x14/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/14x14/Makefile" ;;
-    "pixmaps/16x16/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/16x16/Makefile" ;;
-    "pixmaps/22x22/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/22x22/Makefile" ;;
-    "pixmaps/24x24/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/24x24/Makefile" ;;
-    "pixmaps/32x32/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/32x32/Makefile" ;;
-    "pixmaps/48x48/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/48x48/Makefile" ;;
-    "pixmaps/64x64/Makefile") CONFIG_FILES="$CONFIG_FILES pixmaps/64x64/Makefile" ;;
+    "icons/scalable/Makefile") CONFIG_FILES="$CONFIG_FILES icons/scalable/Makefile" ;;
+    "icons/14x14/Makefile") CONFIG_FILES="$CONFIG_FILES icons/14x14/Makefile" ;;
+    "icons/16x16/Makefile") CONFIG_FILES="$CONFIG_FILES icons/16x16/Makefile" ;;
+    "icons/22x22/Makefile") CONFIG_FILES="$CONFIG_FILES icons/22x22/Makefile" ;;
+    "icons/24x24/Makefile") CONFIG_FILES="$CONFIG_FILES icons/24x24/Makefile" ;;
+    "icons/32x32/Makefile") CONFIG_FILES="$CONFIG_FILES icons/32x32/Makefile" ;;
+    "icons/48x48/Makefile") CONFIG_FILES="$CONFIG_FILES icons/48x48/Makefile" ;;
+    "icons/64x64/Makefile") CONFIG_FILES="$CONFIG_FILES icons/64x64/Makefile" ;;
     "www/Makefile") CONFIG_FILES="$CONFIG_FILES www/Makefile" ;;
     "po/Makefile.in") CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
     "tests/Makefile") CONFIG_FILES="$CONFIG_FILES tests/Makefile" ;;

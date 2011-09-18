@@ -273,14 +273,14 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = po\
  src\
- pixmaps/scalable\
- pixmaps/14x14\
- pixmaps/16x16\
- pixmaps/22x22\
- pixmaps/24x24\
- pixmaps/32x32\
- pixmaps/48x48\
- pixmaps/64x64\
+ icons/scalable\
+ icons/14x14\
+ icons/16x16\
+ icons/22x22\
+ icons/24x24\
+ icons/32x32\
+ icons/48x48\
+ icons/64x64\
  www\
  tests
 

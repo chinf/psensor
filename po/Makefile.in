@@ -21,7 +21,7 @@ srcdir = .
 top_srcdir = ..
 
 
-prefix = /tmp/usr
+prefix = /usr/local
 exec_prefix = ${prefix}
 datarootdir = ${prefix}/share
 datadir = ${datarootdir}

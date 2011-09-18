@@ -212,14 +212,14 @@ AC_CONFIG_FILES([
  src/unity/Makefile
  src/libpsensor_json/Makefile
  src/server/Makefile
- pixmaps/scalable/Makefile
- pixmaps/14x14/Makefile
- pixmaps/16x16/Makefile
- pixmaps/22x22/Makefile
- pixmaps/24x24/Makefile
- pixmaps/32x32/Makefile
- pixmaps/48x48/Makefile
- pixmaps/64x64/Makefile
+ icons/scalable/Makefile
+ icons/14x14/Makefile
+ icons/16x16/Makefile
+ icons/22x22/Makefile
+ icons/24x24/Makefile
+ icons/32x32/Makefile
+ icons/48x48/Makefile
+ icons/64x64/Makefile
  www/Makefile
  po/Makefile.in
  tests/Makefile

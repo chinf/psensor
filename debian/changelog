@@ -1,3 +1,9 @@
+psensor (0.6.2.11-1ubuntu1) natty; urgency=low
+
+  * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 18 Sep 2011 23:48:00 +0200
+
 psensor (0.6.2.10-1ubuntu1) natty; urgency=low
 
   * New upstream release

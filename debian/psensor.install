@@ -1,10 +1,7 @@
 /etc/xdg/autostart
 /usr/bin/psensor
 /usr/share/applications
-/usr/share/icons/hicolor/scalable/apps/psensor.svg
-/usr/share/icons/hicolor/scalable/apps/psensor_hot.svg
-/usr/share/icons/hicolor/48x48/apps/psensor.png
-/usr/share/icons/hicolor/48x48/apps/psensor_hot.png
+/usr/share/icons
 /usr/share/psensor/psensor-pref.glade
 /usr/share/psensor/sensor-edit.glade
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-07-23 01:42+0200\n"
+"POT-Creation-Date: 2011-09-18 23:50+0200\n"
 "PO-Revision-Date: 2011-04-10 13:11+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-04-11 05:41+0000\n"
 "X-Generator: Launchpad (build 12735)\n"
 
-#: src/main.c:77 src/server/server.c:76
+#: src/main.c:77 src/server/server.c:77
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -28,7 +28,7 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:87 src/server/server.c:86
+#: src/main.c:87 src/server/server.c:87
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Kullanım: %s [SEÇENEK]...\n"
@@ -43,7 +43,7 @@ msgstr ""
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:94 src/server/server.c:93
+#: src/main.c:94 src/server/server.c:94
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -55,17 +55,17 @@ msgid ""
 "hostname:3131"
 msgstr ""
 
-#: src/main.c:106 src/server/server.c:106
+#: src/main.c:106 src/server/server.c:107
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Hataları rapor et:%s\n"
 
-#: src/main.c:108 src/server/server.c:108
+#: src/main.c:108 src/server/server.c:109
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s ana sayfa: <%s>\n"
 
-#: src/main.c:330 src/server/server.c:345
+#: src/main.c:330 src/server/server.c:348
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
@@ -204,53 +204,53 @@ msgstr ""
 msgid "ERROR: Invalid JSON: %s\n"
 msgstr ""
 
-#: src/server/server.c:52
+#: src/server/server.c:53
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 
-#: src/server/server.c:88
+#: src/server/server.c:89
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 
-#: src/server/server.c:99
+#: src/server/server.c:100
 msgid ""
 "  -d,--debug     run in debug mode\n"
 "  -p,--port=PORT webserver port\n"
 "  -w,--wdir=DIR  directory containing webserver pages"
 msgstr ""
 
-#: src/server/server.c:173
+#: src/server/server.c:176
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
-#: src/server/server.c:283
+#: src/server/server.c:286
 #, c-format
 msgid "HTTP Request: %s\n"
 msgstr ""
 
-#: src/server/server.c:355
+#: src/server/server.c:362
 #, c-format
 msgid "ERROR: no sensors detected\n"
 msgstr ""
 
-#: src/server/server.c:362
+#: src/server/server.c:369
 #, c-format
 msgid "ERROR: Fail to create web server\n"
 msgstr ""
 
-#: src/server/server.c:366
+#: src/server/server.c:373
 #, c-format
 msgid "Web server started on port: %d\n"
 msgstr ""
 
-#: src/server/server.c:367
+#: src/server/server.c:374
 #, c-format
 msgid "WWW directory: %s\n"
 msgstr ""
 
-#: src/server/server.c:368
+#: src/server/server.c:375
 #, c-format
 msgid "URL: http://localhost:%d\n"
 msgstr ""
