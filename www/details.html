@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Sensor </title>
+    <title id="title">Sensor </title>
 
     <link type="text/css"
 	  rel="stylesheet"
@@ -20,15 +20,20 @@ href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 
     <script>
       $(document).ready(function() {
-          var url_id;
+          	var url_id;
 
-      	  url_id = get_url_params()["id"];
+      	  	url_id = get_url_params()["id"];
 
-      update_menu();
-      
-          $.getJSON(url_id, function(data) {
-		update_chart("chart", type_to_str(data["type"]), data);
-      	  });
+		update_menu();
+		$.getJSON(url_id, function(data) {
+      				update_chart("chart", type_to_str(data["type"]), data);
+      	  	});
+
+      		setInterval(function() {
+          		$.getJSON(url_id, function(data) {
+      				update_chart("chart", type_to_str(data["type"]), data);
+      	  		});
+      		}, 5000);
       });
     </script>
   </head>

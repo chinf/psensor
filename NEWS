@@ -4,6 +4,9 @@
 ** psensor-server/web interface: automatic update of the monitoring page.
 ** psensor-server/web interface: improved styling and navigation.
 ** psensor-server/web interface: added graph for cpu usage.
+** psensor-server/web interface: fixed IE8 bug (page title change not
+   allowed).
+** psensor-server/web interface: dynamic refresh of the graph.
 
 * v0.6.2.10
 ** psensor-server: added network, cpu load and memory information in

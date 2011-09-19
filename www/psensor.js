@@ -100,11 +100,19 @@ function update_chart(chart_id, title, data) {
     var measures, data_chart, date, entry;
     var style;
 
+    $("#"+chart_id).html("");
+
     measures = data["measures"];
     data_chart = [];
     
+    $("h1").html("");
     $("h1").append(data["name"]);
-    $("title").append(data["name"]);
+
+    try {
+	$("title").html(data["name"]);
+    } catch(ignore) {
+	// IE8 doesn't allow to modify the page title
+    }
     
     $.each(measures, function(i, item) {
         value = item["value"];
@@ -145,6 +153,7 @@ function update_chart(chart_id, title, data) {
 	    showMarker: false 
 	} ]
     };
+
 
     $.jqplot (chart_id, [data_chart], style);
 }
