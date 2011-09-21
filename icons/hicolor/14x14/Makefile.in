@@ -34,7 +34,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-subdir = icons/22x22
+subdir = icons/hicolor/14x14
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -215,7 +215,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 themedir = $(datadir)/icons/hicolor
-size = 22x22
+size = 14x14
 context = apps
 EXTRA_DIST = psensor.png 
 psensordistpixdir = $(themedir)/$(size)/$(context)
@@ -232,9 +232,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu icons/22x22/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu icons/hicolor/14x14/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu icons/22x22/Makefile
+	  $(AUTOMAKE) --gnu icons/hicolor/14x14/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
