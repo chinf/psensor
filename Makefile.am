@@ -9,6 +9,8 @@ SUBDIRS = po\
  icons/hicolor/48x48\
  icons/hicolor/64x64\
  icons/ubuntu-mono-dark/status/22\
+ icons/ubuntu-mono-light/status/22\
+ icons/ubuntu-mono-dark/apps/22\
  www\
  tests
 
