@@ -254,7 +254,7 @@ void ui_appindicator_init(struct ui_psensor *ui)
 
 	ui->indicator
 	    = app_indicator_new("psensor",
-				"psensor",
+				"psensor_normal",
 				APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
 
 	APP_INDICATOR_GET_CLASS(ui->indicator)->fallback = unity_fallback;

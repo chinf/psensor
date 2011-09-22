@@ -217,7 +217,7 @@ top_srcdir = @top_srcdir@
 themedir = $(datadir)/icons/ubuntu-mono-dark
 size = 22
 context = status
-EXTRA_DIST = psensor.svg psensor_hot.svg
+EXTRA_DIST = psensor_normal.svg psensor_hot.svg
 psensordistpixdir = $(themedir)/$(context)/$(size)
 psensordistpix_DATA = $(EXTRA_DIST)
 all: all-am
