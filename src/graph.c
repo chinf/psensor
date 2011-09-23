@@ -158,6 +158,7 @@ static void draw_sensor_curve(struct psensor *s,
 			     s->color->f_red,
 			     s->color->f_green,
 			     s->color->f_blue);
+	cairo_set_line_join (cr, CAIRO_LINE_JOIN_ROUND);
 	cairo_set_line_width(cr, 1);
 
 	for (i = 0; i < s->values_max_length; i++) {
