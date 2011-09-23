@@ -34,6 +34,12 @@ href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
       				update_chart("chart", type_to_str(data["type"]), data);
       	  		});
       		}, 5000);
+
+      		// reload page in order to workaround memory-leak in JQPlot
+      		setInterval(function() {
+      			location.reload();
+      		}, 60000);
+
       });
     </script>
   </head>
