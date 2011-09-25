@@ -24,6 +24,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
 #include <gtk/gtk.h>
 
@@ -204,7 +206,7 @@ void cb_alarm_raised(struct psensor *sensor, void *data)
 #endif
 }
 
-void associate_colors(struct psensor **sensors)
+static void associate_colors(struct psensor **sensors)
 {
 	/* number of uniq colors */
 #define COLORS_COUNT 8
@@ -239,7 +241,7 @@ void associate_colors(struct psensor **sensors)
 	}
 }
 
-void
+static void
 associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 {
 	struct psensor **sensor_cur = sensors;
@@ -263,7 +265,7 @@ associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 	}
 }
 
-void associate_preferences(struct psensor **sensors)
+static void associate_preferences(struct psensor **sensors)
 {
 	struct psensor **sensor_cur = sensors;
 	while (*sensor_cur) {
@@ -281,6 +283,27 @@ void associate_preferences(struct psensor **sensors)
 	}
 }
 
+static void log_init()
+{
+	char *home, *path, *dir;
+
+	home = getenv("HOME");
+
+	if (!home)
+		return ;
+
+	dir = malloc(strlen(home)+1+strlen(".psensor")+1);
+	sprintf(dir, "%s/%s", home, ".psensor");
+	mkdir(dir, 0777);
+
+	path = malloc(strlen(dir)+1+strlen("log")+1);
+	sprintf(path, "%s/%s", dir, "log");
+
+	log_open(path, LOG_INFO);
+
+	free(dir);
+	free(path);
+}
 
 static struct option long_options[] = {
 	{"version", no_argument, 0, 'v'},
@@ -331,6 +354,8 @@ int main(int argc, char **argv)
 			program_name);
 		exit(EXIT_FAILURE);
 	}
+
+	log_init();
 
 	g_thread_init(NULL);
 	gdk_threads_init();
@@ -422,6 +447,8 @@ int main(int argc, char **argv)
 	g_mutex_unlock(ui.sensors_mutex);
 
 	config_cleanup();
+
+	log_close();
 
 	return 0;
 }

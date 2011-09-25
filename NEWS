@@ -8,6 +8,7 @@
    allowed).
 ** psensor-server/web interface: dynamic refresh of the graph.
 ** psensor: added appindicator monochrome icons.
+** psensor: added log file (~/.psensor/log).
 
 * v0.6.2.10
 ** psensor-server: added network, cpu load and memory information in

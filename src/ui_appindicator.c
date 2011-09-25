@@ -232,6 +232,8 @@ void ui_appindicator_update(struct ui_psensor *ui)
 
 static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 {
+	log_puts(LOG_DEBUG, "ui_appindicator#unity_fallback");
+
 	gtk_widget_show_all(main_window);
 
 	appindicator_supported = 0;
@@ -242,6 +244,8 @@ static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 static void unity_unfallback(AppIndicator *indicator,
 			     GtkStatusIcon *status_icon)
 {
+	log_puts(LOG_DEBUG, "ui_appindicator#unity_unfallback");
+
 	appindicator_supported = 1;
 }
 

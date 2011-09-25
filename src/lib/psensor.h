@@ -24,6 +24,7 @@
 #include <sensors/sensors.h>
 
 #include "color.h"
+#include "log.h"
 #include "measure.h"
 
 enum psensor_type {

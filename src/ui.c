@@ -31,10 +31,13 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 	struct ui_psensor *ui = data;
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
-	if (is_appindicator_supported())
+	if (is_appindicator_supported()) {
+		log_puts(LOG_DEBUG, "hiding, WM is supporting appindicator");
 		gtk_widget_hide(ui->main_window);
-	else
+	} else {
+		log_puts(LOG_DEBUG, "quitting, WM not supporting appindicator");
 		ui_psensor_quit(ui);
+	}
 #else
 	ui_psensor_quit(ui);
 #endif
