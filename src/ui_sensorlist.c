@@ -313,7 +313,7 @@ static void create_widget(struct ui_psensor *ui)
 
 	gtk_tree_view_insert_column_with_attributes(ui_sl->treeview,
 						    -1,
-						    _("Current"),
+						    _("Value"),
 						    renderer,
 						    "text", COL_TEMP, NULL);
 

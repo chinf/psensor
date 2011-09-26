@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-09-18 23:50+0200\n"
+"POT-Creation-Date: 2011-09-27 01:54+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: src/main.c:77 src/server/server.c:77
+#: src/main.c:79 src/server/server.c:77
 #, fuzzy, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -33,12 +33,12 @@ msgstr ""
 "Ce logiciel n'est accompagné d'ABSOLUMENT AUCUNE GARANTIE, dans les limites\n"
 "autorisees par la loi applicable.\n"
 
-#: src/main.c:87 src/server/server.c:87
+#: src/main.c:89 src/server/server.c:87
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Utilisation: %s [OPTION]...\n"
 
-#: src/main.c:89
+#: src/main.c:91
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -46,11 +46,11 @@ msgstr ""
 "psensor est une application GTK pour surveiller les sondes matérielles "
 "thermiques et les ventilateurs."
 
-#: src/main.c:93
+#: src/main.c:95
 msgid "Options:"
 msgstr "Options:"
 
-#: src/main.c:94 src/server/server.c:94
+#: src/main.c:96 src/server/server.c:94
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -58,102 +58,102 @@ msgstr ""
 "  -h, --help          afficher cette aider et quitter\n"
 "  -v, --version       afficher les informations de version et quitter"
 
-#: src/main.c:100
+#: src/main.c:102
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr ""
 "  -u, --url=URL       l'URL de psensor-server, example: http://hostname:3131"
 
-#: src/main.c:106 src/server/server.c:107
+#: src/main.c:108 src/server/server.c:107
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Signaler les bugs à: %s\n"
 
-#: src/main.c:108 src/server/server.c:109
+#: src/main.c:110 src/server/server.c:109
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s page d'acceuil: <%s>\n"
 
-#: src/main.c:330 src/server/server.c:348
+#: src/main.c:353 src/server/server.c:348
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez `%s --help' pour plus d'informations.\n"
 
-#: src/main.c:359
+#: src/main.c:384
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 "ERREUR: Psensor n'a pas ete compilé avec le support de surveillance à "
 "distance.\n"
 
-#: src/ui.c:49
+#: src/ui.c:52
 #, fuzzy
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
 "psensor est une application GTK pour surveiller les sondes matérielles "
 "thermiques et les ventilateurs."
 
-#: src/ui.c:52
+#: src/ui.c:55
 msgid ""
 "Copyright(c) 2010-2011\n"
 "jeanfi@gmail.com"
 msgstr ""
 
-#: src/ui.c:55
+#: src/ui.c:58
 msgid "About Psensor"
 msgstr ""
 
-#: src/ui.c:58
+#: src/ui.c:61
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:110
+#: src/ui.c:113
 #, fuzzy
 msgid "_Preferences"
 msgstr "Configuration"
 
-#: src/ui.c:111 src/ui_sensorlist.c:202
+#: src/ui.c:114 src/ui_sensorlist.c:202
 msgid "Preferences"
 msgstr "Configuration"
 
-#: src/ui.c:115
+#: src/ui.c:118
 #, fuzzy
 msgid "_Sensor Preferences"
 msgstr "Editer La Configuration Des Sondes"
 
-#: src/ui.c:116
+#: src/ui.c:119
 #, fuzzy
 msgid "Sensor Preferences"
 msgstr "Editer La Configuration Des Sondes"
 
-#: src/ui.c:120
+#: src/ui.c:123
 #, fuzzy
 msgid "_Quit"
 msgstr "Quitter"
 
-#: src/ui.c:120
+#: src/ui.c:123
 msgid "Quit"
 msgstr "Quitter"
 
-#: src/ui.c:125
+#: src/ui.c:128
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:126
+#: src/ui.c:129
 msgid "About"
 msgstr ""
 
-#: src/ui.c:148 src/ui_appindicator.c:176
+#: src/ui.c:151 src/ui_appindicator.c:176
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:186
+#: src/ui.c:189
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Surveillance Des Temperatures"
 
-#: src/ui.c:204
+#: src/ui.c:207
 #, fuzzy, c-format
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
@@ -167,8 +167,8 @@ msgid "Sensor"
 msgstr "Sonde"
 
 #: src/ui_sensorlist.c:316
-msgid "Current"
-msgstr "Actuelle"
+msgid "Value"
+msgstr "Valeur"
 
 #: src/ui_sensorlist.c:322
 msgid "Min"
@@ -316,6 +316,11 @@ msgstr "ERREUR: mauvaise chaine hdd: %s"
 #, c-format
 msgid "ERROR: wrong hdd string: %s\n"
 msgstr "ERREUR: mauvaise chaine hdd: %s\n"
+
+#: src/lib/log.c:38
+#, c-format
+msgid "Cannot open log file: %s\n"
+msgstr ""
 
 #: src/lib/nvidia.c:55
 #, c-format
@@ -488,6 +493,9 @@ msgstr "Dessiner la courbe de la sonde"
 #: src/glade/sensor-edit.glade:327
 msgid "°C"
 msgstr "°C"
+
+#~ msgid "Current"
+#~ msgstr "Actuelle"
 
 #~ msgid "ERROR: failed to init lm-sensors\n"
 #~ msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
