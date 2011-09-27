@@ -9,3 +9,4 @@ TryExec=psensor
 Exec=psensor
 Categories=Application;System;
 X-GNOME-Autostart-Delay=30
+
