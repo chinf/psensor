@@ -427,6 +427,8 @@ int main(int argc, char **argv)
 	ui_appindicator_init(&ui);
 #endif
 
+	gdk_notify_startup_complete();
+
 	/* main loop */
 	gtk_main();
 
