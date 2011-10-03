@@ -29,8 +29,11 @@ enum log_level {
 
 void log_open(const char *path, int lvl);
 
+void log_printf(int lvl, const char *fmt, ...);
 void log_puts(int lvl, const char *msg);
 
 void log_close();
+
+extern int log_level;
 
 #endif

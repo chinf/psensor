@@ -1,3 +1,7 @@
+* v0.6.2.12
+** psensor: added -d option to enable debug log (written to $HOME/.psensor/log).
+** psensor: log sensor values in debug mode.
+
 * v0.6.2.11
 ** psensor-server/web interface: use jqplot default css.
 ** psensor-server/web interface: added excanvas for ie < 9 support.

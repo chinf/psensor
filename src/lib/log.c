@@ -21,12 +21,14 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
+#include <stdarg.h>
 #include <stdio.h>
+#include <sys/time.h>
 
 #include "log.h"
 
 static FILE *file;
-static int log_level =  LOG_DEBUG;
+int log_level =  LOG_INFO;
 
 void log_open(const char *path, int lvl)
 {
@@ -40,30 +42,7 @@ void log_open(const char *path, int lvl)
 
 void log_puts(int lvl, const char *msg)
 {
-	if (!file || lvl > log_level)
-		return ;
-
-	switch (lvl) {
-	case LOG_WARN:
-		fputs("[WARN] ", file);
-		break;
-	case LOG_ERR:
-		fputs("[ERR] ", file);
-		break;
-	case LOG_DEBUG:
-		fputs("[DEBUG] ", file);
-		break;
-	case LOG_INFO:
-		fputs("[INFO] ", file);
-		break;
-	default:
-		fputs("[??] ", file);
-	}
-
-	fputs(msg, file);
-	fputc('\n', file);
-
-	fflush(file);
+	log_printf(lvl, msg);
 }
 
 void log_close()
@@ -74,5 +53,45 @@ void log_close()
 	fclose(file);
 
 	file = NULL;
+}
+
+#define LOG_BUFFER 4096
+void log_printf(int lvl, const char *fmt, ...)
+{
+	struct timeval tv;
+	static char buffer[1 + LOG_BUFFER];
+	va_list ap;
+	char *lvl_str;
+
+	if (!file || lvl > log_level)
+		return ;
+
+	va_start(ap, fmt);
+	vsnprintf(buffer, LOG_BUFFER, fmt, ap);
+	buffer[LOG_BUFFER] = '\0';
+	va_end(ap);
+
+	if (gettimeofday(&tv, NULL) != 0)
+		timerclear(&tv);
+
+	switch (lvl) {
+	case LOG_WARN:
+		lvl_str = "[WARN]";
+		break;
+	case LOG_ERR:
+		lvl_str = "[ERR]";
+		break;
+	case LOG_DEBUG:
+		lvl_str = "[DEBUG]";
+		break;
+	case LOG_INFO:
+		lvl_str = "[INFO]";
+		break;
+	default:
+		lvl_str = "[??]";
+	}
+
+	fprintf(file, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
+	fflush(file);
 }
 

@@ -131,6 +131,18 @@ update_psensor_values_size(struct psensor **sensors, struct config *cfg)
 	}
 }
 
+static void log_measures(struct psensor **sensors)
+{
+	if (log_level == LOG_DEBUG)
+		while (*sensors) {
+			log_printf(LOG_DEBUG, "%s %.2f",
+				   (*sensors)->name,
+				   psensor_get_current_value(*sensors));
+
+			sensors++;
+		}
+}
+
 void update_psensor_measures(struct ui_psensor *ui)
 {
 	struct psensor **sensors = ui->sensors;
@@ -154,6 +166,9 @@ void update_psensor_measures(struct ui_psensor *ui)
 #ifdef HAVE_LIBATIADL
 		amd_psensor_list_update(sensors);
 #endif
+
+		log_measures(sensors);
+
 		g_mutex_unlock(ui->sensors_mutex);
 
 		sleep(cfg->sensor_update_interval);
@@ -309,6 +324,7 @@ static struct option long_options[] = {
 	{"version", no_argument, 0, 'v'},
 	{"help", no_argument, 0, 'h'},
 	{"url", required_argument, 0, 'u'},
+	{"debug", no_argument, 0, 'd'},
 	{0, 0, 0, 0}
 };
 
@@ -330,7 +346,7 @@ int main(int argc, char **argv)
 	textdomain(PACKAGE);
 #endif
 
-	while ((optc = getopt_long(argc, argv, "vhu:", long_options,
+	while ((optc = getopt_long(argc, argv, "vhdu:", long_options,
 				   NULL)) != -1) {
 		switch (optc) {
 		case 'u':
@@ -343,6 +359,10 @@ int main(int argc, char **argv)
 		case 'v':
 			print_version();
 			exit(EXIT_SUCCESS);
+		case 'd':
+			printf(_("Enables debug mode.\n"));
+			log_level = LOG_DEBUG;
+			break;
 		default:
 			cmdok = 0;
 			break;
