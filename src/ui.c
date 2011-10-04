@@ -25,10 +25,32 @@
 #include "ui_sensorlist.h"
 #include "ui_appindicator.h"
 
+static void save_window_pos(struct ui_psensor *ui)
+{
+	gint x, y, w, h;
+	gboolean visible;
+	GtkWindow *win;
+
+	visible = gtk_widget_get_visible(ui->main_window);
+	log_printf(LOG_DEBUG, "Window visible: %d", visible);
+
+	if (visible == TRUE) {
+		win = GTK_WINDOW(ui->main_window);
+
+		gtk_window_get_position(win, &x, &y);
+		gtk_window_get_size(win, &w, &h);
+
+		log_printf(LOG_DEBUG, "Window position: %d %d", x, y);
+		log_printf(LOG_DEBUG, "Window size: %d %d", w, h);
+	}
+}
+
 static gboolean
 on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 {
 	struct ui_psensor *ui = data;
+
+	save_window_pos(ui);
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	if (is_appindicator_supported()) {
@@ -87,6 +109,9 @@ static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 
 void ui_psensor_quit(struct ui_psensor *ui)
 {
+	save_window_pos();
+
+	log_puts(LOG_DEBUG, "Destroy main window");
 	gtk_widget_destroy(ui->main_window);
 	gtk_main_quit();
 }
@@ -236,7 +261,6 @@ void ui_window_create(struct ui_psensor *ui)
 #else
 	gtk_widget_show_all(ui->main_window);
 #endif
-
 }
 
 static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
