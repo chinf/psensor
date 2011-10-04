@@ -109,7 +109,7 @@ static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 
 void ui_psensor_quit(struct ui_psensor *ui)
 {
-	save_window_pos();
+	save_window_pos(ui);
 
 	log_puts(LOG_DEBUG, "Destroy main window");
 	gtk_widget_destroy(ui->main_window);
