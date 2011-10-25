@@ -41,8 +41,8 @@ struct config {
 	int sensorlist_position;
 
 	int window_decoration_enabled;
-
 	int window_keep_below_enabled;
+	int window_restore_enabled;
 
 	int graph_update_interval;
 	int graph_monitoring_duration;

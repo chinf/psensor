@@ -61,6 +61,9 @@
 #define KEY_INTERFACE_HIDE_ON_STARTUP \
 "/apps/psensor/interface/hide_on_startup"
 
+#define KEY_INTERFACE_WINDOW_RESTORE_ENABLED \
+"/apps/psensor/interface/window_restore_enabled"
+
 GConfClient *client;
 
 static char *get_string(char *key, char *default_value)
@@ -404,86 +407,99 @@ void config_cleanup()
 
 struct config *config_load()
 {
-	struct config *cfg = malloc(sizeof(struct config));
+	struct config *c;
 
-	cfg->graph_bgcolor = config_get_background_color();
-	cfg->graph_fgcolor = config_get_foreground_color();
-	cfg->graph_bg_alpha = config_get_graph_background_alpha();
-	cfg->alpha_channel_enabled = config_is_alpha_channel_enabled();
-	cfg->sensorlist_position = config_get_sensorlist_position();
-	cfg->window_decoration_enabled = config_is_window_decoration_enabled();
-	cfg->window_keep_below_enabled = config_is_window_keep_below_enabled();
+	c = malloc(sizeof(struct config));
 
-	cfg->sensor_update_interval
+	c->graph_bgcolor = config_get_background_color();
+	c->graph_fgcolor = config_get_foreground_color();
+	c->graph_bg_alpha = config_get_graph_background_alpha();
+	c->alpha_channel_enabled = config_is_alpha_channel_enabled();
+	c->sensorlist_position = config_get_sensorlist_position();
+	c->window_decoration_enabled = config_is_window_decoration_enabled();
+	c->window_keep_below_enabled = config_is_window_keep_below_enabled();
+
+	c->sensor_update_interval
 	    = gconf_client_get_int(client, KEY_SENSOR_UPDATE_INTERVAL, NULL);
-	if (cfg->sensor_update_interval < 1)
-		cfg->sensor_update_interval = 1;
+	if (c->sensor_update_interval < 1)
+		c->sensor_update_interval = 1;
 
-	cfg->graph_update_interval
+	c->graph_update_interval
 	    = gconf_client_get_int(client, KEY_GRAPH_UPDATE_INTERVAL, NULL);
-	if (cfg->graph_update_interval < 1)
-		cfg->graph_update_interval = 1;
+	if (c->graph_update_interval < 1)
+		c->graph_update_interval = 1;
 
-	cfg->graph_monitoring_duration
+	c->graph_monitoring_duration
 	    = gconf_client_get_int(client, KEY_GRAPH_MONITORING_DURATION, NULL);
 
-	if (cfg->graph_monitoring_duration < 1)
-		cfg->graph_monitoring_duration = 10;
+	if (c->graph_monitoring_duration < 1)
+		c->graph_monitoring_duration = 10;
 
-	cfg->sensor_values_max_length
+	c->sensor_values_max_length
 	    =
-	    (cfg->graph_monitoring_duration * 60) / cfg->sensor_update_interval;
-	if (cfg->sensor_values_max_length < 3)
-		cfg->sensor_values_max_length = 3;
+	    (c->graph_monitoring_duration * 60) / c->sensor_update_interval;
+	if (c->sensor_values_max_length < 3)
+		c->sensor_values_max_length = 3;
 
-	cfg->menu_bar_disabled = gconf_client_get_bool
-		(client,
-		 KEY_INTERFACE_MENU_BAR_DISABLED,
-		 NULL);
+	c->menu_bar_disabled
+		= gconf_client_get_bool(client,
+					KEY_INTERFACE_MENU_BAR_DISABLED,
+					NULL);
 
-	cfg->unity_launcher_count_disabled = gconf_client_get_bool
+	c->unity_launcher_count_disabled
+		= gconf_client_get_bool
 		(client,
 		 KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED,
 		 NULL);
 
-	cfg->hide_on_startup = gconf_client_get_bool
-		(client,
-		 KEY_INTERFACE_HIDE_ON_STARTUP,
-		 NULL);
+	c->hide_on_startup
+		= gconf_client_get_bool(client,
+					KEY_INTERFACE_HIDE_ON_STARTUP,
+					NULL);
 
-	return cfg;
+	c->window_restore_enabled
+		= gconf_client_get_bool(client,
+					KEY_INTERFACE_WINDOW_RESTORE_ENABLED,
+					NULL);
+
+	return c;
 }
 
-void config_save(struct config *cfg)
+void config_save(struct config *c)
 {
-	config_set_background_color(cfg->graph_bgcolor);
-	config_set_foreground_color(cfg->graph_fgcolor);
-	config_set_graph_background_alpha(cfg->graph_bg_alpha);
-	config_set_sensorlist_position(cfg->sensorlist_position);
-	config_set_window_decoration_enabled(cfg->window_decoration_enabled);
-	config_set_window_keep_below_enabled(cfg->window_keep_below_enabled);
+	config_set_background_color(c->graph_bgcolor);
+	config_set_foreground_color(c->graph_fgcolor);
+	config_set_graph_background_alpha(c->graph_bg_alpha);
+	config_set_sensorlist_position(c->sensorlist_position);
+	config_set_window_decoration_enabled(c->window_decoration_enabled);
+	config_set_window_keep_below_enabled(c->window_keep_below_enabled);
 
 	gconf_client_set_int(client,
 			     KEY_GRAPH_UPDATE_INTERVAL,
-			     cfg->graph_update_interval, NULL);
+			     c->graph_update_interval, NULL);
 
 	gconf_client_set_int(client,
 			     KEY_GRAPH_MONITORING_DURATION,
-			     cfg->graph_monitoring_duration, NULL);
+			     c->graph_monitoring_duration, NULL);
 
 	gconf_client_set_int(client,
 			     KEY_SENSOR_UPDATE_INTERVAL,
-			     cfg->sensor_update_interval, NULL);
+			     c->sensor_update_interval, NULL);
 
 	gconf_client_set_bool(client,
 			      KEY_INTERFACE_MENU_BAR_DISABLED,
-			      cfg->menu_bar_disabled, NULL);
+			      c->menu_bar_disabled, NULL);
 
 	gconf_client_set_bool(client,
 			      KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED,
-			      cfg->unity_launcher_count_disabled, NULL);
+			      c->unity_launcher_count_disabled, NULL);
 
 	gconf_client_set_bool(client,
 			      KEY_INTERFACE_HIDE_ON_STARTUP,
-			      cfg->hide_on_startup, NULL);
+			      c->hide_on_startup, NULL);
+
+	gconf_client_set_bool(client,
+			      KEY_INTERFACE_WINDOW_RESTORE_ENABLED,
+			      c->window_restore_enabled,
+			      NULL);
 }

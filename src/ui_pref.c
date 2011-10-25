@@ -52,7 +52,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		*w_s_update_interval;
 	GtkComboBox *w_sensorlist_pos;
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
-		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup;
+		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
+		*w_win_restore;
 
 	cfg = ui->config;
 
@@ -125,9 +126,16 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
 				     !cfg->unity_launcher_count_disabled);
 
-	w_hide_on_startup = GTK_TOGGLE_BUTTON
-		(gtk_builder_get_object(builder, "hide_on_startup"));
+	w_hide_on_startup
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "hide_on_startup"));
 	gtk_toggle_button_set_active(w_hide_on_startup, cfg->hide_on_startup);
+
+	w_win_restore
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "restore_window"));
+	gtk_toggle_button_set_active(w_win_restore,
+				     cfg->window_restore_enabled);
 
 	result = gtk_dialog_run(diag);
 
@@ -191,6 +199,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		cfg->hide_on_startup
 			= gtk_toggle_button_get_active(w_hide_on_startup);
+
+		cfg->window_restore_enabled
+			= gtk_toggle_button_get_active(w_win_restore);
 
 		config_save(cfg);
 
