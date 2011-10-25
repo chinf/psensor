@@ -49,6 +49,8 @@ struct config {
 	/* Last saved size of the window. */
 	int window_w;
 	int window_h;
+	/* Last saved position of the window divider. */
+	int window_divider_pos;
 
 	int graph_update_interval;
 	int graph_monitoring_duration;

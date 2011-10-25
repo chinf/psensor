@@ -53,6 +53,9 @@ static void save_window_pos(struct ui_psensor *ui)
 			   cfg->window_w,
 			   cfg->window_h);
 
+		cfg->window_divider_pos
+			= gtk_paned_get_position(GTK_PANED(ui->sensor_box));
+
 		config_save(cfg);
 	}
 }
@@ -333,6 +336,10 @@ void ui_window_update(struct ui_psensor *ui)
 		gtk_paned_pack2(GTK_PANED(ui->sensor_box),
 				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
 	}
+
+	gtk_paned_set_position(GTK_PANED(ui->sensor_box),
+			       ui->config->window_divider_pos);
+
 
 	if (!init)
 		g_object_unref(GTK_WIDGET(ui->ui_sensorlist->widget));

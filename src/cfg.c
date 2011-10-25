@@ -69,6 +69,8 @@
 #define KEY_INTERFACE_WINDOW_W "/apps/psensor/interface/window_w"
 #define KEY_INTERFACE_WINDOW_H "/apps/psensor/interface/window_h"
 
+#define KEY_INTERFACE_WINDOW_DIVIDER_POS \
+"/apps/psensor/interface/window_divider_pos"
 
 GConfClient *client;
 
@@ -480,6 +482,10 @@ struct config *config_load()
 	c->window_h = gconf_client_get_int(client,
 					   KEY_INTERFACE_WINDOW_H,
 					   NULL);
+	c->window_divider_pos
+		= gconf_client_get_int(client,
+				       KEY_INTERFACE_WINDOW_DIVIDER_POS,
+				       NULL);
 
 	if (!c->window_w || !c->window_h) {
 		c->window_w = 800;
@@ -542,5 +548,10 @@ void config_save(struct config *c)
 	gconf_client_set_int(client,
 			     KEY_INTERFACE_WINDOW_H,
 			     c->window_h,
+			     NULL);
+
+	gconf_client_set_int(client,
+			     KEY_INTERFACE_WINDOW_DIVIDER_POS,
+			     c->window_divider_pos,
 			     NULL);
 }
