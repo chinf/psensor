@@ -43,6 +43,12 @@ struct config {
 	int window_decoration_enabled;
 	int window_keep_below_enabled;
 	int window_restore_enabled;
+	/* Last saved position of the window. */
+	int window_x;
+	int window_y;
+	/* Last saved size of the window. */
+	int window_w;
+	int window_h;
 
 	int graph_update_interval;
 	int graph_monitoring_duration;

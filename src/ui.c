@@ -27,21 +27,33 @@
 
 static void save_window_pos(struct ui_psensor *ui)
 {
-	gint x, y, w, h;
 	gboolean visible;
 	GtkWindow *win;
+	struct config *cfg;
 
 	visible = gtk_widget_get_visible(ui->main_window);
 	log_printf(LOG_DEBUG, "Window visible: %d", visible);
 
 	if (visible == TRUE) {
+		cfg = ui->config;
+
 		win = GTK_WINDOW(ui->main_window);
 
-		gtk_window_get_position(win, &x, &y);
-		gtk_window_get_size(win, &w, &h);
+		gtk_window_get_position(win, &cfg->window_x, &cfg->window_y);
+		log_printf(LOG_DEBUG,
+			   "Window position: %d %d",
+			   cfg->window_x,
+			   cfg->window_y);
 
-		log_printf(LOG_DEBUG, "Window position: %d %d", x, y);
-		log_printf(LOG_DEBUG, "Window size: %d %d", w, h);
+		gtk_window_get_size(win,
+				    &cfg->window_w,
+				    &cfg->window_h);
+		log_printf(LOG_DEBUG,
+			   "Window size: %d %d",
+			   cfg->window_w,
+			   cfg->window_h);
+
+		config_save(cfg);
 	}
 }
 
@@ -207,8 +219,17 @@ void ui_window_create(struct ui_psensor *ui)
 	GdkPixbuf *icon;
 	GtkIconTheme *icon_theme;
 	GtkWidget *menubar;
+	struct config *cfg;
 
-	gtk_window_set_default_size(GTK_WINDOW(window), 800, 200);
+	cfg = ui->config;
+	if (cfg->window_restore_enabled) {
+		gtk_window_set_default_size(GTK_WINDOW(window),
+					    cfg->window_w,
+					    cfg->window_h);
+		gtk_window_move(GTK_WINDOW(window),
+				cfg->window_x,
+				cfg->window_y);
+	}
 
 	gtk_window_set_title(GTK_WINDOW(window),
 			     _("Psensor - Temperature Monitor"));

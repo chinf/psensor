@@ -64,6 +64,12 @@
 #define KEY_INTERFACE_WINDOW_RESTORE_ENABLED \
 "/apps/psensor/interface/window_restore_enabled"
 
+#define KEY_INTERFACE_WINDOW_X "/apps/psensor/interface/window_x"
+#define KEY_INTERFACE_WINDOW_Y "/apps/psensor/interface/window_y"
+#define KEY_INTERFACE_WINDOW_W "/apps/psensor/interface/window_w"
+#define KEY_INTERFACE_WINDOW_H "/apps/psensor/interface/window_h"
+
+
 GConfClient *client;
 
 static char *get_string(char *key, char *default_value)
@@ -462,6 +468,24 @@ struct config *config_load()
 					KEY_INTERFACE_WINDOW_RESTORE_ENABLED,
 					NULL);
 
+	c->window_x = gconf_client_get_int(client,
+					   KEY_INTERFACE_WINDOW_X,
+					   NULL);
+	c->window_y = gconf_client_get_int(client,
+					   KEY_INTERFACE_WINDOW_Y,
+					   NULL);
+	c->window_w = gconf_client_get_int(client,
+					   KEY_INTERFACE_WINDOW_W,
+					   NULL);
+	c->window_h = gconf_client_get_int(client,
+					   KEY_INTERFACE_WINDOW_H,
+					   NULL);
+
+	if (!c->window_w || !c->window_h) {
+		c->window_w = 800;
+		c->window_h = 200;
+	}
+
 	return c;
 }
 
@@ -502,4 +526,21 @@ void config_save(struct config *c)
 			      KEY_INTERFACE_WINDOW_RESTORE_ENABLED,
 			      c->window_restore_enabled,
 			      NULL);
+
+	gconf_client_set_int(client,
+			     KEY_INTERFACE_WINDOW_X,
+			     c->window_x,
+			     NULL);
+	gconf_client_set_int(client,
+			     KEY_INTERFACE_WINDOW_Y,
+			     c->window_y,
+			     NULL);
+	gconf_client_set_int(client,
+			     KEY_INTERFACE_WINDOW_W,
+			     c->window_w,
+			     NULL);
+	gconf_client_set_int(client,
+			     KEY_INTERFACE_WINDOW_H,
+			     c->window_h,
+			     NULL);
 }
