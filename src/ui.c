@@ -281,9 +281,9 @@ void ui_window_create(struct ui_psensor *ui)
 	if (ui->config->hide_on_startup)
 		gtk_widget_show_all(ui->main_box);
 	else
-		gtk_widget_show_all(ui->main_window);
+		ui_window_show(ui);
 #else
-	gtk_widget_show_all(ui->main_window);
+	ui_window_show(ui);
 #endif
 }
 
@@ -350,4 +350,10 @@ void ui_window_update(struct ui_psensor *ui)
 		menu_bar_show(0, ui);
 	else
 		menu_bar_show(1, ui);
+}
+
+void ui_window_show(struct ui_psensor *ui)
+{
+	gtk_widget_show_all(ui->main_window);
+
 }

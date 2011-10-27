@@ -79,6 +79,9 @@ struct ui_psensor {
  */
 void ui_window_update(struct ui_psensor *);
 
+/* Show the main psensor window. */
+void ui_window_show(struct ui_psensor *);
+
 /* Must be called to terminate Psensor UI. */
 void ui_psensor_quit(struct ui_psensor *ui);
 
