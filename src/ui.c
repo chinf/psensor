@@ -225,14 +225,15 @@ void ui_window_create(struct ui_psensor *ui)
 	struct config *cfg;
 
 	cfg = ui->config;
-	if (cfg->window_restore_enabled) {
-		gtk_window_set_default_size(GTK_WINDOW(window),
-					    cfg->window_w,
-					    cfg->window_h);
+	if (cfg->window_restore_enabled)
 		gtk_window_move(GTK_WINDOW(window),
 				cfg->window_x,
 				cfg->window_y);
-	}
+
+	gtk_window_set_default_size(GTK_WINDOW(window),
+				    cfg->window_w,
+				    cfg->window_h);
+
 
 	gtk_window_set_title(GTK_WINDOW(window),
 			     _("Psensor - Temperature Monitor"));
@@ -337,8 +338,9 @@ void ui_window_update(struct ui_psensor *ui)
 				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
 	}
 
-	gtk_paned_set_position(GTK_PANED(ui->sensor_box),
-			       ui->config->window_divider_pos);
+	if (cfg->window_restore_enabled)
+		gtk_paned_set_position(GTK_PANED(ui->sensor_box),
+				       ui->config->window_divider_pos);
 
 
 	if (!init)

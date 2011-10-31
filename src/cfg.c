@@ -487,7 +487,7 @@ struct config *config_load()
 				       KEY_INTERFACE_WINDOW_DIVIDER_POS,
 				       NULL);
 
-	if (!c->window_w || !c->window_h) {
+	if (!c->window_restore_enabled || !c->window_w || !c->window_h) {
 		c->window_w = 800;
 		c->window_h = 200;
 	}
