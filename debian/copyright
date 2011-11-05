@@ -30,3 +30,15 @@ License can be found in `/usr/share/common-licenses/GPL-2'.
 Packaging:
         Copyright (C) 2010-2011 by Jean-Philippe Orsini <jeanfi@gmail.com>
         released under GNU General Public License version 2.
+
+
+The following files are distributed under their own terms:
+
+www/jquery.js:
+   Copyright (c) 2011 John Resig (jquery.com)
+   Dual licensed under the MIT and GNU General Public License version 2
+
+www/{excanvas.js,jqplot.css,jqplot.dateAxisRenderer.js,jqplot.js}:
+   Copyright (c) 2009-2011 Chris Leonello
+   Dual licensed under the MIT and GNU General Public License version 2
+
