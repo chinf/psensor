@@ -1,22 +1,21 @@
 /*
-    Copyright (C) 2010-2011 jeanfi@gmail.com
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
-    02110-1301 USA
-*/
-
+ * Copyright (C) 2010-2011 jeanfi@gmail.com
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301 USA
+ */
 #include <stdlib.h>
 #include <string.h>
 #include <sys/time.h>
@@ -63,12 +62,12 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 
 #ifdef NOTIFY_VERSION_MAJOR
 		/*
-		   since libnotify 0.7 notify_notification_new has
-		   only 3 parameters.
-
-		   libnotify < 0.7 does not define
-		   NOTIFY_VERSION_MAJOR
-		*/
+		 * since libnotify 0.7 notify_notification_new has
+		 * only 3 parameters.
+		 *
+		 * libnotify < 0.7 does not define
+		 * NOTIFY_VERSION_MAJOR
+		 */
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
 						NULL);
@@ -78,7 +77,6 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 						NULL,
 						GTK_WIDGET(ui->main_window));
 #endif
-
 
 		notify_notification_show(notif, NULL);
 
