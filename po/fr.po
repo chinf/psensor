@@ -55,7 +55,7 @@ msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
-"  -h, --help          afficher cette aider et quitter\n"
+"  -h, --help          afficher cette aide et quitter\n"
 "  -v, --version       afficher les informations de version et quitter"
 
 #: src/main.c:102
