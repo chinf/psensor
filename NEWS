@@ -1,3 +1,9 @@
+* v0.6.2.13
+** psensor/psensor-server: build system supports gtk3
+** psensor: fixed error about 'expose-event' (signal replaced by
+   'draw') when compiled with gtk3.
+** psensor: fixed typo in french translation file.
+
 * v0.6.2.12
 ** psensor: added -d option to enable debug log (written to $HOME/.psensor/log).
 ** psensor: log sensor values in debug mode.

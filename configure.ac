@@ -52,10 +52,17 @@ PKG_CHECK_MODULES(XEXT, xext)
 AC_SUBST(XEXT_CFLAGS)
 AC_SUBST(XEXT_LIBS)
 
-# Checks GTK 
-PKG_CHECK_MODULES(GTK, gtk+-2.0 )
+# Checks GTK
+GTK_LIBS=
+PKG_CHECK_MODULES(GTK, gtk+-3.0 )
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
+
+if test "$GTK_LIBS" == ""; then
+   PKG_CHECK_MODULES(GTK, gtk+-2.0 )
+   AC_SUBST(GTK_CFLAGS)
+   AC_SUBST(GTK_LIBS)
+fi
 
 # Check GCONF
 PKG_CHECK_MODULES(GCONF, gconf-2.0)
@@ -76,12 +83,19 @@ AC_SUBST(LIBNOTIFY_LIBS)
 
 # Checks AppIndicator 
 APPINDICATOR_LIBS=
-PKG_CHECK_MODULES(APPINDICATOR, 
+
+PKG_CHECK_MODULES(APPINDICATOR, appindicator3-0.1,
+     [AC_DEFINE([HAVE_APPINDICATOR],[1],[Use AppIndicator3-0.1])],
+     [AC_MSG_WARN(AppIndicator 3-0.1 not present")])
+
+if test "$APPINDICATOR_LIBS" == ""; then
+   PKG_CHECK_MODULES(APPINDICATOR, 
      appindicator-0.1 <= 0.2.9 , 
      [AC_DEFINE([HAVE_APPINDICATOR],[1],[Use AppIndicator 0.2.9])
       AC_DEFINE([HAVE_APPINDICATOR_029],[1],[Use AppIndicator 0.2.9])
      ],
      [AC_MSG_WARN(AppIndicator 0.2.9 not present")])
+fi
 
 if test "$APPINDICATOR_LIBS" == ""; then
    PKG_CHECK_MODULES(APPINDICATOR, 
