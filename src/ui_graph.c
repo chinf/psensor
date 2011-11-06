@@ -136,8 +136,16 @@ GtkWidget *ui_graph_create(struct ui_psensor * ui)
 
 	w_graph = gtk_drawing_area_new();
 
-	g_signal_connect(GTK_WIDGET(w_graph),
-			 "expose-event", G_CALLBACK(on_expose_event), ui);
+	if (GTK_MAJOR_VERSION == 2)
+		g_signal_connect(GTK_WIDGET(w_graph),
+				 "expose-event",
+				 G_CALLBACK(on_expose_event),
+				 ui);
+	else
+		g_signal_connect(GTK_WIDGET(w_graph),
+				 "draw",
+				 G_CALLBACK(on_expose_event),
+				 ui);
 
 	gtk_widget_add_events(w_graph, GDK_BUTTON_PRESS_MASK);
 
