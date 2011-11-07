@@ -7,6 +7,7 @@
    used by Fedora15) which introduces incompatible API changes.
 ** psensor: fixed compilation with libnotify 0.5.2 (submitted by Lubos
    Stanek).
+** psensor: added missing CPPFLAGS for Gtop (submitted by Lubos Stanek).
 
 * v0.6.2.12
 ** psensor: added -d option to enable debug log (written to $HOME/.psensor/log).

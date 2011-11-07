@@ -42,6 +42,7 @@ psensor_SOURCES = \
 	ui_sensorpref.h ui_sensorpref.c
 
 if GTOP
+AM_CPPFLAGS += $(GTOP_CFLAGS)
 LIBS += $(GTOP_LIBS)
 endif
 
