@@ -54,12 +54,17 @@ AC_SUBST(XEXT_LIBS)
 
 # Checks GTK
 GTK_LIBS=
-PKG_CHECK_MODULES(GTK, gtk+-3.0,,[AC_MSG_WARN("GTK+ 3 not present")])
+PKG_CHECK_MODULES(GTK,
+		  gtk+-3.0,
+		  [AC_DEFINE([HAVE_GTK3],[1],[Use GTK3])],
+		  [AC_MSG_WARN("GTK+ 3 not present")])
+AM_CONDITIONAL(GTK, test -n "$GTK_LIBS")
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
 if test "$GTK_LIBS" == ""; then
    PKG_CHECK_MODULES(GTK, gtk+-2.0 )
+   AM_CONDITIONAL(GTK, test -n "$GTK_LIBS")
    AC_SUBST(GTK_CFLAGS)
    AC_SUBST(GTK_LIBS)
 fi
