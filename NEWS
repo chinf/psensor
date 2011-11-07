@@ -1,9 +1,12 @@
 * v0.6.2.13
-** psensor/psensor-server: build system supports gtk3
+** psensor/psensor-server: added gtk3 support build detection.
 ** psensor: fixed error about 'expose-event' (signal replaced by
    'draw') when compiled with gtk3.
 ** psensor: fixed typo in french translation file.
-** psensor-server: fixed compilation with microhttpd >= 0.9.2.
+** psensor-server: fixed compilation with microhttpd >= 0.9.2 (version
+   used by Fedora15) which introduces incompatible API changes.
+** psensor: fixed compilation with libnotify 0.5.2 (submitted by Lubos
+   Stanek).
 
 * v0.6.2.12
 ** psensor: added -d option to enable debug log (written to $HOME/.psensor/log).

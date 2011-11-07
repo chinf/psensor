@@ -346,6 +346,10 @@ int main(int argc, char **argv)
 	textdomain(PACKAGE);
 #endif
 
+#if TUTU
+	printf("coucou\n");
+#endif
+
 	while ((optc = getopt_long(argc, argv, "vhdu:", long_options,
 				   NULL)) != -1) {
 		switch (optc) {
