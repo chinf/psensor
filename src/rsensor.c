@@ -21,7 +21,7 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
-#include "plib/url.h"
+#include "url.h"
 #include "server/server.h"
 
 #include <stdio.h>

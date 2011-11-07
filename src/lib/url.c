@@ -21,7 +21,7 @@
  * Part of the following code is based on:
  * http://www.geekhideout.com/urlcode.shtml
  */
-#include "plib/url.h"
+#include "url.h"
 
 #include <ctype.h>
 #include <stdlib.h>

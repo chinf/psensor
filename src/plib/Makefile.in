@@ -49,8 +49,7 @@ AR = ar
 ARFLAGS = cru
 libplib_a_AR = $(AR) $(ARFLAGS)
 libplib_a_LIBADD =
-am_libplib_a_OBJECTS = libplib_a-url.$(OBJEXT) \
-	libplib_a-plib_io.$(OBJEXT)
+am_libplib_a_OBJECTS = libplib_a-plib_io.$(OBJEXT)
 libplib_a_OBJECTS = $(am_libplib_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -215,7 +214,6 @@ AM_CPPFLAGS = \
 noinst_LIBRARIES = libplib.a
 libplib_a_CFLAGS = -pedantic -Wall -Werror
 libplib_a_SOURCES = \
-	url.c url.h \
 	plib_io.h plib_io.c
 
 all: all-am
@@ -267,7 +265,6 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libplib_a-plib_io.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libplib_a-url.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -282,20 +279,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
-
-libplib_a-url.o: url.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_a_CFLAGS) $(CFLAGS) -MT libplib_a-url.o -MD -MP -MF $(DEPDIR)/libplib_a-url.Tpo -c -o libplib_a-url.o `test -f 'url.c' || echo '$(srcdir)/'`url.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libplib_a-url.Tpo $(DEPDIR)/libplib_a-url.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='url.c' object='libplib_a-url.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_a_CFLAGS) $(CFLAGS) -c -o libplib_a-url.o `test -f 'url.c' || echo '$(srcdir)/'`url.c
-
-libplib_a-url.obj: url.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_a_CFLAGS) $(CFLAGS) -MT libplib_a-url.obj -MD -MP -MF $(DEPDIR)/libplib_a-url.Tpo -c -o libplib_a-url.obj `if test -f 'url.c'; then $(CYGPATH_W) 'url.c'; else $(CYGPATH_W) '$(srcdir)/url.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libplib_a-url.Tpo $(DEPDIR)/libplib_a-url.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='url.c' object='libplib_a-url.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_a_CFLAGS) $(CFLAGS) -c -o libplib_a-url.obj `if test -f 'url.c'; then $(CYGPATH_W) 'url.c'; else $(CYGPATH_W) '$(srcdir)/url.c'; fi`
 
 libplib_a-plib_io.o: plib_io.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libplib_a_CFLAGS) $(CFLAGS) -MT libplib_a-plib_io.o -MD -MP -MF $(DEPDIR)/libplib_a-plib_io.Tpo -c -o libplib_a-plib_io.o `test -f 'plib_io.c' || echo '$(srcdir)/'`plib_io.c

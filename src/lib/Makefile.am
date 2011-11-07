@@ -11,7 +11,8 @@ libpsensor_a_SOURCES = \
 	psensor.h psensor.c\
 	hdd.h hdd.c\
 	nvidia.h \
-	lmsensor.h lmsensor.c
+	lmsensor.h lmsensor.c \
+	url.c url.h
 
 if NVIDIA
 libpsensor_a_SOURCES += nvidia.c

@@ -42,7 +42,7 @@
 #endif
 
 #include "psensor_json.h"
-#include "plib/url.h"
+#include "url.h"
 #include "plib/plib_io.h"
 #include "server.h"
 

@@ -75,7 +75,7 @@ endif
 
 if CURL
 if JSON
-psensor_SOURCES += rsensor.h rsensor.c plib/url.c plib/url.h
+psensor_SOURCES += rsensor.h rsensor.c
 LIBS += $(CURL_LIBS) $(JSON_LIBS)
 AM_CPPFLAGS += $(CURL_CFLAGS) $(JSON_CFLAGS)
 endif

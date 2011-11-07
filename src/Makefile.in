@@ -51,7 +51,7 @@ bin_PROGRAMS = psensor$(EXEEXT)
 @LIBATIADL_TRUE@am__append_14 = $(LIBATIADL_LIBS)
 @UNITY_TRUE@am__append_15 = $(UNITY_CFLAGS)
 @UNITY_TRUE@am__append_16 = unity/libpsensor_unity.a $(UNITY_LIBS) 
-@CURL_TRUE@@JSON_TRUE@am__append_17 = rsensor.h rsensor.c plib/url.c plib/url.h
+@CURL_TRUE@@JSON_TRUE@am__append_17 = rsensor.h rsensor.c
 @CURL_TRUE@@JSON_TRUE@am__append_18 = $(CURL_LIBS) $(JSON_LIBS)
 @CURL_TRUE@@JSON_TRUE@am__append_19 = $(CURL_CFLAGS) $(JSON_CFLAGS)
 subdir = src
@@ -71,11 +71,10 @@ am__psensor_SOURCES_DIST = compat.h cfg.h cfg.c graph.h graph.c main.c \
 	ui.h ui.c ui_color.h ui_color.c ui_graph.h ui_graph.c \
 	ui_pref.h ui_pref.c ui_sensorlist.h ui_sensorlist.c \
 	ui_sensorpref.h ui_sensorpref.c ui_notify.h ui_notify.c \
-	ui_appindicator.h ui_appindicator.c rsensor.h rsensor.c \
-	plib/url.c plib/url.h
+	ui_appindicator.h ui_appindicator.c rsensor.h rsensor.c
 @LIBNOTIFY_TRUE@am__objects_1 = ui_notify.$(OBJEXT)
 @APPINDICATOR_TRUE@am__objects_2 = ui_appindicator.$(OBJEXT)
-@CURL_TRUE@@JSON_TRUE@am__objects_3 = rsensor.$(OBJEXT) url.$(OBJEXT)
+@CURL_TRUE@@JSON_TRUE@am__objects_3 = rsensor.$(OBJEXT)
 am_psensor_OBJECTS = cfg.$(OBJEXT) graph.$(OBJEXT) main.$(OBJEXT) \
 	ui.$(OBJEXT) ui_color.$(OBJEXT) ui_graph.$(OBJEXT) \
 	ui_pref.$(OBJEXT) ui_sensorlist.$(OBJEXT) \
@@ -414,7 +413,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui_pref.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui_sensorlist.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui_sensorpref.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/url.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -429,20 +427,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
-
-url.o: plib/url.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT url.o -MD -MP -MF $(DEPDIR)/url.Tpo -c -o url.o `test -f 'plib/url.c' || echo '$(srcdir)/'`plib/url.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/url.Tpo $(DEPDIR)/url.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plib/url.c' object='url.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o url.o `test -f 'plib/url.c' || echo '$(srcdir)/'`plib/url.c
-
-url.obj: plib/url.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT url.obj -MD -MP -MF $(DEPDIR)/url.Tpo -c -o url.obj `if test -f 'plib/url.c'; then $(CYGPATH_W) 'plib/url.c'; else $(CYGPATH_W) '$(srcdir)/plib/url.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/url.Tpo $(DEPDIR)/url.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='plib/url.c' object='url.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o url.obj `if test -f 'plib/url.c'; then $(CYGPATH_W) 'plib/url.c'; else $(CYGPATH_W) '$(srcdir)/plib/url.c'; fi`
 install-man1: $(dist_man_MANS)
 	@$(NORMAL_INSTALL)
 	test -z "$(man1dir)" || $(MKDIR_P) "$(DESTDIR)$(man1dir)"

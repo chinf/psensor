@@ -59,15 +59,16 @@ libpsensor_a_AR = $(AR) $(ARFLAGS)
 libpsensor_a_LIBADD =
 am__libpsensor_a_SOURCES_DIST = amd.h cpu.h measure.h measure.c \
 	color.h color.c log.h log.c psensor.h psensor.c hdd.h hdd.c \
-	nvidia.h lmsensor.h lmsensor.c nvidia.c amd.c cpu.c
+	nvidia.h lmsensor.h lmsensor.c url.c url.h nvidia.c amd.c \
+	cpu.c
 @NVIDIA_TRUE@am__objects_1 = libpsensor_a-nvidia.$(OBJEXT)
 @LIBATIADL_TRUE@am__objects_2 = libpsensor_a-amd.$(OBJEXT)
 @GTOP_TRUE@am__objects_3 = libpsensor_a-cpu.$(OBJEXT)
 am_libpsensor_a_OBJECTS = libpsensor_a-measure.$(OBJEXT) \
 	libpsensor_a-color.$(OBJEXT) libpsensor_a-log.$(OBJEXT) \
 	libpsensor_a-psensor.$(OBJEXT) libpsensor_a-hdd.$(OBJEXT) \
-	libpsensor_a-lmsensor.$(OBJEXT) $(am__objects_1) \
-	$(am__objects_2) $(am__objects_3)
+	libpsensor_a-lmsensor.$(OBJEXT) libpsensor_a-url.$(OBJEXT) \
+	$(am__objects_1) $(am__objects_2) $(am__objects_3)
 libpsensor_a_OBJECTS = $(am_libpsensor_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -230,8 +231,8 @@ noinst_LIBRARIES = libpsensor.a
 libpsensor_a_CFLAGS = -Wall -Werror $(am__append_5)
 libpsensor_a_SOURCES = amd.h cpu.h measure.h measure.c color.h color.c \
 	log.h log.c psensor.h psensor.c hdd.h hdd.c nvidia.h \
-	lmsensor.h lmsensor.c $(am__append_1) $(am__append_4) \
-	$(am__append_6)
+	lmsensor.h lmsensor.c url.c url.h $(am__append_1) \
+	$(am__append_4) $(am__append_6)
 AM_CPPFLAGS = $(am__append_3) $(am__append_8)
 EXTRA_DIST = $(libpsensor_a_SOURCES) \
 	amd.c \
@@ -295,6 +296,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-measure.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-nvidia.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-psensor.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-url.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -393,6 +395,20 @@ libpsensor_a-lmsensor.obj: lmsensor.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='lmsensor.c' object='libpsensor_a-lmsensor.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-lmsensor.obj `if test -f 'lmsensor.c'; then $(CYGPATH_W) 'lmsensor.c'; else $(CYGPATH_W) '$(srcdir)/lmsensor.c'; fi`
+
+libpsensor_a-url.o: url.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-url.o -MD -MP -MF $(DEPDIR)/libpsensor_a-url.Tpo -c -o libpsensor_a-url.o `test -f 'url.c' || echo '$(srcdir)/'`url.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-url.Tpo $(DEPDIR)/libpsensor_a-url.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='url.c' object='libpsensor_a-url.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-url.o `test -f 'url.c' || echo '$(srcdir)/'`url.c
+
+libpsensor_a-url.obj: url.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-url.obj -MD -MP -MF $(DEPDIR)/libpsensor_a-url.Tpo -c -o libpsensor_a-url.obj `if test -f 'url.c'; then $(CYGPATH_W) 'url.c'; else $(CYGPATH_W) '$(srcdir)/url.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-url.Tpo $(DEPDIR)/libpsensor_a-url.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='url.c' object='libpsensor_a-url.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-url.obj `if test -f 'url.c'; then $(CYGPATH_W) 'url.c'; else $(CYGPATH_W) '$(srcdir)/url.c'; fi`
 
 libpsensor_a-nvidia.o: nvidia.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-nvidia.o -MD -MP -MF $(DEPDIR)/libpsensor_a-nvidia.Tpo -c -o libpsensor_a-nvidia.o `test -f 'nvidia.c' || echo '$(srcdir)/'`nvidia.c
