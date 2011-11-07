@@ -35,14 +35,9 @@ void log_open(const char *path, int lvl)
 	file = fopen(path, "a");
 
 	if (file)
-		log_puts(LOG_INFO, "Start logging");
+		log_printf(LOG_INFO, "Start logging");
 	else
 		fprintf(stderr, _("Cannot open log file: %s\n"), path);
-}
-
-void log_puts(int lvl, const char *msg)
-{
-	log_printf(lvl, msg);
 }
 
 void log_close()

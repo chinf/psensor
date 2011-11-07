@@ -69,10 +69,10 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	if (is_appindicator_supported()) {
-		log_puts(LOG_DEBUG, "hiding, WM is supporting appindicator");
+		log_printf(LOG_DEBUG, "hiding, WM is supporting appindicator");
 		gtk_widget_hide(ui->main_window);
 	} else {
-		log_puts(LOG_DEBUG, "quitting, WM not supporting appindicator");
+		log_printf(LOG_DEBUG, "quitting, WM not supporting appindicator");
 		ui_psensor_quit(ui);
 	}
 #else
@@ -126,7 +126,7 @@ void ui_psensor_quit(struct ui_psensor *ui)
 {
 	save_window_pos(ui);
 
-	log_puts(LOG_DEBUG, "Destroy main window");
+	log_printf(LOG_DEBUG, "Destroy main window");
 	gtk_widget_destroy(ui->main_window);
 	gtk_main_quit();
 }
