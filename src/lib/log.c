@@ -30,7 +30,7 @@
 static FILE *file;
 int log_level =  LOG_WARN;
 
-void log_open(const char *path, int lvl)
+void log_open(const char *path)
 {
 	file = fopen(path, "a");
 

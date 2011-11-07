@@ -27,7 +27,7 @@ enum log_level {
 	LOG_DEBUG
 };
 
-void log_open(const char *path, int lvl);
+void log_open(const char *path);
 
 void log_printf(int lvl, const char *fmt, ...);
 

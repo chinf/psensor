@@ -314,7 +314,7 @@ static void log_init()
 	path = malloc(strlen(dir)+1+strlen("log")+1);
 	sprintf(path, "%s/%s", dir, "log");
 
-	log_open(path, LOG_INFO);
+	log_open(path);
 
 	free(dir);
 	free(path);
