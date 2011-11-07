@@ -375,9 +375,9 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	printf(_("Web server started on port: %d\n"), port);
-	printf(_("WWW directory: %s\n"), server_data.www_dir);
-	printf(_("URL: http://localhost:%d\n"), port);
+	log_printf(LOG_INFO, _("Web server started on port: %d"), port);
+	log_printf(LOG_INFO, _("WWW directory: %s"), server_data.www_dir);
+	log_printf(LOG_INFO, _("URL: http://localhost:%d"), port);
 
 	while (!server_stop_requested) {
 		pthread_mutex_lock(&mutex);
