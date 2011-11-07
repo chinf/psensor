@@ -60,15 +60,24 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 	if (notify_is_initted() == TRUE) {
 		name = strdup(sensor->name);
 
-#if defined(NOTIFY_CHECK_VERSION) && NOTIFY_CHECK_VERSION(0, 7, 0)
 		/*
-		 * since libnotify 0.7 notify_notification_new has
+		 * Since libnotify 0.7 notify_notification_new has
 		 * only 3 parameters.
-		 */
+		 *
+		 * NOTIFY_CHECK_VERSION exists since 0.5.2.
+		 */		
+#ifdef NOTIFY_CHECK_VERSION
+#if NOTIFY_CHECK_VERSION(0, 7, 0)
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
 						NULL);
 #else
+		notif = notify_notification_new(_("Temperature alert"),
+						name,
+						NULL,
+						GTK_WIDGET(ui->main_window));
+#endif
+#else		
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
 						NULL,
