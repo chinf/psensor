@@ -1,4 +1,4 @@
-SUBDIRS = plib lib unity glade
+SUBDIRS = lib unity glade
 
 AM_LDFLAGS = -Wl,--as-needed 
 
@@ -22,7 +22,6 @@ AM_CPPFLAGS = -Wall -pedantic -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
 DEFS = -DPACKAGE_DATA_DIR=\"$(pkgdatadir)\" -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
 LIBS = \
-	plib/libplib.a \
 	lib/libpsensor.a \
 	$(GTK_LIBS)\
 	$(GCONF_LIBS)\

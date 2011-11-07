@@ -43,7 +43,7 @@
 
 #include "psensor_json.h"
 #include "url.h"
-#include "plib/plib_io.h"
+#include "p_io.h"
 #include "server.h"
 
 static const char *program_name;

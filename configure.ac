@@ -226,7 +226,6 @@ AC_CONFIG_FILES([
  Makefile
  src/Makefile
  src/glade/Makefile
- src/plib/Makefile
  src/lib/Makefile
  src/unity/Makefile
  src/libpsensor_json/Makefile

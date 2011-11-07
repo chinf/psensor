@@ -130,7 +130,7 @@ AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
 	distdir
 ETAGS = etags
 CTAGS = ctags
-DIST_SUBDIRS = plib lib unity glade libpsensor_json server
+DIST_SUBDIRS = lib unity glade libpsensor_json server
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 am__relativize = \
   dir0=`pwd`; \
@@ -210,10 +210,10 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = plib/libplib.a lib/libpsensor.a $(GTK_LIBS) $(GCONF_LIBS) \
-	$(SENSORS_LIBS) $(am__append_4) $(am__append_6) \
-	$(am__append_9) $(am__append_12) $(am__append_14) \
-	$(am__append_16) $(am__append_18)
+LIBS = lib/libpsensor.a $(GTK_LIBS) $(GCONF_LIBS) $(SENSORS_LIBS) \
+	$(am__append_4) $(am__append_6) $(am__append_9) \
+	$(am__append_12) $(am__append_14) $(am__append_16) \
+	$(am__append_18)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -304,7 +304,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = plib lib unity glade $(am__append_1) $(am__append_2)
+SUBDIRS = lib unity glade $(am__append_1) $(am__append_2)
 AM_LDFLAGS = -Wl,--as-needed 
 AM_CPPFLAGS = -Wall -pedantic -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \

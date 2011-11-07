@@ -12,7 +12,6 @@ AM_CPPFLAGS = -pedantic -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
 DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
 LIBS = \
-	../plib/libplib.a \
 	../lib/libpsensor.a \
 	../libpsensor_json/libpsensor_json.a \
 	$(SENSORS_LIBS) \

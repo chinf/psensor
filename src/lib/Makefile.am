@@ -12,6 +12,7 @@ libpsensor_a_SOURCES = \
 	hdd.h hdd.c\
 	nvidia.h \
 	lmsensor.h lmsensor.c \
+	p_io.h p_io.c \
 	url.c url.h
 
 if NVIDIA

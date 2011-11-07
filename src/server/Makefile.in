@@ -147,9 +147,9 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = ../plib/libplib.a ../lib/libpsensor.a \
-	../libpsensor_json/libpsensor_json.a $(SENSORS_LIBS) \
-	$(JSON_LIBS) $(LIBMICROHTTPD_LIBS) $(am__append_2)
+LIBS = ../lib/libpsensor.a ../libpsensor_json/libpsensor_json.a \
+	$(SENSORS_LIBS) $(JSON_LIBS) $(LIBMICROHTTPD_LIBS) \
+	$(am__append_2)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@

@@ -23,7 +23,7 @@
 #include <string.h>
 #include <dirent.h>
 
-#include "plib_io.h"
+#include "p_io.h"
 
 int is_dir(const char *path)
 {
