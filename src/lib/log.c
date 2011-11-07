@@ -37,7 +37,7 @@ void log_open(const char *path)
 	if (file)
 		log_printf(LOG_INFO, "Start logging");
 	else
-		fprintf(stderr, _("Cannot open log file: %s\n"), path);
+		log_printf(LOG_ERR, _("Cannot open log file: %s"), path);
 }
 
 void log_close()
