@@ -54,11 +54,11 @@ void log_close()
 void log_printf(int lvl, const char *fmt, ...)
 {
 	struct timeval tv;
-	static char buffer[1 + LOG_BUFFER];
+	char buffer[1 + LOG_BUFFER];
 	va_list ap;
 	char *lvl_str;
 
-	if (!file || lvl > log_level)
+	if (lvl > LOG_INFO && (!file || lvl > log_level))
 		return ;
 
 	va_start(ap, fmt);
@@ -86,6 +86,11 @@ void log_printf(int lvl, const char *fmt, ...)
 		lvl_str = "[??]";
 	}
 
-	fprintf(file, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
-	fflush(file);
+	if (file && lvl <= log_level) {
+		fprintf(file, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
+		fflush(file);
+	}
+
+	if (lvl <= LOG_INFO)
+		printf("[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
 }

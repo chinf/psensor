@@ -72,7 +72,8 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 		log_printf(LOG_DEBUG, "hiding, WM is supporting appindicator");
 		gtk_widget_hide(ui->main_window);
 	} else {
-		log_printf(LOG_DEBUG, "quitting, WM not supporting appindicator");
+		log_printf(LOG_DEBUG,
+			   "quitting, WM not supporting appindicator");
 		ui_psensor_quit(ui);
 	}
 #else

@@ -33,6 +33,7 @@ void log_printf(int lvl, const char *fmt, ...);
 
 void log_close();
 
+/* level of the log file. */
 extern int log_level;
 
 #endif
