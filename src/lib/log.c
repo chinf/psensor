@@ -28,7 +28,7 @@
 #include "log.h"
 
 static FILE *file;
-int log_level =  LOG_WARN;
+int log_level =  LOG_INFO;
 
 void log_open(const char *path)
 {
@@ -57,6 +57,7 @@ void log_printf(int lvl, const char *fmt, ...)
 	char buffer[1 + LOG_BUFFER];
 	va_list ap;
 	char *lvl_str;
+	FILE *stdf;
 
 	if (lvl > LOG_INFO && (!file || lvl > log_level))
 		return ;
@@ -91,6 +92,12 @@ void log_printf(int lvl, const char *fmt, ...)
 		fflush(file);
 	}
 
-	if (lvl <= LOG_INFO)
-		printf("[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
+	if (lvl <= LOG_INFO) {
+		if (lvl == LOG_WARN || lvl == LOG_ERR)
+			stdf = stderr;
+		else
+			stdf = stdout;
+
+		fprintf(stdf, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
+	}
 }
