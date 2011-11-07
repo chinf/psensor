@@ -28,7 +28,7 @@
 #include "log.h"
 
 static FILE *file;
-int log_level =  LOG_INFO;
+int log_level =  LOG_WARN;
 
 void log_open(const char *path, int lvl)
 {
