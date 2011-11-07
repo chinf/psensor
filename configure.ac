@@ -175,7 +175,7 @@ AC_ARG_WITH(libatiadl,
 [  --with-libatiadl[=DIR]   use libatiadlxx in DIR],[
 		   ATIADL_DIR=${withval}
 		   CPPFLAGS="${CPPFLAGS} -I${ATIADL_DIR}/include"
-	      	   LIBS="$LIBS -L/usr/lib/fglrx"
+	      	   LIBS="$LIBS -L/usr/lib/fglrx -L/usr/lib64/fglrx -L/usr/lib/catalyst -L/usr/lib64/catalyst"
 		  ]
 )
 
@@ -184,7 +184,7 @@ AC_CHECK_HEADERS(adl_defines.h,
 		[
 			AC_DEFINE(HAVE_LIBATIADL,1,[libatiadl is available])
 			LIBATIADL_CFLAGS="-I${ATIADL_DIR}/include"
-			LIBATIADL_LIBS="-L/usr/lib/fglrx -latiadlxx"
+			LIBATIADL_LIBS="-L/usr/lib/fglrx -L/usr/lib64/fglrx -L/usr/lib/catalyst -L/usr/lib64/catalyst -latiadlxx -ldl"
 		]))
 
 AM_CONDITIONAL(LIBATIADL, test -n "$LIBATIADL_LIBS")

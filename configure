@@ -8264,7 +8264,7 @@ if test "${with_libatiadl+set}" = set; then :
   withval=$with_libatiadl;
 		   ATIADL_DIR=${withval}
 		   CPPFLAGS="${CPPFLAGS} -I${ATIADL_DIR}/include"
-	      	   LIBS="$LIBS -L/usr/lib/fglrx"
+	      	   LIBS="$LIBS -L/usr/lib/fglrx -L/usr/lib64/fglrx -L/usr/lib/catalyst -L/usr/lib64/catalyst"
 
 
 fi
@@ -8319,7 +8319,7 @@ if test "x$ac_cv_lib_atiadlxx_ADL_Main_Control_Refresh" = xyes; then :
 $as_echo "#define HAVE_LIBATIADL 1" >>confdefs.h
 
 			LIBATIADL_CFLAGS="-I${ATIADL_DIR}/include"
-			LIBATIADL_LIBS="-L/usr/lib/fglrx -latiadlxx"
+			LIBATIADL_LIBS="-L/usr/lib/fglrx -L/usr/lib64/fglrx -L/usr/lib/catalyst -L/usr/lib64/catalyst -latiadlxx -ldl"
 
 fi
 

@@ -47,11 +47,13 @@ bin_PROGRAMS = psensor$(EXEEXT)
 @APPINDICATOR_TRUE@am__append_10 = $(APPINDICATOR_CFLAGS)
 @NVIDIA_TRUE@am__append_11 = $(NVIDIA_CFLAGS)
 @NVIDIA_TRUE@am__append_12 = $(NVIDIA_LIBS)
-@UNITY_TRUE@am__append_13 = $(UNITY_CFLAGS)
-@UNITY_TRUE@am__append_14 = unity/libpsensor_unity.a $(UNITY_LIBS) 
-@CURL_TRUE@@JSON_TRUE@am__append_15 = rsensor.h rsensor.c plib/url.c plib/url.h
-@CURL_TRUE@@JSON_TRUE@am__append_16 = $(CURL_LIBS) $(JSON_LIBS)
-@CURL_TRUE@@JSON_TRUE@am__append_17 = $(CURL_CFLAGS) $(JSON_CFLAGS)
+@LIBATIADL_TRUE@am__append_13 = $(LIBATIADL_CFLAGS)
+@LIBATIADL_TRUE@am__append_14 = $(LIBATIADL_LIBS)
+@UNITY_TRUE@am__append_15 = $(UNITY_CFLAGS)
+@UNITY_TRUE@am__append_16 = unity/libpsensor_unity.a $(UNITY_LIBS) 
+@CURL_TRUE@@JSON_TRUE@am__append_17 = rsensor.h rsensor.c plib/url.c plib/url.h
+@CURL_TRUE@@JSON_TRUE@am__append_18 = $(CURL_LIBS) $(JSON_LIBS)
+@CURL_TRUE@@JSON_TRUE@am__append_19 = $(CURL_CFLAGS) $(JSON_CFLAGS)
 subdir = src
 DIST_COMMON = $(dist_man_MANS) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in
@@ -212,7 +214,7 @@ LIBOBJS = @LIBOBJS@
 LIBS = plib/libplib.a lib/libpsensor.a $(GTK_LIBS) $(GCONF_LIBS) \
 	$(SENSORS_LIBS) $(am__append_4) $(am__append_6) \
 	$(am__append_9) $(am__append_12) $(am__append_14) \
-	$(am__append_16)
+	$(am__append_16) $(am__append_18)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -310,12 +312,13 @@ AM_CPPFLAGS = -Wall -pedantic -Werror \
 	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS) $(GCONF_CFLAGS) $(SENSORS_CFLAGS) \
 	$(am__append_3) $(am__append_7) $(am__append_10) \
-	$(am__append_11) $(am__append_13) $(am__append_17)
+	$(am__append_11) $(am__append_13) $(am__append_15) \
+	$(am__append_19)
 psensor_SOURCES = compat.h cfg.h cfg.c graph.h graph.c main.c ui.h \
 	ui.c ui_color.h ui_color.c ui_graph.h ui_graph.c ui_pref.h \
 	ui_pref.c ui_sensorlist.h ui_sensorlist.c ui_sensorpref.h \
 	ui_sensorpref.c $(am__append_5) $(am__append_8) \
-	$(am__append_15)
+	$(am__append_17)
 dist_man_MANS = psensor.1
 EXTRA_DIST = description.txt
 all: all-recursive

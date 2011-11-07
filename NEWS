@@ -8,6 +8,8 @@
 ** psensor: fixed compilation with libnotify 0.5.2 (submitted by Lubos
    Stanek).
 ** psensor: added missing CPPFLAGS for Gtop (submitted by Lubos Stanek).
+** psensor: fixed compilation with AMD/ATI GPU monitoring support
+   (submitted by Lubos Stanek).
 
 * v0.6.2.12
 ** psensor: added -d option to enable debug log (written to $HOME/.psensor/log).
