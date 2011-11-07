@@ -22,6 +22,11 @@
 
 #include <libnotify/notify.h>
 
+/* Macro defined since libnotify 0.5.2 */
+#ifndef NOTIFY_CHECK_VERSION
+#define NOTIFY_CHECK_VERSION(x,y,z) 0
+#endif
+
 #include "ui.h"
 #include "ui_notify.h"
 
@@ -63,21 +68,12 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		/*
 		 * Since libnotify 0.7 notify_notification_new has
 		 * only 3 parameters.
-		 *
-		 * NOTIFY_CHECK_VERSION exists since 0.5.2.
 		 */		
-#ifdef NOTIFY_CHECK_VERSION
 #if NOTIFY_CHECK_VERSION(0, 7, 0)
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
 						NULL);
 #else
-		notif = notify_notification_new(_("Temperature alert"),
-						name,
-						NULL,
-						GTK_WIDGET(ui->main_window));
-#endif
-#else		
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
 						NULL,
