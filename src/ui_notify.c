@@ -24,7 +24,7 @@
 
 /* Macro defined since libnotify 0.5.2 */
 #ifndef NOTIFY_CHECK_VERSION
-#define NOTIFY_CHECK_VERSION(x,y,z) 0
+#define NOTIFY_CHECK_VERSION(x, y, z) 0
 #endif
 
 #include "ui.h"
@@ -68,7 +68,7 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		/*
 		 * Since libnotify 0.7 notify_notification_new has
 		 * only 3 parameters.
-		 */		
+		 */
 #if NOTIFY_CHECK_VERSION(0, 7, 0)
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
