@@ -89,4 +89,3 @@ void log_printf(int lvl, const char *fmt, ...)
 	fprintf(file, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
 	fflush(file);
 }
-
