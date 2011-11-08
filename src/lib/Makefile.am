@@ -35,6 +35,12 @@ LIBS += $(GTOP_LIBS)
 AM_CPPFLAGS += $(GTOP_CFLAGS)
 endif
 
+if JSON
+libpsensor_a_SOURCES += psensor_json.h psensor_json.c
+LIBS += $(JSON_LIBS)
+AM_CPPFLAGS += $(JSON_CFLAGS)
+endif
+
 EXTRA_DIST=$(libpsensor_a_SOURCES) \
 	amd.c \
 	cpu.c \

@@ -147,9 +147,8 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = ../lib/libpsensor.a ../libpsensor_json/libpsensor_json.a \
-	$(SENSORS_LIBS) $(JSON_LIBS) $(LIBMICROHTTPD_LIBS) \
-	$(am__append_2)
+LIBS = ../lib/libpsensor.a $(SENSORS_LIBS) $(JSON_LIBS) \
+	$(LIBMICROHTTPD_LIBS) $(am__append_2)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -243,9 +242,8 @@ top_srcdir = @top_srcdir@
 psensor_server_SOURCES = server.c server.h $(am__append_3)
 AM_CPPFLAGS = -pedantic -Wall -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" -I$(top_srcdir)/src \
-	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/libpsensor_json \
-	$(SENSORS_CFLAGS) $(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) \
-	$(am__append_1)
+	-I$(top_srcdir)/src/lib $(SENSORS_CFLAGS) $(JSON_CFLAGS) \
+	$(LIBMICROHTTPD_CFLAGS) $(am__append_1)
 @GTOP_TRUE@AM_LDFLAGS = -Wl,--as-needed
 dist_man_MANS = psensor-server.1
 EXTRA_DIST = description.txt

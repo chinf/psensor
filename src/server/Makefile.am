@@ -4,7 +4,6 @@ psensor_server_SOURCES = server.c server.h
 AM_CPPFLAGS = -pedantic -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
 	-I$(top_srcdir)/src \
 	-I$(top_srcdir)/src/lib \
-	-I$(top_srcdir)/src/libpsensor_json \
 	$(SENSORS_CFLAGS)\
 	$(JSON_CFLAGS)\
 	$(LIBMICROHTTPD_CFLAGS)
@@ -13,7 +12,6 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
 LIBS = \
 	../lib/libpsensor.a \
-	../libpsensor_json/libpsensor_json.a \
 	$(SENSORS_LIBS) \
 	$(JSON_LIBS) \
 	$(LIBMICROHTTPD_LIBS)

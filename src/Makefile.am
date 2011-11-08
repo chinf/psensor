@@ -2,10 +2,6 @@ SUBDIRS = lib glade
 
 AM_LDFLAGS = -Wl,--as-needed 
 
-if JSON
-SUBDIRS += libpsensor_json
-endif
-
 if LIBMICROHTTPD
 if JSON
 SUBDIRS += server
