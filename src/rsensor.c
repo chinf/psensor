@@ -39,7 +39,7 @@ struct ucontent {
 
 static CURL *curl;
 
-size_t cbk_curl(void *buffer, size_t size, size_t nmemb, void *userp)
+static size_t cbk_curl(void *buffer, size_t size, size_t nmemb, void *userp)
 {
 	size_t realsize;
 	struct ucontent *mem;
@@ -56,7 +56,7 @@ size_t cbk_curl(void *buffer, size_t size, size_t nmemb, void *userp)
 	return realsize;
 }
 
-char *create_api_1_0_sensors_url(const char *base_url)
+static char *create_api_1_0_sensors_url(const char *base_url)
 {
 	char *nurl, *ret;
 	int n;
@@ -73,9 +73,9 @@ char *create_api_1_0_sensors_url(const char *base_url)
 	return ret;
 }
 
-struct psensor *json_object_to_psensor(json_object * o,
-				       const char *sensors_url,
-				       int values_max_length)
+static struct psensor *json_object_to_psensor(json_object * o,
+					      const char *sensors_url,
+					      int values_max_length)
 {
 	json_object *oid;
 	json_object *oname;
@@ -113,9 +113,8 @@ void rsensor_end()
 	curl_easy_cleanup(curl);
 }
 
-json_object *get_json_object(const char *url)
+static json_object *get_json_object(const char *url)
 {
-
 	struct ucontent chunk;
 	json_object *obj;
 
