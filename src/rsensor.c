@@ -108,7 +108,7 @@ void rsensor_init()
 	curl = curl_easy_init();
 }
 
-void rsensor_end()
+void rsensor_cleanup()
 {
 	curl_easy_cleanup(curl);
 }
@@ -144,9 +144,10 @@ static json_object *get_json_object(const char *url)
 struct psensor **get_remote_sensors(const char *server_url,
 				    int values_max_length)
 {
-	struct psensor **sensors;
+	struct psensor **sensors, *s;
 	char *url;
 	json_object *obj;
+	int i, n;
 
 	sensors = NULL;
 
@@ -155,15 +156,14 @@ struct psensor **get_remote_sensors(const char *server_url,
 	obj = get_json_object(url);
 
 	if (obj && !is_error(obj)) {
-		int i;
-		int n = json_object_array_length(obj);
+		n = json_object_array_length(obj);
 		sensors = malloc((n + 1) * sizeof(struct psensor *));
 
 		for (i = 0; i < n; i++) {
-			struct psensor *s = json_object_to_psensor
-			    (json_object_array_get_idx(obj, i),
-			     url,
-			     values_max_length);
+			s = json_object_to_psensor
+				(json_object_array_get_idx(obj, i),
+				 url,
+				 values_max_length);
 			sensors[i] = s;
 		}
 

@@ -462,6 +462,9 @@ int main(int argc, char **argv)
 #ifdef HAVE_LIBATIADL
 	amd_cleanup();
 #endif
+#ifdef HAVE_REMOTE_SUPPORT
+	rsensor_cleanup();
+#endif
 
 	psensor_list_free(ui.sensors);
 	ui.sensors = NULL;
