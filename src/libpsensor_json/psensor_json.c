@@ -61,7 +61,7 @@ measures_to_json_object(struct psensor *s)
 	return o;
 }
 
-json_object *sensor_to_json_object(struct psensor *s)
+static json_object *sensor_to_json(struct psensor *s)
 {
 	json_object *mo, *obj;
 	struct measure *m;
@@ -99,7 +99,7 @@ json_object *sensor_to_json_object(struct psensor *s)
 char *sensor_to_json_string(struct psensor *s)
 {
 	char *str;
-	json_object *obj = sensor_to_json_object(s);
+	json_object *obj = sensor_to_json(s);
 
 	str = strdup(json_object_to_json_string(obj));
 
@@ -119,7 +119,7 @@ char *sensors_to_json_string(struct psensor **sensors)
 	while (*sensors_cur) {
 		struct psensor *s = *sensors_cur;
 
-		json_object_array_add(obj, sensor_to_json_object(s));
+		json_object_array_add(obj, sensor_to_json(s));
 
 		sensors_cur++;
 	}
