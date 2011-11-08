@@ -17,9 +17,11 @@
     02110-1301 USA
 */
 
+#include <stdlib.h>
 #include <string.h>
 
 #include "psensor_json.h"
+#include "url.h"
 
 #define ATT_SENSOR_ID "id"
 #define ATT_SENSOR_NAME "name"
@@ -129,5 +131,32 @@ char *sensors_to_json_string(struct psensor **sensors)
 	json_object_put(obj);
 
 	return str;
+}
+
+struct psensor *psensor_new_from_json(json_object *o,
+				      const char *sensors_url,
+				      int values_max_length)
+{
+	json_object *oid, *oname, *otype;
+	struct psensor *s;
+	char *eid, *url;
+
+	oid = json_object_object_get(o, "id");
+	oname = json_object_object_get(o, "name");
+	otype = json_object_object_get(o, "type");
+
+	eid = url_encode(json_object_get_string(oid));
+	url = malloc(strlen(sensors_url) + 1 + strlen(eid) + 1);
+	sprintf(url, "%s/%s", sensors_url, eid);
+
+	s = psensor_create(strdup(url),
+			   strdup(json_object_get_string(oname)),
+			   json_object_get_int(otype) | SENSOR_TYPE_REMOTE,
+			   values_max_length);
+	s->url = url;
+
+	free(eid);
+
+	return s;
 }
 

@@ -20,17 +20,16 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
-#include "url.h"
-#include "server/server.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include <curl/curl.h>
-#include <json/json.h>
 
+#include "psensor_json.h"
 #include "rsensor.h"
+#include "server/server.h"
+#include "url.h"
 
 struct ucontent {
 	char *data;
@@ -71,33 +70,6 @@ static char *create_api_1_0_sensors_url(const char *base_url)
 	free(nurl);
 
 	return ret;
-}
-
-static struct psensor *json_object_to_psensor(json_object *o,
-					      const char *sensors_url,
-					      int values_max_length)
-{
-	json_object *oid, *oname, *otype;
-	struct psensor *s;
-	char *eid, *url;
-
-	oid = json_object_object_get(o, "id");
-	oname = json_object_object_get(o, "name");
-	otype = json_object_object_get(o, "type");
-
-	eid = url_encode(json_object_get_string(oid));
-	url = malloc(strlen(sensors_url) + 1 + strlen(eid) + 1);
-	sprintf(url, "%s/%s", sensors_url, eid);
-
-	s = psensor_create(strdup(url),
-			   strdup(json_object_get_string(oname)),
-			   json_object_get_int(otype) | SENSOR_TYPE_REMOTE,
-			   values_max_length);
-	s->url = url;
-
-	free(eid);
-
-	return s;
 }
 
 void rsensor_init()
@@ -158,7 +130,7 @@ struct psensor **get_remote_sensors(const char *server_url,
 		sensors = malloc((n + 1) * sizeof(struct psensor *));
 
 		for (i = 0; i < n; i++) {
-			s = json_object_to_psensor
+			s = psensor_new_from_json
 				(json_object_array_get_idx(obj, i),
 				 url,
 				 values_max_length);

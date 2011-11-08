@@ -27,4 +27,11 @@
 char *sensor_to_json_string(struct psensor *s);
 char *sensors_to_json_string(struct psensor **sensors);
 
+/*
+ * Creates a new allocated psensor corresponding to a given json
+ * representation.
+ */
+struct psensor *psensor_new_from_json(json_object *o,
+				      const char *sensors_url,
+				      int values_max_length);
 #endif
