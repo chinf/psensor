@@ -131,6 +131,7 @@ static json_object *get_json_object(const char *url)
 	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, cbk_curl);
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
 
+	log_printf(LOG_DEBUG, "HTTP request %s", url);
 	if (curl_easy_perform(curl) == CURLE_OK)
 		obj = json_tokener_parse(chunk.data);
 	else
