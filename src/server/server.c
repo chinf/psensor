@@ -92,15 +92,15 @@ void print_help()
 	puts("");
 	puts("Options:");
 	puts(_("\
-  -h, --help          display this help and exit\n\
-  -v, --version       display version information and exit"));
+  -h, --help		display this help and exit\n\
+  -v, --version		display version information and exit"));
 
 	puts("");
 
 	puts(_("\
-  -d,--debug     run in debug mode\n\
-  -p,--port=PORT webserver port\n\
-  -w,--wdir=DIR  directory containing webserver pages"));
+  -d,--debug		run in debug mode\n\
+  -p,--port=PORT	webserver port\n\
+  -w,--wdir=DIR		directory containing webserver pages"));
 
 	puts("");
 
