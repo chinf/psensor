@@ -49,11 +49,12 @@ bin_PROGRAMS = psensor$(EXEEXT)
 @NVIDIA_TRUE@am__append_12 = $(NVIDIA_LIBS)
 @LIBATIADL_TRUE@am__append_13 = $(LIBATIADL_CFLAGS)
 @LIBATIADL_TRUE@am__append_14 = $(LIBATIADL_LIBS)
-@UNITY_TRUE@am__append_15 = $(UNITY_CFLAGS)
-@UNITY_TRUE@am__append_16 = unity/libpsensor_unity.a $(UNITY_LIBS) 
-@CURL_TRUE@@JSON_TRUE@am__append_17 = rsensor.h rsensor.c
-@CURL_TRUE@@JSON_TRUE@am__append_18 = $(CURL_LIBS) $(JSON_LIBS)
-@CURL_TRUE@@JSON_TRUE@am__append_19 = $(CURL_CFLAGS) $(JSON_CFLAGS)
+@UNITY_TRUE@am__append_15 = ui_unity.h ui_unity.c
+@UNITY_TRUE@am__append_16 = $(UNITY_CFLAGS)
+@UNITY_TRUE@am__append_17 = $(UNITY_LIBS) 
+@CURL_TRUE@@JSON_TRUE@am__append_18 = rsensor.h rsensor.c
+@CURL_TRUE@@JSON_TRUE@am__append_19 = $(CURL_LIBS) $(JSON_LIBS)
+@CURL_TRUE@@JSON_TRUE@am__append_20 = $(CURL_CFLAGS) $(JSON_CFLAGS)
 subdir = src
 DIST_COMMON = $(dist_man_MANS) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in
@@ -71,15 +72,17 @@ am__psensor_SOURCES_DIST = compat.h cfg.h cfg.c graph.h graph.c main.c \
 	ui.h ui.c ui_color.h ui_color.c ui_graph.h ui_graph.c \
 	ui_pref.h ui_pref.c ui_sensorlist.h ui_sensorlist.c \
 	ui_sensorpref.h ui_sensorpref.c ui_notify.h ui_notify.c \
-	ui_appindicator.h ui_appindicator.c rsensor.h rsensor.c
+	ui_appindicator.h ui_appindicator.c ui_unity.h ui_unity.c \
+	rsensor.h rsensor.c
 @LIBNOTIFY_TRUE@am__objects_1 = ui_notify.$(OBJEXT)
 @APPINDICATOR_TRUE@am__objects_2 = ui_appindicator.$(OBJEXT)
-@CURL_TRUE@@JSON_TRUE@am__objects_3 = rsensor.$(OBJEXT)
+@UNITY_TRUE@am__objects_3 = ui_unity.$(OBJEXT)
+@CURL_TRUE@@JSON_TRUE@am__objects_4 = rsensor.$(OBJEXT)
 am_psensor_OBJECTS = cfg.$(OBJEXT) graph.$(OBJEXT) main.$(OBJEXT) \
 	ui.$(OBJEXT) ui_color.$(OBJEXT) ui_graph.$(OBJEXT) \
 	ui_pref.$(OBJEXT) ui_sensorlist.$(OBJEXT) \
 	ui_sensorpref.$(OBJEXT) $(am__objects_1) $(am__objects_2) \
-	$(am__objects_3)
+	$(am__objects_3) $(am__objects_4)
 psensor_OBJECTS = $(am_psensor_OBJECTS)
 psensor_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
@@ -130,7 +133,7 @@ AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
 	distdir
 ETAGS = etags
 CTAGS = ctags
-DIST_SUBDIRS = lib unity glade libpsensor_json server
+DIST_SUBDIRS = lib glade libpsensor_json server
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 am__relativize = \
   dir0=`pwd`; \
@@ -212,8 +215,8 @@ LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
 LIBS = lib/libpsensor.a $(GTK_LIBS) $(GCONF_LIBS) $(SENSORS_LIBS) \
 	$(am__append_4) $(am__append_6) $(am__append_9) \
-	$(am__append_12) $(am__append_14) $(am__append_16) \
-	$(am__append_18)
+	$(am__append_12) $(am__append_14) $(am__append_17) \
+	$(am__append_19)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -304,20 +307,20 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = lib unity glade $(am__append_1) $(am__append_2)
+SUBDIRS = lib glade $(am__append_1) $(am__append_2)
 AM_LDFLAGS = -Wl,--as-needed 
 AM_CPPFLAGS = -Wall -pedantic -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
 	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS) $(GCONF_CFLAGS) $(SENSORS_CFLAGS) \
 	$(am__append_3) $(am__append_7) $(am__append_10) \
-	$(am__append_11) $(am__append_13) $(am__append_15) \
-	$(am__append_19)
+	$(am__append_11) $(am__append_13) $(am__append_16) \
+	$(am__append_20)
 psensor_SOURCES = compat.h cfg.h cfg.c graph.h graph.c main.c ui.h \
 	ui.c ui_color.h ui_color.c ui_graph.h ui_graph.c ui_pref.h \
 	ui_pref.c ui_sensorlist.h ui_sensorlist.c ui_sensorpref.h \
 	ui_sensorpref.c $(am__append_5) $(am__append_8) \
-	$(am__append_17)
+	$(am__append_15) $(am__append_18)
 dist_man_MANS = psensor.1
 EXTRA_DIST = description.txt
 all: all-recursive
@@ -413,6 +416,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui_pref.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui_sensorlist.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui_sensorpref.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui_unity.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<

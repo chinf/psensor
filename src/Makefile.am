@@ -1,4 +1,4 @@
-SUBDIRS = lib unity glade
+SUBDIRS = lib glade
 
 AM_LDFLAGS = -Wl,--as-needed 
 
@@ -68,8 +68,9 @@ LIBS += $(LIBATIADL_LIBS)
 endif
 
 if UNITY
+psensor_SOURCES += ui_unity.h ui_unity.c
 AM_CPPFLAGS += $(UNITY_CFLAGS)
-LIBS += unity/libpsensor_unity.a $(UNITY_LIBS) 
+LIBS += $(UNITY_LIBS) 
 endif
 
 if CURL
