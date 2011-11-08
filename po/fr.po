@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-09-27 01:54+0200\n"
+"POT-Creation-Date: 2011-11-08 12:36+0100\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -75,85 +75,90 @@ msgstr "Signaler les bugs à: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s page d'acceuil: <%s>\n"
 
-#: src/main.c:353 src/server/server.c:348
+#: src/main.c:363
+#, c-format
+msgid "Enables debug mode.\n"
+msgstr ""
+
+#: src/main.c:373 src/server/server.c:353
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez `%s --help' pour plus d'informations.\n"
 
-#: src/main.c:384
+#: src/main.c:404
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 "ERREUR: Psensor n'a pas ete compilé avec le support de surveillance à "
 "distance.\n"
 
-#: src/ui.c:52
+#: src/ui.c:90
 #, fuzzy
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
 "psensor est une application GTK pour surveiller les sondes matérielles "
 "thermiques et les ventilateurs."
 
-#: src/ui.c:55
+#: src/ui.c:93
 msgid ""
 "Copyright(c) 2010-2011\n"
 "jeanfi@gmail.com"
 msgstr ""
 
-#: src/ui.c:58
+#: src/ui.c:96
 msgid "About Psensor"
 msgstr ""
 
-#: src/ui.c:61
+#: src/ui.c:99
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:113
+#: src/ui.c:154
 #, fuzzy
 msgid "_Preferences"
 msgstr "Configuration"
 
-#: src/ui.c:114 src/ui_sensorlist.c:202
+#: src/ui.c:155 src/ui_sensorlist.c:202
 msgid "Preferences"
 msgstr "Configuration"
 
-#: src/ui.c:118
+#: src/ui.c:159
 #, fuzzy
 msgid "_Sensor Preferences"
 msgstr "Editer La Configuration Des Sondes"
 
-#: src/ui.c:119
+#: src/ui.c:160
 #, fuzzy
 msgid "Sensor Preferences"
 msgstr "Editer La Configuration Des Sondes"
 
-#: src/ui.c:123
+#: src/ui.c:164
 #, fuzzy
 msgid "_Quit"
 msgstr "Quitter"
 
-#: src/ui.c:123
+#: src/ui.c:164
 msgid "Quit"
 msgstr "Quitter"
 
-#: src/ui.c:128
+#: src/ui.c:169
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:129
+#: src/ui.c:170
 msgid "About"
 msgstr ""
 
-#: src/ui.c:151 src/ui_appindicator.c:176
+#: src/ui.c:192 src/ui_appindicator.c:176
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:189
+#: src/ui.c:240
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Surveillance Des Temperatures"
 
-#: src/ui.c:207
+#: src/ui.c:258
 #, fuzzy, c-format
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
@@ -162,7 +167,7 @@ msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
 msgid "Select foreground color"
 msgstr "Selectionner la couleur d'avant-plan"
 
-#: src/ui_sensorlist.c:310 src/glade/psensor-pref.glade:243
+#: src/ui_sensorlist.c:310 src/glade/psensor-pref.glade:241
 msgid "Sensor"
 msgstr "Sonde"
 
@@ -191,12 +196,12 @@ msgstr "Activée"
 msgid "N/A"
 msgstr "N/A"
 
-#: src/ui_notify.c:36
+#: src/ui_notify.c:40
 #, c-format
 msgid "ERROR: failed gettimeofday\n"
 msgstr "ERREUR: échec gettimeofday\n"
 
-#: src/ui_notify.c:72 src/ui_notify.c:76
+#: src/ui_notify.c:73 src/ui_notify.c:77
 msgid "Temperature alert"
 msgstr "Alerte thermique"
 
@@ -205,19 +210,19 @@ msgstr "Alerte thermique"
 msgid "Sensor Name"
 msgstr "Sonde"
 
-#: src/rsensor.c:131
-#, c-format
-msgid "ERROR: Fail to connect to: %s\n"
+#: src/rsensor.c:135
+#, fuzzy, c-format
+msgid "Fail to connect to: %s"
 msgstr "ERREUR: Echer de la connectio à: %s\n"
 
-#: src/rsensor.c:166
-#, c-format
-msgid "ERROR: Invalid content: %s\n"
+#: src/rsensor.c:172
+#, fuzzy, c-format
+msgid "Invalid content: %s"
 msgstr "ERREUR: Contenu invalide: %s\n"
 
-#: src/rsensor.c:204
-#, c-format
-msgid "ERROR: Invalid JSON: %s\n"
+#: src/rsensor.c:212
+#, fuzzy, c-format
+msgid "Invalid JSON: %s"
 msgstr "ERREUR: Invalide JSON: %s\n"
 
 #: src/server/server.c:53
@@ -242,38 +247,38 @@ msgstr ""
 "  -p,--port=PORT port du serveur Web\n"
 "  -w,--wdir=DIR  répertoire contenant les pages du serveur Web"
 
-#: src/server/server.c:176
+#: src/server/server.c:181
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
-#: src/server/server.c:286
+#: src/server/server.c:291
 #, c-format
 msgid "HTTP Request: %s\n"
 msgstr "Requete HTTP: %s\n"
 
-#: src/server/server.c:362
+#: src/server/server.c:367
 #, c-format
 msgid "ERROR: no sensors detected\n"
 msgstr "ERREUR: Aucune sonde detectee\n"
 
-#: src/server/server.c:369
+#: src/server/server.c:374
 #, c-format
 msgid "ERROR: Fail to create web server\n"
 msgstr "ERREUR: Echec de la creation du serveur Web\n"
 
-#: src/server/server.c:373
-#, c-format
-msgid "Web server started on port: %d\n"
+#: src/server/server.c:378
+#, fuzzy, c-format
+msgid "Web server started on port: %d"
 msgstr "Server Web demarre sur le port: %d\n"
 
-#: src/server/server.c:374
-#, c-format
-msgid "WWW directory: %s\n"
+#: src/server/server.c:379
+#, fuzzy, c-format
+msgid "WWW directory: %s"
 msgstr "WWW repertoire: %s\n"
 
-#: src/server/server.c:375
-#, c-format
-msgid "URL: http://localhost:%d\n"
+#: src/server/server.c:380
+#, fuzzy, c-format
+msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d\n"
 
 #: src/lib/amd.c:159
@@ -317,9 +322,9 @@ msgstr "ERREUR: mauvaise chaine hdd: %s"
 msgid "ERROR: wrong hdd string: %s\n"
 msgstr "ERREUR: mauvaise chaine hdd: %s\n"
 
-#: src/lib/log.c:38
+#: src/lib/log.c:40
 #, c-format
-msgid "Cannot open log file: %s\n"
+msgid "Cannot open log file: %s"
 msgstr ""
 
 #: src/lib/nvidia.c:55
@@ -365,89 +370,93 @@ msgstr ""
 msgid "%"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:8
+#: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
 msgstr "Editer la configuration"
 
-#: src/glade/psensor-pref.glade:72
+#: src/glade/psensor-pref.glade:70
 msgid "Graph Colors"
 msgstr "Couleurs du graphe"
 
-#: src/glade/psensor-pref.glade:88
+#: src/glade/psensor-pref.glade:86
 msgid "Foreground:"
 msgstr "Avant-plan:"
 
-#: src/glade/psensor-pref.glade:102
+#: src/glade/psensor-pref.glade:100
 msgid "Background:"
 msgstr "Arrière-plan :"
 
-#: src/glade/psensor-pref.glade:116
+#: src/glade/psensor-pref.glade:114
 msgid "Background opacity:"
 msgstr "Opacité du fond:"
 
-#: src/glade/psensor-pref.glade:167 src/glade/sensor-edit.glade:184
+#: src/glade/psensor-pref.glade:165 src/glade/sensor-edit.glade:184
 msgid "Graph"
 msgstr "Graphe"
 
-#: src/glade/psensor-pref.glade:185
+#: src/glade/psensor-pref.glade:183
 #, fuzzy
 msgid "Update interval:"
 msgstr "Interval de mise à jour du graphe:"
 
-#: src/glade/psensor-pref.glade:199
+#: src/glade/psensor-pref.glade:197
 #, fuzzy
 msgid "Monitoring duration:"
 msgstr "Durée de surveillance du graphe:"
 
-#: src/glade/psensor-pref.glade:212 src/glade/psensor-pref.glade:274
+#: src/glade/psensor-pref.glade:210 src/glade/psensor-pref.glade:272
 msgid "second(s)"
 msgstr "seconde(s)"
 
-#: src/glade/psensor-pref.glade:227
+#: src/glade/psensor-pref.glade:225
 msgid "minute(s)"
 msgstr "minutes(s)"
 
-#: src/glade/psensor-pref.glade:261
+#: src/glade/psensor-pref.glade:259
 msgid "Measure update interval:"
 msgstr "Interval de mise à jour des mesures:"
 
-#: src/glade/psensor-pref.glade:290
+#: src/glade/psensor-pref.glade:288
 msgid "Interface"
 msgstr "Interface"
 
-#: src/glade/psensor-pref.glade:308
+#: src/glade/psensor-pref.glade:306
 msgid "Position of sensors table:"
 msgstr "Position de la table des sondes:"
 
-#: src/glade/psensor-pref.glade:319
+#: src/glade/psensor-pref.glade:317
 msgid "Hide window decoration"
 msgstr "Cacher les décorations de la fenêtre"
 
-#: src/glade/psensor-pref.glade:337
+#: src/glade/psensor-pref.glade:335
 msgid "Keep window below"
 msgstr "Garder la fenêtre en arrière-plan"
 
-#: src/glade/psensor-pref.glade:444
+#: src/glade/psensor-pref.glade:436
 msgid "<i>Min</i>"
 msgstr "<i>Min</i>"
 
-#: src/glade/psensor-pref.glade:471
+#: src/glade/psensor-pref.glade:463
 msgid "<i>Max</i>"
 msgstr "<i>Max</i>"
 
-#: src/glade/psensor-pref.glade:491
+#: src/glade/psensor-pref.glade:483
 #, fuzzy
 msgid "Enable menu"
 msgstr "Activée"
 
-#: src/glade/psensor-pref.glade:508
+#: src/glade/psensor-pref.glade:500
 msgid "Enable Unity Launcher counter"
 msgstr "Activer le compteur du lanceur de Unity"
 
-#: src/glade/psensor-pref.glade:526
+#: src/glade/psensor-pref.glade:518
 #, fuzzy
 msgid "Hide window on startup"
 msgstr "Cacher les décorations de la fenêtre"
+
+#: src/glade/psensor-pref.glade:535
+msgid "Restore window position and size"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:8
 msgid "Edit Sensor Preferences"

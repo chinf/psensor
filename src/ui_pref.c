@@ -65,7 +65,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		 &error);
 
 	if (!ok) {
-		g_warning("%s", error->message);
+		log_printf(LOG_ERR, error->message);
 		g_error_free(error);
 		return ;
 	}

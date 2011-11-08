@@ -380,7 +380,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		 &error);
 
 	if (!ok) {
-		g_warning("%s", error->message);
+		log_printf(LOG_ERR, error->message);
 		g_error_free(error);
 		return ;
 	}
