@@ -41,8 +41,11 @@ static CURL *curl;
 
 size_t cbk_curl(void *buffer, size_t size, size_t nmemb, void *userp)
 {
-	size_t realsize = size * nmemb;
-	struct ucontent *mem = (struct ucontent *)userp;
+	size_t realsize;
+	struct ucontent *mem;
+
+	realsize = size * nmemb;
+	mem = (struct ucontent *)userp;
 
 	mem->data = realloc(mem->data, mem->len + realsize + 1);
 
@@ -55,9 +58,12 @@ size_t cbk_curl(void *buffer, size_t size, size_t nmemb, void *userp)
 
 char *create_api_1_0_sensors_url(const char *base_url)
 {
-	char *nurl = url_normalize(base_url);
-	int n = strlen(nurl) + strlen(URL_BASE_API_1_0_SENSORS) + 1;
-	char *ret = malloc(n);
+	char *nurl, *ret;
+	int n;
+
+	nurl = url_normalize(base_url);
+	n = strlen(nurl) + strlen(URL_BASE_API_1_0_SENSORS) + 1;
+	ret = malloc(n);
 
 	strcpy(ret, nurl);
 	strcat(ret, URL_BASE_API_1_0_SENSORS);
@@ -111,7 +117,9 @@ json_object *get_json_object(const char *url)
 {
 
 	struct ucontent chunk;
-	json_object *obj = NULL;
+	json_object *obj;
+
+	obj = NULL;
 
 	if (!curl)
 		return NULL;
@@ -137,9 +145,11 @@ json_object *get_json_object(const char *url)
 struct psensor **get_remote_sensors(const char *server_url,
 				    int values_max_length)
 {
-	struct psensor **sensors = NULL;
+	struct psensor **sensors;
 	char *url;
 	json_object *obj;
+
+	sensors = NULL;
 
 	url = create_api_1_0_sensors_url(server_url);
 
@@ -177,7 +187,9 @@ struct psensor **get_remote_sensors(const char *server_url,
 
 void remote_psensor_update(struct psensor *s)
 {
-	json_object *obj = get_json_object(s->url);
+	json_object *obj;
+
+	obj = get_json_object(s->url);
 
 	if (obj && !is_error(obj)) {
 		json_object *om;
@@ -207,8 +219,9 @@ void remote_psensor_update(struct psensor *s)
 
 void remote_psensor_list_update(struct psensor **sensors)
 {
-	struct psensor **cur = sensors;
+	struct psensor **cur;
 
+	cur = sensors;
 	while (*cur) {
 		struct psensor *s = *cur;
 
