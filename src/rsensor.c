@@ -73,16 +73,13 @@ static char *create_api_1_0_sensors_url(const char *base_url)
 	return ret;
 }
 
-static struct psensor *json_object_to_psensor(json_object * o,
+static struct psensor *json_object_to_psensor(json_object *o,
 					      const char *sensors_url,
 					      int values_max_length)
 {
-	json_object *oid;
-	json_object *oname;
-	json_object *otype;
+	json_object *oid, *oname, *otype;
 	struct psensor *s;
-	char *eid;
-	char *url;
+	char *eid, *url;
 
 	oid = json_object_object_get(o, "id");
 	oname = json_object_object_get(o, "name");
