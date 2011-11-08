@@ -134,7 +134,7 @@ static json_object *get_json_object(const char *url)
 	if (curl_easy_perform(curl) == CURLE_OK)
 		obj = json_tokener_parse(chunk.data);
 	else
-		fprintf(stderr, _("ERROR: Fail to connect to: %s\n"), url);
+		log_printf(LOG_ERR, _("Fail to connect to: %s"), url);
 
 	free(chunk.data);
 
@@ -171,7 +171,7 @@ struct psensor **get_remote_sensors(const char *server_url,
 
 		json_object_put(obj);
 	} else {
-		fprintf(stderr, _("ERROR: Invalid content: %s\n"), url);
+		log_printf(LOG_ERR, _("Invalid content: %s"), url);
 	}
 
 	free(url);
@@ -211,7 +211,7 @@ void remote_psensor_update(struct psensor *s)
 
 		json_object_put(obj);
 	} else {
-		printf(_("ERROR: Invalid JSON: %s\n"), s->url);
+		log_printf(LOG_ERR, _("Invalid JSON: %s"), s->url);
 	}
 
 }
