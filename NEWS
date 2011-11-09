@@ -1,4 +1,5 @@
 * v0.6.2.13
+
 ** psensor can now be compiled and run with gtk3.
 ** psensor: added gtk3 support build detection.
 ** psensor: added libappindicator3-01 (gtk3 compliant version)
@@ -17,11 +18,13 @@
 ** few code refactoring and cleanup
 
 * v0.6.2.12
+
 ** psensor: added -d option to enable debug log (written to $HOME/.psensor/log).
 ** psensor: log sensor values in debug mode.
 ** psensor: added option to restore window position and size.
 
 * v0.6.2.11
+
 ** psensor-server/web interface: use jqplot default css.
 ** psensor-server/web interface: added excanvas for ie < 9 support.
 ** psensor-server/web interface: automatic update of the monitoring page.
@@ -37,6 +40,7 @@
    workaround LP: #859724.
 
 * v0.6.2.10
+
 ** psensor-server: added network, cpu load and memory information in
    JSON web interface.
 ** psensor-server: added monitor.html and details.html using jquery
