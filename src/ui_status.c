@@ -24,14 +24,13 @@
 
 void ui_status_create()
 {
-	GtkStatusIcon *tray_icon;
+	GtkStatusIcon *status;
 	
 	log_printf(LOG_DEBUG, "ui_status_create()");
 
-        tray_icon = gtk_status_icon_new();
-        gtk_status_icon_set_from_icon_name(tray_icon, 
-                                           GTK_STOCK_MEDIA_STOP);
-        gtk_status_icon_set_tooltip(tray_icon, 
-                                    "Example Tray Icon");
-        gtk_status_icon_set_visible(tray_icon, TRUE);
+        status = gtk_status_icon_new();
+        gtk_status_icon_set_from_icon_name(status, "psensor");
+        gtk_status_icon_set_tooltip(status, 
+                                    "Psensor - Hardware Sensors Monitoring");
+        gtk_status_icon_set_visible(status, TRUE);
 }
