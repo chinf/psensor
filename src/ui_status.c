@@ -25,7 +25,7 @@
 void ui_status_create()
 {
 	GtkStatusIcon *status;
-	
+
 	log_printf(LOG_DEBUG, "ui_status_create()");
 
         status = gtk_status_icon_new();
