@@ -22,10 +22,10 @@
 #include "log.h"
 #include "ui_status.h"
 
-void ui_status_create()
-{
-	GtkStatusIcon *status;
+GtkStatusIcon *status;
 
+void ui_status_init()
+{
 	log_printf(LOG_DEBUG, "ui_status_create()");
 
         status = gtk_status_icon_new();
@@ -33,4 +33,14 @@ void ui_status_create()
         gtk_status_icon_set_tooltip(status, 
                                     "Psensor - Hardware Sensors Monitoring");
         gtk_status_icon_set_visible(status, TRUE);
+}
+
+int is_status_supported()
+{
+	return gtk_status_icon_is_embedded(status);
+}
+
+void ui_status_cleanup()
+{
+	g_object_unref(G_OBJECT(status));
 }

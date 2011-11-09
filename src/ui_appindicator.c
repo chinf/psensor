@@ -278,3 +278,8 @@ int is_appindicator_supported()
 {
 	return appindicator_supported;
 }
+
+void ui_appindicator_cleanup()
+{
+	/* TODO: cleanup menu items. */
+}

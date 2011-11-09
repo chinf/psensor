@@ -20,6 +20,10 @@
 #ifndef _PSENSOR_UI_STATUS_H_
 #define _PSENSOR_UI_STATUS_H_
 
-void ui_status_create();
+void ui_status_init();
+void ui_status_cleanup();
+
+/* Whether status icon is supported i.e. visible. */
+int is_status_supported();
 
 #endif

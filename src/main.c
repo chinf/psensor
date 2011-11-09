@@ -40,6 +40,7 @@
 #include "lmsensor.h"
 #include "ui_pref.h"
 #include "ui_graph.h"
+#include "ui_status.h"
 
 #ifdef HAVE_UNITY
 #include "ui_unity.h"
@@ -59,8 +60,6 @@
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 #include "ui_appindicator.h"
-#else
-#include "ui_status.h"
 #endif
 
 #ifdef HAVE_LIBNOTIFY
@@ -448,7 +447,7 @@ int main(int argc, char **argv)
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	ui_appindicator_init(&ui);
 #else
-	ui_status_create();
+	ui_status_init();
 #endif
 
 	gdk_notify_startup_complete();
@@ -472,6 +471,12 @@ int main(int argc, char **argv)
 
 	psensor_list_free(ui.sensors);
 	ui.sensors = NULL;
+
+#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+	ui_appindicator_cleanup();
+#else
+	ui_status_cleanup();
+#endif
 
 	g_mutex_unlock(ui.sensors_mutex);
 
