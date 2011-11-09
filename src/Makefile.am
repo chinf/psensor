@@ -34,7 +34,8 @@ psensor_SOURCES = \
 	ui_graph.h ui_graph.c \
 	ui_pref.h ui_pref.c \
 	ui_sensorlist.h ui_sensorlist.c \
-	ui_sensorpref.h ui_sensorpref.c
+	ui_sensorpref.h ui_sensorpref.c \
+	ui_status.h ui_status.c
 
 if GTOP
 AM_CPPFLAGS += $(GTOP_CFLAGS)
