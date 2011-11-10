@@ -446,9 +446,9 @@ int main(int argc, char **argv)
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	ui_appindicator_init(&ui);
-#else
-	ui_status_init();
 #endif
+
+	ui_status_init();
 
 	gdk_notify_startup_complete();
 
@@ -474,9 +474,9 @@ int main(int argc, char **argv)
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	ui_appindicator_cleanup();
-#else
-	ui_status_cleanup();
 #endif
+
+	ui_status_cleanup();
 
 	g_mutex_unlock(ui.sensors_mutex);
 

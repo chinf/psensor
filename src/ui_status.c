@@ -30,8 +30,6 @@ void ui_status_init()
 
         status = gtk_status_icon_new();
         gtk_status_icon_set_from_icon_name(status, "psensor");
-        gtk_status_icon_set_tooltip(status, 
-                                    "Psensor - Hardware Sensors Monitoring");
         gtk_status_icon_set_visible(status, TRUE);
 }
 
@@ -42,5 +40,7 @@ int is_status_supported()
 
 void ui_status_cleanup()
 {
+	log_printf(LOG_DEBUG, "ui_status_cleanup()");
+
 	g_object_unref(G_OBJECT(status));
 }
