@@ -46,8 +46,7 @@ static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
 	ui_psensor_quit(data);
 }
 
-static void
-cb_menu_preferences(GtkMenuItem *mi, gpointer data)
+static void cb_menu_preferences(GtkMenuItem *mi, gpointer data)
 {
 #ifdef HAVE_APPINDICATOR_029
 	gdk_threads_enter();
