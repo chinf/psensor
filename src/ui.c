@@ -214,12 +214,13 @@ static unsigned int enable_alpha_channel(GtkWidget *w)
 
 void ui_window_create(struct ui_psensor *ui)
 {
-	GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	GtkWidget *window, *menubar;
 	GdkScreen *screen;
 	GdkPixbuf *icon;
 	GtkIconTheme *icon_theme;
-	GtkWidget *menubar;
 	struct config *cfg;
+
+	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
 	cfg = ui->config;
 	if (cfg->window_restore_enabled)
@@ -231,19 +232,17 @@ void ui_window_create(struct ui_psensor *ui)
 				    cfg->window_w,
 				    cfg->window_h);
 
-
 	gtk_window_set_title(GTK_WINDOW(window),
 			     _("Psensor - Temperature Monitor"));
 	gtk_window_set_role(GTK_WINDOW(window), "psensor");
 
 	screen = gtk_widget_get_screen(window);
 
-	if (ui->config->alpha_channel_enabled
-	    && gdk_screen_is_composited(screen)) {
+	if (cfg->alpha_channel_enabled && gdk_screen_is_composited(screen)) {
 		if (!enable_alpha_channel(window))
-			ui->config->alpha_channel_enabled = 0;
+			cfg->alpha_channel_enabled = 0;
 	} else {
-		ui->config->alpha_channel_enabled = 0;
+		cfg->alpha_channel_enabled = 0;
 	}
 
 	icon_theme = gtk_icon_theme_get_default();
@@ -257,10 +256,10 @@ void ui_window_create(struct ui_psensor *ui)
 			 "delete_event", G_CALLBACK(on_delete_event_cb), ui);
 
 	gtk_window_set_decorated(GTK_WINDOW(window),
-				 ui->config->window_decoration_enabled);
+				 cfg->window_decoration_enabled);
 
 	gtk_window_set_keep_below(GTK_WINDOW(window),
-				  ui->config->window_keep_below_enabled);
+				  cfg->window_keep_below_enabled);
 
 	/* main box */
 	menubar = get_menu(ui);
@@ -278,7 +277,7 @@ void ui_window_create(struct ui_psensor *ui)
 	log_printf(LOG_DEBUG,
 		   "is_status_supported: %d\n", is_status_supported());
 
-	if (ui->config->hide_on_startup
+	if (cfg->hide_on_startup
 	    && (is_appindicator_supported() || is_status_supported()))
 		gtk_widget_show_all(ui->main_box);
 	else
@@ -339,7 +338,6 @@ void ui_window_update(struct ui_psensor *ui)
 		gtk_paned_set_position(GTK_PANED(ui->sensor_box),
 				       ui->config->window_divider_pos);
 
-
 	if (!init)
 		g_object_unref(GTK_WIDGET(ui->ui_sensorlist->widget));
 
@@ -354,5 +352,4 @@ void ui_window_update(struct ui_psensor *ui)
 void ui_window_show(struct ui_psensor *ui)
 {
 	gtk_widget_show_all(ui->main_window);
-
 }
