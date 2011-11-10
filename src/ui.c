@@ -23,6 +23,7 @@
 #include "ui_pref.h"
 #include "ui_sensorpref.h"
 #include "ui_sensorlist.h"
+#include "ui_status.h"
 #include "ui_appindicator.h"
 
 static void save_window_pos(struct ui_psensor *ui)
@@ -67,18 +68,13 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 
 	save_window_pos(ui);
 
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
-	if (is_appindicator_supported()) {
-		log_printf(LOG_DEBUG, "hiding, WM is supporting appindicator");
+	log_printf(LOG_DEBUG,
+		   "is_status_supported: %d\n", is_status_supported());
+
+	if (is_appindicator_supported() || is_status_supported())
 		gtk_widget_hide(ui->main_window);
-	} else {
-		log_printf(LOG_DEBUG,
-			   "quitting, WM not supporting appindicator");
+	else
 		ui_psensor_quit(ui);
-	}
-#else
-	ui_psensor_quit(ui);
-#endif
 
 	return TRUE;
 }
@@ -279,14 +275,14 @@ void ui_window_create(struct ui_psensor *ui)
 	ui->main_window = window;
 	ui->menu_bar = menubar;
 
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
-	if (ui->config->hide_on_startup)
+	log_printf(LOG_DEBUG,
+		   "is_status_supported: %d\n", is_status_supported());
+
+	if (ui->config->hide_on_startup
+	    && (is_appindicator_supported() || is_status_supported()))
 		gtk_widget_show_all(ui->main_box);
 	else
 		ui_window_show(ui);
-#else
-	ui_window_show(ui);
-#endif
 }
 
 static void menu_bar_show(unsigned int show, struct ui_psensor *ui)

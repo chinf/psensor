@@ -58,9 +58,7 @@
 #include "rsensor.h"
 #endif
 
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 #include "ui_appindicator.h"
-#endif
 
 #ifdef HAVE_LIBNOTIFY
 #include "ui_notify.h"
@@ -422,6 +420,8 @@ int main(int argc, char **argv)
 	associate_colors(ui.sensors);
 	associate_cb_alarm_raised(ui.sensors, &ui);
 
+	ui_status_init(&ui);
+
 	/* main window */
 	ui_window_create(&ui);
 	ui.sensor_box = NULL;
@@ -447,8 +447,6 @@ int main(int argc, char **argv)
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	ui_appindicator_init(&ui);
 #endif
-
-	ui_status_init();
 
 	gdk_notify_startup_complete();
 

@@ -30,6 +30,7 @@ psensor_SOURCES = \
 	graph.h graph.c \
 	main.c \
 	ui.h ui.c \
+	ui_appindicator.h \
 	ui_color.h ui_color.c \
 	ui_graph.h ui_graph.c \
 	ui_pref.h ui_pref.c \
@@ -49,7 +50,7 @@ AM_CPPFLAGS += $(LIBNOTIFY_CFLAGS)
 endif
 
 if APPINDICATOR 
-psensor_SOURCES += ui_appindicator.h ui_appindicator.c 
+psensor_SOURCES += ui_appindicator.c 
 LIBS +=	$(APPINDICATOR_LIBS)
 AM_CPPFLAGS += $(APPINDICATOR_CFLAGS)
 endif

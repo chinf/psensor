@@ -20,11 +20,16 @@
 #ifndef _PSENSOR_UI_APPINDICATOR_H_
 #define _PSENSOR_UI_APPINDICATOR_H_
 
+#include "config.h"
 #include "ui.h"
 
+#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 void ui_appindicator_init(struct ui_psensor *ui);
 void ui_appindicator_update(struct ui_psensor *ui);
 int is_appindicator_supported();
 void ui_appindicator_cleanup();
+#else
+#define is_appindicator_supported() 0
+#endif
 
 #endif

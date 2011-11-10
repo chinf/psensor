@@ -24,13 +24,42 @@
 
 GtkStatusIcon *status;
 
-void ui_status_init()
+static void cb_activate(GtkStatusIcon *icon,
+			gpointer data)
+{
+	struct ui_psensor *ui;
+
+	log_printf(LOG_DEBUG, "cb_activate()");
+
+	ui = (struct ui_psensor *)data;
+	gtk_window_present(GTK_WINDOW(ui->main_window));
+}
+
+static void cb_popup_menu(GtkStatusIcon *icon,
+			  guint button,
+			  guint activate_time,
+			  gpointer data)
+{
+	log_printf(LOG_DEBUG, "cb_popup_menu()");
+}
+
+void ui_status_init(struct ui_psensor *ui)
 {
 	log_printf(LOG_DEBUG, "ui_status_create()");
 
-        status = gtk_status_icon_new();
-        gtk_status_icon_set_from_icon_name(status, "psensor");
-        gtk_status_icon_set_visible(status, TRUE);
+	status = gtk_status_icon_new();
+	gtk_status_icon_set_from_icon_name(status, "psensor");
+	gtk_status_icon_set_visible(status, TRUE);
+
+	g_signal_connect(G_OBJECT(status),
+			 "popup-menu",
+			 G_CALLBACK(cb_popup_menu),
+			 NULL);
+
+	g_signal_connect(G_OBJECT(status),
+			 "activate",
+			 G_CALLBACK(cb_activate),
+			 ui);
 }
 
 int is_status_supported()
