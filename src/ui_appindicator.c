@@ -251,26 +251,28 @@ static void unity_unfallback(AppIndicator *indicator,
 
 void ui_appindicator_init(struct ui_psensor *ui)
 {
-	GtkWidget *indicatormenu;
+	GtkWidget *menu;
+	AppIndicator *indicator;
 
 	main_window = ui->main_window;
 
-	ui->indicator
-	    = app_indicator_new("psensor",
-				"psensor_normal",
-				APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
+	indicator = app_indicator_new
+		("psensor",
+		 "psensor_normal",
+		 APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
 
-	APP_INDICATOR_GET_CLASS(ui->indicator)->fallback = unity_fallback;
-	APP_INDICATOR_GET_CLASS(ui->indicator)->unfallback = unity_unfallback;
+	APP_INDICATOR_GET_CLASS(indicator)->fallback = unity_fallback;
+	APP_INDICATOR_GET_CLASS(indicator)->unfallback = unity_unfallback;
 
-	app_indicator_set_status(ui->indicator, APP_INDICATOR_STATUS_ACTIVE);
-	app_indicator_set_attention_icon(ui->indicator, "psensor_hot");
+	app_indicator_set_status(indicator, APP_INDICATOR_STATUS_ACTIVE);
+	app_indicator_set_attention_icon(indicator, "psensor_hot");
 
-	indicatormenu = get_menu(ui);
+	menu = get_menu(ui);
+	app_indicator_set_menu(indicator, GTK_MENU(menu));
 
-	gtk_widget_show_all(indicatormenu);
+	ui->indicator = indicator;
 
-	app_indicator_set_menu(ui->indicator, GTK_MENU(indicatormenu));
+	gtk_widget_show_all(menu);
 }
 
 int is_appindicator_supported()
