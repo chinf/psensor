@@ -76,13 +76,11 @@ void config_init();
 
 void config_cleanup();
 
-struct color *config_get_sensor_color(char *sensor_name,
-				      struct color *default_color);
-
-void config_set_sensor_color(char *sensor_name, struct color *color);
+struct color *config_get_sensor_color(char *, struct color *);
+void config_set_sensor_color(char *, struct color *);
 
 int config_get_sensor_alarm_limit(char *, int);
-void config_set_sensor_alarm_limit(char *sensor_name, int alarm_limit);
+void config_set_sensor_alarm_limit(char *, int);
 
 int config_get_sensor_alarm_enabled(char *);
 void config_set_sensor_alarm_enabled(char *, int);
