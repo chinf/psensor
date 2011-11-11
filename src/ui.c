@@ -274,14 +274,7 @@ void ui_window_create(struct ui_psensor *ui)
 	ui->main_window = window;
 	ui->menu_bar = menubar;
 
-	log_printf(LOG_DEBUG,
-		   "is_status_supported: %d\n", is_status_supported());
-
-	if (cfg->hide_on_startup
-	    && (is_appindicator_supported() || is_status_supported()))
-		gtk_widget_show_all(ui->main_box);
-	else
-		ui_window_show(ui);
+	gtk_widget_show_all(ui->main_box);
 }
 
 static void menu_bar_show(unsigned int show, struct ui_psensor *ui)

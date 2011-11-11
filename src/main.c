@@ -327,6 +327,24 @@ static struct option long_options[] = {
 	{0, 0, 0, 0}
 };
 
+static gboolean initial_window_show(gpointer data)
+{
+	struct ui_psensor *ui;
+
+	ui = (struct ui_psensor *)data;
+
+	log_printf(LOG_DEBUG,
+		   "is_status_supported: %d\n", is_status_supported());
+
+	if (!ui->config->hide_on_startup
+	    || (!is_appindicator_supported() && !is_status_supported()))
+		ui_window_show(ui);
+
+	ui_window_update(ui);
+
+	return FALSE;
+}
+
 int main(int argc, char **argv)
 {
 	struct ui_psensor ui;
@@ -432,7 +450,13 @@ int main(int argc, char **argv)
 	/* sensor list */
 	ui_sensorlist_create(&ui);
 
-	ui_window_update(&ui);
+	/*
+	 * show the window as soon as all gtk event has been processed
+	 * in order to ensure that the status icon is attempted to be
+	 * drawn before. If not, there is no way to detect that it is
+	 * visible.
+	*/
+	g_idle_add((GSourceFunc)initial_window_show, &ui);
 
 	thread = g_thread_create((GThreadFunc) update_psensor_measures,
 				 &ui, TRUE, &error);
