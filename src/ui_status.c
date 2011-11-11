@@ -24,6 +24,8 @@
 
 GtkStatusIcon *status;
 
+unsigned status_attention;
+
 static void cb_activate(GtkStatusIcon *icon,
 			gpointer data)
 {
@@ -77,4 +79,11 @@ void ui_status_cleanup()
 void ui_status_update(struct ui_psensor *ui, unsigned int attention)
 {
 	log_printf(LOG_DEBUG, "ui_status_update()");
+
+	if (status_attention && !attention)
+		gtk_status_icon_set_from_icon_name(status, "psensor");
+	else if (!status_attention && attention)
+		gtk_status_icon_set_from_icon_name(status, "psensor_hot");
+
+	status_attention = attention;
 }
