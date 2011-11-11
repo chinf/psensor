@@ -179,9 +179,6 @@ static void indicators_update(struct ui_psensor *ui)
 	struct psensor **sensor_cur = ui->sensors;
 	unsigned int attention = 0;
 
-	if (!is_appindicator_supported() && !is_status_supported())
-		return ;
-
 	while (*sensor_cur) {
 		struct psensor *s = *sensor_cur;
 
@@ -217,7 +214,8 @@ gboolean ui_refresh_thread(gpointer data)
 
 	ui_sensorlist_update(ui);
 
-	indicators_update(ui);
+	if (is_appindicator_supported() || is_status_supported())
+		indicators_update(ui);
 
 #ifdef HAVE_UNITY
 	ui_unity_launcher_entry_update(ui->sensors,
