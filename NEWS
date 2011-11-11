@@ -16,6 +16,8 @@
    (submitted by Lubos Stanek).
 ** psensor: default log level set to LOG_WARN.
 ** few code refactoring and cleanup
+** psensor: added support of status tray icon for DE not supporting
+   Ubuntu Application Indicator.
 
 * v0.6.2.12
 
