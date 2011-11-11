@@ -344,5 +344,5 @@ void ui_window_update(struct ui_psensor *ui)
 
 void ui_window_show(struct ui_psensor *ui)
 {
-	gtk_widget_show_all(ui->main_window);
+	gtk_window_present(GTK_WINDOW(ui->main_window));
 }

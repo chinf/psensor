@@ -22,19 +22,15 @@
 #include "log.h"
 #include "ui_status.h"
 
-GtkStatusIcon *status;
-
-unsigned status_attention;
+static GtkStatusIcon *status;
+static unsigned status_attention;
 
 static void cb_activate(GtkStatusIcon *icon,
 			gpointer data)
 {
-	struct ui_psensor *ui;
-
 	log_printf(LOG_DEBUG, "cb_activate()");
 
-	ui = (struct ui_psensor *)data;
-	gtk_window_present(GTK_WINDOW(ui->main_window));
+	ui_window_show((struct ui_psensor *)data);
 }
 
 static void cb_popup_menu(GtkStatusIcon *icon,

@@ -36,9 +36,7 @@ static int appindicator_supported = 1;
 
 static void cb_menu_show(GtkMenuItem *mi, gpointer data)
 {
-	struct ui_psensor *ui = (struct ui_psensor *)data;
-
-	gtk_window_present(GTK_WINDOW(ui->main_window));
+	ui_window_show((struct ui_psensor *)data);
 }
 
 static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
