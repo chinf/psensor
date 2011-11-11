@@ -24,7 +24,7 @@
 
 void ui_status_init(struct ui_psensor *ui);
 void ui_status_cleanup();
-
+void ui_status_update(struct ui_psensor *ui, unsigned int attention);
 /* Whether status icon is supported i.e. visible. */
 int is_status_supported();
 

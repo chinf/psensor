@@ -195,26 +195,13 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	return GTK_WIDGET(menu);
 }
 
-
-void ui_appindicator_update(struct ui_psensor *ui)
+void ui_appindicator_update(struct ui_psensor *ui,
+			    unsigned int attention)
 {
-	struct psensor **sensor_cur = ui->sensors;
 	AppIndicatorStatus status;
-	int attention = 0;
 
 	if (!ui->indicator)
 		return;
-
-	while (*sensor_cur) {
-		struct psensor *s = *sensor_cur;
-
-		if (s->alarm_enabled && s->alarm_raised) {
-			attention = 1;
-			break;
-		}
-
-		sensor_cur++;
-	}
 
 	status = app_indicator_get_status(ui->indicator);
 
@@ -247,7 +234,6 @@ static void unity_unfallback(AppIndicator *indicator,
 
 	appindicator_supported = 1;
 }
-
 
 void ui_appindicator_init(struct ui_psensor *ui)
 {

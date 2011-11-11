@@ -174,6 +174,34 @@ void update_psensor_measures(struct ui_psensor *ui)
 	}
 }
 
+static void indicators_update(struct ui_psensor *ui)
+{
+	struct psensor **sensor_cur = ui->sensors;
+	unsigned int attention = 0;
+
+	if (!is_appindicator_supported() && !is_status_supported())
+		return ;
+
+	while (*sensor_cur) {
+		struct psensor *s = *sensor_cur;
+
+		if (s->alarm_enabled && s->alarm_raised) {
+			attention = 1;
+			break;
+		}
+
+		sensor_cur++;
+	}
+
+#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+	if (is_appindicator_supported())
+		ui_appindicator_update(ui, attention);
+#endif
+
+	if (is_status_supported())
+		ui_status_update(ui, attention);
+}
+
 gboolean ui_refresh_thread(gpointer data)
 {
 	struct config *cfg;
@@ -189,9 +217,7 @@ gboolean ui_refresh_thread(gpointer data)
 
 	ui_sensorlist_update(ui);
 
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
-	ui_appindicator_update(ui);
-#endif
+	indicators_update(ui);
 
 #ifdef HAVE_UNITY
 	ui_unity_launcher_entry_update(ui->sensors,
@@ -451,7 +477,7 @@ int main(int argc, char **argv)
 	ui_sensorlist_create(&ui);
 
 	/*
-	 * show the window as soon as all gtk event has been processed
+	 * show the window as soon as all gtk events have been processed
 	 * in order to ensure that the status icon is attempted to be
 	 * drawn before. If not, there is no way to detect that it is
 	 * visible.

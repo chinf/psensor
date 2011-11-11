@@ -73,3 +73,8 @@ void ui_status_cleanup()
 
 	g_object_unref(G_OBJECT(status));
 }
+
+void ui_status_update(struct ui_psensor *ui, unsigned int attention)
+{
+	log_printf(LOG_DEBUG, "ui_status_update()");
+}
