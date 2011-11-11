@@ -33,6 +33,7 @@
 static GtkMenuItem **sensor_menu_items;
 static GtkWidget *main_window;
 static int appindicator_supported = 1;
+static AppIndicator *indicator;
 
 static void cb_menu_show(GtkMenuItem *mi, gpointer data)
 {
@@ -198,18 +199,18 @@ void ui_appindicator_update(struct ui_psensor *ui,
 {
 	AppIndicatorStatus status;
 
-	if (!ui->indicator)
+	if (!indicator)
 		return;
 
-	status = app_indicator_get_status(ui->indicator);
+	status = app_indicator_get_status(indicator);
 
 	if (!attention && status == APP_INDICATOR_STATUS_ATTENTION)
 		app_indicator_set_status
-		    (ui->indicator, APP_INDICATOR_STATUS_ACTIVE);
+			(indicator, APP_INDICATOR_STATUS_ACTIVE);
 
 	if (attention && status == APP_INDICATOR_STATUS_ACTIVE)
 		app_indicator_set_status
-		    (ui->indicator, APP_INDICATOR_STATUS_ATTENTION);
+		    (indicator, APP_INDICATOR_STATUS_ATTENTION);
 
 	update_sensor_menu_items(ui->sensors);
 }
@@ -236,7 +237,6 @@ static void unity_unfallback(AppIndicator *indicator,
 void ui_appindicator_init(struct ui_psensor *ui)
 {
 	GtkWidget *menu;
-	AppIndicator *indicator;
 
 	main_window = ui->main_window;
 
@@ -253,8 +253,6 @@ void ui_appindicator_init(struct ui_psensor *ui)
 
 	menu = get_menu(ui);
 	app_indicator_set_menu(indicator, GTK_MENU(menu));
-
-	ui->indicator = indicator;
 
 	gtk_widget_show_all(menu);
 }

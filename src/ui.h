@@ -63,10 +63,6 @@ struct ui_psensor {
 	/* Time of the last notification */
 	struct timeval *notification_last_time;
 #endif
-
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
-	AppIndicator *indicator;
-#endif
 };
 
 /*
