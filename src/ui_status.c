@@ -43,7 +43,7 @@ void ui_status_init(struct ui_psensor *ui)
 {
 	if (status)
 		return ;
-	
+
 	log_printf(LOG_DEBUG, "ui_status_create()");
 
 	status = gtk_status_icon_new();
