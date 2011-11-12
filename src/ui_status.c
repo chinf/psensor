@@ -46,7 +46,7 @@ void ui_status_init(struct ui_psensor *ui)
 	log_printf(LOG_DEBUG, "ui_status_create()");
 
 	status = gtk_status_icon_new();
-	gtk_status_icon_set_from_icon_name(status, "psensor");
+	gtk_status_icon_set_from_icon_name(status, "psensor_normal");
 	gtk_status_icon_set_visible(status, TRUE);
 
 	g_signal_connect(G_OBJECT(status),
@@ -77,7 +77,7 @@ void ui_status_update(struct ui_psensor *ui, unsigned int attention)
 	log_printf(LOG_DEBUG, "ui_status_update()");
 
 	if (status_attention && !attention)
-		gtk_status_icon_set_from_icon_name(status, "psensor");
+		gtk_status_icon_set_from_icon_name(status, "psensor_normal");
 	else if (!status_attention && attention)
 		gtk_status_icon_set_from_icon_name(status, "psensor_hot");
 
