@@ -140,9 +140,9 @@ static void update_sensor_menu_item(GtkMenuItem *item, struct psensor *s)
 
 static void update_sensor_menu_items(struct psensor **sensors)
 {
-	int n = psensor_list_size(sensors);
-	int i;
+	int n, i;
 
+	n = psensor_list_size(sensors);
 	for (i = 0; i < n; i++)
 		update_sensor_menu_item(sensor_menu_items[i],
 					sensors[i]);
