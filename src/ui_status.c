@@ -17,8 +17,6 @@
  * 02110-1301 USA
  */
 
-#include <gtk/gtk.h>
-
 #include "log.h"
 #include "ui_status.h"
 
@@ -43,6 +41,9 @@ static void cb_popup_menu(GtkStatusIcon *icon,
 
 void ui_status_init(struct ui_psensor *ui)
 {
+	if (status)
+		return ;
+	
 	log_printf(LOG_DEBUG, "ui_status_create()");
 
 	status = gtk_status_icon_new();
@@ -82,4 +83,9 @@ void ui_status_update(struct ui_psensor *ui, unsigned int attention)
 		gtk_status_icon_set_from_icon_name(status, "psensor_hot");
 
 	status_attention = attention;
+}
+
+GtkStatusIcon *ui_status_get_icon()
+{
+	return status;
 }

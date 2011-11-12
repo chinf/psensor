@@ -355,10 +355,16 @@ static gboolean initial_window_show(gpointer data)
 {
 	struct ui_psensor *ui;
 
+	log_printf(LOG_DEBUG, "initial_window_show()");
+
 	ui = (struct ui_psensor *)data;
 
 	log_printf(LOG_DEBUG,
-		   "is_status_supported: %d\n", is_status_supported());
+		   "is_status_supported: %d", is_status_supported());
+	log_printf(LOG_DEBUG,
+		   "is_appindicator_supported: %d", is_appindicator_supported());
+	log_printf(LOG_DEBUG,
+		   "hide_on_startup: %d", ui->config->hide_on_startup);
 
 	if (!ui->config->hide_on_startup
 	    || (!is_appindicator_supported() && !is_status_supported()))
@@ -470,14 +476,6 @@ int main(int argc, char **argv)
 	/* sensor list */
 	ui_sensorlist_create(&ui);
 
-	/*
-	 * show the window as soon as all gtk events have been processed
-	 * in order to ensure that the status icon is attempted to be
-	 * drawn before. If not, there is no way to detect that it is
-	 * visible.
-	*/
-	g_idle_add((GSourceFunc)initial_window_show, &ui);
-
 	thread = g_thread_create((GThreadFunc) update_psensor_measures,
 				 &ui, TRUE, &error);
 
@@ -491,6 +489,14 @@ int main(int argc, char **argv)
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	ui_appindicator_init(&ui);
 #endif
+
+	/*
+	 * show the window as soon as all gtk events have been processed
+	 * in order to ensure that the status icon is attempted to be
+	 * drawn before. If not, there is no way to detect that it is
+	 * visible.
+	*/
+	g_idle_add((GSourceFunc)initial_window_show, &ui);
 
 	gdk_notify_startup_complete();
 

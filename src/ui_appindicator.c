@@ -28,6 +28,7 @@
 #include "ui.h"
 #include "ui_appindicator.h"
 #include "ui_sensorpref.h"
+#include "ui_status.h"
 #include "ui_pref.h"
 
 static GtkMenuItem **sensor_menu_items;
@@ -216,11 +217,9 @@ static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 {
 	log_printf(LOG_DEBUG, "ui_appindicator#unity_fallback");
 
-	gtk_widget_show_all(main_window);
-
 	appindicator_supported = 0;
 
-	return NULL;
+	return ui_status_get_icon();
 }
 
 static void
