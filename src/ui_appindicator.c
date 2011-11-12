@@ -58,8 +58,7 @@ static void cb_menu_preferences(GtkMenuItem *mi, gpointer data)
 #endif
 }
 
-static void
-cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
+static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 {
 	struct ui_psensor *ui = data;
 
@@ -194,8 +193,7 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	return GTK_WIDGET(menu);
 }
 
-void ui_appindicator_update(struct ui_psensor *ui,
-			    unsigned int attention)
+void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention)
 {
 	AppIndicatorStatus status;
 
@@ -226,8 +224,8 @@ static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 	return NULL;
 }
 
-static void unity_unfallback(AppIndicator *indicator,
-			     GtkStatusIcon *status_icon)
+static void
+unity_unfallback(AppIndicator *indicator, GtkStatusIcon *status_icon)
 {
 	log_printf(LOG_DEBUG, "ui_appindicator#unity_unfallback");
 
