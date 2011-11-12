@@ -101,12 +101,3 @@ void log_printf(int lvl, const char *fmt, ...)
 		fprintf(stdf, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
 	}
 }
-
-void log_debug(const char *fmt, ...)
-{
-	va_list ap;
-
-	va_start(ap, fmt);
-	log_printf(LOG_ERR, fmt, ap);
-	va_end(ap);
-}

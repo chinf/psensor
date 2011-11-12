@@ -39,8 +39,9 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 	char *name;
 	NotifyNotification *notif;
 
-	log_debug("ui_notify() last_notification %d",
-		  last_notification_tv.tv_sec);
+	log_printf(LOG_DEBUG,
+		   "ui_notify() last_notification %d",
+		   last_notification_tv.tv_sec);
 
 	if (gettimeofday(&t, NULL) != 0) {
 		log_printf(LOG_ERR,  _("gettimeofday failed"));
@@ -72,8 +73,9 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 						NULL,
 						GTK_WIDGET(ui->main_window));
 #endif
-		log_debug("ui_notify() notif_notification_new %s",
-			  sensor->name);
+		log_printf(LOG_DEBUG,
+			   "ui_notify() notif_notification_new %s",
+			   sensor->name);
 
 		notify_notification_show(notif, NULL);
 
