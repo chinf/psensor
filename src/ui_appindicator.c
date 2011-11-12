@@ -144,8 +144,7 @@ static void update_sensor_menu_items(struct psensor **sensors)
 
 	n = psensor_list_size(sensors);
 	for (i = 0; i < n; i++)
-		update_sensor_menu_item(sensor_menu_items[i],
-					sensors[i]);
+		update_sensor_menu_item(sensor_menu_items[i], sensors[i]);
 }
 
 static GtkWidget *get_menu(struct ui_psensor *ui)
