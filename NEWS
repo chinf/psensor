@@ -15,7 +15,7 @@
 ** psensor: fixed compilation with AMD/ATI GPU monitoring support
    (submitted by Lubos Stanek).
 ** psensor: default log level set to LOG_WARN.
-** few code refactoring and cleanup
+** few code refactoring and cleanup.
 ** psensor: added support of status tray icon for DE not supporting
    Ubuntu Application Indicator.
 

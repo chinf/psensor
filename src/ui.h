@@ -58,11 +58,6 @@ struct ui_psensor {
 	int graph_update_interval;
 
 	GMutex *sensors_mutex;
-
-#ifdef HAVE_LIBNOTIFY
-	/* Time of the last notification */
-	struct timeval *notification_last_time;
-#endif
 };
 
 /*

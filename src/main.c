@@ -134,7 +134,7 @@ static void log_measures(struct psensor **sensors)
 {
 	if (log_level == LOG_DEBUG)
 		while (*sensors) {
-			log_printf(LOG_DEBUG, "%s %.2f",
+			log_printf(LOG_DEBUG, "Measure: %s %.2f",
 				   (*sensors)->name,
 				   psensor_get_current_value(*sensors));
 
@@ -423,10 +423,6 @@ int main(int argc, char **argv)
 	/* gdk_threads_enter(); */
 
 	gtk_init(NULL, NULL);
-
-#ifdef HAVE_LIBNOTIFY
-	ui.notification_last_time = NULL;
-#endif
 
 	ui.sensors_mutex = g_mutex_new();
 

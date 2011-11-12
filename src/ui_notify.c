@@ -30,34 +30,28 @@
 #include "ui.h"
 #include "ui_notify.h"
 
+/* Time of the last notification. */
+static struct timeval last_notification_tv;
+
 void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 {
-	struct timeval *t = malloc(sizeof(struct timeval));
+	struct timeval t;
 	char *name;
 	NotifyNotification *notif;
 
-	if (gettimeofday(t, NULL) != 0) {
-		fprintf(stderr, _("ERROR: failed gettimeofday\n"));
-		free(t);
+	log_debug("ui_notify() last_notification %d",
+		  last_notification_tv.tv_sec);
 
+	if (gettimeofday(&t, NULL) != 0) {
+		log_printf(LOG_ERR,  _("gettimeofday failed"));
 		return;
 	}
 
-	if (!ui->notification_last_time) {
-		/* first notification */
-		ui->notification_last_time = t;
-	} else {
-
-		if (t->tv_sec - ui->notification_last_time->tv_sec < 60) {
-			/* last notification less than 1mn ago */
-			free(t);
-			return;
-		} else {
-			/* last notification more than 1mn ago */
-			free(ui->notification_last_time);
-			ui->notification_last_time = t;
-		}
-	}
+	if (!last_notification_tv.tv_sec
+	    || t.tv_sec - last_notification_tv.tv_sec >= 60)
+		last_notification_tv = t;
+	else
+		return ;
 
 	if (notify_is_initted() == FALSE)
 		notify_init("psensor");
@@ -70,18 +64,20 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		 * only 3 parameters.
 		 */
 #if NOTIFY_CHECK_VERSION(0, 7, 0)
-		notif = notify_notification_new(_("Temperature alert"),
-						name,
-						NULL);
+		notif = notify_notification_new
+			(_("Temperature alert"), name, NULL);
 #else
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
 						NULL,
 						GTK_WIDGET(ui->main_window));
 #endif
+		log_debug("ui_notify() notif_notification_new %s", name);
 
 		notify_notification_show(notif, NULL);
 
 		g_object_unref(notif);
+	} else {
+		log_printf(LOG_ERR, "notify not initted");
 	}
 }

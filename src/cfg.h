@@ -22,10 +22,12 @@
 
 #include "color.h"
 
-#define SENSORLIST_POSITION_RIGHT 0
-#define SENSORLIST_POSITION_LEFT 1
-#define SENSORLIST_POSITION_TOP 2
-#define SENSORLIST_POSITION_BOTTOM 3
+enum sensorlist_position {
+	SENSORLIST_POSITION_RIGHT,
+	SENSORLIST_POSITION_LEFT,
+	SENSORLIST_POSITION_TOP,
+	SENSORLIST_POSITION_BOTTOM
+};
 
 struct config {
 	struct color *graph_bgcolor;
@@ -38,7 +40,7 @@ struct config {
 	/*
 	   Position of the sensors list table
 	 */
-	int sensorlist_position;
+	enum sensorlist_position sensorlist_position;
 
 	int window_decoration_enabled;
 	int window_keep_below_enabled;
