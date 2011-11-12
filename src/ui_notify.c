@@ -72,7 +72,8 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 						NULL,
 						GTK_WIDGET(ui->main_window));
 #endif
-		log_debug("ui_notify() notif_notification_new %s", name);
+		log_debug("ui_notify() notif_notification_new %s",
+			  sensor->name);
 
 		notify_notification_show(notif, NULL);
 
