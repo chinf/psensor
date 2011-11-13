@@ -32,6 +32,8 @@ ATI/AMD GPUs monitoring is available if the library libatiadlxx is
 present in the directory /usr/lib and psensor has been compiled with
 the ATI ADL SDK.
 
+Log is written to '$HOME/.psensor/log'.
+
 [SEE ALSO]
 
 psensor\-server(1), sensors(1), sensors\-detect(8), hddtemp(8)
