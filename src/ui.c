@@ -33,7 +33,7 @@ static void save_window_pos(struct ui_psensor *ui)
 	struct config *cfg;
 
 	visible = gtk_widget_get_visible(ui->main_window);
-	log_printf(LOG_DEBUG, "Window visible: %d", visible);
+	log_debug("Window visible: %d", visible);
 
 	if (visible == TRUE) {
 		cfg = ui->config;
@@ -41,18 +41,14 @@ static void save_window_pos(struct ui_psensor *ui)
 		win = GTK_WINDOW(ui->main_window);
 
 		gtk_window_get_position(win, &cfg->window_x, &cfg->window_y);
-		log_printf(LOG_DEBUG,
-			   "Window position: %d %d",
-			   cfg->window_x,
-			   cfg->window_y);
+		log_debug("Window position: %d %d",
+			  cfg->window_x,
+			  cfg->window_y);
 
 		gtk_window_get_size(win,
 				    &cfg->window_w,
 				    &cfg->window_h);
-		log_printf(LOG_DEBUG,
-			   "Window size: %d %d",
-			   cfg->window_w,
-			   cfg->window_h);
+		log_debug("Window size: %d %d", cfg->window_w, cfg->window_h);
 
 		cfg->window_divider_pos
 			= gtk_paned_get_position(GTK_PANED(ui->sensor_box));
@@ -68,8 +64,7 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 
 	save_window_pos(ui);
 
-	log_printf(LOG_DEBUG,
-		   "is_status_supported: %d\n", is_status_supported());
+	log_debug("is_status_supported: %d\n", is_status_supported());
 
 	if (is_appindicator_supported() || is_status_supported())
 		gtk_widget_hide(ui->main_window);
@@ -123,7 +118,7 @@ void ui_psensor_quit(struct ui_psensor *ui)
 {
 	save_window_pos(ui);
 
-	log_printf(LOG_DEBUG, "Destroy main window");
+	log_debug("Destroy main window");
 	gtk_widget_destroy(ui->main_window);
 	gtk_main_quit();
 }
@@ -344,6 +339,6 @@ void ui_window_update(struct ui_psensor *ui)
 
 void ui_window_show(struct ui_psensor *ui)
 {
-	log_printf(LOG_DEBUG, "ui_window_show()");
+	log_debug("ui_window_show()");
 	gtk_window_present(GTK_WINDOW(ui->main_window));
 }

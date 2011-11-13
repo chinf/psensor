@@ -34,9 +34,7 @@ void log_open(const char *path)
 {
 	file = fopen(path, "a");
 
-	if (file)
-		log_printf(LOG_INFO, "Start logging");
-	else
+	if (!file)
 		log_printf(LOG_ERR, _("Cannot open log file: %s"), path);
 }
 
@@ -50,22 +48,20 @@ void log_close()
 	file = NULL;
 }
 
+
 #define LOG_BUFFER 4096
-void log_printf(int lvl, const char *fmt, ...)
+static void vlogf(int lvl, const char *fmt, va_list ap)
 {
 	struct timeval tv;
 	char buffer[1 + LOG_BUFFER];
-	va_list ap;
 	char *lvl_str;
 	FILE *stdf;
 
 	if (lvl > LOG_INFO && (!file || lvl > log_level))
 		return ;
 
-	va_start(ap, fmt);
 	vsnprintf(buffer, LOG_BUFFER, fmt, ap);
 	buffer[LOG_BUFFER] = '\0';
-	va_end(ap);
 
 	if (gettimeofday(&tv, NULL) != 0)
 		timerclear(&tv);
@@ -100,4 +96,25 @@ void log_printf(int lvl, const char *fmt, ...)
 
 		fprintf(stdf, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
 	}
+}
+
+void log_printf(int lvl, const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	vlogf(lvl, fmt, ap);
+	va_end(ap);
+}
+
+void log_debug(const char *fmt, ...)
+{
+	va_list ap;
+
+	if (log_level < LOG_DEBUG)
+		return ;
+
+	va_start(ap, fmt);
+	vlogf(LOG_DEBUG, fmt, ap);
+	va_end(ap);
 }

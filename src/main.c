@@ -134,7 +134,7 @@ static void log_measures(struct psensor **sensors)
 {
 	if (log_level == LOG_DEBUG)
 		while (*sensors) {
-			log_printf(LOG_DEBUG, "Measure: %s %.2f",
+			log_debug("Measure: %s %.2f",
 				   (*sensors)->name,
 				   psensor_get_current_value(*sensors));
 
@@ -355,16 +355,14 @@ static gboolean initial_window_show(gpointer data)
 {
 	struct ui_psensor *ui;
 
-	log_printf(LOG_DEBUG, "initial_window_show()");
+	log_debug("initial_window_show()");
 
 	ui = (struct ui_psensor *)data;
 
-	log_printf(LOG_DEBUG,
-		   "is_status_supported: %d", is_status_supported());
-	log_printf(LOG_DEBUG,
-		   "is_appindicator_supported: %d", is_appindicator_supported());
-	log_printf(LOG_DEBUG,
-		   "hide_on_startup: %d", ui->config->hide_on_startup);
+	log_debug("is_status_supported: %d", is_status_supported());
+	log_debug("is_appindicator_supported: %d",
+		   is_appindicator_supported());
+	log_debug("hide_on_startup: %d", ui->config->hide_on_startup);
 
 	if (!ui->config->hide_on_startup
 	    || (!is_appindicator_supported() && !is_status_supported()))

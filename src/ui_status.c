@@ -26,7 +26,7 @@ static unsigned status_attention;
 static void cb_activate(GtkStatusIcon *icon,
 			gpointer data)
 {
-	log_printf(LOG_DEBUG, "cb_activate()");
+	log_debug("cb_activate()");
 
 	ui_window_show((struct ui_psensor *)data);
 }
@@ -36,7 +36,7 @@ static void cb_popup_menu(GtkStatusIcon *icon,
 			  guint activate_time,
 			  gpointer data)
 {
-	log_printf(LOG_DEBUG, "cb_popup_menu()");
+	log_debug("cb_popup_menu()");
 }
 
 void ui_status_init(struct ui_psensor *ui)
@@ -44,7 +44,7 @@ void ui_status_init(struct ui_psensor *ui)
 	if (status)
 		return ;
 
-	log_printf(LOG_DEBUG, "ui_status_create()");
+	log_debug("ui_status_create()");
 
 	status = gtk_status_icon_new();
 	gtk_status_icon_set_from_icon_name(status, "psensor_normal");
@@ -68,14 +68,14 @@ int is_status_supported()
 
 void ui_status_cleanup()
 {
-	log_printf(LOG_DEBUG, "ui_status_cleanup()");
+	log_debug("ui_status_cleanup()");
 
 	g_object_unref(G_OBJECT(status));
 }
 
 void ui_status_update(struct ui_psensor *ui, unsigned int attention)
 {
-	log_printf(LOG_DEBUG, "ui_status_update()");
+	log_debug("ui_status_update()");
 
 	if (status_attention && !attention)
 		gtk_status_icon_set_from_icon_name(status, "psensor_normal");
