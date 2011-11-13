@@ -241,15 +241,15 @@ void ui_appindicator_init(struct ui_psensor *ui)
 	main_window = ui->main_window;
 
 	indicator = app_indicator_new
-		(ICON,
-		 ATTENTION_ICON,
+		("psensor",
+		 ICON,
 		 APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
 
 	APP_INDICATOR_GET_CLASS(indicator)->fallback = unity_fallback;
 	APP_INDICATOR_GET_CLASS(indicator)->unfallback = unity_unfallback;
 
 	app_indicator_set_status(indicator, APP_INDICATOR_STATUS_ACTIVE);
-	app_indicator_set_attention_icon(indicator, "psensor_hot");
+	app_indicator_set_attention_icon(indicator, ATTENTION_ICON);
 
 	menu = get_menu(ui);
 	app_indicator_set_menu(indicator, GTK_MENU(menu));
