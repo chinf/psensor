@@ -462,7 +462,9 @@ int main(int argc, char **argv)
 	associate_colors(ui.sensors);
 	associate_cb_alarm_raised(ui.sensors, &ui);
 
+#if !defined(HAVE_APPINDICATOR) && !defined(HAVE_APPINDICATOR_029)
 	ui_status_init(&ui);
+#endif
 
 	/* main window */
 	ui_window_create(&ui);

@@ -35,6 +35,7 @@ static GtkMenuItem **sensor_menu_items;
 static GtkWidget *main_window;
 static int appindicator_supported = 1;
 static AppIndicator *indicator;
+static struct ui_psensor *ui_psensor;
 
 static void cb_menu_show(GtkMenuItem *mi, gpointer data)
 {
@@ -219,7 +220,7 @@ static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 
 	appindicator_supported = 0;
 
-	return ui_status_get_icon();
+	return ui_status_get_icon(ui_psensor);
 }
 
 static void
@@ -234,6 +235,7 @@ void ui_appindicator_init(struct ui_psensor *ui)
 {
 	GtkWidget *menu;
 
+	ui_psensor = ui;
 	main_window = ui->main_window;
 
 	indicator = app_indicator_new

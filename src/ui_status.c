@@ -63,14 +63,17 @@ void ui_status_init(struct ui_psensor *ui)
 
 int is_status_supported()
 {
-	return gtk_status_icon_is_embedded(status);
+	return status && gtk_status_icon_is_embedded(status);
 }
 
 void ui_status_cleanup()
 {
 	log_debug("ui_status_cleanup()");
-
-	g_object_unref(G_OBJECT(status));
+	
+	if (status) {
+		g_object_unref(G_OBJECT(status));
+		status = NULL;
+	}
 }
 
 void ui_status_update(struct ui_psensor *ui, unsigned int attention)
@@ -85,7 +88,10 @@ void ui_status_update(struct ui_psensor *ui, unsigned int attention)
 	status_attention = attention;
 }
 
-GtkStatusIcon *ui_status_get_icon()
+GtkStatusIcon *ui_status_get_icon(struct ui_psensor *ui)
 {
+	if (!status)
+		ui_status_init(ui);
+
 	return status;
 }

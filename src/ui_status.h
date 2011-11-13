@@ -28,6 +28,6 @@ void ui_status_cleanup();
 void ui_status_update(struct ui_psensor *ui, unsigned int attention);
 /* Whether status icon is supported i.e. visible. */
 int is_status_supported();
-GtkStatusIcon *ui_status_get_icon();
+GtkStatusIcon *ui_status_get_icon(struct ui_psensor *ui);
 
 #endif
