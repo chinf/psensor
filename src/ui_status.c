@@ -19,6 +19,9 @@
 #include "log.h"
 #include "ui_status.h"
 
+static const char *ICON = "psensor_normal";
+static const char *ATTENTION_ICON = "psensor_hot";
+
 static GtkStatusIcon *status;
 static unsigned status_attention;
 
@@ -46,7 +49,7 @@ void ui_status_init(struct ui_psensor *ui)
 	log_debug("ui_status_create()");
 
 	status = gtk_status_icon_new();
-	gtk_status_icon_set_from_icon_name(status, "psensor_normal");
+	gtk_status_icon_set_from_icon_name(status, ICON);
 	gtk_status_icon_set_visible(status, TRUE);
 
 	g_signal_connect(G_OBJECT(status),
@@ -80,9 +83,9 @@ void ui_status_update(struct ui_psensor *ui, unsigned int attention)
 	log_debug("ui_status_update()");
 
 	if (status_attention && !attention)
-		gtk_status_icon_set_from_icon_name(status, "psensor_normal");
+		gtk_status_icon_set_from_icon_name(status, ICON);
 	else if (!status_attention && attention)
-		gtk_status_icon_set_from_icon_name(status, "psensor_hot");
+		gtk_status_icon_set_from_icon_name(status, ATTENTION_ICON);
 
 	status_attention = attention;
 }

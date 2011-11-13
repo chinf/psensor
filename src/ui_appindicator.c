@@ -30,6 +30,9 @@
 #include "ui_status.h"
 #include "ui_pref.h"
 
+static const char *ICON = "psensor_normal";
+static const char *ATTENTION_ICON = "psensor_hot";
+
 static GtkMenuItem **sensor_menu_items;
 static GtkWidget *main_window;
 static int appindicator_supported = 1;
@@ -238,8 +241,8 @@ void ui_appindicator_init(struct ui_psensor *ui)
 	main_window = ui->main_window;
 
 	indicator = app_indicator_new
-		("psensor",
-		 "psensor_normal",
+		(ICON,
+		 ATTENTION_ICON,
 		 APP_INDICATOR_CATEGORY_APPLICATION_STATUS);
 
 	APP_INDICATOR_GET_CLASS(indicator)->fallback = unity_fallback;

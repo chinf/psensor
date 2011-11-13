@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-11-08 12:36+0100\n"
+"POT-Creation-Date: 2011-11-13 16:33+0100\n"
 "PO-Revision-Date: 2011-06-06 08:57+0000\n"
 "Last-Translator: royclark <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2011-06-06 09:00+0000\n"
 "X-Generator: Launchpad (build 13144)\n"
 
-#: src/main.c:79 src/server/server.c:77
+#: src/main.c:77 src/server/server.c:77
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -28,22 +28,22 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:89 src/server/server.c:87
+#: src/main.c:87 src/server/server.c:87
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "用法：%s [选项]...\n"
 
-#: src/main.c:91
+#: src/main.c:89
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温度和风扇转速。"
 
-#: src/main.c:95
+#: src/main.c:93
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:96 src/server/server.c:94
+#: src/main.c:94
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -51,159 +51,158 @@ msgstr ""
 "  -h, --help 显示这个帮助并退出\n"
 "  -v, --version 显示版本信息并退出"
 
-#: src/main.c:102
+#: src/main.c:100
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr "  -u, --url=URL psensor服务器的 URL ，比如：http://hostname:3131"
 
-#: src/main.c:108 src/server/server.c:107
+#: src/main.c:106 src/server/server.c:107
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:110 src/server/server.c:109
+#: src/main.c:108 src/server/server.c:109
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:363
+#: src/main.c:407
 #, c-format
 msgid "Enables debug mode.\n"
 msgstr ""
 
-#: src/main.c:373 src/server/server.c:353
+#: src/main.c:417 src/server/server.c:353
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:404
+#: src/main.c:444
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
 
-#: src/ui.c:90
+#: src/ui.c:80
 #, fuzzy
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温度和风扇转速。"
 
-#: src/ui.c:93
+#: src/ui.c:83
 msgid ""
 "Copyright(c) 2010-2011\n"
 "jeanfi@gmail.com"
 msgstr ""
 
-#: src/ui.c:96
+#: src/ui.c:86
 msgid "About Psensor"
 msgstr ""
 
-#: src/ui.c:99
+#: src/ui.c:89
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:154
+#: src/ui.c:144
 msgid "_Preferences"
 msgstr ""
 
-#: src/ui.c:155 src/ui_sensorlist.c:202
+#: src/ui.c:145 src/ui_sensorlist.c:200
 msgid "Preferences"
 msgstr "选项"
 
-#: src/ui.c:159
+#: src/ui.c:149
 msgid "_Sensor Preferences"
 msgstr ""
 
-#: src/ui.c:160
+#: src/ui.c:150
 msgid "Sensor Preferences"
 msgstr ""
 
-#: src/ui.c:164
+#: src/ui.c:154
 msgid "_Quit"
 msgstr ""
 
-#: src/ui.c:164
+#: src/ui.c:154
 msgid "Quit"
 msgstr "退出"
 
-#: src/ui.c:169
+#: src/ui.c:159
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:170
+#: src/ui.c:160
 msgid "About"
 msgstr ""
 
-#: src/ui.c:192 src/ui_appindicator.c:176
+#: src/ui.c:182 src/ui_appindicator.c:173
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:240
+#: src/ui.c:230
 msgid "Psensor - Temperature Monitor"
 msgstr ""
 
-#: src/ui.c:258
+#: src/ui.c:247
 #, c-format
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr ""
 
-#: src/ui_sensorlist.c:233
+#: src/ui_sensorlist.c:231
 msgid "Select foreground color"
 msgstr "选择前景色"
 
-#: src/ui_sensorlist.c:310 src/glade/psensor-pref.glade:241
+#: src/ui_sensorlist.c:308 src/glade/psensor-pref.glade:241
 msgid "Sensor"
 msgstr "监视设备"
 
-#: src/ui_sensorlist.c:316
+#: src/ui_sensorlist.c:314
 msgid "Value"
 msgstr ""
 
-#: src/ui_sensorlist.c:322
+#: src/ui_sensorlist.c:320
 msgid "Min"
 msgstr "最小值"
 
-#: src/ui_sensorlist.c:328
+#: src/ui_sensorlist.c:326
 msgid "Max"
 msgstr "最大值"
 
-#: src/ui_sensorlist.c:335
+#: src/ui_sensorlist.c:333
 msgid "Color"
 msgstr "颜色"
 
-#: src/ui_sensorlist.c:347
+#: src/ui_sensorlist.c:345
 msgid "Enabled"
 msgstr "激活"
 
-#: src/ui_sensorlist.c:376 src/ui_sensorlist.c:377 src/ui_sensorlist.c:378
+#: src/ui_sensorlist.c:374 src/ui_sensorlist.c:375 src/ui_sensorlist.c:376
 #: src/glade/sensor-edit.glade:87 src/glade/sensor-edit.glade:153
 msgid "N/A"
 msgstr ""
 
-#: src/ui_notify.c:40
-#, c-format
-msgid "ERROR: failed gettimeofday\n"
+#: src/ui_notify.c:45
+msgid "gettimeofday failed"
 msgstr ""
 
-#: src/ui_notify.c:73 src/ui_notify.c:77
+#: src/ui_notify.c:67 src/ui_notify.c:69
 msgid "Temperature alert"
 msgstr "温度报警"
 
-#: src/ui_sensorpref.c:398
+#: src/ui_sensorpref.c:397
 msgid "Sensor Name"
 msgstr ""
 
-#: src/rsensor.c:135
+#: src/rsensor.c:107
 #, c-format
 msgid "Fail to connect to: %s"
 msgstr ""
 
-#: src/rsensor.c:172
+#: src/rsensor.c:144
 #, c-format
 msgid "Invalid content: %s"
 msgstr ""
 
-#: src/rsensor.c:212
+#: src/rsensor.c:184
 #, c-format
 msgid "Invalid JSON: %s"
 msgstr ""
@@ -218,11 +217,20 @@ msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
 
+#: src/server/server.c:94
+#, fuzzy
+msgid ""
+"  -h, --help\t\tdisplay this help and exit\n"
+"  -v, --version\t\tdisplay version information and exit"
+msgstr ""
+"  -h, --help 显示这个帮助并退出\n"
+"  -v, --version 显示版本信息并退出"
+
 #: src/server/server.c:100
 msgid ""
-"  -d,--debug     run in debug mode\n"
-"  -p,--port=PORT webserver port\n"
-"  -w,--wdir=DIR  directory containing webserver pages"
+"  -d,--debug\t\trun in debug mode\n"
+"  -p,--port=PORT\twebserver port\n"
+"  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
 
 #: src/server/server.c:181
@@ -279,70 +287,70 @@ msgstr ""
 msgid "ERROR: Cannot get the number of adapters!\n"
 msgstr ""
 
-#: src/lib/hdd.c:59
+#: src/lib/hdd.c:58
 #, c-format
 msgid "ERROR: hdd fetch, failed to open socket\n"
 msgstr ""
 
-#: src/lib/hdd.c:73
+#: src/lib/hdd.c:72
 #, c-format
 msgid "ERROR: hdd fetch, failed to open connection\n"
 msgstr ""
 
-#: src/lib/hdd.c:183
+#: src/lib/hdd.c:182
 #, c-format
 msgid "ERROR: wrong hdd string: %s"
 msgstr ""
 
-#: src/lib/hdd.c:253
+#: src/lib/hdd.c:252
 #, c-format
 msgid "ERROR: wrong hdd string: %s\n"
 msgstr ""
 
-#: src/lib/log.c:40
+#: src/lib/log.c:37
 #, c-format
 msgid "Cannot open log file: %s"
 msgstr ""
 
-#: src/lib/nvidia.c:55
+#: src/lib/nvidia.c:54
 #, c-format
 msgid "ERROR: failed to retrieve nvidia temperature\n"
 msgstr ""
 
-#: src/lib/nvidia.c:92
+#: src/lib/nvidia.c:91
 #, c-format
 msgid "ERROR: Cannot open connection to X Server\n"
 msgstr ""
 
-#: src/lib/nvidia.c:100
+#: src/lib/nvidia.c:99
 #, c-format
 msgid "ERROR: Cannot retrieve NVidia information\n"
 msgstr ""
 
-#: src/lib/lmsensor.c:44
+#: src/lib/lmsensor.c:43
 #, c-format
 msgid "ERROR: Can't get value of subfeature %s: %s\n"
 msgstr ""
 
-#: src/lib/lmsensor.c:126
+#: src/lib/lmsensor.c:125
 #, c-format
 msgid "ERROR: create_sensor, wrong feature type\n"
 msgstr ""
 
-#: src/lib/lmsensor.c:209
+#: src/lib/lmsensor.c:208
 #, c-format
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr ""
 
-#: src/lib/psensor.c:431
+#: src/lib/psensor.c:430
 msgid "C"
 msgstr ""
 
-#: src/lib/psensor.c:434
+#: src/lib/psensor.c:433
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:437
+#: src/lib/psensor.c:436
 msgid "%"
 msgstr ""
 
