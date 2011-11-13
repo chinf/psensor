@@ -103,6 +103,12 @@ the URL of the psensor-server, example: http://hostname:3131"));
 
 	puts("");
 
+	puts(_("\
+  -d, --debug=LEVEL   \
+set the debug level, integer between 0 and 3"));
+
+	puts("");
+
 	printf(_("Report bugs to: %s\n"), PACKAGE_BUGREPORT);
 	puts("");
 	printf(_("%s home page: <%s>\n"), PACKAGE_NAME, PACKAGE_URL);
