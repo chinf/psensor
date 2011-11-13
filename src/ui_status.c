@@ -68,7 +68,7 @@ int is_status_supported()
 void ui_status_cleanup()
 {
 	log_debug("ui_status_cleanup()");
-	
+
 	if (status) {
 		g_object_unref(G_OBJECT(status));
 		status = NULL;
