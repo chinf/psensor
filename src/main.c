@@ -346,7 +346,7 @@ static struct option long_options[] = {
 	{"version", no_argument, 0, 'v'},
 	{"help", no_argument, 0, 'h'},
 	{"url", required_argument, 0, 'u'},
-	{"debug", no_argument, 0, 'd'},
+	{"debug", required_argument, 0, 'd'},
 	{0, 0, 0, 0}
 };
 
@@ -390,7 +390,7 @@ int main(int argc, char **argv)
 	textdomain(PACKAGE);
 #endif
 
-	while ((optc = getopt_long(argc, argv, "vhdu:", long_options,
+	while ((optc = getopt_long(argc, argv, "vhd:u:", long_options,
 				   NULL)) != -1) {
 		switch (optc) {
 		case 'u':
@@ -405,7 +405,7 @@ int main(int argc, char **argv)
 			exit(EXIT_SUCCESS);
 		case 'd':
 			printf(_("Enables debug mode.\n"));
-			log_level = LOG_DEBUG;
+			log_level = atoi(optarg);
 			break;
 		default:
 			cmdok = 0;
