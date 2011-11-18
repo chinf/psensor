@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-11-13 16:33+0100\n"
+"POT-Creation-Date: 2011-11-18 09:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,27 +54,31 @@ msgid ""
 "hostname:3131"
 msgstr ""
 
-#: src/main.c:106 src/server/server.c:107
+#: src/main.c:106
+msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
+msgstr ""
+
+#: src/main.c:112 src/server/server.c:107
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:108 src/server/server.c:109
+#: src/main.c:114 src/server/server.c:109
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:407
+#: src/main.c:413
 #, c-format
 msgid "Enables debug mode.\n"
 msgstr ""
 
-#: src/main.c:417 src/server/server.c:353
+#: src/main.c:423 src/server/server.c:353
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:444
+#: src/main.c:450
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
@@ -129,7 +133,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: src/ui.c:182 src/ui_appindicator.c:173
+#: src/ui.c:182 src/ui_appindicator.c:176
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
