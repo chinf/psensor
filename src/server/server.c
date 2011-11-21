@@ -131,7 +131,7 @@ char *get_path(const char *url, const char *www_dir)
 }
 
 #if MHD_VERSION >= 0x00090200
-static int
+static ssize_t
 file_reader(void *cls, uint64_t pos, char *buf, size_t max)
 #else
 static int
