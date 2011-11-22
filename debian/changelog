@@ -1,3 +1,12 @@
+psensor (0.6.2.14-1ubuntu1) oneiric; urgency=low
+
+  * New upstream release
+  * debian/copyright: fixed lintian warnings about copyright.
+  * debian/control: added libjs-jquery dependency.
+  * debian/psensor-server.links: used jquery.js in the libjs-query package.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 22 Nov 2011 00:56:55 +0200
+
 psensor (0.6.2.13-1ubuntu1) oneiric; urgency=low
 
   * New upstream release

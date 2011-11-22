@@ -8,7 +8,7 @@ Homepage: http://wpitchoune.net/psensor
 
 Package: psensor
 Architecture: any
-Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}, libjs-jquery
 Recommends: hddtemp
 Description: display graphs for monitoring hardware temperature
  Psensor is a GTK+ application for monitoring hardware sensors,
