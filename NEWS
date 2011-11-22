@@ -1,3 +1,8 @@
+* v0.6.2.14
+
+** psensor: support of gtk>=2.18
+** psensor: inner space of the graph using the theme background color
+
 * v0.6.2.13
 
 ** psensor can now be compiled and run with gtk3.

@@ -73,11 +73,33 @@ static char *time_to_str(time_t s)
 
 static void
 draw_graph_background(cairo_t *cr,
-		      int width, int height, struct config *config)
+		      int g_xoff, int g_yoff,
+		      int g_width, int g_height,
+		      int width, int height, struct config *config,
+		      GtkWidget *widget)
 {
+	GtkStyle *style;
 	struct color *bgcolor = config->graph_bgcolor;
+	GdkColor *bg;
 
-	/* draw background */
+	style = gtk_widget_get_style(widget);
+
+	bg = &style->bg[GTK_STATE_NORMAL];
+
+	if (config->alpha_channel_enabled)
+		cairo_set_source_rgba(cr,
+				      ((double)bg->red) / 65535,
+				      ((double)bg->green) / 65535,
+				      ((double)bg->blue) / 65535,
+				      config->graph_bg_alpha);
+	else
+		cairo_set_source_rgb(cr,
+				     ((double)bg->red) / 65535,
+				     ((double)bg->green) / 65535,
+				     ((double)bg->blue) / 65535);
+
+	cairo_rectangle(cr, 0, 0, width, height);
+	cairo_fill(cr);
 	if (config->alpha_channel_enabled)
 		cairo_set_source_rgba(cr,
 				      bgcolor->f_red,
@@ -88,16 +110,16 @@ draw_graph_background(cairo_t *cr,
 				     bgcolor->f_red,
 				     bgcolor->f_green, bgcolor->f_blue);
 
-	cairo_rectangle(cr, 0, 0, width, height);
+
+
+	cairo_rectangle(cr, g_xoff, g_yoff, g_width, g_height);
 	cairo_fill(cr);
 }
 
 /* setup dash style */
 static double dashes[] = {
 	1.0,		/* ink */
-	1.0,		/* skip */
-	1.0,		/* ink */
-	1.0		/* skip */
+	2.0,		/* skip */
 };
 static int ndash = sizeof(dashes) / sizeof(dashes[0]);
 
@@ -110,8 +132,8 @@ static void draw_background_lines(cairo_t *cr,
 	int i;
 
 	/* draw background lines */
-	cairo_set_dash(cr, dashes, ndash, 0);
 	cairo_set_line_width(cr, 1);
+	cairo_set_dash(cr, dashes, ndash, 0);
 	cairo_set_source_rgb(cr,
 			     color->f_red, color->f_green, color->f_blue);
 
@@ -136,7 +158,6 @@ static void draw_background_lines(cairo_t *cr,
 
 	/* back to normal line style */
 	cairo_set_dash(cr, 0, 0, 0);
-
 }
 
 static void draw_sensor_curve(struct psensor *s,
@@ -226,8 +247,6 @@ graph_update(struct psensor **sensors,
 	cst = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
 	cr = cairo_create(cst);
 
-	draw_graph_background(cr, width, height, config);
-
 	cairo_select_font_face(cr,
 			       "sans-serif",
 			       CAIRO_FONT_SLANT_NORMAL,
@@ -253,6 +272,11 @@ graph_update(struct psensor **sensors,
 		g_xoff = (2 * GRAPH_H_PADDING) + te_min.width;
 
 	g_width = width - g_xoff - GRAPH_H_PADDING;
+
+	draw_graph_background(cr,
+			      g_xoff, g_yoff, g_width, g_height,
+			      width, height, config,
+			      w_graph);
 
 	cairo_set_source_rgb(cr,
 			     fgcolor->f_red, fgcolor->f_green, fgcolor->f_blue);

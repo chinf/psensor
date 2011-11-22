@@ -78,7 +78,7 @@ Psensor compilation requires:
  * make/gcc	
  * lm-sensors
  * library sensors4
- * library gtk2 (>= 2.22)
+ * library gtk2 (>= 2.18)
  * library gconf2
  * help2man 
  * library libnotify (optional)
