@@ -115,6 +115,24 @@ instructions
 
  * Run 'psensor'
 
+Ubuntu
+------
+
+Notes about installation on Ubuntu is available at:
+http://wpitchoune.net/blog/psensor/ubuntu-integration
+
+Centos 6
+--------
+
+psensor can be compiled on Centos 6.0, by installing the following
+packages:
+gcc gtk2-devel GConf2-devel help2man gettext-devel libnotify-deval
+lm_sensors-devel libgtop2-devel
+
+As microhttpd and json-c libraries are not available in the standard centos
+repository, psensor-server cannot be compiled and the remote
+monitoring feature of psensor will not be available.
+
 Contact
 -------
 Bugs and comments can be sent to jeanfi@gmail.com
