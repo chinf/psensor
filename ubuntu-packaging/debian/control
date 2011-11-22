@@ -27,7 +27,7 @@ Description: display graphs for monitoring hardware temperature
 
 Package: psensor-server
 Architecture: any
-Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}, libjs-jquery
 Recommends: hddtemp
 Description: Psensor server for monitoring hardware sensors remotely
  Psensor server is an HTTP server providing a JSON Web service which can be
