@@ -5,13 +5,13 @@ Psensor is a graphical temperature monitor for Linux.
 
 It can monitor:
 
-  * the temperature of the motherboard and CPU sensors (using
-    lm-sensors).
-  * the temperature of the NVidia GPUs (using XNVCtrl).
-  * the temperature of the Hard Disk Drives (using hddtemp).
-  * the rotation speed of the fans (using lm-sensors).
-  * the temperature of a remote computer.
-  * the cpu load.
+ * the temperature of the motherboard and CPU sensors (using
+   lm-sensors).
+ * the temperature of the NVidia GPUs (using XNVCtrl).
+ * the temperature of the Hard Disk Drives (using hddtemp).
+ * the rotation speed of the fans (using lm-sensors).
+ * the temperature of a remote computer.
+ * the cpu load.
 
 Alarms using Desktop Notification can be set to each sensor to notify
 high temperatures.
@@ -21,12 +21,12 @@ alert users when a temperature is too high.
 
 To monitor the temperature of a remote computer:
 
-  * start psensor-server on the remote computer. The default port is
-    3131 and can be changed by using the '--port=PORT' command line
-    option.
+ * start psensor-server on the remote computer. The default port is
+   3131 and can be changed by using the '--port=PORT' command line
+   option.
 
-  * start psensor with the '--url' option: 
-  psensor --url=http://hostname:3131
+ * start psensor with the '--url' option: psensor
+  --url=http://hostname:3131
 
 WARNING: 
 psensor-server does not provide any way to restrict the connection to
@@ -38,6 +38,9 @@ tools of the system (for example, iptables).
   
 Installation
 ------------
+
+Psensor can be compiled and installed on any modern linux
+distribution.
 
 Debian
 ------
