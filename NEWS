@@ -4,6 +4,8 @@
 ** psensor: inner space of the graph using the theme background color
 ** psensor-server: fixed compilation with microhttpd >=0x90200 and
    64bits.
+** added some information in the README (mostly about compilation on
+   CentOS).
 
 * v0.6.2.13
 
