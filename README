@@ -11,6 +11,7 @@ It can monitor:
   * the temperature of the Hard Disk Drives (using hddtemp).
   * the rotation speed of the fans (using lm-sensors).
   * the temperature of a remote computer.
+  * the cpu load.
 
 Alarms using Desktop Notification can be set to each sensor to notify
 high temperatures.
@@ -47,11 +48,23 @@ For Debian, the binary and source packages are available in the wheezy
 Debian package information are available at:
 http://packages.qa.debian.org/p/psensor.html
 
+Compilation requires the following packages:
+
+gettext libgtk-3-dev libgconf2-dev libnotify-dev libsensors4-dev
+help2man libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev
+libgtop2-dev
+
 Ubuntu
 ------
 
-For Ubuntu, the easy way to install Psensor and Psensor-server is to
-use the dedicated PPA.
+Notes about installation on Ubuntu is available at:
+http://wpitchoune.net/blog/psensor/ubuntu-integration
+
+Since Ubuntu Oneiric (11.10), psensor is available in the universe
+repository of Ubuntu.
+
+For other Ubuntu releases, the easy way to install Psensor and
+Psensor-server is to use the dedicated PPA.
 
 For the last stable version:
 sudo apt-get apt-add-repository ppa:/jfi/psensor
@@ -69,6 +82,18 @@ http://wpitchoune.net/psensor/files/ubuntu/
 The manual installation of the psensor and psensor-server packages
 requires also the installation of psensor-common which contains
 the multiple languages support.
+
+Centos 6
+--------
+
+psensor can be compiled on Centos 6.0, by installing the following
+packages:
+gcc gtk2-devel GConf2-devel help2man gettext-devel libnotify-deval
+lm_sensors-devel libgtop2-devel
+
+As microhttpd and json-c libraries are not available in the standard centos
+repository, psensor-server cannot be compiled and the remote
+monitoring feature of psensor will not be available.
 
 Installation from source archive
 --------------------------------
@@ -114,24 +139,6 @@ instructions
  * Verify the sensor detection by running: 'sensors'
 
  * Run 'psensor'
-
-Ubuntu
-------
-
-Notes about installation on Ubuntu is available at:
-http://wpitchoune.net/blog/psensor/ubuntu-integration
-
-Centos 6
---------
-
-psensor can be compiled on Centos 6.0, by installing the following
-packages:
-gcc gtk2-devel GConf2-devel help2man gettext-devel libnotify-deval
-lm_sensors-devel libgtop2-devel
-
-As microhttpd and json-c libraries are not available in the standard centos
-repository, psensor-server cannot be compiled and the remote
-monitoring feature of psensor will not be available.
 
 Contact
 -------
