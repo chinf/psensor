@@ -137,7 +137,7 @@ Compilation and Installation Steps
    make install
 
  * Start the sensor detection script: 'sensors-detect' and follows the
-instructions
+   instructions
 
  * Verify the sensor detection by running: 'sensors'
 
