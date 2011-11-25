@@ -176,7 +176,7 @@ void remote_psensor_update(struct psensor *s)
 			tv.tv_usec = 0;
 
 			psensor_set_current_measure
-			    (s, json_object_get_double(ov), tv);;
+			    (s, json_object_get_double(ov), tv);
 		}
 
 		json_object_put(obj);

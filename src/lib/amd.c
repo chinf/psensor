@@ -60,8 +60,8 @@ static int *active_amd_adapters;
 /* Memory allocation function */
 static void __stdcall *adl_main_memory_alloc(int isize)
 {
-    void *lpbuffer = malloc(isize);
-    return lpbuffer;
+	void *lpbuffer = malloc(isize);
+	return lpbuffer;
 }
 
 /* Optional Memory de-allocation function */
@@ -75,7 +75,7 @@ static void __stdcall adl_main_memory_free(void **lpbuffer)
 
 static void *getprocaddress(void *plibrary, const char * name)
 {
-    return dlsym(plibrary, name);
+	return dlsym(plibrary, name);
 }
 
 /*

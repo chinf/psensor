@@ -74,11 +74,12 @@ static const char *program_name;
 static void print_version()
 {
 	printf("psensor %s\n", VERSION);
-	printf(_("Copyright (C) %s jeanfi@gmail.com\n\
-License GPLv2: GNU GPL version 2 or later \
-<http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>\n\
-This is free software: you are free to change and redistribute it.\n\
-There is NO WARRANTY, to the extent permitted by law.\n"),
+	printf(_("Copyright (C) %s jeanfi@gmail.com\n"
+		 "License GPLv2: GNU GPL version 2 or later "
+		 "<http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>\n"
+		 "This is free software: you are free to change and "
+		 " redistribute it.\n"
+		 "There is NO WARRANTY, to the extent permitted by law.\n"),
 	       "2010-2011");
 }
 
@@ -91,21 +92,18 @@ static void print_help()
 
 	puts("");
 	puts(_("Options:"));
-	puts(_("\
-  -h, --help          display this help and exit\n\
-  -v, --version       display version information and exit"));
+	puts(_("  -h, --help          display this help and exit\n"
+	       "  -v, --version       display version information and exit"));
 
 	puts("");
 
-	puts(_("\
-  -u, --url=URL       \
-the URL of the psensor-server, example: http://hostname:3131"));
+	puts(_("  -u, --url=URL       "
+	       "the URL of the psensor-server, example: http://hostname:3131"));
 
 	puts("");
 
-	puts(_("\
-  -d, --debug=LEVEL   \
-set the debug level, integer between 0 and 3"));
+	puts(_("  -d, --debug=LEVEL   "
+	       "set the debug level, integer between 0 and 3"));
 
 	puts("");
 

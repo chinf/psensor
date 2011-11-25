@@ -50,9 +50,8 @@ static const char *program_name;
 
 #define DEFAULT_PORT 3131
 
-#define PAGE_NOT_FOUND (_("<html><body><p>\
-Page not found - Go to <a href='/'>Main page</a>\
-</p></body>"))
+#define PAGE_NOT_FOUND (_("<html><body><p>"\
+"Page not found - Go to <a href='/'>Main page</a></p></body>"))
 
 static struct option long_options[] = {
 	{"version", no_argument, 0, 'v'},
@@ -74,11 +73,11 @@ static int server_stop_requested;
 void print_version()
 {
 	printf("psensor-server %s\n", VERSION);
-	printf(_("Copyright (C) %s jeanfi@gmail.com\n\
-License GPLv2: GNU GPL version 2 or later \
-<http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>\n\
-This is free software: you are free to change and redistribute it.\n\
-There is NO WARRANTY, to the extent permitted by law.\n"),
+	printf(_("Copyright (C) %s jeanfi@gmail.com\n"
+		 "License GPLv2: GNU GPL version 2 or later "
+		 "<http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>\n"
+		 "This is free software: you are free to change and redistribute it.\n"
+		 "There is NO WARRANTY, to the extent permitted by law.\n"),
 	       "2010-2011");
 }
 
@@ -91,16 +90,14 @@ void print_help()
 
 	puts("");
 	puts("Options:");
-	puts(_("\
-  -h, --help		display this help and exit\n\
-  -v, --version		display version information and exit"));
+	puts(_("  -h, --help		display this help and exit\n"
+	       "  -v, --version		display version information and exit"));
 
 	puts("");
 
-	puts(_("\
-  -d,--debug		run in debug mode\n\
-  -p,--port=PORT	webserver port\n\
-  -w,--wdir=DIR		directory containing webserver pages"));
+	puts(_("  -d,--debug		run in debug mode\n"
+	       "  -p,--port=PORT	webserver port\n"
+	       "  -w,--wdir=DIR		directory containing webserver pages"));
 
 	puts("");
 

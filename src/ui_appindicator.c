@@ -99,32 +99,32 @@ static const char *menu_desc =
 "</ui>";
 
 static GtkActionEntry entries[] = {
-  { "PsensorMenuAction", NULL, "_Psensor" }, /* name, stock id, label */
+	{ "PsensorMenuAction", NULL, "_Psensor" },
 
-  { "ShowAction", NULL,        /* name, stock id */
-    "_Show", NULL, /* label, accelerator */
-    "Show",                    /* tooltip */
-    G_CALLBACK(cb_menu_show) },
+	{ "ShowAction", NULL,
+	  "_Show", NULL,
+	  "Show",
+	  G_CALLBACK(cb_menu_show) },
 
-  { "PreferencesAction", GTK_STOCK_PREFERENCES,     /* name, stock id */
-    "_Preferences", NULL,                           /* label, accelerator */
-    "Preferences",                                  /* tooltip */
-    G_CALLBACK(cb_menu_preferences) },
+	{ "PreferencesAction", GTK_STOCK_PREFERENCES,
+	  "_Preferences", NULL,
+	  "Preferences",
+	  G_CALLBACK(cb_menu_preferences) },
 
-  { "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
-    "S_ensor Preferences",
-    NULL,
-    "SensorPreferences",
-    G_CALLBACK(cb_sensor_preferences) },
+	{ "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
+	  "S_ensor Preferences",
+	  NULL,
+	  "SensorPreferences",
+	  G_CALLBACK(cb_sensor_preferences) },
 
-  { "AboutAction", NULL,
-    "_About",
-    NULL,
-    "About",
-    G_CALLBACK(cb_about) },
+	{ "AboutAction", NULL,
+	  "_About",
+	  NULL,
+	  "About",
+	  G_CALLBACK(cb_about) },
 
-  { "QuitAction",
-    GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }
+	{ "QuitAction",
+	  GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }
 };
 static guint n_entries = G_N_ELEMENTS(entries);
 

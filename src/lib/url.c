@@ -40,7 +40,7 @@ char *url_normalize(const char *url)
 
 static char to_hex(char code)
 {
-	static char hex[] = "0123456789abcdef";
+	static const char hex[] = "0123456789abcdef";
 	return hex[code & 0x0f];
 }
 
