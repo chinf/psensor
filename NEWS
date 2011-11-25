@@ -6,6 +6,7 @@
    64bits.
 ** added some information in the README (mostly about compilation on
    CentOS).
+** psensor-server: support of symbolic links to webfiles.
 
 * v0.6.2.13
 

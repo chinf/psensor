@@ -203,28 +203,33 @@ create_response_file(const char *nurl,
 		     unsigned int *rp_code,
 		     const char *fpath)
 {
-	if (is_file(fpath)) {
-		FILE *file = fopen(fpath, "rb");
+	struct stat st;
+	int ret;
+	FILE *file;
+
+	ret = stat(fpath, &st);
+
+	if (!ret && (S_ISREG(st.st_mode) || S_ISLNK(st.st_mode))) {
+		file = fopen(fpath, "rb");
 
 		if (file) {
-			struct stat buf;
-
-			stat(fpath, &buf);
 			*rp_code = MHD_HTTP_OK;
 
-			if (!buf.st_size) {
+			if (!st.st_size) {
 				fclose(file);
 				return MHD_create_response_from_data
 					(0, NULL, MHD_NO, MHD_NO);
 			}
 
 			return MHD_create_response_from_callback
-				(buf.st_size,
+				(st.st_size,
 				 32 * 1024,
 				 &file_reader,
 				 file,
 				 (MHD_ContentReaderFreeCallback)&fclose);
 
+		} else {
+			log_printf(LOG_ERR, "Failed to open: %s\n", fpath);
 		}
 	}
 
