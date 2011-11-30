@@ -19,6 +19,7 @@
 #ifndef _PSENSOR_SYSINFO_H_
 #define _PSENSOR_SYSINFO_H_
 
+#include <config.h>
 #include <sys/sysinfo.h>
 
 struct psysinfo {
