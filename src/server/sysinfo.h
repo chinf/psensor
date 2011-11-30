@@ -24,7 +24,9 @@
 struct psysinfo {
 	float cpu_rate;
 
+#ifdef HAVE_SYSINFO_FCT
 	struct sysinfo sysinfo;
+#endif
 
 	char **interfaces;
 };

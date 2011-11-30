@@ -155,9 +155,11 @@ create_response_api(const char *nurl,
 		page = sensors_to_json_string(server_data.sensors);
 
 #ifdef HAVE_GTOP
+#ifdef HAVE_SYSINFO_FCT
 	} else if (!strcmp(nurl, URL_API_1_0_SYSINFO)) {
 
 		page = sysinfo_to_json_string(&server_data.psysinfo);
+#endif
 	} else if (!strcmp(nurl, URL_API_1_0_CPU_USAGE)) {
 		page = sensor_to_json_string(server_data.cpu_usage);
 #endif
@@ -385,7 +387,9 @@ int main(int argc, char *argv[])
 		pthread_mutex_lock(&mutex);
 
 #ifdef HAVE_GTOP
+#ifdef HAVE_SYSINFO_FCT
 		sysinfo_update(&server_data.psysinfo);
+#endif
 		cpu_usage_sensor_update(server_data.cpu_usage);
 #endif
 		psensor_list_update_measures(server_data.sensors);
@@ -405,7 +409,9 @@ int main(int argc, char *argv[])
 	sensors_cleanup();
 
 #ifdef HAVE_GTOP
+#ifdef HAVE_SYSINFO_FCT
 	sysinfo_cleanup();
+#endif
 	cpu_cleanup();
 #endif
 
