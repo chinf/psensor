@@ -27,7 +27,7 @@ AC_TYPE_SSIZE_T
 # Checks for library functions.
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
-AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol])
+AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol sysinfo])
 
 AM_GNU_GETTEXT_VERSION([0.16])
 AM_GNU_GETTEXT([external])
