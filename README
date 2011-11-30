@@ -57,6 +57,13 @@ gettext libgtk-3-dev libgconf2-dev libnotify-dev libsensors4-dev
 help2man libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev
 libgtop2-dev
 
+Debian kfreebsd
+---------------
+
+Compilation requires the following packages:
+gcc libgtk2.0-dev libsensors4-dev libgconf2-dev help2man
+libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev libgtop2-dev
+
 Ubuntu
 ------
 
