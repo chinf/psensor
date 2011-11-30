@@ -27,7 +27,13 @@ AC_TYPE_SSIZE_T
 # Checks for library functions.
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
-AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol sysinfo])
+AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol])
+
+SYSINFO_FCT=
+AC_CHECK_FUNC(sysinfo,
+	      [SYSINFO_FCT='1' AC_DEFINE([HAVE_SYSINFO_FCT],[1],[Use sysinfo])],
+              [AC_MSG_WARN("sysinfo function not present")])
+AM_CONDITIONAL(SYSINFO_FCT, test -n "$SYSINFO_FCT")
 
 AM_GNU_GETTEXT_VERSION([0.16])
 AM_GNU_GETTEXT([external])

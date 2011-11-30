@@ -682,6 +682,8 @@ GMSGFMT
 MSGFMT
 GETTEXT_MACRO_VERSION
 USE_NLS
+SYSINFO_FCT_FALSE
+SYSINFO_FCT_TRUE
 LIBOBJS
 EGREP
 GREP
@@ -4818,7 +4820,7 @@ $as_echo "#define realloc rpl_realloc" >>confdefs.h
 fi
 
 
-for ac_func in gettimeofday memmove socket strdup strtol sysinfo
+for ac_func in gettimeofday memmove socket strdup strtol
 do :
   as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
 ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"
@@ -4829,6 +4831,26 @@ _ACEOF
 
 fi
 done
+
+
+SYSINFO_FCT=
+ac_fn_c_check_func "$LINENO" "sysinfo" "ac_cv_func_sysinfo"
+if test "x$ac_cv_func_sysinfo" = xyes; then :
+  SYSINFO_FCT='1'
+$as_echo "#define HAVE_SYSINFO_FCT 1" >>confdefs.h
+
+else
+  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"sysinfo function not present\"" >&5
+$as_echo "$as_me: WARNING: \"sysinfo function not present\"" >&2;}
+fi
+
+ if test -n "$SYSINFO_FCT"; then
+  SYSINFO_FCT_TRUE=
+  SYSINFO_FCT_FALSE='#'
+else
+  SYSINFO_FCT_TRUE='#'
+  SYSINFO_FCT_FALSE=
+fi
 
 
 
@@ -8721,6 +8743,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCC\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${SYSINFO_FCT_TRUE}" && test -z "${SYSINFO_FCT_FALSE}"; then
+  as_fn_error $? "conditional \"SYSINFO_FCT\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${GTK_TRUE}" && test -z "${GTK_FALSE}"; then
