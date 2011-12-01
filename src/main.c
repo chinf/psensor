@@ -381,9 +381,8 @@ int main(int argc, char **argv)
 	struct ui_psensor ui;
 	GError *error;
 	GThread *thread;
-	int optc;
+	int optc, cmdok;
 	char *url = NULL;
-	int cmdok = 1;
 
 	program_name = argv[0];
 
@@ -394,6 +393,7 @@ int main(int argc, char **argv)
 	textdomain(PACKAGE);
 #endif
 
+	cmdok = 1;
 	while ((optc = getopt_long(argc, argv, "vhd:u:", long_options,
 				   NULL)) != -1) {
 		switch (optc) {
@@ -408,8 +408,8 @@ int main(int argc, char **argv)
 			print_version();
 			exit(EXIT_SUCCESS);
 		case 'd':
-			printf(_("Enables debug mode.\n"));
 			log_level = atoi(optarg);
+			log_printf(LOG_INFO, _("Enables debug mode."));
 			break;
 		default:
 			cmdok = 0;
