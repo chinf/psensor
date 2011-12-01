@@ -151,13 +151,10 @@ create_response_api(const char *nurl,
 	char *page = NULL;
 
 	if (!strcmp(nurl, URL_BASE_API_1_0_SENSORS))  {
-
 		page = sensors_to_json_string(server_data.sensors);
-
 #ifdef HAVE_GTOP
 #ifdef HAVE_SYSINFO_FCT
 	} else if (!strcmp(nurl, URL_API_1_0_SYSINFO)) {
-
 		page = sysinfo_to_json_string(&server_data.psysinfo);
 #endif
 	} else if (!strcmp(nurl, URL_API_1_0_CPU_USAGE)) {

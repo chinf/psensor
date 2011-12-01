@@ -29,6 +29,8 @@ AC_FUNC_MALLOC
 AC_FUNC_REALLOC
 AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol])
 
+# Detects whether the function sysinfo is available
+# At least kfreebsd 6.0.3 does not provide it.
 SYSINFO_FCT=
 AC_CHECK_FUNC(sysinfo,
 	      [SYSINFO_FCT='1' AC_DEFINE([HAVE_SYSINFO_FCT],[1],[Use sysinfo])],

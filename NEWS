@@ -1,5 +1,8 @@
 * v0.6.2.15
 
+** psensor-server: function 'sysinfo' is now optionnal to allow
+   compilation on kfreebsd. It fixes Debian bug #650533.
+
 * v0.6.2.14
 
 ** psensor: support of gtk>=2.18
