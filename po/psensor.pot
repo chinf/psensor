@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-11-18 09:11+0100\n"
+"POT-Creation-Date: 2011-12-01 02:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.c:77 src/server/server.c:77
+#: src/main.c:77
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
+"This is free software: you are free to change and  redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:87 src/server/server.c:87
+#: src/main.c:88 src/server/server.c:86
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr ""
 
-#: src/main.c:89
+#: src/main.c:90
 msgid ""
 "psensor is a GTK application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
 
-#: src/main.c:93
+#: src/main.c:94
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:94
+#: src/main.c:95
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -54,31 +54,31 @@ msgid ""
 "hostname:3131"
 msgstr ""
 
-#: src/main.c:106
+#: src/main.c:105
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:112 src/server/server.c:107
+#: src/main.c:110 src/server/server.c:104
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:114 src/server/server.c:109
+#: src/main.c:112 src/server/server.c:106
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:413
+#: src/main.c:411
 #, c-format
 msgid "Enables debug mode.\n"
 msgstr ""
 
-#: src/main.c:423 src/server/server.c:353
+#: src/main.c:421 src/server/server.c:354
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:450
+#: src/main.c:448
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
@@ -125,24 +125,24 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
-#: src/ui.c:159
+#: src/ui.c:160
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:160
+#: src/ui.c:161
 msgid "About"
 msgstr ""
 
-#: src/ui.c:182 src/ui_appindicator.c:176
+#: src/ui.c:183 src/ui_appindicator.c:176
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:230
+#: src/ui.c:231
 msgid "Psensor - Temperature Monitor"
 msgstr ""
 
-#: src/ui.c:247
+#: src/ui.c:248
 #, c-format
 msgid "ERROR: Failed to load psensor icon.\n"
 msgstr ""
@@ -212,54 +212,64 @@ msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 
-#: src/server/server.c:89
+#: src/server/server.c:76
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+
+#: src/server/server.c:88
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 
-#: src/server/server.c:94
+#: src/server/server.c:93
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
 
-#: src/server/server.c:100
+#: src/server/server.c:98
 msgid ""
 "  -d,--debug\t\trun in debug mode\n"
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
 
-#: src/server/server.c:181
+#: src/server/server.c:177
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
-#: src/server/server.c:291
+#: src/server/server.c:292
 #, c-format
 msgid "HTTP Request: %s\n"
 msgstr ""
 
-#: src/server/server.c:367
+#: src/server/server.c:368
 #, c-format
 msgid "ERROR: no sensors detected\n"
 msgstr ""
 
-#: src/server/server.c:374
+#: src/server/server.c:375
 #, c-format
 msgid "ERROR: Fail to create web server\n"
 msgstr ""
 
-#: src/server/server.c:378
+#: src/server/server.c:379
 #, c-format
 msgid "Web server started on port: %d"
 msgstr ""
 
-#: src/server/server.c:379
+#: src/server/server.c:380
 #, c-format
 msgid "WWW directory: %s"
 msgstr ""
 
-#: src/server/server.c:380
+#: src/server/server.c:381
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr ""

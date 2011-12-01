@@ -1,6 +1,6 @@
 Source: psensor
 Section: utils
-Priority: optional
+Priority: extra
 Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
 Build-Depends: debhelper (>= 7.0.50~),autoconf,automake,gettext,autopoint,libgtk-3-dev,libgconf2-dev,libnotify-dev,libsensors4-dev,help2man,libcurl4-openssl-dev,libjson0-dev,libmicrohttpd-dev,libgtop2-dev,perl
 Standards-Version: 3.9.2

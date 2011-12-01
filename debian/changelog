@@ -1,53 +1,56 @@
-psensor (0.6.2.15-1ubuntu1) oneiric; urgency=low
+psensor (0.6.2.15-1) unstable; urgency=low
 
   * New upstream release
+      - fct sysinfo is optional. (Closes: #650533)
+  * debian/control
+      - set priority to 'extra' instead of 'optional' due to dependence
+ 	on json-c lib which is using a priority 'extra'.
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 25 Nov 2011 00:56:55 +0200
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 01 Dec 2011 01:57:00 +0100
 
-psensor (0.6.2.14-1ubuntu1) oneiric; urgency=low
-
-  * New upstream release
-  * debian/copyright: fixed lintian warnings about copyright.
-  * debian/control: added libjs-jquery dependency.
-  * debian/psensor-server.links: used jquery.js in the libjs-query package.
-
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 22 Nov 2011 00:56:55 +0200
-
-psensor (0.6.2.13-1ubuntu1) oneiric; urgency=low
+psensor (0.6.2.14-1) unstable; urgency=low
 
   * New upstream release
+      - monochrome icons for Ubuntu themes. (Closes LP: #811003)
+  * debian/copyright:
+      - replaced email with my personnal one
+      - added license and copyright info for jqplot
+  * debian/control:
+      - removed useless dep to lua
+      - switch to Standards-Version 3.9.2
+      - added build dep to libjs-query
+      - replaced email with my personnal one
+      - build dep to gtk3 instead of gtk2
+  * debian/psensor.install:
+      - added icons directory to include ubuntu default icons theme
+      - added directories for glade files
+      - added directory for autostart file
+  * debian/psensor-server.links:
+      - linked query.js file from libjs-query package
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 04 Oct 2011 00:56:55 +0200
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Fri, 25 Nov 2011 02:56:22 -0500
 
-psensor (0.6.2.12-1ubuntu1) natty; urgency=low
+psensor (0.6.1.9-3) unstable; urgency=low
+
+  * debian/copyright:
+      - Fixed Lintian error: helper-templates-in-copyright
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Mon, 12 Sep 2011 05:47:02 -0400
+
+psensor (0.6.1.9-2) unstable; urgency=low
+
+  * debian/psensor-server.install:
+      - Fixed missing www files.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Fri, 20 May 2011 02:52:34 -0400
+
+psensor (0.6.1.9-1) unstable; urgency=low
 
   * New upstream release
+  * debian/control:
+      - Fixed Lintian warning: newer-standards-version.
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 04 Oct 2011 00:56:55 +0200
-
-psensor (0.6.2.11-1ubuntu1) natty; urgency=low
-
-  * New upstream release
-
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 18 Sep 2011 23:48:00 +0200
-
-psensor (0.6.2.10-1ubuntu1) natty; urgency=low
-
-  * New upstream release
-
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 12 Jul 2011 22:20:47 +0200
-
-psensor (0.6.2.9-1ubuntu1) natty; urgency=low
-
-  * New upstream release
-
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Fri, 20 May 2011 11:14:24 +0200
-
-psensor (0.6.2.8-1ubuntu1) natty; urgency=low
-
-  * New upstream release
-
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Mon, 25 Apr 2011 19:01:02 +0200
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 03 May 2011 11:26:03 +0200
 
 psensor (0.6.1.8-1) unstable; urgency=low
 

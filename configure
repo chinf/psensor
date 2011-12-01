@@ -4833,6 +4833,8 @@ fi
 done
 
 
+# Detects whether the function sysinfo is available
+# At least kfreebsd 6.0.3 does not provide it.
 SYSINFO_FCT=
 ac_fn_c_check_func "$LINENO" "sysinfo" "ac_cv_func_sysinfo"
 if test "x$ac_cv_func_sysinfo" = xyes; then :
