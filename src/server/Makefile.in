@@ -37,7 +37,7 @@ host_triplet = @host@
 bin_PROGRAMS = psensor-server$(EXEEXT)
 @GTOP_TRUE@am__append_1 = $(GTOP_CFLAGS)
 @GTOP_TRUE@am__append_2 = $(GTOP_LIBS) 
-@GTOP_TRUE@@SYSINFO_FCT_TRUE@am__append_3 = sysinfo.h sysinfo.c
+@GTOP_TRUE@am__append_3 = sysinfo.h sysinfo.c
 subdir = src/server
 DIST_COMMON = $(dist_man_MANS) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in
@@ -53,7 +53,7 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(man1dir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__psensor_server_SOURCES_DIST = server.c server.h sysinfo.h \
 	sysinfo.c
-@GTOP_TRUE@@SYSINFO_FCT_TRUE@am__objects_1 = sysinfo.$(OBJEXT)
+@GTOP_TRUE@am__objects_1 = sysinfo.$(OBJEXT)
 am_psensor_server_OBJECTS = server.$(OBJEXT) $(am__objects_1)
 psensor_server_OBJECTS = $(am_psensor_server_OBJECTS)
 psensor_server_LDADD = $(LDADD)

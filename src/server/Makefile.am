@@ -20,16 +20,8 @@ if GTOP
 AM_CPPFLAGS += $(GTOP_CFLAGS)
 LIBS += $(GTOP_LIBS) 
 AM_LDFLAGS = -Wl,--as-needed
-
-if SYSINFO_FCT
 psensor_server_SOURCES += sysinfo.h sysinfo.c
 endif
-
-endif
-
-
-
-
 
 dist_man_MANS =  psensor-server.1
 EXTRA_DIST = description.txt

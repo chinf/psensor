@@ -682,8 +682,6 @@ GMSGFMT
 MSGFMT
 GETTEXT_MACRO_VERSION
 USE_NLS
-SYSINFO_FCT_FALSE
-SYSINFO_FCT_TRUE
 LIBOBJS
 EGREP
 GREP
@@ -4647,7 +4645,7 @@ fi
 done
 
 
-for ac_header in arpa/inet.h netinet/in.h stdint.h stdlib.h string.h sys/socket.h sys/time.h unistd.h getopt.h sys/sysinfo.h
+for ac_header in arpa/inet.h netinet/in.h stdint.h stdlib.h string.h sys/socket.h sys/time.h unistd.h getopt.h
 do :
   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
 ac_fn_c_check_header_mongrel "$LINENO" "$ac_header" "$as_ac_Header" "$ac_includes_default"
@@ -4831,28 +4829,6 @@ _ACEOF
 
 fi
 done
-
-
-# Detects whether the function sysinfo is available
-# At least kfreebsd 6.0.3 does not provide it.
-SYSINFO_FCT=
-ac_fn_c_check_func "$LINENO" "sysinfo" "ac_cv_func_sysinfo"
-if test "x$ac_cv_func_sysinfo" = xyes; then :
-  SYSINFO_FCT='1'
-$as_echo "#define HAVE_SYSINFO_FCT 1" >>confdefs.h
-
-else
-  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"sysinfo function not present\"" >&5
-$as_echo "$as_me: WARNING: \"sysinfo function not present\"" >&2;}
-fi
-
- if test -n "$SYSINFO_FCT"; then
-  SYSINFO_FCT_TRUE=
-  SYSINFO_FCT_FALSE='#'
-else
-  SYSINFO_FCT_TRUE='#'
-  SYSINFO_FCT_FALSE=
-fi
 
 
 
@@ -8745,10 +8721,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCC\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${SYSINFO_FCT_TRUE}" && test -z "${SYSINFO_FCT_FALSE}"; then
-  as_fn_error $? "conditional \"SYSINFO_FCT\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${GTK_TRUE}" && test -z "${GTK_FALSE}"; then

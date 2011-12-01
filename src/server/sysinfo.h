@@ -20,14 +20,18 @@
 #define _PSENSOR_SYSINFO_H_
 
 #include <config.h>
-#include <sys/sysinfo.h>
+#include <glibtop/loadavg.h>
+#include <glibtop/mem.h>
+#include <glibtop/swap.h>
+#include <glibtop/uptime.h>
 
 struct psysinfo {
-	float cpu_rate;
+	glibtop_loadavg loadavg;
+	glibtop_mem mem;
+	glibtop_swap swap;
+	glibtop_uptime uptime;
 
-#ifdef HAVE_SYSINFO_FCT
-	struct sysinfo sysinfo;
-#endif
+	float cpu_rate;
 
 	char **interfaces;
 };

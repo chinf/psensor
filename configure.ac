@@ -18,7 +18,7 @@ AC_PROG_RANLIB
 
 # Checks for header files.
 AC_PATH_X
-AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdint.h stdlib.h string.h sys/socket.h sys/time.h unistd.h getopt.h sys/sysinfo.h])
+AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdint.h stdlib.h string.h sys/socket.h sys/time.h unistd.h getopt.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T
@@ -28,14 +28,6 @@ AC_TYPE_SSIZE_T
 AC_FUNC_MALLOC
 AC_FUNC_REALLOC
 AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol])
-
-# Detects whether the function sysinfo is available
-# At least kfreebsd 6.0.3 does not provide it.
-SYSINFO_FCT=
-AC_CHECK_FUNC(sysinfo,
-	      [SYSINFO_FCT='1' AC_DEFINE([HAVE_SYSINFO_FCT],[1],[Use sysinfo])],
-              [AC_MSG_WARN("sysinfo function not present")])
-AM_CONDITIONAL(SYSINFO_FCT, test -n "$SYSINFO_FCT")
 
 AM_GNU_GETTEXT_VERSION([0.16])
 AM_GNU_GETTEXT([external])
