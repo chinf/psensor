@@ -319,7 +319,7 @@ int main(int argc, char *argv[])
 	textdomain(PACKAGE);
 #endif
 
-	server_data.www_dir = DEFAULT_WWW_DIR;
+	server_data.www_dir = NULL;
 	server_data.psysinfo.interfaces = NULL;
 
 	while ((optc = getopt_long(argc, argv,
@@ -347,6 +347,8 @@ int main(int argc, char *argv[])
 			break;
 		}
 	}
+
+	server_data.www_dir = strdup(DEFAULT_WWW_DIR);
 
 	if (!cmdok || optind != argc) {
 		fprintf(stderr, _("Try `%s --help' for more information.\n"),

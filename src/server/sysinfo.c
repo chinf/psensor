@@ -64,7 +64,7 @@ void sysinfo_update(struct psysinfo *info)
 void sysinfo_cleanup()
 {
 	if (cpu)
-		free(cpu);
+		g_free(cpu);
 }
 
 static json_object *ram_to_json_object(const struct psysinfo *s)
