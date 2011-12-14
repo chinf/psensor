@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-12-11 12:29+0100\n"
+"POT-Creation-Date: 2011-12-14 02:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:88 src/server/server.c:86
+#: src/main.c:88 src/server/server.c:85
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr ""
@@ -58,12 +58,12 @@ msgstr ""
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:110 src/server/server.c:104
+#: src/main.c:110 src/server/server.c:103
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:112 src/server/server.c:106
+#: src/main.c:112 src/server/server.c:105
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
@@ -72,7 +72,7 @@ msgstr ""
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:421 src/server/server.c:354
+#: src/main.c:421 src/server/server.c:353
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
@@ -206,12 +206,12 @@ msgstr ""
 msgid "Invalid JSON: %s"
 msgstr ""
 
-#: src/server/server.c:53
+#: src/server/server.c:52
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 
-#: src/server/server.c:76
+#: src/server/server.c:75
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -221,54 +221,54 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/server/server.c:88
+#: src/server/server.c:87
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 
-#: src/server/server.c:93
+#: src/server/server.c:92
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
 
-#: src/server/server.c:98
+#: src/server/server.c:97
 msgid ""
 "  -d,--debug\t\trun in debug mode\n"
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
 
-#: src/server/server.c:175
+#: src/server/server.c:174
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
-#: src/server/server.c:290
+#: src/server/server.c:289
 #, c-format
 msgid "HTTP Request: %s\n"
 msgstr ""
 
-#: src/server/server.c:368
+#: src/server/server.c:367
 #, c-format
 msgid "ERROR: no sensors detected\n"
 msgstr ""
 
-#: src/server/server.c:375
+#: src/server/server.c:374
 #, c-format
 msgid "ERROR: Fail to create web server\n"
 msgstr ""
 
-#: src/server/server.c:379
+#: src/server/server.c:378
 #, c-format
 msgid "Web server started on port: %d"
 msgstr ""
 
-#: src/server/server.c:380
+#: src/server/server.c:379
 #, c-format
 msgid "WWW directory: %s"
 msgstr ""
 
-#: src/server/server.c:381
+#: src/server/server.c:380
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr ""

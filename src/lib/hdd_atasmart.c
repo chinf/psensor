@@ -29,7 +29,7 @@
 struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 				      int values_max_length)
 {
-	
+
 	log_debug("hdd_psensor_list_add");
 
 	return sensors;
