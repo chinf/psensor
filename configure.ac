@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.64])
-AC_INIT([psensor], [0.6.2.15],[jeanfi@gmail.com],[psensor],[http://wpitchoune.net/psensor])
+AC_INIT([psensor], [0.6.2.16],[jeanfi@gmail.com],[psensor],[http://wpitchoune.net/psensor])
 
 AM_INIT_AUTOMAKE([-Wall -Werror gnu])
 
@@ -75,6 +75,15 @@ AC_SUBST(GCONF_CFLAGS)
 AC_SUBST(GCONF_LIBS)
 
 ### Optional
+
+# check libatasmart
+PKG_CHECK_MODULES(ATASMART, libatasmart,
+	          [AC_DEFINE([HAVE_ATASMART],[1],[Use libatasmart])],
+               	  [AC_MSG_WARN("Library atasmart not present")])
+
+AM_CONDITIONAL(ATASMART, test -n "$ATASMART_LIBS")
+AC_SUBST(ATASMART_CFLAGS)
+AC_SUBST(ATASMART_LIBS)
 
 # Check libnotify
 LIBNOTIFY_LIBS=
