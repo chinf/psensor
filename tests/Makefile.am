@@ -4,8 +4,13 @@ check-local: checkpatch.pl
 
 EXTRA_DIST = checkpatch.pl 
 
-check_PROGRAMS = test-url-encode
+check_PROGRAMS = test-url-encode test-url-normalize
+
 test_url_encode_SOURCES = test_url_encode.c
 test_url_encode_LDADD = ../src/lib/libpsensor.a
 
-TESTS = test-url-encode
+test_url_normalize_SOURCES = test_url_normalize.c
+test_url_normalize_LDADD = ../src/lib/libpsensor.a
+
+TESTS = test-url-encode \
+	test-url-normalize

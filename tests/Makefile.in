@@ -33,8 +33,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = test-url-encode$(EXEEXT)
-TESTS = test-url-encode$(EXEEXT)
+check_PROGRAMS = test-url-encode$(EXEEXT) test-url-normalize$(EXEEXT)
+TESTS = test-url-encode$(EXEEXT) test-url-normalize$(EXEEXT)
 subdir = tests
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -48,6 +48,9 @@ CONFIG_CLEAN_VPATH_FILES =
 am_test_url_encode_OBJECTS = test_url_encode.$(OBJEXT)
 test_url_encode_OBJECTS = $(am_test_url_encode_OBJECTS)
 test_url_encode_DEPENDENCIES = ../src/lib/libpsensor.a
+am_test_url_normalize_OBJECTS = test_url_normalize.$(OBJEXT)
+test_url_normalize_OBJECTS = $(am_test_url_normalize_OBJECTS)
+test_url_normalize_DEPENDENCIES = ../src/lib/libpsensor.a
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -56,8 +59,9 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(test_url_encode_SOURCES)
-DIST_SOURCES = $(test_url_encode_SOURCES)
+SOURCES = $(test_url_encode_SOURCES) $(test_url_normalize_SOURCES)
+DIST_SOURCES = $(test_url_encode_SOURCES) \
+	$(test_url_normalize_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 am__tty_colors = \
@@ -212,6 +216,8 @@ top_srcdir = @top_srcdir@
 EXTRA_DIST = checkpatch.pl 
 test_url_encode_SOURCES = test_url_encode.c
 test_url_encode_LDADD = ../src/lib/libpsensor.a
+test_url_normalize_SOURCES = test_url_normalize.c
+test_url_normalize_LDADD = ../src/lib/libpsensor.a
 all: all-am
 
 .SUFFIXES:
@@ -252,6 +258,9 @@ clean-checkPROGRAMS:
 test-url-encode$(EXEEXT): $(test_url_encode_OBJECTS) $(test_url_encode_DEPENDENCIES) 
 	@rm -f test-url-encode$(EXEEXT)
 	$(LINK) $(test_url_encode_OBJECTS) $(test_url_encode_LDADD) $(LIBS)
+test-url-normalize$(EXEEXT): $(test_url_normalize_OBJECTS) $(test_url_normalize_DEPENDENCIES) 
+	@rm -f test-url-normalize$(EXEEXT)
+	$(LINK) $(test_url_normalize_OBJECTS) $(test_url_normalize_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -260,6 +269,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_url_encode.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_url_normalize.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
