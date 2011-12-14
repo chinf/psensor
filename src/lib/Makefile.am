@@ -12,7 +12,7 @@ libpsensor_a_SOURCES = \
 	hdd.h\
 	nvidia.h \
 	lmsensor.h lmsensor.c \
-	p_io.h p_io.c \
+	pio.h pio.c \
 	url.c url.h
 
 AM_CPPFLAGS=
