@@ -1,3 +1,9 @@
+psensor (0.6.2.16-1ubuntu2) oneiric; urgency=low
+
+  * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 14 Dec 2011 01:52:52 +0100
+
 psensor (0.6.2.15-1ubuntu1) oneiric; urgency=low
 
   * nightly build
