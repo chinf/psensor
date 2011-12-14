@@ -9,17 +9,25 @@ libpsensor_a_SOURCES = \
 	color.h color.c \
 	log.h log.c \
 	psensor.h psensor.c\
-	hdd.h hdd.c\
+	hdd.h\
 	nvidia.h \
 	lmsensor.h lmsensor.c \
 	p_io.h p_io.c \
 	url.c url.h
 
+AM_CPPFLAGS=
+
+if ATASMART
+libpsensor_a_SOURCES += hdd_atasmart.c
+LIBS += $(ATASMART_LIBS)
+AM_CPPFLAGS += $(ATASMART_CFLAGS)
+else
+libpsensor_a_SOURCES += hdd_hddtemp.c
+endif
+
 if NVIDIA
 libpsensor_a_SOURCES += nvidia.c
 endif
-
-AM_CPPFLAGS=
 
 if LIBATIADL
 LIBS += $(LIBATIADL_LIBS)

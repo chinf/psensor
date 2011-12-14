@@ -9,7 +9,8 @@ src/ui_sensorpref.c
 src/rsensor.c
 src/server/server.c
 src/lib/amd.c
-src/lib/hdd.c
+src/lib/hdd_atasmart.c
+src/lib/hdd_hddtemp.c
 src/lib/log.c
 src/lib/nvidia.c
 src/lib/lmsensor.c

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-12-01 22:06+0100\n"
+"POT-Creation-Date: 2011-12-11 12:29+0100\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -84,7 +84,7 @@ msgstr "%s page d'acceuil: <%s>\n"
 msgid "Enables debug mode."
 msgstr "Activée"
 
-#: src/main.c:421 src/server/server.c:352
+#: src/main.c:421 src/server/server.c:354
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez `%s --help' pour plus d'informations.\n"
@@ -285,27 +285,27 @@ msgstr ""
 msgid "HTTP Request: %s\n"
 msgstr "Requete HTTP: %s\n"
 
-#: src/server/server.c:366
+#: src/server/server.c:368
 #, c-format
 msgid "ERROR: no sensors detected\n"
 msgstr "ERREUR: Aucune sonde detectee\n"
 
-#: src/server/server.c:373
+#: src/server/server.c:375
 #, c-format
 msgid "ERROR: Fail to create web server\n"
 msgstr "ERREUR: Echec de la creation du serveur Web\n"
 
-#: src/server/server.c:377
+#: src/server/server.c:379
 #, fuzzy, c-format
 msgid "Web server started on port: %d"
 msgstr "Server Web demarre sur le port: %d\n"
 
-#: src/server/server.c:378
+#: src/server/server.c:380
 #, fuzzy, c-format
 msgid "WWW directory: %s"
 msgstr "WWW repertoire: %s\n"
 
-#: src/server/server.c:379
+#: src/server/server.c:381
 #, fuzzy, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d\n"
@@ -331,22 +331,22 @@ msgid "ERROR: Cannot get the number of adapters!\n"
 msgstr ""
 "ERREUR: Impossible de récuperer la valeur de la sous-fonctionnalité %s: %s\n"
 
-#: src/lib/hdd.c:58
+#: src/lib/hdd_hddtemp.c:59
 #, fuzzy, c-format
 msgid "ERROR: hdd fetch, failed to open socket\n"
 msgstr "ERREUR: hdd_fetch, écher d'ouverture de la socket\n"
 
-#: src/lib/hdd.c:72
+#: src/lib/hdd_hddtemp.c:73
 #, fuzzy, c-format
 msgid "ERROR: hdd fetch, failed to open connection\n"
 msgstr "ERREUR: hdd_fetch, écher de l'ouverture de la connection\n"
 
-#: src/lib/hdd.c:182
+#: src/lib/hdd_hddtemp.c:183
 #, c-format
 msgid "ERROR: wrong hdd string: %s"
 msgstr "ERREUR: mauvaise chaine hdd: %s"
 
-#: src/lib/hdd.c:252
+#: src/lib/hdd_hddtemp.c:253
 #, c-format
 msgid "ERROR: wrong hdd string: %s\n"
 msgstr "ERREUR: mauvaise chaine hdd: %s\n"

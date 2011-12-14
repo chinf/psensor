@@ -34,17 +34,21 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@NVIDIA_TRUE@am__append_1 = nvidia.c
-@LIBATIADL_TRUE@am__append_2 = $(LIBATIADL_LIBS)
-@LIBATIADL_TRUE@am__append_3 = $(LIBATIADL_CFLAGS)
-@LIBATIADL_TRUE@am__append_4 = amd.c
-@LIBATIADL_FALSE@am__append_5 = -pedantic
-@GTOP_TRUE@am__append_6 = cpu.c
-@GTOP_TRUE@am__append_7 = $(GTOP_LIBS)
-@GTOP_TRUE@am__append_8 = $(GTOP_CFLAGS)
-@JSON_TRUE@am__append_9 = psensor_json.h psensor_json.c
-@JSON_TRUE@am__append_10 = $(JSON_LIBS)
-@JSON_TRUE@am__append_11 = $(JSON_CFLAGS)
+@ATASMART_TRUE@am__append_1 = hdd_atasmart.c
+@ATASMART_TRUE@am__append_2 = $(ATASMART_LIBS)
+@ATASMART_TRUE@am__append_3 = $(ATASMART_CFLAGS)
+@ATASMART_FALSE@am__append_4 = hdd_hddtemp.c
+@NVIDIA_TRUE@am__append_5 = nvidia.c
+@LIBATIADL_TRUE@am__append_6 = $(LIBATIADL_LIBS)
+@LIBATIADL_TRUE@am__append_7 = $(LIBATIADL_CFLAGS)
+@LIBATIADL_TRUE@am__append_8 = amd.c
+@LIBATIADL_FALSE@am__append_9 = -pedantic
+@GTOP_TRUE@am__append_10 = cpu.c
+@GTOP_TRUE@am__append_11 = $(GTOP_LIBS)
+@GTOP_TRUE@am__append_12 = $(GTOP_CFLAGS)
+@JSON_TRUE@am__append_13 = psensor_json.h psensor_json.c
+@JSON_TRUE@am__append_14 = $(JSON_LIBS)
+@JSON_TRUE@am__append_15 = $(JSON_CFLAGS)
 subdir = src/lib
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -61,19 +65,22 @@ ARFLAGS = cru
 libpsensor_a_AR = $(AR) $(ARFLAGS)
 libpsensor_a_LIBADD =
 am__libpsensor_a_SOURCES_DIST = amd.h cpu.h measure.h measure.c \
-	color.h color.c log.h log.c psensor.h psensor.c hdd.h hdd.c \
-	nvidia.h lmsensor.h lmsensor.c p_io.h p_io.c url.c url.h \
-	nvidia.c amd.c cpu.c psensor_json.h psensor_json.c
-@NVIDIA_TRUE@am__objects_1 = libpsensor_a-nvidia.$(OBJEXT)
-@LIBATIADL_TRUE@am__objects_2 = libpsensor_a-amd.$(OBJEXT)
-@GTOP_TRUE@am__objects_3 = libpsensor_a-cpu.$(OBJEXT)
-@JSON_TRUE@am__objects_4 = libpsensor_a-psensor_json.$(OBJEXT)
+	color.h color.c log.h log.c psensor.h psensor.c hdd.h nvidia.h \
+	lmsensor.h lmsensor.c p_io.h p_io.c url.c url.h hdd_atasmart.c \
+	hdd_hddtemp.c nvidia.c amd.c cpu.c psensor_json.h \
+	psensor_json.c
+@ATASMART_TRUE@am__objects_1 = libpsensor_a-hdd_atasmart.$(OBJEXT)
+@ATASMART_FALSE@am__objects_2 = libpsensor_a-hdd_hddtemp.$(OBJEXT)
+@NVIDIA_TRUE@am__objects_3 = libpsensor_a-nvidia.$(OBJEXT)
+@LIBATIADL_TRUE@am__objects_4 = libpsensor_a-amd.$(OBJEXT)
+@GTOP_TRUE@am__objects_5 = libpsensor_a-cpu.$(OBJEXT)
+@JSON_TRUE@am__objects_6 = libpsensor_a-psensor_json.$(OBJEXT)
 am_libpsensor_a_OBJECTS = libpsensor_a-measure.$(OBJEXT) \
 	libpsensor_a-color.$(OBJEXT) libpsensor_a-log.$(OBJEXT) \
-	libpsensor_a-psensor.$(OBJEXT) libpsensor_a-hdd.$(OBJEXT) \
-	libpsensor_a-lmsensor.$(OBJEXT) libpsensor_a-p_io.$(OBJEXT) \
-	libpsensor_a-url.$(OBJEXT) $(am__objects_1) $(am__objects_2) \
-	$(am__objects_3) $(am__objects_4)
+	libpsensor_a-psensor.$(OBJEXT) libpsensor_a-lmsensor.$(OBJEXT) \
+	libpsensor_a-p_io.$(OBJEXT) libpsensor_a-url.$(OBJEXT) \
+	$(am__objects_1) $(am__objects_2) $(am__objects_3) \
+	$(am__objects_4) $(am__objects_5) $(am__objects_6)
 libpsensor_a_OBJECTS = $(am_libpsensor_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -92,6 +99,8 @@ ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
 APPINDICATOR_CFLAGS = @APPINDICATOR_CFLAGS@
 APPINDICATOR_LIBS = @APPINDICATOR_LIBS@
+ATASMART_CFLAGS = @ATASMART_CFLAGS@
+ATASMART_LIBS = @ATASMART_LIBS@
 AUTOCONF = @AUTOCONF@
 AUTOHEADER = @AUTOHEADER@
 AUTOMAKE = @AUTOMAKE@
@@ -141,7 +150,8 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = @LIBS@ $(am__append_2) $(am__append_7) $(am__append_10)
+LIBS = @LIBS@ $(am__append_2) $(am__append_6) $(am__append_11) \
+	$(am__append_14)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -233,13 +243,14 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libpsensor.a
-libpsensor_a_CFLAGS = -Wall -Werror $(am__append_5)
+libpsensor_a_CFLAGS = -Wall -Werror $(am__append_9)
 libpsensor_a_SOURCES = amd.h cpu.h measure.h measure.c color.h color.c \
-	log.h log.c psensor.h psensor.c hdd.h hdd.c nvidia.h \
-	lmsensor.h lmsensor.c p_io.h p_io.c url.c url.h \
-	$(am__append_1) $(am__append_4) $(am__append_6) \
-	$(am__append_9)
-AM_CPPFLAGS = $(am__append_3) $(am__append_8) $(am__append_11)
+	log.h log.c psensor.h psensor.c hdd.h nvidia.h lmsensor.h \
+	lmsensor.c p_io.h p_io.c url.c url.h $(am__append_1) \
+	$(am__append_4) $(am__append_5) $(am__append_8) \
+	$(am__append_10) $(am__append_13)
+AM_CPPFLAGS = $(am__append_3) $(am__append_7) $(am__append_12) \
+	$(am__append_15)
 EXTRA_DIST = $(libpsensor_a_SOURCES) \
 	amd.c \
 	cpu.c \
@@ -296,7 +307,8 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-amd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-color.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-cpu.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-hdd.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-hdd_atasmart.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-hdd_hddtemp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-lmsensor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-log.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpsensor_a-measure.Po@am__quote@
@@ -376,20 +388,6 @@ libpsensor_a-psensor.obj: psensor.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-psensor.obj `if test -f 'psensor.c'; then $(CYGPATH_W) 'psensor.c'; else $(CYGPATH_W) '$(srcdir)/psensor.c'; fi`
 
-libpsensor_a-hdd.o: hdd.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-hdd.o -MD -MP -MF $(DEPDIR)/libpsensor_a-hdd.Tpo -c -o libpsensor_a-hdd.o `test -f 'hdd.c' || echo '$(srcdir)/'`hdd.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-hdd.Tpo $(DEPDIR)/libpsensor_a-hdd.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='hdd.c' object='libpsensor_a-hdd.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-hdd.o `test -f 'hdd.c' || echo '$(srcdir)/'`hdd.c
-
-libpsensor_a-hdd.obj: hdd.c
-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-hdd.obj -MD -MP -MF $(DEPDIR)/libpsensor_a-hdd.Tpo -c -o libpsensor_a-hdd.obj `if test -f 'hdd.c'; then $(CYGPATH_W) 'hdd.c'; else $(CYGPATH_W) '$(srcdir)/hdd.c'; fi`
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-hdd.Tpo $(DEPDIR)/libpsensor_a-hdd.Po
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='hdd.c' object='libpsensor_a-hdd.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-hdd.obj `if test -f 'hdd.c'; then $(CYGPATH_W) 'hdd.c'; else $(CYGPATH_W) '$(srcdir)/hdd.c'; fi`
-
 libpsensor_a-lmsensor.o: lmsensor.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-lmsensor.o -MD -MP -MF $(DEPDIR)/libpsensor_a-lmsensor.Tpo -c -o libpsensor_a-lmsensor.o `test -f 'lmsensor.c' || echo '$(srcdir)/'`lmsensor.c
 @am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-lmsensor.Tpo $(DEPDIR)/libpsensor_a-lmsensor.Po
@@ -431,6 +429,34 @@ libpsensor_a-url.obj: url.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='url.c' object='libpsensor_a-url.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-url.obj `if test -f 'url.c'; then $(CYGPATH_W) 'url.c'; else $(CYGPATH_W) '$(srcdir)/url.c'; fi`
+
+libpsensor_a-hdd_atasmart.o: hdd_atasmart.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-hdd_atasmart.o -MD -MP -MF $(DEPDIR)/libpsensor_a-hdd_atasmart.Tpo -c -o libpsensor_a-hdd_atasmart.o `test -f 'hdd_atasmart.c' || echo '$(srcdir)/'`hdd_atasmart.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-hdd_atasmart.Tpo $(DEPDIR)/libpsensor_a-hdd_atasmart.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='hdd_atasmart.c' object='libpsensor_a-hdd_atasmart.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-hdd_atasmart.o `test -f 'hdd_atasmart.c' || echo '$(srcdir)/'`hdd_atasmart.c
+
+libpsensor_a-hdd_atasmart.obj: hdd_atasmart.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-hdd_atasmart.obj -MD -MP -MF $(DEPDIR)/libpsensor_a-hdd_atasmart.Tpo -c -o libpsensor_a-hdd_atasmart.obj `if test -f 'hdd_atasmart.c'; then $(CYGPATH_W) 'hdd_atasmart.c'; else $(CYGPATH_W) '$(srcdir)/hdd_atasmart.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-hdd_atasmart.Tpo $(DEPDIR)/libpsensor_a-hdd_atasmart.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='hdd_atasmart.c' object='libpsensor_a-hdd_atasmart.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-hdd_atasmart.obj `if test -f 'hdd_atasmart.c'; then $(CYGPATH_W) 'hdd_atasmart.c'; else $(CYGPATH_W) '$(srcdir)/hdd_atasmart.c'; fi`
+
+libpsensor_a-hdd_hddtemp.o: hdd_hddtemp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-hdd_hddtemp.o -MD -MP -MF $(DEPDIR)/libpsensor_a-hdd_hddtemp.Tpo -c -o libpsensor_a-hdd_hddtemp.o `test -f 'hdd_hddtemp.c' || echo '$(srcdir)/'`hdd_hddtemp.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-hdd_hddtemp.Tpo $(DEPDIR)/libpsensor_a-hdd_hddtemp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='hdd_hddtemp.c' object='libpsensor_a-hdd_hddtemp.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-hdd_hddtemp.o `test -f 'hdd_hddtemp.c' || echo '$(srcdir)/'`hdd_hddtemp.c
+
+libpsensor_a-hdd_hddtemp.obj: hdd_hddtemp.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-hdd_hddtemp.obj -MD -MP -MF $(DEPDIR)/libpsensor_a-hdd_hddtemp.Tpo -c -o libpsensor_a-hdd_hddtemp.obj `if test -f 'hdd_hddtemp.c'; then $(CYGPATH_W) 'hdd_hddtemp.c'; else $(CYGPATH_W) '$(srcdir)/hdd_hddtemp.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpsensor_a-hdd_hddtemp.Tpo $(DEPDIR)/libpsensor_a-hdd_hddtemp.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='hdd_hddtemp.c' object='libpsensor_a-hdd_hddtemp.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -c -o libpsensor_a-hdd_hddtemp.obj `if test -f 'hdd_hddtemp.c'; then $(CYGPATH_W) 'hdd_hddtemp.c'; else $(CYGPATH_W) '$(srcdir)/hdd_hddtemp.c'; fi`
 
 libpsensor_a-nvidia.o: nvidia.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libpsensor_a_CFLAGS) $(CFLAGS) -MT libpsensor_a-nvidia.o -MD -MP -MF $(DEPDIR)/libpsensor_a-nvidia.Tpo -c -o libpsensor_a-nvidia.o `test -f 'nvidia.c' || echo '$(srcdir)/'`nvidia.c
