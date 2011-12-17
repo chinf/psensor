@@ -19,50 +19,77 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-#include <sys/stat.h>
 
-#include "../src/lib/url.h"
+#include "../src/lib/pio.h"
 
-int test_url_encode(char *url, char *ref_url)
+static int test_empty_dir()
 {
-	char *res_url;
 	int ret;
+	char **paths;
 
-	res_url = url_encode(url);
+	paths = dir_list("data/empty_dir", NULL);
 
-	if (strcmp(ref_url, res_url)) {
-		fprintf(stderr,
-			"FAILURE: url_encode(%s) returns %s instead of %s\n",
-			url, res_url, ref_url);
-		ret = 0;
-	} else {
-		ret = 1;
-	}
+	ret = 0;
+	if (paths) {
+		if (*paths) {
+			ret = 1;
+			fprintf(stderr, "ERROR: list not empty %s\n", *paths);
+		}
 
-	free(res_url);
+		paths_free(paths);
+	} 
 
 	return ret;
 }
 
-int tests_url_encode()
+static int test_2files_dir()
 {
+	int ret, one, two;
+	char **paths, **cur;
+
+	paths = dir_list("data/2files_dir", NULL);
+
+	one = two = ret = 0;
+
+	if (!paths) {
+		fprintf(stderr, "ERROR: list is NULL\n");
+		return 1;
+	}
+
+	cur = paths;
+	while(*cur) {
+		if (!strcmp(*cur, "data/2files_dir/one")) {
+			one++;
+		} else if (!strcmp(*cur, "data/2files_dir/two")) {
+			two++;
+		} else {
+			fprintf("ERROR: wrong item: %s\n", *cur);
+
+			ret = 1;
+		}
+		
+		cur++;
+	}
+	
+	if (!ret && one == 1 && two == 1)
+		ret = 0;
+	else
+		ret = 1;
+	
+	paths_free(paths);
+
+	return ret;
+}
+
+static int tests_dir_list() {
 	int failures;
 
-	failures = 0;
+	failures += test_empty_dir();
 
-	if (!test_url_encode("abcdef12345", "abcdef12345"))
-		failures++;
-
-	if (!test_url_encode("a b", "a%20b"))
-		failures++;
-
-	if (!test_url_encode("ab-_.~", "ab-_.~"))
-		failures++;
+	failures += test_2files_dir();
 
 	return failures;
 }
-
 
 int main(int argc, char **argv)
 {
@@ -70,7 +97,7 @@ int main(int argc, char **argv)
 
 	failures = 0;
 
-	failures += tests_url_encode();
+	failures += tests_dir_list();
 
 	if (failures) 
 		exit(EXIT_FAILURE);

@@ -14,9 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
- *02110-1301 USA
+ * 02110-1301 USA
  */
-
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -24,7 +23,6 @@
 #include <sys/stat.h>
 
 #include "../src/lib/url.h"
-
 
 int test_url_normalize(const char *url, const char *ref_url)
 {
@@ -47,7 +45,6 @@ int test_url_normalize(const char *url, const char *ref_url)
 
 	return ret;
 }
-
 
 int tests_url_normalize()
 {

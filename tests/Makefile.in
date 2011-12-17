@@ -33,8 +33,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = test-url-encode$(EXEEXT) test-url-normalize$(EXEEXT)
-TESTS = test-url-encode$(EXEEXT) test-url-normalize$(EXEEXT)
+check_PROGRAMS = test-io-dir-list$(EXEEXT) test-url-encode$(EXEEXT) \
+	test-url-normalize$(EXEEXT)
+TESTS = test-url-encode$(EXEEXT) test-url-normalize$(EXEEXT) \
+	test-io-dir-list.sh
 subdir = tests
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -45,6 +47,9 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
+am_test_io_dir_list_OBJECTS = test_io_dir_list.$(OBJEXT)
+test_io_dir_list_OBJECTS = $(am_test_io_dir_list_OBJECTS)
+test_io_dir_list_DEPENDENCIES = ../src/lib/libpsensor.a
 am_test_url_encode_OBJECTS = test_url_encode.$(OBJEXT)
 test_url_encode_OBJECTS = $(am_test_url_encode_OBJECTS)
 test_url_encode_DEPENDENCIES = ../src/lib/libpsensor.a
@@ -59,8 +64,9 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(test_url_encode_SOURCES) $(test_url_normalize_SOURCES)
-DIST_SOURCES = $(test_url_encode_SOURCES) \
+SOURCES = $(test_io_dir_list_SOURCES) $(test_url_encode_SOURCES) \
+	$(test_url_normalize_SOURCES)
+DIST_SOURCES = $(test_io_dir_list_SOURCES) $(test_url_encode_SOURCES) \
 	$(test_url_normalize_SOURCES)
 ETAGS = etags
 CTAGS = ctags
@@ -213,11 +219,14 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-EXTRA_DIST = checkpatch.pl 
+EXTRA_DIST = checkpatch.pl data test-io-dir-list.sh
+AM_CPPFLAGS = -pedantic
 test_url_encode_SOURCES = test_url_encode.c
 test_url_encode_LDADD = ../src/lib/libpsensor.a
 test_url_normalize_SOURCES = test_url_normalize.c
 test_url_normalize_LDADD = ../src/lib/libpsensor.a
+test_io_dir_list_SOURCES = test_io_dir_list.c
+test_io_dir_list_LDADD = ../src/lib/libpsensor.a
 all: all-am
 
 .SUFFIXES:
@@ -255,6 +264,9 @@ $(am__aclocal_m4_deps):
 
 clean-checkPROGRAMS:
 	-test -z "$(check_PROGRAMS)" || rm -f $(check_PROGRAMS)
+test-io-dir-list$(EXEEXT): $(test_io_dir_list_OBJECTS) $(test_io_dir_list_DEPENDENCIES) 
+	@rm -f test-io-dir-list$(EXEEXT)
+	$(LINK) $(test_io_dir_list_OBJECTS) $(test_io_dir_list_LDADD) $(LIBS)
 test-url-encode$(EXEEXT): $(test_url_encode_OBJECTS) $(test_url_encode_DEPENDENCIES) 
 	@rm -f test-url-encode$(EXEEXT)
 	$(LINK) $(test_url_encode_OBJECTS) $(test_url_encode_LDADD) $(LIBS)
@@ -268,6 +280,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_io_dir_list.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_url_encode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_url_normalize.Po@am__quote@
 
