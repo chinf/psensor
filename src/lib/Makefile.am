@@ -33,8 +33,6 @@ if LIBATIADL
 LIBS += $(LIBATIADL_LIBS)
 AM_CPPFLAGS += $(LIBATIADL_CFLAGS)
 libpsensor_a_SOURCES += amd.c
-else
-libpsensor_a_CFLAGS += -pedantic
 endif
 
 if GTOP
