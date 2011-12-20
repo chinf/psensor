@@ -1,7 +1,5 @@
 noinst_LIBRARIES = libpsensor.a
 
-libpsensor_a_CFLAGS = -Wall -Werror
-
 libpsensor_a_SOURCES = \
 	amd.h \
 	cpu.h \
@@ -15,7 +13,7 @@ libpsensor_a_SOURCES = \
 	pio.h pio.c \
 	url.c url.h
 
-AM_CPPFLAGS=
+AM_CPPFLAGS = -Wall -Werror
 
 if ATASMART
 libpsensor_a_SOURCES += hdd_atasmart.c

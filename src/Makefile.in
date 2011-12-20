@@ -310,7 +310,9 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = lib glade $(am__append_1)
 AM_LDFLAGS = -Wl,--as-needed 
-AM_CPPFLAGS = -Wall -pedantic -Werror \
+
+# -no-deprecated-declarations to avoid some glib deprecation warnings
+AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
 	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS) $(GCONF_CFLAGS) $(SENSORS_CFLAGS) \
