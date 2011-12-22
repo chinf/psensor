@@ -2,20 +2,36 @@ Source: psensor
 Section: utils
 Priority: extra
 Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
-Build-Depends: debhelper (>= 7.0.50~),autoconf,automake,gettext,autopoint,libgtk-3-dev,libgconf2-dev,libnotify-dev,libsensors4-dev,help2man,libcurl4-openssl-dev,libjson0-dev,libmicrohttpd-dev,libgtop2-dev,perl
+Build-Depends: autoconf,
+               automake,
+               autopoint,
+               debhelper (>= 7.0.50~),
+               gettext,
+               help2man,
+               libcurl4-openssl-dev,
+               libgconf2-dev,
+               libgtk-3-dev,
+               libgtop2-dev,
+               libjson0-dev,
+               libmicrohttpd-dev,
+               libnotify-dev,
+               libsensors4-dev,
+               perl
 Standards-Version: 3.9.2
 Homepage: http://wpitchoune.net/psensor
 
 Package: psensor
 Architecture: any
-Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
+Depends: psensor-common (= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
 Recommends: hddtemp
 Description: display graphs for monitoring hardware temperature
  Psensor is a GTK+ application for monitoring hardware sensors,
  including temperatures and fan speeds.
  .
  It displays a curve for each sensor, alerts user using Desktop Notification
- and Application Indicator when a temperature is too high. 
+ and Application Indicator when a temperature is too high.
  .
  It can monitor:
   * the temperature of the motherboard and CPU sensors (using lm-sensors).
@@ -23,11 +39,14 @@ Description: display graphs for monitoring hardware temperature
   * the temperature of the Hard Disk Drives (using hddtemp).
   * the rotation speed of the fans (using lm-sensors).
   * the sensors of a remote computer (using psensor-server).
- . 
+ .
 
 Package: psensor-server
 Architecture: any
-Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}, libjs-jquery
+Depends: libjs-jquery,
+         psensor-common (= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
 Recommends: hddtemp
 Description: Psensor server for monitoring hardware sensors remotely
  Psensor server is an HTTP server providing a JSON Web service which can be
