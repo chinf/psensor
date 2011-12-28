@@ -1,3 +1,13 @@
+* v0.7.0.0
+
+** psensor: fixed sensor type displayed in sensor preferences dialog.
+
+* v0.6.2.16
+
+** psensor: removed -pedantic and ignores deprecation warnings
+   to fix compilation against the glib version of Ubuntu Precise.
+   It fixes Ubuntu bug #905893.
+
 * v0.6.2.15
 
 ** psensor-server: uses glibtop instead of 'sysinfo' which is not

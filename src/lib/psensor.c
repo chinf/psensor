@@ -396,29 +396,29 @@ struct psensor **get_all_sensors(int values_max_length)
 
 const char *psensor_type_to_str(unsigned int type)
 {
-	if (type & SENSOR_TYPE_REMOTE)
-		return "Remote";
-
-	if (type & SENSOR_TYPE_LMSENSOR_TEMP)
-		return "Temperature";
-
-	if (type & SENSOR_TYPE_LMSENSOR_FAN)
-		return "Fan";
-
-	if (type & SENSOR_TYPE_NVIDIA_TEMP)
+	if ((type & SENSOR_TYPE_NVIDIA_TEMP) == SENSOR_TYPE_NVIDIA_TEMP)
 		return "NVidia GPU Temperature";
 
-	if (type & SENSOR_TYPE_AMD_TEMP)
+	if ((type & SENSOR_TYPE_AMD_TEMP) == SENSOR_TYPE_AMD_TEMP)
 		return "AMD GPU Temperature";
 
-	if (type & SENSOR_TYPE_AMD_FAN)
+	if ((type & SENSOR_TYPE_AMD_FAN) == SENSOR_TYPE_AMD_FAN)
 		return "AMD GPU Fan Speed";
 
-	if (type & SENSOR_TYPE_HDD_TEMP)
+	if ((type & SENSOR_TYPE_HDD_TEMP) == SENSOR_TYPE_HDD_TEMP)
 		return "HDD Temperature";
 
 	if (type & SENSOR_TYPE_CPU_USAGE)
 		return "CPU Usage";
+
+	if (type & SENSOR_TYPE_TEMP)
+		return "Temperature";
+
+	if (type & SENSOR_TYPE_FAN)
+		return "Fan";
+
+	if (type & SENSOR_TYPE_REMOTE)
+		return "Remote";
 
 	return "N/A";		/* should not be possible */
 }
