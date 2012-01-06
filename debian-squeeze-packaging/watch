@@ -1,0 +1,4 @@
+version=3
+
+http://wpitchoune.net/psensor/files/psensor-(\d.*)\.tar\.gz
+

@@ -1,0 +1,52 @@
+Source: psensor
+Section: utils
+Priority: extra
+Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~),autoconf,automake,gettext,autopoint,libgtk2.0-dev,libgconf2-dev,libnotify-dev,libsensors4-dev,help2man,libcurl4-openssl-dev,libjson0-dev,libmicrohttpd-dev,libgtop2-dev,perl
+Standards-Version: 3.9.1
+Homepage: http://wpitchoune.net/psensor
+
+Package: psensor
+Architecture: any
+Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: hddtemp
+Description: display graphs for monitoring hardware temperature
+ Psensor is a GTK+ application for monitoring hardware sensors,
+ including temperatures and fan speeds.
+ .
+ It displays a curve for each sensor, alerts user using Desktop Notification
+ and Application Indicator when a temperature is too high. 
+ .
+ It can monitor:
+  * the temperature of the motherboard and CPU sensors (using lm-sensors).
+  * the temperature of the NVidia GPUs (using XNVCtrl).
+  * the temperature of the Hard Disk Drives (using hddtemp).
+  * the rotation speed of the fans (using lm-sensors).
+  * the sensors of a remote computer (using psensor-server).
+ . 
+
+Package: psensor-server
+Architecture: any
+Depends: psensor-common (= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}, libjs-jquery
+Recommends: hddtemp
+Description: Psensor server for monitoring hardware sensors remotely
+ Psensor server is an HTTP server providing a JSON Web service which can be
+ used by Psensor GTK+ Application to monitor remotely the hardware sensors
+ of a computer.
+ .
+ It can provide information about:
+  * the temperature of the motherboard and CPU sensors (using lm-sensors).
+  * the temperature of the NVidia GPUs (using XNVCtrl).
+  * the temperature of the Hard Disk Drives (using hddtemp).
+  * the rotation speed of the fans (using lm-sensors).
+ .
+ It is also possible to connect to Psensor server with a browser, a simple
+ Web page is displaying the information.
+ .
+
+Package: psensor-common
+Architecture: all
+Depends: ${misc:Depends}
+Description: common files for Psensor and Psensor server
+ It contains languages packs for both Psensor and Psensor server.
+ .

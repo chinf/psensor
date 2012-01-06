@@ -1,0 +1,189 @@
+psensor (0.6.2.15-2squeeze1) unstable; urgency=low
+
+  * Debian squeeze build.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Fri, 06 Jan 2012 05:05:12 -0500
+
+psensor (0.6.2.15-1ubuntu1) oneiric; urgency=low
+
+  * nightly build
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 01 Dec 2011 01:57:00 +0100
+
+psensor (0.6.2.15-1) unstable; urgency=low
+
+  * New upstream release
+      - fct sysinfo is optional. (Closes: #650533)
+  * debian/control
+      - set priority to 'extra' instead of 'optional' due to dependence
+ 	on json-c lib which is using a priority 'extra'.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 01 Dec 2011 01:57:00 +0100
+
+psensor (0.6.2.14-1) unstable; urgency=low
+
+  * New upstream release
+      - monochrome icons for Ubuntu themes. (Closes LP: #811003)
+  * debian/copyright:
+      - replaced email with my personnal one
+      - added license and copyright info for jqplot
+  * debian/control:
+      - removed useless dep to lua
+      - switch to Standards-Version 3.9.2
+      - added build dep to libjs-query
+      - replaced email with my personnal one
+      - build dep to gtk3 instead of gtk2
+  * debian/psensor.install:
+      - added icons directory to include ubuntu default icons theme
+      - added directories for glade files
+      - added directory for autostart file
+  * debian/psensor-server.links:
+      - linked query.js file from libjs-query package
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Fri, 25 Nov 2011 02:56:22 -0500
+
+psensor (0.6.1.9-3) unstable; urgency=low
+
+  * debian/copyright:
+      - Fixed Lintian error: helper-templates-in-copyright
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Mon, 12 Sep 2011 05:47:02 -0400
+
+psensor (0.6.1.9-2) unstable; urgency=low
+
+  * debian/psensor-server.install:
+      - Fixed missing www files.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Fri, 20 May 2011 02:52:34 -0400
+
+psensor (0.6.1.9-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control:
+      - Fixed Lintian warning: newer-standards-version.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 03 May 2011 11:26:03 +0200
+
+psensor (0.6.1.8-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control:
+      - removed empty paragraphs. (Closes: #624236)
+      - added build-dep to autoconf,automake,gettext,autopoint
+      - switched to Standards-Version 3.9.2
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 21 Apr 2011 15:19:35 +0200
+
+psensor (0.6.1.7-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Tue, 19 Apr 2011 14:43:17 +0200
+
+psensor (0.6.1.6-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control: fixed capitalization-error-in-description
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 14 Apr 2011 23:57:35 +0200
+
+psensor (0.6.1.5-1) unstable; urgency=low
+
+  * First official Debian package.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sun, 20 Feb 2011 15:15:30 +0100
+
+psensor (0.6.1.5-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 17 Feb 2011 02:15:50 +0100
+
+psensor (0.6.1.4-0ubuntu1) maverick; urgency=low
+
+  * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 16 Feb 2011 19:17:18 +0100
+
+psensor (0.6.1.3-1) maverick; urgency=low
+
+  * upgrade upstream
+  * removed debian/tmp in .install files
+  * improved long description of the packages
+  * fixed debian/copyright(add real name and license preamble)
+  * use dh_installman
+  * added debian/watch file
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 16 Feb 2011 09:56:05 +0100
+
+psensor (0.6.1.1-3) lucid; urgency=low
+
+  * bump lucid
+
+ -- jeanfi <jeanfi@gmail.com>  Tue, 15 Feb 2011 12:10:08 +0100
+
+psensor (0.6.1.1-2) natty; urgency=low
+
+  * bump natty
+
+ -- jeanfi <jeanfi@gmail.com>  Tue, 15 Feb 2011 12:09:19 +0100
+
+psensor (0.6.1.1-1) maverick; urgency=low
+
+  * upgrade upstream
+
+ -- jeanfi <jeanfi@gmail.com>  Tue, 15 Feb 2011 11:41:38 +0100
+
+psensor (0.6.1-4) natty; urgency=low
+
+  * bump natty
+
+ -- jeanfi <jeanfi@gmail.com>  Mon, 14 Feb 2011 12:18:28 +0100
+
+psensor (0.6.1-3) lucid; urgency=low
+
+  * bump lucid
+
+ -- jeanfi <jeanfi@gmail.com>  Mon, 14 Feb 2011 12:17:37 +0100
+
+psensor (0.6.1-2) maverick; urgency=low
+
+  * fixed file conflicts concerning doc dir
+
+ -- jeanfi <jeanfi@gmail.com>  Mon, 14 Feb 2011 11:47:16 +0100
+
+psensor (0.6.1-1) maverick; urgency=low
+
+  * upgrade upstream
+
+ -- jeanfi <jeanfi@gmail.com>  Mon, 14 Feb 2011 10:52:24 +0100
+
+psensor (0.6.0.14-5) karmic; urgency=low
+
+  * bump karmic
+
+ -- jeanfi <jeanfi@gmail.com>  Sun, 13 Feb 2011 14:05:07 +0100
+
+psensor (0.6.0.14-4) maverick; urgency=low
+
+  * www/index.lua in the psensor-server package
+
+ -- jeanfi <jeanfi@gmail.com>  Sun, 13 Feb 2011 13:30:30 +0100
+
+psensor (0.6.0.14-3) lucid; urgency=low
+
+  * bump lucid
+
+ -- jeanfi <jeanfi@gmail.com>  Sat, 12 Feb 2011 21:18:22 +0100
+
+psensor (0.6.0.14-2) natty; urgency=low
+
+  * bump natty
+
+ -- jeanfi <jeanfi@gmail.com>  Sat, 12 Feb 2011 21:16:38 +0100
+
+psensor (0.6.0.14-1) maverick; urgency=low
+
+  * upgrade upstream
+
+ -- jeanfi <jeanfi@gmail.com>  Sat, 12 Feb 2011 14:34:42 +0100
