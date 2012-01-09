@@ -22,6 +22,10 @@
 #include "config.h"
 #include <sensors/sensors.h>
 
+#ifdef HAVE_ATASMART
+#include <atasmart.h>
+#endif
+
 #include "color.h"
 #include "log.h"
 #include "measure.h"
@@ -101,6 +105,9 @@ struct psensor {
 #ifdef HAVE_LIBATIADL
 	/* AMD id for the aticonfig */
 	int amd_id;
+#endif
+#ifdef HAVE_ATASMART
+	SkDisk *disk;
 #endif
 
 	char *url;

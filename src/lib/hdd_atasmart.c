@@ -21,18 +21,67 @@
 #define _(str) gettext(str)
 
 #include <stdlib.h>
+#include <string.h>
+
 #include <atasmart.h>
 
+#include "pio.h"
 #include "hdd.h"
 #include "log.h"
+
+static int filter_sd(const char *p)
+{
+	return strlen(p) == 8 && !strncmp(p, "/dev/sd", 7);
+}
+
+static struct psensor *
+create_sensor(char *id, char *name, int values_max_length)
+{
+	return psensor_create(id,
+			      strdup(name),
+			      SENSOR_TYPE_HDD_TEMP,
+			      values_max_length);
+}
 
 struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 				      int values_max_length)
 {
+	char **paths, **tmp;
+	SkDisk *disk;
+	struct psensor *sensor, **tmp_sensors, **result;
 
 	log_debug("hdd_psensor_list_add");
 
-	return sensors;
+	paths = dir_list("/dev", filter_sd);
+
+	result = sensors;
+	tmp = paths;
+	while (*tmp) {
+		log_debug("hdd_psensor_list_add open %s", tmp);
+
+		if (!sk_disk_open(*tmp, &disk)) {
+			char *id = malloc(strlen("hdd at") + strlen(*tmp) + 1);
+			strcpy(id, "hdd at");
+			strcat(id, *tmp);
+
+			sensor = create_sensor(id, *tmp, values_max_length);
+
+			tmp_sensors = psensor_list_add(result, sensor);
+
+			if (result != sensors)
+				free(result);
+
+			result = tmp_sensors;
+		} else {
+			log_err("Failed to open %s", *tmp);
+		}
+
+		tmp++;
+	}
+
+	paths_free(paths);
+
+	return result;
 }
 
 void hdd_psensor_list_update(struct psensor **sensors)
