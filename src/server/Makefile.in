@@ -38,6 +38,8 @@ bin_PROGRAMS = psensor-server$(EXEEXT)
 @GTOP_TRUE@am__append_1 = $(GTOP_CFLAGS)
 @GTOP_TRUE@am__append_2 = $(GTOP_LIBS) 
 @GTOP_TRUE@am__append_3 = sysinfo.h sysinfo.c
+@ATASMART_TRUE@am__append_4 = $(ATASMART_CFLAGS)
+@ATASMART_TRUE@am__append_5 = $(ATASMART_LIBS)
 subdir = src/server
 DIST_COMMON = $(dist_man_MANS) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in
@@ -150,7 +152,7 @@ LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
 LIBS = ../lib/libpsensor.a $(SENSORS_LIBS) $(JSON_LIBS) \
-	$(LIBMICROHTTPD_LIBS) $(am__append_2)
+	$(LIBMICROHTTPD_LIBS) $(am__append_2) $(am__append_5)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -244,7 +246,8 @@ top_srcdir = @top_srcdir@
 psensor_server_SOURCES = server.c server.h $(am__append_3)
 AM_CPPFLAGS = -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
 	-I$(top_srcdir)/src -I$(top_srcdir)/src/lib $(SENSORS_CFLAGS) \
-	$(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) $(am__append_1)
+	$(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) $(am__append_1) \
+	$(am__append_4)
 @GTOP_TRUE@AM_LDFLAGS = -Wl,--as-needed
 dist_man_MANS = psensor-server.1
 EXTRA_DIST = description.txt

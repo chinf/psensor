@@ -1,3 +1,9 @@
+psensor (0.7.0.0-1ubuntu1) oneiric; urgency=low
+
+  * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 28 Dec 2011 19:55:51 +0100
+
 psensor (0.6.2.16-1ubuntu2) oneiric; urgency=low
 
   * New upstream release

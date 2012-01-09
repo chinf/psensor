@@ -23,6 +23,11 @@ AM_LDFLAGS = -Wl,--as-needed
 psensor_server_SOURCES += sysinfo.h sysinfo.c
 endif
 
+if ATASMART
+AM_CPPFLAGS += $(ATASMART_CFLAGS)
+LIBS += $(ATASMART_LIBS)
+endif
+
 dist_man_MANS =  psensor-server.1
 EXTRA_DIST = description.txt
 psensor-server.1: server.c $(top_srcdir)/configure.ac

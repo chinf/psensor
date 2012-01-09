@@ -2,6 +2,10 @@
 
 ** psensor: fixed sensor type displayed in sensor preferences dialog.
 
+* v0.6.2.17
+
+** psensor: fixed sensor type displayed in sensor preferences dialog.
+
 * v0.6.2.16
 
 ** psensor: removed -pedantic and ignores deprecation warnings

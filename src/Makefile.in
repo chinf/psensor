@@ -48,12 +48,14 @@ bin_PROGRAMS = psensor$(EXEEXT)
 @NVIDIA_TRUE@am__append_11 = $(NVIDIA_LIBS)
 @LIBATIADL_TRUE@am__append_12 = $(LIBATIADL_CFLAGS)
 @LIBATIADL_TRUE@am__append_13 = $(LIBATIADL_LIBS)
-@UNITY_TRUE@am__append_14 = ui_unity.h ui_unity.c
-@UNITY_TRUE@am__append_15 = $(UNITY_CFLAGS)
-@UNITY_TRUE@am__append_16 = $(UNITY_LIBS) 
-@CURL_TRUE@@JSON_TRUE@am__append_17 = rsensor.h rsensor.c
-@CURL_TRUE@@JSON_TRUE@am__append_18 = $(CURL_LIBS) $(JSON_LIBS)
-@CURL_TRUE@@JSON_TRUE@am__append_19 = $(CURL_CFLAGS) $(JSON_CFLAGS)
+@ATASMART_TRUE@am__append_14 = $(ATASMART_CFLAGS)
+@ATASMART_TRUE@am__append_15 = $(ATASMART_LIBS)
+@UNITY_TRUE@am__append_16 = ui_unity.h ui_unity.c
+@UNITY_TRUE@am__append_17 = $(UNITY_CFLAGS)
+@UNITY_TRUE@am__append_18 = $(UNITY_LIBS) 
+@CURL_TRUE@@JSON_TRUE@am__append_19 = rsensor.h rsensor.c
+@CURL_TRUE@@JSON_TRUE@am__append_20 = $(CURL_LIBS) $(JSON_LIBS)
+@CURL_TRUE@@JSON_TRUE@am__append_21 = $(CURL_CFLAGS) $(JSON_CFLAGS)
 subdir = src
 DIST_COMMON = $(dist_man_MANS) $(srcdir)/Makefile.am \
 	$(srcdir)/Makefile.in
@@ -216,8 +218,8 @@ LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
 LIBS = lib/libpsensor.a $(GTK_LIBS) $(GCONF_LIBS) $(SENSORS_LIBS) \
 	$(am__append_3) $(am__append_5) $(am__append_8) \
-	$(am__append_11) $(am__append_13) $(am__append_16) \
-	$(am__append_18)
+	$(am__append_11) $(am__append_13) $(am__append_15) \
+	$(am__append_18) $(am__append_20)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -317,14 +319,14 @@ AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \
 	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS) $(GCONF_CFLAGS) $(SENSORS_CFLAGS) \
 	$(am__append_2) $(am__append_6) $(am__append_9) \
-	$(am__append_10) $(am__append_12) $(am__append_15) \
-	$(am__append_19)
+	$(am__append_10) $(am__append_12) $(am__append_14) \
+	$(am__append_17) $(am__append_21)
 psensor_SOURCES = compat.h cfg.h cfg.c graph.h graph.c main.c ui.h \
 	ui.c ui_appindicator.h ui_color.h ui_color.c ui_graph.h \
 	ui_graph.c ui_pref.h ui_pref.c ui_sensorlist.h ui_sensorlist.c \
 	ui_sensorpref.h ui_sensorpref.c ui_status.h ui_status.c \
-	$(am__append_4) $(am__append_7) $(am__append_14) \
-	$(am__append_17)
+	$(am__append_4) $(am__append_7) $(am__append_16) \
+	$(am__append_19)
 dist_man_MANS = psensor.1
 EXTRA_DIST = description.txt
 all: all-recursive
