@@ -63,7 +63,7 @@ static int test_2files_dir()
 		} else if (!strcmp(*cur, "data/2files_dir/two")) {
 			two++;
 		} else {
-			fprintf("ERROR: wrong item: %s\n", *cur);
+			fprintf(stderr, "ERROR: wrong item: %s\n", *cur);
 
 			ret = 1;
 		}
