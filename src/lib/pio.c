@@ -24,11 +24,37 @@
 
 #include "pio.h"
 
-char **dir_list(const char *dpath, int (*filter) (const char *path))
+static char *path_append(const char *dir, const char *path)
+{
+	char *result;
+
+	result = malloc(strlen(dir) + 1 + strlen(path) + 1);
+
+	strcpy(result, dir);
+	strcat(result, "/");
+	strcat(result, path);
+
+	return result;
+}
+
+static char **paths_add(char **paths, int n, char *path)
+{
+	char **result;
+
+	result = malloc((n+1) * sizeof(void *));
+
+	memcpy(result + 1, paths, n * sizeof(void *));
+
+	*result = path;
+
+	return result;
+}
+
+char **dir_list(const char *dpath, int (*filter) (const char *))
 {
 	struct dirent *ent;
 	DIR *dir;
-	char **paths;
+	char **paths, *path, *name, **tmp;
 	int n;
 
 	dir = opendir(dpath);
@@ -41,30 +67,21 @@ char **dir_list(const char *dpath, int (*filter) (const char *path))
 	*paths = NULL;
 
 	while ((ent = readdir(dir)) != NULL) {
-		char *fpath;
-		char *name = ent->d_name;
+		name = ent->d_name;
 
 		if (!strcmp(name, ".") || !strcmp(name, ".."))
 			continue;
 
-		fpath = malloc(strlen(dpath) + 1 + strlen(name) + 1);
+		path = path_append(dpath, name);
 
-		strcpy(fpath, dpath);
-		strcat(fpath, "/");
-		strcat(fpath, name);
-
-		if (!filter || filter(fpath)) {
-			char **npaths;
+		if (!filter || filter(path)) {
+			tmp = paths_add(paths, n, path);
+			free(paths);
+			paths = tmp;
 
 			n++;
-			npaths = malloc(n * sizeof(void *));
-			memcpy(npaths + 1, paths, (n - 1) * sizeof(void *));
-			free(paths);
-			paths = npaths;
-			*npaths = fpath;
-
 		} else {
-			free(fpath);
+			free(path);
 		}
 	}
 
