@@ -8,7 +8,7 @@ check_PROGRAMS = test-io-dir-list \
 	test-url-encode \
 	test-url-normalize
 
-AM_CPPFLAGS = -pedantic
+AM_CPPFLAGS = -pedantic -Werror
 
 test_url_encode_SOURCES = test_url_encode.c
 test_url_encode_LDADD = ../src/lib/libpsensor.a
