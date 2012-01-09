@@ -117,3 +117,12 @@ void log_debug(const char *fmt, ...)
 	vlogf(LOG_DEBUG, fmt, ap);
 	va_end(ap);
 }
+
+void log_err(const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	vlogf(LOG_ERR, fmt, ap);
+	va_end(ap);
+}
