@@ -105,6 +105,27 @@ As microhttpd and json-c libraries are not available in the standard centos
 repository, psensor-server cannot be compiled and the remote
 monitoring feature of psensor will not be available.
 
+ATI/AMD GPU Support
+-------------------
+
+To compile Psensor with ATI support on Ubuntu:
+
+ * installs the usual Psensor build dependencies and fglrx ubuntu
+   package.
+
+ * downloads the ATI ADL SDK from:
+   http://developer.amd.com/sdks/ADLSDK/Pages/default.aspx and
+   extracts the files of the archive into a directory [dir].
+
+ * configure the build environment: 
+   ./configure --with-libatiadl=[dir]   
+   where [dir] must be the directory where you have extracted the ATI
+   ADL SDK.
+
+ * then follow usual GNU autotools compilation:
+   make clean all
+   make install
+
 Installation from source archive
 --------------------------------
 
