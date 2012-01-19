@@ -8,6 +8,7 @@
 * v0.6.2.17
 
 ** psensor: fixed sensor type displayed in sensor preferences dialog.
+** psensor: fixed compilation error on 64bits with ATI/AMD GPU support.
 
 * v0.6.2.16
 
