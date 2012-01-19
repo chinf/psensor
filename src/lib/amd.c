@@ -64,15 +64,6 @@ static void __stdcall *adl_main_memory_alloc(int isize)
 	return lpbuffer;
 }
 
-/* Optional Memory de-allocation function */
-static void __stdcall adl_main_memory_free(void **lpbuffer)
-{
-	if (*lpbuffer) {
-		free(*lpbuffer);
-		*lpbuffer = NULL;
-	}
-}
-
 static void *getprocaddress(void *plibrary, const char * name)
 {
 	return dlsym(plibrary, name);
@@ -235,7 +226,7 @@ static int init()
 		active_amd_adapters[inumberadaptersactive-1] = iadapterindex;
 	}
 
-	adl_main_memory_free((void **) &lpadapterinfo);
+	free(lpadapterinfo);
 
 	/* Each Adapter has one GPU temperature sensor and one fan
 	   control sensor */

@@ -3,6 +3,7 @@
 ** psensor: fixed sensor type displayed in sensor preferences dialog.
 ** psensor: added basic instruction in the README for compiling psensor
             with the ATI/AMD GPU support.
+** psensor: fixed compilation error on 64bits with ATI/AMD GPU support.
 
 * v0.6.2.17
 
