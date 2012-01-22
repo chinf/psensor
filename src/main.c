@@ -441,9 +441,8 @@ int main(int argc, char **argv)
 	log_glib_info();
 #if !(GLIB_CHECK_VERSION(2, 31, 0))
 	/*
-	 * Since GLib 2.32 g_thread_init call is deprecated and not
-	 * needed. Documentation of this method is not clear whether
-	 * it is also useless with 2.3.31.
+	 * Since GLib 2.31 g_thread_init call is deprecated and not
+	 * needed. 
 	 */
 	log_debug("Calling g_thread_init(NULL)");
 	g_thread_init(NULL);
