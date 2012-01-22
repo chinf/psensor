@@ -389,7 +389,6 @@ static void log_glib_info()
 		  glib_micro_version);
 }
 
-
 int main(int argc, char **argv)
 {
 	struct ui_psensor ui;
