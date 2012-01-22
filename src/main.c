@@ -439,7 +439,7 @@ int main(int argc, char **argv)
 	log_init();
 
 	log_glib_info();
-#if !(GLIB_CHECK_VERSION(2, 32, 0))
+#if !(GLIB_CHECK_VERSION(2, 31, 0))
 	/*
 	 * Since GLib 2.32 g_thread_init call is deprecated and not
 	 * needed. Documentation of this method is not clear whether
