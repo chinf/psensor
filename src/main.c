@@ -376,6 +376,20 @@ static gboolean initial_window_show(gpointer data)
 	return FALSE;
 }
 
+static void log_glib_info()
+{
+	log_debug("Compiled with GLib %d.%d.%d",
+		  GLIB_MAJOR_VERSION,
+		  GLIB_MINOR_VERSION,
+		  GLIB_MICRO_VERSION);
+
+	log_debug("Running with GLib %d.%d.%d",
+		  glib_major_version,
+		  glib_minor_version,
+		  glib_micro_version);
+}
+
+
 int main(int argc, char **argv)
 {
 	struct ui_psensor ui;
@@ -425,7 +439,17 @@ int main(int argc, char **argv)
 
 	log_init();
 
+	log_glib_info();
+#if !(GLIB_CHECK_VERSION(2, 32, 0))
+	/*
+	 * Since GLib 2.3.32 g_thread_init call is deprecated and not
+	 * needed. Documentation of this method is not clear whether
+	 * it is also useless with 2.3.31.
+	 */
+	log_debug("Calling g_thread_init(NULL)");
 	g_thread_init(NULL);
+#endif
+
 	gdk_threads_init();
 
 	gtk_init(NULL, NULL);
