@@ -446,7 +446,9 @@ void psensor_list_update_measures(struct psensor **sensors)
 	cpu_psensor_list_update(sensors);
 #endif
 
-	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDD_TEMP))
+	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDD_TEMP_HDDTEMP)
+	    || psensor_list_contains_type(sensors,
+					  SENSOR_TYPE_HDD_TEMP_ATASMART))
 		hdd_psensor_list_update(sensors);
 }
 

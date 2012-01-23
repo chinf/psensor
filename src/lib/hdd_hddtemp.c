@@ -116,7 +116,7 @@ static int str_index(char *str, char d)
 static struct psensor *
 create_sensor(char *id, char *name, int values_max_length)
 {
-	return psensor_create(id, name, SENSOR_TYPE_HDD_TEMP,
+	return psensor_create(id, name, SENSOR_TYPE_HDD_TEMP_HDDTEMP,
 			      values_max_length);
 }
 
@@ -219,7 +219,7 @@ static void update(struct psensor **sensors, struct hdd_info *info)
 	struct psensor **sensor_cur = sensors;
 
 	while (*sensor_cur) {
-		if ((*sensor_cur)->type == SENSOR_TYPE_HDD_TEMP
+		if ((*sensor_cur)->type == SENSOR_TYPE_HDD_TEMP_HDDTEMP
 		    && !strcmp((*sensor_cur)->id + 4, info->name))
 			psensor_set_current_value(*sensor_cur,
 						  (float)info->temp);
