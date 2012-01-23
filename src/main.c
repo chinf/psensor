@@ -442,7 +442,7 @@ int main(int argc, char **argv)
 #if !(GLIB_CHECK_VERSION(2, 31, 0))
 	/*
 	 * Since GLib 2.31 g_thread_init call is deprecated and not
-	 * needed. 
+	 * needed.
 	 */
 	log_debug("Calling g_thread_init(NULL)");
 	g_thread_init(NULL);
