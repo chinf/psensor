@@ -1,6 +1,6 @@
 Source: psensor
 Section: utils
-Priority: optional
+Priority: extra
 Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
 Build-Depends: autoconf,
                automake,
