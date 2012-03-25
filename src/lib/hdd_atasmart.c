@@ -91,12 +91,16 @@ static void analyze_disk(const char *dname)
 	size = (uint64_t)-1;
 	/* So, it's a block device. Let's make sure the ioctls work */
 	if (ioctl(f, BLKGETSIZE64, &size) < 0) {
-		log_debug("ioctl fails %s: %s", dname, strerror(errno));
+		log_debug("analyze_disk(hdd_atasmart): ioctl fails %s: %s",
+			  dname,
+			  strerror(errno));
 		goto fail;
 	}
 
 	if (size <= 0 || size == (uint64_t) -1) {
-		log_debug("ioctl wrong size %s: %ld", dname, size);
+		log_debug("analyze_disk(hdd_atasmart): ioctl wrong size %s: %ld",
+			  dname,
+			  size);
 		goto fail;
 	}
 
