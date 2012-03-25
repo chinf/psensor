@@ -55,6 +55,8 @@ create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 	return s;
 }
 
+/* Performs the same tests than sk_disk_open and outputs the
+   result. */
 static void analyze_disk(const char *dname)
 {
 	int f;
@@ -95,7 +97,6 @@ static void analyze_disk(const char *dname)
  fail:
 	close(f);
 }
-
 
 struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 				      int values_max_length)
