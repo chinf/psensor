@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2011 jeanfi@gmail.com
+ * Copyright (C) 2010-2012 jeanfi@gmail.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -80,7 +80,7 @@ static void print_version()
 		 "This is free software: you are free to change and "
 		 " redistribute it.\n"
 		 "There is NO WARRANTY, to the extent permitted by law.\n"),
-	       "2010-2011");
+	       "2010-2012");
 }
 
 static void print_help()
