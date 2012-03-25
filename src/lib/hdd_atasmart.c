@@ -24,10 +24,13 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/ioctl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <unistd.h>
 
-
 #include <atasmart.h>
+#include <linux/fs.h>
 
 #include "pio.h"
 #include "hdd.h"
@@ -55,15 +58,42 @@ create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 static void analyze_disk(const char *dname)
 {
 	int f;
+	struct stat st;
+	uint64_t size;
 
 	log_debug("analyze_disk(hdd_atasmart): %s", dname);
 
 	f = open(dname, O_RDONLY|O_NOCTTY|O_NONBLOCK|O_CLOEXEC);
 
-	if (f != -1)
-		close(f);
-	else
+	if (f < 0) {
 		log_debug("Could not open file %s: %s", dname, strerror(errno));
+		goto fail;
+	}
+
+	if (fstat(f, &st) < 0) {
+		log_debug("fstat fails %s: %s", dname, strerror(errno));
+		goto fail;
+	}
+
+	if (!S_ISBLK(st.st_mode)) {
+		log_debug("!S_ISBLK fails %s", dname);
+		goto fail;
+	}
+
+	size = (uint64_t)-1;
+	/* So, it's a block device. Let's make sure the ioctls work */
+	if (ioctl(f, BLKGETSIZE64, &size) < 0) {
+		log_debug("ioctl fails %s: %s", dname, strerror(errno));
+		goto fail;
+	}
+
+	if (size <= 0 || size == (uint64_t) -1) {
+		log_debug("ioctl wrong size %s: %ld", dname, size);
+		goto fail;
+	}
+
+ fail:
+	close(f);
 }
 
 
