@@ -69,17 +69,22 @@ static void analyze_disk(const char *dname)
 	f = open(dname, O_RDONLY|O_NOCTTY|O_NONBLOCK|O_CLOEXEC);
 
 	if (f < 0) {
-		log_debug("Could not open file %s: %s", dname, strerror(errno));
+		log_debug("analyze_disk(hdd_atasmart): Could not open file %s: %s",
+			  dname,
+			  strerror(errno));
 		goto fail;
 	}
 
 	if (fstat(f, &st) < 0) {
-		log_debug("fstat fails %s: %s", dname, strerror(errno));
+		log_debug("analyze_disk(hdd_atasmart): fstat fails %s: %s",
+			  dname,
+			  strerror(errno));
 		goto fail;
 	}
 
 	if (!S_ISBLK(st.st_mode)) {
-		log_debug("!S_ISBLK fails %s", dname);
+		log_debug("analyze_disk(hdd_atasmart): !S_ISBLK fails %s",
+			  dname);
 		goto fail;
 	}
 
@@ -132,7 +137,7 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 
 			result = tmp_sensors;
 		} else {
-			log_err("sk_disk_open %s failure", *tmp);
+			log_err("sk_disk_open(hdd_atasmart) %s failure", *tmp);
 			analyze_disk(*tmp);
 		}
 
