@@ -56,7 +56,7 @@ static void analyze_disk(const char *dname)
 {
 	int f;
 
-	log_debug("Analyze error for disk: %s", dname);
+	log_debug("analyze_disk(hdd_atasmart): %s", dname);
 
 	f = open(dname, O_RDONLY|O_NOCTTY|O_NONBLOCK|O_CLOEXEC);
 
@@ -74,14 +74,14 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 	SkDisk *disk;
 	struct psensor *sensor, **tmp_sensors, **result;
 
-	log_debug("hdd_psensor_list_add");
+	log_debug("hdd_psensor_list_add(hdd_atasmart)");
 
 	paths = dir_list("/dev", filter_sd);
 
 	result = sensors;
 	tmp = paths;
 	while (*tmp) {
-		log_debug("hdd_psensor_list_add open %s", *tmp);
+		log_debug("hdd_psensor_list_add(hdd_atasmart) open %s", *tmp);
 
 		if (!sk_disk_open(*tmp, &disk)) {
 			id = malloc(strlen("hdd at") + strlen(*tmp) + 1);
@@ -132,7 +132,7 @@ void hdd_psensor_list_update(struct psensor **sensors)
 				if (!ret) {
 					c = (kelvin - 273150) / 1000;
 					psensor_set_current_value(s, c);
-					log_debug("hdd atasmart: %s %.2f",
+					log_debug("hdd_psensor_list_update(hdd_atasmart): %s %.2f",
 						  s->id,
 						  c);
 				}
