@@ -5,6 +5,7 @@
 ** psensor: added basic instruction in the README for compiling psensor
             with the ATI/AMD GPU support.
 ** psensor: fixed compilation error on 64bits with ATI/AMD GPU support.
+** added capability to use libatasmart for sata disk monitoring.
 ** changed copyright dates to 2012.
 
 * v0.6.2.17
