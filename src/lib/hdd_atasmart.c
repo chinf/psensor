@@ -55,8 +55,9 @@ create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 	return s;
 }
 
-/* Performs the same tests than sk_disk_open and outputs the
-   result. */
+/*
+ * Performs the same tests than sk_disk_open and outputs the result.
+ */
 static void analyze_disk(const char *dname)
 {
 	int f;
