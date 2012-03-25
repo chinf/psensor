@@ -20,8 +20,12 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
+#include <errno.h>
+#include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+
 
 #include <atasmart.h>
 
@@ -47,6 +51,21 @@ create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 
 	return s;
 }
+
+static void analyze_disk(const char *dname)
+{
+	int f;
+
+	log_debug("Analyze error for disk: %s", dname);
+
+	f = open(dname, O_RDONLY|O_NOCTTY|O_NONBLOCK|O_CLOEXEC);
+
+	if (f != -1)
+		close(f);
+	else
+		log_debug("Could not open file %s: %s", dname, strerror(errno));
+}
+
 
 struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 				      int values_max_length)
@@ -81,7 +100,8 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 
 			result = tmp_sensors;
 		} else {
-			log_err("Failed to open %s", *tmp);
+			log_err("sk_disk_open %s failure", *tmp);
+			analyze_disk(*tmp);
 		}
 
 		tmp++;
