@@ -171,18 +171,16 @@ static void draw_sensor_curve(struct psensor *s,
 			      int g_xoff,
 			      int g_yoff)
 {
-	int first = 1;
-	int i;
+	int first, i, x, y, t;
+	double v;
 
 	cairo_set_source_rgb(cr,
 			     s->color->f_red,
 			     s->color->f_green,
 			     s->color->f_blue);
-	
-	for (i = 0; i < s->values_max_length; i++) {
-		int x, y, t;
-		double v;
 
+	first = 1;
+	for (i = 0; i < s->values_max_length; i++) {
 		t = s->measures[i].time.tv_sec;
 		v = s->measures[i].value.d_num;
 
