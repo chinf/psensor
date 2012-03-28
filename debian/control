@@ -18,7 +18,7 @@ Build-Depends: autoconf,
                libnotify-dev,
                libsensors4-dev,
                perl
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: http://wpitchoune.net/psensor
 
 Package: psensor
