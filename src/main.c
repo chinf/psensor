@@ -347,6 +347,7 @@ static void log_init()
 }
 
 static struct option long_options[] = {
+	{"use_libatasmart", no_argument, 0, 0},
 	{"version", no_argument, 0, 'v'},
 	{"help", no_argument, 0, 'h'},
 	{"url", required_argument, 0, 'u'},
@@ -394,7 +395,7 @@ int main(int argc, char **argv)
 	struct ui_psensor ui;
 	GError *error;
 	GThread *thread;
-	int optc, cmdok;
+	int optc, cmdok, opti, use_libatasmart;
 	char *url = NULL;
 
 	program_name = argv[0];
@@ -406,10 +407,16 @@ int main(int argc, char **argv)
 	textdomain(PACKAGE);
 #endif
 
+	use_libatasmart = 0;
+
 	cmdok = 1;
 	while ((optc = getopt_long(argc, argv, "vhd:u:", long_options,
-				   NULL)) != -1) {
+				   &opti)) != -1) {
 		switch (optc) {
+		case 0:
+			if (!strcmp(long_options[opti].name, "use_libatasmart"))
+				use_libatasmart = 1;
+			break;
 		case 'u':
 			if (optarg)
 				url = strdup(optarg);
@@ -470,7 +477,7 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 #endif
 	} else {
-		ui.sensors = get_all_sensors(600);
+		ui.sensors = get_all_sensors(use_libatasmart, 600);
 #ifdef HAVE_NVIDIA
 		ui.sensors = nvidia_psensor_list_add(ui.sensors, 600);
 #endif

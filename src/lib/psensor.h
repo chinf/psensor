@@ -158,7 +158,7 @@ psensor_get_max_current_value(struct psensor **sensors, unsigned int type);
 */
 char *psensor_value_to_string(unsigned int type, double value);
 
-struct psensor **get_all_sensors(int values_max_length);
+struct psensor **get_all_sensors(int use_libatasmart, int values_max_length);
 
 struct psensor **psensor_list_add(struct psensor **sensors,
 				  struct psensor *sensor);

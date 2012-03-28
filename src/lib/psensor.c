@@ -373,18 +373,31 @@ double get_max_temp(struct psensor **sensors)
 	return get_max_value(sensors, SENSOR_TYPE_TEMP);
 }
 
-struct psensor **get_all_sensors(int values_max_length)
+struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 {
 	struct psensor **psensors = NULL;
 	struct psensor **tmp_psensors;
 
 	psensors = lmsensor_psensor_list_add(NULL, values_max_length);
 
-	tmp_psensors = hdd_psensor_list_add(psensors, values_max_length);
-	if (tmp_psensors != psensors) {
-		free(psensors);
-		psensors = tmp_psensors;
+	if (!use_libatasmart) {
+		tmp_psensors = hddtemp_psensor_list_add(psensors,
+							values_max_length);
+		if (tmp_psensors != psensors) {
+			free(psensors);
+			psensors = tmp_psensors;
+		}
 	}
+#ifdef HAVE_ATASMART
+		else {
+			tmp_psensors = hdd_psensor_list_add(psensors,
+							    values_max_length);
+			if (tmp_psensors != psensors) {
+				free(psensors);
+				psensors = tmp_psensors;
+			}
+		}
+#endif
 
 	if (!psensors) {	/* there is no detected sensors */
 		psensors = malloc(sizeof(struct psensor *));
@@ -446,10 +459,14 @@ void psensor_list_update_measures(struct psensor **sensors)
 	cpu_psensor_list_update(sensors);
 #endif
 
-	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDD_TEMP_HDDTEMP)
-	    || psensor_list_contains_type(sensors,
-					  SENSOR_TYPE_HDD_TEMP_ATASMART))
+	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDD_TEMP_HDDTEMP))
+		hddtemp_psensor_list_update(sensors);
+
+#ifdef HAVE_ATASMART
+	if (psensor_list_contains_type(sensors,
+				       SENSOR_TYPE_HDD_TEMP_ATASMART))
 		hdd_psensor_list_update(sensors);
+#endif
 }
 
 void psensor_init()

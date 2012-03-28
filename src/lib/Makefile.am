@@ -2,14 +2,14 @@ noinst_LIBRARIES = libpsensor.a
 
 libpsensor_a_SOURCES = \
 	amd.h \
-	cpu.h \
-	measure.h measure.c \
 	color.h color.c \
-	log.h log.c \
-	psensor.h psensor.c\
-	hdd.h\
-	nvidia.h \
+	cpu.h \
+	hdd.h hdd_hddtemp.c\
 	lmsensor.h lmsensor.c \
+	log.h log.c \
+	measure.h measure.c \
+	nvidia.h \
+	psensor.h psensor.c\
 	pio.h pio.c \
 	url.c url.h
 
@@ -19,8 +19,6 @@ if ATASMART
 libpsensor_a_SOURCES += hdd_atasmart.c
 LIBS += $(ATASMART_LIBS)
 AM_CPPFLAGS += $(ATASMART_CFLAGS)
-else
-libpsensor_a_SOURCES += hdd_hddtemp.c
 endif
 
 if NVIDIA

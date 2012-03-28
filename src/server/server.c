@@ -357,7 +357,7 @@ int main(int argc, char *argv[])
 
 	psensor_init();
 
-	server_data.sensors = get_all_sensors(600);
+	server_data.sensors = get_all_sensors(0, 600);
 
 #ifdef HAVE_GTOP
 	server_data.cpu_usage = create_cpu_usage_sensor(600);

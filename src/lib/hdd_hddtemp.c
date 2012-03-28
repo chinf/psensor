@@ -167,8 +167,8 @@ static char *next_hdd_info(char *string, struct hdd_info *info)
 	return c;
 }
 
-struct psensor **hdd_psensor_list_add(struct psensor **sensors,
-				      int values_max_length)
+struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
+					  int values_max_length)
 {
 	char *hddtemp_output = fetch();
 	char *c;
@@ -228,7 +228,7 @@ static void update(struct psensor **sensors, struct hdd_info *info)
 	}
 }
 
-void hdd_psensor_list_update(struct psensor **sensors)
+void hddtemp_psensor_list_update(struct psensor **sensors)
 {
 	char *hddtemp_output = fetch();
 

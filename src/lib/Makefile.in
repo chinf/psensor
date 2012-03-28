@@ -37,17 +37,16 @@ host_triplet = @host@
 @ATASMART_TRUE@am__append_1 = hdd_atasmart.c
 @ATASMART_TRUE@am__append_2 = $(ATASMART_LIBS)
 @ATASMART_TRUE@am__append_3 = $(ATASMART_CFLAGS)
-@ATASMART_FALSE@am__append_4 = hdd_hddtemp.c
-@NVIDIA_TRUE@am__append_5 = nvidia.c
-@LIBATIADL_TRUE@am__append_6 = $(LIBATIADL_LIBS)
-@LIBATIADL_TRUE@am__append_7 = $(LIBATIADL_CFLAGS)
-@LIBATIADL_TRUE@am__append_8 = amd.c
-@GTOP_TRUE@am__append_9 = cpu.c
-@GTOP_TRUE@am__append_10 = $(GTOP_LIBS)
-@GTOP_TRUE@am__append_11 = $(GTOP_CFLAGS)
-@JSON_TRUE@am__append_12 = psensor_json.h psensor_json.c
-@JSON_TRUE@am__append_13 = $(JSON_LIBS)
-@JSON_TRUE@am__append_14 = $(JSON_CFLAGS)
+@NVIDIA_TRUE@am__append_4 = nvidia.c
+@LIBATIADL_TRUE@am__append_5 = $(LIBATIADL_LIBS)
+@LIBATIADL_TRUE@am__append_6 = $(LIBATIADL_CFLAGS)
+@LIBATIADL_TRUE@am__append_7 = amd.c
+@GTOP_TRUE@am__append_8 = cpu.c
+@GTOP_TRUE@am__append_9 = $(GTOP_LIBS)
+@GTOP_TRUE@am__append_10 = $(GTOP_CFLAGS)
+@JSON_TRUE@am__append_11 = psensor_json.h psensor_json.c
+@JSON_TRUE@am__append_12 = $(JSON_LIBS)
+@JSON_TRUE@am__append_13 = $(JSON_CFLAGS)
 subdir = src/lib
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -63,22 +62,21 @@ AR = ar
 ARFLAGS = cru
 libpsensor_a_AR = $(AR) $(ARFLAGS)
 libpsensor_a_LIBADD =
-am__libpsensor_a_SOURCES_DIST = amd.h cpu.h measure.h measure.c \
-	color.h color.c log.h log.c psensor.h psensor.c hdd.h nvidia.h \
-	lmsensor.h lmsensor.c pio.h pio.c url.c url.h hdd_atasmart.c \
-	hdd_hddtemp.c nvidia.c amd.c cpu.c psensor_json.h \
+am__libpsensor_a_SOURCES_DIST = amd.h color.h color.c cpu.h hdd.h \
+	hdd_hddtemp.c lmsensor.h lmsensor.c log.h log.c measure.h \
+	measure.c nvidia.h psensor.h psensor.c pio.h pio.c url.c url.h \
+	hdd_atasmart.c nvidia.c amd.c cpu.c psensor_json.h \
 	psensor_json.c
 @ATASMART_TRUE@am__objects_1 = hdd_atasmart.$(OBJEXT)
-@ATASMART_FALSE@am__objects_2 = hdd_hddtemp.$(OBJEXT)
-@NVIDIA_TRUE@am__objects_3 = nvidia.$(OBJEXT)
-@LIBATIADL_TRUE@am__objects_4 = amd.$(OBJEXT)
-@GTOP_TRUE@am__objects_5 = cpu.$(OBJEXT)
-@JSON_TRUE@am__objects_6 = psensor_json.$(OBJEXT)
-am_libpsensor_a_OBJECTS = measure.$(OBJEXT) color.$(OBJEXT) \
-	log.$(OBJEXT) psensor.$(OBJEXT) lmsensor.$(OBJEXT) \
-	pio.$(OBJEXT) url.$(OBJEXT) $(am__objects_1) $(am__objects_2) \
-	$(am__objects_3) $(am__objects_4) $(am__objects_5) \
-	$(am__objects_6)
+@NVIDIA_TRUE@am__objects_2 = nvidia.$(OBJEXT)
+@LIBATIADL_TRUE@am__objects_3 = amd.$(OBJEXT)
+@GTOP_TRUE@am__objects_4 = cpu.$(OBJEXT)
+@JSON_TRUE@am__objects_5 = psensor_json.$(OBJEXT)
+am_libpsensor_a_OBJECTS = color.$(OBJEXT) hdd_hddtemp.$(OBJEXT) \
+	lmsensor.$(OBJEXT) log.$(OBJEXT) measure.$(OBJEXT) \
+	psensor.$(OBJEXT) pio.$(OBJEXT) url.$(OBJEXT) $(am__objects_1) \
+	$(am__objects_2) $(am__objects_3) $(am__objects_4) \
+	$(am__objects_5)
 libpsensor_a_OBJECTS = $(am_libpsensor_a_OBJECTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -148,8 +146,8 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = @LIBS@ $(am__append_2) $(am__append_6) $(am__append_10) \
-	$(am__append_13)
+LIBS = @LIBS@ $(am__append_2) $(am__append_5) $(am__append_9) \
+	$(am__append_12)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -241,13 +239,13 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libpsensor.a
-libpsensor_a_SOURCES = amd.h cpu.h measure.h measure.c color.h color.c \
-	log.h log.c psensor.h psensor.c hdd.h nvidia.h lmsensor.h \
-	lmsensor.c pio.h pio.c url.c url.h $(am__append_1) \
-	$(am__append_4) $(am__append_5) $(am__append_8) \
-	$(am__append_9) $(am__append_12)
-AM_CPPFLAGS = -Wall -Werror $(am__append_3) $(am__append_7) \
-	$(am__append_11) $(am__append_14)
+libpsensor_a_SOURCES = amd.h color.h color.c cpu.h hdd.h hdd_hddtemp.c \
+	lmsensor.h lmsensor.c log.h log.c measure.h measure.c nvidia.h \
+	psensor.h psensor.c pio.h pio.c url.c url.h $(am__append_1) \
+	$(am__append_4) $(am__append_7) $(am__append_8) \
+	$(am__append_11)
+AM_CPPFLAGS = -Wall -Werror $(am__append_3) $(am__append_6) \
+	$(am__append_10) $(am__append_13)
 EXTRA_DIST = $(libpsensor_a_SOURCES) \
 	amd.c \
 	cpu.c \
