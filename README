@@ -55,7 +55,7 @@ Compilation requires the following packages:
 
 gettext libgtk-3-dev libgconf2-dev libnotify-dev libsensors4-dev
 help2man libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev
-libgtop2-dev
+libgtop2-dev libatasmart-dev
 
 Debian kfreebsd
 ---------------
@@ -63,6 +63,7 @@ Debian kfreebsd
 Compilation requires the following packages:
 gcc libgtk2.0-dev libsensors4-dev libgconf2-dev help2man
 libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev libgtop2-dev
+libatasmart-dev
 
 Ubuntu
 ------
@@ -86,12 +87,6 @@ sudo apt-get apt-add-repository ppa:/jfi/psensor-unstable
 sudo apt-get update
 sudo apt-get install psensor
 sudo apt-get install psensor-server
-
-Alternatively, you can download Ubuntu binary packages from:
-http://wpitchoune.net/psensor/files/ubuntu/
-The manual installation of the psensor and psensor-server packages
-requires also the installation of psensor-common which contains
-the multiple languages support.
 
 Centos 6
 --------
@@ -143,6 +138,7 @@ Psensor compilation requires:
  * library json0 and curl (optional, required for remote monitoring)
  * library unity (>=v3.4.2, optional)
  * library gtop2 (optional, required for CPU usage)
+ * library atasmart (optional, for disk monitoring)
 
 Psensor-server compilation requires:
  * make/gcc	
@@ -152,6 +148,7 @@ Psensor-server compilation requires:
  * library libmicrohttpd 
  * library json0
  * library gtop2 (optional, required for CPU usage)
+ * library atasmart (optional, for disk monitoring)
 
 Compilation and Installation Steps
 ----------------------------------

@@ -99,7 +99,9 @@ static void print_help()
 
 	puts(_("  -u, --url=URL       "
 	       "the URL of the psensor-server, example: http://hostname:3131"));
-
+	puts(_("  --use-libatasmart   "
+	       "use atasmart library for disk monitoring "
+	       "instead of hddtemp daemon"));
 	puts("");
 
 	puts(_("  -d, --debug=LEVEL   "
@@ -347,7 +349,7 @@ static void log_init()
 }
 
 static struct option long_options[] = {
-	{"use_libatasmart", no_argument, 0, 0},
+	{"use-libatasmart", no_argument, 0, 0},
 	{"version", no_argument, 0, 'v'},
 	{"help", no_argument, 0, 'h'},
 	{"url", required_argument, 0, 'u'},
@@ -414,7 +416,7 @@ int main(int argc, char **argv)
 				   &opti)) != -1) {
 		switch (optc) {
 		case 0:
-			if (!strcmp(long_options[opti].name, "use_libatasmart"))
+			if (!strcmp(long_options[opti].name, "use-libatasmart"))
 				use_libatasmart = 1;
 			break;
 		case 'u':

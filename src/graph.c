@@ -318,7 +318,6 @@ graph_update(struct psensor **sensors,
 
 		cairo_set_line_join(cr, CAIRO_LINE_JOIN_ROUND);
 		cairo_set_line_width(cr, 1);
-
 		while (*sensor_cur) {
 			struct psensor *s = *sensor_cur;
 

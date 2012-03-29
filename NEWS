@@ -6,7 +6,7 @@
             with the ATI/AMD GPU support.
 ** psensor: fixed compilation error on 64bits with ATI/AMD GPU support.
 ** psensor: added capability to use libatasmart for sata disk monitoring.
-** psensor: added option --use_libatasmart
+** psensor: added option --use-libatasmart
 ** changed copyright dates to 2012.
 
 * v0.6.2.17

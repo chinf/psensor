@@ -11,7 +11,8 @@ It can monitor:
   * the temperature of the motherboard and CPU sensors (using lm\-sensors).
   * the temperature of the NVidia GPUs (using XNVCtrl).
   * the temperature and fan rotation speed of the ATI GPUs.
-  * the temperature of the Hard Disk Drives (using hddtemp).
+  * the temperature of the Hard Disk Drives (using hddtemp or atasmart
+    library).
   * the rotation speed of the fans (using lm\-sensors).
   * the sensors of a remote computer (using psensor\-server).
 
