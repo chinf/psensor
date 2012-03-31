@@ -1,5 +1,7 @@
 * v0.7.0.0
 
+** psensor: minimum GTK version is now 3.0, GTK v2.x is no more
+   supported.
 ** psensor: fixed sensor type displayed in sensor preferences dialog.
 ** psensor: not calling g_thread_init when compiled with glib >= 2.31.
 ** psensor: added basic instruction in the README for compiling psensor
