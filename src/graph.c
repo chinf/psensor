@@ -78,25 +78,27 @@ draw_graph_background(cairo_t *cr,
 		      int width, int height, struct config *config,
 		      GtkWidget *widget)
 {
-	GtkStyle *style;
-	struct color *bgcolor = config->graph_bgcolor;
-	GdkColor *bg;
+	GtkStyleContext* style_ctx;
+	struct color *bgcolor;
+	GdkRGBA rgba;
 
-	style = gtk_widget_get_style(widget);
+	bgcolor = config->graph_bgcolor;
 
-	bg = &style->bg[GTK_STATE_NORMAL];
-
+	style_ctx = gtk_widget_get_style_context(widget);
+	gtk_style_context_get_background_color(style_ctx,
+					       GTK_STATE_FLAG_NORMAL,
+					       &rgba);
 	if (config->alpha_channel_enabled)
 		cairo_set_source_rgba(cr,
-				      ((double)bg->red) / 65535,
-				      ((double)bg->green) / 65535,
-				      ((double)bg->blue) / 65535,
+				      rgba.red,
+				      rgba.green,
+				      rgba.blue,
 				      config->graph_bg_alpha);
 	else
 		cairo_set_source_rgb(cr,
-				     ((double)bg->red) / 65535,
-				     ((double)bg->green) / 65535,
-				     ((double)bg->blue) / 65535);
+				     rgba.red,
+				     rgba.green,
+				     rgba.blue);
 
 	cairo_rectangle(cr, 0, 0, width, height);
 	cairo_fill(cr);
