@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-12-14 02:51+0100\n"
+"POT-Creation-Date: 2012-04-02 09:21+0200\n"
 "PO-Revision-Date: 2011-04-10 13:11+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -55,30 +55,36 @@ msgid ""
 "hostname:3131"
 msgstr ""
 
-#: src/main.c:105
+#: src/main.c:102
+msgid ""
+"  --use-libatasmart   use atasmart library for disk monitoring instead of "
+"hddtemp daemon"
+msgstr ""
+
+#: src/main.c:107
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:110 src/server/server.c:103
+#: src/main.c:112 src/server/server.c:103
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Hataları rapor et:%s\n"
 
-#: src/main.c:112 src/server/server.c:105
+#: src/main.c:114 src/server/server.c:105
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s ana sayfa: <%s>\n"
 
-#: src/main.c:412
+#: src/main.c:434
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:421 src/server/server.c:353
+#: src/main.c:443 src/server/server.c:353
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
 
-#: src/main.c:448
+#: src/main.c:478
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
@@ -89,7 +95,7 @@ msgstr ""
 
 #: src/ui.c:83
 msgid ""
-"Copyright(c) 2010-2011\n"
+"Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
 msgstr ""
 
@@ -278,22 +284,22 @@ msgstr ""
 msgid "URL: http://localhost:%d"
 msgstr ""
 
-#: src/lib/amd.c:159
+#: src/lib/amd.c:151
 #, c-format
 msgid "ERROR: ADL library not found!\n"
 msgstr ""
 
-#: src/lib/amd.c:184
+#: src/lib/amd.c:176
 #, c-format
 msgid "ERROR: ADL's API is missing!\n"
 msgstr ""
 
-#: src/lib/amd.c:193
+#: src/lib/amd.c:185
 #, c-format
 msgid "ERROR: ADL Initialization Error!\n"
 msgstr ""
 
-#: src/lib/amd.c:201
+#: src/lib/amd.c:193
 #, c-format
 msgid "ERROR: Cannot get the number of adapters!\n"
 msgstr ""
@@ -353,15 +359,15 @@ msgstr ""
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr ""
 
-#: src/lib/psensor.c:430
+#: src/lib/psensor.c:443
 msgid "C"
 msgstr ""
 
-#: src/lib/psensor.c:433
+#: src/lib/psensor.c:446
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:436
+#: src/lib/psensor.c:449
 msgid "%"
 msgstr ""
 

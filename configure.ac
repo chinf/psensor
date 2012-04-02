@@ -52,23 +52,17 @@ PKG_CHECK_MODULES(XEXT, xext)
 AC_SUBST(XEXT_CFLAGS)
 AC_SUBST(XEXT_LIBS)
 
-# Checks GTK
-GTK_LIBS=
-PKG_CHECK_MODULES(GTK,
-		  gtk+-3.0,
-		  [AC_DEFINE([HAVE_GTK3],[1],[Use GTK3])],
-		  [AC_MSG_WARN("GTK+ 3 not present")])
-AM_CONDITIONAL(GTK, test -n "$GTK_LIBS")
-GTK_CFLAGS+=-DGTK_DISABLE_SINGLE_INCLUDES
+# Checks GTK+ 3.0
+PKG_CHECK_MODULES(GTK, gtk+-3.0)		
+# ensure that only allowed headers are included
+GTK_CFLAGS+=" -DGTK_DISABLE_SINGLE_INCLUDES "
+# ensure that no gtk deprecated symbols are used
+GTK_CFLAGS+=" -DGDK_DISABLE_DEPRECATED "
+GTK_CFLAGS+=" -DGTK_DISABLE_DEPRECATED "
+# ensure use of accessors
+GTK_CFLAGS+=" -DGSEAL_ENABLE "
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
-
-if test "$GTK_LIBS" == ""; then
-   PKG_CHECK_MODULES(GTK, gtk+-2.0 >= 2.18)
-   AM_CONDITIONAL(GTK, test -n "$GTK_LIBS")
-   AC_SUBST(GTK_CFLAGS)
-   AC_SUBST(GTK_LIBS)
-fi
 
 # Check GCONF
 PKG_CHECK_MODULES(GCONF, gconf-2.0)

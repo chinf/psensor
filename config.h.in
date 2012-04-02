@@ -43,9 +43,6 @@
 /* Define to 1 if you have the `gettimeofday' function. */
 #undef HAVE_GETTIMEOFDAY
 
-/* Use GTK3 */
-#undef HAVE_GTK3
-
 /* Use GTOP */
 #undef HAVE_GTOP
 

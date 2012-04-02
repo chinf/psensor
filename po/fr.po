@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.9\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2011-12-14 02:51+0100\n"
+"POT-Creation-Date: 2012-04-02 09:21+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -65,31 +65,37 @@ msgid ""
 msgstr ""
 "  -u, --url=URL       l'URL de psensor-server, example: http://hostname:3131"
 
-#: src/main.c:105
+#: src/main.c:102
+msgid ""
+"  --use-libatasmart   use atasmart library for disk monitoring instead of "
+"hddtemp daemon"
+msgstr ""
+
+#: src/main.c:107
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:110 src/server/server.c:103
+#: src/main.c:112 src/server/server.c:103
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Signaler les bugs à: %s\n"
 
-#: src/main.c:112 src/server/server.c:105
+#: src/main.c:114 src/server/server.c:105
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s page d'acceuil: <%s>\n"
 
-#: src/main.c:412
+#: src/main.c:434
 #, fuzzy
 msgid "Enables debug mode."
 msgstr "Activée"
 
-#: src/main.c:421 src/server/server.c:353
+#: src/main.c:443 src/server/server.c:353
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez `%s --help' pour plus d'informations.\n"
 
-#: src/main.c:448
+#: src/main.c:478
 #, c-format
 msgid "ERROR: Not compiled with remote sensor support.\n"
 msgstr ""
@@ -105,7 +111,7 @@ msgstr ""
 
 #: src/ui.c:83
 msgid ""
-"Copyright(c) 2010-2011\n"
+"Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
 msgstr ""
 
@@ -310,22 +316,22 @@ msgstr "WWW repertoire: %s\n"
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d\n"
 
-#: src/lib/amd.c:159
+#: src/lib/amd.c:151
 #, c-format
 msgid "ERROR: ADL library not found!\n"
 msgstr ""
 
-#: src/lib/amd.c:184
+#: src/lib/amd.c:176
 #, c-format
 msgid "ERROR: ADL's API is missing!\n"
 msgstr ""
 
-#: src/lib/amd.c:193
+#: src/lib/amd.c:185
 #, fuzzy, c-format
 msgid "ERROR: ADL Initialization Error!\n"
 msgstr "ERREUR: échec de l'initialisation nvidia\n"
 
-#: src/lib/amd.c:201
+#: src/lib/amd.c:193
 #, fuzzy, c-format
 msgid "ERROR: Cannot get the number of adapters!\n"
 msgstr ""
@@ -387,15 +393,15 @@ msgstr "ERREUR: create_sensor, mauvais type de fonctionnalité\n"
 msgid "ERROR: lm-sensors initialization failure: %s\n"
 msgstr "ERREUR: échec de l'initialisation de lm-sensors: %s\n"
 
-#: src/lib/psensor.c:430
+#: src/lib/psensor.c:443
 msgid "C"
 msgstr ""
 
-#: src/lib/psensor.c:433
+#: src/lib/psensor.c:446
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:436
+#: src/lib/psensor.c:449
 msgid "%"
 msgstr ""
 

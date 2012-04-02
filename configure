@@ -649,8 +649,6 @@ ATASMART_LIBS
 ATASMART_CFLAGS
 GCONF_LIBS
 GCONF_CFLAGS
-GTK_FALSE
-GTK_TRUE
 GTK_LIBS
 GTK_CFLAGS
 XEXT_LIBS
@@ -7312,8 +7310,7 @@ fi
 
 
 
-# Checks GTK
-GTK_LIBS=
+# Checks GTK+ 3.0
 
 pkg_failed=no
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for GTK" >&5
@@ -7373,95 +7370,7 @@ fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$GTK_PKG_ERRORS" >&5
 
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"GTK+ 3 not present\"" >&5
-$as_echo "$as_me: WARNING: \"GTK+ 3 not present\"" >&2;}
-elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"GTK+ 3 not present\"" >&5
-$as_echo "$as_me: WARNING: \"GTK+ 3 not present\"" >&2;}
-else
-	GTK_CFLAGS=$pkg_cv_GTK_CFLAGS
-	GTK_LIBS=$pkg_cv_GTK_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-
-$as_echo "#define HAVE_GTK3 1" >>confdefs.h
-
-fi
- if test -n "$GTK_LIBS"; then
-  GTK_TRUE=
-  GTK_FALSE='#'
-else
-  GTK_TRUE='#'
-  GTK_FALSE=
-fi
-
-GTK_CFLAGS+=-DGTK_DISABLE_SINGLE_INCLUDES
-
-
-
-if test "$GTK_LIBS" == ""; then
-
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GTK" >&5
-$as_echo_n "checking for GTK... " >&6; }
-
-if test -n "$GTK_CFLAGS"; then
-    pkg_cv_GTK_CFLAGS="$GTK_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-2.0 >= 2.18\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gtk+-2.0 >= 2.18") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_GTK_CFLAGS=`$PKG_CONFIG --cflags "gtk+-2.0 >= 2.18" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$GTK_LIBS"; then
-    pkg_cv_GTK_LIBS="$GTK_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gtk+-2.0 >= 2.18\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gtk+-2.0 >= 2.18") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_GTK_LIBS=`$PKG_CONFIG --libs "gtk+-2.0 >= 2.18" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-
-
-
-if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        GTK_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gtk+-2.0 >= 2.18" 2>&1`
-        else
-	        GTK_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gtk+-2.0 >= 2.18" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$GTK_PKG_ERRORS" >&5
-
-	as_fn_error $? "Package requirements (gtk+-2.0 >= 2.18) were not met:
+	as_fn_error $? "Package requirements (gtk+-3.0) were not met:
 
 $GTK_PKG_ERRORS
 
@@ -7493,17 +7402,15 @@ else
 $as_echo "yes" >&6; }
 
 fi
-    if test -n "$GTK_LIBS"; then
-  GTK_TRUE=
-  GTK_FALSE='#'
-else
-  GTK_TRUE='#'
-  GTK_FALSE=
-fi
+# ensure that only allowed headers are included
+GTK_CFLAGS+=" -DGTK_DISABLE_SINGLE_INCLUDES "
+# ensure that no gtk deprecated symbols are used
+GTK_CFLAGS+=" -DGDK_DISABLE_DEPRECATED "
+GTK_CFLAGS+=" -DGTK_DISABLE_DEPRECATED "
+# ensure use of accessors
+GTK_CFLAGS+=" -DGSEAL_ENABLE "
 
 
-
-fi
 
 # Check GCONF
 
@@ -8823,14 +8730,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCC\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${GTK_TRUE}" && test -z "${GTK_FALSE}"; then
-  as_fn_error $? "conditional \"GTK\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${GTK_TRUE}" && test -z "${GTK_FALSE}"; then
-  as_fn_error $? "conditional \"GTK\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ATASMART_TRUE}" && test -z "${ATASMART_FALSE}"; then

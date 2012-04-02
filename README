@@ -8,7 +8,7 @@ It can monitor:
  * the temperature of the motherboard and CPU sensors (using
    lm-sensors).
  * the temperature of the NVidia GPUs (using XNVCtrl).
- * the temperature of the Hard Disk Drives (using hddtemp).
+ * the temperature of the Hard Disk Drives (using hddtemp or libatasmart).
  * the rotation speed of the fans (using lm-sensors).
  * the temperature of a remote computer.
  * the cpu load.
@@ -61,7 +61,7 @@ Debian kfreebsd
 ---------------
 
 Compilation requires the following packages:
-gcc libgtk2.0-dev libsensors4-dev libgconf2-dev help2man
+gcc libgtk3.0-dev libsensors4-dev libgconf2-dev help2man
 libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev libgtop2-dev
 libatasmart-dev
 
@@ -87,18 +87,6 @@ sudo apt-get apt-add-repository ppa:/jfi/psensor-unstable
 sudo apt-get update
 sudo apt-get install psensor
 sudo apt-get install psensor-server
-
-Centos 6
---------
-
-psensor can be compiled on Centos 6.0, by installing the following
-packages:
-gcc gtk2-devel GConf2-devel help2man gettext-devel libnotify-deval
-lm_sensors-devel libgtop2-devel
-
-As microhttpd and json-c libraries are not available in the standard centos
-repository, psensor-server cannot be compiled and the remote
-monitoring feature of psensor will not be available.
 
 ATI/AMD GPU Support
 -------------------
@@ -129,7 +117,7 @@ Psensor compilation requires:
  * make/gcc	
  * lm-sensors
  * library sensors4
- * library gtk2 (>= 2.18)
+ * library gtk3
  * library gconf2
  * help2man 
  * library libnotify (optional)
