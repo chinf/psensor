@@ -46,7 +46,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GError *error = NULL;
 	GdkColor *color_fg, *color_bg;
 	GtkColorButton *w_color_fg, *w_color_bg;
-	GtkHScale *w_bg_opacity;
+	GtkScale *w_bg_opacity;
 	GtkSpinButton *w_update_interval, *w_monitoring_duration,
 		*w_s_update_interval;
 	GtkComboBox *w_sensorlist_pos;
@@ -81,8 +81,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 							     "color_bg"));
 	gtk_color_button_set_color(w_color_bg, color_bg);
 
-	w_bg_opacity = GTK_HSCALE(gtk_builder_get_object(builder,
-							 "bg_opacity"));
+	w_bg_opacity = GTK_SCALE(gtk_builder_get_object(builder,
+							"bg_opacity"));
 	gtk_range_set_value(GTK_RANGE(w_bg_opacity), cfg->graph_bg_alpha);
 
 	w_update_interval = GTK_SPIN_BUTTON(gtk_builder_get_object
