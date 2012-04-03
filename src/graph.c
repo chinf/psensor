@@ -78,7 +78,7 @@ draw_graph_background(cairo_t *cr,
 		      int width, int height, struct config *config,
 		      GtkWidget *widget)
 {
-	GtkStyleContext* style_ctx;
+	GtkStyleContext *style_ctx;
 	struct color *bgcolor;
 	GdkRGBA rgba;
 
