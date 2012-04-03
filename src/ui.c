@@ -303,9 +303,9 @@ void ui_window_update(struct ui_psensor *ui)
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
 	    || cfg->sensorlist_position == SENSORLIST_POSITION_LEFT)
-		ui->sensor_box = gtk_hpaned_new();
+		ui->sensor_box = gtk_paned_new(GTK_ORIENTATION_HORIZONTAL);
 	else
-		ui->sensor_box = gtk_vpaned_new();
+		ui->sensor_box = gtk_paned_new(GTK_ORIENTATION_VERTICAL);
 
 	gtk_box_pack_end(GTK_BOX(ui->main_box), ui->sensor_box, TRUE, TRUE, 2);
 
