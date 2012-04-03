@@ -259,8 +259,8 @@ void ui_window_create(struct ui_psensor *ui)
 	/* main box */
 	menubar = get_menu(ui);
 
-	ui->main_box = gtk_vbox_new(FALSE, 1);
-
+	ui->main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
+	gtk_box_set_homogeneous(GTK_BOX(ui->main_box), FALSE);
 	gtk_box_pack_start(GTK_BOX(ui->main_box), menubar,
 			   FALSE, TRUE, 0);
 
