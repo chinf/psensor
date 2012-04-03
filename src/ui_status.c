@@ -50,7 +50,7 @@ void ui_status_init(struct ui_psensor *ui)
 
 	status = gtk_status_icon_new();
 	gtk_status_icon_set_from_icon_name(status, ICON);
-	gtk_status_icon_set_visible(status, TRUE);
+	ui_status_set_visible(0);
 
 	g_signal_connect(G_OBJECT(status),
 			 "popup-menu",
@@ -96,4 +96,16 @@ GtkStatusIcon *ui_status_get_icon(struct ui_psensor *ui)
 		ui_status_init(ui);
 
 	return status;
+}
+
+void ui_status_set_visible(unsigned int visible)
+{
+	log_debug("ui_status_set_visible(%d)", visible);
+
+	if (status) {
+		if (visible)
+			gtk_status_icon_set_visible(status, TRUE);
+		else
+			gtk_status_icon_set_visible(status, FALSE);
+	}
 }

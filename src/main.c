@@ -497,6 +497,7 @@ int main(int argc, char **argv)
 
 #if !defined(HAVE_APPINDICATOR) && !defined(HAVE_APPINDICATOR_029)
 	ui_status_init(&ui);
+	ui_status_set_visible(1);
 #endif
 
 	/* main window */

@@ -218,17 +218,25 @@ void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention)
 
 static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 {
+	GtkStatusIcon *ico;
+
 	log_debug("ui_appindicator#unity_fallback");
 
 	appindicator_supported = 0;
 
-	return ui_status_get_icon(ui_psensor);
+	ico = ui_status_get_icon(ui_psensor);
+
+	ui_status_set_visible(1);
+
+	return ico;
 }
 
 static void
 unity_unfallback(AppIndicator *indicator, GtkStatusIcon *status_icon)
 {
 	log_debug("ui_appindicator#unity_unfallback");
+
+	ui_status_set_visible(0);
 
 	appindicator_supported = 1;
 }
