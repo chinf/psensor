@@ -14,7 +14,9 @@
 ** psensor: fixed systray and application indicator visible at the
    same time. (Closes LP: #971098)
 ** psensor: fixed wrong background color, get the background color of
-   the window and not the canvas widget.
+   the window and not the canvas widget. (Closes LP: #973122)
+** psensor: used the foreground color defined by the theme for the
+   font of the graph.
 
 * v0.6.2.17
 

@@ -288,7 +288,7 @@ graph_update(struct psensor **sensors,
 			      window);
 
 	/** Set the color for text drawing */
-	style_ctx = gtk_widget_get_style_context(w_graph);
+	style_ctx = gtk_widget_get_style_context(window);
 	gtk_style_context_get_color(style_ctx, GTK_STATE_FLAG_NORMAL, &rgba);
 	cairo_set_source_rgb(cr, rgba.red, rgba.green, rgba.blue);
 
