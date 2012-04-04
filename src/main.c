@@ -215,7 +215,7 @@ gboolean ui_refresh_thread(gpointer data)
 
 	g_mutex_lock(ui->sensors_mutex);
 
-	graph_update(ui->sensors, ui->w_graph, ui->config);
+	graph_update(ui->sensors, ui->w_graph, ui->config, ui->main_window);
 
 	ui_sensorlist_update(ui);
 

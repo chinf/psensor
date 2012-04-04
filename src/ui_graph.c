@@ -124,7 +124,9 @@ on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 	struct ui_psensor *ui_psensor = (struct ui_psensor *)data;
 
 	graph_update(ui_psensor->sensors,
-		     ui_psensor->w_graph, ui_psensor->config);
+		     ui_psensor->w_graph,
+		     ui_psensor->config,
+		     ui_psensor->main_window);
 
 	return FALSE;
 }

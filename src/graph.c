@@ -76,7 +76,8 @@ draw_graph_background(cairo_t *cr,
 		      int g_xoff, int g_yoff,
 		      int g_width, int g_height,
 		      int width, int height, struct config *config,
-		      GtkWidget *widget)
+		      GtkWidget *widget,
+		      GtkWidget *window)
 {
 	GtkStyleContext *style_ctx;
 	struct color *bgcolor;
@@ -84,10 +85,11 @@ draw_graph_background(cairo_t *cr,
 
 	bgcolor = config->graph_bgcolor;
 
-	style_ctx = gtk_widget_get_style_context(widget);
+	style_ctx = gtk_widget_get_style_context(window);
 	gtk_style_context_get_background_color(style_ctx,
 					       GTK_STATE_FLAG_NORMAL,
 					       &rgba);
+
 	if (config->alpha_channel_enabled)
 		cairo_set_source_rgba(cr,
 				      rgba.red,
@@ -106,13 +108,13 @@ draw_graph_background(cairo_t *cr,
 		cairo_set_source_rgba(cr,
 				      bgcolor->f_red,
 				      bgcolor->f_green,
-				      bgcolor->f_blue, config->graph_bg_alpha);
+				      bgcolor->f_blue,
+				      config->graph_bg_alpha);
 	else
 		cairo_set_source_rgb(cr,
 				     bgcolor->f_red,
-				     bgcolor->f_green, bgcolor->f_blue);
-
-
+				     bgcolor->f_green,
+				     bgcolor->f_blue);
 
 	cairo_rectangle(cr, g_xoff, g_yoff, g_width, g_height);
 	cairo_fill(cr);
@@ -213,7 +215,8 @@ static void draw_sensor_curve(struct psensor *s,
 void
 graph_update(struct psensor **sensors,
 	     GtkWidget *w_graph,
-	     struct config *config)
+	     struct config *config,
+	     GtkWidget *window)
 {
 	struct color *fgcolor = config->graph_fgcolor;
 	int et, bt, width, height, g_width, g_height;
@@ -227,6 +230,8 @@ graph_update(struct psensor **sensors,
 	cairo_text_extents_t te_btime, te_etime, te_max, te_min;
 	struct psensor **sensor_cur;
 	GtkAllocation galloc;
+	GtkStyleContext *style_ctx;
+	GdkRGBA rgba;
 
 	if (!gtk_widget_is_drawable(w_graph))
 		return ;
@@ -279,10 +284,13 @@ graph_update(struct psensor **sensors,
 	draw_graph_background(cr,
 			      g_xoff, g_yoff, g_width, g_height,
 			      width, height, config,
-			      w_graph);
+			      w_graph,
+			      window);
 
-	cairo_set_source_rgb(cr,
-			     fgcolor->f_red, fgcolor->f_green, fgcolor->f_blue);
+	/** Set the color for text drawing */
+	style_ctx = gtk_widget_get_style_context(w_graph);
+	gtk_style_context_get_color(style_ctx, GTK_STATE_FLAG_NORMAL, &rgba);
+	cairo_set_source_rgb(cr, rgba.red, rgba.green, rgba.blue);
 
 	/* draw graph begin time */
 	cairo_move_to(cr, g_xoff, height - GRAPH_V_PADDING);

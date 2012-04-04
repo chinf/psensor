@@ -13,6 +13,8 @@
 ** changed copyright dates to 2012.
 ** psensor: fixed systray and application indicator visible at the
    same time. (Closes LP: #971098)
+** psensor: fixed wrong background color, get the background color of
+   the window and not the canvas widget.
 
 * v0.6.2.17
 

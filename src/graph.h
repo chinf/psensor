@@ -24,6 +24,9 @@
 #include "psensor.h"
 #include "cfg.h"
 
-void graph_update(struct psensor **, GtkWidget *, struct config *config);
+void graph_update(struct psensor **,
+		  GtkWidget *,
+		  struct config *config,
+		  GtkWidget *window);
 
 #endif
