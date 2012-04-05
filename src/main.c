@@ -507,6 +507,8 @@ int main(int argc, char **argv)
 	/* drawing box */
 	ui.w_graph = ui_graph_create(&ui);
 
+	ui_enable_alpha_channel(&ui);
+
 	/* sensor list */
 	ui_sensorlist_create(&ui);
 

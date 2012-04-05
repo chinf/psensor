@@ -83,4 +83,6 @@ void ui_menu_bar_show(unsigned int show, struct ui_psensor *ui);
 
 void ui_show_about_dialog();
 
+void ui_enable_alpha_channel(struct ui_psensor *ui);
+
 #endif

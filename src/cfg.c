@@ -145,7 +145,6 @@ static double config_get_graph_background_alpha()
 	double a = gconf_client_get_float(client,
 					  KEY_GRAPH_BACKGROUND_ALPHA,
 					  NULL);
-
 	if (a == 0)
 		gconf_client_set_float(client,
 				       KEY_GRAPH_BACKGROUND_ALPHA, 1.0, NULL);

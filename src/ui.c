@@ -185,32 +185,35 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	return gtk_ui_manager_get_widget(menu_manager, "/MainMenu");
 }
 
-static unsigned int enable_alpha_channel(GtkWidget *w)
+void ui_enable_alpha_channel(struct ui_psensor *ui)
 {
-	GdkScreen *screen = gtk_widget_get_screen(w);
+	GdkScreen *screen;
+	GdkVisual *visual;
+	struct config *cfg;
 
-#if (GTK_CHECK_VERSION(3, 0, 0))
-	GdkVisual *visual = gdk_screen_get_rgba_visual(screen);
+	cfg = ui->config;
 
-	if (visual) {
-		gtk_widget_set_visual(w, visual);
-		return 1;
+	screen = gtk_widget_get_screen(ui->main_window);
+
+	log_debug("Config alpha channel enabled: %d", cfg->alpha_channel_enabled);
+	if (cfg->alpha_channel_enabled && gdk_screen_is_composited(screen)) {
+		log_debug("Screen is composited");
+		visual = gdk_screen_get_rgba_visual(screen);
+		if (visual) {
+			gtk_widget_set_visual(ui->main_window, visual);
+		} else {
+			cfg->alpha_channel_enabled = 0;
+			log_err("Enable alpha channel has failed");
+		}
+	} else {
+		cfg->alpha_channel_enabled = 0;
 	}
-#else
-	GdkColormap *colormap = gdk_screen_get_rgba_colormap(screen);
 
-	if (colormap) {
-		gtk_widget_set_colormap(w, colormap);
-		return 1;
-	}
-#endif
-	return 0;
 }
 
 void ui_window_create(struct ui_psensor *ui)
 {
 	GtkWidget *window, *menubar;
-	GdkScreen *screen;
 	GdkPixbuf *icon;
 	GtkIconTheme *icon_theme;
 	struct config *cfg;
@@ -230,15 +233,6 @@ void ui_window_create(struct ui_psensor *ui)
 	gtk_window_set_title(GTK_WINDOW(window),
 			     _("Psensor - Temperature Monitor"));
 	gtk_window_set_role(GTK_WINDOW(window), "psensor");
-
-	screen = gtk_widget_get_screen(window);
-
-	if (cfg->alpha_channel_enabled && gdk_screen_is_composited(screen)) {
-		if (!enable_alpha_channel(window))
-			cfg->alpha_channel_enabled = 0;
-	} else {
-		cfg->alpha_channel_enabled = 0;
-	}
 
 	icon_theme = gtk_icon_theme_get_default();
 	icon = gtk_icon_theme_load_icon(icon_theme, "psensor", 48, 0, NULL);
