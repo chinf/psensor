@@ -17,6 +17,8 @@
    the window and not the canvas widget. (Closes LP: #973122)
 ** psensor: used the foreground color defined by the theme for the
    font of the graph.
+** psensor: used tab layout for psensor preferences .
+** psensor: temperature unit choice (celcius/fahrenheit).
 
 * v0.6.2.17
 
