@@ -71,6 +71,9 @@
 #define KEY_INTERFACE_WINDOW_DIVIDER_POS \
 "/apps/psensor/interface/window_divider_pos"
 
+#define KEY_INTERFACE_TEMPERATURE_UNIT \
+"/apps/psensor/interface/temperature_unit"
+
 GConfClient *client;
 
 static char *get_string(char *key, char *default_value)
@@ -490,6 +493,9 @@ struct config *config_load()
 		c->window_h = 200;
 	}
 
+	c->temperature_unit = gconf_client_get_int
+		(client, KEY_INTERFACE_TEMPERATURE_UNIT, NULL);
+
 	return c;
 }
 
@@ -552,4 +558,10 @@ void config_save(struct config *c)
 			     KEY_INTERFACE_WINDOW_DIVIDER_POS,
 			     c->window_divider_pos,
 			     NULL);
+
+	gconf_client_set_int(client,
+			     KEY_INTERFACE_TEMPERATURE_UNIT,
+			     c->temperature_unit,
+			     NULL);
+
 }

@@ -21,6 +21,11 @@
 
 #include "color.h"
 
+enum temperature_unit {
+	CELCIUS,
+	FAHRENHEIT
+};
+
 enum sensorlist_position {
 	SENSORLIST_POSITION_RIGHT,
 	SENSORLIST_POSITION_LEFT,
@@ -64,6 +69,8 @@ struct config {
 	int unity_launcher_count_disabled;
 
 	int hide_on_startup;
+
+	enum temperature_unit temperature_unit;
 };
 
 /*

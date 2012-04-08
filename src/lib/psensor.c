@@ -198,7 +198,14 @@ int is_fan_type(unsigned int type)
 	return type & SENSOR_TYPE_FAN;
 }
 
-char *psensor_value_to_string(unsigned int type, double value)
+static double celcius_to_fahrenheit(double c)
+{
+	return c * (9.0/5.0) + 32;
+}
+
+char *psensor_value_to_string(unsigned int type,
+			      double value,
+			      int use_celcius)
 {
 	/* should not be possible to exceed 20 characters with temp or
 	   rpm values the .x part is never displayed */
@@ -207,7 +214,12 @@ char *psensor_value_to_string(unsigned int type, double value)
 	char *unit;
 
 	if (is_temp_type(type))
-		unit = "C";
+		if (use_celcius) {
+			unit = "C";
+		} else {
+			unit = "F";
+			value = celcius_to_fahrenheit(value);
+		}
 	else if (type & SENSOR_TYPE_CPU_USAGE)
 		unit = "%";
 	else

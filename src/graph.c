@@ -240,10 +240,15 @@ graph_update(struct psensor **sensors,
 	max_rpm = get_max_rpm(sensors);
 
 	mint = get_min_temp(sensors);
-	strmin = psensor_value_to_string(SENSOR_TYPE_TEMP, mint);
+
+	strmin = psensor_value_to_string(SENSOR_TYPE_TEMP,
+					 mint,
+					 config->temperature_unit == CELCIUS);
 
 	maxt = get_max_temp(sensors);
-	strmax = psensor_value_to_string(SENSOR_TYPE_TEMP, maxt);
+	strmax = psensor_value_to_string(SENSOR_TYPE_TEMP,
+					 maxt,
+					 config->temperature_unit == CELCIUS);
 
 	str_btime = time_to_str(get_graph_begin_time_s(config));
 	str_etime = time_to_str(get_graph_end_time_s());

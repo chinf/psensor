@@ -195,7 +195,8 @@ void ui_enable_alpha_channel(struct ui_psensor *ui)
 
 	screen = gtk_widget_get_screen(ui->main_window);
 
-	log_debug("Config alpha channel enabled: %d", cfg->alpha_channel_enabled);
+	log_debug("Config alpha channel enabled: %d",
+		  cfg->alpha_channel_enabled);
 	if (cfg->alpha_channel_enabled && gdk_screen_is_composited(screen)) {
 		log_debug("Screen is composited");
 		visual = gdk_screen_get_rgba_visual(screen);

@@ -56,32 +56,36 @@ static int col_index_to_col(int idx)
 
 void ui_sensorlist_update(struct ui_psensor *ui)
 {
+	char *str;
+	struct psensor *s;
 	GtkTreeIter iter;
 	struct ui_sensorlist *ui_sl = ui->ui_sensorlist;
 	GtkTreeModel *model
 	    = gtk_tree_view_get_model(ui_sl->treeview);
 	gboolean valid = gtk_tree_model_get_iter_first(model, &iter);
 	struct psensor **sensor = ui->sensors;
+	int use_celcius;
+
+	use_celcius = ui->config->temperature_unit == CELCIUS;
 
 	while (valid && *sensor) {
-		struct psensor *s = *sensor;
-
-		char *str;
+		s = *sensor;
 
 		str = psensor_value_to_string(s->type,
 					      s->measures[s->values_max_length -
-							  1].value.d_num);
+							  1].value.d_num,
+					      use_celcius);
 
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter, COL_TEMP, str,
 				   -1);
 		free(str);
 
-		str = psensor_value_to_string(s->type, s->min);
+		str = psensor_value_to_string(s->type, s->min, use_celcius);
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
 				   COL_TEMP_MIN, str, -1);
 		free(str);
 
-		str = psensor_value_to_string(s->type, s->max);
+		str = psensor_value_to_string(s->type, s->max, use_celcius);
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
 				   COL_TEMP_MAX, str, -1);
 		free(str);

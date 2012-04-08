@@ -53,6 +53,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
 		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
 		*w_win_restore;
+	GtkComboBoxText *w_temp_unit;
 
 	cfg = ui->config;
 
@@ -136,6 +137,13 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_toggle_button_set_active(w_win_restore,
 				     cfg->window_restore_enabled);
 
+	w_temp_unit
+		= GTK_COMBO_BOX_TEXT(gtk_builder_get_object
+				     (builder, "temperature_unit"));
+	gtk_combo_box_set_active(GTK_COMBO_BOX(w_temp_unit),
+				 cfg->temperature_unit);
+
+
 	result = gtk_dialog_run(diag);
 
 	if (result == GTK_RESPONSE_ACCEPT) {
@@ -201,6 +209,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		cfg->window_restore_enabled
 			= gtk_toggle_button_get_active(w_win_restore);
+
+		cfg->temperature_unit
+			= gtk_combo_box_get_active(GTK_COMBO_BOX(w_temp_unit));
 
 		config_save(cfg);
 
