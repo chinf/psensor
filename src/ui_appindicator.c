@@ -23,6 +23,7 @@
 #include <gtk/gtk.h>
 #include <libappindicator/app-indicator.h>
 
+#include "cfg.h"
 #include "psensor.h"
 #include "ui.h"
 #include "ui_appindicator.h"
@@ -128,27 +129,38 @@ static GtkActionEntry entries[] = {
 };
 static guint n_entries = G_N_ELEMENTS(entries);
 
-static void update_sensor_menu_item(GtkMenuItem *item, struct psensor *s)
+static void update_sensor_menu_item(GtkMenuItem *item,
+				    struct psensor *s,
+				    int use_celcius)
 {
 	gchar *str;
+	double v;
+
+	v = psensor_get_current_value(s);
+
+	if (!use_celcius)
+		v = celcius_to_fahrenheit(v);
 
 	str = g_strdup_printf("%s: %2.f %s",
 			      s->name,
-			      psensor_get_current_value(s),
-			      psensor_type_to_unit_str(s->type));
+			      v,
+			      psensor_type_to_unit_str(s->type, use_celcius));
 
 	gtk_menu_item_set_label(item, str);
 
 	g_free(str);
 }
 
-static void update_sensor_menu_items(struct psensor **sensors)
+static void update_sensor_menu_items(struct psensor **sensors,
+				     int use_celcius)
 {
 	int n, i;
 
 	n = psensor_list_size(sensors);
 	for (i = 0; i < n; i++)
-		update_sensor_menu_item(sensor_menu_items[i], sensors[i]);
+		update_sensor_menu_item(sensor_menu_items[i],
+					sensors[i],
+					use_celcius);
 }
 
 static GtkWidget *get_menu(struct ui_psensor *ui)
@@ -160,7 +172,6 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	int i;
 	int n = psensor_list_size(ui->sensors);
 	struct psensor **sensors = ui->sensors;
-
 
 	action_group = gtk_action_group_new("PsensorActions");
 	gtk_action_group_set_translation_domain(action_group, PACKAGE);
@@ -188,8 +199,10 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 				      GTK_WIDGET(sensor_menu_items[i]),
 				      i+2);
 
-		update_sensor_menu_item(sensor_menu_items[i],
-					s);
+		update_sensor_menu_item
+			(sensor_menu_items[i],
+			 s,
+			 ui->config->temperature_unit == CELCIUS);
 	}
 
 
@@ -213,7 +226,8 @@ void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention)
 		app_indicator_set_status
 		    (indicator, APP_INDICATOR_STATUS_ATTENTION);
 
-	update_sensor_menu_items(ui->sensors);
+	update_sensor_menu_items(ui->sensors,
+				 ui->config->temperature_unit == CELCIUS);
 }
 
 static GtkStatusIcon *unity_fallback(AppIndicator *indicator)

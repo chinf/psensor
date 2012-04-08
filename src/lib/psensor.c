@@ -198,7 +198,7 @@ int is_fan_type(unsigned int type)
 	return type & SENSOR_TYPE_FAN;
 }
 
-static double celcius_to_fahrenheit(double c)
+double celcius_to_fahrenheit(double c)
 {
 	return c * (9.0/5.0) + 32;
 }
@@ -449,10 +449,14 @@ const char *psensor_type_to_str(unsigned int type)
 }
 
 
-const char *psensor_type_to_unit_str(unsigned int type)
+const char *psensor_type_to_unit_str(unsigned int type, int use_celcius)
 {
-	if (type & SENSOR_TYPE_TEMP)
-		return _("C");
+	if (type & SENSOR_TYPE_TEMP) {
+		if (use_celcius)
+			return _("C");
+		else
+			return _("F");
+	}
 
 	if (type & SENSOR_TYPE_FAN)
 		return _("RPM");

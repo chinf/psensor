@@ -178,7 +178,7 @@ struct measure *psensor_get_current_measure(struct psensor *sensor);
 */
 const char *psensor_type_to_str(unsigned int type);
 
-const char *psensor_type_to_unit_str(unsigned int type);
+const char *psensor_type_to_unit_str(unsigned int type, int use_celcius);
 
 void psensor_list_update_measures(struct psensor **sensors);
 
@@ -187,5 +187,7 @@ void psensor_init();
 void psensor_cleanup();
 
 double get_max_value(struct psensor **sensors, int type);
+
+double celcius_to_fahrenheit(double c);
 
 #endif
