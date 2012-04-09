@@ -19,7 +19,7 @@ psensor (0.6.2.15-1ubuntu1) oneiric; urgency=low
 psensor (0.6.2.15-1) unstable; urgency=low
 
   * New upstream release
-      - fct sysinfo is optional. (Closes: #650533)
+      - fct sysinfo is replaced by gtop2 calls. (Closes: #650533)
   * debian/control
       - set priority to 'extra' instead of 'optional' due to dependence
  	on json-c lib which is using a priority 'extra'.
