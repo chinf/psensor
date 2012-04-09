@@ -138,7 +138,7 @@ static void update_sensor_menu_item(GtkMenuItem *item,
 
 	v = psensor_get_current_value(s);
 
-	if (!use_celcius)
+	if (is_temp_type(s->type) && !use_celcius)
 		v = celcius_to_fahrenheit(v);
 
 	str = g_strdup_printf("%s: %2.f %s",

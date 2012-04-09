@@ -22,6 +22,7 @@
 #include "psensor.h"
 
 void ui_unity_launcher_entry_update(struct psensor **sensors,
-				    unsigned int show);
+				    unsigned int show,
+				    int use_celcius);
 
 #endif

@@ -224,7 +224,8 @@ gboolean ui_refresh_thread(gpointer data)
 
 #ifdef HAVE_UNITY
 	ui_unity_launcher_entry_update(ui->sensors,
-				       !cfg->unity_launcher_count_disabled);
+				       !cfg->unity_launcher_count_disabled,
+				       cfg->temperature_unit == CELCIUS);
 #endif
 
 	if (ui->graph_update_interval != cfg->graph_update_interval) {

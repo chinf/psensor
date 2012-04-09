@@ -25,8 +25,12 @@ static UnityLauncherEntry *psensor_entry;
 static unsigned int last_visible = -1;
 
 void ui_unity_launcher_entry_update(struct psensor **sensors,
-				    unsigned int show)
+				    unsigned int show,
+				    int use_celcius)
 {
+	double v;
+
+
 	if (!initialized) {
 		psensor_entry = unity_launcher_entry_get_for_desktop_file
 			("psensor.desktop");
@@ -46,9 +50,10 @@ void ui_unity_launcher_entry_update(struct psensor **sensors,
 	}
 
 	if (sensors && *sensors) {
-		double v;
-
 		v = psensor_get_max_current_value(sensors, SENSOR_TYPE_TEMP);
+
+		if (!use_celcius)
+			v = celcius_to_fahrenheit(v);
 
 		unity_launcher_entry_set_count(psensor_entry, v);
 	}
