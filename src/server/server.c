@@ -41,9 +41,12 @@
 #include "cpu.h"
 #endif
 
+#include "log.h"
 #include "psensor_json.h"
 #include "url.h"
 #include "server.h"
+
+static const char *DEFAULT_LOG_FILE = "/var/log/psensor-server.log";
 
 static const char *program_name;
 
@@ -57,15 +60,14 @@ static struct option long_options[] = {
 	{"help", no_argument, 0, 'h'},
 	{"port", required_argument, 0, 'p'},
 	{"wdir", required_argument, 0, 'w'},
-	{"debug", no_argument, 0, 'd'},
+	{"debug", required_argument, 0, 'd'},
+	{"log-file", required_argument, 0, 'l'},
 	{0, 0, 0, 0}
 };
 
 static struct server_data server_data;
 
 static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-
-static int debug;
 
 static int server_stop_requested;
 
@@ -93,13 +95,16 @@ void print_help()
 	       "  -v, --version		display version information and exit"));
 
 	puts("");
-
-	puts(_("  -d,--debug		run in debug mode\n"
-	       "  -p,--port=PORT	webserver port\n"
+	puts(_("  -p,--port=PORT	webserver port\n"
 	       "  -w,--wdir=DIR		directory containing webserver pages"));
 
 	puts("");
+	puts(_("  -d, --debug=LEVEL   "
+	       "set the debug level, integer between 0 and 3"));
+	puts(_("  -l, --log-file=PATH "
+	       "set the log file to PATH"));
 
+	puts("");
 	printf(_("Report bugs to: %s\n"), PACKAGE_BUGREPORT);
 	puts("");
 	printf(_("%s home page: <%s>\n"), PACKAGE_NAME, PACKAGE_URL);
@@ -168,7 +173,7 @@ create_response_api(const char *nurl,
 		if (s)
 			page = sensor_to_json_string(s);
 
-	} else if (debug && !strcmp(nurl, URL_API_1_0_SERVER_STOP)) {
+	} else if (!strcmp(nurl, URL_API_1_0_SERVER_STOP)) {
 
 		server_stop_requested = 1;
 		page = strdup(_("<html><body><p>"
@@ -285,8 +290,7 @@ cbk_http_request(void *cls,
 
 	*ptr = NULL;		/* clear context pointer */
 
-	if (debug)
-		printf(_("HTTP Request: %s\n"), url);
+	log_debug(_("HTTP Request: %s"), url);
 
 	nurl = url_normalize(url);
 
@@ -308,6 +312,7 @@ int main(int argc, char *argv[])
 	int port = DEFAULT_PORT;
 	int optc;
 	int cmdok = 1;
+	char *log_file;
 
 	program_name = argv[0];
 
@@ -320,9 +325,10 @@ int main(int argc, char *argv[])
 
 	server_data.www_dir = NULL;
 	server_data.psysinfo.interfaces = NULL;
+	log_file = NULL;
 
 	while ((optc = getopt_long(argc, argv,
-				   "vhp:w:d", long_options, NULL)) != -1) {
+				   "vhp:w:d:", long_options, NULL)) != -1) {
 		switch (optc) {
 		case 'w':
 			if (optarg)
@@ -339,7 +345,14 @@ int main(int argc, char *argv[])
 			print_version();
 			exit(EXIT_SUCCESS);
 		case 'd':
-			debug = 1;
+			log_level = atoi(optarg);
+			log_printf(LOG_INFO,
+				   _("Enables debug mode: %d"),
+				   log_level);
+			break;
+		case 'l':
+			if (optarg)
+				log_file = strdup(optarg);
 			break;
 		default:
 			cmdok = 0;
@@ -347,13 +360,19 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	server_data.www_dir = strdup(DEFAULT_WWW_DIR);
+	if (!server_data.www_dir)
+		server_data.www_dir = strdup(DEFAULT_WWW_DIR);
+
+	if (!log_file)
+		log_file = strdup(DEFAULT_LOG_FILE);
 
 	if (!cmdok || optind != argc) {
 		fprintf(stderr, _("Try `%s --help' for more information.\n"),
 			program_name);
 		exit(EXIT_FAILURE);
 	}
+
+	log_open(log_file);
 
 	psensor_init();
 
@@ -388,6 +407,8 @@ int main(int argc, char *argv[])
 #endif
 		psensor_list_update_measures(server_data.sensors);
 
+		psensor_log_measures(server_data.sensors);
+
 		pthread_mutex_unlock(&mutex);
 		sleep(5);
 	}
@@ -406,6 +427,9 @@ int main(int argc, char *argv[])
 	sysinfo_cleanup();
 	cpu_cleanup();
 #endif
+
+	if (log_file != DEFAULT_LOG_FILE)
+		free(log_file);
 
 	return EXIT_SUCCESS;
 }

@@ -16,9 +16,13 @@
 ** psensor: fixed wrong background color, get the background color of
    the window and not the canvas widget. (Closes LP: #973122)
 ** psensor: used the foreground color defined by the theme for the
-   font of the graph.
+   font of the graph legend.
 ** psensor: used tab layout for psensor preferences .
 ** psensor: temperature unit choice (celcius/fahrenheit).
+** psensor-server: fixed --wdir option.
+** psensor-server: added log level to -d option.
+** psensor-server: added --log-file option.
+** psensor-server: logged measures when log level is 3.
 
 * v0.6.2.17
 

@@ -485,6 +485,18 @@ void psensor_list_update_measures(struct psensor **sensors)
 #endif
 }
 
+void psensor_log_measures(struct psensor **sensors)
+{
+	if (log_level == LOG_DEBUG)
+		while (*sensors) {
+			log_debug("Measure: %s %.2f",
+				   (*sensors)->name,
+				   psensor_get_current_value(*sensors));
+
+			sensors++;
+		}
+}
+
 void psensor_init()
 {
 	lmsensor_init();

@@ -190,4 +190,6 @@ double get_max_value(struct psensor **sensors, int type);
 
 double celcius_to_fahrenheit(double c);
 
+void psensor_log_measures(struct psensor **sensors);
+
 #endif

@@ -135,18 +135,6 @@ update_psensor_values_size(struct psensor **sensors, struct config *cfg)
 	}
 }
 
-static void log_measures(struct psensor **sensors)
-{
-	if (log_level == LOG_DEBUG)
-		while (*sensors) {
-			log_debug("Measure: %s %.2f",
-				   (*sensors)->name,
-				   psensor_get_current_value(*sensors));
-
-			sensors++;
-		}
-}
-
 void update_psensor_measures(struct ui_psensor *ui)
 {
 	struct psensor **sensors = ui->sensors;
@@ -171,7 +159,7 @@ void update_psensor_measures(struct ui_psensor *ui)
 		amd_psensor_list_update(sensors);
 #endif
 
-		log_measures(sensors);
+		psensor_log_measures(sensors);
 
 		g_mutex_unlock(ui->sensors_mutex);
 

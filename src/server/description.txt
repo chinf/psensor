@@ -47,7 +47,7 @@ Fields of the type 'sensor':
 The URL http://hostname:3131/api/1.0/sensors returns a JSON array
 containing all JSON objects of type 'sensor'.
 
-If run in debug mode, psensor\-server can be stopped by sending an HTTP
+psensor\-server can be stopped by sending an HTTP
 request with the URL 'http://hostname:port/api/1.0/server/stop'.
 
 [WARNING]
