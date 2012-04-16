@@ -66,8 +66,10 @@ static struct psensor *create_sensor(int id, int values_len)
 	sid = malloc(strlen("nvidia") + 1 + strlen(name) + 1);
 	sprintf(sid, "nvidia %s", name);
 
-	s = psensor_create(sid, strdup(name),
-			   SENSOR_TYPE_NVIDIA_TEMP, values_len);
+	s = psensor_create(sid,
+			   strdup(name),
+			   SENSOR_TYPE_NVIDIA_TEMP,
+			   values_len);
 
 	s->nvidia_id = id;
 
