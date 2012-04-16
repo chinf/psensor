@@ -165,9 +165,9 @@ static guint n_entries = G_N_ELEMENTS(entries);
 
 static GtkWidget *get_menu(struct ui_psensor *ui)
 {
-	GtkActionGroup      *action_group;
-	GtkUIManager        *menu_manager;
-	GError              *error;
+	GtkActionGroup *action_group;
+	GtkUIManager *menu_manager;
+	GError *error;
 
 	action_group = gtk_action_group_new("PsensorActions");
 	gtk_action_group_set_translation_domain(action_group, PACKAGE);
