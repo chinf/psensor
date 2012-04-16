@@ -229,84 +229,99 @@ struct color *config_get_sensor_color(char *sensor_name,
 
 void config_set_sensor_color(char *sensor_name, struct color *color)
 {
-	char *key = config_get_sensor_key(sensor_name);
+	char *key, *scolor;
 
-	char *scolor = color_to_string(color);
+	key = config_get_sensor_key(sensor_name);
+	scolor = color_to_string(color);
 
 	gconf_client_set_string(client, key, scolor, NULL);
 
 	free(scolor);
+	free(key);
 }
 
 int config_get_sensor_alarm_limit(char *sensor_name, int def)
 {
 	int res;
-	char *escaped_name = gconf_escape_key(sensor_name, -1);
+	char *escaped_name, *key;
+
+	escaped_name = gconf_escape_key(sensor_name, -1);
 	/* /apps/psensor/sensors/[sensor_name]/alarmlimit */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 1 + 10 + 1);
+	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 10 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/alarmlimit", escaped_name);
 
 	res = gconf_client_get_int(client, key, NULL);
 
 	free(escaped_name);
+	free(key);
 
 	return res ? res : def;
 }
 
 void config_set_sensor_alarm_limit(char *sensor_name, int alarm_limit)
 {
-	char *escaped_name = gconf_escape_key(sensor_name, -1);
+	char *escaped_name, *key;
+
+	escaped_name = gconf_escape_key(sensor_name, -1);
 	/* /apps/psensor/sensors/[sensor_name]/alarmlimit */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 1 + 10 + 1);
+	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 10 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/alarmlimit", escaped_name);
 
 	gconf_client_set_int(client, key, alarm_limit, NULL);
 
 	free(escaped_name);
+	free(key);
 }
 
 int config_get_sensor_alarm_enabled(char *sid)
 {
 	gboolean res;
-	char *escaped_name = gconf_escape_key(sid, -1);
+	char *escaped_name, *key;
+
+	escaped_name = gconf_escape_key(sid, -1);
 	/* /apps/psensor/sensors/[sensor_name]/alarmenabled */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 1 + 12 + 1);
+	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 12 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/alarmenabled", escaped_name);
 
 	res = gconf_client_get_bool(client, key, NULL);
 
 	free(escaped_name);
+	free(key);
 
 	return res == TRUE;
 }
 
 void config_set_sensor_alarm_enabled(char *sid, int enabled)
 {
-	char *escaped_name = gconf_escape_key(sid, -1);
+	char *escaped_name, *key;
+
+	escaped_name = gconf_escape_key(sid, -1);
 	/* /apps/psensor/sensors/[sensor_name]/alarmenabled */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 1 + 12 + 1);
+	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 12 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/alarmenabled", escaped_name);
 
 	gconf_client_set_bool(client, key, enabled, NULL);
 
 	free(escaped_name);
+	free(key);
 }
 
 int config_is_sensor_enabled(char *sid)
 {
 	gboolean res;
-	char *escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sensor_name]/enabled */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 1 + 7 + 1);
+	char *escaped_name, *key;
 
+	escaped_name = gconf_escape_key(sid, -1);
+	/* /apps/psensor/sensors/[sensor_name]/enabled */
+	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 7 + 1);
 	sprintf(key, "/apps/psensor/sensors/%s/enabled", escaped_name);
 
 	res = gconf_client_get_bool(client, key, NULL);
-
+	free(key);
 	free(escaped_name);
 
 	return res == TRUE;
@@ -315,44 +330,52 @@ int config_is_sensor_enabled(char *sid)
 
 void config_set_sensor_enabled(char *sid, int enabled)
 {
-	char *escaped_name = gconf_escape_key(sid, -1);
+	char *escaped_name, *key;
+
+	escaped_name = gconf_escape_key(sid, -1);
 	/* /apps/psensor/sensors/[sensor_name]/enabled */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 1 + 7 + 1);
+	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 7 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/enabled", escaped_name);
 
 	gconf_client_set_bool(client, key, enabled, NULL);
 
 	free(escaped_name);
+	free(key);
 }
 
 char *config_get_sensor_name(char *sid)
 {
-	char *res;
-	char *escaped_name = gconf_escape_key(sid, -1);
+	char *res, *escaped_name, *key;
+
+	escaped_name = gconf_escape_key(sid, -1);
 	/* /apps/psensor/sensors/[sensor_name]/name */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 1 + 4 + 1);
+	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 4 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/name", escaped_name);
 
 	res = gconf_client_get_string(client, key, NULL);
 
 	free(escaped_name);
+	free(key);
 
 	return res;
 }
 
 void config_set_sensor_name(char *sid, const char *name)
 {
-	char *escaped_name = gconf_escape_key(sid, -1);
+	char *escaped_name, *key;
+
+	escaped_name = gconf_escape_key(sid, -1);
 	/* /apps/psensor/sensors/[sensor_name]/name */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 1 + 4 + 1);
+	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 4 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/name", escaped_name);
 
 	gconf_client_set_string(client, key, name, NULL);
 
 	free(escaped_name);
+	free(key);
 }
 
 static int config_is_window_decoration_enabled()
