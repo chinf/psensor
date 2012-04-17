@@ -205,7 +205,6 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 			 ui->config->temperature_unit == CELCIUS);
 	}
 
-
 	return GTK_WIDGET(menu);
 }
 
