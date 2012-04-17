@@ -12,4 +12,6 @@ do
     SUPP="$SUPP --suppressions=$i "
 done
 
-valgrind -v $SUPP --tool=memcheck --leak-check=full --track-origins=yes --leak-resolution=high --num-callers=20 --log-file=$DUMP_FILE $SDIR/../src/psensor
+echo starts psensor with options: $*
+
+valgrind -v $SUPP --tool=memcheck --leak-check=full --track-origins=yes --leak-resolution=high --num-callers=20 --log-file=$DUMP_FILE $SDIR/../src/psensor $*

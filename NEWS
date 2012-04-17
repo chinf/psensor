@@ -24,6 +24,8 @@
 ** psensor-server: added --log-file option.
 ** psensor-server: logged measures when log level is 3.
 ** psensor: fixed many memory leaks in cfg.c (gconf2 keys).
+** psensor: fixed memory leak (sensor name when specified by the
+   configuration).
 
 * v0.6.2.17
 
