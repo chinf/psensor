@@ -89,6 +89,8 @@ void psensor_values_resize(struct psensor *s, int new_size)
 void psensor_free(struct psensor *sensor)
 {
 	if (sensor) {
+		log_debug("Cleanup %s", sensor->id);
+
 		free(sensor->name);
 		free(sensor->id);
 
