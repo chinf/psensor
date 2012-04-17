@@ -308,8 +308,10 @@ static void associate_preferences(struct psensor **sensors)
 
 		n = config_get_sensor_name(s->id);
 
-		if (n)
+		if (n) {
+			free(s->name);
 			s->name = n;
+		}
 
 		sensor_cur++;
 	}
@@ -528,6 +530,8 @@ int main(int argc, char **argv)
 	/* main loop */
 	gtk_main();
 
+	log_debug("Quitting...");
+
 	g_mutex_lock(ui.sensors_mutex);
 
 	psensor_cleanup();
@@ -554,6 +558,8 @@ int main(int argc, char **argv)
 	g_mutex_unlock(ui.sensors_mutex);
 
 	config_cleanup();
+
+	log_debug("Cleanup done, closing log");
 
 	log_close();
 
