@@ -383,6 +383,12 @@ static void log_glib_info()
 		  glib_micro_version);
 }
 
+static void activate(GApplication *application,
+		     gpointer data)
+{
+	ui_window_show((struct ui_psensor *)data);
+}
+
 int main(int argc, char **argv)
 {
 	struct ui_psensor ui;
@@ -390,6 +396,7 @@ int main(int argc, char **argv)
 	GThread *thread;
 	int optc, cmdok, opti, use_libatasmart;
 	char *url = NULL;
+	GApplication *app;
 
 	program_name = argv[0];
 
@@ -437,6 +444,17 @@ int main(int argc, char **argv)
 	}
 
 	log_init();
+
+	app = g_application_new("wpitchoune.psensor", 0);
+	g_application_register(app, NULL, NULL);
+
+	if (g_application_get_is_remote(app)) {
+		g_application_activate(app);
+		log_debug(_("Psensor instance already exists"));
+		exit(EXIT_SUCCESS);
+	}
+
+	g_signal_connect(app, "activate", G_CALLBACK(activate), &ui);
 
 	log_glib_info();
 #if !(GLIB_CHECK_VERSION(2, 31, 0))

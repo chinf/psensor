@@ -26,6 +26,9 @@
 ** psensor: fixed many memory leaks in cfg.c (gconf2 keys).
 ** psensor: fixed memory leak (sensor name when specified by the
    configuration).
+** psensor: implemented the psensor uniquess, non-primary psensor
+   instances show the window of the primary psensor instance and
+   exits.
 
 * v0.6.2.17
 
