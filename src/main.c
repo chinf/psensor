@@ -351,6 +351,7 @@ static struct option long_options[] = {
 	{"help", no_argument, 0, 'h'},
 	{"url", required_argument, 0, 'u'},
 	{"debug", required_argument, 0, 'd'},
+	{"new-instance", no_argument, 0, 'n'},
 	{0, 0, 0, 0}
 };
 
@@ -389,8 +390,8 @@ static void log_glib_info()
 		  glib_micro_version);
 }
 
-static void activate(GApplication *application,
-		     gpointer data)
+static void cb_activate(GApplication *application,
+			gpointer data)
 {
 	ui_window_show((struct ui_psensor *)data);
 }
@@ -478,7 +479,7 @@ int main(int argc, char **argv)
 	struct ui_psensor ui;
 	GError *error;
 	GThread *thread;
-	int optc, cmdok, opti, use_libatasmart;
+	int optc, cmdok, opti, use_libatasmart, new_instance;
 	char *url = NULL;
 	GApplication *app;
 
@@ -491,10 +492,10 @@ int main(int argc, char **argv)
 	textdomain(PACKAGE);
 #endif
 
-	use_libatasmart = 0;
+	use_libatasmart = new_instance = 0;
 
 	cmdok = 1;
-	while ((optc = getopt_long(argc, argv, "vhd:u:", long_options,
+	while ((optc = getopt_long(argc, argv, "vhd:u:n", long_options,
 				   &opti)) != -1) {
 		switch (optc) {
 		case 0:
@@ -515,6 +516,9 @@ int main(int argc, char **argv)
 			log_level = atoi(optarg);
 			log_printf(LOG_INFO, _("Enables debug mode."));
 			break;
+		case 'n':
+			new_instance = 1;
+			break;
 		default:
 			cmdok = 0;
 			break;
@@ -530,15 +534,16 @@ int main(int argc, char **argv)
 	log_init();
 
 	app = g_application_new("wpitchoune.psensor", 0);
+
 	g_application_register(app, NULL, NULL);
 
-	if (g_application_get_is_remote(app)) {
+	if (!new_instance && g_application_get_is_remote(app)) {
 		g_application_activate(app);
-		log_debug(_("Psensor instance already exists"));
+		log_warn(_("Psensor instance already exists"));
 		exit(EXIT_SUCCESS);
 	}
 
-	g_signal_connect(app, "activate", G_CALLBACK(activate), &ui);
+	g_signal_connect(app, "activate", G_CALLBACK(cb_activate), &ui);
 
 	log_glib_info();
 #if !(GLIB_CHECK_VERSION(2, 31, 0))
@@ -607,6 +612,7 @@ int main(int argc, char **argv)
 	/* main loop */
 	gtk_main();
 
+	g_object_ref(app);
 	cleanup(&ui);
 	log_debug("Quitting...");
 

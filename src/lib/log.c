@@ -126,3 +126,12 @@ void log_err(const char *fmt, ...)
 	vlogf(LOG_ERR, fmt, ap);
 	va_end(ap);
 }
+
+void log_warn(const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	vlogf(LOG_WARN, fmt, ap);
+	va_end(ap);
+}
