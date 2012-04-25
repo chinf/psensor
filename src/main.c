@@ -402,6 +402,8 @@ static void cleanup(struct ui_psensor *ui)
 {
 	g_mutex_lock(ui->sensors_mutex);
 
+	log_debug("Cleanup...");
+
 	psensor_cleanup();
 
 #ifdef HAVE_NVIDIA
@@ -605,8 +607,8 @@ int main(int argc, char **argv)
 	/* main loop */
 	gtk_main();
 
-	log_debug("Quitting...");
 	cleanup(&ui);
+	log_debug("Quitting...");
 
 	return 0;
 }
