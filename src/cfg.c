@@ -74,7 +74,7 @@
 #define KEY_INTERFACE_TEMPERATURE_UNIT \
 "/apps/psensor/interface/temperature_unit"
 
-GConfClient *client;
+static GConfClient *client;
 
 static char *get_string(char *key, char *default_value)
 {
@@ -424,9 +424,13 @@ static void config_set_window_keep_below_enabled(int enabled)
 				      FALSE, NULL);
 }
 
-void config_init()
+/*
+ * Initializes the GConf client.
+ */
+static void init()
 {
-	client = gconf_client_get_default();
+	if (!client)
+		client = gconf_client_get_default();
 }
 
 void config_cleanup()
@@ -440,6 +444,8 @@ void config_cleanup()
 struct config *config_load()
 {
 	struct config *c;
+
+	init();
 
 	c = malloc(sizeof(struct config));
 

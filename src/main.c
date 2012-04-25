@@ -551,8 +551,6 @@ int main(int argc, char **argv)
 
 	ui.sensors_mutex = g_mutex_new();
 
-	config_init();
-
 	ui.config = config_load();
 
 	psensor_init();
