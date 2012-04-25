@@ -558,7 +558,6 @@ int main(int argc, char **argv)
 	psensor_init();
 
 	ui.sensors = create_sensors_list(url, use_libatasmart);
-
 	associate_preferences(ui.sensors);
 	associate_colors(ui.sensors);
 	associate_cb_alarm_raised(ui.sensors, &ui);
