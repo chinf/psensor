@@ -137,16 +137,19 @@ update_psensor_values_size(struct psensor **sensors, struct config *cfg)
 
 void update_psensor_measures(struct ui_psensor *ui)
 {
-	struct psensor **sensors = ui->sensors;
-	struct config *cfg = ui->config;
+	struct psensor **sensors;
+	struct config *cfg;
+
+	cfg = ui->config;
 
 	while (1) {
 		g_mutex_lock(ui->sensors_mutex);
 
+		sensors = ui->sensors;
 		if (!sensors)
 			return;
 
-		update_psensor_values_size(sensors, ui->config);
+		update_psensor_values_size(sensors, cfg);
 
 		psensor_list_update_measures(sensors);
 #ifdef HAVE_REMOTE_SUPPORT
