@@ -533,6 +533,7 @@ int main(int argc, char **argv)
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 	ui_appindicator_init(&ui);
+	ui_status_set_visible(1);
 #endif
 
 	/*
