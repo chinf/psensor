@@ -236,7 +236,7 @@ gboolean ui_refresh_thread(gpointer data)
 	return ret;
 }
 
-void cb_alarm_raised(struct psensor *sensor, void *data)
+static void cb_alarm_raised(struct psensor *sensor, void *data)
 {
 #ifdef HAVE_LIBNOTIFY
 	if (sensor->enabled)
@@ -393,6 +393,43 @@ static void activate(GApplication *application,
 		     gpointer data)
 {
 	ui_window_show((struct ui_psensor *)data);
+}
+
+/*
+ * Release memory for Valgrind.
+ */
+static void cleanup(struct ui_psensor *ui)
+{
+	g_mutex_lock(ui->sensors_mutex);
+
+	psensor_cleanup();
+
+#ifdef HAVE_NVIDIA
+	nvidia_cleanup();
+#endif
+#ifdef HAVE_LIBATIADL
+	amd_cleanup();
+#endif
+#ifdef HAVE_REMOTE_SUPPORT
+	rsensor_cleanup();
+#endif
+
+	psensor_list_free(ui->sensors);
+	ui->sensors = NULL;
+
+#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+	ui_appindicator_cleanup();
+#endif
+
+	ui_status_cleanup();
+
+	g_mutex_unlock(ui->sensors_mutex);
+
+	config_cleanup();
+
+	log_debug("Cleanup done, closing log");
+
+	log_close();
 }
 
 int main(int argc, char **argv)
@@ -555,37 +592,7 @@ int main(int argc, char **argv)
 	gtk_main();
 
 	log_debug("Quitting...");
-
-	g_mutex_lock(ui.sensors_mutex);
-
-	psensor_cleanup();
-
-#ifdef HAVE_NVIDIA
-	nvidia_cleanup();
-#endif
-#ifdef HAVE_LIBATIADL
-	amd_cleanup();
-#endif
-#ifdef HAVE_REMOTE_SUPPORT
-	rsensor_cleanup();
-#endif
-
-	psensor_list_free(ui.sensors);
-	ui.sensors = NULL;
-
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
-	ui_appindicator_cleanup();
-#endif
-
-	ui_status_cleanup();
-
-	g_mutex_unlock(ui.sensors_mutex);
-
-	config_cleanup();
-
-	log_debug("Cleanup done, closing log");
-
-	log_close();
+	cleanup(&ui);
 
 	return 0;
 }
