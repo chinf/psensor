@@ -114,7 +114,7 @@ sensor_pref_get(struct sensor_pref **ps, struct psensor *s)
 }
 
 static struct sensor_pref *
-get_seleted_sensor_pref(GtkBuilder *builder, struct sensor_pref **ps)
+get_selected_sensor_pref(GtkBuilder *builder, struct sensor_pref **ps)
 {
 	GtkTreeModel *model;
 	GtkTreeIter iter;
@@ -147,7 +147,7 @@ static void on_name_changed(GtkEntry *entry, gpointer data)
 
 	str = gtk_entry_get_text(entry);
 
-	p = get_seleted_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
 
 	if (p && strcmp(p->name, str)) {
 		free(p->name);
@@ -161,7 +161,7 @@ on_drawed_toggled(GtkToggleButton *btn, gpointer data)
 	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_seleted_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
 
 	if (p)
 		p->enabled = gtk_toggle_button_get_active(btn);
@@ -173,7 +173,7 @@ on_alarm_toggled(GtkToggleButton *btn, gpointer data)
 	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_seleted_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
 
 	if (p)
 		p->alarm_enabled = gtk_toggle_button_get_active(btn);
@@ -185,7 +185,7 @@ static void on_color_set(GtkColorButton *widget, gpointer data)
 	struct sensor_pref *p;
 	GdkColor color;
 
-	p = get_seleted_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
 
 	if (p) {
 		gtk_color_button_get_color(widget, &color);
@@ -198,7 +198,7 @@ static void on_temp_limit_changed(GtkSpinButton *btn, gpointer data)
 	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_seleted_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
 
 	if (p)
 		p->alarm_limit = gtk_spin_button_get_value(btn);

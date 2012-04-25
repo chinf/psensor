@@ -217,9 +217,9 @@ char *psensor_value_to_string(unsigned int type,
 
 	if (is_temp_type(type))
 		if (use_celcius) {
-			unit = "C";
+			unit = "°C";
 		} else {
-			unit = "F";
+			unit = "°F";
 			value = celcius_to_fahrenheit(value);
 		}
 	else if (type & SENSOR_TYPE_CPU_USAGE)
@@ -455,9 +455,9 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celcius)
 {
 	if (type & SENSOR_TYPE_TEMP) {
 		if (use_celcius)
-			return _("C");
+			return _("°C");
 		else
-			return _("F");
+			return _("°F");
 	}
 
 	if (type & SENSOR_TYPE_FAN)
