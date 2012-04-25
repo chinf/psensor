@@ -9,7 +9,7 @@
             with the ATI/AMD GPU support.
 ** psensor: fixed compilation error on 64bits with ATI/AMD GPU support.
 ** psensor: added capability to use libatasmart for sata disk monitoring.
-** psensor: added option --use-libatasmart
+** psensor: added option --use-libatasmart.
 ** changed copyright dates to 2012.
 ** psensor: fixed systray and application indicator visible at the
    same time. (Closes LP: #971098)
@@ -29,6 +29,7 @@
 ** psensor: implemented the psensor uniquess, non-primary psensor
    instances show the window of the primary psensor instance and
    exits.
+** many code quality improvements.
 
 * v0.6.2.17
 
