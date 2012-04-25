@@ -23,7 +23,7 @@ instruction. See the manpages of sensors(1) and sensors\-detect(8) for
 more information.
 
 To retrieve the temperature of the Hard Disk Drives, the hddtemp
-daemon must be running.
+daemon must be running or atasmart used ('\-\-use\-libatasmart').
 
 For remote monitoring:
   * start psensor\-server(1) on the remote computer
@@ -33,7 +33,12 @@ ATI/AMD GPUs monitoring is available if the library libatiadlxx is
 present in the directory /usr/lib and psensor has been compiled with
 the ATI ADL SDK.
 
-Log is written to '$HOME/.psensor/log'.
+Log messages are written to '$HOME/.psensor/log'.
+
+By default, if a Psensor process is already running, the command
+psensor will show the graph window then exit.  
+It is possible to run multiple instances of Psensor by using the
+option '\-\-new\-instance'.
 
 [SEE ALSO]
 

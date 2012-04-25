@@ -102,6 +102,8 @@ static void print_help()
 	puts(_("  --use-libatasmart   "
 	       "use atasmart library for disk monitoring "
 	       "instead of hddtemp daemon"));
+	puts(_("  -n, --new-instance  "
+	       "force the creation of a new Psensor application"));
 	puts("");
 
 	puts(_("  -d, --debug=LEVEL   "

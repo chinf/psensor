@@ -30,6 +30,8 @@
    instances show the window of the primary psensor instance and
    exits.
 ** many code quality improvements.
+** psensor: added --new-instance option to allow the creation of
+   multiple instances of Psensor.
 
 * v0.6.2.17
 
