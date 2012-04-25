@@ -135,7 +135,7 @@ update_psensor_values_size(struct psensor **sensors, struct config *cfg)
 	}
 }
 
-static void update_psensor_measures(struct ui_psensor *ui)
+static void update_measures(struct ui_psensor *ui)
 {
 	struct psensor **sensors;
 	struct config *cfg;
@@ -527,7 +527,7 @@ int main(int argc, char **argv)
 	/* sensor list */
 	ui_sensorlist_create(&ui);
 
-	thread = g_thread_create((GThreadFunc) update_psensor_measures,
+	thread = g_thread_create((GThreadFunc) update_measures,
 				 &ui, TRUE, &error);
 
 	if (!thread)
