@@ -252,7 +252,7 @@ static void associate_colors(struct psensor **sensors)
 	unsigned int colors[COLORS_COUNT][3] = {
 		{0x0000, 0x0000, 0x0000},	/* black */
 		{0xffff, 0x0000, 0x0000},	/* red */
-		{0x0000, 0.0000, 0xffff},	/* blue */
+		{0x0000, 0x0000, 0xffff},	/* blue */
 		{0x0000, 0xffff, 0x0000},	/* green */
 
 		{0x7fff, 0x7fff, 0x7fff},	/* grey */
