@@ -432,6 +432,42 @@ static void cleanup(struct ui_psensor *ui)
 	log_close();
 }
 
+/*
+ * Creates the list of sensors.
+ *
+ * 'url': remote psensor server url, null for local monitoring.
+ * 'use_libatasmart': whether the libatasmart must be used.
+ */
+static struct psensor **create_sensors_list(const char *url,
+					    unsigned int use_libatasmart)
+{
+	struct psensor **sensors;
+
+	if (url) {
+#ifdef HAVE_REMOTE_SUPPORT
+		rsensor_init();
+		sensors = get_remote_sensors(url, 600);
+#else
+		fprintf(stderr,
+			_("ERROR: Not compiled with remote sensor support.\n"));
+		exit(EXIT_FAILURE);
+#endif
+	} else {
+		sensors = get_all_sensors(use_libatasmart, 600);
+#ifdef HAVE_NVIDIA
+		sensors = nvidia_psensor_list_add(sensors, 600);
+#endif
+#ifdef HAVE_LIBATIADL
+		sensors = amd_psensor_list_add(sensors, 600);
+#endif
+#ifdef HAVE_GTOP
+		sensors = cpu_psensor_list_add(sensors, 600);
+#endif
+	}
+
+	return sensors;
+}
+
 int main(int argc, char **argv)
 {
 	struct ui_psensor ui;
@@ -521,27 +557,7 @@ int main(int argc, char **argv)
 
 	psensor_init();
 
-	if (url) {
-#ifdef HAVE_REMOTE_SUPPORT
-		rsensor_init();
-		ui.sensors = get_remote_sensors(url, 600);
-#else
-		fprintf(stderr,
-			_("ERROR: Not compiled with remote sensor support.\n"));
-		exit(EXIT_FAILURE);
-#endif
-	} else {
-		ui.sensors = get_all_sensors(use_libatasmart, 600);
-#ifdef HAVE_NVIDIA
-		ui.sensors = nvidia_psensor_list_add(ui.sensors, 600);
-#endif
-#ifdef HAVE_LIBATIADL
-		ui.sensors = amd_psensor_list_add(ui.sensors, 600);
-#endif
-#ifdef HAVE_GTOP
-		ui.sensors = cpu_psensor_list_add(ui.sensors, 600);
-#endif
-	}
+	ui.sensors = create_sensors_list(url, use_libatasmart);
 
 	associate_preferences(ui.sensors);
 	associate_colors(ui.sensors);
