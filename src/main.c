@@ -135,10 +135,11 @@ update_psensor_values_size(struct psensor **sensors, struct config *cfg)
 	}
 }
 
-void update_psensor_measures(struct ui_psensor *ui)
+static void update_psensor_measures(struct ui_psensor *ui)
 {
 	struct psensor **sensors;
 	struct config *cfg;
+	int period;
 
 	cfg = ui->config;
 
@@ -164,9 +165,11 @@ void update_psensor_measures(struct ui_psensor *ui)
 
 		psensor_log_measures(sensors);
 
+		period = cfg->sensor_update_interval;
+
 		g_mutex_unlock(ui->sensors_mutex);
 
-		sleep(cfg->sensor_update_interval);
+		sleep(period);
 	}
 }
 
