@@ -236,6 +236,14 @@ psensor_value_to_str(unsigned int type, double value, int use_celcius)
 	return str;
 }
 
+char *
+psensor_measure_to_str(const struct measure *m,
+		       unsigned int type,
+		       unsigned int use_celcius)
+{
+	return psensor_value_to_str(type, m->value, use_celcius);
+}
+
 void psensor_set_current_value(struct psensor *sensor, double value)
 {
 	struct timeval tv;

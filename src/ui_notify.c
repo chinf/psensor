@@ -27,6 +27,7 @@
 #define NOTIFY_CHECK_VERSION(x, y, z) 0
 #endif
 
+#include "cfg.h"
 #include "ui.h"
 #include "ui_notify.h"
 
@@ -36,8 +37,10 @@ static struct timeval last_notification_tv;
 void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 {
 	struct timeval t;
-	char *body;
+	char *body, *svalue;
+	const char *summary;
 	NotifyNotification *notif;
+	unsigned int use_celcius;
 
 	log_debug("last_notification %d", last_notification_tv.tv_sec);
 
@@ -56,17 +59,33 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		notify_init("psensor");
 
 	if (notify_is_initted() == TRUE) {
-		body = strdup(sensor->name);
+		if (ui->config->temperature_unit == CELCIUS)
+			use_celcius = 1;
+		else
+			use_celcius = 0;
+
+		svalue = psensor_measure_to_str
+			(psensor_get_current_measure(sensor),
+			 sensor->type,
+			 use_celcius);
+
+		body = malloc(strlen(sensor->name) + 3 + strlen(svalue) + 1);
+		sprintf(body, "%s : %s", sensor->name, svalue);
+		free(svalue);
+
+		if (is_temp_type(sensor->type))
+			summary = _("Temperature alert");
+		else
+			summary = _("N/A");
 
 		/*
 		 * Since libnotify 0.7 notify_notification_new has
 		 * only 3 parameters.
 		 */
 #if NOTIFY_CHECK_VERSION(0, 7, 0)
-		notif = notify_notification_new
-			(_("Temperature alert"), body, PSENSOR_ICON);
+		notif = notify_notification_new(summary, body, PSENSOR_ICON);
 #else
-		notif = notify_notification_new(_("Temperature alert"),
+		notif = notify_notification_new(summary,
 						body,
 						PSENSOR_ICON,
 						GTK_WIDGET(ui->main_window));

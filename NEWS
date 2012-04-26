@@ -35,7 +35,8 @@
 ** psensor: added the degree sign before the temperature symbols.
 ** psensor: alarm limit edition using the temperature unit set in the
    global pref.
-** psensor: improved notification (added psensor icon).
+** psensor: improved notification (added psensor icon and value of the
+   sensor).
 
 * v0.6.2.17
 
