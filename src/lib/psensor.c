@@ -205,6 +205,11 @@ double celcius_to_fahrenheit(double c)
 	return c * (9.0/5.0) + 32;
 }
 
+double fahrenheit_to_celcius(double f)
+{
+	return (f - 32) * (5.0/9.0);
+}
+
 char *psensor_value_to_string(unsigned int type,
 			      double value,
 			      int use_celcius)

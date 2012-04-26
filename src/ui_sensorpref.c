@@ -41,7 +41,8 @@ struct cb_data {
 	struct sensor_pref **prefs;
 };
 
-static struct sensor_pref *sensor_pref_new(struct psensor *s)
+static struct sensor_pref *sensor_pref_new(struct psensor *s,
+					   struct config *cfg)
 {
 	struct sensor_pref *p = malloc(sizeof(struct sensor_pref));
 
@@ -50,8 +51,12 @@ static struct sensor_pref *sensor_pref_new(struct psensor *s)
 	p->name = strdup(s->name);
 	p->enabled = s->enabled;
 	p->alarm_enabled = s->alarm_enabled;
-	p->alarm_limit = s->alarm_limit;
 	p->color = color_dup(s->color);
+
+	if (cfg->temperature_unit == CELCIUS)
+		p->alarm_limit = s->alarm_limit;
+	else
+		p->alarm_limit = celcius_to_fahrenheit(s->alarm_limit);
 
 	return p;
 }
@@ -67,7 +72,8 @@ static void sensor_pref_free(struct sensor_pref *p)
 	free(p);
 }
 
-static struct sensor_pref **sensor_pref_list_new(struct psensor **sensors)
+static struct sensor_pref **sensor_pref_list_new(struct psensor **sensors,
+						 struct config *cfg)
 {
 	int n, i;
 	struct sensor_pref **pref_list;
@@ -76,7 +82,8 @@ static struct sensor_pref **sensor_pref_list_new(struct psensor **sensors)
 	pref_list = malloc(sizeof(struct sensor_pref *) * (n+1));
 
 	for (i = 0; i < n; i++)
-		pref_list[i] = sensor_pref_new(sensors[i]);
+		pref_list[i] = sensor_pref_new(sensors[i],
+					       cfg);
 
 	pref_list[n] = NULL;
 
@@ -224,15 +231,19 @@ static void connect_signals(GtkBuilder *builder, struct cb_data *cbdata)
 }
 
 static void
-update_pref(struct psensor *s, struct sensor_pref **prefs, GtkBuilder *builder)
+update_pref(struct psensor *s,
+	    struct sensor_pref **prefs,
+	    struct config *cfg,
+	    GtkBuilder *builder)
 {
-	GtkLabel *w_id, *w_type;
+	GtkLabel *w_id, *w_type, *w_temp_unit;
 	GtkEntry *w_name;
 	GtkToggleButton *w_draw, *w_alarm;
 	GtkColorButton *w_color;
 	GtkSpinButton *w_temp_limit;
 	GdkColor *color;
 	struct sensor_pref *p = sensor_pref_get(prefs, s);
+	int use_celcius;
 
 	w_id = GTK_LABEL(gtk_builder_get_object(builder, "sensor_id"));
 	gtk_label_set_text(w_id, s->id);
@@ -257,6 +268,15 @@ update_pref(struct psensor *s, struct sensor_pref **prefs, GtkBuilder *builder)
 	w_temp_limit
 		= GTK_SPIN_BUTTON(gtk_builder_get_object(builder,
 							 "sensor_temp_limit"));
+
+	w_temp_unit
+		= GTK_LABEL(gtk_builder_get_object(builder,
+						   "sensor_temp_unit"));
+
+	use_celcius = cfg->temperature_unit == CELCIUS ? 1 : 0;
+	gtk_label_set_text(w_temp_unit,
+			   psensor_type_to_unit_str(s->type,
+						    use_celcius));
 
 	if (is_temp_type(s->type)) {
 		gtk_toggle_button_set_active(w_alarm, p->alarm_enabled);
@@ -283,7 +303,10 @@ static void on_changed(GtkTreeSelection *selection, gpointer data)
 		gint *indices = gtk_tree_path_get_indices(p);
 		struct psensor *s = *(ui->sensors + *indices);
 
-		update_pref(s, cbdata->prefs, cbdata->builder);
+		update_pref(s,
+			    cbdata->prefs,
+			    ui->config,
+			    cbdata->builder);
 
 		gtk_tree_path_free(p);
 	}
@@ -315,7 +338,9 @@ select_sensor(struct psensor *s, struct psensor **sensors, GtkTreeView *tree)
 }
 
 static void
-apply_prefs(struct sensor_pref **prefs, struct psensor **sensors)
+apply_prefs(struct sensor_pref **prefs,
+	    struct psensor **sensors,
+	    struct config *cfg)
 {
 	int n = psensor_list_size(sensors);
 	int i;
@@ -335,11 +360,14 @@ apply_prefs(struct sensor_pref **prefs, struct psensor **sensors)
 			config_set_sensor_enabled(s->id, s->enabled);
 		}
 
-		if (s->alarm_limit != p->alarm_limit) {
+		if (cfg->temperature_unit == CELCIUS)
 			s->alarm_limit = p->alarm_limit;
-			config_set_sensor_alarm_limit(s->id,
-						      s->alarm_limit);
-		}
+		else
+			s->alarm_limit = fahrenheit_to_celcius
+				(p->alarm_limit);
+
+		config_set_sensor_alarm_limit(s->id,
+					      s->alarm_limit);
 
 		if (s->alarm_enabled != p->alarm_enabled) {
 			s->alarm_enabled = p->alarm_enabled;
@@ -368,7 +396,8 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	struct cb_data cbdata;
 
 	cbdata.ui = ui;
-	cbdata.prefs = sensor_pref_list_new(ui->sensors);
+	cbdata.prefs = sensor_pref_list_new(ui->sensors,
+					    ui->config);
 
 	builder = gtk_builder_new();
 	cbdata.builder = builder;
@@ -384,7 +413,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		return ;
 	}
 
-	update_pref(sensor, cbdata.prefs, builder);
+	update_pref(sensor, cbdata.prefs, ui->config, builder);
 	connect_signals(builder, &cbdata);
 
 	w_sensors_list
@@ -419,7 +448,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	result = gtk_dialog_run(diag);
 
 	if (result == GTK_RESPONSE_ACCEPT) {
-		apply_prefs(cbdata.prefs, ui->sensors);
+		apply_prefs(cbdata.prefs, ui->sensors, ui->config);
 		ui_sensorlist_update_sensors_preferences(ui);
 	}
 
