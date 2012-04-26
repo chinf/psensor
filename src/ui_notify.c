@@ -64,11 +64,11 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		 */
 #if NOTIFY_CHECK_VERSION(0, 7, 0)
 		notif = notify_notification_new
-			(_("Temperature alert"), name, NULL);
+			(_("Temperature alert"), name, PSENSOR_ICON);
 #else
 		notif = notify_notification_new(_("Temperature alert"),
 						name,
-						NULL,
+						PSENSOR_ICON,
 						GTK_WIDGET(ui->main_window));
 #endif
 		log_debug("notif_notification_new %s", sensor->name);
@@ -77,6 +77,6 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 
 		g_object_unref(notif);
 	} else {
-		log_printf(LOG_ERR, "notify not initted");
+		log_printf(LOG_ERR, "notify not initialized");
 	}
 }

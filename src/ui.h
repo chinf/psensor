@@ -30,6 +30,8 @@
 
 #include "psensor.h"
 
+#define PSENSOR_ICON "psensor"
+
 struct ui_psensor {
 	struct psensor **sensors;
 
