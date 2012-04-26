@@ -42,7 +42,7 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 	log_debug("last_notification %d", last_notification_tv.tv_sec);
 
 	if (gettimeofday(&t, NULL) != 0) {
-		log_printf(LOG_ERR,  _("gettimeofday failed"));
+		log_err(_("gettimeofday failed"));
 		return;
 	}
 
@@ -77,6 +77,6 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 
 		g_object_unref(notif);
 	} else {
-		log_printf(LOG_ERR, "notify not initialized");
+		log_err("notify not initialized");
 	}
 }
