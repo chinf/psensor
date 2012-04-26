@@ -71,21 +71,21 @@ void ui_sensorlist_update(struct ui_psensor *ui)
 	while (valid && *sensor) {
 		s = *sensor;
 
-		str = psensor_value_to_string(s->type,
-					      s->measures[s->values_max_length -
-							  1].value,
-					      use_celcius);
+		str = psensor_value_to_str(s->type,
+					   s->measures[s->values_max_length -
+						       1].value,
+					   use_celcius);
 
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter, COL_TEMP, str,
 				   -1);
 		free(str);
 
-		str = psensor_value_to_string(s->type, s->min, use_celcius);
+		str = psensor_value_to_str(s->type, s->min, use_celcius);
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
 				   COL_TEMP_MIN, str, -1);
 		free(str);
 
-		str = psensor_value_to_string(s->type, s->max, use_celcius);
+		str = psensor_value_to_str(s->type, s->max, use_celcius);
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
 				   COL_TEMP_MAX, str, -1);
 		free(str);

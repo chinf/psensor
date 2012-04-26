@@ -156,9 +156,9 @@ psensor_get_max_current_value(struct psensor **sensors, unsigned int type);
   parameter 'type' is SENSOR_TYPE_LMSENSOR_TEMP, SENSOR_TYPE_NVIDIA,
   or SENSOR_TYPE_LMSENSOR_FAN
 */
-char *psensor_value_to_string(unsigned int type,
-			      double value,
-			      int use_celcius);
+char *psensor_value_to_str(unsigned int type,
+			   double value,
+			   int use_celcius);
 
 struct psensor **get_all_sensors(int use_libatasmart, int values_max_length);
 
