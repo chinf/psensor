@@ -95,7 +95,7 @@ static struct color *config_get_background_color()
 {
 
 	char *scolor = get_string(KEY_GRAPH_BACKGROUND_COLOR,
-					 DEFAULT_GRAPH_BACKGROUND_COLOR);
+				  DEFAULT_GRAPH_BACKGROUND_COLOR);
 
 	struct color *c = string_to_color(scolor);
 
@@ -325,7 +325,6 @@ int config_is_sensor_enabled(char *sid)
 	free(escaped_name);
 
 	return res == TRUE;
-
 }
 
 void config_set_sensor_enabled(char *sid, int enabled)
@@ -592,5 +591,4 @@ void config_save(struct config *c)
 			     KEY_INTERFACE_TEMPERATURE_UNIT,
 			     c->temperature_unit,
 			     NULL);
-
 }
