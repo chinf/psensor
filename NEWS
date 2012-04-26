@@ -32,7 +32,7 @@
 ** many code quality improvements.
 ** psensor: added --new-instance option to allow the creation of
    multiple instances of Psensor.
-** psensor: added the degree sign before the temperature symbol.
+** psensor: added the degree sign before the temperature symbols.
 
 * v0.6.2.17
 
