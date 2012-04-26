@@ -39,7 +39,7 @@ measure_to_json_object(struct measure *m)
 
 	json_object_object_add(o,
 			       ATT_MEASURE_VALUE,
-			       json_object_new_double(m->value.d_num));
+			       json_object_new_double(m->value));
 	json_object_object_add(o, ATT_MEASURE_TIME,
 			       json_object_new_int((m->time).tv_sec));
 	return o;
@@ -89,7 +89,7 @@ static json_object *sensor_to_json(struct psensor *s)
 	mo = json_object_new_object();
 	json_object_object_add(mo,
 			       ATT_MEASURE_VALUE,
-			       json_object_new_double(m->value.d_num));
+			       json_object_new_double(m->value));
 	json_object_object_add(mo, ATT_MEASURE_TIME,
 			       json_object_new_int((m->time).tv_sec));
 	json_object_object_add(obj, ATT_SENSOR_LAST_MEASURE, mo);

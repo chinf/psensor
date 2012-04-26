@@ -255,7 +255,7 @@ psensor_set_current_measure(struct psensor *s,
 		&s->measures[1],
 		(s->values_max_length - 1) * sizeof(struct measure));
 
-	s->measures[s->values_max_length - 1].value.d_num = v;
+	s->measures[s->values_max_length - 1].value = v;
 	s->measures[s->values_max_length - 1].time = tv;
 
 	if (s->min == UNKNOWN_DBL_VALUE || v < s->min)
@@ -279,7 +279,7 @@ psensor_set_current_measure(struct psensor *s,
 
 double psensor_get_current_value(struct psensor *sensor)
 {
-	return sensor->measures[sensor->values_max_length - 1].value.d_num;
+	return sensor->measures[sensor->values_max_length - 1].value;
 }
 
 struct measure *psensor_get_current_measure(struct psensor *sensor)
@@ -304,7 +304,7 @@ double get_min_value(struct psensor **sensors, int type)
 			double t;
 
 			for (i = 0; i < sensor->values_max_length; i++) {
-				t = sensor->measures[i].value.d_num;
+				t = sensor->measures[i].value;
 
 				if (t == UNKNOWN_DBL_VALUE)
 					continue;
@@ -335,7 +335,7 @@ double get_max_value(struct psensor **sensors, int type)
 			int i;
 			double t;
 			for (i = 0; i < sensor->values_max_length; i++) {
-				t = sensor->measures[i].value.d_num;
+				t = sensor->measures[i].value;
 
 				if (t == UNKNOWN_DBL_VALUE)
 					continue;

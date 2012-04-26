@@ -187,7 +187,7 @@ static void draw_sensor_curve(struct psensor *s,
 	first = 1;
 	for (i = 0; i < s->values_max_length; i++) {
 		t = s->measures[i].time.tv_sec;
-		v = s->measures[i].value.d_num;
+		v = s->measures[i].value;
 
 		if (v == UNKNOWN_DBL_VALUE || !t)
 			continue;

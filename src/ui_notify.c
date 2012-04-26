@@ -36,7 +36,7 @@ static struct timeval last_notification_tv;
 void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 {
 	struct timeval t;
-	char *name;
+	char *body;
 	NotifyNotification *notif;
 
 	log_debug("last_notification %d", last_notification_tv.tv_sec);
@@ -56,7 +56,7 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		notify_init("psensor");
 
 	if (notify_is_initted() == TRUE) {
-		name = strdup(sensor->name);
+		body = strdup(sensor->name);
 
 		/*
 		 * Since libnotify 0.7 notify_notification_new has
@@ -64,14 +64,14 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		 */
 #if NOTIFY_CHECK_VERSION(0, 7, 0)
 		notif = notify_notification_new
-			(_("Temperature alert"), name, PSENSOR_ICON);
+			(_("Temperature alert"), body, PSENSOR_ICON);
 #else
 		notif = notify_notification_new(_("Temperature alert"),
-						name,
+						body,
 						PSENSOR_ICON,
 						GTK_WIDGET(ui->main_window));
 #endif
-		log_debug("notif_notification_new %s", sensor->name);
+		log_debug("notif_notification_new %s", body);
 
 		notify_notification_show(notif, NULL);
 

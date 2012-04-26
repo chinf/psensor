@@ -26,10 +26,7 @@
 #define UNKNOWN_DBL_VALUE DBL_MIN
 
 struct measure {
-	union value {
-		double d_num;
-		uint64_t ui64_num;
-	} value;
+	double value;
 
 	struct timeval time;
 };
