@@ -37,6 +37,12 @@
    global pref.
 ** psensor: improved notification (added psensor icon and value of the
    sensor).
+** fixed french translation.
+** merged chinese translation provided by LP.
+
+* v0.6.2.18
+** merged some chinese translation from LP.
+** fixed some french translation typo.
 
 * v0.6.2.17
 
