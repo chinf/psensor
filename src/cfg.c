@@ -25,80 +25,90 @@
 
 #include "cfg.h"
 
-#define KEY_SENSOR_UPDATE_INTERVAL "/apps/psensor/sensor/update_interval"
+static const char *KEY_SENSORS
+= "/apps/psensor/sensors";
 
-#define KEY_GRAPH_UPDATE_INTERVAL "/apps/psensor/graph/update_interval"
-#define KEY_GRAPH_MONITORING_DURATION "/apps/psensor/graph/monitoring_duration"
+static const char *KEY_SENSOR_UPDATE_INTERVAL
+= "/apps/psensor/sensor/update_interval";
 
-#define KEY_GRAPH_BACKGROUND_COLOR "/apps/psensor/graph/background_color"
-#define DEFAULT_GRAPH_BACKGROUND_COLOR "#e8f4e8f4a8f5"
+static const char *KEY_GRAPH_UPDATE_INTERVAL
+= "/apps/psensor/graph/update_interval";
 
-#define KEY_GRAPH_BACKGROUND_ALPHA  "/apps/psensor/graph/background_alpha"
-#define DEFAULT_GRAPH_BACKGROUND_ALPHA "1.0"
+static const char *KEY_GRAPH_MONITORING_DURATION
+= "/apps/psensor/graph/monitoring_duration";
 
-#define KEY_GRAPH_FOREGROUND_COLOR  "/apps/psensor/graph/foreground_color"
-#define DEFAULT_GRAPH_FOREGROUND_COLOR "#000000000000"
+static const char *KEY_GRAPH_BACKGROUND_COLOR
+= "/apps/psensor/graph/background_color";
 
-#define KEY_ALPHA_CHANNEL_ENABLED  "/apps/psensor/graph/alpha_channel_enabled"
-#define DEFAULT_ALPHA_CHANNEL_ENABLED 0
+static const char *DEFAULT_GRAPH_BACKGROUND_COLOR = "#e8f4e8f4a8f5";
 
-#define KEY_INTERFACE_SENSORLIST_POSITION \
-"/apps/psensor/interface/sensorlist_position"
+static const char *KEY_GRAPH_BACKGROUND_ALPHA
+= "/apps/psensor/graph/background_alpha";
 
-#define KEY_INTERFACE_WINDOW_DECORATION_DISABLED \
-"/apps/psensor/interface/window_decoration_disabled"
+static const char *KEY_GRAPH_FOREGROUND_COLOR
+= "/apps/psensor/graph/foreground_color";
+static const char *DEFAULT_GRAPH_FOREGROUND_COLOR = "#000000000000";
 
-#define KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED \
-"/apps/psensor/interface/window_keep_below_enabled"
+static const char *KEY_ALPHA_CHANNEL_ENABLED
+= "/apps/psensor/graph/alpha_channel_enabled";
 
-#define KEY_INTERFACE_MENU_BAR_DISABLED \
-"/apps/psensor/interface/menu_bar_disabled"
+static const char *KEY_INTERFACE_SENSORLIST_POSITION
+= "/apps/psensor/interface/sensorlist_position";
 
-#define KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED \
-"/apps/psensor/interface/unity_launcher_count_disabled"
+static const char *KEY_INTERFACE_WINDOW_DECORATION_DISABLED
+= "/apps/psensor/interface/window_decoration_disabled";
 
-#define KEY_INTERFACE_HIDE_ON_STARTUP \
-"/apps/psensor/interface/hide_on_startup"
+static const char *KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED
+= "/apps/psensor/interface/window_keep_below_enabled";
 
-#define KEY_INTERFACE_WINDOW_RESTORE_ENABLED \
-"/apps/psensor/interface/window_restore_enabled"
+static const char *KEY_INTERFACE_MENU_BAR_DISABLED
+= "/apps/psensor/interface/menu_bar_disabled";
 
-#define KEY_INTERFACE_WINDOW_X "/apps/psensor/interface/window_x"
-#define KEY_INTERFACE_WINDOW_Y "/apps/psensor/interface/window_y"
-#define KEY_INTERFACE_WINDOW_W "/apps/psensor/interface/window_w"
-#define KEY_INTERFACE_WINDOW_H "/apps/psensor/interface/window_h"
+static const char *KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED
+= "/apps/psensor/interface/unity_launcher_count_disabled";
 
-#define KEY_INTERFACE_WINDOW_DIVIDER_POS \
-"/apps/psensor/interface/window_divider_pos"
+static const char *KEY_INTERFACE_HIDE_ON_STARTUP
+= "/apps/psensor/interface/hide_on_startup";
 
-#define KEY_INTERFACE_TEMPERATURE_UNIT \
-"/apps/psensor/interface/temperature_unit"
+static const char *KEY_INTERFACE_WINDOW_RESTORE_ENABLED
+= "/apps/psensor/interface/window_restore_enabled";
+
+static const char *KEY_INTERFACE_WINDOW_X = "/apps/psensor/interface/window_x";
+static const char *KEY_INTERFACE_WINDOW_Y = "/apps/psensor/interface/window_y";
+static const char *KEY_INTERFACE_WINDOW_W = "/apps/psensor/interface/window_w";
+static const char *KEY_INTERFACE_WINDOW_H = "/apps/psensor/interface/window_h";
+
+static const char *KEY_INTERFACE_WINDOW_DIVIDER_POS
+= "/apps/psensor/interface/window_divider_pos";
+
+static const char *KEY_INTERFACE_TEMPERATURE_UNIT
+= "/apps/psensor/interface/temperature_unit";
 
 static GConfClient *client;
 
-static char *get_string(char *key, char *default_value)
+static char *get_string(const char *key, const char *default_value)
 {
-	char *value = gconf_client_get_string(client,
-					      key,
-					      NULL);
+	char *value;
+
+	value = gconf_client_get_string(client, key, NULL);
 
 	if (!value) {
 		value = strdup(default_value);
-
 		gconf_client_set_string(client, key, default_value, NULL);
 	}
 
 	return value;
 }
 
-static struct color *config_get_background_color()
+static struct color *get_background_color()
 {
+	char *scolor;
+	struct color *c;
 
-	char *scolor = get_string(KEY_GRAPH_BACKGROUND_COLOR,
-				  DEFAULT_GRAPH_BACKGROUND_COLOR);
+	scolor = get_string(KEY_GRAPH_BACKGROUND_COLOR,
+			    DEFAULT_GRAPH_BACKGROUND_COLOR);
 
-	struct color *c = string_to_color(scolor);
-
+	c = str_to_color(scolor);
 	free(scolor);
 
 	if (c == NULL)
@@ -107,13 +117,15 @@ static struct color *config_get_background_color()
 	return c;
 }
 
-static struct color *config_get_foreground_color()
+static struct color *get_foreground_color()
 {
-	char *scolor = get_string(KEY_GRAPH_FOREGROUND_COLOR,
-				  DEFAULT_GRAPH_FOREGROUND_COLOR);
+	char *scolor;
+	struct color *c;
 
-	struct color *c = string_to_color(scolor);
+	scolor = get_string(KEY_GRAPH_FOREGROUND_COLOR,
+			    DEFAULT_GRAPH_FOREGROUND_COLOR);
 
+	c = str_to_color(scolor);
 	free(scolor);
 
 	if (c == NULL)
@@ -122,7 +134,7 @@ static struct color *config_get_foreground_color()
 	return c;
 }
 
-static int config_is_alpha_channel_enabled()
+static int is_alpha_channel_enabled()
 {
 	gboolean b = gconf_client_get_bool(client,
 					   KEY_ALPHA_CHANNEL_ENABLED,
@@ -131,38 +143,39 @@ static int config_is_alpha_channel_enabled()
 	return b == TRUE;
 }
 
-static int config_get_sensorlist_position()
+static int get_sensorlist_position()
 {
 	return gconf_client_get_int(client,
 				    KEY_INTERFACE_SENSORLIST_POSITION, NULL);
 }
 
-static void config_set_sensorlist_position(int pos)
+static void set_sensorlist_position(int pos)
 {
 	gconf_client_set_int(client,
 			     KEY_INTERFACE_SENSORLIST_POSITION, pos, NULL);
 }
 
-static double config_get_graph_background_alpha()
+static double get_graph_background_alpha()
 {
-	double a = gconf_client_get_float(client,
-					  KEY_GRAPH_BACKGROUND_ALPHA,
-					  NULL);
+	double a;
+
+	a = gconf_client_get_float(client, KEY_GRAPH_BACKGROUND_ALPHA, NULL);
 	if (a == 0)
 		gconf_client_set_float(client,
 				       KEY_GRAPH_BACKGROUND_ALPHA, 1.0, NULL);
 	return a;
 }
 
-static void config_set_graph_background_alpha(double alpha)
+static void set_graph_background_alpha(double alpha)
 {
 	gconf_client_set_float(client, KEY_GRAPH_BACKGROUND_ALPHA, alpha, NULL);
 }
 
-static void config_set_background_color(struct color *color)
+static void set_background_color(struct color *color)
 {
-	char *scolor = color_to_string(color);
+	char *scolor;
 
+	scolor = color_to_str(color);
 	if (!scolor)
 		scolor = strdup(DEFAULT_GRAPH_BACKGROUND_COLOR);
 
@@ -172,10 +185,11 @@ static void config_set_background_color(struct color *color)
 	free(scolor);
 }
 
-static void config_set_foreground_color(struct color *color)
+static void set_foreground_color(struct color *color)
 {
-	char *scolor = color_to_string(color);
+	char *scolor;
 
+	scolor = color_to_str(color);
 	if (!scolor)
 		scolor = strdup(DEFAULT_GRAPH_FOREGROUND_COLOR);
 
@@ -185,41 +199,43 @@ static void config_set_foreground_color(struct color *color)
 	free(scolor);
 }
 
-static char *get_sensor_att_key(const char *name, const char *att)
+static char *get_sensor_att_key(const char *sid, const char *att)
 {
-	char *esc_name, *key;
+	char *esc_sid, *key;
 
-	esc_name = gconf_escape_key(name, -1);
-	/* /apps/psensor/sensors/[esc_name]/[att] */
-	key = malloc(22 + 2 * strlen(esc_name) + 1 + strlen(att) + 1);
+	esc_sid = gconf_escape_key(sid, -1);
+	/* [KEY_SENSORS]/[esc_sid]/[att] */
+	key = malloc(strlen(KEY_SENSORS)
+		     + 1 + 2 * strlen(esc_sid)
+		     + 1 + strlen(att) + 1);
 
-	sprintf(key, "/apps/psensor/sensors/%s/%s", esc_name, att);
+	sprintf(key, "%s/%s/%s", KEY_SENSORS, esc_sid, att);
 
-	free(esc_name);
+	free(esc_sid);
 
 	return key;
 }
 
-struct color *config_get_sensor_color(char *sensor_name,
-				      struct color *default_color)
+struct color *config_get_sensor_color(const char *sid,
+				      const struct color *default_color)
 {
 	char *key, *scolor;
 	struct color *color;
 
-	key = get_sensor_att_key(sensor_name, "color");
+	key = get_sensor_att_key(sid, "color");
 
 	scolor = gconf_client_get_string(client, key, NULL);
 
 	color = NULL;
 
 	if (scolor)
-		color = string_to_color(scolor);
+		color = str_to_color(scolor);
 
 	if (!scolor || !color) {
 		color = color_new(default_color->red,
 				  default_color->green, default_color->blue);
 
-		scolor = color_to_string(color);
+		scolor = color_to_str(color);
 
 		gconf_client_set_string(client, key, scolor, NULL);
 	}
@@ -230,12 +246,12 @@ struct color *config_get_sensor_color(char *sensor_name,
 	return color;
 }
 
-void config_set_sensor_color(char *sensor_name, struct color *color)
+void config_set_sensor_color(const char *sid, const struct color *color)
 {
 	char *key, *scolor;
 
-	key = get_sensor_att_key(sensor_name, "color");
-	scolor = color_to_string(color);
+	key = get_sensor_att_key(sid, "color");
+	scolor = color_to_str(color);
 
 	gconf_client_set_string(client, key, scolor, NULL);
 
@@ -243,55 +259,34 @@ void config_set_sensor_color(char *sensor_name, struct color *color)
 	free(key);
 }
 
-int config_get_sensor_alarm_limit(char *sensor_name, int def)
+int config_get_sensor_alarm_limit(char *sid, int def)
 {
 	int res;
-	char *escaped_name, *key;
+	char *key;
 
-	escaped_name = gconf_escape_key(sensor_name, -1);
-	/* /apps/psensor/sensors/[sensor_name]/alarmlimit */
-	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 10 + 1);
-
-	sprintf(key, "/apps/psensor/sensors/%s/alarmlimit", escaped_name);
-
+	key = get_sensor_att_key(sid, "alarmlimit");
 	res = gconf_client_get_int(client, key, NULL);
-
-	free(escaped_name);
 	free(key);
 
 	return res ? res : def;
 }
 
-void config_set_sensor_alarm_limit(char *sensor_name, int alarm_limit)
+void config_set_sensor_alarm_limit(char *sid, int alarm_limit)
 {
-	char *escaped_name, *key;
+	char *key;
 
-	escaped_name = gconf_escape_key(sensor_name, -1);
-	/* /apps/psensor/sensors/[sensor_name]/alarmlimit */
-	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 10 + 1);
-
-	sprintf(key, "/apps/psensor/sensors/%s/alarmlimit", escaped_name);
-
+	key = get_sensor_att_key(sid, "alarmlimit");
 	gconf_client_set_int(client, key, alarm_limit, NULL);
-
-	free(escaped_name);
 	free(key);
 }
 
 int config_get_sensor_alarm_enabled(char *sid)
 {
 	gboolean res;
-	char *escaped_name, *key;
+	char *key;
 
-	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sensor_name]/alarmenabled */
-	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 12 + 1);
-
-	sprintf(key, "/apps/psensor/sensors/%s/alarmenabled", escaped_name);
-
+	key = get_sensor_att_key(sid, "alarmenabled");
 	res = gconf_client_get_bool(client, key, NULL);
-
-	free(escaped_name);
 	free(key);
 
 	return res == TRUE;
@@ -302,7 +297,7 @@ void config_set_sensor_alarm_enabled(char *sid, int enabled)
 	char *escaped_name, *key;
 
 	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sensor_name]/alarmenabled */
+	/* /apps/psensor/sensors/[sid]/alarmenabled */
 	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 12 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/alarmenabled", escaped_name);
@@ -319,7 +314,7 @@ int config_is_sensor_enabled(char *sid)
 	char *escaped_name, *key;
 
 	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sensor_name]/enabled */
+	/* /apps/psensor/sensors/[sid]/enabled */
 	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 7 + 1);
 	sprintf(key, "/apps/psensor/sensors/%s/enabled", escaped_name);
 
@@ -335,7 +330,7 @@ void config_set_sensor_enabled(char *sid, int enabled)
 	char *escaped_name, *key;
 
 	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sensor_name]/enabled */
+	/* /apps/psensor/sensors/[sid]/enabled */
 	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 7 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/enabled", escaped_name);
@@ -351,7 +346,7 @@ char *config_get_sensor_name(char *sid)
 	char *res, *escaped_name, *key;
 
 	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sensor_name]/name */
+	/* /apps/psensor/sensors/[sid]/name */
 	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 4 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/name", escaped_name);
@@ -369,7 +364,7 @@ void config_set_sensor_name(char *sid, const char *name)
 	char *escaped_name, *key;
 
 	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sensor_name]/name */
+	/* /apps/psensor/sensors/[sid]/name */
 	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 4 + 1);
 
 	sprintf(key, "/apps/psensor/sensors/%s/name", escaped_name);
@@ -380,7 +375,7 @@ void config_set_sensor_name(char *sid, const char *name)
 	free(key);
 }
 
-static int config_is_window_decoration_enabled()
+static int is_window_decoration_enabled()
 {
 	gboolean b;
 
@@ -391,7 +386,7 @@ static int config_is_window_decoration_enabled()
 	return b == FALSE;
 }
 
-static int config_is_window_keep_below_enabled()
+static int is_window_keep_below_enabled()
 {
 	gboolean b;
 
@@ -402,7 +397,7 @@ static int config_is_window_keep_below_enabled()
 	return b == TRUE;
 }
 
-static void config_set_window_decoration_enabled(int enabled)
+static void set_window_decoration_enabled(int enabled)
 {
 	if (enabled)
 		gconf_client_set_bool
@@ -414,7 +409,7 @@ static void config_set_window_decoration_enabled(int enabled)
 		     KEY_INTERFACE_WINDOW_DECORATION_DISABLED, TRUE, NULL);
 }
 
-static void config_set_window_keep_below_enabled(int enabled)
+static void set_window_keep_below_enabled(int enabled)
 {
 	if (enabled)
 		gconf_client_set_bool(client,
@@ -451,13 +446,13 @@ struct config *config_load()
 
 	c = malloc(sizeof(struct config));
 
-	c->graph_bgcolor = config_get_background_color();
-	c->graph_fgcolor = config_get_foreground_color();
-	c->graph_bg_alpha = config_get_graph_background_alpha();
-	c->alpha_channel_enabled = config_is_alpha_channel_enabled();
-	c->sensorlist_position = config_get_sensorlist_position();
-	c->window_decoration_enabled = config_is_window_decoration_enabled();
-	c->window_keep_below_enabled = config_is_window_keep_below_enabled();
+	c->graph_bgcolor = get_background_color();
+	c->graph_fgcolor = get_foreground_color();
+	c->graph_bg_alpha = get_graph_background_alpha();
+	c->alpha_channel_enabled = is_alpha_channel_enabled();
+	c->sensorlist_position = get_sensorlist_position();
+	c->window_decoration_enabled = is_window_decoration_enabled();
+	c->window_keep_below_enabled = is_window_keep_below_enabled();
 
 	c->sensor_update_interval
 	    = gconf_client_get_int(client, KEY_SENSOR_UPDATE_INTERVAL, NULL);
@@ -530,14 +525,14 @@ struct config *config_load()
 	return c;
 }
 
-void config_save(struct config *c)
+void config_save(const struct config *c)
 {
-	config_set_background_color(c->graph_bgcolor);
-	config_set_foreground_color(c->graph_fgcolor);
-	config_set_graph_background_alpha(c->graph_bg_alpha);
-	config_set_sensorlist_position(c->sensorlist_position);
-	config_set_window_decoration_enabled(c->window_decoration_enabled);
-	config_set_window_keep_below_enabled(c->window_keep_below_enabled);
+	set_background_color(c->graph_bgcolor);
+	set_foreground_color(c->graph_fgcolor);
+	set_graph_background_alpha(c->graph_bg_alpha);
+	set_sensorlist_position(c->sensorlist_position);
+	set_window_decoration_enabled(c->window_decoration_enabled);
+	set_window_keep_below_enabled(c->window_keep_below_enabled);
 
 	gconf_client_set_int(client,
 			     KEY_GRAPH_UPDATE_INTERVAL,

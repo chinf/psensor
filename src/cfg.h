@@ -78,12 +78,12 @@ struct config {
 */
 struct config *config_load();
 
-void config_save(struct config *);
+void config_save(const struct config *);
 
 void config_cleanup();
 
-struct color *config_get_sensor_color(char *, struct color *);
-void config_set_sensor_color(char *, struct color *);
+struct color *config_get_sensor_color(const char *sid, const struct color *);
+void config_set_sensor_color(const char *sid, const struct color *);
 
 int config_get_sensor_alarm_limit(char *, int);
 void config_set_sensor_alarm_limit(char *, int);

@@ -19,14 +19,15 @@
 #ifndef _PSENSOR_COLOR_H_
 #define _PSENSOR_COLOR_H_
 
-/* Represents a RGB color.
-
-   Contains integer and floating RGB representation to avoid useless
-conversion.
-
-   Uses color_set to maintain the coherence of the both
-   representation.
-*/
+/*
+ * Represents a RGB color.
+ *
+ * Contains integer and floating RGB representation to avoid useless
+ * conversion.
+ *
+ * Uses color_set to maintain the coherence of the both
+ * representation.
+ */
 struct color {
 	/* rgb 0..65535 */
 	unsigned int red;
@@ -39,18 +40,20 @@ struct color {
 	double f_blue;
 };
 
-struct color *color_new(unsigned int red,
-			unsigned int green, unsigned int blue);
+struct color *
+color_new(unsigned int red, unsigned int green, unsigned int blue);
 
 struct color *color_dup(struct color *);
 
 void color_set(struct color *,
-	       unsigned int red, unsigned int green, unsigned int blue);
+	       unsigned int red,
+	       unsigned int green,
+	       unsigned int blue);
 
 int is_color(const char *str);
 
-struct color *string_to_color(const char *str);
+struct color *str_to_color(const char *str);
 
-char *color_to_string(struct color *color);
+char *color_to_str(const struct color *color);
 
 #endif

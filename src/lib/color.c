@@ -23,9 +23,10 @@
 
 #include "color.h"
 
-void
-color_set(struct color *color,
-	  unsigned int red, unsigned int green, unsigned int blue)
+void color_set(struct color *color,
+	       unsigned int red,
+	       unsigned int green,
+	       unsigned int blue)
 {
 	color->red = red;
 	color->green = green;
@@ -65,7 +66,7 @@ int is_color(const char *str)
 	return 1;
 }
 
-struct color *string_to_color(const char *str)
+struct color *str_to_color(const char *str)
 {
 	char tmp[5];
 	unsigned int red, green, blue;
@@ -88,7 +89,7 @@ struct color *string_to_color(const char *str)
 	return color_new(red, green, blue);
 }
 
-char *color_to_string(struct color *color)
+char *color_to_str(const struct color *color)
 {
 	char *str = malloc(1 + 12 + 1);
 
