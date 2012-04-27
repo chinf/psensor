@@ -467,9 +467,9 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celcius)
 {
 	if (type & SENSOR_TYPE_TEMP) {
 		if (use_celcius)
-			return _("°C");
+			return "\302\260C";
 		else
-			return _("°F");
+			return "\302\260F";
 	}
 
 	if (type & SENSOR_TYPE_FAN)
@@ -478,7 +478,7 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celcius)
 	if (type & SENSOR_TYPE_CPU_USAGE)
 		return _("%");
 
-	return "N/A";
+	return _("N/A");
 }
 
 void psensor_list_update_measures(struct psensor **sensors)
