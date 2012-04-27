@@ -185,15 +185,17 @@ static void config_set_foreground_color(struct color *color)
 	free(scolor);
 }
 
-static char *config_get_sensor_key(char *sensor_name)
+static char *get_sensor_att_key(const char *name, const char *att)
 {
-	char *escaped_name = gconf_escape_key(sensor_name, -1);
-	/* /apps/psensor/sensors/[sensor_name]/color */
-	char *key = malloc(22 + 2 * strlen(escaped_name) + 6 + 1);
+	char *esc_name, *key;
 
-	sprintf(key, "/apps/psensor/sensors/%s/color", escaped_name);
+	esc_name = gconf_escape_key(name, -1);
+	/* /apps/psensor/sensors/[esc_name]/[att] */
+	key = malloc(22 + 2 * strlen(esc_name) + 1 + strlen(att) + 1);
 
-	free(escaped_name);
+	sprintf(key, "/apps/psensor/sensors/%s/%s", esc_name, att);
+
+	free(esc_name);
 
 	return key;
 }
@@ -201,13 +203,14 @@ static char *config_get_sensor_key(char *sensor_name)
 struct color *config_get_sensor_color(char *sensor_name,
 				      struct color *default_color)
 {
-	char *key = config_get_sensor_key(sensor_name);
+	char *key, *scolor;
+	struct color *color;
 
-	char *scolor = gconf_client_get_string(client,
-					       key,
-					       NULL);
+	key = get_sensor_att_key(sensor_name, "color");
 
-	struct color *color = NULL;
+	scolor = gconf_client_get_string(client, key, NULL);
+
+	color = NULL;
 
 	if (scolor)
 		color = string_to_color(scolor);
@@ -231,7 +234,7 @@ void config_set_sensor_color(char *sensor_name, struct color *color)
 {
 	char *key, *scolor;
 
-	key = config_get_sensor_key(sensor_name);
+	key = get_sensor_att_key(sensor_name, "color");
 	scolor = color_to_string(color);
 
 	gconf_client_set_string(client, key, scolor, NULL);
