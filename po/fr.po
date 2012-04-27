@@ -11,10 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-04-27 23:20+0000\n"
+"X-Generator: Launchpad (build 15149)\n"
+"Language: or\n"
 
 #: src/main.c:77
 #, fuzzy, c-format
@@ -564,43 +566,3 @@ msgstr ""
 #: src/glade/sensor-edit.glade:375
 msgid "Low thresold:"
 msgstr ""
-
-#~ msgid "Graph Colors"
-#~ msgstr "Couleurs du graphe"
-
-#~ msgid "°C"
-#~ msgstr "°C"
-
-#~ msgid "ERROR: failed gettimeofday\n"
-#~ msgstr "ERREUR: échec gettimeofday\n"
-
-#~ msgid "Current"
-#~ msgstr "Actuelle"
-
-#~ msgid "ERROR: failed to init lm-sensors\n"
-#~ msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
-
-#, fuzzy
-#~ msgid "ERROR: lmsensor init failure: %s\n"
-#~ msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
-
-#~ msgid "ERROR: nvidia initialization failure: %d\n"
-#~ msgstr "ERREUR: échec de l'initialisation nvidia: %d\n"
-
-#~ msgid "ERROR: no nvidia chips or initialization failure\n"
-#~ msgstr "ERREUR: aucunes puces nvidia ou échec de l'initialisation\n"
-
-#~ msgid "Show"
-#~ msgstr "Montrer"
-
-#~ msgid "Right"
-#~ msgstr "Droite"
-
-#~ msgid "Left"
-#~ msgstr "Gauche"
-
-#~ msgid "Top"
-#~ msgstr "Haut"
-
-#~ msgid "Bottom"
-#~ msgstr "Bas"
