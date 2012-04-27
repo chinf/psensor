@@ -584,24 +584,6 @@ msgstr ""
 #~ msgid "ERROR: lmsensor init failure: %s\n"
 #~ msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
 
-#~ msgid "LUATPL Error: failed to load Lua script: %s.\n"
-#~ msgstr "LUATPL Erreur: échec du chargement du script LUA: %s.\n"
-
-#~ msgid "LUATPL Error: failed to call init function: %s.\n"
-#~ msgstr "LUATPL Erreur: échec du lancement de la fonction init: %s.\n"
-
-#~ msgid "LUATPL Error:failed to execute Lua script (%s): %s.\n"
-#~ msgstr "LUATP Erreur: échec de l'exécution du script Lua (%s): %s.\n"
-
-#~ msgid "LUATPL Error:lua script (%s) returned a wrong type.\n"
-#~ msgstr "LUATPL Errur: le script Lua (%s) a retourné le mauvais type.\n"
-
-#~ msgid "LUATPL Error:failed to open lua state.\n"
-#~ msgstr "LUATPL Errur: écher de creation du Lua state.\n"
-
-#~ msgid "LUATPL Error: code: %d.\n"
-#~ msgstr "LUATPL Erreur: code: %d.\n"
-
 #~ msgid "ERROR: nvidia initialization failure: %d\n"
 #~ msgstr "ERREUR: échec de l'initialisation nvidia: %d\n"
 
@@ -622,6 +604,3 @@ msgstr ""
 
 #~ msgid "Bottom"
 #~ msgstr "Bas"
-
-#~ msgid "ERROR: Lua support not enabled\n"
-#~ msgstr "ERREUR: Le support de Lua n'est pas activé\n"
