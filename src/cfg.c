@@ -25,8 +25,14 @@
 
 #include "cfg.h"
 
-static const char *KEY_SENSORS
-= "/apps/psensor/sensors";
+static const char *KEY_SENSORS = "/apps/psensor/sensors";
+
+static const char *ATT_SENSOR_ALARM_ENABLED = "alarm/enabled";
+/* static const char *ATT_SENSOR_ALARM_HIGH_THRESOLD = "alarm/high_thresold"; */
+/* static const char *ATT_SENSOR_ALARM_LOW_THRESOLD = "alarm/low_thresold"; */
+static const char *ATT_SENSOR_COLOR = "color";
+static const char *ATT_SENSOR_ENABLED = "enabled";
+static const char *ATT_SENSOR_NAME = "name";
 
 static const char *KEY_SENSOR_UPDATE_INTERVAL
 = "/apps/psensor/sensor/update_interval";
@@ -134,22 +140,22 @@ static struct color *get_foreground_color()
 	return c;
 }
 
-static int is_alpha_channel_enabled()
+static unsigned int is_alpha_channel_enabled()
 {
-	gboolean b = gconf_client_get_bool(client,
-					   KEY_ALPHA_CHANNEL_ENABLED,
-					   NULL);
+	gboolean b;
+
+	b = gconf_client_get_bool(client, KEY_ALPHA_CHANNEL_ENABLED, NULL);
 
 	return b == TRUE;
 }
 
-static int get_sensorlist_position()
+static enum sensorlist_position get_sensorlist_position()
 {
 	return gconf_client_get_int(client,
 				    KEY_INTERFACE_SENSORLIST_POSITION, NULL);
 }
 
-static void set_sensorlist_position(int pos)
+static void set_sensorlist_position(enum sensorlist_position pos)
 {
 	gconf_client_set_int(client,
 			     KEY_INTERFACE_SENSORLIST_POSITION, pos, NULL);
@@ -171,7 +177,7 @@ static void set_graph_background_alpha(double alpha)
 	gconf_client_set_float(client, KEY_GRAPH_BACKGROUND_ALPHA, alpha, NULL);
 }
 
-static void set_background_color(struct color *color)
+static void set_background_color(const struct color *color)
 {
 	char *scolor;
 
@@ -185,18 +191,17 @@ static void set_background_color(struct color *color)
 	free(scolor);
 }
 
-static void set_foreground_color(struct color *color)
+static void set_foreground_color(const struct color *color)
 {
-	char *scolor;
+	char *str;
 
-	scolor = color_to_str(color);
-	if (!scolor)
-		scolor = strdup(DEFAULT_GRAPH_FOREGROUND_COLOR);
+	str = color_to_str(color);
+	if (!str)
+		str = strdup(DEFAULT_GRAPH_FOREGROUND_COLOR);
 
-	gconf_client_set_string(client,
-				KEY_GRAPH_FOREGROUND_COLOR, scolor, NULL);
+	gconf_client_set_string(client, KEY_GRAPH_FOREGROUND_COLOR, str, NULL);
 
-	free(scolor);
+	free(str);
 }
 
 static char *get_sensor_att_key(const char *sid, const char *att)
@@ -216,13 +221,13 @@ static char *get_sensor_att_key(const char *sid, const char *att)
 	return key;
 }
 
-struct color *config_get_sensor_color(const char *sid,
-				      const struct color *default_color)
+struct color *
+config_get_sensor_color(const char *sid, const struct color *dft)
 {
 	char *key, *scolor;
 	struct color *color;
 
-	key = get_sensor_att_key(sid, "color");
+	key = get_sensor_att_key(sid, ATT_SENSOR_COLOR);
 
 	scolor = gconf_client_get_string(client, key, NULL);
 
@@ -232,11 +237,8 @@ struct color *config_get_sensor_color(const char *sid,
 		color = str_to_color(scolor);
 
 	if (!scolor || !color) {
-		color = color_new(default_color->red,
-				  default_color->green, default_color->blue);
-
+		color = color_new(dft->red, dft->green, dft->blue);
 		scolor = color_to_str(color);
-
 		gconf_client_set_string(client, key, scolor, NULL);
 	}
 
@@ -250,7 +252,7 @@ void config_set_sensor_color(const char *sid, const struct color *color)
 {
 	char *key, *scolor;
 
-	key = get_sensor_att_key(sid, "color");
+	key = get_sensor_att_key(sid, ATT_SENSOR_COLOR);
 	scolor = color_to_str(color);
 
 	gconf_client_set_string(client, key, scolor, NULL);
@@ -259,7 +261,7 @@ void config_set_sensor_color(const char *sid, const struct color *color)
 	free(key);
 }
 
-int config_get_sensor_alarm_limit(char *sid, int def)
+int config_get_sensor_alarm_limit(const char *sid, int dft)
 {
 	int res;
 	char *key;
@@ -268,10 +270,10 @@ int config_get_sensor_alarm_limit(char *sid, int def)
 	res = gconf_client_get_int(client, key, NULL);
 	free(key);
 
-	return res ? res : def;
+	return res ? res : dft;
 }
 
-void config_set_sensor_alarm_limit(char *sid, int alarm_limit)
+void config_set_sensor_alarm_limit(const char *sid, int alarm_limit)
 {
 	char *key;
 
@@ -280,98 +282,65 @@ void config_set_sensor_alarm_limit(char *sid, int alarm_limit)
 	free(key);
 }
 
-int config_get_sensor_alarm_enabled(char *sid)
+int config_get_sensor_alarm_enabled(const char *sid)
 {
-	gboolean res;
+	gboolean b;
 	char *key;
 
-	key = get_sensor_att_key(sid, "alarmenabled");
-	res = gconf_client_get_bool(client, key, NULL);
+	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_ENABLED);
+	b = gconf_client_get_bool(client, key, NULL);
 	free(key);
 
-	return res == TRUE;
+	return b == TRUE;
 }
 
-void config_set_sensor_alarm_enabled(char *sid, int enabled)
+void config_set_sensor_alarm_enabled(const char *sid, int enabled)
 {
-	char *escaped_name, *key;
+	char *key;
 
-	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sid]/alarmenabled */
-	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 12 + 1);
-
-	sprintf(key, "/apps/psensor/sensors/%s/alarmenabled", escaped_name);
-
+	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_ENABLED);
 	gconf_client_set_bool(client, key, enabled, NULL);
-
-	free(escaped_name);
 	free(key);
 }
 
-int config_is_sensor_enabled(char *sid)
+int config_is_sensor_enabled(const char *sid)
 {
-	gboolean res;
-	char *escaped_name, *key;
+	gboolean b;
+	char *key;
 
-	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sid]/enabled */
-	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 7 + 1);
-	sprintf(key, "/apps/psensor/sensors/%s/enabled", escaped_name);
-
-	res = gconf_client_get_bool(client, key, NULL);
+	key = get_sensor_att_key(sid, ATT_SENSOR_ENABLED);
+	b = gconf_client_get_bool(client, key, NULL);
 	free(key);
-	free(escaped_name);
 
-	return res == TRUE;
+	return b == TRUE;
 }
 
-void config_set_sensor_enabled(char *sid, int enabled)
+void config_set_sensor_enabled(const char *sid, int enabled)
 {
-	char *escaped_name, *key;
+	char *key;
 
-	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sid]/enabled */
-	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 7 + 1);
-
-	sprintf(key, "/apps/psensor/sensors/%s/enabled", escaped_name);
-
+	key = get_sensor_att_key(sid, ATT_SENSOR_ENABLED);
 	gconf_client_set_bool(client, key, enabled, NULL);
-
-	free(escaped_name);
 	free(key);
 }
 
-char *config_get_sensor_name(char *sid)
+char *config_get_sensor_name(const char *sid)
 {
-	char *res, *escaped_name, *key;
+	char *name, *key;
 
-	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sid]/name */
-	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 4 + 1);
-
-	sprintf(key, "/apps/psensor/sensors/%s/name", escaped_name);
-
-	res = gconf_client_get_string(client, key, NULL);
-
-	free(escaped_name);
+	key = get_sensor_att_key(sid, ATT_SENSOR_NAME);
+	name = gconf_client_get_string(client, key, NULL);
 	free(key);
 
-	return res;
+	return name;
 }
 
-void config_set_sensor_name(char *sid, const char *name)
+void config_set_sensor_name(const char *sid, const char *name)
 {
-	char *escaped_name, *key;
+	char *key;
 
-	escaped_name = gconf_escape_key(sid, -1);
-	/* /apps/psensor/sensors/[sid]/name */
-	key = malloc(22 + 2 * strlen(escaped_name) + 1 + 4 + 1);
-
-	sprintf(key, "/apps/psensor/sensors/%s/name", escaped_name);
-
+	key = get_sensor_att_key(sid, ATT_SENSOR_NAME);
 	gconf_client_set_string(client, key, name, NULL);
-
-	free(escaped_name);
 	free(key);
 }
 

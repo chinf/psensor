@@ -42,7 +42,7 @@ struct config {
 	int alpha_channel_enabled;
 
 	/*
-	   Position of the sensors list table
+	 * Position of the sensors list table
 	 */
 	enum sensorlist_position sensorlist_position;
 
@@ -85,16 +85,16 @@ void config_cleanup();
 struct color *config_get_sensor_color(const char *sid, const struct color *);
 void config_set_sensor_color(const char *sid, const struct color *);
 
-int config_get_sensor_alarm_limit(char *, int);
-void config_set_sensor_alarm_limit(char *, int);
+int config_get_sensor_alarm_limit(const char *, int);
+void config_set_sensor_alarm_limit(const char *, int);
 
-int config_get_sensor_alarm_enabled(char *);
-void config_set_sensor_alarm_enabled(char *, int);
+int config_get_sensor_alarm_enabled(const char *);
+void config_set_sensor_alarm_enabled(const char *, int);
 
-int config_is_sensor_enabled(char *);
-void config_set_sensor_enabled(char *, int);
+int config_is_sensor_enabled(const char *);
+void config_set_sensor_enabled(const char *, int);
 
-char *config_get_sensor_name(char *);
-void config_set_sensor_name(char *, const char *);
+char *config_get_sensor_name(const char *);
+void config_set_sensor_name(const char *, const char *);
 
 #endif
