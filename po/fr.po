@@ -386,12 +386,12 @@ msgstr "ERREUR: échec de la récupération des températures nvidia\n"
 #: src/lib/nvidia.c:93
 #, fuzzy, c-format
 msgid "ERROR: Cannot open connection to X Server\n"
-msgstr "ERREUR: Echer de la connectio à: %s\n"
+msgstr "ERREUR: Echec de la connection au serveur X11: %s\n"
 
 #: src/lib/nvidia.c:101
 #, fuzzy, c-format
 msgid "ERROR: Cannot retrieve NVidia information\n"
-msgstr "ERREUR: échec de la récupération des températures nvidia\n"
+msgstr "ERREUR: échec de la récupération des températures NVidia\n"
 
 #: src/lib/lmsensor.c:43
 #, c-format
@@ -436,7 +436,7 @@ msgstr "Garder la fenêtre en arrière-plan"
 #: src/glade/psensor-pref.glade:142
 #, fuzzy
 msgid "Enable menu"
-msgstr "Activée"
+msgstr "Activer le menu"
 
 #: src/glade/psensor-pref.glade:161
 msgid "Enable Unity Launcher counter"
