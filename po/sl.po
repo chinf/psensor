@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 11:33+0200\n"
+"POT-Creation-Date: 2012-04-28 11:36+0200\n"
 "PO-Revision-Date: 2012-04-14 21:02+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -467,7 +467,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: src/ui.c:183 src/ui_appindicator.c:187
+#: src/ui.c:183 src/ui_appindicator.c:187 src/ui_graph.c:99
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
