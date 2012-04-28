@@ -39,8 +39,8 @@
    sensor).
 ** fixed french translation.
 ** merged chinese translation provided by LP.
-** added Slovenian translation file.
-** added Serbian translation file.
+** added German, Italian, Russian, Serbian, and Slovenian translation
+   files.
 ** psensor: fixed i18n support for the application indicator menu.
 
 * v0.6.2.18
