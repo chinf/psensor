@@ -115,7 +115,6 @@ msgid "Psensor Homepage"
 msgstr "Матична страница Псензора"
 
 #: src/ui.c:144 src/ui_appindicator.c:111
-#, fuzzy
 msgid "_Preferences"
 msgstr "_Поставке"
 
@@ -124,17 +123,14 @@ msgid "Preferences"
 msgstr "Поставке"
 
 #: src/ui.c:149
-#, fuzzy
 msgid "_Sensor Preferences"
-msgstr "Поставке"
+msgstr ""
 
 #: src/ui.c:150
-#, fuzzy
 msgid "Sensor Preferences"
-msgstr "Поставке"
+msgstr ""
 
 #: src/ui.c:154
-#, fuzzy
 msgid "_Quit"
 msgstr "_Изађи"
 
@@ -208,14 +204,12 @@ msgid "Show"
 msgstr ""
 
 #: src/ui_appindicator.c:116
-#, fuzzy
 msgid "S_ensor Preferences"
-msgstr "Поставке"
+msgstr ""
 
 #: src/ui_appindicator.c:118
-#, fuzzy
 msgid "SensorPreferences"
-msgstr "Поставке"
+msgstr ""
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed"
@@ -226,7 +220,6 @@ msgid "Temperature alert"
 msgstr ""
 
 #: src/ui_sensorpref.c:426
-#, fuzzy
 msgid "Sensor Name"
 msgstr "Назив сензора"
 
@@ -420,7 +413,6 @@ msgid "Keep window below"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:142
-#, fuzzy
 msgid "Enable menu"
 msgstr "Укључено"
 
@@ -465,7 +457,6 @@ msgid "<i>Max</i>"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:422
-#, fuzzy
 msgid "Colors"
 msgstr "У боји"
 
