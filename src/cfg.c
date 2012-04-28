@@ -28,8 +28,8 @@
 static const char *KEY_SENSORS = "/apps/psensor/sensors";
 
 static const char *ATT_SENSOR_ALARM_ENABLED = "alarm/enabled";
-/* static const char *ATT_SENSOR_ALARM_HIGH_THRESOLD = "alarm/high_thresold"; */
-/* static const char *ATT_SENSOR_ALARM_LOW_THRESOLD = "alarm/low_thresold"; */
+static const char *ATT_SENSOR_ALARM_HIGH_THRESOLD = "alarm/high_thresold";
+/*static const char *ATT_SENSOR_ALARM_LOW_THRESOLD = "alarm/low_thresold";*/
 static const char *ATT_SENSOR_COLOR = "color";
 static const char *ATT_SENSOR_ENABLED = "enabled";
 static const char *ATT_SENSOR_NAME = "name";
@@ -266,7 +266,7 @@ int config_get_sensor_alarm_high_thresold(const char *sid)
 	int res;
 	char *key;
 
-	key = get_sensor_att_key(sid, "alarmlimit");
+	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_HIGH_THRESOLD);
 	res = gconf_client_get_int(client, key, NULL);
 	free(key);
 
@@ -278,7 +278,7 @@ config_set_sensor_alarm_high_thresold(const char *sid, int thresold)
 {
 	char *key;
 
-	key = get_sensor_att_key(sid, "alarmlimit");
+	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_HIGH_THRESOLD);
 	gconf_client_set_int(client, key, thresold, NULL);
 	free(key);
 }
