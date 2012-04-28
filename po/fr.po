@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 03:06+0200\n"
+"POT-Creation-Date: 2012-04-28 11:33+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
@@ -17,6 +17,237 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-04-28 09:00+0000\n"
 "X-Generator: Launchpad (build 15149)\n"
+
+#: src/glade/psensor-pref.glade:7
+msgid "Edit Preferences"
+msgstr "Editer la configuration"
+
+#: src/glade/psensor-pref.glade:76
+msgid "Position of sensors table:"
+msgstr "Position de la table des sondes:"
+
+#: src/glade/psensor-pref.glade:85
+msgid "Hide window decoration"
+msgstr "Cacher les décorations de la fenêtre"
+
+#: src/glade/psensor-pref.glade:104
+msgid "Keep window below"
+msgstr "Garder la fenêtre en arrière-plan"
+
+#: src/glade/psensor-pref.glade:142
+msgid "Enable menu"
+msgstr "Activer le menu"
+
+#: src/glade/psensor-pref.glade:161
+msgid "Enable Unity Launcher counter"
+msgstr "Activer le compteur du lanceur de Unity"
+
+#: src/glade/psensor-pref.glade:180
+msgid "Hide window on startup"
+msgstr "Cacher la fenêtre au lancement"
+
+#: src/glade/psensor-pref.glade:199
+msgid "Restore window position and size"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:221
+msgid "Temperature unit:"
+msgstr "Unite de température:"
+
+#: src/glade/psensor-pref.glade:255
+msgid "Interface"
+msgstr "Interface"
+
+#: src/glade/psensor-pref.glade:295
+msgid "Foreground:"
+msgstr "Avant-plan:"
+
+#: src/glade/psensor-pref.glade:310
+msgid "Background:"
+msgstr "Arrière-plan :"
+
+#: src/glade/psensor-pref.glade:346
+msgid "Background opacity:"
+msgstr "Opacité du fond:"
+
+#: src/glade/psensor-pref.glade:369
+msgid "<i>Min</i>"
+msgstr "<i>Min</i>"
+
+#: src/glade/psensor-pref.glade:396
+msgid "<i>Max</i>"
+msgstr "<i>Max</i>"
+
+#: src/glade/psensor-pref.glade:422
+msgid "Colors"
+msgstr "Couleurs"
+
+#: src/glade/psensor-pref.glade:440
+msgid "Monitoring duration:"
+msgstr "Durée de surveillance:"
+
+#: src/glade/psensor-pref.glade:478
+msgid "minute(s)"
+msgstr "minutes(s)"
+
+#: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
+msgid "second(s)"
+msgstr "seconde(s)"
+
+#: src/glade/psensor-pref.glade:531
+msgid "Update interval:"
+msgstr "Interval de mise à jour:"
+
+#: src/glade/psensor-pref.glade:549
+msgid "Measures"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:190
+msgid "Graph"
+msgstr "Graphe"
+
+#: src/glade/psensor-pref.glade:609
+msgid "Measure update interval:"
+msgstr "Interval de mise à jour des mesures:"
+
+#: src/glade/psensor-pref.glade:666
+msgid "Sensors"
+msgstr "Sonde"
+
+#: src/glade/sensor-edit.glade:12
+msgid "Edit Sensor Preferences"
+msgstr "Editer La Configuration Des Sondes"
+
+#: src/glade/sensor-edit.glade:95 src/glade/sensor-edit.glade:159
+#: src/glade/sensor-edit.glade:319 src/glade/sensor-edit.glade:416
+#: src/lib/psensor.c:481 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/ui_sensorlist.c:380 src/ui_notify.c:79
+msgid "N/A"
+msgstr "N/A"
+
+#: src/glade/sensor-edit.glade:112
+msgid "Name:"
+msgstr "Nom:"
+
+#: src/glade/sensor-edit.glade:145
+msgid "Type:"
+msgstr "Type:"
+
+#: src/glade/sensor-edit.glade:175
+msgid "Id:"
+msgstr "Id:"
+
+#: src/glade/sensor-edit.glade:208
+msgid "Color:"
+msgstr "Couleur:"
+
+#: src/glade/sensor-edit.glade:222
+msgid "Alarm"
+msgstr "Alarme"
+
+#: src/glade/sensor-edit.glade:237
+msgid "Activate desktop notifications"
+msgstr "Activer les notifications du bureau"
+
+#: src/glade/sensor-edit.glade:258
+msgid "Sensor Information"
+msgstr "Information sonde"
+
+#: src/glade/sensor-edit.glade:271
+msgid "Draw sensor curve"
+msgstr "Dessiner la courbe de la sonde"
+
+#: src/glade/sensor-edit.glade:360
+msgid "High thresold:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:375
+msgid "Low thresold:"
+msgstr ""
+
+#: src/lib/amd.c:151
+#, c-format
+msgid "ERROR: ADL library not found!\n"
+msgstr ""
+
+#: src/lib/amd.c:176
+#, c-format
+msgid "ERROR: ADL's API is missing!\n"
+msgstr ""
+
+#: src/lib/amd.c:185
+#, c-format
+msgid "ERROR: ADL Initialization Error!\n"
+msgstr "ERREUR: échec de l'initialisation ADL\n"
+
+#: src/lib/amd.c:193
+#, c-format
+msgid "ERROR: Cannot get the number of adapters!\n"
+msgstr ""
+
+#: src/lib/hdd_hddtemp.c:59
+#, c-format
+msgid "ERROR: hdd fetch, failed to open socket\n"
+msgstr "ERREUR: hdd_fetch, échec d'ouverture de la socket\n"
+
+#: src/lib/hdd_hddtemp.c:73
+#, c-format
+msgid "ERROR: hdd fetch, failed to open connection\n"
+msgstr "ERREUR: hdd_fetch, échec de l'ouverture de la connection\n"
+
+#: src/lib/hdd_hddtemp.c:183
+#, c-format
+msgid "ERROR: wrong hdd string: %s"
+msgstr "ERREUR: mauvaise chaine hdd: %s"
+
+#: src/lib/hdd_hddtemp.c:253
+#, c-format
+msgid "ERROR: wrong hdd string: %s\n"
+msgstr "ERREUR: mauvaise chaine hdd: %s\n"
+
+#: src/lib/lmsensor.c:43
+#, c-format
+msgid "ERROR: Can't get value of subfeature %s: %s\n"
+msgstr ""
+"ERREUR: Impossible de récuperer la valeur de la sous-fonctionnalité %s: %s\n"
+
+#: src/lib/lmsensor.c:125
+#, c-format
+msgid "ERROR: create_sensor, wrong feature type\n"
+msgstr "ERREUR: create_sensor, mauvais type de fonctionnalité\n"
+
+#: src/lib/lmsensor.c:208
+#, c-format
+msgid "ERROR: lm-sensors initialization failure: %s\n"
+msgstr "ERREUR: échec de l'initialisation de lm-sensors: %s\n"
+
+#: src/lib/log.c:37
+#, c-format
+msgid "Cannot open log file: %s"
+msgstr ""
+
+#: src/lib/nvidia.c:54
+#, c-format
+msgid "ERROR: failed to retrieve nvidia temperature\n"
+msgstr "ERREUR: échec de la récupération des températures nvidia\n"
+
+#: src/lib/nvidia.c:93
+#, c-format
+msgid "ERROR: Cannot open connection to X Server\n"
+msgstr "ERREUR: Echec de la connection au serveur X11\n"
+
+#: src/lib/nvidia.c:101
+#, c-format
+msgid "ERROR: Cannot retrieve NVidia information\n"
+msgstr "ERREUR: échec de la récupération des informations NVidia\n"
+
+#: src/lib/psensor.c:476
+msgid "RPM"
+msgstr ""
+
+#: src/lib/psensor.c:479
+msgid "%"
+msgstr ""
 
 #: src/main.c:77
 #, c-format
@@ -110,135 +341,6 @@ msgstr "Essayez `%s --help' pour plus d'informations.\n"
 #: src/main.c:544
 msgid "Psensor instance already exists"
 msgstr ""
-
-#: src/ui.c:80
-msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr ""
-"Psensor est une application GTK pour surveiller les sondes matérielles "
-"thermiques et les ventilateurs."
-
-#: src/ui.c:83
-msgid ""
-"Copyright(c) 2010-2012\n"
-"jeanfi@gmail.com"
-msgstr ""
-
-#: src/ui.c:86
-msgid "About Psensor"
-msgstr "A propos de Psensor"
-
-#: src/ui.c:89
-msgid "Psensor Homepage"
-msgstr "Site internet de Psensor"
-
-#: src/ui.c:144 src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Configuration"
-
-#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
-msgid "Preferences"
-msgstr "Configuration"
-
-#: src/ui.c:149
-msgid "_Sensor Preferences"
-msgstr "Configuration Des Sondes"
-
-#: src/ui.c:150
-msgid "Sensor Preferences"
-msgstr "Configuration Des Sondes"
-
-#: src/ui.c:154
-msgid "_Quit"
-msgstr "Quitter"
-
-#: src/ui.c:154
-msgid "Quit"
-msgstr "Quitter"
-
-#: src/ui.c:160 src/ui_appindicator.c:122
-msgid "_About"
-msgstr "A propos"
-
-#: src/ui.c:161 src/ui_appindicator.c:124
-msgid "About"
-msgstr "A propos"
-
-#: src/ui.c:183 src/ui_appindicator.c:187
-#, c-format
-msgid "building menus failed: %s"
-msgstr ""
-
-#: src/ui.c:235
-msgid "Psensor - Temperature Monitor"
-msgstr "Psensor - Surveillance Des Temperatures"
-
-#: src/ui.c:243
-#, c-format
-msgid "ERROR: Failed to load psensor icon.\n"
-msgstr "ERREUR: Echec du chargement de l'icone de Psensor\n"
-
-#: src/ui_sensorlist.c:235
-msgid "Select foreground color"
-msgstr "Selectionner la couleur d'avant-plan"
-
-#: src/ui_sensorlist.c:312
-msgid "Sensor"
-msgstr "Sonde"
-
-#: src/ui_sensorlist.c:318
-msgid "Value"
-msgstr "Valeur"
-
-#: src/ui_sensorlist.c:324
-msgid "Min"
-msgstr "Min"
-
-#: src/ui_sensorlist.c:330
-msgid "Max"
-msgstr "Max"
-
-#: src/ui_sensorlist.c:337
-msgid "Color"
-msgstr "Couleur"
-
-#: src/ui_sensorlist.c:349
-msgid "Enabled"
-msgstr "Activée"
-
-#: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
-#: src/ui_notify.c:79 src/lib/psensor.c:481 src/glade/sensor-edit.glade:95
-#: src/glade/sensor-edit.glade:159 src/glade/sensor-edit.glade:319
-#: src/glade/sensor-edit.glade:416
-msgid "N/A"
-msgstr "N/A"
-
-#: src/ui_appindicator.c:106
-msgid "_Show"
-msgstr "Montrer"
-
-#: src/ui_appindicator.c:107
-msgid "Show"
-msgstr "Montrer"
-
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "Configuration Des Sondes"
-
-#: src/ui_appindicator.c:118
-msgid "SensorPreferences"
-msgstr "Configuration Des Sondes"
-
-#: src/ui_notify.c:48
-msgid "gettimeofday failed"
-msgstr ""
-
-#: src/ui_notify.c:77
-msgid "Temperature alert"
-msgstr "Alerte thermique"
-
-#: src/ui_sensorpref.c:426
-msgid "Sensor Name"
-msgstr "Nom De La Sonde"
 
 #: src/rsensor.c:107
 #, c-format
@@ -343,226 +445,124 @@ msgstr "WWW repertoire: %s"
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/lib/amd.c:151
-#, c-format
-msgid "ERROR: ADL library not found!\n"
+#: src/ui.c:80
+msgid "Psensor is a GTK+ application for monitoring hardware sensors"
+msgstr ""
+"Psensor est une application GTK pour surveiller les sondes matérielles "
+"thermiques et les ventilateurs."
+
+#: src/ui.c:83
+msgid ""
+"Copyright(c) 2010-2012\n"
+"jeanfi@gmail.com"
 msgstr ""
 
-#: src/lib/amd.c:176
+#: src/ui.c:86
+msgid "About Psensor"
+msgstr "A propos de Psensor"
+
+#: src/ui.c:89
+msgid "Psensor Homepage"
+msgstr "Site internet de Psensor"
+
+#: src/ui.c:144 src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr "_Configuration"
+
+#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr "Configuration"
+
+#: src/ui.c:149
+msgid "_Sensor Preferences"
+msgstr "Configuration Des Sondes"
+
+#: src/ui.c:150
+msgid "Sensor Preferences"
+msgstr "Configuration Des Sondes"
+
+#: src/ui.c:154
+msgid "_Quit"
+msgstr "Quitter"
+
+#: src/ui.c:154
+msgid "Quit"
+msgstr "Quitter"
+
+#: src/ui.c:160 src/ui_appindicator.c:122
+msgid "_About"
+msgstr "A propos"
+
+#: src/ui.c:161 src/ui_appindicator.c:124
+msgid "About"
+msgstr "A propos"
+
+#: src/ui.c:183 src/ui_appindicator.c:187
 #, c-format
-msgid "ERROR: ADL's API is missing!\n"
+msgid "building menus failed: %s"
 msgstr ""
 
-#: src/lib/amd.c:185
+#: src/ui.c:235
+msgid "Psensor - Temperature Monitor"
+msgstr "Psensor - Surveillance Des Temperatures"
+
+#: src/ui.c:243
 #, c-format
-msgid "ERROR: ADL Initialization Error!\n"
-msgstr "ERREUR: échec de l'initialisation ADL\n"
+msgid "ERROR: Failed to load psensor icon.\n"
+msgstr "ERREUR: Echec du chargement de l'icone de Psensor\n"
 
-#: src/lib/amd.c:193
-#, c-format
-msgid "ERROR: Cannot get the number of adapters!\n"
-msgstr ""
+#: src/ui_sensorlist.c:235
+msgid "Select foreground color"
+msgstr "Selectionner la couleur d'avant-plan"
 
-#: src/lib/hdd_hddtemp.c:59
-#, c-format
-msgid "ERROR: hdd fetch, failed to open socket\n"
-msgstr "ERREUR: hdd_fetch, échec d'ouverture de la socket\n"
-
-#: src/lib/hdd_hddtemp.c:73
-#, c-format
-msgid "ERROR: hdd fetch, failed to open connection\n"
-msgstr "ERREUR: hdd_fetch, échec de l'ouverture de la connection\n"
-
-#: src/lib/hdd_hddtemp.c:183
-#, c-format
-msgid "ERROR: wrong hdd string: %s"
-msgstr "ERREUR: mauvaise chaine hdd: %s"
-
-#: src/lib/hdd_hddtemp.c:253
-#, c-format
-msgid "ERROR: wrong hdd string: %s\n"
-msgstr "ERREUR: mauvaise chaine hdd: %s\n"
-
-#: src/lib/log.c:37
-#, c-format
-msgid "Cannot open log file: %s"
-msgstr ""
-
-#: src/lib/nvidia.c:54
-#, c-format
-msgid "ERROR: failed to retrieve nvidia temperature\n"
-msgstr "ERREUR: échec de la récupération des températures nvidia\n"
-
-#: src/lib/nvidia.c:93
-#, c-format
-msgid "ERROR: Cannot open connection to X Server\n"
-msgstr "ERREUR: Echec de la connection au serveur X11\n"
-
-#: src/lib/nvidia.c:101
-#, c-format
-msgid "ERROR: Cannot retrieve NVidia information\n"
-msgstr "ERREUR: échec de la récupération des informations NVidia\n"
-
-#: src/lib/lmsensor.c:43
-#, c-format
-msgid "ERROR: Can't get value of subfeature %s: %s\n"
-msgstr ""
-"ERREUR: Impossible de récuperer la valeur de la sous-fonctionnalité %s: %s\n"
-
-#: src/lib/lmsensor.c:125
-#, c-format
-msgid "ERROR: create_sensor, wrong feature type\n"
-msgstr "ERREUR: create_sensor, mauvais type de fonctionnalité\n"
-
-#: src/lib/lmsensor.c:208
-#, c-format
-msgid "ERROR: lm-sensors initialization failure: %s\n"
-msgstr "ERREUR: échec de l'initialisation de lm-sensors: %s\n"
-
-#: src/lib/psensor.c:476
-msgid "RPM"
-msgstr ""
-
-#: src/lib/psensor.c:479
-msgid "%"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:7
-msgid "Edit Preferences"
-msgstr "Editer la configuration"
-
-#: src/glade/psensor-pref.glade:76
-msgid "Position of sensors table:"
-msgstr "Position de la table des sondes:"
-
-#: src/glade/psensor-pref.glade:85
-msgid "Hide window decoration"
-msgstr "Cacher les décorations de la fenêtre"
-
-#: src/glade/psensor-pref.glade:104
-msgid "Keep window below"
-msgstr "Garder la fenêtre en arrière-plan"
-
-#: src/glade/psensor-pref.glade:142
-msgid "Enable menu"
-msgstr "Activer le menu"
-
-#: src/glade/psensor-pref.glade:161
-msgid "Enable Unity Launcher counter"
-msgstr "Activer le compteur du lanceur de Unity"
-
-#: src/glade/psensor-pref.glade:180
-msgid "Hide window on startup"
-msgstr "Cacher la fenêtre au lancement"
-
-#: src/glade/psensor-pref.glade:199
-msgid "Restore window position and size"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:221
-msgid "Temperature unit:"
-msgstr "Unite de température:"
-
-#: src/glade/psensor-pref.glade:255
-msgid "Interface"
-msgstr "Interface"
-
-#: src/glade/psensor-pref.glade:295
-msgid "Foreground:"
-msgstr "Avant-plan:"
-
-#: src/glade/psensor-pref.glade:310
-msgid "Background:"
-msgstr "Arrière-plan :"
-
-#: src/glade/psensor-pref.glade:346
-msgid "Background opacity:"
-msgstr "Opacité du fond:"
-
-#: src/glade/psensor-pref.glade:369
-msgid "<i>Min</i>"
-msgstr "<i>Min</i>"
-
-#: src/glade/psensor-pref.glade:396
-msgid "<i>Max</i>"
-msgstr "<i>Max</i>"
-
-#: src/glade/psensor-pref.glade:422
-msgid "Colors"
-msgstr "Couleurs"
-
-#: src/glade/psensor-pref.glade:440
-msgid "Monitoring duration:"
-msgstr "Durée de surveillance:"
-
-#: src/glade/psensor-pref.glade:478
-msgid "minute(s)"
-msgstr "minutes(s)"
-
-#: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
-msgid "second(s)"
-msgstr "seconde(s)"
-
-#: src/glade/psensor-pref.glade:531
-msgid "Update interval:"
-msgstr "Interval de mise à jour:"
-
-#: src/glade/psensor-pref.glade:549
-msgid "Measures"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:190
-msgid "Graph"
-msgstr "Graphe"
-
-#: src/glade/psensor-pref.glade:609
-msgid "Measure update interval:"
-msgstr "Interval de mise à jour des mesures:"
-
-#: src/glade/psensor-pref.glade:666
-msgid "Sensors"
+#: src/ui_sensorlist.c:312
+msgid "Sensor"
 msgstr "Sonde"
 
-#: src/glade/sensor-edit.glade:12
-msgid "Edit Sensor Preferences"
-msgstr "Editer La Configuration Des Sondes"
+#: src/ui_sensorlist.c:318
+msgid "Value"
+msgstr "Valeur"
 
-#: src/glade/sensor-edit.glade:112
-msgid "Name:"
-msgstr "Nom:"
+#: src/ui_sensorlist.c:324
+msgid "Min"
+msgstr "Min"
 
-#: src/glade/sensor-edit.glade:145
-msgid "Type:"
-msgstr "Type:"
+#: src/ui_sensorlist.c:330
+msgid "Max"
+msgstr "Max"
 
-#: src/glade/sensor-edit.glade:175
-msgid "Id:"
-msgstr "Id:"
+#: src/ui_sensorlist.c:337
+msgid "Color"
+msgstr "Couleur"
 
-#: src/glade/sensor-edit.glade:208
-msgid "Color:"
-msgstr "Couleur:"
+#: src/ui_sensorlist.c:349
+msgid "Enabled"
+msgstr "Activée"
 
-#: src/glade/sensor-edit.glade:222
-msgid "Alarm"
-msgstr "Alarme"
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr "Montrer"
 
-#: src/glade/sensor-edit.glade:237
-msgid "Activate desktop notifications"
-msgstr "Activer les notifications du bureau"
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr "Montrer"
 
-#: src/glade/sensor-edit.glade:258
-msgid "Sensor Information"
-msgstr "Information sonde"
+#: src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr "Configuration Des Sondes"
 
-#: src/glade/sensor-edit.glade:271
-msgid "Draw sensor curve"
-msgstr "Dessiner la courbe de la sonde"
+#: src/ui_appindicator.c:118
+msgid "SensorPreferences"
+msgstr "Configuration Des Sondes"
 
-#: src/glade/sensor-edit.glade:360
-msgid "High thresold:"
+#: src/ui_notify.c:48
+msgid "gettimeofday failed"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:375
-msgid "Low thresold:"
-msgstr ""
+#: src/ui_notify.c:77
+msgid "Temperature alert"
+msgstr "Alerte thermique"
+
+#: src/ui_sensorpref.c:426
+msgid "Sensor Name"
+msgstr "Nom De La Sonde"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 03:06+0200\n"
+"POT-Creation-Date: 2012-04-28 11:33+0200\n"
 "PO-Revision-Date: 2012-04-10 11:43+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -17,405 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-04-28 09:00+0000\n"
 "X-Generator: Launchpad (build 15149)\n"
-
-#: src/main.c:77
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and  redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"版权所有(C) %s jeanfi@gmail.com\n"
-"协议 GPLv2：GNU GPL 第 2 版或以后的 <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"该软件为自由软件：您可以自由修改并分发。\n"
-"There is NO WARRANTY, to the extent permitted by law。\n"
-
-#: src/main.c:88 src/server/server.c:87
-#, c-format
-msgid "Usage: %s [OPTION]...\n"
-msgstr "用法：%s [选项]...\n"
-
-#: src/main.c:90
-msgid ""
-"psensor is a GTK application for monitoring hardware sensors, including "
-"temperatures and fan speeds."
-msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温度和风扇转速。"
-
-#: src/main.c:94
-msgid "Options:"
-msgstr "选项："
-
-#: src/main.c:95
-msgid ""
-"  -h, --help          display this help and exit\n"
-"  -v, --version       display version information and exit"
-msgstr ""
-"  -h, --help 显示这个帮助并退出\n"
-"  -v, --version 显示版本信息并退出"
-
-#: src/main.c:100
-msgid ""
-"  -u, --url=URL       the URL of the psensor-server, example: http://"
-"hostname:3131"
-msgstr "  -u, --url=URL psensor服务器的 URL ，比如：http://hostname:3131"
-
-#: src/main.c:102
-msgid ""
-"  --use-libatasmart   use atasmart library for disk monitoring instead of "
-"hddtemp daemon"
-msgstr ""
-
-#: src/main.c:105
-msgid "  -n, --new-instance  force the creation of a new Psensor application"
-msgstr ""
-
-#: src/main.c:109 src/server/server.c:102
-msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
-msgstr "  -d，--debug=LEVEL 设置调试等级，等级为 0 到 3 之间的整数"
-
-#: src/main.c:114 src/server/server.c:108
-#, c-format
-msgid "Report bugs to: %s\n"
-msgstr "将程序缺陷报告给: %s\n"
-
-#: src/main.c:116 src/server/server.c:110
-#, c-format
-msgid "%s home page: <%s>\n"
-msgstr "%s 主页：<%s>\n"
-
-#: src/main.c:457
-#, c-format
-msgid "ERROR: Not compiled with remote sensor support.\n"
-msgstr "错误：无法支持编译远程监测器。\n"
-
-#: src/main.c:519
-msgid "Enables debug mode."
-msgstr "启用调试模式。"
-
-#: src/main.c:531 src/server/server.c:370
-#, c-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "试用‘%s --help’来获得更多信息。\n"
-
-#: src/main.c:544
-msgid "Psensor instance already exists"
-msgstr ""
-
-#: src/ui.c:80
-msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr "Psensor 是一款 GTK+ 硬件监测传感应用程序"
-
-#: src/ui.c:83
-msgid ""
-"Copyright(c) 2010-2012\n"
-"jeanfi@gmail.com"
-msgstr ""
-"版权所有(c) 2010-2012\n"
-"jeanfi@gmail.com"
-
-#: src/ui.c:86
-msgid "About Psensor"
-msgstr "关于 Psensor"
-
-#: src/ui.c:89
-msgid "Psensor Homepage"
-msgstr "Psensor 主页"
-
-#: src/ui.c:144 src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "首选项(_P)"
-
-#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
-msgid "Preferences"
-msgstr "选项"
-
-#: src/ui.c:149
-msgid "_Sensor Preferences"
-msgstr "传感器首选项(_S)"
-
-#: src/ui.c:150
-msgid "Sensor Preferences"
-msgstr "传感器首选项"
-
-#: src/ui.c:154
-msgid "_Quit"
-msgstr "退出(_Q)"
-
-#: src/ui.c:154
-msgid "Quit"
-msgstr "退出"
-
-#: src/ui.c:160 src/ui_appindicator.c:122
-msgid "_About"
-msgstr "关于(_A)"
-
-#: src/ui.c:161 src/ui_appindicator.c:124
-msgid "About"
-msgstr "关于"
-
-#: src/ui.c:183 src/ui_appindicator.c:187
-#, c-format
-msgid "building menus failed: %s"
-msgstr "创建菜单失败：%s"
-
-#: src/ui.c:235
-msgid "Psensor - Temperature Monitor"
-msgstr "Psensor - 温度监视器"
-
-#: src/ui.c:243
-#, c-format
-msgid "ERROR: Failed to load psensor icon.\n"
-msgstr "错误：无法加载 psensor 图标。\n"
-
-#: src/ui_sensorlist.c:235
-msgid "Select foreground color"
-msgstr "选择前景色"
-
-#: src/ui_sensorlist.c:312
-msgid "Sensor"
-msgstr "监视设备"
-
-#: src/ui_sensorlist.c:318
-msgid "Value"
-msgstr "值"
-
-#: src/ui_sensorlist.c:324
-msgid "Min"
-msgstr "最小值"
-
-#: src/ui_sensorlist.c:330
-msgid "Max"
-msgstr "最大值"
-
-#: src/ui_sensorlist.c:337
-msgid "Color"
-msgstr "颜色"
-
-#: src/ui_sensorlist.c:349
-msgid "Enabled"
-msgstr "激活"
-
-#: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
-#: src/ui_notify.c:79 src/lib/psensor.c:481 src/glade/sensor-edit.glade:95
-#: src/glade/sensor-edit.glade:159 src/glade/sensor-edit.glade:319
-#: src/glade/sensor-edit.glade:416
-msgid "N/A"
-msgstr ""
-
-#: src/ui_appindicator.c:106
-msgid "_Show"
-msgstr ""
-
-#: src/ui_appindicator.c:107
-msgid "Show"
-msgstr "显示主窗口"
-
-#: src/ui_appindicator.c:116
-#, fuzzy
-msgid "S_ensor Preferences"
-msgstr "传感器首选项"
-
-#: src/ui_appindicator.c:118
-#, fuzzy
-msgid "SensorPreferences"
-msgstr "传感器首选项"
-
-#: src/ui_notify.c:48
-msgid "gettimeofday failed"
-msgstr "获取时间失败"
-
-#: src/ui_notify.c:77
-msgid "Temperature alert"
-msgstr "温度报警"
-
-#: src/ui_sensorpref.c:426
-msgid "Sensor Name"
-msgstr "传感器名称"
-
-#: src/rsensor.c:107
-#, c-format
-msgid "Fail to connect to: %s"
-msgstr "无法连接到：%s"
-
-#: src/rsensor.c:144
-#, c-format
-msgid "Invalid content: %s"
-msgstr "无效内容：%s"
-
-#: src/rsensor.c:184
-#, c-format
-msgid "Invalid JSON: %s"
-msgstr "无效 JSON：%s"
-
-#: src/server/server.c:55
-msgid ""
-"<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
-msgstr "<html><body><p>未找到页面 - 请访问<a href='/'>主页</a></p></body>"
-
-#: src/server/server.c:77
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"版权所有(C) %s jeanfi@gmail.com\n"
-"协议 GPLv2：GNU GPL 第 2 版或更新的<http://www.gnu.org/licenses/old-licenses/"
-"gpl-2.0.html>\n"
-"本软件为自由软件：您可以自由修改并分发。\n"
-"There is NO WARRANTY, to the extent permitted by law。\n"
-
-#: src/server/server.c:89
-msgid ""
-"psensor-server is an HTTP server for monitoring hardware sensors remotely."
-msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
-
-#: src/server/server.c:94
-msgid ""
-"  -h, --help\t\tdisplay this help and exit\n"
-"  -v, --version\t\tdisplay version information and exit"
-msgstr ""
-"  -h, --help\t\t 显示本帮助并退出\n"
-"  -v, --version\t\t 显示版本信息并退出"
-
-#: src/server/server.c:98
-msgid ""
-"  -p,--port=PORT\twebserver port\n"
-"  -w,--wdir=DIR\t\tdirectory containing webserver pages"
-msgstr ""
-"  -p,--port=PORT\t 网络服务器端口\n"
-"  -w,--wdir=DIR\t\t 包括网络服务器页面的目录"
-
-#: src/server/server.c:104
-msgid "  -l, --log-file=PATH set the log file to PATH"
-msgstr ""
-
-#: src/server/server.c:179
-msgid "<html><body><p>Server stop requested</p></body></html>"
-msgstr "<html><body><p>服务器停止请求</p></body></html>"
-
-#: src/server/server.c:293
-#, c-format
-msgid "HTTP Request: %s"
-msgstr "HTTP 请求：%s"
-
-#: src/server/server.c:350
-#, c-format
-msgid "Enables debug mode: %d"
-msgstr ""
-
-#: src/server/server.c:386
-#, c-format
-msgid "ERROR: no sensors detected\n"
-msgstr "错误：未检测到传感器\n"
-
-#: src/server/server.c:393
-#, c-format
-msgid "ERROR: Fail to create web server\n"
-msgstr "错误：无法创建网络服务器\n"
-
-#: src/server/server.c:397
-#, c-format
-msgid "Web server started on port: %d"
-msgstr "网络服务器启动端口：%d"
-
-#: src/server/server.c:398
-#, c-format
-msgid "WWW directory: %s"
-msgstr "WWW 目录：%s"
-
-#: src/server/server.c:399
-#, c-format
-msgid "URL: http://localhost:%d"
-msgstr "URL: http://localhost:%d"
-
-#: src/lib/amd.c:151
-#, c-format
-msgid "ERROR: ADL library not found!\n"
-msgstr "错误：未找到 ADL 库\n"
-
-#: src/lib/amd.c:176
-#, c-format
-msgid "ERROR: ADL's API is missing!\n"
-msgstr "错误：ADL 的 API 丢失！\n"
-
-#: src/lib/amd.c:185
-#, c-format
-msgid "ERROR: ADL Initialization Error!\n"
-msgstr "错误：ADL 初始化出错！\n"
-
-#: src/lib/amd.c:193
-#, c-format
-msgid "ERROR: Cannot get the number of adapters!\n"
-msgstr "错误：无法获取适配器数目！\n"
-
-#: src/lib/hdd_hddtemp.c:59
-#, c-format
-msgid "ERROR: hdd fetch, failed to open socket\n"
-msgstr "错误：硬盘读取时，无法打开 socket\n"
-
-#: src/lib/hdd_hddtemp.c:73
-#, c-format
-msgid "ERROR: hdd fetch, failed to open connection\n"
-msgstr "错误：硬盘读取时，无法打开连接\n"
-
-#: src/lib/hdd_hddtemp.c:183
-#, c-format
-msgid "ERROR: wrong hdd string: %s"
-msgstr "错误：不正确的硬盘字符串：%s"
-
-#: src/lib/hdd_hddtemp.c:253
-#, c-format
-msgid "ERROR: wrong hdd string: %s\n"
-msgstr "错误：不正确的硬盘字符串：%s\n"
-
-#: src/lib/log.c:37
-#, c-format
-msgid "Cannot open log file: %s"
-msgstr "无法打开日志文件：%s"
-
-#: src/lib/nvidia.c:54
-#, c-format
-msgid "ERROR: failed to retrieve nvidia temperature\n"
-msgstr "错误：无法获取 nvidia 温度\n"
-
-#: src/lib/nvidia.c:93
-#, c-format
-msgid "ERROR: Cannot open connection to X Server\n"
-msgstr "错误：无法打开到 X Server 的连接\n"
-
-#: src/lib/nvidia.c:101
-#, c-format
-msgid "ERROR: Cannot retrieve NVidia information\n"
-msgstr "错误：无法获取 NVidia 信息\n"
-
-#: src/lib/lmsensor.c:43
-#, c-format
-msgid "ERROR: Can't get value of subfeature %s: %s\n"
-msgstr "错误：无法获取子功能的值：%s: %s\n"
-
-#: src/lib/lmsensor.c:125
-#, c-format
-msgid "ERROR: create_sensor, wrong feature type\n"
-msgstr "错误：创建传感器时，不正确的特征类型\n"
-
-#: src/lib/lmsensor.c:208
-#, c-format
-msgid "ERROR: lm-sensors initialization failure: %s\n"
-msgstr "错误：lm-sensors 初始化失败：%s\n"
-
-#: src/lib/psensor.c:476
-msgid "RPM"
-msgstr "转速"
-
-#: src/lib/psensor.c:479
-msgid "%"
-msgstr "%"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -517,6 +118,13 @@ msgstr ""
 msgid "Edit Sensor Preferences"
 msgstr "监视设备选项"
 
+#: src/glade/sensor-edit.glade:95 src/glade/sensor-edit.glade:159
+#: src/glade/sensor-edit.glade:319 src/glade/sensor-edit.glade:416
+#: src/lib/psensor.c:481 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/ui_sensorlist.c:380 src/ui_notify.c:79
+msgid "N/A"
+msgstr ""
+
 #: src/glade/sensor-edit.glade:112
 msgid "Name:"
 msgstr "名称:"
@@ -556,3 +164,395 @@ msgstr ""
 #: src/glade/sensor-edit.glade:375
 msgid "Low thresold:"
 msgstr ""
+
+#: src/lib/amd.c:151
+#, c-format
+msgid "ERROR: ADL library not found!\n"
+msgstr "错误：未找到 ADL 库\n"
+
+#: src/lib/amd.c:176
+#, c-format
+msgid "ERROR: ADL's API is missing!\n"
+msgstr "错误：ADL 的 API 丢失！\n"
+
+#: src/lib/amd.c:185
+#, c-format
+msgid "ERROR: ADL Initialization Error!\n"
+msgstr "错误：ADL 初始化出错！\n"
+
+#: src/lib/amd.c:193
+#, c-format
+msgid "ERROR: Cannot get the number of adapters!\n"
+msgstr "错误：无法获取适配器数目！\n"
+
+#: src/lib/hdd_hddtemp.c:59
+#, c-format
+msgid "ERROR: hdd fetch, failed to open socket\n"
+msgstr "错误：硬盘读取时，无法打开 socket\n"
+
+#: src/lib/hdd_hddtemp.c:73
+#, c-format
+msgid "ERROR: hdd fetch, failed to open connection\n"
+msgstr "错误：硬盘读取时，无法打开连接\n"
+
+#: src/lib/hdd_hddtemp.c:183
+#, c-format
+msgid "ERROR: wrong hdd string: %s"
+msgstr "错误：不正确的硬盘字符串：%s"
+
+#: src/lib/hdd_hddtemp.c:253
+#, c-format
+msgid "ERROR: wrong hdd string: %s\n"
+msgstr "错误：不正确的硬盘字符串：%s\n"
+
+#: src/lib/lmsensor.c:43
+#, c-format
+msgid "ERROR: Can't get value of subfeature %s: %s\n"
+msgstr "错误：无法获取子功能的值：%s: %s\n"
+
+#: src/lib/lmsensor.c:125
+#, c-format
+msgid "ERROR: create_sensor, wrong feature type\n"
+msgstr "错误：创建传感器时，不正确的特征类型\n"
+
+#: src/lib/lmsensor.c:208
+#, c-format
+msgid "ERROR: lm-sensors initialization failure: %s\n"
+msgstr "错误：lm-sensors 初始化失败：%s\n"
+
+#: src/lib/log.c:37
+#, c-format
+msgid "Cannot open log file: %s"
+msgstr "无法打开日志文件：%s"
+
+#: src/lib/nvidia.c:54
+#, c-format
+msgid "ERROR: failed to retrieve nvidia temperature\n"
+msgstr "错误：无法获取 nvidia 温度\n"
+
+#: src/lib/nvidia.c:93
+#, c-format
+msgid "ERROR: Cannot open connection to X Server\n"
+msgstr "错误：无法打开到 X Server 的连接\n"
+
+#: src/lib/nvidia.c:101
+#, c-format
+msgid "ERROR: Cannot retrieve NVidia information\n"
+msgstr "错误：无法获取 NVidia 信息\n"
+
+#: src/lib/psensor.c:476
+msgid "RPM"
+msgstr "转速"
+
+#: src/lib/psensor.c:479
+msgid "%"
+msgstr "%"
+
+#: src/main.c:77
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and  redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"版权所有(C) %s jeanfi@gmail.com\n"
+"协议 GPLv2：GNU GPL 第 2 版或以后的 <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"该软件为自由软件：您可以自由修改并分发。\n"
+"There is NO WARRANTY, to the extent permitted by law。\n"
+
+#: src/main.c:88 src/server/server.c:87
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "用法：%s [选项]...\n"
+
+#: src/main.c:90
+msgid ""
+"psensor is a GTK application for monitoring hardware sensors, including "
+"temperatures and fan speeds."
+msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温度和风扇转速。"
+
+#: src/main.c:94
+msgid "Options:"
+msgstr "选项："
+
+#: src/main.c:95
+msgid ""
+"  -h, --help          display this help and exit\n"
+"  -v, --version       display version information and exit"
+msgstr ""
+"  -h, --help 显示这个帮助并退出\n"
+"  -v, --version 显示版本信息并退出"
+
+#: src/main.c:100
+msgid ""
+"  -u, --url=URL       the URL of the psensor-server, example: http://"
+"hostname:3131"
+msgstr "  -u, --url=URL psensor服务器的 URL ，比如：http://hostname:3131"
+
+#: src/main.c:102
+msgid ""
+"  --use-libatasmart   use atasmart library for disk monitoring instead of "
+"hddtemp daemon"
+msgstr ""
+
+#: src/main.c:105
+msgid "  -n, --new-instance  force the creation of a new Psensor application"
+msgstr ""
+
+#: src/main.c:109 src/server/server.c:102
+msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
+msgstr "  -d，--debug=LEVEL 设置调试等级，等级为 0 到 3 之间的整数"
+
+#: src/main.c:114 src/server/server.c:108
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr "将程序缺陷报告给: %s\n"
+
+#: src/main.c:116 src/server/server.c:110
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "%s 主页：<%s>\n"
+
+#: src/main.c:457
+#, c-format
+msgid "ERROR: Not compiled with remote sensor support.\n"
+msgstr "错误：无法支持编译远程监测器。\n"
+
+#: src/main.c:519
+msgid "Enables debug mode."
+msgstr "启用调试模式。"
+
+#: src/main.c:531 src/server/server.c:370
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "试用‘%s --help’来获得更多信息。\n"
+
+#: src/main.c:544
+msgid "Psensor instance already exists"
+msgstr ""
+
+#: src/rsensor.c:107
+#, c-format
+msgid "Fail to connect to: %s"
+msgstr "无法连接到：%s"
+
+#: src/rsensor.c:144
+#, c-format
+msgid "Invalid content: %s"
+msgstr "无效内容：%s"
+
+#: src/rsensor.c:184
+#, c-format
+msgid "Invalid JSON: %s"
+msgstr "无效 JSON：%s"
+
+#: src/server/server.c:55
+msgid ""
+"<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
+msgstr "<html><body><p>未找到页面 - 请访问<a href='/'>主页</a></p></body>"
+
+#: src/server/server.c:77
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"版权所有(C) %s jeanfi@gmail.com\n"
+"协议 GPLv2：GNU GPL 第 2 版或更新的<http://www.gnu.org/licenses/old-licenses/"
+"gpl-2.0.html>\n"
+"本软件为自由软件：您可以自由修改并分发。\n"
+"There is NO WARRANTY, to the extent permitted by law。\n"
+
+#: src/server/server.c:89
+msgid ""
+"psensor-server is an HTTP server for monitoring hardware sensors remotely."
+msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
+
+#: src/server/server.c:94
+msgid ""
+"  -h, --help\t\tdisplay this help and exit\n"
+"  -v, --version\t\tdisplay version information and exit"
+msgstr ""
+"  -h, --help\t\t 显示本帮助并退出\n"
+"  -v, --version\t\t 显示版本信息并退出"
+
+#: src/server/server.c:98
+msgid ""
+"  -p,--port=PORT\twebserver port\n"
+"  -w,--wdir=DIR\t\tdirectory containing webserver pages"
+msgstr ""
+"  -p,--port=PORT\t 网络服务器端口\n"
+"  -w,--wdir=DIR\t\t 包括网络服务器页面的目录"
+
+#: src/server/server.c:104
+msgid "  -l, --log-file=PATH set the log file to PATH"
+msgstr ""
+
+#: src/server/server.c:179
+msgid "<html><body><p>Server stop requested</p></body></html>"
+msgstr "<html><body><p>服务器停止请求</p></body></html>"
+
+#: src/server/server.c:293
+#, c-format
+msgid "HTTP Request: %s"
+msgstr "HTTP 请求：%s"
+
+#: src/server/server.c:350
+#, c-format
+msgid "Enables debug mode: %d"
+msgstr ""
+
+#: src/server/server.c:386
+#, c-format
+msgid "ERROR: no sensors detected\n"
+msgstr "错误：未检测到传感器\n"
+
+#: src/server/server.c:393
+#, c-format
+msgid "ERROR: Fail to create web server\n"
+msgstr "错误：无法创建网络服务器\n"
+
+#: src/server/server.c:397
+#, c-format
+msgid "Web server started on port: %d"
+msgstr "网络服务器启动端口：%d"
+
+#: src/server/server.c:398
+#, c-format
+msgid "WWW directory: %s"
+msgstr "WWW 目录：%s"
+
+#: src/server/server.c:399
+#, c-format
+msgid "URL: http://localhost:%d"
+msgstr "URL: http://localhost:%d"
+
+#: src/ui.c:80
+msgid "Psensor is a GTK+ application for monitoring hardware sensors"
+msgstr "Psensor 是一款 GTK+ 硬件监测传感应用程序"
+
+#: src/ui.c:83
+msgid ""
+"Copyright(c) 2010-2012\n"
+"jeanfi@gmail.com"
+msgstr ""
+"版权所有(c) 2010-2012\n"
+"jeanfi@gmail.com"
+
+#: src/ui.c:86
+msgid "About Psensor"
+msgstr "关于 Psensor"
+
+#: src/ui.c:89
+msgid "Psensor Homepage"
+msgstr "Psensor 主页"
+
+#: src/ui.c:144 src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr "首选项(_P)"
+
+#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr "选项"
+
+#: src/ui.c:149
+msgid "_Sensor Preferences"
+msgstr "传感器首选项(_S)"
+
+#: src/ui.c:150
+msgid "Sensor Preferences"
+msgstr "传感器首选项"
+
+#: src/ui.c:154
+msgid "_Quit"
+msgstr "退出(_Q)"
+
+#: src/ui.c:154
+msgid "Quit"
+msgstr "退出"
+
+#: src/ui.c:160 src/ui_appindicator.c:122
+msgid "_About"
+msgstr "关于(_A)"
+
+#: src/ui.c:161 src/ui_appindicator.c:124
+msgid "About"
+msgstr "关于"
+
+#: src/ui.c:183 src/ui_appindicator.c:187
+#, c-format
+msgid "building menus failed: %s"
+msgstr "创建菜单失败：%s"
+
+#: src/ui.c:235
+msgid "Psensor - Temperature Monitor"
+msgstr "Psensor - 温度监视器"
+
+#: src/ui.c:243
+#, c-format
+msgid "ERROR: Failed to load psensor icon.\n"
+msgstr "错误：无法加载 psensor 图标。\n"
+
+#: src/ui_sensorlist.c:235
+msgid "Select foreground color"
+msgstr "选择前景色"
+
+#: src/ui_sensorlist.c:312
+msgid "Sensor"
+msgstr "监视设备"
+
+#: src/ui_sensorlist.c:318
+msgid "Value"
+msgstr "值"
+
+#: src/ui_sensorlist.c:324
+msgid "Min"
+msgstr "最小值"
+
+#: src/ui_sensorlist.c:330
+msgid "Max"
+msgstr "最大值"
+
+#: src/ui_sensorlist.c:337
+msgid "Color"
+msgstr "颜色"
+
+#: src/ui_sensorlist.c:349
+msgid "Enabled"
+msgstr "激活"
+
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr ""
+
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr "显示主窗口"
+
+#: src/ui_appindicator.c:116
+#, fuzzy
+msgid "S_ensor Preferences"
+msgstr "传感器首选项"
+
+#: src/ui_appindicator.c:118
+#, fuzzy
+msgid "SensorPreferences"
+msgstr "传感器首选项"
+
+#: src/ui_notify.c:48
+msgid "gettimeofday failed"
+msgstr "获取时间失败"
+
+#: src/ui_notify.c:77
+msgid "Temperature alert"
+msgstr "温度报警"
+
+#: src/ui_sensorpref.c:426
+msgid "Sensor Name"
+msgstr "传感器名称"
