@@ -103,25 +103,25 @@ static GtkActionEntry entries[] = {
 	{ "PsensorMenuAction", NULL, "_Psensor" },
 
 	{ "ShowAction", NULL,
-	  "_Show", NULL,
-	  "Show",
+	  N_("_Show"), NULL,
+	  N_("Show"),
 	  G_CALLBACK(cb_menu_show) },
 
 	{ "PreferencesAction", GTK_STOCK_PREFERENCES,
-	  "_Preferences", NULL,
-	  "Preferences",
+	  N_("_Preferences"), NULL,
+	  N_("Preferences"),
 	  G_CALLBACK(cb_menu_preferences) },
 
 	{ "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
-	  "S_ensor Preferences",
+	  N_("S_ensor Preferences"),
 	  NULL,
-	  "SensorPreferences",
+	  N_("SensorPreferences"),
 	  G_CALLBACK(cb_sensor_preferences) },
 
 	{ "AboutAction", NULL,
-	  "_About",
+	  N_("_About"),
 	  NULL,
-	  "About",
+	  N_("About"),
 	  G_CALLBACK(cb_about) },
 
 	{ "QuitAction",
