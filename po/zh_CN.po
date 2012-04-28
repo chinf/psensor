@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 11:36+0200\n"
+"POT-Creation-Date: 2012-04-28 16:14+0200\n"
 "PO-Revision-Date: 2012-04-10 11:43+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -476,6 +476,10 @@ msgstr "退出(_Q)"
 #: src/ui.c:154
 msgid "Quit"
 msgstr "退出"
+
+#: src/ui.c:157
+msgid "_Help"
+msgstr ""
 
 #: src/ui.c:160 src/ui_appindicator.c:122
 msgid "_About"

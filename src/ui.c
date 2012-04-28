@@ -154,7 +154,7 @@ static GtkActionEntry entries[] = {
 	  GTK_STOCK_QUIT, N_("_Quit"), NULL, N_("Quit"),
 	  G_CALLBACK(cb_menu_quit) },
 
-	{ "HelpMenuAction", NULL, "_Help" },
+	{ "HelpMenuAction", NULL, N_("_Help") },
 
 	{ "AboutAction", GTK_STOCK_PREFERENCES,
 	  N_("_About"), NULL,
