@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.6.0.10\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 00:12+0200\n"
+"POT-Creation-Date: 2012-04-28 03:06+0200\n"
 "PO-Revision-Date: 2012-04-10 11:43+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -105,7 +105,6 @@ msgid "Psensor instance already exists"
 msgstr ""
 
 #: src/ui.c:80
-#, fuzzy
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensor 是一款 GTK+ 硬件监测传感应用程序"
 
@@ -125,11 +124,11 @@ msgstr "关于 Psensor"
 msgid "Psensor Homepage"
 msgstr "Psensor 主页"
 
-#: src/ui.c:144
+#: src/ui.c:144 src/ui_appindicator.c:111
 msgid "_Preferences"
 msgstr "首选项(_P)"
 
-#: src/ui.c:145 src/ui_sensorlist.c:204
+#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "选项"
 
@@ -149,11 +148,11 @@ msgstr "退出(_Q)"
 msgid "Quit"
 msgstr "退出"
 
-#: src/ui.c:160
+#: src/ui.c:160 src/ui_appindicator.c:122
 msgid "_About"
 msgstr "关于(_A)"
 
-#: src/ui.c:161
+#: src/ui.c:161 src/ui_appindicator.c:124
 msgid "About"
 msgstr "关于"
 
@@ -205,6 +204,24 @@ msgstr "激活"
 #: src/glade/sensor-edit.glade:416
 msgid "N/A"
 msgstr ""
+
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr ""
+
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr ""
+
+#: src/ui_appindicator.c:116
+#, fuzzy
+msgid "S_ensor Preferences"
+msgstr "传感器首选项"
+
+#: src/ui_appindicator.c:118
+#, fuzzy
+msgid "SensorPreferences"
+msgstr "传感器首选项"
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed"
@@ -259,7 +276,6 @@ msgid ""
 msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
 
 #: src/server/server.c:94
-#, fuzzy
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -284,9 +300,9 @@ msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr "<html><body><p>服务器停止请求</p></body></html>"
 
 #: src/server/server.c:293
-#, fuzzy, c-format
+#, c-format
 msgid "HTTP Request: %s"
-msgstr "HTTP 请求：%s\n"
+msgstr "HTTP 请求：%s"
 
 #: src/server/server.c:350
 #, c-format
@@ -426,18 +442,16 @@ msgid "Enable Unity Launcher counter"
 msgstr "启用 Unity 启动器计数器"
 
 #: src/glade/psensor-pref.glade:180
-#, fuzzy
 msgid "Hide window on startup"
-msgstr "隐藏窗口标题栏"
+msgstr "启动时隐藏窗口"
 
 #: src/glade/psensor-pref.glade:199
 msgid "Restore window position and size"
 msgstr "恢复窗口位置和大小"
 
 #: src/glade/psensor-pref.glade:221
-#, fuzzy
 msgid "Temperature unit:"
-msgstr "温度警戒线:"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:255
 msgid "Interface"
@@ -464,9 +478,8 @@ msgid "<i>Max</i>"
 msgstr "<i>最大值</i>"
 
 #: src/glade/psensor-pref.glade:422
-#, fuzzy
 msgid "Colors"
-msgstr "颜色"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:440
 msgid "Monitoring duration:"
@@ -497,9 +510,8 @@ msgid "Measure update interval:"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:666
-#, fuzzy
 msgid "Sensors"
-msgstr "监视设备"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:12
 msgid "Edit Sensor Preferences"

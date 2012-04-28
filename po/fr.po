@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.0\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 00:12+0200\n"
+"POT-Creation-Date: 2012-04-28 03:06+0200\n"
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
-"Language: or\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -125,17 +125,17 @@ msgstr ""
 
 #: src/ui.c:86
 msgid "About Psensor"
-msgstr ""
+msgstr "A propos de Psensor"
 
 #: src/ui.c:89
 msgid "Psensor Homepage"
-msgstr ""
+msgstr "Site internet de Psensor"
 
-#: src/ui.c:144
+#: src/ui.c:144 src/ui_appindicator.c:111
 msgid "_Preferences"
 msgstr "_Configuration"
 
-#: src/ui.c:145 src/ui_sensorlist.c:204
+#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Configuration"
 
@@ -145,7 +145,7 @@ msgstr "Configuration Des Sondes"
 
 #: src/ui.c:150
 msgid "Sensor Preferences"
-msgstr "Editer La Configuration Des Sondes"
+msgstr "Configuration Des Sondes"
 
 #: src/ui.c:154
 msgid "_Quit"
@@ -155,13 +155,13 @@ msgstr "Quitter"
 msgid "Quit"
 msgstr "Quitter"
 
-#: src/ui.c:160
+#: src/ui.c:160 src/ui_appindicator.c:122
 msgid "_About"
-msgstr ""
+msgstr "A propos"
 
-#: src/ui.c:161
+#: src/ui.c:161 src/ui_appindicator.c:124
 msgid "About"
-msgstr ""
+msgstr "A propos"
 
 #: src/ui.c:183 src/ui_appindicator.c:187
 #, c-format
@@ -211,6 +211,24 @@ msgstr "Activée"
 #: src/glade/sensor-edit.glade:416
 msgid "N/A"
 msgstr "N/A"
+
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr "Montrer"
+
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr "Montrer"
+
+#: src/ui_appindicator.c:116
+#, fuzzy
+msgid "S_ensor Preferences"
+msgstr "Configuration Des Sondes"
+
+#: src/ui_appindicator.c:118
+#, fuzzy
+msgid "SensorPreferences"
+msgstr "Configuration Des Sondes"
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed"

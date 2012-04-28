@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 00:12+0200\n"
+"POT-Creation-Date: 2012-04-28 03:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,11 +114,11 @@ msgstr ""
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:144
+#: src/ui.c:144 src/ui_appindicator.c:111
 msgid "_Preferences"
 msgstr ""
 
-#: src/ui.c:145 src/ui_sensorlist.c:204
+#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr ""
 
@@ -138,11 +138,11 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
-#: src/ui.c:160
+#: src/ui.c:160 src/ui_appindicator.c:122
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:161
+#: src/ui.c:161 src/ui_appindicator.c:124
 msgid "About"
 msgstr ""
 
@@ -193,6 +193,22 @@ msgstr ""
 #: src/glade/sensor-edit.glade:159 src/glade/sensor-edit.glade:319
 #: src/glade/sensor-edit.glade:416
 msgid "N/A"
+msgstr ""
+
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr ""
+
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr ""
+
+#: src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr ""
+
+#: src/ui_appindicator.c:118
+msgid "SensorPreferences"
 msgstr ""
 
 #: src/ui_notify.c:48

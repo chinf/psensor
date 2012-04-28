@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 00:12+0200\n"
+"POT-Creation-Date: 2012-04-28 03:06+0200\n"
 "PO-Revision-Date: 2011-04-10 13:11+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -115,12 +115,12 @@ msgstr ""
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:144
+#: src/ui.c:144 src/ui_appindicator.c:111
 #, fuzzy
 msgid "_Preferences"
 msgstr "Tercihler"
 
-#: src/ui.c:145 src/ui_sensorlist.c:204
+#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -142,11 +142,11 @@ msgstr ""
 msgid "Quit"
 msgstr ""
 
-#: src/ui.c:160
+#: src/ui.c:160 src/ui_appindicator.c:122
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:161
+#: src/ui.c:161 src/ui_appindicator.c:124
 msgid "About"
 msgstr ""
 
@@ -198,6 +198,24 @@ msgstr ""
 #: src/glade/sensor-edit.glade:416
 msgid "N/A"
 msgstr ""
+
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr ""
+
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr ""
+
+#: src/ui_appindicator.c:116
+#, fuzzy
+msgid "S_ensor Preferences"
+msgstr "Tercihleri düzenle"
+
+#: src/ui_appindicator.c:118
+#, fuzzy
+msgid "SensorPreferences"
+msgstr "Tercihleri düzenle"
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed"
