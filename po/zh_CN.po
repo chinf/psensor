@@ -1,11 +1,11 @@
 # Chinese translations for psensor package.
 # Copyright (C) 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the psensor package.
-# wpitchoune <wpitchoune@gmail.com>, 2011.
-# Chinese translation from 大宝 <linux.dabao@gmail.com>
+# Maintained by Jean-Philippe Orsini <jeanfi@gmail.com>
+# Initial Chinese translation from 大宝 <linux.dabao@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: psensor 0.6.0.10\n"
+"Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2012-04-28 03:06+0200\n"
 "PO-Revision-Date: 2012-04-10 11:43+0000\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-27 23:20+0000\n"
+"X-Launchpad-Export-Date: 2012-04-28 09:00+0000\n"
 "X-Generator: Launchpad (build 15149)\n"
 
 #: src/main.c:77
@@ -507,7 +507,7 @@ msgstr "图表"
 
 #: src/glade/psensor-pref.glade:609
 msgid "Measure update interval:"
-msgstr ""
+msgstr "测量更新间隔："
 
 #: src/glade/psensor-pref.glade:666
 msgid "Sensors"

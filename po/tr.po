@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-27 23:20+0000\n"
+"X-Launchpad-Export-Date: 2012-04-28 09:00+0000\n"
 "X-Generator: Launchpad (build 15149)\n"
 
 #: src/main.c:77
@@ -116,7 +116,6 @@ msgid "Psensor Homepage"
 msgstr ""
 
 #: src/ui.c:144 src/ui_appindicator.c:111
-#, fuzzy
 msgid "_Preferences"
 msgstr "Tercihler"
 
@@ -125,12 +124,10 @@ msgid "Preferences"
 msgstr "Tercihler"
 
 #: src/ui.c:149
-#, fuzzy
 msgid "_Sensor Preferences"
 msgstr "Tercihleri düzenle"
 
 #: src/ui.c:150
-#, fuzzy
 msgid "Sensor Preferences"
 msgstr "Tercihleri düzenle"
 
@@ -208,12 +205,10 @@ msgid "Show"
 msgstr ""
 
 #: src/ui_appindicator.c:116
-#, fuzzy
 msgid "S_ensor Preferences"
 msgstr "Tercihleri düzenle"
 
 #: src/ui_appindicator.c:118
-#, fuzzy
 msgid "SensorPreferences"
 msgstr "Tercihleri düzenle"
 
@@ -226,7 +221,6 @@ msgid "Temperature alert"
 msgstr ""
 
 #: src/ui_sensorpref.c:426
-#, fuzzy
 msgid "Sensor Name"
 msgstr "Algılayıcı"
 
@@ -444,9 +438,8 @@ msgid "Interface"
 msgstr "Arayüz"
 
 #: src/glade/psensor-pref.glade:295
-#, fuzzy
 msgid "Foreground:"
-msgstr "Arkaplan:"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:310
 msgid "Background:"
@@ -465,7 +458,6 @@ msgid "<i>Max</i>"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:422
-#, fuzzy
 msgid "Colors"
 msgstr "Renk"
 
@@ -498,12 +490,10 @@ msgid "Measure update interval:"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:666
-#, fuzzy
 msgid "Sensors"
 msgstr "Algılayıcı"
 
 #: src/glade/sensor-edit.glade:12
-#, fuzzy
 msgid "Edit Sensor Preferences"
 msgstr "Tercihleri düzenle"
 
