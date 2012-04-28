@@ -211,7 +211,7 @@ msgstr ""
 
 #: src/ui_appindicator.c:107
 msgid "Show"
-msgstr ""
+msgstr "显示主窗口"
 
 #: src/ui_appindicator.c:116
 #, fuzzy
