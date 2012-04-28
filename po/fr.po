@@ -11,15 +11,15 @@ msgstr ""
 "PO-Revision-Date: 2011-02-07 21:18+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Oriya\n"
+"Language: or\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-04-27 23:20+0000\n"
 "X-Generator: Launchpad (build 15149)\n"
-"Language: or\n"
 
 #: src/main.c:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
@@ -112,10 +112,9 @@ msgid "Psensor instance already exists"
 msgstr ""
 
 #: src/ui.c:80
-#, fuzzy
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
-"psensor est une application GTK pour surveiller les sondes matérielles "
+"Psensor est une application GTK pour surveiller les sondes matérielles "
 "thermiques et les ventilateurs."
 
 #: src/ui.c:83
@@ -133,26 +132,22 @@ msgid "Psensor Homepage"
 msgstr ""
 
 #: src/ui.c:144
-#, fuzzy
 msgid "_Preferences"
-msgstr "Configuration"
+msgstr "_Configuration"
 
 #: src/ui.c:145 src/ui_sensorlist.c:204
 msgid "Preferences"
 msgstr "Configuration"
 
 #: src/ui.c:149
-#, fuzzy
 msgid "_Sensor Preferences"
-msgstr "Editer La Configuration Des Sondes"
+msgstr "Configuration Des Sondes"
 
 #: src/ui.c:150
-#, fuzzy
 msgid "Sensor Preferences"
 msgstr "Editer La Configuration Des Sondes"
 
 #: src/ui.c:154
-#, fuzzy
 msgid "_Quit"
 msgstr "Quitter"
 
@@ -178,9 +173,9 @@ msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Surveillance Des Temperatures"
 
 #: src/ui.c:243
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Failed to load psensor icon.\n"
-msgstr "ERREUR: Echec de l'initialisation de 'lm-sensors'\n"
+msgstr "ERREUR: Echec du chargement de l'icone de Psensor\n"
 
 #: src/ui_sensorlist.c:235
 msgid "Select foreground color"
@@ -226,24 +221,23 @@ msgid "Temperature alert"
 msgstr "Alerte thermique"
 
 #: src/ui_sensorpref.c:426
-#, fuzzy
 msgid "Sensor Name"
-msgstr "Sonde"
+msgstr "Nom De La Sonde"
 
 #: src/rsensor.c:107
-#, fuzzy, c-format
+#, c-format
 msgid "Fail to connect to: %s"
-msgstr "ERREUR: Echec de la connectio à: %s\n"
+msgstr "Echec de la connection à: %s"
 
 #: src/rsensor.c:144
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid content: %s"
-msgstr "ERREUR: Contenu invalide: %s\n"
+msgstr "Contenu invalide: %s"
 
 #: src/rsensor.c:184
-#, fuzzy, c-format
+#, c-format
 msgid "Invalid JSON: %s"
-msgstr "ERREUR: Invalide JSON: %s\n"
+msgstr "JSON incorrect: %s"
 
 #: src/server/server.c:55
 msgid ""
@@ -251,7 +245,7 @@ msgid ""
 msgstr ""
 
 #: src/server/server.c:77
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
@@ -275,22 +269,20 @@ msgstr ""
 "matérielles."
 
 #: src/server/server.c:94
-#, fuzzy
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
-"  -h, --help          afficher cette aide et quitter\n"
-"  -v, --version       afficher les informations de version et quitter"
+"  -h, --help\t\tafficher cette aide et quitter\n"
+"  -v, --version\t\tafficher les informations de version et quitter"
 
 #: src/server/server.c:98
-#, fuzzy
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
-"  -p,--port=PORT port du serveur Web\n"
-"  -w,--wdir=DIR  répertoire contenant les pages du serveur Web"
+"  -p,--port=PORT\tport du serveur Web\n"
+"  -w,--wdir=DIR\t\trépertoire contenant les pages du serveur Web"
 
 #: src/server/server.c:104
 msgid "  -l, --log-file=PATH set the log file to PATH"
@@ -301,14 +293,14 @@ msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
 #: src/server/server.c:293
-#, fuzzy, c-format
+#, c-format
 msgid "HTTP Request: %s"
-msgstr "Requete HTTP: %s\n"
+msgstr "Requete HTTP: %s"
 
 #: src/server/server.c:350
-#, fuzzy, c-format
+#, c-format
 msgid "Enables debug mode: %d"
-msgstr "Activée"
+msgstr ""
 
 #: src/server/server.c:386
 #, c-format
@@ -321,19 +313,19 @@ msgid "ERROR: Fail to create web server\n"
 msgstr "ERREUR: Echec de la creation du serveur Web\n"
 
 #: src/server/server.c:397
-#, fuzzy, c-format
+#, c-format
 msgid "Web server started on port: %d"
-msgstr "Server Web demarre sur le port: %d\n"
+msgstr "Server Web demarre sur le port: %d"
 
 #: src/server/server.c:398
-#, fuzzy, c-format
+#, c-format
 msgid "WWW directory: %s"
-msgstr "WWW repertoire: %s\n"
+msgstr "WWW repertoire: %s"
 
 #: src/server/server.c:399
-#, fuzzy, c-format
+#, c-format
 msgid "URL: http://localhost:%d"
-msgstr "URL: http://localhost:%d\n"
+msgstr "URL: http://localhost:%d"
 
 #: src/lib/amd.c:151
 #, c-format
@@ -346,9 +338,9 @@ msgid "ERROR: ADL's API is missing!\n"
 msgstr ""
 
 #: src/lib/amd.c:185
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: ADL Initialization Error!\n"
-msgstr "ERREUR: échec de l'initialisation nvidia\n"
+msgstr "ERREUR: échec de l'initialisation ADL\n"
 
 #: src/lib/amd.c:193
 #, c-format
@@ -356,12 +348,12 @@ msgid "ERROR: Cannot get the number of adapters!\n"
 msgstr ""
 
 #: src/lib/hdd_hddtemp.c:59
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: hdd fetch, failed to open socket\n"
 msgstr "ERREUR: hdd_fetch, échec d'ouverture de la socket\n"
 
 #: src/lib/hdd_hddtemp.c:73
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: hdd fetch, failed to open connection\n"
 msgstr "ERREUR: hdd_fetch, échec de l'ouverture de la connection\n"
 
@@ -386,14 +378,14 @@ msgid "ERROR: failed to retrieve nvidia temperature\n"
 msgstr "ERREUR: échec de la récupération des températures nvidia\n"
 
 #: src/lib/nvidia.c:93
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot open connection to X Server\n"
-msgstr "ERREUR: Echec de la connection au serveur X11: %s\n"
+msgstr "ERREUR: Echec de la connection au serveur X11\n"
 
 #: src/lib/nvidia.c:101
-#, fuzzy, c-format
+#, c-format
 msgid "ERROR: Cannot retrieve NVidia information\n"
-msgstr "ERREUR: échec de la récupération des températures NVidia\n"
+msgstr "ERREUR: échec de la récupération des informations NVidia\n"
 
 #: src/lib/lmsensor.c:43
 #, c-format
@@ -436,7 +428,6 @@ msgid "Keep window below"
 msgstr "Garder la fenêtre en arrière-plan"
 
 #: src/glade/psensor-pref.glade:142
-#, fuzzy
 msgid "Enable menu"
 msgstr "Activer le menu"
 
@@ -445,18 +436,16 @@ msgid "Enable Unity Launcher counter"
 msgstr "Activer le compteur du lanceur de Unity"
 
 #: src/glade/psensor-pref.glade:180
-#, fuzzy
 msgid "Hide window on startup"
-msgstr "Cacher les décorations de la fenêtre"
+msgstr "Cacher la fenêtre au lancement"
 
 #: src/glade/psensor-pref.glade:199
 msgid "Restore window position and size"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:221
-#, fuzzy
 msgid "Temperature unit:"
-msgstr "Limite de température:"
+msgstr "Unite de température:"
 
 #: src/glade/psensor-pref.glade:255
 msgid "Interface"
@@ -483,14 +472,12 @@ msgid "<i>Max</i>"
 msgstr "<i>Max</i>"
 
 #: src/glade/psensor-pref.glade:422
-#, fuzzy
 msgid "Colors"
-msgstr "Couleur"
+msgstr "Couleurs"
 
 #: src/glade/psensor-pref.glade:440
-#, fuzzy
 msgid "Monitoring duration:"
-msgstr "Durée de surveillance du graphe:"
+msgstr "Durée de surveillance:"
 
 #: src/glade/psensor-pref.glade:478
 msgid "minute(s)"
@@ -501,9 +488,8 @@ msgid "second(s)"
 msgstr "seconde(s)"
 
 #: src/glade/psensor-pref.glade:531
-#, fuzzy
 msgid "Update interval:"
-msgstr "Interval de mise à jour du graphe:"
+msgstr "Interval de mise à jour:"
 
 #: src/glade/psensor-pref.glade:549
 msgid "Measures"
@@ -518,7 +504,6 @@ msgid "Measure update interval:"
 msgstr "Interval de mise à jour des mesures:"
 
 #: src/glade/psensor-pref.glade:666
-#, fuzzy
 msgid "Sensors"
 msgstr "Sonde"
 
@@ -539,7 +524,6 @@ msgid "Id:"
 msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:208
-#, fuzzy
 msgid "Color:"
 msgstr "Couleur:"
 
