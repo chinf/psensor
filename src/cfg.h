@@ -85,8 +85,8 @@ void config_cleanup();
 struct color *config_get_sensor_color(const char *sid, const struct color *);
 void config_set_sensor_color(const char *sid, const struct color *);
 
-int config_get_sensor_alarm_limit(const char *, int);
-void config_set_sensor_alarm_limit(const char *, int);
+int config_get_sensor_alarm_high_thresold(const char *);
+void config_set_sensor_alarm_high_thresold(const char *, int);
 
 int config_get_sensor_alarm_enabled(const char *);
 void config_set_sensor_alarm_enabled(const char *, int);

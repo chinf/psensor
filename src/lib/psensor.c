@@ -49,13 +49,12 @@ struct psensor *psensor_create(char *id, char *name,
 	psensor->values_max_length = values_max_length;
 	psensor->measures = measures_dbl_create(values_max_length);
 
-	psensor->alarm_limit = 0;
+	psensor->alarm_enabled = 0;
+	psensor->alarm_high_thresold = 0;
 
 	psensor->cb_alarm_raised = NULL;
 	psensor->cb_alarm_raised_data = NULL;
 	psensor->alarm_raised = 0;
-
-	psensor->alarm_enabled = 0;
 
 	psensor->url = NULL;
 
@@ -271,8 +270,8 @@ psensor_set_current_measure(struct psensor *s,
 	if (s->max == UNKNOWN_DBL_VALUE || v > s->max)
 		s->max = v;
 
-	if (s->alarm_limit && s->alarm_enabled) {
-		if (v > s->alarm_limit) {
+	if (s->alarm_enabled) {
+		if (v > s->alarm_high_thresold) {
 			if (!s->alarm_raised && s->cb_alarm_raised)
 				s->cb_alarm_raised(s,
 						   s->cb_alarm_raised_data);

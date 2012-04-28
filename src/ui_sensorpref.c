@@ -32,7 +32,7 @@ struct sensor_pref {
 	int enabled;
 	struct color *color;
 	int alarm_enabled;
-	double alarm_limit;
+	int alarm_high_thresold;
 };
 
 struct cb_data {
@@ -54,9 +54,10 @@ static struct sensor_pref *sensor_pref_new(struct psensor *s,
 	p->color = color_dup(s->color);
 
 	if (cfg->temperature_unit == CELCIUS)
-		p->alarm_limit = s->alarm_limit;
+		p->alarm_high_thresold = s->alarm_high_thresold;
 	else
-		p->alarm_limit = celcius_to_fahrenheit(s->alarm_limit);
+		p->alarm_high_thresold
+			= celcius_to_fahrenheit(s->alarm_high_thresold);
 
 	return p;
 }
@@ -208,7 +209,7 @@ static void on_temp_limit_changed(GtkSpinButton *btn, gpointer data)
 	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
 
 	if (p)
-		p->alarm_limit = gtk_spin_button_get_value(btn);
+		p->alarm_high_thresold = gtk_spin_button_get_value(btn);
 }
 
 static void connect_signals(GtkBuilder *builder, struct cb_data *cbdata)
@@ -280,7 +281,7 @@ update_pref(struct psensor *s,
 
 	if (is_temp_type(s->type)) {
 		gtk_toggle_button_set_active(w_alarm, p->alarm_enabled);
-		gtk_spin_button_set_value(w_temp_limit, p->alarm_limit);
+		gtk_spin_button_set_value(w_temp_limit, p->alarm_high_thresold);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_alarm), TRUE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_temp_limit), TRUE);
 	} else {
@@ -361,13 +362,13 @@ apply_prefs(struct sensor_pref **prefs,
 		}
 
 		if (cfg->temperature_unit == CELCIUS)
-			s->alarm_limit = p->alarm_limit;
+			s->alarm_high_thresold = p->alarm_high_thresold;
 		else
-			s->alarm_limit = fahrenheit_to_celcius
-				(p->alarm_limit);
+			s->alarm_high_thresold = fahrenheit_to_celcius
+				(p->alarm_high_thresold);
 
-		config_set_sensor_alarm_limit(s->id,
-					      s->alarm_limit);
+		config_set_sensor_alarm_high_thresold(s->id,
+						      s->alarm_high_thresold);
 
 		if (s->alarm_enabled != p->alarm_enabled) {
 			s->alarm_enabled = p->alarm_enabled;

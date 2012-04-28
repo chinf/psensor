@@ -292,12 +292,12 @@ associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 		s->cb_alarm_raised_data = ui;
 
 		if (is_temp_type(s->type)) {
-			s->alarm_limit
-			    = config_get_sensor_alarm_limit(s->id, 60);
+			s->alarm_high_thresold
+			    = config_get_sensor_alarm_high_thresold(s->id);
 			s->alarm_enabled
 			    = config_get_sensor_alarm_enabled(s->id);
 		} else {
-			s->alarm_limit = 0;
+			s->alarm_high_thresold = 0;
 			s->alarm_enabled = 0;
 		}
 

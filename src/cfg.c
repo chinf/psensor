@@ -261,7 +261,7 @@ void config_set_sensor_color(const char *sid, const struct color *color)
 	free(key);
 }
 
-int config_get_sensor_alarm_limit(const char *sid, int dft)
+int config_get_sensor_alarm_high_thresold(const char *sid)
 {
 	int res;
 	char *key;
@@ -270,15 +270,16 @@ int config_get_sensor_alarm_limit(const char *sid, int dft)
 	res = gconf_client_get_int(client, key, NULL);
 	free(key);
 
-	return res ? res : dft;
+	return res;
 }
 
-void config_set_sensor_alarm_limit(const char *sid, int alarm_limit)
+void
+config_set_sensor_alarm_high_thresold(const char *sid, int thresold)
 {
 	char *key;
 
 	key = get_sensor_att_key(sid, "alarmlimit");
-	gconf_client_set_int(client, key, alarm_limit, NULL);
+	gconf_client_set_int(client, key, thresold, NULL);
 	free(key);
 }
 

@@ -84,18 +84,12 @@ struct psensor {
 	/* The minimum detected value of the sensor */
 	double min;
 
-	/*
-	   Whether alarm alerts is enabled for this sensor
-	 */
-	int alarm_enabled;
+	/* Whether alarm alert is enabled for this sensor */
+	unsigned int alarm_enabled;
 
-	/*
-	   An alarm is raised if the current sensor value is bigger. 0
-	   means no limit
-	 */
-	double alarm_limit;
+	int alarm_high_thresold;
 
-	/* Whether the current value is bigger than 'alarm_limit'.  */
+	/* Whether the current value is bigger than 'alarm_high_thresold'. */
 	int alarm_raised;
 
 	void (*cb_alarm_raised) (struct psensor *, void *);
