@@ -51,6 +51,7 @@ struct psensor *psensor_create(char *id, char *name,
 
 	psensor->alarm_enabled = 0;
 	psensor->alarm_high_thresold = 0;
+	psensor->alarm_low_thresold = 0;
 
 	psensor->cb_alarm_raised = NULL;
 	psensor->cb_alarm_raised_data = NULL;
@@ -271,10 +272,9 @@ psensor_set_current_measure(struct psensor *s,
 		s->max = v;
 
 	if (s->alarm_enabled) {
-		if (v > s->alarm_high_thresold) {
+		if (v > s->alarm_high_thresold || v < s->alarm_low_thresold) {
 			if (!s->alarm_raised && s->cb_alarm_raised)
-				s->cb_alarm_raised(s,
-						   s->cb_alarm_raised_data);
+				s->cb_alarm_raised(s, s->cb_alarm_raised_data);
 
 			s->alarm_raised = 1;
 		} else {

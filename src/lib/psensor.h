@@ -88,6 +88,7 @@ struct psensor {
 	unsigned int alarm_enabled;
 
 	int alarm_high_thresold;
+	int alarm_low_thresold;
 
 	/* Whether the current value is bigger than 'alarm_high_thresold'. */
 	int alarm_raised;
