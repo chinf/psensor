@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 16:14+0200\n"
+"POT-Creation-Date: 2012-04-28 23:41+0200\n"
 "PO-Revision-Date: 2012-04-10 11:43+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-04-28 09:00+0000\n"
+"X-Launchpad-Export-Date: 2012-04-29 10:12+0000\n"
 "X-Generator: Launchpad (build 15149)\n"
 
 #: src/glade/psensor-pref.glade:7
@@ -120,7 +120,7 @@ msgstr "监视设备选项"
 
 #: src/glade/sensor-edit.glade:95 src/glade/sensor-edit.glade:159
 #: src/glade/sensor-edit.glade:319 src/glade/sensor-edit.glade:416
-#: src/lib/psensor.c:481 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/lib/psensor.c:480 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
 #: src/ui_sensorlist.c:380 src/ui_notify.c:79
 msgid "N/A"
 msgstr ""
@@ -240,11 +240,11 @@ msgstr "错误：无法打开到 X Server 的连接\n"
 msgid "ERROR: Cannot retrieve NVidia information\n"
 msgstr "错误：无法获取 NVidia 信息\n"
 
-#: src/lib/psensor.c:476
+#: src/lib/psensor.c:475
 msgid "RPM"
 msgstr "转速"
 
-#: src/lib/psensor.c:479
+#: src/lib/psensor.c:478
 msgid "%"
 msgstr "%"
 
@@ -540,14 +540,12 @@ msgid "Show"
 msgstr "显示主窗口"
 
 #: src/ui_appindicator.c:116
-#, fuzzy
 msgid "S_ensor Preferences"
-msgstr "传感器首选项"
+msgstr ""
 
 #: src/ui_appindicator.c:118
-#, fuzzy
 msgid "SensorPreferences"
-msgstr "传感器首选项"
+msgstr ""
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed"
@@ -557,6 +555,6 @@ msgstr "获取时间失败"
 msgid "Temperature alert"
 msgstr "温度报警"
 
-#: src/ui_sensorpref.c:426
+#: src/ui_sensorpref.c:427
 msgid "Sensor Name"
 msgstr "传感器名称"
