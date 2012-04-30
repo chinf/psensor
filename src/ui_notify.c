@@ -45,7 +45,7 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 	log_debug("last_notification %d", last_notification_tv.tv_sec);
 
 	if (gettimeofday(&t, NULL) != 0) {
-		log_err(_("gettimeofday failed"));
+		log_err(_("gettimeofday failed."));
 		return;
 	}
 
