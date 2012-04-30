@@ -72,8 +72,8 @@ struct psensor {
 	/* Color of the sensor used for the graph */
 	struct color *color;
 
-	/* Whether the sensor is displayed in the graph */
-	int enabled;
+	/* Whether the graph sensor is displayed. */
+	unsigned int enabled;
 
 	/* see psensor_type */
 	unsigned int type;
@@ -90,8 +90,8 @@ struct psensor {
 	int alarm_high_thresold;
 	int alarm_low_thresold;
 
-	/* Whether the current value is bigger than 'alarm_high_thresold'. */
-	int alarm_raised;
+	/* Whether an alarm is raised for this sensor */
+	unsigned int alarm_raised;
 
 	void (*cb_alarm_raised) (struct psensor *, void *);
 	void *cb_alarm_raised_data;
