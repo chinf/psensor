@@ -87,7 +87,7 @@ static void print_help()
 {
 	printf(_("Usage: %s [OPTION]...\n"), program_name);
 
-	puts(_("psensor is a GTK application for monitoring hardware sensors, "
+	puts(_("Psensor is a GTK+ application for monitoring hardware sensors, "
 	       "including temperatures and fan speeds."));
 
 	puts("");
@@ -436,8 +436,6 @@ static void cleanup(struct ui_psensor *ui)
 	config_cleanup();
 
 	log_debug("Cleanup done, closing log");
-
-	log_close();
 }
 
 /*
@@ -456,8 +454,8 @@ static struct psensor **create_sensors_list(const char *url,
 		rsensor_init();
 		sensors = get_remote_sensors(url, 600);
 #else
-		fprintf(stderr,
-			_("ERROR: Not compiled with remote sensor support.\n"));
+		log_err(_("Psensor has not been compiled"
+			  " with remote sensor support."));
 		exit(EXIT_FAILURE);
 #endif
 	} else {
@@ -544,7 +542,7 @@ int main(int argc, char **argv)
 
 	if (!new_instance && g_application_get_is_remote(app)) {
 		g_application_activate(app);
-		log_warn(_("Psensor instance already exists"));
+		log_warn(_("A Psensor instance already exists."));
 		exit(EXIT_SUCCESS);
 	}
 
@@ -619,7 +617,9 @@ int main(int argc, char **argv)
 
 	g_object_ref(app);
 	cleanup(&ui);
+
 	log_debug("Quitting...");
+	log_close();
 
 	return 0;
 }
