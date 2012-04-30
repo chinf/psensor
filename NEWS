@@ -43,6 +43,7 @@
    Slovenian translation files.
 ** psensor: fixed i18n support for the application indicator menu.
 ** psensor: fixed i18n support for the application menu.
+** psensor: added low thresold support for alerts.
 
 * v0.6.2.18
 ** added Slovenian translation file.
