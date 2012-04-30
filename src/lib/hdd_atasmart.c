@@ -141,7 +141,8 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 
 			result = tmp_sensors;
 		} else {
-			log_err("sk_disk_open(hdd_atasmart) %s failure", *tmp);
+			log_err(_("atasmart: sk_disk_open() failure: %s."),
+				*tmp);
 			analyze_disk(*tmp);
 		}
 

@@ -147,8 +147,7 @@ static int init()
 	hdll = dlopen("libatiadlxx.so", RTLD_LAZY|RTLD_GLOBAL);
 
 	if (!hdll) {
-		fprintf(stderr,
-			_("ERROR: ADL library not found!\n"));
+		log_err(_("AMD: cannot found ADL library."));
 		return 0;
 	}
 
@@ -172,8 +171,7 @@ static int init()
 		!adl_adapter_adapterinfo_get ||
 		!adl_overdrive5_temperature_get ||
 		!adl_overdrive5_fanspeed_get) {
-		fprintf(stderr,
-			_("ERROR: ADL's API is missing!\n"));
+		log_err(_("AMD: missing ADL's API."));
 		return 0;
 	}
 
@@ -181,16 +179,14 @@ static int init()
 	   retrieve adapter information only for adapters that
 	   are physically present and enabled in the system */
 	if (ADL_OK != adl_main_control_create(adl_main_memory_alloc, 1)) {
-		fprintf(stderr,
-			_("ERROR: ADL Initialization Error!\n"));
+		log_err(_("AMD: failed to initialize ADL."));
 		return 0;
 	}
 	adl_main_control_done = 1;
 
 	/* Obtain the number of adapters for the system */
 	if (ADL_OK != adl_adapter_numberofadapters_get(&inumberadapters)) {
-		fprintf(stderr,
-			_("ERROR: Cannot get the number of adapters!\n"));
+		log_err(_("AMD: cannot get the number of adapters."));
 		return 0;
 	}
 
