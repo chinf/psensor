@@ -39,8 +39,7 @@ static double get_value(const sensors_chip_name *name,
 
 	err = sensors_get_value(name, sub->number, &val);
 	if (err) {
-		fprintf(stderr,
-			_("ERROR: Can't get value of subfeature %s: %s\n"),
+		log_err(_("lmsensor: cannot get value of subfeature %s: %s."),
 			sub->name, sensors_strerror(err));
 		val = UNKNOWN_DBL_VALUE;
 	}
@@ -121,8 +120,8 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 		fault_subfeature = SENSORS_SUBFEATURE_FAN_FAULT;
 
 	} else {
-		fprintf(stderr,
-			_("ERROR: create_sensor, wrong feature type\n"));
+		log_err(_("lmsensor: lmsensor_psensor_create failure:"
+			  " wrong feature type."));
 		return NULL;
 	}
 
@@ -204,8 +203,7 @@ void lmsensor_init()
 	int err = sensors_init(NULL);
 
 	if (err) {
-		fprintf(stderr,
-			_("ERROR: lm-sensors initialization failure: %s\n"),
+		log_err(_("lmsensor: initialization failure: %s."),
 			sensors_strerror(err));
 		init_done = 0;
 	} else {
