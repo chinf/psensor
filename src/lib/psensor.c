@@ -226,10 +226,12 @@ psensor_value_to_str(unsigned int type, double value, int use_celcius)
 			unit = "°F";
 			value = celcius_to_fahrenheit(value);
 		}
+	else if (is_fan_type(type))
+		unit = _("RPM");
 	else if (type & SENSOR_TYPE_CPU_USAGE)
-		unit = "%";
+		unit = _("%");
 	else
-		unit = "";
+		unit = _("N/A");
 
 	sprintf(str, "%.0f%s", value, unit);
 
