@@ -240,7 +240,7 @@ void ui_window_create(struct ui_psensor *ui)
 	if (icon)
 		gtk_window_set_icon(GTK_WINDOW(window), icon);
 	else
-		fprintf(stderr, _("ERROR: Failed to load psensor icon.\n"));
+		log_err(_("Failed to load Psensor icon."));
 
 	g_signal_connect(window,
 			 "delete_event", G_CALLBACK(on_delete_event_cb), ui);
