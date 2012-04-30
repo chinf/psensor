@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-30 02:53+0200\n"
-"PO-Revision-Date: 2012-04-30 02:57+0200\n"
+"POT-Creation-Date: 2012-04-30 09:13+0200\n"
+"PO-Revision-Date: 2012-04-30 09:14+0200\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: French <>\n"
 "Language: fr_FR\n"
@@ -166,61 +166,55 @@ msgstr "Seuil supérieur:"
 msgid "Low thresold:"
 msgstr "Seuil inférieur:"
 
-#: src/lib/amd.c:151
-#, c-format
-msgid "ERROR: ADL library not found!\n"
-msgstr ""
+#: src/lib/amd.c:150
+msgid "AMD: cannot found ADL library."
+msgstr "AMD: impossible de trouver la librairie ADL."
 
-#: src/lib/amd.c:176
-#, c-format
-msgid "ERROR: ADL's API is missing!\n"
-msgstr ""
+#: src/lib/amd.c:174
+msgid "AMD: missing ADL's API."
+msgstr "AMD: l'API ADL est manquante."
 
-#: src/lib/amd.c:185
-#, c-format
-msgid "ERROR: ADL Initialization Error!\n"
-msgstr "ERREUR: échec de l'initialisation ADL\n"
+#: src/lib/amd.c:182
+msgid "AMD: failed to initialize ADL."
+msgstr "AMD: échec de l’initialisation ADL."
 
-#: src/lib/amd.c:193
+#: src/lib/amd.c:189
+msgid "AMD: cannot get the number of adapters."
+msgstr "AMD: impossible de récupérer le nombre d'adapteurs."
+
+#: src/lib/hdd_atasmart.c:144
 #, c-format
-msgid "ERROR: Cannot get the number of adapters!\n"
-msgstr ""
+msgid "atasmart: sk_disk_open() failure: %s."
+msgstr "atasmart: échec de sk_disk_open(): %s."
 
 #: src/lib/hdd_hddtemp.c:59
-#, c-format
-msgid "ERROR: hdd fetch, failed to open socket\n"
-msgstr "ERREUR: hdd_fetch, échec d'ouverture de la socket\n"
+msgid "hddtemp: failed to open socket."
+msgstr "hddtemp: échec d'ouverture de la connexion."
 
-#: src/lib/hdd_hddtemp.c:73
-#, c-format
-msgid "ERROR: hdd fetch, failed to open connection\n"
-msgstr "ERREUR: hdd_fetch, échec de l'ouverture de la connection\n"
+#: src/lib/hdd_hddtemp.c:72
+msgid "hddtemp: failed to open connection."
+msgstr "hddtemp: échec de l'ouverture de la connexion."
 
-#: src/lib/hdd_hddtemp.c:183
+#: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
 #, c-format
-msgid "ERROR: wrong hdd string: %s"
-msgstr "ERREUR: mauvaise chaine hdd: %s"
+msgid "hddtemp: wrong string: %s."
+msgstr "hddtemp: mauvaise chaîne de caractères: %s."
 
-#: src/lib/hdd_hddtemp.c:253
+#: src/lib/lmsensor.c:42
 #, c-format
-msgid "ERROR: wrong hdd string: %s\n"
-msgstr "ERREUR: mauvaise chaine hdd: %s\n"
-
-#: src/lib/lmsensor.c:43
-#, c-format
-msgid "ERROR: Can't get value of subfeature %s: %s\n"
+msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
-"ERREUR: Impossible de récuperer la valeur de la sous-fonctionnalité %s: %s\n"
+"lmsensor: Impossible de récupérer la valeur de la sous-fonctionnalité %s: %s."
 
-#: src/lib/lmsensor.c:125
-#, c-format
-msgid "ERROR: create_sensor, wrong feature type\n"
-msgstr "ERREUR: create_sensor, mauvais type de fonctionnalité\n"
+#: src/lib/lmsensor.c:123
+msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
+msgstr ""
+"lmsensor: échec de lmsensor_psensor_create: mauvais type de fonctionnalité."
 
-#: src/lib/lmsensor.c:208
+#: src/lib/lmsensor.c:206
 #, c-format
-msgid "ERROR: lm-sensors initialization failure: %s\n"
-msgstr "ERREUR: échec de l'initialisation de lm-sensors: %s\n"
+msgid "lmsensor: initialization failure: %s."
+msgstr "lmsensor: échec de l'initialisation: %s."
 
 #: src/lib/log.c:37
 #, c-format
@@ -301,14 +295,20 @@ msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of "
 "hddtemp daemon"
 msgstr ""
+"  --use-libatasmart   utiliser la librairie atasmart pour la surveillance "
+"des disks a la place du serveur hddtemp"
 
 #: src/main.c:105
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
+"  -n, --new-instance  forcer la création d'une nouvelle occurrence de "
+"l'application Psensor"
 
 #: src/main.c:109 src/server/server.c:102
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
+"  -d, --debug=LEVEL   assigner le niveau de débogage, nombre entier entre 0 "
+"et 3"
 
 #: src/main.c:114 src/server/server.c:108
 #, c-format
@@ -402,7 +402,7 @@ msgstr ""
 
 #: src/server/server.c:104
 msgid "  -l, --log-file=PATH set the log file to PATH"
-msgstr ""
+msgstr "  -l, --log-file=PATH assigner le chemin d’accès au journal"
 
 #: src/server/server.c:179
 msgid "<html><body><p>Server stop requested</p></body></html>"
@@ -419,14 +419,12 @@ msgid "Enables debug mode: %d"
 msgstr "Activation du mode de débogage: %d"
 
 #: src/server/server.c:386
-#, c-format
-msgid "ERROR: no sensors detected\n"
-msgstr "ERREUR: Aucune sonde detectee\n"
+msgid "No sensors detected."
+msgstr "Aucune sonde détectée."
 
 #: src/server/server.c:393
-#, c-format
-msgid "ERROR: Fail to create web server\n"
-msgstr "ERREUR: Echec de la creation du serveur Web\n"
+msgid "Failed to create Web server."
+msgstr "Échec de la création du serveur Web."
 
 #: src/server/server.c:397
 #, c-format
@@ -446,7 +444,7 @@ msgstr "URL: http://localhost:%d"
 #: src/ui.c:80
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
-"Psensor est une application GTK pour surveiller les sondes matérielles "
+"Psensor est une application GTK+ pour surveiller les sondes matérielles "
 "thermiques et les ventilateurs."
 
 #: src/ui.c:83
@@ -511,9 +509,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Surveillance Des Températures"
 
 #: src/ui.c:243
-#, c-format
-msgid "ERROR: Failed to load psensor icon.\n"
-msgstr "ERREUR: Échec du chargement de l’icône de Psensor\n"
+msgid "Failed to load Psensor icon."
+msgstr "Échec du chargement de l’icône de Psensor."
 
 #: src/ui_sensorlist.c:235
 msgid "Select foreground color"
@@ -560,8 +557,8 @@ msgid "SensorPreferences"
 msgstr "Configuration Des Sondes"
 
 #: src/ui_notify.c:48
-msgid "gettimeofday failed"
-msgstr ""
+msgid "gettimeofday failed."
+msgstr "Échec de gettimeofday."
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
@@ -570,6 +567,22 @@ msgstr "Alerte thermique"
 #: src/ui_sensorpref.c:477
 msgid "Sensor Name"
 msgstr "Nom De La Sonde"
+
+#~ msgid "hddtemp: wrong string: %s"
+#~ msgstr "hddtemp: mauvaise chaîne de caractères: %s"
+
+#, fuzzy
+#~ msgid "hddtemp: wrong hdd string: %s."
+#~ msgstr "ERREUR: mauvaise chaine hdd: %s"
+
+#~ msgid "ERROR: wrong hdd string: %s\n"
+#~ msgstr "ERREUR: mauvaise chaine hdd: %s\n"
+
+#~ msgid "ERROR: create_sensor, wrong feature type\n"
+#~ msgstr "ERREUR: create_sensor, mauvais type de fonctionnalité\n"
+
+#~ msgid "ERROR: ADL Initialization Error!\n"
+#~ msgstr "ERREUR: échec de l'initialisation ADL\n"
 
 #~ msgid "ERROR: Cannot retrieve NVidia information\n"
 #~ msgstr "ERREUR: échec de la récupération des informations NVidia\n"
