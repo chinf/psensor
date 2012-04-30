@@ -51,7 +51,7 @@ static int get_temp(struct psensor *sensor)
 	if (res == True)
 		return temp;
 
-	fprintf(stderr, _("ERROR: failed to retrieve nvidia temperature\n"));
+	log_err(_("Failed to retrieve NVIDIA temperature."));
 	return 0;
 }
 
@@ -89,8 +89,7 @@ static int init()
 	display = XOpenDisplay(NULL);
 
 	if (!display) {
-		fprintf(stderr,
-			_("ERROR: Cannot open connection to X Server\n"));
+		log_err(_("Cannot open connection to X11 server."));
 		return 0;
 	}
 
@@ -98,7 +97,7 @@ static int init()
 	    XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_GPU, &n))
 		return n;
 
-	fprintf(stderr, _("ERROR: Cannot retrieve NVidia information\n"));
+	log_err(_("Failed to retrieve NVIDIA information."));
 
 	return 0;
 }
