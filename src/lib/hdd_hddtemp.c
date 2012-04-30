@@ -21,9 +21,9 @@
 #define _(str) gettext(str)
 
 /*
-  Following code is based on GNOME sensors applet code hddtemp-plugin.c
-  see http://sensors-applet.sourceforge.net/
-*/
+ * Following code is based on GNOME sensors applet code
+ * hddtemp-plugin.c see http://sensors-applet.sourceforge.net/
+ */
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -56,7 +56,7 @@ static char *fetch()
 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd == -1) {
-		fprintf(stderr, _("ERROR: hdd fetch, failed to open socket\n"));
+		log_err(_("hddtemp: failed to open socket."));
 		return NULL;
 	}
 
@@ -69,8 +69,7 @@ static char *fetch()
 	if (connect(sockfd,
 		    (struct sockaddr *)&address,
 		    (socklen_t) sizeof(address)) == -1) {
-		fprintf(stderr,
-			_("ERROR: hdd fetch, failed to open connection\n"));
+		log_err(_("hddtemp: failed to open connection."));
 	} else {
 		buffer = malloc(HDDTEMP_OUTPUT_BUFFER_LENGTH);
 
@@ -179,8 +178,7 @@ struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
 		return sensors;
 
 	if (hddtemp_output[0] != '|') {
-		fprintf(stderr,
-			_("ERROR: wrong hdd string: %s"), hddtemp_output);
+		log_err(_("hddtemp: wrong string: %s."), hddtemp_output);
 
 		free(hddtemp_output);
 
@@ -249,8 +247,7 @@ void hddtemp_psensor_list_update(struct psensor **sensors)
 			free(info.name);
 		}
 	} else {
-		fprintf(stderr,
-			_("ERROR: wrong hdd string: %s\n"), hddtemp_output);
+		log_err(_("hddtemp: wrong string: %s."), hddtemp_output);
 	}
 
 	free(hddtemp_output);
