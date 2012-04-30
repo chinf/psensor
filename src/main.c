@@ -241,7 +241,7 @@ gboolean ui_refresh_thread(gpointer data)
 static void cb_alarm_raised(struct psensor *sensor, void *data)
 {
 #ifdef HAVE_LIBNOTIFY
-	if (sensor->enabled)
+	if (sensor->alarm_enabled)
 		ui_notify(sensor, (struct ui_psensor *)data);
 #endif
 }
