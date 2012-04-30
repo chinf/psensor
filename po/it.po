@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-28 16:14+0200\n"
+"POT-Creation-Date: 2012-04-30 02:53+0200\n"
 "PO-Revision-Date: 2012-04-28 15:15+0200\n"
 "Last-Translator:  <jeanfi@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Measures"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:190
+#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:191
 msgid "Graph"
 msgstr ""
 
@@ -113,46 +113,46 @@ msgstr ""
 msgid "Sensors"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:12
+#: src/glade/sensor-edit.glade:13
 msgid "Edit Sensor Preferences"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:95 src/glade/sensor-edit.glade:159
-#: src/glade/sensor-edit.glade:319 src/glade/sensor-edit.glade:416
-#: src/lib/psensor.c:481 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/glade/sensor-edit.glade:96 src/glade/sensor-edit.glade:160
+#: src/glade/sensor-edit.glade:319 src/glade/sensor-edit.glade:415
+#: src/lib/psensor.c:480 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
 #: src/ui_sensorlist.c:380 src/ui_notify.c:79
 msgid "N/A"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:112
+#: src/glade/sensor-edit.glade:113
 msgid "Name:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:145
+#: src/glade/sensor-edit.glade:146
 msgid "Type:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:175
+#: src/glade/sensor-edit.glade:176
 msgid "Id:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:208
+#: src/glade/sensor-edit.glade:209
 msgid "Color:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:222
+#: src/glade/sensor-edit.glade:223
 msgid "Alarm"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:237
+#: src/glade/sensor-edit.glade:238
 msgid "Activate desktop notifications"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:258
+#: src/glade/sensor-edit.glade:259
 msgid "Sensor Information"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:271
+#: src/glade/sensor-edit.glade:272
 msgid "Draw sensor curve"
 msgstr ""
 
@@ -225,25 +225,22 @@ msgid "Cannot open log file: %s"
 msgstr ""
 
 #: src/lib/nvidia.c:54
-#, c-format
-msgid "ERROR: failed to retrieve nvidia temperature\n"
+msgid "Failed to retrieve NVIDIA temperature."
 msgstr ""
 
-#: src/lib/nvidia.c:93
-#, c-format
-msgid "ERROR: Cannot open connection to X Server\n"
+#: src/lib/nvidia.c:92
+msgid "Cannot open connection to X11 server."
 msgstr ""
 
-#: src/lib/nvidia.c:101
-#, c-format
-msgid "ERROR: Cannot retrieve NVidia information\n"
+#: src/lib/nvidia.c:100
+msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:476
+#: src/lib/psensor.c:475
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:479
+#: src/lib/psensor.c:478
 msgid "%"
 msgstr ""
 
@@ -264,7 +261,7 @@ msgstr ""
 
 #: src/main.c:90
 msgid ""
-"psensor is a GTK application for monitoring hardware sensors, including "
+"Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
 
@@ -309,21 +306,20 @@ msgid "%s home page: <%s>\n"
 msgstr ""
 
 #: src/main.c:457
-#, c-format
-msgid "ERROR: Not compiled with remote sensor support.\n"
+msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:519
+#: src/main.c:520
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:531 src/server/server.c:370
+#: src/main.c:532 src/server/server.c:370
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:544
-msgid "Psensor instance already exists"
+#: src/main.c:545
+msgid "A Psensor instance already exists."
 msgstr ""
 
 #: src/rsensor.c:107
@@ -536,6 +532,6 @@ msgstr ""
 msgid "Temperature alert"
 msgstr ""
 
-#: src/ui_sensorpref.c:426
+#: src/ui_sensorpref.c:477
 msgid "Sensor Name"
 msgstr ""
