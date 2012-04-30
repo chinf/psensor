@@ -227,7 +227,7 @@ create_response_file(const char *nurl,
 				 (MHD_ContentReaderFreeCallback)&fclose);
 
 		} else {
-			log_printf(LOG_ERR, "Failed to open: %s\n", fpath);
+			log_err("Failed to open: %s.", fpath);
 		}
 	}
 
@@ -383,14 +383,14 @@ int main(int argc, char *argv[])
 #endif
 
 	if (!*server_data.sensors)
-		fprintf(stderr, _("ERROR: no sensors detected\n"));
+		log_err(_("No sensors detected."));
 
 	d = MHD_start_daemon(MHD_USE_THREAD_PER_CONNECTION,
 			     port,
 			     NULL, NULL, &cbk_http_request, server_data.sensors,
 			     MHD_OPTION_END);
 	if (!d) {
-		fprintf(stderr, _("ERROR: Fail to create web server\n"));
+		log_err(_("Failed to create Web server."));
 		exit(EXIT_FAILURE);
 	}
 
