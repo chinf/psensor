@@ -317,7 +317,7 @@ update_pref(struct psensor *s,
 			   psensor_type_to_unit_str(s->type,
 						    use_celcius));
 
-	if (is_temp_type(s->type)) {
+	if (is_temp_type(s->type) || is_fan_type(s->type)) {
 		gtk_toggle_button_set_active(w_alarm, p->alarm_enabled);
 		gtk_spin_button_set_value(w_high_thresold,
 					  p->alarm_high_thresold);
@@ -405,14 +405,15 @@ apply_prefs(struct sensor_pref **prefs,
 			config_set_sensor_enabled(s->id, s->enabled);
 		}
 
-		if (is_temp_type(s->type) && cfg->temperature_unit == CELCIUS) {
-			s->alarm_high_thresold = p->alarm_high_thresold;
-			s->alarm_low_thresold = p->alarm_low_thresold;
-		} else {
+		if (is_temp_type(s->type)
+		    && cfg->temperature_unit == FAHRENHEIT) {
 			s->alarm_high_thresold = fahrenheit_to_celcius
 				(p->alarm_high_thresold);
 			s->alarm_low_thresold = fahrenheit_to_celcius
 				(p->alarm_low_thresold);
+		} else {
+			s->alarm_high_thresold = p->alarm_high_thresold;
+			s->alarm_low_thresold = p->alarm_low_thresold;
 		}
 
 		config_set_sensor_alarm_high_thresold(s->id,
