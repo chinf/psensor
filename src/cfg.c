@@ -117,7 +117,7 @@ static struct color *get_background_color()
 	c = str_to_color(scolor);
 	free(scolor);
 
-	if (c == NULL)
+	if (!c)
 		return color_new(0xffff, 0xffff, 0xffff);
 
 	return c;
@@ -134,7 +134,7 @@ static struct color *get_foreground_color()
 	c = str_to_color(scolor);
 	free(scolor);
 
-	if (c == NULL)
+	if (!c)
 		return color_new(0x0000, 0x0000, 0x0000);
 
 	return c;
@@ -555,22 +555,10 @@ void config_save(const struct config *c)
 			      c->window_restore_enabled,
 			      NULL);
 
-	gconf_client_set_int(client,
-			     KEY_INTERFACE_WINDOW_X,
-			     c->window_x,
-			     NULL);
-	gconf_client_set_int(client,
-			     KEY_INTERFACE_WINDOW_Y,
-			     c->window_y,
-			     NULL);
-	gconf_client_set_int(client,
-			     KEY_INTERFACE_WINDOW_W,
-			     c->window_w,
-			     NULL);
-	gconf_client_set_int(client,
-			     KEY_INTERFACE_WINDOW_H,
-			     c->window_h,
-			     NULL);
+	gconf_client_set_int(client, KEY_INTERFACE_WINDOW_X, c->window_x, NULL);
+	gconf_client_set_int(client, KEY_INTERFACE_WINDOW_Y, c->window_y, NULL);
+	gconf_client_set_int(client, KEY_INTERFACE_WINDOW_W, c->window_w, NULL);
+	gconf_client_set_int(client, KEY_INTERFACE_WINDOW_H, c->window_h, NULL);
 
 	gconf_client_set_int(client,
 			     KEY_INTERFACE_WINDOW_DIVIDER_POS,
