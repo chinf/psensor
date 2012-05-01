@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-30 09:13+0200\n"
-"PO-Revision-Date: 2012-04-30 09:14+0200\n"
+"POT-Creation-Date: 2012-05-01 10:42+0200\n"
+"PO-Revision-Date: 2012-05-01 10:44+0200\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: French <>\n"
 "Language: fr_FR\n"
@@ -103,7 +103,7 @@ msgstr "Intervalle de mise à jour:"
 msgid "Measures"
 msgstr "Mesures"
 
-#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:191
+#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
 msgid "Graph"
 msgstr "Graphe"
 
@@ -115,54 +115,54 @@ msgstr "Intervalle de mise à jour des mesures:"
 msgid "Sensors"
 msgstr "Sondes"
 
-#: src/glade/sensor-edit.glade:13
+#: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
 msgstr "Éditer La Configuration Des Sondes"
 
-#: src/glade/sensor-edit.glade:96 src/glade/sensor-edit.glade:160
-#: src/glade/sensor-edit.glade:319 src/glade/sensor-edit.glade:415
-#: src/lib/psensor.c:480 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
-#: src/ui_sensorlist.c:380 src/ui_notify.c:79
+#: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
+#: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
+#: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
+#: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/A"
 
-#: src/glade/sensor-edit.glade:113
+#: src/glade/sensor-edit.glade:119
 msgid "Name:"
 msgstr "Nom:"
 
-#: src/glade/sensor-edit.glade:146
+#: src/glade/sensor-edit.glade:152
 msgid "Type:"
 msgstr "Type:"
 
-#: src/glade/sensor-edit.glade:176
+#: src/glade/sensor-edit.glade:182
 msgid "Id:"
 msgstr "Id:"
 
-#: src/glade/sensor-edit.glade:209
+#: src/glade/sensor-edit.glade:215
 msgid "Color:"
 msgstr "Couleur:"
 
-#: src/glade/sensor-edit.glade:223
+#: src/glade/sensor-edit.glade:229
 msgid "Alarm"
 msgstr "Alarme"
 
-#: src/glade/sensor-edit.glade:238
+#: src/glade/sensor-edit.glade:244
 msgid "Activate desktop notifications"
 msgstr "Activer les notifications du bureau"
 
-#: src/glade/sensor-edit.glade:259
+#: src/glade/sensor-edit.glade:265
 msgid "Sensor Information"
 msgstr "Information de la sonde"
 
-#: src/glade/sensor-edit.glade:272
+#: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
 msgstr "Dessiner la courbe de la sonde"
 
-#: src/glade/sensor-edit.glade:360
+#: src/glade/sensor-edit.glade:366
 msgid "High thresold:"
 msgstr "Seuil supérieur:"
 
-#: src/glade/sensor-edit.glade:375
+#: src/glade/sensor-edit.glade:381
 msgid "Low thresold:"
 msgstr "Seuil inférieur:"
 
@@ -204,7 +204,7 @@ msgstr "hddtemp: mauvaise chaîne de caractères: %s."
 #, c-format
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
-"lmsensor: Impossible de récupérer la valeur de la sous-fonctionnalité %s: %s."
+"lmsensor: impossible de récupérer la valeur de la sous-fonctionnalité %s: %s."
 
 #: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
@@ -233,11 +233,11 @@ msgstr "Impossible d'ouvrir la connexion au serveur X11."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Échec de la récupération des information NVIDIA."
 
-#: src/lib/psensor.c:475
+#: src/lib/psensor.c:230 src/lib/psensor.c:477
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:478
+#: src/lib/psensor.c:232 src/lib/psensor.c:480
 msgid "%"
 msgstr "%"
 
@@ -564,7 +564,11 @@ msgstr "Échec de gettimeofday."
 msgid "Temperature alert"
 msgstr "Alerte thermique"
 
-#: src/ui_sensorpref.c:477
+#: src/ui_notify.c:79
+msgid "Fan alert"
+msgstr "Alerte ventilateur"
+
+#: src/ui_sensorpref.c:478
 msgid "Sensor Name"
 msgstr "Nom De La Sonde"
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-04-30 02:53+0200\n"
+"POT-Creation-Date: 2012-05-01 10:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Measures"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:191
+#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
 msgid "Graph"
 msgstr ""
 
@@ -113,110 +113,103 @@ msgstr ""
 msgid "Sensors"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:13
+#: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:96 src/glade/sensor-edit.glade:160
-#: src/glade/sensor-edit.glade:319 src/glade/sensor-edit.glade:415
-#: src/lib/psensor.c:480 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
-#: src/ui_sensorlist.c:380 src/ui_notify.c:79
+#: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
+#: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
+#: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
+#: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:113
+#: src/glade/sensor-edit.glade:119
 msgid "Name:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:146
+#: src/glade/sensor-edit.glade:152
 msgid "Type:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:176
+#: src/glade/sensor-edit.glade:182
 msgid "Id:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:209
+#: src/glade/sensor-edit.glade:215
 msgid "Color:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:223
+#: src/glade/sensor-edit.glade:229
 msgid "Alarm"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:238
+#: src/glade/sensor-edit.glade:244
 msgid "Activate desktop notifications"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:259
+#: src/glade/sensor-edit.glade:265
 msgid "Sensor Information"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:272
+#: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:360
+#: src/glade/sensor-edit.glade:366
 msgid "High thresold:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:375
+#: src/glade/sensor-edit.glade:381
 msgid "Low thresold:"
 msgstr ""
 
-#: src/lib/amd.c:151
-#, c-format
-msgid "ERROR: ADL library not found!\n"
+#: src/lib/amd.c:150
+msgid "AMD: cannot found ADL library."
 msgstr ""
 
-#: src/lib/amd.c:176
-#, c-format
-msgid "ERROR: ADL's API is missing!\n"
+#: src/lib/amd.c:174
+msgid "AMD: missing ADL's API."
 msgstr ""
 
-#: src/lib/amd.c:185
-#, c-format
-msgid "ERROR: ADL Initialization Error!\n"
+#: src/lib/amd.c:182
+msgid "AMD: failed to initialize ADL."
 msgstr ""
 
-#: src/lib/amd.c:193
+#: src/lib/amd.c:189
+msgid "AMD: cannot get the number of adapters."
+msgstr ""
+
+#: src/lib/hdd_atasmart.c:144
 #, c-format
-msgid "ERROR: Cannot get the number of adapters!\n"
+msgid "atasmart: sk_disk_open() failure: %s."
 msgstr ""
 
 #: src/lib/hdd_hddtemp.c:59
-#, c-format
-msgid "ERROR: hdd fetch, failed to open socket\n"
+msgid "hddtemp: failed to open socket."
 msgstr ""
 
-#: src/lib/hdd_hddtemp.c:73
-#, c-format
-msgid "ERROR: hdd fetch, failed to open connection\n"
+#: src/lib/hdd_hddtemp.c:72
+msgid "hddtemp: failed to open connection."
 msgstr ""
 
-#: src/lib/hdd_hddtemp.c:183
+#: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
 #, c-format
-msgid "ERROR: wrong hdd string: %s"
+msgid "hddtemp: wrong string: %s."
 msgstr ""
 
-#: src/lib/hdd_hddtemp.c:253
+#: src/lib/lmsensor.c:42
 #, c-format
-msgid "ERROR: wrong hdd string: %s\n"
+msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
 
-#: src/lib/lmsensor.c:43
-#, c-format
-msgid "ERROR: Can't get value of subfeature %s: %s\n"
+#: src/lib/lmsensor.c:123
+msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr ""
 
-#: src/lib/lmsensor.c:125
+#: src/lib/lmsensor.c:206
 #, c-format
-msgid "ERROR: create_sensor, wrong feature type\n"
-msgstr ""
-
-#: src/lib/lmsensor.c:208
-#, c-format
-msgid "ERROR: lm-sensors initialization failure: %s\n"
+msgid "lmsensor: initialization failure: %s."
 msgstr ""
 
 #: src/lib/log.c:37
@@ -236,11 +229,11 @@ msgstr ""
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:475
+#: src/lib/psensor.c:230 src/lib/psensor.c:477
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:478
+#: src/lib/psensor.c:232 src/lib/psensor.c:480
 msgid "%"
 msgstr ""
 
@@ -388,13 +381,11 @@ msgid "Enables debug mode: %d"
 msgstr ""
 
 #: src/server/server.c:386
-#, c-format
-msgid "ERROR: no sensors detected\n"
+msgid "No sensors detected."
 msgstr ""
 
 #: src/server/server.c:393
-#, c-format
-msgid "ERROR: Fail to create web server\n"
+msgid "Failed to create Web server."
 msgstr ""
 
 #: src/server/server.c:397
@@ -476,8 +467,7 @@ msgid "Psensor - Temperature Monitor"
 msgstr ""
 
 #: src/ui.c:243
-#, c-format
-msgid "ERROR: Failed to load psensor icon.\n"
+msgid "Failed to load Psensor icon."
 msgstr ""
 
 #: src/ui_sensorlist.c:235
@@ -525,13 +515,17 @@ msgid "SensorPreferences"
 msgstr ""
 
 #: src/ui_notify.c:48
-msgid "gettimeofday failed"
+msgid "gettimeofday failed."
 msgstr ""
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
 msgstr ""
 
-#: src/ui_sensorpref.c:477
+#: src/ui_notify.c:79
+msgid "Fan alert"
+msgstr ""
+
+#: src/ui_sensorpref.c:478
 msgid "Sensor Name"
 msgstr ""
