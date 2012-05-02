@@ -7,24 +7,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-01 10:42+0200\n"
-"PO-Revision-Date: 2012-04-28 15:14+0200\n"
-"Last-Translator:  <jeanfi@gmail.com>\n"
+"POT-Creation-Date: 2012-05-01 10:52+0200\n"
+"PO-Revision-Date: 2012-05-02 17:33+0000\n"
+"Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Launchpad-Export-Date: 2012-05-02 19:16+0000\n"
+"X-Generator: Launchpad (build 15185)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
-msgstr ""
+msgstr "Изменить параметры"
 
 #: src/glade/psensor-pref.glade:76
 msgid "Position of sensors table:"
-msgstr ""
+msgstr "Положение таблицы сенсоров:"
 
 #: src/glade/psensor-pref.glade:85
 msgid "Hide window decoration"
@@ -36,11 +36,11 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:142
 msgid "Enable menu"
-msgstr ""
+msgstr "Включить меню"
 
 #: src/glade/psensor-pref.glade:161
 msgid "Enable Unity Launcher counter"
-msgstr ""
+msgstr "Включить счётчик в панеле запуска Unity"
 
 #: src/glade/psensor-pref.glade:180
 msgid "Hide window on startup"
@@ -48,39 +48,39 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:199
 msgid "Restore window position and size"
-msgstr ""
+msgstr "Восстанавливать положение и размер окна"
 
 #: src/glade/psensor-pref.glade:221
 msgid "Temperature unit:"
-msgstr ""
+msgstr "Единицы измерения температуры:"
 
 #: src/glade/psensor-pref.glade:255
 msgid "Interface"
-msgstr ""
+msgstr "Внешний вид"
 
 #: src/glade/psensor-pref.glade:295
 msgid "Foreground:"
-msgstr ""
+msgstr "Передний план:"
 
 #: src/glade/psensor-pref.glade:310
 msgid "Background:"
-msgstr ""
+msgstr "Фон:"
 
 #: src/glade/psensor-pref.glade:346
 msgid "Background opacity:"
-msgstr ""
+msgstr "Прозрачность фона:"
 
 #: src/glade/psensor-pref.glade:369
 msgid "<i>Min</i>"
-msgstr ""
+msgstr "<i>Мин.</i>"
 
 #: src/glade/psensor-pref.glade:396
 msgid "<i>Max</i>"
-msgstr ""
+msgstr "<i>Макс.</i>"
 
 #: src/glade/psensor-pref.glade:422
 msgid "Colors"
-msgstr ""
+msgstr "Цвета"
 
 #: src/glade/psensor-pref.glade:440
 msgid "Monitoring duration:"
@@ -92,11 +92,11 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
 msgid "second(s)"
-msgstr ""
+msgstr "секунд(ы)"
 
 #: src/glade/psensor-pref.glade:531
 msgid "Update interval:"
-msgstr ""
+msgstr "Интервал обновления:"
 
 #: src/glade/psensor-pref.glade:549
 msgid "Measures"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
 msgid "Graph"
-msgstr ""
+msgstr "Диаграмма"
 
 #: src/glade/psensor-pref.glade:609
 msgid "Measure update interval:"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:666
 msgid "Sensors"
-msgstr ""
+msgstr "Датчики"
 
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
@@ -123,27 +123,27 @@ msgstr ""
 #: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
 #: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
-msgstr ""
+msgstr "Н/Д"
 
 #: src/glade/sensor-edit.glade:119
 msgid "Name:"
-msgstr ""
+msgstr "Название:"
 
 #: src/glade/sensor-edit.glade:152
 msgid "Type:"
-msgstr ""
+msgstr "Тип:"
 
 #: src/glade/sensor-edit.glade:182
 msgid "Id:"
-msgstr ""
+msgstr "Идентификатор:"
 
 #: src/glade/sensor-edit.glade:215
 msgid "Color:"
-msgstr ""
+msgstr "Цвет:"
 
 #: src/glade/sensor-edit.glade:229
 msgid "Alarm"
-msgstr ""
+msgstr "Уведомление"
 
 #: src/glade/sensor-edit.glade:244
 msgid "Activate desktop notifications"
@@ -151,7 +151,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:265
 msgid "Sensor Information"
-msgstr ""
+msgstr "Информация датчика"
 
 #: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
@@ -167,37 +167,37 @@ msgstr ""
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
-msgstr ""
+msgstr "AMD: библиотека ADL не найдена."
 
 #: src/lib/amd.c:174
 msgid "AMD: missing ADL's API."
-msgstr ""
+msgstr "AMD: отсутствует API ADL."
 
 #: src/lib/amd.c:182
 msgid "AMD: failed to initialize ADL."
-msgstr ""
+msgstr "AMD: ошибка инициализации ADL."
 
 #: src/lib/amd.c:189
 msgid "AMD: cannot get the number of adapters."
-msgstr ""
+msgstr "AMD: ошибка определения количества адаптеров."
 
 #: src/lib/hdd_atasmart.c:144
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
-msgstr ""
+msgstr "atasmart: ошибка sk_disk_open(): %s."
 
 #: src/lib/hdd_hddtemp.c:59
 msgid "hddtemp: failed to open socket."
-msgstr ""
+msgstr "hddtemp: ошибка открытия сокета."
 
 #: src/lib/hdd_hddtemp.c:72
 msgid "hddtemp: failed to open connection."
-msgstr ""
+msgstr "hddtemp: ошибка открытия соединения."
 
 #: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
 #, c-format
 msgid "hddtemp: wrong string: %s."
-msgstr ""
+msgstr "hddtemp: неправильная строка: %s."
 
 #: src/lib/lmsensor.c:42
 #, c-format
@@ -211,7 +211,7 @@ msgstr ""
 #: src/lib/lmsensor.c:206
 #, c-format
 msgid "lmsensor: initialization failure: %s."
-msgstr ""
+msgstr "lmsensor: ошибка инициализации: %s."
 
 #: src/lib/log.c:37
 #, c-format
@@ -220,15 +220,15 @@ msgstr ""
 
 #: src/lib/nvidia.c:54
 msgid "Failed to retrieve NVIDIA temperature."
-msgstr ""
+msgstr "Ошибка чтения температуры NVIDIA."
 
 #: src/lib/nvidia.c:92
 msgid "Cannot open connection to X11 server."
-msgstr ""
+msgstr "Ошибка открытия соединения к X-серверу"
 
 #: src/lib/nvidia.c:100
 msgid "Failed to retrieve NVIDIA information."
-msgstr ""
+msgstr "Ошибка получения информации NVIDIA"
 
 #: src/lib/psensor.c:230 src/lib/psensor.c:477
 msgid "RPM"
@@ -236,7 +236,7 @@ msgstr ""
 
 #: src/lib/psensor.c:232 src/lib/psensor.c:480
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #: src/main.c:77
 #, c-format
@@ -251,13 +251,15 @@ msgstr ""
 #: src/main.c:88 src/server/server.c:87
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
-msgstr ""
+msgstr "Использование: %s [КЛЮЧ]...\n"
 
 #: src/main.c:90
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
+"Psensor это GTK+ приложение для мониторинга аппаратных датчиков, включая "
+"температуру и скорость вентилятора."
 
 #: src/main.c:94
 msgid "Options:"
@@ -268,18 +270,23 @@ msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
+"  -h, --help          показать эту справку и выйти\n"
+"  -v, --version      показать версию и выйти"
 
 #: src/main.c:100
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server, example: http://"
 "hostname:3131"
 msgstr ""
+"  -u, --url=URL       URL psensor-сервера, пример: http://hostname:3131"
 
 #: src/main.c:102
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of "
 "hddtemp daemon"
 msgstr ""
+"  --use-libatasmart   использовать библиотеку atasmart для мониторинга "
+"дисков вместо демона hddtemp"
 
 #: src/main.c:105
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
@@ -287,17 +294,17 @@ msgstr ""
 
 #: src/main.c:109 src/server/server.c:102
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
-msgstr ""
+msgstr "  -d, --debug=LEVEL   установить уровень отладки, целое между 0 и 3"
 
 #: src/main.c:114 src/server/server.c:108
 #, c-format
 msgid "Report bugs to: %s\n"
-msgstr ""
+msgstr "Сообщайте об ошибках на: %s\n"
 
 #: src/main.c:116 src/server/server.c:110
 #, c-format
 msgid "%s home page: <%s>\n"
-msgstr ""
+msgstr "%s домашняя страница: <%s>\n"
 
 #: src/main.c:457
 msgid "Psensor has not been compiled with remote sensor support."
@@ -310,7 +317,7 @@ msgstr ""
 #: src/main.c:532 src/server/server.c:370
 #, c-format
 msgid "Try `%s --help' for more information.\n"
-msgstr ""
+msgstr "Попробуйте `%s --help' для дополнительной информации.↵\n"
 
 #: src/main.c:545
 msgid "A Psensor instance already exists."
@@ -319,22 +326,24 @@ msgstr ""
 #: src/rsensor.c:107
 #, c-format
 msgid "Fail to connect to: %s"
-msgstr ""
+msgstr "Ошибка подключения к: %s"
 
 #: src/rsensor.c:144
 #, c-format
 msgid "Invalid content: %s"
-msgstr ""
+msgstr "Неправильное содержимое: %s"
 
 #: src/rsensor.c:184
 #, c-format
 msgid "Invalid JSON: %s"
-msgstr ""
+msgstr "Неправильный JSON: %s"
 
 #: src/server/server.c:55
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
+"<html><body><p>Страница не найдена - Перейти к <a href='/'>Главной странице</"
+"a></p></body>"
 
 #: src/server/server.c:77
 #, c-format
@@ -350,18 +359,24 @@ msgstr ""
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
+"psensor-server ‌— это HTTP-сервер для удалённого мониторинга аппаратных "
+"датчиков."
 
 #: src/server/server.c:94
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
+"  -h, --help\t\tпоказать эту справку и выйти\n"
+"  -v, --version\t\tпоказать версию и выйти"
 
 #: src/server/server.c:98
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
+"  -p,--port=PORT\tпорт веб-сервера\n"
+"  -w,--wdir=DIR\t\tдиректория для страниц веб-сервера"
 
 #: src/server/server.c:104
 msgid "  -l, --log-file=PATH set the log file to PATH"
@@ -369,12 +384,12 @@ msgstr ""
 
 #: src/server/server.c:179
 msgid "<html><body><p>Server stop requested</p></body></html>"
-msgstr ""
+msgstr "<html><body><p>Запрошена остановка сервера</p></body></html>"
 
 #: src/server/server.c:293
 #, c-format
 msgid "HTTP Request: %s"
-msgstr ""
+msgstr "HTTP запрос: %s"
 
 #: src/server/server.c:350
 #, c-format
@@ -383,11 +398,11 @@ msgstr ""
 
 #: src/server/server.c:386
 msgid "No sensors detected."
-msgstr ""
+msgstr "Датчики не обнаружены."
 
 #: src/server/server.c:393
 msgid "Failed to create Web server."
-msgstr ""
+msgstr "Ошибка создания веб-сервера."
 
 #: src/server/server.c:397
 #, c-format
@@ -402,11 +417,11 @@ msgstr ""
 #: src/server/server.c:399
 #, c-format
 msgid "URL: http://localhost:%d"
-msgstr ""
+msgstr "URL: http://localhost:%d"
 
 #: src/ui.c:80
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr ""
+msgstr "Psensor — это  GTK+ приложения для мониторинга аппаратных серсоров"
 
 #: src/ui.c:83
 msgid ""
@@ -416,23 +431,23 @@ msgstr ""
 
 #: src/ui.c:86
 msgid "About Psensor"
-msgstr ""
+msgstr "О Psensor"
 
 #: src/ui.c:89
 msgid "Psensor Homepage"
-msgstr ""
+msgstr "Домашняя страница Psensor"
 
 #: src/ui.c:144 src/ui_appindicator.c:111
 msgid "_Preferences"
-msgstr ""
+msgstr "_Параметры"
 
 #: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
-msgstr ""
+msgstr "Параметры"
 
 #: src/ui.c:149
 msgid "_Sensor Preferences"
-msgstr ""
+msgstr "Параметры _датчиков"
 
 #: src/ui.c:150
 msgid "Sensor Preferences"
@@ -440,28 +455,28 @@ msgstr ""
 
 #: src/ui.c:154
 msgid "_Quit"
-msgstr ""
+msgstr "_Выход"
 
 #: src/ui.c:154
 msgid "Quit"
-msgstr ""
+msgstr "Выход"
 
 #: src/ui.c:157
 msgid "_Help"
-msgstr ""
+msgstr "_Справка"
 
 #: src/ui.c:160 src/ui_appindicator.c:122
 msgid "_About"
-msgstr ""
+msgstr "_О программе"
 
 #: src/ui.c:161 src/ui_appindicator.c:124
 msgid "About"
-msgstr ""
+msgstr "О программе"
 
 #: src/ui.c:183 src/ui_appindicator.c:187 src/ui_graph.c:99
 #, c-format
 msgid "building menus failed: %s"
-msgstr ""
+msgstr "ошибка создания меню: %s"
 
 #: src/ui.c:235
 msgid "Psensor - Temperature Monitor"
@@ -469,7 +484,7 @@ msgstr ""
 
 #: src/ui.c:243
 msgid "Failed to load Psensor icon."
-msgstr ""
+msgstr "Ошибка загрузки значка Psensor."
 
 #: src/ui_sensorlist.c:235
 msgid "Select foreground color"
@@ -477,35 +492,35 @@ msgstr ""
 
 #: src/ui_sensorlist.c:312
 msgid "Sensor"
-msgstr ""
+msgstr "Датчик"
 
 #: src/ui_sensorlist.c:318
 msgid "Value"
-msgstr ""
+msgstr "Значение"
 
 #: src/ui_sensorlist.c:324
 msgid "Min"
-msgstr ""
+msgstr "Мин."
 
 #: src/ui_sensorlist.c:330
 msgid "Max"
-msgstr ""
+msgstr "Макс."
 
 #: src/ui_sensorlist.c:337
 msgid "Color"
-msgstr ""
+msgstr "Цвет"
 
 #: src/ui_sensorlist.c:349
 msgid "Enabled"
-msgstr ""
+msgstr "Включён"
 
 #: src/ui_appindicator.c:106
 msgid "_Show"
-msgstr ""
+msgstr "_Показать"
 
 #: src/ui_appindicator.c:107
 msgid "Show"
-msgstr ""
+msgstr "Показать"
 
 #: src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
@@ -517,7 +532,7 @@ msgstr ""
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
-msgstr ""
+msgstr "ошибка gettimeofday."
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
@@ -529,4 +544,4 @@ msgstr ""
 
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"
-msgstr ""
+msgstr "Название датчика"
