@@ -1,0 +1,540 @@
+# Ukrainian translation for psensor
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the psensor package.
+#  <jeanfi@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: psensor\n"
+"Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
+"POT-Creation-Date: 2012-05-01 10:52+0200\n"
+"PO-Revision-Date: 2012-05-03 17:44+0000\n"
+"Last-Translator: Ilya Volchanetskiy <Unknown>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-05-03 19:00+0000\n"
+"X-Generator: Launchpad (build 15190)\n"
+
+#: src/glade/psensor-pref.glade:7
+msgid "Edit Preferences"
+msgstr "Редагувати налаштування"
+
+#: src/glade/psensor-pref.glade:76
+msgid "Position of sensors table:"
+msgstr "Положення таблиці датчиків:"
+
+#: src/glade/psensor-pref.glade:85
+msgid "Hide window decoration"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:104
+msgid "Keep window below"
+msgstr "Тримати вікно позаду"
+
+#: src/glade/psensor-pref.glade:142
+msgid "Enable menu"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:161
+msgid "Enable Unity Launcher counter"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:180
+msgid "Hide window on startup"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:199
+msgid "Restore window position and size"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:221
+msgid "Temperature unit:"
+msgstr "Одиниця температури:"
+
+#: src/glade/psensor-pref.glade:255
+msgid "Interface"
+msgstr "Зовнішній вигляд"
+
+#: src/glade/psensor-pref.glade:295
+msgid "Foreground:"
+msgstr "Передній план:"
+
+#: src/glade/psensor-pref.glade:310
+msgid "Background:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:346
+msgid "Background opacity:"
+msgstr "Непрозорість тла:"
+
+#: src/glade/psensor-pref.glade:369
+msgid "<i>Min</i>"
+msgstr "<i>Мін.</i>"
+
+#: src/glade/psensor-pref.glade:396
+msgid "<i>Max</i>"
+msgstr "<i>Макс.</i>"
+
+#: src/glade/psensor-pref.glade:422
+msgid "Colors"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:440
+msgid "Monitoring duration:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:478
+msgid "minute(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
+msgid "second(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:531
+msgid "Update interval:"
+msgstr "Інтервал оновлення:"
+
+#: src/glade/psensor-pref.glade:549
+msgid "Measures"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
+msgid "Graph"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:609
+msgid "Measure update interval:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:666
+msgid "Sensors"
+msgstr "Датчики"
+
+#: src/glade/sensor-edit.glade:19
+msgid "Edit Sensor Preferences"
+msgstr "Редагувати налаштування датчика"
+
+#: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
+#: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
+#: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
+#: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
+msgid "N/A"
+msgstr "Н/Д"
+
+#: src/glade/sensor-edit.glade:119
+msgid "Name:"
+msgstr "Назва:"
+
+#: src/glade/sensor-edit.glade:152
+msgid "Type:"
+msgstr "Тип:"
+
+#: src/glade/sensor-edit.glade:182
+msgid "Id:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:215
+msgid "Color:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:229
+msgid "Alarm"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:244
+msgid "Activate desktop notifications"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:265
+msgid "Sensor Information"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:278
+msgid "Draw sensor curve"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:366
+msgid "High thresold:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:381
+msgid "Low thresold:"
+msgstr ""
+
+#: src/lib/amd.c:150
+msgid "AMD: cannot found ADL library."
+msgstr ""
+
+#: src/lib/amd.c:174
+msgid "AMD: missing ADL's API."
+msgstr ""
+
+#: src/lib/amd.c:182
+msgid "AMD: failed to initialize ADL."
+msgstr ""
+
+#: src/lib/amd.c:189
+msgid "AMD: cannot get the number of adapters."
+msgstr "AMD: помилка визначення кількості адаптерів."
+
+#: src/lib/hdd_atasmart.c:144
+#, c-format
+msgid "atasmart: sk_disk_open() failure: %s."
+msgstr ""
+
+#: src/lib/hdd_hddtemp.c:59
+msgid "hddtemp: failed to open socket."
+msgstr ""
+
+#: src/lib/hdd_hddtemp.c:72
+msgid "hddtemp: failed to open connection."
+msgstr ""
+
+#: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
+#, c-format
+msgid "hddtemp: wrong string: %s."
+msgstr ""
+
+#: src/lib/lmsensor.c:42
+#, c-format
+msgid "lmsensor: cannot get value of subfeature %s: %s."
+msgstr ""
+
+#: src/lib/lmsensor.c:123
+msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
+msgstr ""
+
+#: src/lib/lmsensor.c:206
+#, c-format
+msgid "lmsensor: initialization failure: %s."
+msgstr ""
+
+#: src/lib/log.c:37
+#, c-format
+msgid "Cannot open log file: %s"
+msgstr ""
+
+#: src/lib/nvidia.c:54
+msgid "Failed to retrieve NVIDIA temperature."
+msgstr ""
+
+#: src/lib/nvidia.c:92
+msgid "Cannot open connection to X11 server."
+msgstr ""
+
+#: src/lib/nvidia.c:100
+msgid "Failed to retrieve NVIDIA information."
+msgstr ""
+
+#: src/lib/psensor.c:230 src/lib/psensor.c:477
+msgid "RPM"
+msgstr ""
+
+#: src/lib/psensor.c:232 src/lib/psensor.c:480
+msgid "%"
+msgstr "%"
+
+#: src/main.c:77
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and  redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+
+#: src/main.c:88 src/server/server.c:87
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "Використання: %s [КЛЮЧ]...\n"
+
+#: src/main.c:90
+msgid ""
+"Psensor is a GTK+ application for monitoring hardware sensors, including "
+"temperatures and fan speeds."
+msgstr ""
+
+#: src/main.c:94
+msgid "Options:"
+msgstr "Опції:"
+
+#: src/main.c:95
+msgid ""
+"  -h, --help          display this help and exit\n"
+"  -v, --version       display version information and exit"
+msgstr ""
+
+#: src/main.c:100
+msgid ""
+"  -u, --url=URL       the URL of the psensor-server, example: "
+"http://hostname:3131"
+msgstr ""
+"  -u, --url=URL       URL psensor-сервера, наприклад: http://hostname:3131"
+
+#: src/main.c:102
+msgid ""
+"  --use-libatasmart   use atasmart library for disk monitoring instead of "
+"hddtemp daemon"
+msgstr ""
+
+#: src/main.c:105
+msgid "  -n, --new-instance  force the creation of a new Psensor application"
+msgstr ""
+
+#: src/main.c:109 src/server/server.c:102
+msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
+msgstr ""
+
+#: src/main.c:114 src/server/server.c:108
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr "Звітуйте про помилки до: %s\n"
+
+#: src/main.c:116 src/server/server.c:110
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "%s домашня сторінка: <%s>\n"
+
+#: src/main.c:457
+msgid "Psensor has not been compiled with remote sensor support."
+msgstr ""
+
+#: src/main.c:520
+msgid "Enables debug mode."
+msgstr ""
+
+#: src/main.c:532 src/server/server.c:370
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Спробуйте `%s --help' щоб отримати більше інформації.\n"
+
+#: src/main.c:545
+msgid "A Psensor instance already exists."
+msgstr ""
+
+#: src/rsensor.c:107
+#, c-format
+msgid "Fail to connect to: %s"
+msgstr "Помилка підключення до: %s"
+
+#: src/rsensor.c:144
+#, c-format
+msgid "Invalid content: %s"
+msgstr ""
+
+#: src/rsensor.c:184
+#, c-format
+msgid "Invalid JSON: %s"
+msgstr "Неправильний JSON: %s"
+
+#: src/server/server.c:55
+msgid ""
+"<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
+msgstr ""
+"<html><body><p>Сторінка не знайдена - Перейти до <a href='/'>Головної "
+"сторінки</a></p></body>"
+
+#: src/server/server.c:77
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+
+#: src/server/server.c:89
+msgid ""
+"psensor-server is an HTTP server for monitoring hardware sensors remotely."
+msgstr ""
+"psensor-server ‌— це HTTP-сервер для віддаленого моніторингу апаратних "
+"датчиків."
+
+#: src/server/server.c:94
+msgid ""
+"  -h, --help\t\tdisplay this help and exit\n"
+"  -v, --version\t\tdisplay version information and exit"
+msgstr ""
+"  -h, --help\t\tпоказати цю довідку і вийти\n"
+"  -v, --version\t\tпоказати версію і вийти"
+
+#: src/server/server.c:98
+msgid ""
+"  -p,--port=PORT\twebserver port\n"
+"  -w,--wdir=DIR\t\tdirectory containing webserver pages"
+msgstr ""
+"  -p,--port=PORT\tпорт веб-сервера\n"
+"  -w,--wdir=DIR\t\tдиректорія для сторінок веб-сервера"
+
+#: src/server/server.c:104
+msgid "  -l, --log-file=PATH set the log file to PATH"
+msgstr ""
+
+#: src/server/server.c:179
+msgid "<html><body><p>Server stop requested</p></body></html>"
+msgstr ""
+
+#: src/server/server.c:293
+#, c-format
+msgid "HTTP Request: %s"
+msgstr "HTTP запит: %s"
+
+#: src/server/server.c:350
+#, c-format
+msgid "Enables debug mode: %d"
+msgstr ""
+
+#: src/server/server.c:386
+msgid "No sensors detected."
+msgstr "Датчики не знайдені."
+
+#: src/server/server.c:393
+msgid "Failed to create Web server."
+msgstr "Помилка створення веб-сервера."
+
+#: src/server/server.c:397
+#, c-format
+msgid "Web server started on port: %d"
+msgstr ""
+
+#: src/server/server.c:398
+#, c-format
+msgid "WWW directory: %s"
+msgstr ""
+
+#: src/server/server.c:399
+#, c-format
+msgid "URL: http://localhost:%d"
+msgstr "URL: http://localhost:%d"
+
+#: src/ui.c:80
+msgid "Psensor is a GTK+ application for monitoring hardware sensors"
+msgstr ""
+
+#: src/ui.c:83
+msgid ""
+"Copyright(c) 2010-2012\n"
+"jeanfi@gmail.com"
+msgstr ""
+
+#: src/ui.c:86
+msgid "About Psensor"
+msgstr ""
+
+#: src/ui.c:89
+msgid "Psensor Homepage"
+msgstr "Домашня сторінка Psensor"
+
+#: src/ui.c:144 src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr "_Налаштування"
+
+#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr "Налаштування"
+
+#: src/ui.c:149
+msgid "_Sensor Preferences"
+msgstr "Налаштування _датчиків"
+
+#: src/ui.c:150
+msgid "Sensor Preferences"
+msgstr "Налаштування датчиків"
+
+#: src/ui.c:154
+msgid "_Quit"
+msgstr "_Вихід"
+
+#: src/ui.c:154
+msgid "Quit"
+msgstr "Вихід"
+
+#: src/ui.c:157
+msgid "_Help"
+msgstr "_Довдіка"
+
+#: src/ui.c:160 src/ui_appindicator.c:122
+msgid "_About"
+msgstr "_Про програму"
+
+#: src/ui.c:161 src/ui_appindicator.c:124
+msgid "About"
+msgstr "Про програму"
+
+#: src/ui.c:183 src/ui_appindicator.c:187 src/ui_graph.c:99
+#, c-format
+msgid "building menus failed: %s"
+msgstr "помилка створення меню: %s"
+
+#: src/ui.c:235
+msgid "Psensor - Temperature Monitor"
+msgstr ""
+
+#: src/ui.c:243
+msgid "Failed to load Psensor icon."
+msgstr ""
+
+#: src/ui_sensorlist.c:235
+msgid "Select foreground color"
+msgstr "Оберіть колір переднього плану"
+
+#: src/ui_sensorlist.c:312
+msgid "Sensor"
+msgstr "Датчик"
+
+#: src/ui_sensorlist.c:318
+msgid "Value"
+msgstr "Значення"
+
+#: src/ui_sensorlist.c:324
+msgid "Min"
+msgstr "Мін."
+
+#: src/ui_sensorlist.c:330
+msgid "Max"
+msgstr "Макс."
+
+#: src/ui_sensorlist.c:337
+msgid "Color"
+msgstr "Колір"
+
+#: src/ui_sensorlist.c:349
+msgid "Enabled"
+msgstr "Увімкнен"
+
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr ""
+
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr "Показати"
+
+#: src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr ""
+
+#: src/ui_appindicator.c:118
+msgid "SensorPreferences"
+msgstr ""
+
+#: src/ui_notify.c:48
+msgid "gettimeofday failed."
+msgstr "помилка gettimeofday."
+
+#: src/ui_notify.c:77
+msgid "Temperature alert"
+msgstr ""
+
+#: src/ui_notify.c:79
+msgid "Fan alert"
+msgstr ""
+
+#: src/ui_sensorpref.c:478
+msgid "Sensor Name"
+msgstr "Назва датчика"
