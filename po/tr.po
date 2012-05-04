@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-01 10:52+0200\n"
+"POT-Creation-Date: 2012-05-04 17:38+0200\n"
 "PO-Revision-Date: 2012-04-28 11:24+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -430,8 +430,8 @@ msgstr "Tercihler"
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/ui.c:149
-msgid "_Sensor Preferences"
+#: src/ui.c:149 src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
 msgstr "Tercihleri düzenle"
 
 #: src/ui.c:150
@@ -507,10 +507,6 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "Tercihleri düzenle"
-
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
 msgstr "Tercihleri düzenle"
@@ -530,3 +526,6 @@ msgstr ""
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"
 msgstr "Algılayıcı"
+
+#~ msgid "_Sensor Preferences"
+#~ msgstr "Tercihleri düzenle"

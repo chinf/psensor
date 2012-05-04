@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-01 10:52+0200\n"
+"POT-Creation-Date: 2012-05-04 17:38+0200\n"
 "PO-Revision-Date: 2012-05-02 17:33+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Russian\n"
@@ -232,7 +232,7 @@ msgstr "Ошибка получения информации NVIDIA"
 
 #: src/lib/psensor.c:230 src/lib/psensor.c:477
 msgid "RPM"
-msgstr ""
+msgstr "об/мин"
 
 #: src/lib/psensor.c:232 src/lib/psensor.c:480
 msgid "%"
@@ -445,9 +445,9 @@ msgstr "_Параметры"
 msgid "Preferences"
 msgstr "Параметры"
 
-#: src/ui.c:149
-msgid "_Sensor Preferences"
-msgstr "Параметры _датчиков"
+#: src/ui.c:149 src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr ""
 
 #: src/ui.c:150
 msgid "Sensor Preferences"
@@ -522,10 +522,6 @@ msgstr "_Показать"
 msgid "Show"
 msgstr "Показать"
 
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr ""
-
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
 msgstr ""
@@ -545,3 +541,6 @@ msgstr ""
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"
 msgstr "Название датчика"
+
+#~ msgid "_Sensor Preferences"
+#~ msgstr "Параметры _датчиков"

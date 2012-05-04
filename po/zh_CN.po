@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-01 10:52+0200\n"
+"POT-Creation-Date: 2012-05-04 17:38+0200\n"
 "PO-Revision-Date: 2012-05-01 12:09+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -457,9 +457,9 @@ msgstr "首选项(_P)"
 msgid "Preferences"
 msgstr "选项"
 
-#: src/ui.c:149
-msgid "_Sensor Preferences"
-msgstr "传感器首选项(_S)"
+#: src/ui.c:149 src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr ""
 
 #: src/ui.c:150
 msgid "Sensor Preferences"
@@ -535,10 +535,6 @@ msgstr ""
 msgid "Show"
 msgstr "显示主窗口"
 
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr ""
-
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
 msgstr ""
@@ -559,6 +555,9 @@ msgstr ""
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"
 msgstr "传感器名称"
+
+#~ msgid "_Sensor Preferences"
+#~ msgstr "传感器首选项(_S)"
 
 #, fuzzy
 #~ msgid "hddtemp: wrong string: %s"

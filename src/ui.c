@@ -146,7 +146,7 @@ static GtkActionEntry entries[] = {
 	  G_CALLBACK(cb_preferences) },
 
 	{ "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
-	  N_("_Sensor Preferences"), NULL,
+	  N_("S_ensor Preferences"), NULL,
 	  N_("Sensor Preferences"),
 	  G_CALLBACK(cb_sensor_preferences) },
 

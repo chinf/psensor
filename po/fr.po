@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-01 10:52+0200\n"
+"POT-Creation-Date: 2012-05-04 17:38+0200\n"
 "PO-Revision-Date: 2012-05-01 12:09+0000\n"
 "Last-Translator: jeanfi <Unknown>\n"
 "Language-Team: French <>\n"
@@ -470,8 +470,8 @@ msgstr "_Configuration"
 msgid "Preferences"
 msgstr "Configuration"
 
-#: src/ui.c:149
-msgid "_Sensor Preferences"
+#: src/ui.c:149 src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
 msgstr "Configuration Des Sondes"
 
 #: src/ui.c:150
@@ -547,10 +547,6 @@ msgstr "Montrer"
 msgid "Show"
 msgstr "Montrer"
 
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "Configuration Des Sondes"
-
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
 msgstr "Configuration Des Sondes"
@@ -570,6 +566,9 @@ msgstr "Alerte ventilateur"
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"
 msgstr "Nom De La Sonde"
+
+#~ msgid "_Sensor Preferences"
+#~ msgstr "Configuration Des Sondes"
 
 #~ msgid "hddtemp: wrong string: %s"
 #~ msgstr "hddtemp: mauvaise chaîne de caractères: %s"

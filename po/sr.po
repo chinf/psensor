@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-01 10:52+0200\n"
+"POT-Creation-Date: 2012-05-04 17:38+0200\n"
 "PO-Revision-Date: 2012-04-28 11:24+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -430,8 +430,8 @@ msgstr "_Поставке"
 msgid "Preferences"
 msgstr "Поставке"
 
-#: src/ui.c:149
-msgid "_Sensor Preferences"
+#: src/ui.c:149 src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
 msgstr ""
 
 #: src/ui.c:150
@@ -505,10 +505,6 @@ msgstr ""
 
 #: src/ui_appindicator.c:107
 msgid "Show"
-msgstr ""
-
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
 msgstr ""
 
 #: src/ui_appindicator.c:118
