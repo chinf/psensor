@@ -28,8 +28,8 @@
 static const char *KEY_SENSORS = "/apps/psensor/sensors";
 
 static const char *ATT_SENSOR_ALARM_ENABLED = "alarm/enabled";
-static const char *ATT_SENSOR_ALARM_HIGH_THRESOLD = "alarm/high_thresold";
-static const char *ATT_SENSOR_ALARM_LOW_THRESOLD = "alarm/low_thresold";
+static const char *ATT_SENSOR_ALARM_HIGH_THRESHOLD = "alarm/high_threshold";
+static const char *ATT_SENSOR_ALARM_LOW_THRESHOLD = "alarm/low_threshold";
 static const char *ATT_SENSOR_COLOR = "color";
 static const char *ATT_SENSOR_ENABLED = "enabled";
 static const char *ATT_SENSOR_NAME = "name";
@@ -261,12 +261,12 @@ void config_set_sensor_color(const char *sid, const struct color *color)
 	free(key);
 }
 
-int config_get_sensor_alarm_high_thresold(const char *sid)
+int config_get_sensor_alarm_high_threshold(const char *sid)
 {
 	int res;
 	char *key;
 
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_HIGH_THRESOLD);
+	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD);
 	res = gconf_client_get_int(client, key, NULL);
 	free(key);
 
@@ -274,21 +274,21 @@ int config_get_sensor_alarm_high_thresold(const char *sid)
 }
 
 void
-config_set_sensor_alarm_high_thresold(const char *sid, int thresold)
+config_set_sensor_alarm_high_threshold(const char *sid, int threshold)
 {
 	char *key;
 
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_HIGH_THRESOLD);
-	gconf_client_set_int(client, key, thresold, NULL);
+	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD);
+	gconf_client_set_int(client, key, threshold, NULL);
 	free(key);
 }
 
-int config_get_sensor_alarm_low_thresold(const char *sid)
+int config_get_sensor_alarm_low_threshold(const char *sid)
 {
 	int res;
 	char *key;
 
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_LOW_THRESOLD);
+	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_LOW_THRESHOLD);
 	res = gconf_client_get_int(client, key, NULL);
 	free(key);
 
@@ -296,12 +296,12 @@ int config_get_sensor_alarm_low_thresold(const char *sid)
 }
 
 void
-config_set_sensor_alarm_low_thresold(const char *sid, int thresold)
+config_set_sensor_alarm_low_threshold(const char *sid, int threshold)
 {
 	char *key;
 
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_LOW_THRESOLD);
-	gconf_client_set_int(client, key, thresold, NULL);
+	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_LOW_THRESHOLD);
+	gconf_client_set_int(client, key, threshold, NULL);
 	free(key);
 }
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkAdjustment" id="alarm_high_thresold_value">
+  <object class="GtkAdjustment" id="alarm_high_threshold_value">
     <property name="lower">-9999</property>
     <property name="upper">9999</property>
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
   </object>
-  <object class="GtkAdjustment" id="alarm_low_thresold_value">
+  <object class="GtkAdjustment" id="alarm_low_threshold_value">
     <property name="lower">-9999</property>
     <property name="upper">9999</property>
     <property name="step_increment">1</property>
@@ -297,14 +297,14 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkSpinButton" id="sensor_alarm_high_thresold">
+                      <object class="GtkSpinButton" id="sensor_alarm_high_threshold">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
                         <property name="invisible_char_set">True</property>
                         <property name="primary_icon_activatable">False</property>
                         <property name="secondary_icon_activatable">False</property>
-                        <property name="adjustment">alarm_high_thresold_value</property>
+                        <property name="adjustment">alarm_high_threshold_value</property>
                         <property name="climb_rate">1</property>
                         <property name="snap_to_ticks">True</property>
                         <property name="numeric">True</property>
@@ -317,7 +317,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="sensor_alarm_high_thresold_unit">
+                      <object class="GtkLabel" id="sensor_alarm_high_threshold_unit">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="valign">start</property>
@@ -359,11 +359,11 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="alarm_high_thresold_label">
+                  <object class="GtkLabel" id="alarm_high_threshold_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0.0099999997764825821</property>
-                    <property name="label" translatable="yes">High thresold:</property>
+                    <property name="label" translatable="yes">High threshold:</property>
                   </object>
                   <packing>
                     <property name="top_attach">9</property>
@@ -374,11 +374,11 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="alarm_low_thresold_label">
+                  <object class="GtkLabel" id="alarm_low_threshold_label">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0.0099999997764825821</property>
-                    <property name="label" translatable="yes">Low thresold:</property>
+                    <property name="label" translatable="yes">Low threshold:</property>
                   </object>
                   <packing>
                     <property name="top_attach">10</property>
@@ -389,18 +389,18 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkHBox" id="alarm_low_thresold_box">
+                  <object class="GtkHBox" id="alarm_low_threshold_box">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkSpinButton" id="sensor_alarm_low_thresold">
+                      <object class="GtkSpinButton" id="sensor_alarm_low_threshold">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
                         <property name="invisible_char_set">True</property>
                         <property name="primary_icon_activatable">False</property>
                         <property name="secondary_icon_activatable">False</property>
-                        <property name="adjustment">alarm_low_thresold_value</property>
+                        <property name="adjustment">alarm_low_threshold_value</property>
                         <property name="climb_rate">1</property>
                         <property name="snap_to_ticks">True</property>
                         <property name="numeric">True</property>
@@ -413,7 +413,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="sensor_alarm_low_thresold_unit">
+                      <object class="GtkLabel" id="sensor_alarm_low_threshold_unit">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="valign">start</property>

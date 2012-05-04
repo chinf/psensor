@@ -291,16 +291,16 @@ associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 		s->cb_alarm_raised = cb_alarm_raised;
 		s->cb_alarm_raised_data = ui;
 
-		s->alarm_high_thresold
-			= config_get_sensor_alarm_high_thresold(s->id);
-		s->alarm_low_thresold
-			= config_get_sensor_alarm_low_thresold(s->id);
+		s->alarm_high_threshold
+			= config_get_sensor_alarm_high_threshold(s->id);
+		s->alarm_low_threshold
+			= config_get_sensor_alarm_low_threshold(s->id);
 
 		if (is_temp_type(s->type) || is_fan_type(s->type)) {
 			s->alarm_enabled
 			    = config_get_sensor_alarm_enabled(s->id);
 		} else {
-			s->alarm_high_thresold = 0;
+			s->alarm_high_threshold = 0;
 			s->alarm_enabled = 0;
 		}
 

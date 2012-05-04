@@ -87,8 +87,8 @@ struct psensor {
 	/* Whether alarm alert is enabled for this sensor */
 	unsigned int alarm_enabled;
 
-	int alarm_high_thresold;
-	int alarm_low_thresold;
+	int alarm_high_threshold;
+	int alarm_low_threshold;
 
 	/* Whether an alarm is raised for this sensor */
 	unsigned int alarm_raised;

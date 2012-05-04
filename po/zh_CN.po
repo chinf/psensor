@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-04 17:38+0200\n"
+"POT-Creation-Date: 2012-05-04 17:47+0200\n"
 "PO-Revision-Date: 2012-05-01 12:09+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -158,11 +158,11 @@ msgid "Draw sensor curve"
 msgstr "绘制监视曲线"
 
 #: src/glade/sensor-edit.glade:366
-msgid "High thresold:"
+msgid "High threshold:"
 msgstr ""
 
 #: src/glade/sensor-edit.glade:381
-msgid "Low thresold:"
+msgid "Low threshold:"
 msgstr ""
 
 #: src/lib/amd.c:150

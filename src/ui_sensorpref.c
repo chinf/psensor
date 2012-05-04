@@ -32,8 +32,8 @@ struct sensor_pref {
 	int enabled;
 	struct color *color;
 	int alarm_enabled;
-	int alarm_high_thresold;
-	int alarm_low_thresold;
+	int alarm_high_threshold;
+	int alarm_low_threshold;
 };
 
 struct cb_data {
@@ -56,13 +56,13 @@ static struct sensor_pref *sensor_pref_new(struct psensor *s,
 	p->color = color_dup(s->color);
 
 	if (cfg->temperature_unit == CELCIUS) {
-		p->alarm_high_thresold = s->alarm_high_thresold;
-		p->alarm_low_thresold = s->alarm_low_thresold;
+		p->alarm_high_threshold = s->alarm_high_threshold;
+		p->alarm_low_threshold = s->alarm_low_threshold;
 	} else {
-		p->alarm_high_thresold
-			= celcius_to_fahrenheit(s->alarm_high_thresold);
-		p->alarm_low_thresold
-			= celcius_to_fahrenheit(s->alarm_low_thresold);
+		p->alarm_high_threshold
+			= celcius_to_fahrenheit(s->alarm_high_threshold);
+		p->alarm_low_threshold
+			= celcius_to_fahrenheit(s->alarm_low_threshold);
 	}
 
 	return p;
@@ -207,7 +207,7 @@ static void on_color_set(GtkColorButton *widget, gpointer data)
 	}
 }
 
-static void on_alarm_high_thresold_changed(GtkSpinButton *btn, gpointer data)
+static void on_alarm_high_threshold_changed(GtkSpinButton *btn, gpointer data)
 {
 	struct cb_data *cbdata;
 	struct sensor_pref *p;
@@ -217,10 +217,10 @@ static void on_alarm_high_thresold_changed(GtkSpinButton *btn, gpointer data)
 	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
 
 	if (p)
-		p->alarm_high_thresold = gtk_spin_button_get_value(btn);
+		p->alarm_high_threshold = gtk_spin_button_get_value(btn);
 }
 
-static void on_alarm_low_thresold_changed(GtkSpinButton *btn, gpointer data)
+static void on_alarm_low_threshold_changed(GtkSpinButton *btn, gpointer data)
 {
 	struct cb_data *cbdata;
 	struct sensor_pref *p;
@@ -230,7 +230,7 @@ static void on_alarm_low_thresold_changed(GtkSpinButton *btn, gpointer data)
 	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
 
 	if (p)
-		p->alarm_low_thresold = gtk_spin_button_get_value(btn);
+		p->alarm_low_threshold = gtk_spin_button_get_value(btn);
 }
 
 static void connect_signals(GtkBuilder *builder, struct cb_data *cbdata)
@@ -248,15 +248,15 @@ static void connect_signals(GtkBuilder *builder, struct cb_data *cbdata)
 			 "toggled", G_CALLBACK(on_alarm_toggled), cbdata);
 
 	g_signal_connect(gtk_builder_get_object(builder,
-						"sensor_alarm_high_thresold"),
+						"sensor_alarm_high_threshold"),
 			 "value-changed",
-			 G_CALLBACK(on_alarm_high_thresold_changed),
+			 G_CALLBACK(on_alarm_high_threshold_changed),
 			 cbdata);
 
 	g_signal_connect(gtk_builder_get_object(builder,
-						"sensor_alarm_low_thresold"),
+						"sensor_alarm_low_threshold"),
 			 "value-changed",
-			 G_CALLBACK(on_alarm_low_thresold_changed),
+			 G_CALLBACK(on_alarm_low_threshold_changed),
 			 cbdata);
 }
 
@@ -266,11 +266,11 @@ update_pref(struct psensor *s,
 	    struct config *cfg,
 	    GtkBuilder *builder)
 {
-	GtkLabel *w_id, *w_type, *w_high_thresold_unit, *w_low_thresold_unit;
+	GtkLabel *w_id, *w_type, *w_high_threshold_unit, *w_low_threshold_unit;
 	GtkEntry *w_name;
 	GtkToggleButton *w_draw, *w_alarm;
 	GtkColorButton *w_color;
-	GtkSpinButton *w_high_thresold, *w_low_thresold;
+	GtkSpinButton *w_high_threshold, *w_low_threshold;
 	GdkColor *color;
 	struct sensor_pref *p = sensor_pref_get(prefs, s);
 	int use_celcius;
@@ -295,44 +295,44 @@ update_pref(struct psensor *s,
 
 	w_alarm = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "sensor_alarm"));
-	w_high_thresold = GTK_SPIN_BUTTON(gtk_builder_get_object
+	w_high_threshold = GTK_SPIN_BUTTON(gtk_builder_get_object
 					  (builder,
-					   "sensor_alarm_high_thresold"));
-	w_low_thresold = GTK_SPIN_BUTTON(gtk_builder_get_object
+					   "sensor_alarm_high_threshold"));
+	w_low_threshold = GTK_SPIN_BUTTON(gtk_builder_get_object
 					 (builder,
-					  "sensor_alarm_low_thresold"));
+					  "sensor_alarm_low_threshold"));
 
-	w_high_thresold_unit = GTK_LABEL(gtk_builder_get_object
+	w_high_threshold_unit = GTK_LABEL(gtk_builder_get_object
 					 (builder,
-					  "sensor_alarm_high_thresold_unit"));
-	w_low_thresold_unit = GTK_LABEL(gtk_builder_get_object
+					  "sensor_alarm_high_threshold_unit"));
+	w_low_threshold_unit = GTK_LABEL(gtk_builder_get_object
 					(builder,
-					 "sensor_alarm_low_thresold_unit"));
+					 "sensor_alarm_low_threshold_unit"));
 
 	use_celcius = cfg->temperature_unit == CELCIUS ? 1 : 0;
-	gtk_label_set_text(w_high_thresold_unit,
+	gtk_label_set_text(w_high_threshold_unit,
 			   psensor_type_to_unit_str(s->type,
 						    use_celcius));
-	gtk_label_set_text(w_low_thresold_unit,
+	gtk_label_set_text(w_low_threshold_unit,
 			   psensor_type_to_unit_str(s->type,
 						    use_celcius));
 
 	if (is_temp_type(s->type) || is_fan_type(s->type)) {
 		gtk_toggle_button_set_active(w_alarm, p->alarm_enabled);
-		gtk_spin_button_set_value(w_high_thresold,
-					  p->alarm_high_thresold);
-		gtk_spin_button_set_value(w_low_thresold,
-					  p->alarm_low_thresold);
+		gtk_spin_button_set_value(w_high_threshold,
+					  p->alarm_high_threshold);
+		gtk_spin_button_set_value(w_low_threshold,
+					  p->alarm_low_threshold);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_alarm), TRUE);
-		gtk_widget_set_sensitive(GTK_WIDGET(w_high_thresold), TRUE);
-		gtk_widget_set_sensitive(GTK_WIDGET(w_low_thresold), TRUE);
+		gtk_widget_set_sensitive(GTK_WIDGET(w_high_threshold), TRUE);
+		gtk_widget_set_sensitive(GTK_WIDGET(w_low_threshold), TRUE);
 	} else {
 		gtk_toggle_button_set_active(w_alarm, 0);
-		gtk_spin_button_set_value(w_high_thresold, 0);
-		gtk_spin_button_set_value(w_low_thresold, 0);
+		gtk_spin_button_set_value(w_high_threshold, 0);
+		gtk_spin_button_set_value(w_low_threshold, 0);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_alarm), FALSE);
-		gtk_widget_set_sensitive(GTK_WIDGET(w_high_thresold), FALSE);
-		gtk_widget_set_sensitive(GTK_WIDGET(w_low_thresold), FALSE);
+		gtk_widget_set_sensitive(GTK_WIDGET(w_high_threshold), FALSE);
+		gtk_widget_set_sensitive(GTK_WIDGET(w_low_threshold), FALSE);
 	}
 }
 
@@ -407,19 +407,19 @@ apply_prefs(struct sensor_pref **prefs,
 
 		if (is_temp_type(s->type)
 		    && cfg->temperature_unit == FAHRENHEIT) {
-			s->alarm_high_thresold = fahrenheit_to_celcius
-				(p->alarm_high_thresold);
-			s->alarm_low_thresold = fahrenheit_to_celcius
-				(p->alarm_low_thresold);
+			s->alarm_high_threshold = fahrenheit_to_celcius
+				(p->alarm_high_threshold);
+			s->alarm_low_threshold = fahrenheit_to_celcius
+				(p->alarm_low_threshold);
 		} else {
-			s->alarm_high_thresold = p->alarm_high_thresold;
-			s->alarm_low_thresold = p->alarm_low_thresold;
+			s->alarm_high_threshold = p->alarm_high_threshold;
+			s->alarm_low_threshold = p->alarm_low_threshold;
 		}
 
-		config_set_sensor_alarm_high_thresold(s->id,
-						      s->alarm_high_thresold);
-		config_set_sensor_alarm_low_thresold(s->id,
-						     s->alarm_low_thresold);
+		config_set_sensor_alarm_high_threshold(s->id,
+						      s->alarm_high_threshold);
+		config_set_sensor_alarm_low_threshold(s->id,
+						     s->alarm_low_threshold);
 
 		if (s->alarm_enabled != p->alarm_enabled) {
 			s->alarm_enabled = p->alarm_enabled;
