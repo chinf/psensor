@@ -158,12 +158,10 @@ msgid "Draw sensor curve"
 msgstr "Dessiner la courbe de la sonde"
 
 #: src/glade/sensor-edit.glade:366
-#, fuzzy
 msgid "High threshold:"
 msgstr "Seuil supérieur:"
 
 #: src/glade/sensor-edit.glade:381
-#, fuzzy
 msgid "Low threshold:"
 msgstr "Seuil inférieur:"
 
@@ -569,24 +567,3 @@ msgstr "Alerte ventilateur"
 msgid "Sensor Name"
 msgstr "Nom De La Sonde"
 
-#~ msgid "_Sensor Preferences"
-#~ msgstr "Configuration Des Sondes"
-
-#~ msgid "hddtemp: wrong string: %s"
-#~ msgstr "hddtemp: mauvaise chaîne de caractères: %s"
-
-#, fuzzy
-#~ msgid "hddtemp: wrong hdd string: %s."
-#~ msgstr "ERREUR: mauvaise chaine hdd: %s"
-
-#~ msgid "ERROR: wrong hdd string: %s\n"
-#~ msgstr "ERREUR: mauvaise chaine hdd: %s\n"
-
-#~ msgid "ERROR: create_sensor, wrong feature type\n"
-#~ msgstr "ERREUR: create_sensor, mauvais type de fonctionnalité\n"
-
-#~ msgid "ERROR: ADL Initialization Error!\n"
-#~ msgstr "ERREUR: échec de l'initialisation ADL\n"
-
-#~ msgid "ERROR: Cannot retrieve NVidia information\n"
-#~ msgstr "ERREUR: échec de la récupération des informations NVidia\n"
