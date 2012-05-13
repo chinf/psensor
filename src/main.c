@@ -97,13 +97,14 @@ static void print_help()
 
 	puts("");
 
-	puts(_("  -u, --url=URL       "
-	       "the URL of the psensor-server, example: http://hostname:3131"));
-	puts(_("  --use-libatasmart   "
-	       "use atasmart library for disk monitoring "
-	       "instead of hddtemp daemon"));
-	puts(_("  -n, --new-instance  "
-	       "force the creation of a new Psensor application"));
+	puts(_(
+"  -u, --url=URL       the URL of the psensor-server,\n"
+"                      example: http://hostname:3131"));
+	puts(_(
+"  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
+"                      hddtemp daemon"));
+	puts(_(
+"  -n, --new-instance  force the creation of a new Psensor application"));
 	puts("");
 
 	puts(_("  -d, --debug=LEVEL   "
@@ -454,8 +455,8 @@ static struct psensor **create_sensors_list(const char *url,
 		rsensor_init();
 		sensors = get_remote_sensors(url, 600);
 #else
-		log_err(_("Psensor has not been compiled"
-			  " with remote sensor support."));
+		log_err(_("Psensor has not been compiled with remote "
+			  "sensor support."));
 		exit(EXIT_FAILURE);
 #endif
 	} else {
