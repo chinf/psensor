@@ -120,8 +120,8 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 		fault_subfeature = SENSORS_SUBFEATURE_FAN_FAULT;
 
 	} else {
-		log_err(_("lmsensor: lmsensor_psensor_create failure:"
-			  " wrong feature type."));
+		log_err(_(
+"lmsensor: lmsensor_psensor_create failure: wrong feature type."));
 		return NULL;
 	}
 
