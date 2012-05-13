@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-04 17:47+0200\n"
+"POT-Creation-Date: 2012-05-13 11:25+0200\n"
 "PO-Revision-Date: 2012-04-28 16:28+0000\n"
 "Last-Translator: <jeanfi@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -204,7 +204,7 @@ msgstr ""
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
 
-#: src/lib/lmsensor.c:123
+#: src/lib/lmsensor.c:124
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr ""
 
@@ -248,7 +248,7 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:88 src/server/server.c:87
+#: src/main.c:88 src/server/server.c:90
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr ""
@@ -269,50 +269,50 @@ msgid ""
 "  -v, --version       display version information and exit"
 msgstr ""
 
-#: src/main.c:100
+#: src/main.c:101
 msgid ""
-"  -u, --url=URL       the URL of the psensor-server, example: http://"
-"hostname:3131"
+"  -u, --url=URL       the URL of the psensor-server,\n"
+"                      example: http://hostname:3131"
 msgstr ""
 
-#: src/main.c:102
+#: src/main.c:104
 msgid ""
-"  --use-libatasmart   use atasmart library for disk monitoring instead of "
-"hddtemp daemon"
+"  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
+"                      hddtemp daemon"
 msgstr ""
 
-#: src/main.c:105
+#: src/main.c:107
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 
-#: src/main.c:109 src/server/server.c:102
+#: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:114 src/server/server.c:108
+#: src/main.c:115 src/server/server.c:110
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:116 src/server/server.c:110
+#: src/main.c:117 src/server/server.c:112
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:457
+#: src/main.c:458
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:520
+#: src/main.c:521
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:532 src/server/server.c:370
+#: src/main.c:533 src/server/server.c:371
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:545
+#: src/main.c:546
 msgid "A Psensor instance already exists."
 msgstr ""
 
@@ -331,12 +331,16 @@ msgstr ""
 msgid "Invalid JSON: %s"
 msgstr ""
 
-#: src/server/server.c:55
+#: src/server/server.c:52
+msgid "<html><body><p>Server stop requested</p></body></html>"
+msgstr ""
+
+#: src/server/server.c:58
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 
-#: src/server/server.c:77
+#: src/server/server.c:80
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -346,128 +350,128 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/server/server.c:89
+#: src/server/server.c:92
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 
-#: src/server/server.c:94
+#: src/server/server.c:97
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
 
-#: src/server/server.c:98
+#: src/server/server.c:101
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
 
-#: src/server/server.c:104
-msgid "  -l, --log-file=PATH set the log file to PATH"
+#: src/server/server.c:105
+msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/server/server.c:179
-msgid "<html><body><p>Server stop requested</p></body></html>"
+#: src/server/server.c:107
+msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr ""
 
-#: src/server/server.c:293
+#: src/server/server.c:294
 #, c-format
 msgid "HTTP Request: %s"
 msgstr ""
 
-#: src/server/server.c:350
+#: src/server/server.c:351
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr ""
 
-#: src/server/server.c:386
+#: src/server/server.c:387
 msgid "No sensors detected."
 msgstr ""
 
-#: src/server/server.c:393
+#: src/server/server.c:394
 msgid "Failed to create Web server."
-msgstr ""
-
-#: src/server/server.c:397
-#, c-format
-msgid "Web server started on port: %d"
 msgstr ""
 
 #: src/server/server.c:398
 #, c-format
-msgid "WWW directory: %s"
+msgid "Web server started on port: %d"
 msgstr ""
 
 #: src/server/server.c:399
 #, c-format
+msgid "WWW directory: %s"
+msgstr ""
+
+#: src/server/server.c:400
+#, c-format
 msgid "URL: http://localhost:%d"
 msgstr ""
 
-#: src/ui.c:80
+#: src/ui.c:81
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
 
-#: src/ui.c:83
+#: src/ui.c:84
 msgid ""
 "Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
 msgstr ""
 
-#: src/ui.c:86
+#: src/ui.c:87
 msgid "About Psensor"
 msgstr ""
 
-#: src/ui.c:89
+#: src/ui.c:90
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:144 src/ui_appindicator.c:111
+#: src/ui.c:145 src/ui_appindicator.c:111
 msgid "_Preferences"
 msgstr ""
 
-#: src/ui.c:145 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+#: src/ui.c:146 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr ""
 
-#: src/ui.c:149 src/ui_appindicator.c:116
+#: src/ui.c:150 src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
 msgstr ""
 
-#: src/ui.c:150
+#: src/ui.c:151
 msgid "Sensor Preferences"
 msgstr ""
 
-#: src/ui.c:154
+#: src/ui.c:155
 msgid "_Quit"
 msgstr ""
 
-#: src/ui.c:154
+#: src/ui.c:155
 msgid "Quit"
 msgstr ""
 
-#: src/ui.c:157
+#: src/ui.c:158
 msgid "_Help"
 msgstr ""
 
-#: src/ui.c:160 src/ui_appindicator.c:122
+#: src/ui.c:161 src/ui_appindicator.c:122
 msgid "_About"
 msgstr ""
 
-#: src/ui.c:161 src/ui_appindicator.c:124
+#: src/ui.c:162 src/ui_appindicator.c:124
 msgid "About"
 msgstr ""
 
-#: src/ui.c:183 src/ui_appindicator.c:187 src/ui_graph.c:99
+#: src/ui.c:184 src/ui_appindicator.c:187 src/ui_graph.c:99
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:235
+#: src/ui.c:236
 msgid "Psensor - Temperature Monitor"
 msgstr ""
 
-#: src/ui.c:243
+#: src/ui.c:244
 msgid "Failed to load Psensor icon."
 msgstr ""
 
