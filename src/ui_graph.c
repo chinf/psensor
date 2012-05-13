@@ -131,7 +131,7 @@ on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 	return FALSE;
 }
 
-GtkWidget *ui_graph_create(struct ui_psensor * ui)
+GtkWidget *ui_graph_create(struct ui_psensor *ui)
 {
 	GtkWidget *w_graph;
 
