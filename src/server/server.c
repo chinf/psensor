@@ -48,6 +48,9 @@
 
 static const char *DEFAULT_LOG_FILE = "/var/log/psensor-server.log";
 
+#define HTML_STOP_REQUESTED \
+(_("<html><body><p>Server stop requested</p></body></html>"))
+
 static const char *program_name;
 
 #define DEFAULT_PORT 3131
@@ -86,8 +89,8 @@ void print_help()
 {
 	printf(_("Usage: %s [OPTION]...\n"), program_name);
 
-	puts(_("psensor-server is an HTTP server "
-	       "for monitoring hardware sensors remotely."));
+	puts(_("psensor-server is an HTTP server for monitoring hardware "
+	       "sensors remotely."));
 
 	puts("");
 	puts("Options:");
@@ -99,10 +102,9 @@ void print_help()
 	       "  -w,--wdir=DIR		directory containing webserver pages"));
 
 	puts("");
-	puts(_("  -d, --debug=LEVEL   "
+	puts(_("  -d, --debug=LEVEL     "
 	       "set the debug level, integer between 0 and 3"));
-	puts(_("  -l, --log-file=PATH "
-	       "set the log file to PATH"));
+	puts(_("  -l, --log-file=PATH   set the log file to PATH"));
 
 	puts("");
 	printf(_("Report bugs to: %s\n"), PACKAGE_BUGREPORT);
@@ -176,8 +178,7 @@ create_response_api(const char *nurl,
 	} else if (!strcmp(nurl, URL_API_1_0_SERVER_STOP)) {
 
 		server_stop_requested = 1;
-		page = strdup(_("<html><body><p>"
-				"Server stop requested</p></body></html>"));
+		page = strdup(HTML_STOP_REQUESTED);
 	}
 
 	if (page) {
