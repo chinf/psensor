@@ -75,19 +75,20 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 
 void ui_show_about_dialog()
 {
-	gtk_show_about_dialog(NULL,
-			      "comments",
-			      _("Psensor is a GTK+ application for monitoring "
-				"hardware sensors"),
-			      "copyright",
-			      _("Copyright(c) 2010-2012\njeanfi@gmail.com"),
-			      "logo-icon-name", "psensor",
-			      "program-name", "Psensor",
-			      "title", _("About Psensor"),
-			      "version", VERSION,
-			      "website", PACKAGE_URL,
-			      "website-label", _("Psensor Homepage"),
-			      NULL);
+	gtk_show_about_dialog
+		(NULL,
+		 "comments",
+		 _("Psensor is a GTK+ application for monitoring hardware "
+		   "sensors"),
+		 "copyright",
+		 _("Copyright(c) 2010-2012\njeanfi@gmail.com"),
+		 "logo-icon-name", "psensor",
+		 "program-name", "Psensor",
+		 "title", _("About Psensor"),
+		 "version", VERSION,
+		 "website", PACKAGE_URL,
+		 "website-label", _("Psensor Homepage"),
+		 NULL);
 }
 
 static void cb_about(GtkMenuItem *mi, gpointer data)
