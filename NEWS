@@ -39,8 +39,8 @@
    sensor).
 ** full french translation.
 ** merged some chinese translation provided by LP.
-** added translation files for Brazilian Portuguese, Italian, and Slovenian.
-** partial translations for Russian, Serbian, Ukrainian.
+** added translation files for Brazilian Portuguese, and Italian.
+** partial translations for Russian, Serbian, Ukrainian, Slovenian and German.
 ** psensor: fixed i18n support for the application indicator menu.
 ** psensor: fixed i18n support for the application menu.
 ** psensor: added low thresold support for alerts.

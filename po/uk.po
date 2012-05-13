@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-03 19:00+0000\n"
-"X-Generator: Launchpad (build 15190)\n"
+"X-Launchpad-Export-Date: 2012-05-13 09:32+0000\n"
+"X-Generator: Launchpad (build 15225)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -64,7 +64,7 @@ msgstr "Передній план:"
 
 #: src/glade/psensor-pref.glade:310
 msgid "Background:"
-msgstr ""
+msgstr "Тло:"
 
 #: src/glade/psensor-pref.glade:346
 msgid "Background opacity:"
@@ -80,7 +80,7 @@ msgstr "<i>Макс.</i>"
 
 #: src/glade/psensor-pref.glade:422
 msgid "Colors"
-msgstr ""
+msgstr "Кольори"
 
 #: src/glade/psensor-pref.glade:440
 msgid "Monitoring duration:"
@@ -88,11 +88,11 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:478
 msgid "minute(s)"
-msgstr ""
+msgstr "хв."
 
 #: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
 msgid "second(s)"
-msgstr ""
+msgstr "сек."
 
 #: src/glade/psensor-pref.glade:531
 msgid "Update interval:"
@@ -100,11 +100,11 @@ msgstr "Інтервал оновлення:"
 
 #: src/glade/psensor-pref.glade:549
 msgid "Measures"
-msgstr ""
+msgstr "Заміри"
 
 #: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
 msgid "Graph"
-msgstr ""
+msgstr "Діаграма"
 
 #: src/glade/psensor-pref.glade:609
 msgid "Measure update interval:"
@@ -135,11 +135,11 @@ msgstr "Тип:"
 
 #: src/glade/sensor-edit.glade:182
 msgid "Id:"
-msgstr ""
+msgstr "Ідентифікатор:"
 
 #: src/glade/sensor-edit.glade:215
 msgid "Color:"
-msgstr ""
+msgstr "Колір:"
 
 #: src/glade/sensor-edit.glade:229
 msgid "Alarm"
@@ -151,7 +151,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:265
 msgid "Sensor Information"
-msgstr ""
+msgstr "Інформація датчика"
 
 #: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
@@ -216,7 +216,7 @@ msgstr ""
 #: src/lib/log.c:37
 #, c-format
 msgid "Cannot open log file: %s"
-msgstr ""
+msgstr "Не вдалося відкрити лог-файл: %s"
 
 #: src/lib/nvidia.c:54
 msgid "Failed to retrieve NVIDIA temperature."
@@ -232,7 +232,7 @@ msgstr ""
 
 #: src/lib/psensor.c:230 src/lib/psensor.c:477
 msgid "RPM"
-msgstr ""
+msgstr "об/хв"
 
 #: src/lib/psensor.c:232 src/lib/psensor.c:480
 msgid "%"
@@ -268,6 +268,8 @@ msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
+"  -h, --help          показати цю довідку і вийти\n"
+"  -v, --version       показати версію і вийти"
 
 #: src/main.c:101
 #, fuzzy
@@ -282,6 +284,8 @@ msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
 msgstr ""
+"  --use-libatasmart   використовувати бібліотеку atasmart для моніторингу\n"
+"дисків замість демона hddtemp"
 
 #: src/main.c:107
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
@@ -289,7 +293,7 @@ msgstr ""
 
 #: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
-msgstr ""
+msgstr "  -d, --debug=РІВЕНЬ   встановити рівень налагодження, ціле між 0 та 3"
 
 #: src/main.c:115 src/server/server.c:110
 #, c-format
@@ -355,7 +359,6 @@ msgid ""
 msgstr ""
 
 #: src/server/server.c:92
-#, fuzzy
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
@@ -412,7 +415,7 @@ msgstr ""
 #: src/server/server.c:399
 #, c-format
 msgid "WWW directory: %s"
-msgstr ""
+msgstr "WWW-директорія: %s"
 
 #: src/server/server.c:400
 #, c-format
@@ -431,7 +434,7 @@ msgstr ""
 
 #: src/ui.c:87
 msgid "About Psensor"
-msgstr ""
+msgstr "Про Psensor"
 
 #: src/ui.c:90
 msgid "Psensor Homepage"
@@ -516,7 +519,7 @@ msgstr "Увімкнен"
 
 #: src/ui_appindicator.c:106
 msgid "_Show"
-msgstr ""
+msgstr "Пок_азати"
 
 #: src/ui_appindicator.c:107
 msgid "Show"
