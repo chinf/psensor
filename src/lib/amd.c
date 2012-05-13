@@ -65,7 +65,7 @@ static void __stdcall *adl_main_memory_alloc(int isize)
 	return lpbuffer;
 }
 
-static void *getprocaddress(void *plibrary, const char * name)
+static void *getprocaddress(void *plibrary, const char *name)
 {
 	return dlsym(plibrary, name);
 }
