@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2012-05-13 11:25+0200\n"
-"PO-Revision-Date: 2012-05-01 12:09+0000\n"
+"PO-Revision-Date: 2012-06-14 07:28+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-13 09:32+0000\n"
-"X-Generator: Launchpad (build 15225)\n"
+"X-Launchpad-Export-Date: 2012-07-02 08:28+0000\n"
+"X-Generator: Launchpad (build 15520)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -52,7 +52,7 @@ msgstr "恢复窗口位置和大小"
 
 #: src/glade/psensor-pref.glade:221
 msgid "Temperature unit:"
-msgstr ""
+msgstr "温度单位："
 
 #: src/glade/psensor-pref.glade:255
 msgid "Interface"
@@ -60,7 +60,7 @@ msgstr "界面"
 
 #: src/glade/psensor-pref.glade:295
 msgid "Foreground:"
-msgstr "坐标栏:"
+msgstr "前景："
 
 #: src/glade/psensor-pref.glade:310
 msgid "Background:"
@@ -68,7 +68,7 @@ msgstr "背景:"
 
 #: src/glade/psensor-pref.glade:346
 msgid "Background opacity:"
-msgstr "背景亮度:"
+msgstr "背景透明："
 
 #: src/glade/psensor-pref.glade:369
 msgid "<i>Min</i>"
@@ -80,7 +80,7 @@ msgstr "<i>最大值</i>"
 
 #: src/glade/psensor-pref.glade:422
 msgid "Colors"
-msgstr ""
+msgstr "颜色"
 
 #: src/glade/psensor-pref.glade:440
 msgid "Monitoring duration:"
@@ -100,7 +100,7 @@ msgstr "更新间隔："
 
 #: src/glade/psensor-pref.glade:549
 msgid "Measures"
-msgstr ""
+msgstr "测量"
 
 #: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
 msgid "Graph"
@@ -112,18 +112,18 @@ msgstr "测量更新间隔："
 
 #: src/glade/psensor-pref.glade:666
 msgid "Sensors"
-msgstr ""
+msgstr "传感器"
 
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
-msgstr "监视设备选项"
+msgstr "编辑传感器首选项"
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
 #: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
 #: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
 #: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
-msgstr "N/A"
+msgstr "不可用"
 
 #: src/glade/sensor-edit.glade:119
 msgid "Name:"
@@ -143,7 +143,7 @@ msgstr "颜色："
 
 #: src/glade/sensor-edit.glade:229
 msgid "Alarm"
-msgstr "警告信息"
+msgstr "警告"
 
 #: src/glade/sensor-edit.glade:244
 msgid "Activate desktop notifications"
@@ -151,7 +151,7 @@ msgstr "激活桌面气泡提示"
 
 #: src/glade/sensor-edit.glade:265
 msgid "Sensor Information"
-msgstr "设备信息"
+msgstr "传感器信息"
 
 #: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
@@ -159,27 +159,27 @@ msgstr "绘制监视曲线"
 
 #: src/glade/sensor-edit.glade:366
 msgid "High threshold:"
-msgstr ""
+msgstr "高阈值："
 
 #: src/glade/sensor-edit.glade:381
 msgid "Low threshold:"
-msgstr ""
+msgstr "低阈值："
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
-msgstr "未找到 ADL 库"
+msgstr "AMD：未找到 ADL 库。"
 
 #: src/lib/amd.c:174
 msgid "AMD: missing ADL's API."
-msgstr "ADL 的 API 丢失"
+msgstr "AMD：ADL 的 API 丢失。"
 
 #: src/lib/amd.c:182
 msgid "AMD: failed to initialize ADL."
-msgstr "ADL 初始化出错"
+msgstr "AMD：ADL 初始化出错。"
 
 #: src/lib/amd.c:189
 msgid "AMD: cannot get the number of adapters."
-msgstr "无法获取适配器数目"
+msgstr "AMD：无法获取适配器数目。"
 
 #: src/lib/hdd_atasmart.c:144
 #, c-format
@@ -187,33 +187,31 @@ msgid "atasmart: sk_disk_open() failure: %s."
 msgstr ""
 
 #: src/lib/hdd_hddtemp.c:59
-#, fuzzy
 msgid "hddtemp: failed to open socket."
-msgstr "错误：硬盘读取时，无法打开 socket\n"
+msgstr "硬盘温度：无法打开套接字。"
 
 #: src/lib/hdd_hddtemp.c:72
-#, fuzzy
 msgid "hddtemp: failed to open connection."
-msgstr "错误：硬盘读取时，无法打开连接\n"
+msgstr "硬盘温度：无法打开连接。"
 
 #: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
-#, fuzzy, c-format
+#, c-format
 msgid "hddtemp: wrong string: %s."
-msgstr "错误：不正确的硬盘字符串：%s"
+msgstr "硬盘温度：错误字符：%s。"
 
 #: src/lib/lmsensor.c:42
-#, fuzzy, c-format
+#, c-format
 msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr "错误：无法获取子功能的值：%s: %s\n"
+msgstr "lmsensor：无法获取子功能%s的值：%s。"
 
 #: src/lib/lmsensor.c:124
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr ""
+msgstr "lmsensor：lmsensor_psensor_create 失败：错误的功能类型。"
 
 #: src/lib/lmsensor.c:206
-#, fuzzy, c-format
+#, c-format
 msgid "lmsensor: initialization failure: %s."
-msgstr "错误：lm-sensors 初始化失败：%s\n"
+msgstr "lmsensor：初始化失败：%s。"
 
 #: src/lib/log.c:37
 #, c-format
@@ -221,19 +219,16 @@ msgid "Cannot open log file: %s"
 msgstr "无法打开日志文件：%s"
 
 #: src/lib/nvidia.c:54
-#, fuzzy
 msgid "Failed to retrieve NVIDIA temperature."
-msgstr "错误：无法获取 nvidia 温度\n"
+msgstr "无法获取 NVIDIA 温度。"
 
 #: src/lib/nvidia.c:92
-#, fuzzy
 msgid "Cannot open connection to X11 server."
-msgstr "错误：无法打开到 X Server 的连接\n"
+msgstr "无法打开到 X11 服务器的连接。"
 
 #: src/lib/nvidia.c:100
-#, fuzzy
 msgid "Failed to retrieve NVIDIA information."
-msgstr "错误：无法获取 nvidia 温度\n"
+msgstr "无法获取 NVIDIA 信息。"
 
 #: src/lib/psensor.c:230 src/lib/psensor.c:477
 msgid "RPM"
@@ -264,11 +259,10 @@ msgid "Usage: %s [OPTION]...\n"
 msgstr "用法：%s [选项]...\n"
 
 #: src/main.c:90
-#, fuzzy
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
-msgstr "psensor 是一个 GTK 程序，用来监视硬件传感器，包括温度和风扇转速。"
+msgstr "Psensor 是一款 GTK+ 应用程序，可监测硬件传感器，包括温度与风扇转速。"
 
 #: src/main.c:94
 msgid "Options:"
@@ -283,21 +277,24 @@ msgstr ""
 "  -v, --version 显示版本信息并退出"
 
 #: src/main.c:101
-#, fuzzy
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
-msgstr "  -u, --url=URL psensor服务器的 URL ，比如：http://hostname:3131"
+msgstr ""
+"  -u, --url=URL       psensor 服务器 URL\n"
+"                      例如：http://hostname:3131"
 
 #: src/main.c:104
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
 msgstr ""
+"  --use-libatasmart   使用 atasmart 库来监测硬盘，而不是\n"
+"                      hddtemp 进程"
 
 #: src/main.c:107
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
-msgstr ""
+msgstr "  -n, --new-instance  强制创建一个新的 Psensor 例程"
 
 #: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
@@ -306,7 +303,7 @@ msgstr "  -d，--debug=LEVEL 设置调试等级，等级为 0 到 3 之间的整
 #: src/main.c:115 src/server/server.c:110
 #, c-format
 msgid "Report bugs to: %s\n"
-msgstr "将程序缺陷报告给: %s\n"
+msgstr "报告问题至：%s\n"
 
 #: src/main.c:117 src/server/server.c:112
 #, c-format
@@ -314,9 +311,8 @@ msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
 
 #: src/main.c:458
-#, fuzzy
 msgid "Psensor has not been compiled with remote sensor support."
-msgstr "错误：无法支持编译远程监测器。\n"
+msgstr "Psensor 不支持远程传感器。"
 
 #: src/main.c:521
 msgid "Enables debug mode."
@@ -329,7 +325,7 @@ msgstr "试用‘%s --help’来获得更多信息。\n"
 
 #: src/main.c:546
 msgid "A Psensor instance already exists."
-msgstr ""
+msgstr "已存在一个 Psensor 例程。"
 
 #: src/rsensor.c:107
 #, c-format
@@ -371,7 +367,6 @@ msgstr ""
 "There is NO WARRANTY, to the extent permitted by law。\n"
 
 #: src/server/server.c:92
-#, fuzzy
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
@@ -393,13 +388,12 @@ msgstr ""
 "  -w,--wdir=DIR\t\t 包括网络服务器页面的目录"
 
 #: src/server/server.c:105
-#, fuzzy
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
-msgstr "  -d，--debug=LEVEL 设置调试等级，等级为 0 到 3 之间的整数"
+msgstr "  -d, --debug=LEVEL     设置调试级别，0～3 之间的整数"
 
 #: src/server/server.c:107
 msgid "  -l, --log-file=PATH   set the log file to PATH"
-msgstr ""
+msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
 
 #: src/server/server.c:294
 #, c-format
@@ -409,17 +403,15 @@ msgstr "HTTP 请求：%s"
 #: src/server/server.c:351
 #, c-format
 msgid "Enables debug mode: %d"
-msgstr ""
+msgstr "启用调试模式：%d"
 
 #: src/server/server.c:387
-#, fuzzy
 msgid "No sensors detected."
-msgstr "错误：未检测到传感器\n"
+msgstr "未检测到传感器。"
 
 #: src/server/server.c:394
-#, fuzzy
 msgid "Failed to create Web server."
-msgstr "错误：无法创建网络服务器\n"
+msgstr "无法创建网络服务器。"
 
 #: src/server/server.c:398
 #, c-format
@@ -462,11 +454,11 @@ msgstr "首选项(_P)"
 
 #: src/ui.c:146 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
-msgstr "选项"
+msgstr "首选项"
 
 #: src/ui.c:150 src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
-msgstr ""
+msgstr "传感器首选项(_E)"
 
 #: src/ui.c:151
 msgid "Sensor Preferences"
@@ -482,7 +474,7 @@ msgstr "退出"
 
 #: src/ui.c:158
 msgid "_Help"
-msgstr ""
+msgstr "帮助(_H)"
 
 #: src/ui.c:161 src/ui_appindicator.c:122
 msgid "_About"
@@ -502,9 +494,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - 温度监视器"
 
 #: src/ui.c:244
-#, fuzzy
 msgid "Failed to load Psensor icon."
-msgstr "错误：无法加载 psensor 图标。\n"
+msgstr "无法加载 Psensor 图标。"
 
 #: src/ui_sensorlist.c:235
 msgid "Select foreground color"
@@ -536,20 +527,19 @@ msgstr "激活"
 
 #: src/ui_appindicator.c:106
 msgid "_Show"
-msgstr ""
+msgstr "显示(_S)"
 
 #: src/ui_appindicator.c:107
 msgid "Show"
-msgstr "显示主窗口"
+msgstr "显示"
 
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
-msgstr ""
+msgstr "传感器首选项"
 
 #: src/ui_notify.c:48
-#, fuzzy
 msgid "gettimeofday failed."
-msgstr "获取时间失败"
+msgstr "获取时间失败。"
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
@@ -557,7 +547,7 @@ msgstr "温度报警"
 
 #: src/ui_notify.c:79
 msgid "Fan alert"
-msgstr ""
+msgstr "风扇警报"
 
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2012-05-13 11:25+0200\n"
-"PO-Revision-Date: 2012-05-03 17:44+0000\n"
+"PO-Revision-Date: 2012-05-13 18:15+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-13 09:32+0000\n"
-"X-Generator: Launchpad (build 15225)\n"
+"X-Launchpad-Export-Date: 2012-07-02 08:28+0000\n"
+"X-Generator: Launchpad (build 15520)\n"
+"Language: uk\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -293,7 +293,8 @@ msgstr ""
 
 #: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
-msgstr "  -d, --debug=РІВЕНЬ   встановити рівень налагодження, ціле між 0 та 3"
+msgstr ""
+"  -d, --debug=РІВЕНЬ   встановити рівень налагодження, ціле між 0 та 3"
 
 #: src/main.c:115 src/server/server.c:110
 #, c-format
@@ -544,6 +545,3 @@ msgstr ""
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"
 msgstr "Назва датчика"
-
-#~ msgid "_Sensor Preferences"
-#~ msgstr "Налаштування _датчиків"

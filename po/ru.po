@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2012-05-13 11:25+0200\n"
-"PO-Revision-Date: 2012-05-02 17:33+0000\n"
-"Last-Translator: Ilya Volchanetskiy <Unknown>\n"
+"PO-Revision-Date: 2012-05-13 18:15+0000\n"
+"Last-Translator: jeanfi <Unknown>\n"
 "Language-Team: Russian\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-13 09:32+0000\n"
-"X-Generator: Launchpad (build 15225)\n"
+"X-Launchpad-Export-Date: 2012-07-02 08:28+0000\n"
+"X-Generator: Launchpad (build 15520)\n"
+"Language: ru\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -28,11 +28,11 @@ msgstr "Положение таблицы датчиков:"
 
 #: src/glade/psensor-pref.glade:85
 msgid "Hide window decoration"
-msgstr ""
+msgstr "Спрятать рамку окна"
 
 #: src/glade/psensor-pref.glade:104
 msgid "Keep window below"
-msgstr ""
+msgstr "Держать окно позади"
 
 #: src/glade/psensor-pref.glade:142
 msgid "Enable menu"
@@ -84,7 +84,7 @@ msgstr "Цвета"
 
 #: src/glade/psensor-pref.glade:440
 msgid "Monitoring duration:"
-msgstr ""
+msgstr "Время мониторинга:"
 
 #: src/glade/psensor-pref.glade:478
 msgid "minute(s)"
@@ -108,7 +108,7 @@ msgstr "Диаграмма"
 
 #: src/glade/psensor-pref.glade:609
 msgid "Measure update interval:"
-msgstr ""
+msgstr "Интервал обновления замеров"
 
 #: src/glade/psensor-pref.glade:666
 msgid "Sensors"
@@ -147,7 +147,7 @@ msgstr "Уведомление"
 
 #: src/glade/sensor-edit.glade:244
 msgid "Activate desktop notifications"
-msgstr ""
+msgstr "Включить уведомления"
 
 #: src/glade/sensor-edit.glade:265
 msgid "Sensor Information"
@@ -155,7 +155,7 @@ msgstr "Информация датчика"
 
 #: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
-msgstr ""
+msgstr "Рисовать график датчика"
 
 #: src/glade/sensor-edit.glade:366
 msgid "High threshold:"
@@ -216,7 +216,7 @@ msgstr "lmsensor: ошибка инициализации: %s."
 #: src/lib/log.c:37
 #, c-format
 msgid "Cannot open log file: %s"
-msgstr ""
+msgstr "Ошибка открытия файла журнала: %s"
 
 #: src/lib/nvidia.c:54
 msgid "Failed to retrieve NVIDIA temperature."
@@ -254,7 +254,6 @@ msgid "Usage: %s [OPTION]...\n"
 msgstr "Использование: %s [КЛЮЧ]...\n"
 
 #: src/main.c:90
-#, fuzzy
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -295,7 +294,8 @@ msgstr ""
 
 #: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
-msgstr "  -d, --debug=УРОВЕНЬ   установить уровень отладки, целое между 0 и 3"
+msgstr ""
+"  -d, --debug=УРОВЕНЬ   установить уровень отладки, целое между 0 и 3"
 
 #: src/main.c:115 src/server/server.c:110
 #, c-format
@@ -313,7 +313,7 @@ msgstr ""
 
 #: src/main.c:521
 msgid "Enables debug mode."
-msgstr ""
+msgstr "Включает режим отладки."
 
 #: src/main.c:533 src/server/server.c:371
 #, c-format
@@ -347,8 +347,8 @@ msgstr "<html><body><p>Запрошена остановка сервера</p><
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
-"<html><body><p>Страница не найдена - Перейти к <a href='/'>Главной странице</"
-"a></p></body>"
+"<html><body><p>Страница не найдена - Перейти к <a href='/'>Главной "
+"странице</a></p></body>"
 
 #: src/server/server.c:80
 #, c-format
@@ -361,7 +361,6 @@ msgid ""
 msgstr ""
 
 #: src/server/server.c:92
-#, fuzzy
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
@@ -413,12 +412,12 @@ msgstr "Ошибка создания веб-сервера."
 #: src/server/server.c:398
 #, c-format
 msgid "Web server started on port: %d"
-msgstr ""
+msgstr "Веб-сервер запущен на порту: %d"
 
 #: src/server/server.c:399
 #, c-format
 msgid "WWW directory: %s"
-msgstr ""
+msgstr "WWW-каталог: %s"
 
 #: src/server/server.c:400
 #, c-format
@@ -457,7 +456,7 @@ msgstr ""
 
 #: src/ui.c:151
 msgid "Sensor Preferences"
-msgstr ""
+msgstr "Параметры датчиков"
 
 #: src/ui.c:155
 msgid "_Quit"
@@ -486,7 +485,7 @@ msgstr "ошибка создания меню: %s"
 
 #: src/ui.c:236
 msgid "Psensor - Temperature Monitor"
-msgstr ""
+msgstr "Psensor - монитор температуры"
 
 #: src/ui.c:244
 msgid "Failed to load Psensor icon."
@@ -538,7 +537,7 @@ msgstr "ошибка gettimeofday."
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
-msgstr ""
+msgstr "Уведомление температуры"
 
 #: src/ui_notify.c:79
 msgid "Fan alert"
@@ -548,11 +547,3 @@ msgstr ""
 msgid "Sensor Name"
 msgstr "Название датчика"
 
-#, fuzzy
-#~ msgid ""
-#~ "  -d, --debug=LEVEL     set the debug level, integer between\n"
-#~ "                        0 and 3"
-#~ msgstr "  -d, --debug=LEVEL   установить уровень отладки, целое между 0 и 3"
-
-#~ msgid "_Sensor Preferences"
-#~ msgstr "Параметры _датчиков"
