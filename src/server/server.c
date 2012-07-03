@@ -329,7 +329,7 @@ int main(int argc, char *argv[])
 	log_file = NULL;
 
 	while ((optc = getopt_long(argc, argv,
-				   "vhp:w:d:", long_options, NULL)) != -1) {
+				   "vhp:w:d:l:", long_options, NULL)) != -1) {
 		switch (optc) {
 		case 'w':
 			if (optarg)
