@@ -51,6 +51,7 @@
 ** added Serbian translation file.
 ** merged some chinese translation from LP.
 ** fixed some french translation typo.
+** added degree sign for celcius (Closes LP: #1021900).
 
 * v0.6.2.17
 
