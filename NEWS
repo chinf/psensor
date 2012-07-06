@@ -32,7 +32,8 @@
 ** many code quality improvements.
 ** psensor: added --new-instance option to allow the creation of
    multiple instances of Psensor.
-** psensor: added the degree sign before the temperature symbols.
+** psensor: added the degree sign before the temperature symbols
+            (Closes LP: #1021900).
 ** psensor: alarm limit edition using the temperature unit set in the
    global pref.
 ** psensor: improved notification (added psensor icon and value of the
