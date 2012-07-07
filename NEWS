@@ -38,10 +38,11 @@
    global pref.
 ** psensor: improved notification (added psensor icon and value of the
    sensor).
-** full french translation.
+** full french and hungarian translation.
 ** merged some chinese translation provided by LP.
 ** added translation files for Brazilian Portuguese, and Italian.
-** partial translations for Russian, Serbian, Ukrainian, Slovenian and German.
+** partial translations for Russian, Serbian, Ukrainian, Slovenian and
+   German.
 ** psensor: fixed i18n support for the application indicator menu.
 ** psensor: fixed i18n support for the application menu.
 ** psensor: added low thresold support for alerts.

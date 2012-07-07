@@ -1,0 +1,564 @@
+# Hungarian translation for psensor
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the psensor package.
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# Lukács Bence <lukacs.bence1 at gmail dot com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: psensor\n"
+"Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
+"POT-Creation-Date: 2012-05-13 11:25+0200\n"
+"PO-Revision-Date: 2012-07-06 21:26+0000\n"
+"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
+"Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-07-07 16:28+0000\n"
+"X-Generator: Launchpad (build 15558)\n"
+
+#: src/glade/psensor-pref.glade:7
+msgid "Edit Preferences"
+msgstr "Beállítások szerkesztése"
+
+#: src/glade/psensor-pref.glade:76
+msgid "Position of sensors table:"
+msgstr "Érzékelő tábla pozíciója:"
+
+#: src/glade/psensor-pref.glade:85
+msgid "Hide window decoration"
+msgstr "Ablakdíszítés elrejtése"
+
+#: src/glade/psensor-pref.glade:104
+msgid "Keep window below"
+msgstr "Ablak alul tartása"
+
+#: src/glade/psensor-pref.glade:142
+msgid "Enable menu"
+msgstr "Menü engedélyezése"
+
+#: src/glade/psensor-pref.glade:161
+msgid "Enable Unity Launcher counter"
+msgstr "Unity indítón lévő számláló engedélyezése"
+
+#: src/glade/psensor-pref.glade:180
+msgid "Hide window on startup"
+msgstr "Ablak elrejtése induláskor"
+
+#: src/glade/psensor-pref.glade:199
+msgid "Restore window position and size"
+msgstr "Ablak pozíciójának és méretének visszaállítása"
+
+#: src/glade/psensor-pref.glade:221
+msgid "Temperature unit:"
+msgstr "Hőmérséklet mértékegysége:"
+
+#: src/glade/psensor-pref.glade:255
+msgid "Interface"
+msgstr "Felület"
+
+#: src/glade/psensor-pref.glade:295
+msgid "Foreground:"
+msgstr "Előtér:"
+
+#: src/glade/psensor-pref.glade:310
+msgid "Background:"
+msgstr "Háttér:"
+
+#: src/glade/psensor-pref.glade:346
+msgid "Background opacity:"
+msgstr "Háttér átlátszósága:"
+
+#: src/glade/psensor-pref.glade:369
+msgid "<i>Min</i>"
+msgstr "<i>Min</i>"
+
+#: src/glade/psensor-pref.glade:396
+msgid "<i>Max</i>"
+msgstr "<i>Max</i>"
+
+#: src/glade/psensor-pref.glade:422
+msgid "Colors"
+msgstr "Színek"
+
+#: src/glade/psensor-pref.glade:440
+msgid "Monitoring duration:"
+msgstr "Figyelés hossza:"
+
+#: src/glade/psensor-pref.glade:478
+msgid "minute(s)"
+msgstr "perc"
+
+#: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
+msgid "second(s)"
+msgstr "s"
+
+#: src/glade/psensor-pref.glade:531
+msgid "Update interval:"
+msgstr "Frissítési időköz:"
+
+#: src/glade/psensor-pref.glade:549
+msgid "Measures"
+msgstr "Mérések"
+
+#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
+msgid "Graph"
+msgstr "Grafikon"
+
+#: src/glade/psensor-pref.glade:609
+msgid "Measure update interval:"
+msgstr "Mérések frissítési időköze:"
+
+#: src/glade/psensor-pref.glade:666
+msgid "Sensors"
+msgstr "Érzékelők"
+
+#: src/glade/sensor-edit.glade:19
+msgid "Edit Sensor Preferences"
+msgstr "Érzékelő beállításainak szerkesztése"
+
+#: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
+#: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
+#: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
+#: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
+msgid "N/A"
+msgstr "---"
+
+#: src/glade/sensor-edit.glade:119
+msgid "Name:"
+msgstr "Név:"
+
+#: src/glade/sensor-edit.glade:152
+msgid "Type:"
+msgstr "Típus:"
+
+#: src/glade/sensor-edit.glade:182
+msgid "Id:"
+msgstr "Id:"
+
+#: src/glade/sensor-edit.glade:215
+msgid "Color:"
+msgstr "Szín:"
+
+#: src/glade/sensor-edit.glade:229
+msgid "Alarm"
+msgstr "Riasztás"
+
+#: src/glade/sensor-edit.glade:244
+msgid "Activate desktop notifications"
+msgstr "Asztali értesítések bekapcsolása"
+
+#: src/glade/sensor-edit.glade:265
+msgid "Sensor Information"
+msgstr "Érzékelő információi"
+
+#: src/glade/sensor-edit.glade:278
+msgid "Draw sensor curve"
+msgstr "Érzékelő görbéjének rajzolása"
+
+#: src/glade/sensor-edit.glade:366
+msgid "High threshold:"
+msgstr "Felső küszöbérték:"
+
+#: src/glade/sensor-edit.glade:381
+msgid "Low threshold:"
+msgstr "Alsó küszöbérték:"
+
+#: src/lib/amd.c:150
+msgid "AMD: cannot found ADL library."
+msgstr "AMD: Nem sikerült betölteni az ADL programkönyvtárat."
+
+#: src/lib/amd.c:174
+msgid "AMD: missing ADL's API."
+msgstr "AMD: hiányzó ADL API."
+
+#: src/lib/amd.c:182
+msgid "AMD: failed to initialize ADL."
+msgstr "AMD: az ADL előkészítése meghiúsult."
+
+#: src/lib/amd.c:189
+msgid "AMD: cannot get the number of adapters."
+msgstr "AMD: adapterek számainak lekérése meghiúsult"
+
+#: src/lib/hdd_atasmart.c:144
+#, c-format
+msgid "atasmart: sk_disk_open() failure: %s."
+msgstr "atasmart: sk_disk_open() hiba: %s."
+
+#: src/lib/hdd_hddtemp.c:59
+msgid "hddtemp: failed to open socket."
+msgstr "hddtemp: foglalat megnyitása meghiúsult."
+
+#: src/lib/hdd_hddtemp.c:72
+msgid "hddtemp: failed to open connection."
+msgstr "hddtemp: a kapcsolat megnyitása nem sikerült."
+
+#: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
+#, c-format
+msgid "hddtemp: wrong string: %s."
+msgstr "hddtemp: rossz karakterlánc: %s."
+
+#: src/lib/lmsensor.c:42
+#, c-format
+msgid "lmsensor: cannot get value of subfeature %s: %s."
+msgstr "lmsensor: alfunkció értékének lekérdezése meghiúsult %s: %s."
+
+#: src/lib/lmsensor.c:124
+msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
+msgstr "lmsensor: lmsensor_psensor_create hiba: rossz funkciótípus."
+
+#: src/lib/lmsensor.c:206
+#, c-format
+msgid "lmsensor: initialization failure: %s."
+msgstr "lmsensor: előkészítési hiba: %s."
+
+#: src/lib/log.c:37
+#, c-format
+msgid "Cannot open log file: %s"
+msgstr "A naplófájl megnyitása sikertelen: %s"
+
+#: src/lib/nvidia.c:54
+msgid "Failed to retrieve NVIDIA temperature."
+msgstr "NVIDIA hőmérsékletének lekérése meghiúsult."
+
+#: src/lib/nvidia.c:92
+msgid "Cannot open connection to X11 server."
+msgstr "Nem lehet létrehozni a kapcsolatot az X11 kiszolgálóval."
+
+#: src/lib/nvidia.c:100
+msgid "Failed to retrieve NVIDIA information."
+msgstr "NVIDIA információinak lekérése meghiúsult."
+
+#: src/lib/psensor.c:230 src/lib/psensor.c:477
+msgid "RPM"
+msgstr "RPM"
+
+#: src/lib/psensor.c:232 src/lib/psensor.c:480
+msgid "%"
+msgstr "%"
+
+#: src/main.c:77
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and  redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"Licenc: GNU General Public License második (vagy bármely későbbi) változata\n"
+"<http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>\n"
+"Ez egy szabad szoftver: szabadon terjesztheti és/vagy módosíthatja\n"
+"NINCS GARANCIA, a jogszabályok által megengedett mértékben.\n"
+
+#: src/main.c:88 src/server/server.c:90
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "Használat: %s [KAPCSOLÓK]...\n"
+
+#: src/main.c:90
+msgid ""
+"Psensor is a GTK+ application for monitoring hardware sensors, including "
+"temperatures and fan speeds."
+msgstr ""
+"A Psensor egy GTK+ alkalmazás a hardver érzékelőinek figyelésére, beleértve "
+"a hőmérsékleteket és a ventilátor sebességét."
+
+#: src/main.c:94
+msgid "Options:"
+msgstr "Kapcsolók:"
+
+#: src/main.c:95
+msgid ""
+"  -h, --help          display this help and exit\n"
+"  -v, --version       display version information and exit"
+msgstr ""
+"  -h, --help          ezen súgó megjelenítése, majd kilépés\n"
+"  -v, --version         verzióinformációk megjelenítése, majd kilépés"
+
+#: src/main.c:101
+msgid ""
+"  -u, --url=URL       the URL of the psensor-server,\n"
+"                      example: http://hostname:3131"
+msgstr ""
+"  -u, --url=URL       a psensor-server URL-címe,\n"
+"                      például: http://gepnev:3131"
+
+#: src/main.c:104
+msgid ""
+"  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
+"                      hddtemp daemon"
+msgstr ""
+"  --use-libatasmart   atasmart függvénykönyvtár használata a lemezek "
+"figyelésére a\n"
+"                      hddtemp démon helyett"
+
+#: src/main.c:107
+msgid "  -n, --new-instance  force the creation of a new Psensor application"
+msgstr "  -n, --new-instance  új Psensor alkalmazás indításának kényszerítése"
+
+#: src/main.c:110
+msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
+msgstr ""
+"  -d, --debug=LEVEL   hibakeresési szint beállítása, egész 0 és 3 között"
+
+#: src/main.c:115 src/server/server.c:110
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr "A talált hibákat itt jelentse be: %s\n"
+
+#: src/main.c:117 src/server/server.c:112
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "%s honlap: <%s>\n"
+
+#: src/main.c:458
+msgid "Psensor has not been compiled with remote sensor support."
+msgstr "A Psensor távoli érzékelők támogatása nélkül lett lefordítva."
+
+#: src/main.c:521
+msgid "Enables debug mode."
+msgstr "Hibakeresési mód engedélyezése."
+
+#: src/main.c:533 src/server/server.c:371
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "További információkért adja ki a „%s --help” parancsot.\n"
+
+#: src/main.c:546
+msgid "A Psensor instance already exists."
+msgstr "A Psensors egy példánya már létezik."
+
+#: src/rsensor.c:107
+#, c-format
+msgid "Fail to connect to: %s"
+msgstr "Nem sikerül kapcsolódni a következőhöz: %s"
+
+#: src/rsensor.c:144
+#, c-format
+msgid "Invalid content: %s"
+msgstr "Érvénytelen tartalom: %s"
+
+#: src/rsensor.c:184
+#, c-format
+msgid "Invalid JSON: %s"
+msgstr "Érvénytelen JSON: %s"
+
+#: src/server/server.c:52
+msgid "<html><body><p>Server stop requested</p></body></html>"
+msgstr "<html><body><p>A kiszolgáló leállítást kért</p></body></html>"
+
+#: src/server/server.c:58
+msgid ""
+"<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
+msgstr ""
+"<html><body><p>Az oldal nem található - Ugrás a <a href='/'>Főoldalra</a></"
+"p></body>"
+
+#: src/server/server.c:80
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"Licenc: GNU General Public License második (vagy bármely későbbi) változata\n"
+"<http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>\n"
+"Ez egy szabad szoftver: szabadon terjesztheti és/vagy módosíthatja\n"
+"NINCS GARANCIA, a jogszabályok által megengedett mértékben.\n"
+
+#: src/server/server.c:92
+msgid ""
+"psensor-server is an HTTP server for monitoring hardware sensors remotely."
+msgstr ""
+"A psensor-server egy HTTP kiszolgáló a hardver érzékelőinek figyelésére "
+"távolról."
+
+#: src/server/server.c:97
+msgid ""
+"  -h, --help\t\tdisplay this help and exit\n"
+"  -v, --version\t\tdisplay version information and exit"
+msgstr ""
+"  -h, --help\t\tezen súgó megjelenítése, majd kilépés\n"
+"  -v, --version\t\tverzióinformáció megjelenítése, majd kilépés"
+
+#: src/server/server.c:101
+msgid ""
+"  -p,--port=PORT\twebserver port\n"
+"  -w,--wdir=DIR\t\tdirectory containing webserver pages"
+msgstr ""
+"  -p,--port=PORT\twebkiszolgáló portja\n"
+"  -w,--wdir=DIR\t\ta webkiszolgáló oldalait tartalmazó mappa"
+
+#: src/server/server.c:105
+msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
+msgstr ""
+"  -d, --debug=LEVEL     hibakeresési szint beállítása, egész 0 és 3 között"
+
+#: src/server/server.c:107
+msgid "  -l, --log-file=PATH   set the log file to PATH"
+msgstr "  -l, --log-file=ÚTVONAL   a naplófájl ÚTVONALÁNAK beállítása"
+
+#: src/server/server.c:294
+#, c-format
+msgid "HTTP Request: %s"
+msgstr "HTTP-kérés: %s"
+
+#: src/server/server.c:351
+#, c-format
+msgid "Enables debug mode: %d"
+msgstr "Hibakeresési mód engedélyezése: %d"
+
+#: src/server/server.c:387
+msgid "No sensors detected."
+msgstr "Nem találhatók érzékelők."
+
+#: src/server/server.c:394
+msgid "Failed to create Web server."
+msgstr "Nem sikerült létrehozni a webkiszolgálót."
+
+#: src/server/server.c:398
+#, c-format
+msgid "Web server started on port: %d"
+msgstr "A webkiszolgáló elindult ezen a porton: %d"
+
+#: src/server/server.c:399
+#, c-format
+msgid "WWW directory: %s"
+msgstr "WWW könyvtár: %s"
+
+#: src/server/server.c:400
+#, c-format
+msgid "URL: http://localhost:%d"
+msgstr "URL: http://localhost:%d"
+
+#: src/ui.c:81
+msgid "Psensor is a GTK+ application for monitoring hardware sensors"
+msgstr "A Psensor egy GTK+ alkalmazás a hardver érzékelőinek figyelésére"
+
+#: src/ui.c:84
+msgid ""
+"Copyright(c) 2010-2012\n"
+"jeanfi@gmail.com"
+msgstr ""
+"Copyright(c) 2010-2012\n"
+"jeanfi@gmail.com"
+
+#: src/ui.c:87
+msgid "About Psensor"
+msgstr "A Psensor névjegye"
+
+#: src/ui.c:90
+msgid "Psensor Homepage"
+msgstr "A Psensor honlapja"
+
+#: src/ui.c:145 src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr "_Beállítások"
+
+#: src/ui.c:146 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr "Beállítások"
+
+#: src/ui.c:150 src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr "_Érzékelő beállításai"
+
+#: src/ui.c:151
+msgid "Sensor Preferences"
+msgstr "Érzékelő beállításai"
+
+#: src/ui.c:155
+msgid "_Quit"
+msgstr "_Kilépés"
+
+#: src/ui.c:155
+msgid "Quit"
+msgstr "Kilépés"
+
+#: src/ui.c:158
+msgid "_Help"
+msgstr "_Súgó"
+
+#: src/ui.c:161 src/ui_appindicator.c:122
+msgid "_About"
+msgstr "_Névjegy"
+
+#: src/ui.c:162 src/ui_appindicator.c:124
+msgid "About"
+msgstr "Névjegy"
+
+#: src/ui.c:184 src/ui_appindicator.c:187 src/ui_graph.c:99
+#, c-format
+msgid "building menus failed: %s"
+msgstr "menük építése meghiúsult: %s"
+
+#: src/ui.c:236
+msgid "Psensor - Temperature Monitor"
+msgstr "Psensor - hőmérsékletfigyelő"
+
+#: src/ui.c:244
+msgid "Failed to load Psensor icon."
+msgstr "Nem sikerült betölteni a Psensor ikont."
+
+#: src/ui_sensorlist.c:235
+msgid "Select foreground color"
+msgstr "Előtérszín kiválasztása"
+
+#: src/ui_sensorlist.c:312
+msgid "Sensor"
+msgstr "Érzékelő"
+
+#: src/ui_sensorlist.c:318
+msgid "Value"
+msgstr "Érték"
+
+#: src/ui_sensorlist.c:324
+msgid "Min"
+msgstr "Minimum"
+
+#: src/ui_sensorlist.c:330
+msgid "Max"
+msgstr "Maximum"
+
+#: src/ui_sensorlist.c:337
+msgid "Color"
+msgstr "Szín"
+
+#: src/ui_sensorlist.c:349
+msgid "Enabled"
+msgstr "Engedélyezés"
+
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr "_Megjelenítés"
+
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr "Megjelenítés"
+
+#: src/ui_appindicator.c:118
+msgid "SensorPreferences"
+msgstr "Érzékelőbeállítások"
+
+#: src/ui_notify.c:48
+msgid "gettimeofday failed."
+msgstr "gettimeofday meghiúsult."
+
+#: src/ui_notify.c:77
+msgid "Temperature alert"
+msgstr "Hőmérséklet riasztás"
+
+#: src/ui_notify.c:79
+msgid "Fan alert"
+msgstr "Ventilátor riasztás"
+
+#: src/ui_sensorpref.c:478
+msgid "Sensor Name"
+msgstr "Érzékelő neve"
