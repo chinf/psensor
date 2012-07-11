@@ -47,13 +47,18 @@
 ** psensor: fixed i18n support for the application menu.
 ** psensor: added low thresold support for alerts.
 ** psensor: added fan alert support.
+** psensor: fixed hide window on startup for gnome-shell (Closes:
+   #676361).
 
 * v0.6.2.18
-** added Slovenian translation file.
-** added Serbian translation file.
+
 ** merged some chinese translation from LP.
 ** fixed some french translation typo.
 ** added degree sign for celcius (Closes LP: #1021900).
+** added russian, brazilian, hungarian, serbian, slovenian,
+   italian, ukrainian and german translation files
+** psensor: fixed hide window on startup for gnome-shell (Closes:
+   #676361).
 
 * v0.6.2.17
 

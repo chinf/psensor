@@ -603,15 +603,15 @@ int main(int argc, char **argv)
 	ui_appindicator_init(&ui);
 #endif
 
-	/*
-	 * show the window as soon as all gtk events have been processed
-	 * in order to ensure that the status icon is attempted to be
-	 * drawn before. If not, there is no way to detect that it is
-	 * visible.
-	*/
-	g_idle_add((GSourceFunc)initial_window_show, &ui);
-
 	gdk_notify_startup_complete();
+
+	/*
+	 * hack, did not find a cleaner solution.
+	 * wait 2s to ensure that the status icon is attempted to be
+	 * drawn before determining whether the main window must be
+	 * show.
+	 */
+	g_timeout_add(2000,(GSourceFunc)initial_window_show, &ui);
 
 	/* main loop */
 	gtk_main();
