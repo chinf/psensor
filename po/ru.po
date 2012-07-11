@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2012-05-13 18:15+0000\n"
 "Last-Translator: jeanfi <Unknown>\n"
 "Language-Team: Russian\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-07-02 08:28+0000\n"
 "X-Generator: Launchpad (build 15520)\n"
-"Language: ru\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -294,8 +294,7 @@ msgstr ""
 
 #: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
-msgstr ""
-"  -d, --debug=УРОВЕНЬ   установить уровень отладки, целое между 0 и 3"
+msgstr "  -d, --debug=УРОВЕНЬ   установить уровень отладки, целое между 0 и 3"
 
 #: src/main.c:115 src/server/server.c:110
 #, c-format
@@ -347,8 +346,8 @@ msgstr "<html><body><p>Запрошена остановка сервера</p><
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
-"<html><body><p>Страница не найдена - Перейти к <a href='/'>Главной "
-"странице</a></p></body>"
+"<html><body><p>Страница не найдена - Перейти к <a href='/'>Главной странице</"
+"a></p></body>"
 
 #: src/server/server.c:80
 #, c-format
@@ -546,4 +545,3 @@ msgstr ""
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"
 msgstr "Название датчика"
-
