@@ -272,7 +272,6 @@ msgstr ""
 "  -v, --version       показати версію і вийти"
 
 #: src/main.c:101
-#, fuzzy
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"

@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2012-05-13 11:25+0200\n"
-"PO-Revision-Date: 2012-07-06 21:26+0000\n"
-"Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
+"PO-Revision-Date: 2012-07-09 17:56+0000\n"
+"Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-07 16:28+0000\n"
-"X-Generator: Launchpad (build 15558)\n"
+"X-Launchpad-Export-Date: 2012-07-11 21:44+0000\n"
+"X-Generator: Launchpad (build 15593)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -25,7 +25,7 @@ msgstr "Beállítások szerkesztése"
 
 #: src/glade/psensor-pref.glade:76
 msgid "Position of sensors table:"
-msgstr "Érzékelő tábla pozíciója:"
+msgstr "Érzékelőtábla pozíciója:"
 
 #: src/glade/psensor-pref.glade:85
 msgid "Hide window decoration"
