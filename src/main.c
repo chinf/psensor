@@ -611,7 +611,7 @@ int main(int argc, char **argv)
 	 * drawn before determining whether the main window must be
 	 * show.
 	 */
-	g_timeout_add(2000,(GSourceFunc)initial_window_show, &ui);
+	g_timeout_add(2000, (GSourceFunc)initial_window_show, &ui);
 
 	/* main loop */
 	gtk_main();
