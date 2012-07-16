@@ -33,9 +33,13 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = test-io-dir-list$(EXEEXT) test-url-encode$(EXEEXT) \
-	test-url-normalize$(EXEEXT)
-TESTS = test-url-encode$(EXEEXT) test-url-normalize$(EXEEXT) \
+check_PROGRAMS = test-io-dir-list$(EXEEXT) \
+	test-psensor-type-to-unit-str$(EXEEXT) \
+	test-url-encode$(EXEEXT) test-url-normalize$(EXEEXT)
+@ATASMART_TRUE@am__append_1 = $(ATASMART_LIBS)
+@GTOP_TRUE@am__append_2 = $(GTOP_LIBS)
+TESTS = test-psensor-type-to-unit-str$(EXEEXT) \
+	test-url-encode$(EXEEXT) test-url-normalize$(EXEEXT) \
 	test-io-dir-list.sh
 subdir = tests
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
@@ -49,13 +53,18 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am_test_io_dir_list_OBJECTS = test_io_dir_list.$(OBJEXT)
 test_io_dir_list_OBJECTS = $(am_test_io_dir_list_OBJECTS)
-test_io_dir_list_DEPENDENCIES = ../src/lib/libpsensor.a
+test_io_dir_list_LDADD = $(LDADD)
+am_test_psensor_type_to_unit_str_OBJECTS =  \
+	test_psensor_type_to_unit_str.$(OBJEXT)
+test_psensor_type_to_unit_str_OBJECTS =  \
+	$(am_test_psensor_type_to_unit_str_OBJECTS)
+test_psensor_type_to_unit_str_LDADD = $(LDADD)
 am_test_url_encode_OBJECTS = test_url_encode.$(OBJEXT)
 test_url_encode_OBJECTS = $(am_test_url_encode_OBJECTS)
-test_url_encode_DEPENDENCIES = ../src/lib/libpsensor.a
+test_url_encode_LDADD = $(LDADD)
 am_test_url_normalize_OBJECTS = test_url_normalize.$(OBJEXT)
 test_url_normalize_OBJECTS = $(am_test_url_normalize_OBJECTS)
-test_url_normalize_DEPENDENCIES = ../src/lib/libpsensor.a
+test_url_normalize_LDADD = $(LDADD)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -64,10 +73,12 @@ COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
-SOURCES = $(test_io_dir_list_SOURCES) $(test_url_encode_SOURCES) \
-	$(test_url_normalize_SOURCES)
-DIST_SOURCES = $(test_io_dir_list_SOURCES) $(test_url_encode_SOURCES) \
-	$(test_url_normalize_SOURCES)
+SOURCES = $(test_io_dir_list_SOURCES) \
+	$(test_psensor_type_to_unit_str_SOURCES) \
+	$(test_url_encode_SOURCES) $(test_url_normalize_SOURCES)
+DIST_SOURCES = $(test_io_dir_list_SOURCES) \
+	$(test_psensor_type_to_unit_str_SOURCES) \
+	$(test_url_encode_SOURCES) $(test_url_normalize_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 am__tty_colors = \
@@ -91,7 +102,7 @@ CPPFLAGS = @CPPFLAGS@
 CURL_CFLAGS = @CURL_CFLAGS@
 CURL_LIBS = @CURL_LIBS@
 CYGPATH_W = @CYGPATH_W@
-DEFS = @DEFS@
+DEFS = -DPACKAGE_DATA_DIR=\"$(pkgdatadir)\" -DLOCALEDIR=\"$(localedir)\" @DEFS@
 DEPDIR = @DEPDIR@
 ECHO_C = @ECHO_C@
 ECHO_N = @ECHO_N@
@@ -128,7 +139,8 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = @LIBS@
+LIBS = @LIBS@ ../src/lib/libpsensor.a $(SENSORS_LIBS) $(am__append_1) \
+	$(am__append_2)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -221,12 +233,10 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 EXTRA_DIST = checkpatch.pl data test-io-dir-list.sh
 AM_CPPFLAGS = -pedantic -Werror
+test_psensor_type_to_unit_str_SOURCES = test_psensor_type_to_unit_str.c
 test_url_encode_SOURCES = test_url_encode.c
-test_url_encode_LDADD = ../src/lib/libpsensor.a
 test_url_normalize_SOURCES = test_url_normalize.c
-test_url_normalize_LDADD = ../src/lib/libpsensor.a
 test_io_dir_list_SOURCES = test_io_dir_list.c
-test_io_dir_list_LDADD = ../src/lib/libpsensor.a
 all: all-am
 
 .SUFFIXES:
@@ -267,6 +277,9 @@ clean-checkPROGRAMS:
 test-io-dir-list$(EXEEXT): $(test_io_dir_list_OBJECTS) $(test_io_dir_list_DEPENDENCIES) $(EXTRA_test_io_dir_list_DEPENDENCIES) 
 	@rm -f test-io-dir-list$(EXEEXT)
 	$(LINK) $(test_io_dir_list_OBJECTS) $(test_io_dir_list_LDADD) $(LIBS)
+test-psensor-type-to-unit-str$(EXEEXT): $(test_psensor_type_to_unit_str_OBJECTS) $(test_psensor_type_to_unit_str_DEPENDENCIES) $(EXTRA_test_psensor_type_to_unit_str_DEPENDENCIES) 
+	@rm -f test-psensor-type-to-unit-str$(EXEEXT)
+	$(LINK) $(test_psensor_type_to_unit_str_OBJECTS) $(test_psensor_type_to_unit_str_LDADD) $(LIBS)
 test-url-encode$(EXEEXT): $(test_url_encode_OBJECTS) $(test_url_encode_DEPENDENCIES) $(EXTRA_test_url_encode_DEPENDENCIES) 
 	@rm -f test-url-encode$(EXEEXT)
 	$(LINK) $(test_url_encode_OBJECTS) $(test_url_encode_LDADD) $(LIBS)
@@ -281,6 +294,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_io_dir_list.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_psensor_type_to_unit_str.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_url_encode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_url_normalize.Po@am__quote@
 
