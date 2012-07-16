@@ -29,7 +29,6 @@ static void cb_activate(GtkStatusIcon *icon,
 			gpointer data)
 {
 	log_debug("cb_activate()");
-
 	ui_window_show((struct ui_psensor *)data);
 }
 
