@@ -213,25 +213,16 @@ double fahrenheit_to_celcius(double f)
 char *
 psensor_value_to_str(unsigned int type, double value, int use_celcius)
 {
-	/* should not be possible to exceed 20 characters with temp or
-	   rpm values the .x part is never displayed */
-	char *str = malloc(20);
+	char *str;
+	const char *unit;
 
-	char *unit;
+	/*
+	 * should not be possible to exceed 20 characters with temp or
+	 * rpm values the .x part is never displayed
+	 */
+	str = malloc(20);
 
-	if (is_temp_type(type))
-		if (use_celcius) {
-			unit = "°C";
-		} else {
-			unit = "°F";
-			value = celcius_to_fahrenheit(value);
-		}
-	else if (is_fan_type(type))
-		unit = _("RPM");
-	else if (type & SENSOR_TYPE_CPU_USAGE)
-		unit = _("%");
-	else
-		unit = _("N/A");
+	unit = psensor_type_to_unit_str(type, use_celcius);
 
 	sprintf(str, "%.0f%s", value, unit);
 
@@ -466,20 +457,18 @@ const char *psensor_type_to_str(unsigned int type)
 
 const char *psensor_type_to_unit_str(unsigned int type, int use_celcius)
 {
-	if (type & SENSOR_TYPE_TEMP) {
+	if (is_temp_type(type)) {
 		if (use_celcius)
 			return "\302\260C";
 		else
 			return "\302\260F";
-	}
-
-	if (type & SENSOR_TYPE_FAN)
+	} else if (is_fan_type(type)) {
 		return _("RPM");
-
-	if (type & SENSOR_TYPE_CPU_USAGE)
+	} else if (type & SENSOR_TYPE_CPU_USAGE) {
 		return _("%");
-
-	return _("N/A");
+	} else {
+		return _("N/A");
+	}
 }
 
 void psensor_list_update_measures(struct psensor **sensors)
