@@ -118,23 +118,20 @@ static void print_help()
 }
 
 /*
-  Updates the size of the sensor values if different than the
-  configuration.
+ * Updates the size of the sensor values if different than the
+ * configuration.
  */
-void
+static void
 update_psensor_values_size(struct psensor **sensors, struct config *cfg)
 {
-	struct psensor **cur;
+	struct psensor **cur, *s;
 
-	cur = sensors;
-	while (*cur) {
-		struct psensor *s = *cur;
+	for (cur = sensors; *cur; cur++) {
+		s = *cur;
 
 		if (s->values_max_length != cfg->sensor_values_max_length)
 			psensor_values_resize(s,
 					      cfg->sensor_values_max_length);
-
-		cur++;
 	}
 }
 
