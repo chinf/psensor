@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-05-13 11:25+0200\n"
+"POT-Creation-Date: 2012-07-16 10:17+0200\n"
 "PO-Revision-Date: 2012-05-13 18:15+0000\n"
 "Last-Translator: jeanfi <Unknown>\n"
 "Language-Team: French <>\n"
@@ -319,21 +319,21 @@ msgstr "Signaler les bugs à: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s page d’accueil: <%s>\n"
 
-#: src/main.c:458
+#: src/main.c:455
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 "Psensor n'a pas été compilé avec le support de surveillance à distance."
 
-#: src/main.c:521
+#: src/main.c:518
 msgid "Enables debug mode."
 msgstr "Active le mode de débogage."
 
-#: src/main.c:533 src/server/server.c:371
+#: src/main.c:530 src/server/server.c:371
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez `%s --help' pour plus d'informations.\n"
 
-#: src/main.c:546
+#: src/main.c:543
 msgid "A Psensor instance already exists."
 msgstr "Une occurrence de Psensor existe déjà."
 

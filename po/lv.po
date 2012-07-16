@@ -1,53 +1,54 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Latvian translation for psensor
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the psensor package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2012-07-16 10:17+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-07-15 16:16+0000\n"
+"Last-Translator: tuxmaniack <Unknown>\n"
+"Language-Team: Latvian <lv@li.org>\n"
+"Language: lv\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-07-16 08:12+0000\n"
+"X-Generator: Launchpad (build 15614)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
-msgstr ""
+msgstr "Labot iestatījumus"
 
 #: src/glade/psensor-pref.glade:76
 msgid "Position of sensors table:"
-msgstr ""
+msgstr "Sensoru tabulas novietojums:"
 
 #: src/glade/psensor-pref.glade:85
 msgid "Hide window decoration"
-msgstr ""
+msgstr "Slēpt loga apdari"
 
 #: src/glade/psensor-pref.glade:104
 msgid "Keep window below"
-msgstr ""
+msgstr "Turēt logu apakšā"
 
 #: src/glade/psensor-pref.glade:142
 msgid "Enable menu"
-msgstr ""
+msgstr "Aktivizēt izvēlni"
 
 #: src/glade/psensor-pref.glade:161
 msgid "Enable Unity Launcher counter"
-msgstr ""
+msgstr "Aktivizēt Unity palaidēja skaitītāju"
 
 #: src/glade/psensor-pref.glade:180
 msgid "Hide window on startup"
-msgstr ""
+msgstr "Slēpt logu pieteicoties sistēmā"
 
 #: src/glade/psensor-pref.glade:199
 msgid "Restore window position and size"
-msgstr ""
+msgstr "Atjaunot loga pozīciju un izmēru"
 
 #: src/glade/psensor-pref.glade:221
 msgid "Temperature unit:"
@@ -55,47 +56,47 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:255
 msgid "Interface"
-msgstr ""
+msgstr "Saskarne"
 
 #: src/glade/psensor-pref.glade:295
 msgid "Foreground:"
-msgstr ""
+msgstr "Priekšplāns:"
 
 #: src/glade/psensor-pref.glade:310
 msgid "Background:"
-msgstr ""
+msgstr "Fons:"
 
 #: src/glade/psensor-pref.glade:346
 msgid "Background opacity:"
-msgstr ""
+msgstr "Fona necaurspīdība:"
 
 #: src/glade/psensor-pref.glade:369
 msgid "<i>Min</i>"
-msgstr ""
+msgstr "<i>Min.</i>"
 
 #: src/glade/psensor-pref.glade:396
 msgid "<i>Max</i>"
-msgstr ""
+msgstr "<i>Maks.</i>"
 
 #: src/glade/psensor-pref.glade:422
 msgid "Colors"
-msgstr ""
+msgstr "Krāsas"
 
 #: src/glade/psensor-pref.glade:440
 msgid "Monitoring duration:"
-msgstr ""
+msgstr "Monitorēšanas ilgums:"
 
 #: src/glade/psensor-pref.glade:478
 msgid "minute(s)"
-msgstr ""
+msgstr "minūte(s)"
 
 #: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
 msgid "second(s)"
-msgstr ""
+msgstr "sekunde(s)"
 
 #: src/glade/psensor-pref.glade:531
 msgid "Update interval:"
-msgstr ""
+msgstr "Atjaunināšanas intervāls:"
 
 #: src/glade/psensor-pref.glade:549
 msgid "Measures"
@@ -103,70 +104,70 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
 msgid "Graph"
-msgstr ""
+msgstr "Grafiks"
 
 #: src/glade/psensor-pref.glade:609
 msgid "Measure update interval:"
-msgstr ""
+msgstr "Mērījumu atjaunināšanas intervāls:"
 
 #: src/glade/psensor-pref.glade:666
 msgid "Sensors"
-msgstr ""
+msgstr "Sensori"
 
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
-msgstr ""
+msgstr "Labot sensoru iestatījumus"
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
 #: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
 #: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
 #: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
-msgstr ""
+msgstr "N/P"
 
 #: src/glade/sensor-edit.glade:119
 msgid "Name:"
-msgstr ""
+msgstr "Nosaukums:"
 
 #: src/glade/sensor-edit.glade:152
 msgid "Type:"
-msgstr ""
+msgstr "Tips:"
 
 #: src/glade/sensor-edit.glade:182
 msgid "Id:"
-msgstr ""
+msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:215
 msgid "Color:"
-msgstr ""
+msgstr "Krāsa:"
 
 #: src/glade/sensor-edit.glade:229
 msgid "Alarm"
-msgstr ""
+msgstr "Trauksme"
 
 #: src/glade/sensor-edit.glade:244
 msgid "Activate desktop notifications"
-msgstr ""
+msgstr "Aktivizēt darbvirsmas paziņojumus"
 
 #: src/glade/sensor-edit.glade:265
 msgid "Sensor Information"
-msgstr ""
+msgstr "Sensora informācija"
 
 #: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
-msgstr ""
+msgstr "Zīmēt sensora līkni"
 
 #: src/glade/sensor-edit.glade:366
 msgid "High threshold:"
-msgstr ""
+msgstr "Augsts slieksnis:"
 
 #: src/glade/sensor-edit.glade:381
 msgid "Low threshold:"
-msgstr ""
+msgstr "Zems slieksnis:"
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
-msgstr ""
+msgstr "AMD: nevar atrast ADL bibliotēku."
 
 #: src/lib/amd.c:174
 msgid "AMD: missing ADL's API."
@@ -174,11 +175,11 @@ msgstr ""
 
 #: src/lib/amd.c:182
 msgid "AMD: failed to initialize ADL."
-msgstr ""
+msgstr "AMD: neizdevās inicializēt ADL."
 
 #: src/lib/amd.c:189
 msgid "AMD: cannot get the number of adapters."
-msgstr ""
+msgstr "AMD: nevar saņemt adapteru skaitu."
 
 #: src/lib/hdd_atasmart.c:144
 #, c-format
@@ -235,7 +236,7 @@ msgstr ""
 
 #: src/lib/psensor.c:232 src/lib/psensor.c:480
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #: src/main.c:77
 #, c-format
@@ -291,12 +292,12 @@ msgstr ""
 #: src/main.c:115 src/server/server.c:110
 #, c-format
 msgid "Report bugs to: %s\n"
-msgstr ""
+msgstr "Ziņojiet kļūdas uz: %s.\n"
 
 #: src/main.c:117 src/server/server.c:112
 #, c-format
 msgid "%s home page: <%s>\n"
-msgstr ""
+msgstr "%s mājas lapa: <%s>\n"
 
 #: src/main.c:455
 msgid "Psensor has not been compiled with remote sensor support."
@@ -409,7 +410,7 @@ msgstr ""
 
 #: src/ui.c:81
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr ""
+msgstr "Psensor ir GTK+ lietotne aparatūras sensoru pārraudzībai"
 
 #: src/ui.c:84
 msgid ""
@@ -419,47 +420,47 @@ msgstr ""
 
 #: src/ui.c:87
 msgid "About Psensor"
-msgstr ""
+msgstr "Par Psensor"
 
 #: src/ui.c:90
 msgid "Psensor Homepage"
-msgstr ""
+msgstr "Psensor mājas lapa"
 
 #: src/ui.c:145 src/ui_appindicator.c:111
 msgid "_Preferences"
-msgstr ""
+msgstr "_Iestatījumi"
 
 #: src/ui.c:146 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
-msgstr ""
+msgstr "Iestatījumi"
 
 #: src/ui.c:150 src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
-msgstr ""
+msgstr "S_ensoru iestatījumi"
 
 #: src/ui.c:151
 msgid "Sensor Preferences"
-msgstr ""
+msgstr "Sensoru iestatījumi"
 
 #: src/ui.c:155
 msgid "_Quit"
-msgstr ""
+msgstr "_Iziet"
 
 #: src/ui.c:155
 msgid "Quit"
-msgstr ""
+msgstr "Iziet"
 
 #: src/ui.c:158
 msgid "_Help"
-msgstr ""
+msgstr "_Palīdzība"
 
 #: src/ui.c:161 src/ui_appindicator.c:122
 msgid "_About"
-msgstr ""
+msgstr "P_ar"
 
 #: src/ui.c:162 src/ui_appindicator.c:124
 msgid "About"
-msgstr ""
+msgstr "Par"
 
 #: src/ui.c:184 src/ui_appindicator.c:187 src/ui_graph.c:99
 #, c-format
@@ -468,7 +469,7 @@ msgstr ""
 
 #: src/ui.c:236
 msgid "Psensor - Temperature Monitor"
-msgstr ""
+msgstr "Psensor - temperatūras pārraugs"
 
 #: src/ui.c:244
 msgid "Failed to load Psensor icon."
@@ -476,39 +477,39 @@ msgstr ""
 
 #: src/ui_sensorlist.c:235
 msgid "Select foreground color"
-msgstr ""
+msgstr "Izvēlieties priekšplāna krāsu"
 
 #: src/ui_sensorlist.c:312
 msgid "Sensor"
-msgstr ""
+msgstr "Sensors"
 
 #: src/ui_sensorlist.c:318
 msgid "Value"
-msgstr ""
+msgstr "Vērtība"
 
 #: src/ui_sensorlist.c:324
 msgid "Min"
-msgstr ""
+msgstr "Min."
 
 #: src/ui_sensorlist.c:330
 msgid "Max"
-msgstr ""
+msgstr "Maks."
 
 #: src/ui_sensorlist.c:337
 msgid "Color"
-msgstr ""
+msgstr "Krāsa"
 
 #: src/ui_sensorlist.c:349
 msgid "Enabled"
-msgstr ""
+msgstr "Aktivizēts"
 
 #: src/ui_appindicator.c:106
 msgid "_Show"
-msgstr ""
+msgstr "_Rādīt"
 
 #: src/ui_appindicator.c:107
 msgid "Show"
-msgstr ""
+msgstr "Rādīt"
 
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
@@ -520,7 +521,7 @@ msgstr ""
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
-msgstr ""
+msgstr "Temperatūras trauksme"
 
 #: src/ui_notify.c:79
 msgid "Fan alert"
@@ -528,4 +529,4 @@ msgstr ""
 
 #: src/ui_sensorpref.c:478
 msgid "Sensor Name"
-msgstr ""
+msgstr "Sensora nosaukums"

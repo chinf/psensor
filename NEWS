@@ -1,4 +1,8 @@
-* v0.7.0.0
+* v0.7.0.2
+
+** psensor: added latvian translation file.
+
+* v0.7.0.1
 
 ** psensor: minimum GTK version is now 3.0, GTK v2.x is no more
    supported.
