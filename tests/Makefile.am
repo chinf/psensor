@@ -8,6 +8,7 @@ EXTRA_DIST = checkpatch.pl data test-io-dir-list.sh
 
 check_PROGRAMS = test-io-dir-list \
 	test-psensor-type-to-unit-str \
+	test-psensor-value-to-str \
 	test-url-encode \
 	test-url-normalize
 
@@ -24,15 +25,14 @@ if GTOP
 LIBS += $(GTOP_LIBS)
 endif
 
+test_io_dir_list_SOURCES = test_io_dir_list.c
 test_psensor_type_to_unit_str_SOURCES = test_psensor_type_to_unit_str.c
-
+test_psensor_value_to_str_SOURCES = test_psensor_value_to_str.c
 test_url_encode_SOURCES = test_url_encode.c
-
 test_url_normalize_SOURCES = test_url_normalize.c
 
-test_io_dir_list_SOURCES = test_io_dir_list.c
-
-TESTS = test-psensor-type-to-unit-str \
+TESTS = test-io-dir-list.sh \
+	test-psensor-type-to-unit-str \
+	test-psensor-value-to-str \
 	test-url-encode \
-	test-url-normalize \
-	test-io-dir-list.sh
+	test-url-normalize
