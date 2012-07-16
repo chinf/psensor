@@ -243,7 +243,7 @@ msgstr "Échec de la récupération des information NVIDIA."
 
 #: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:53
 msgid "RPM"
-msgstr "FFFFRPM"
+msgstr "RPM"
 
 #: src/lib/psensor.c:468
 msgid "%"
