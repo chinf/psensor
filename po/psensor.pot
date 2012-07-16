@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-16 10:17+0200\n"
+"POT-Creation-Date: 2012-07-16 11:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,7 +118,7 @@ msgid "Edit Sensor Preferences"
 msgstr ""
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
-#: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
+#: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
 #: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
 #: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
@@ -148,20 +148,28 @@ msgstr ""
 msgid "Activate desktop notifications"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:265
+#: src/glade/sensor-edit.glade:266
 msgid "Sensor Information"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:278
+#: src/glade/sensor-edit.glade:279
 msgid "Draw sensor curve"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:366
+#: src/glade/sensor-edit.glade:367
 msgid "High threshold:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:381
+#: src/glade/sensor-edit.glade:382
 msgid "Low threshold:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:443
+msgid "Ubuntu Application Indicator"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:458
+msgid "Enable indicator"
 msgstr ""
 
 #: src/lib/amd.c:150
