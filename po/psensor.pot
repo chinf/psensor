@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-16 11:23+0200\n"
+"POT-Creation-Date: 2012-07-16 23:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,8 +119,8 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
 #: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
-#: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
-#: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
+#: src/lib/psensor.c:470 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
 msgstr ""
 
@@ -237,11 +237,11 @@ msgstr ""
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:230 src/lib/psensor.c:477
+#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:53
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:232 src/lib/psensor.c:480
+#: src/lib/psensor.c:468
 msgid "%"
 msgstr ""
 

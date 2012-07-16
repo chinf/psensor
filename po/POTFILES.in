@@ -20,3 +20,4 @@ src/ui_notify.c
 src/ui_pref.c
 src/ui_sensorlist.c
 src/ui_sensorpref.c  
+tests/test_psensor_type_to_unit_str.c

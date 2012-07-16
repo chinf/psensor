@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-16 10:17+0200\n"
+"POT-Creation-Date: 2012-07-16 23:06+0200\n"
 "PO-Revision-Date: 2012-06-25 13:26+0000\n"
 "Last-Translator: Rafael Neri <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -119,9 +119,9 @@ msgid "Edit Sensor Preferences"
 msgstr ""
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
-#: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
-#: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
-#: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
+#: src/lib/psensor.c:470 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/D"
 
@@ -149,21 +149,30 @@ msgstr "Alarme"
 msgid "Activate desktop notifications"
 msgstr "Ativar notificações de desktop"
 
-#: src/glade/sensor-edit.glade:265
+#: src/glade/sensor-edit.glade:266
 msgid "Sensor Information"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:278
+#: src/glade/sensor-edit.glade:279
 msgid "Draw sensor curve"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:366
+#: src/glade/sensor-edit.glade:367
 msgid "High threshold:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:381
+#: src/glade/sensor-edit.glade:382
 msgid "Low threshold:"
 msgstr ""
+
+#: src/glade/sensor-edit.glade:443
+msgid "Ubuntu Application Indicator"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:458
+#, fuzzy
+msgid "Enable indicator"
+msgstr "Habilitado"
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
@@ -230,11 +239,11 @@ msgstr ""
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:230 src/lib/psensor.c:477
+#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:53
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:232 src/lib/psensor.c:480
+#: src/lib/psensor.c:468
 msgid "%"
 msgstr "%"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-16 10:17+0200\n"
+"POT-Creation-Date: 2012-07-16 23:06+0200\n"
 "PO-Revision-Date: 2012-05-13 18:15+0000\n"
 "Last-Translator: jeanfi <Unknown>\n"
 "Language-Team: Russian\n"
@@ -119,9 +119,9 @@ msgid "Edit Sensor Preferences"
 msgstr "Изменить параметры датчика"
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
-#: src/glade/sensor-edit.glade:325 src/glade/sensor-edit.glade:421
-#: src/lib/psensor.c:234 src/lib/psensor.c:482 src/ui_sensorlist.c:378
-#: src/ui_sensorlist.c:379 src/ui_sensorlist.c:380 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
+#: src/lib/psensor.c:470 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
 msgstr "Н/Д"
 
@@ -149,21 +149,30 @@ msgstr "Уведомление"
 msgid "Activate desktop notifications"
 msgstr "Включить уведомления"
 
-#: src/glade/sensor-edit.glade:265
+#: src/glade/sensor-edit.glade:266
 msgid "Sensor Information"
 msgstr "Информация датчика"
 
-#: src/glade/sensor-edit.glade:278
+#: src/glade/sensor-edit.glade:279
 msgid "Draw sensor curve"
 msgstr "Рисовать график датчика"
 
-#: src/glade/sensor-edit.glade:366
+#: src/glade/sensor-edit.glade:367
 msgid "High threshold:"
 msgstr "Высший порог:"
 
-#: src/glade/sensor-edit.glade:381
+#: src/glade/sensor-edit.glade:382
 msgid "Low threshold:"
 msgstr "Нижний порог:"
+
+#: src/glade/sensor-edit.glade:443
+msgid "Ubuntu Application Indicator"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:458
+#, fuzzy
+msgid "Enable indicator"
+msgstr "Включён"
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
@@ -230,11 +239,11 @@ msgstr "Ошибка открытия соединения к серверу X11
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Ошибка получения информации NVIDIA."
 
-#: src/lib/psensor.c:230 src/lib/psensor.c:477
+#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:53
 msgid "RPM"
 msgstr "об/мин"
 
-#: src/lib/psensor.c:232 src/lib/psensor.c:480
+#: src/lib/psensor.c:468
 msgid "%"
 msgstr "%"
 
