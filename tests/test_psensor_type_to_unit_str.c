@@ -35,23 +35,25 @@ static int test_psensor_type_to_unit_str()
 
 	u = psensor_type_to_unit_str(SENSOR_TYPE_TEMP, 1);
 	if (strcmp("\302\260C", u))
-	    failures++;
+		failures++;
 
 	u = psensor_type_to_unit_str(SENSOR_TYPE_TEMP, 0);
 	if (strcmp("\302\260F", u))
-	    failures++;
+		failures++;
 
 	u = psensor_type_to_unit_str(SENSOR_TYPE_LMSENSOR_TEMP, 1);
 	if (strcmp("\302\260C", u))
-	    failures++;
+		failures++;
 
 	u = psensor_type_to_unit_str(SENSOR_TYPE_LMSENSOR_TEMP, 0);
 	if (strcmp("\302\260F", u))
-	    failures++;
-
+		failures++;
+	
 	u = psensor_type_to_unit_str(SENSOR_TYPE_FAN, 0);
-	if (strcmp(_("RPM"), u))
-	    failures++;
+	fprintf(stdout, "returns: %s expected: %s\n", u, _("RPM"));
+	if (strcmp(_("RPM"), u)) {
+		failures++;
+	}
 
 	return failures;
 }
