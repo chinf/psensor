@@ -28,32 +28,39 @@
 
 #include "../src/lib/psensor.h"
 
-static int test_psensor_type_to_unit_str()
+static int
+test_fct(unsigned int type, int use_celcius, const char *ref)
 {
 	const char *u;
+
+	u = psensor_type_to_unit_str(type, use_celcius);
+	if (strcmp(ref, u)) {
+		fprintf(stderr, "returns: %s expected: %s\n", u, ref);
+		return 0;
+	}
+
+	return 1;
+}
+
+static int test() {
 	int failures;
 
-	u = psensor_type_to_unit_str(SENSOR_TYPE_TEMP, 1);
-	if (strcmp("\302\260C", u))
+	failures = 0;
+
+	if (!test_fct(SENSOR_TYPE_TEMP, 1, "\302\260C"))
 		failures++;
 
-	u = psensor_type_to_unit_str(SENSOR_TYPE_TEMP, 0);
-	if (strcmp("\302\260F", u))
+	if (!test_fct(SENSOR_TYPE_TEMP, 0, "\302\260F"))
 		failures++;
 
-	u = psensor_type_to_unit_str(SENSOR_TYPE_LMSENSOR_TEMP, 1);
-	if (strcmp("\302\260C", u))
+	if (!test_fct(SENSOR_TYPE_LMSENSOR_TEMP, 1, "\302\260C"))
 		failures++;
 
-	u = psensor_type_to_unit_str(SENSOR_TYPE_LMSENSOR_TEMP, 0);
-	if (strcmp("\302\260F", u))
+	if (!test_fct(SENSOR_TYPE_LMSENSOR_TEMP, 0, "\302\260F"))
 		failures++;
-	
-	u = psensor_type_to_unit_str(SENSOR_TYPE_FAN, 0);
-	fprintf(stdout, "returns: %s expected: %s\n", u, _("RPM"));
-	if (strcmp(_("RPM"), u)) {
+
+	if (!test_fct(SENSOR_TYPE_FAN, 0, _("RPM")))
 		failures++;
-	}
 
 	return failures;
 }
@@ -66,9 +73,7 @@ int main(int argc, char **argv)
 	bindtextdomain(PACKAGE, LOCALEDIR);
 	textdomain(PACKAGE);
 
-	failures = 0;
-
-	failures += test_psensor_type_to_unit_str();
+	failures = test();
 
 	if (failures) 
 		exit(EXIT_FAILURE);
