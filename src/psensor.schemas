@@ -1,0 +1,101 @@
+<gconfschemafile>
+  <schemalist>
+    <!-- Graph settings --
+    <schema>
+      <key>/schemas/apps/psensor/graph/alpha_channel_enabled</key>
+      <applyto>/apps/psensor/graph/alpha_channel_enabled</applyto>
+      <owner>psensor</owner>
+      <type>bool</type>
+      <default>false</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>Whether the alpha channel is enabled</short>
+         <long>
+	   Whether the alpha channel is enabled. Must be enabled for changing
+	   the transparency of the background of the graph window.
+         </long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/psensor/graph/background_alpha</key>
+      <applyto>/apps/psensor/graph/background_alpha</applyto>
+      <owner>psensor</owner>
+      <type>float</type>
+      <default>1</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>The alpha value of the background of the graph window</short>
+         <long>
+	   The alpha value of the background of the graph window. It must
+	   be a positive float between 0 and 1. '1' is the maximum opacity.
+         </long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/psensor/graph/background_color</key>
+      <applyto>/apps/psensor/graph/background_color</applyto>
+      <owner>psensor</owner>
+      <type>string</type>
+      <default>#e8f4e8f4a8f5</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>The color of the background of the graph canvas</short>
+         <long>
+	   The color of the background of the graph canvas as a #rgb
+	   representation.
+         </long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/psensor/graph/foreground_color</key>
+      <applyto>/apps/psensor/graph/foreground_color</applyto>
+      <owner>psensor</owner>
+      <type>string</type>
+      <default>#000000000000</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>The color of the foreground of the graph canvas</short>
+         <long>
+	   The color of the foreground of the graph canvas as a #rgb
+	   representation.
+         </long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/psensor/graph/monitoring_duration</key>
+      <applyto>/apps/psensor/graph/monitoring_duration</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <default>10</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>The monitoring duration of the graph</short>
+         <long>
+	   The monitoring duration of the graph as minutes. It must
+	   be greater than 1.
+         </long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/psensor/graph/update_interval</key>
+      <applyto>/apps/psensor/graph/update_interval</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <default>1</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>The interval between refreshs of the graph</short>
+         <long>
+	   The interval between refreshs of the graph as seconds. It
+	   must be greater than 1.
+         </long>
+      </locale>
+    </schema>
+    
+  </schemalist>
+</gconfschemafile>
