@@ -1,3 +1,19 @@
+<!-- Copyright (C) 2012 jeanfi@gmail.com                                 -->
+
+<!-- This program is free software; you can redistribute it and/or       -->
+<!-- modify it under the terms of the GNU General Public License as      -->
+<!-- published by the Free Software Foundation; either version 2 of the  -->
+<!-- License, or (at your option) any later version.                     -->
+
+<!-- This program is distributed in the hope that it will be useful, but -->
+<!-- WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU   -->
+<!-- General Public License for more details.                            -->
+
+<!-- You should have received a copy of the GNU General Public License   -->
+<!-- along with this program; if not, write to the Free Software         -->
+<!-- Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA       -->
+<!--  02110-1301 USA                                                     -->
 <gconfschemafile>
   <schemalist>
     <!-- Graph settings -->
@@ -96,6 +112,182 @@
          </long>
       </locale>
     </schema>
+
+    <!-- Inteface settings -->
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/hide_on_startup</key>
+      <applyto>/apps/psensor/interface/hide_on_startup</applyto>
+      <owner>psensor</owner>
+      <type>bool</type>
+      <default>false</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>Whether the graph window is hidden on startup</short>
+         <long>
+	   Whether the graph window is hidden on startup. The graph
+	   will be hidden only if the Ubuntu Application Indicator or
+	   status icon support is available.
+         </long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/menu_bar_disabled</key>
+      <applyto>/apps/psensor/interface/menu_bar_disabled</applyto>
+      <owner>psensor</owner>
+      <type>bool</type>
+      <default>false</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>Whether the menu of the graph window is disabled</short>
+         <long>
+	   Whether the menu of the graph window is disabled
+         </long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/sensorlist_position</key>
+      <applyto>/apps/psensor/interface/sensorlist_position</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <default>0</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+         <short>Position of the sensor list in the graph window</short>
+         <long>Position of the sensor list in the graph
+         window. Possible values are 0 (right), 1 (left), 2 (top), 3
+         (bottom).</long>
+      </locale>
+    </schema>
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/unity_launcher_count_disabled</key>
+      <applyto>/apps/psensor/interface/unity_launcher_count_disabled</applyto>
+      <owner>psensor</owner>
+      <type>bool</type>
+      <default>false</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Whether the greatest temperature is displayed in Unity
+	launcher</short>
+	<long>If set to 'true' the greatest temperature will be
+	displayed in the Unity launcher.</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/temperature_unit</key>
+      <applyto>/apps/psensor/interface/temperature_unit</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <default>0</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>The displayed temperature unit</short>
+	<long>The displayed temperature unit, '0' for Celcius, '1' for Fahenrenheit.</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/window_decoration_disabled</key>
+      <applyto>/apps/psensor/interface/window_decoration_disabled</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <default>0</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Whether the decoration of the window is disabled</short>
+	<long>Whether the decoration of the window is disabled.</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/window_keep_below_enabled</key>
+      <applyto>/apps/psensor/interface/window_keep_below_enabled</applyto>
+      <owner>psensor</owner>
+      <type>bool</type>
+      <default>false</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Whether the graph window is kept below all other windows</short>
+	<long>Whether the graph window is kept below all other windows.</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/window_restore_enabled</key>
+      <applyto>/apps/psensor/interface/window_restore_enabled</applyto>
+      <owner>psensor</owner>
+      <type>bool</type>
+      <default>false</default>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Whether the position and size of the graph window are restored</short>
+	<long>Whether the position and size of the graph window are restored</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/window_divider_pos</key>
+      <applyto>/apps/psensor/interface/window_divider_pos</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Position of the divider between the graph window and the list of sensors</short>
+	<long>Position of the divider between the graph window and the list of sensors</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/window_w</key>
+      <applyto>/apps/psensor/interface/window_w</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Width of the graph window</short>
+	<long>Width of the graph window.</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/window_h</key>
+      <applyto>/apps/psensor/interface/window_h</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Height of the graph window</short>
+	<long>Height of the graph window.</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/window_x</key>
+      <applyto>/apps/psensor/interface/window_x</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Horizontal position of the graph window</short>
+	<long>Horizontal position of the graph window.</long>
+      </locale>
+    </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/interface/window_y</key>
+      <applyto>/apps/psensor/interface/window_y</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <gettext_domain>psensor</gettext_domain>
+      <locale name="C">
+	<short>Vertical position of the graph window</short>
+	<long>Vertical position of the graph window.</long>
+      </locale>
+    </schema>    
     
   </schemalist>
 </gconfschemafile>
