@@ -1,4 +1,5 @@
 /etc/xdg/autostart
+/etc/gconf/schemas/psensor.schemas
 /usr/bin/psensor
 /usr/share/applications
 /usr/share/icons
