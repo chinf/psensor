@@ -15,6 +15,7 @@
 
 @SET_MAKE@
 
+
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkgincludedir = $(includedir)/@PACKAGE@
@@ -67,7 +68,8 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(man1dir)"
+am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(man1dir)" \
+	"$(DESTDIR)$(schemadir)"
 PROGRAMS = $(bin_PROGRAMS)
 am__psensor_SOURCES_DIST = compat.h cfg.h cfg.c graph.h graph.c main.c \
 	ui.h ui.c ui_appindicator.h ui_color.h ui_color.c ui_graph.h \
@@ -133,6 +135,7 @@ am__uninstall_files_from_dir = { \
 man1dir = $(mandir)/man1
 NROFF = nroff
 MANS = $(dist_man_MANS)
+DATA = $(schema_DATA)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
@@ -192,8 +195,11 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
+GCONFTOOL = @GCONFTOOL@
 GCONF_CFLAGS = @GCONF_CFLAGS@
 GCONF_LIBS = @GCONF_LIBS@
+GCONF_SCHEMA_CONFIG_SOURCE = @GCONF_SCHEMA_CONFIG_SOURCE@
+GCONF_SCHEMA_FILE_DIR = @GCONF_SCHEMA_FILE_DIR@
 GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GMSGFMT = @GMSGFMT@
 GMSGFMT_015 = @GMSGFMT_015@
@@ -334,7 +340,10 @@ psensor_SOURCES = compat.h cfg.h cfg.c graph.h graph.c main.c ui.h \
 	$(am__append_4) $(am__append_7) $(am__append_16) \
 	$(am__append_19)
 dist_man_MANS = psensor.1
-EXTRA_DIST = description.txt
+EXTRA_DIST = description.txt psensor.schemas
+schemadir = $(GCONF_SCHEMA_FILE_DIR)
+schema_in_files = psensor.schemas.in
+schema_DATA = psensor.schemas
 all: all-recursive
 
 .SUFFIXES:
@@ -480,6 +489,24 @@ uninstall-man1:
 	} | sed -e 's,.*/,,;h;s,.*\.,,;s,^[^1][0-9a-z]*$$,1,;x' \
 	      -e 's,\.[0-9a-z]*$$,,;$(transform);G;s,\n,.,'`; \
 	dir='$(DESTDIR)$(man1dir)'; $(am__uninstall_files_from_dir)
+install-schemaDATA: $(schema_DATA)
+	@$(NORMAL_INSTALL)
+	test -z "$(schemadir)" || $(MKDIR_P) "$(DESTDIR)$(schemadir)"
+	@list='$(schema_DATA)'; test -n "$(schemadir)" || list=; \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$$d$$p"; \
+	done | $(am__base_list) | \
+	while read files; do \
+	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(schemadir)'"; \
+	  $(INSTALL_DATA) $$files "$(DESTDIR)$(schemadir)" || exit $$?; \
+	done
+
+uninstall-schemaDATA:
+	@$(NORMAL_UNINSTALL)
+	@list='$(schema_DATA)'; test -n "$(schemadir)" || list=; \
+	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+	dir='$(DESTDIR)$(schemadir)'; $(am__uninstall_files_from_dir)
 
 # This directory's subdirectories are mostly independent; you can cd
 # into them and run `make' without going through this Makefile.
@@ -689,10 +716,10 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-recursive
-all-am: Makefile $(PROGRAMS) $(MANS)
+all-am: Makefile $(PROGRAMS) $(MANS) $(DATA)
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(man1dir)"; do \
+	for dir in "$(DESTDIR)$(bindir)" "$(DESTDIR)$(man1dir)" "$(DESTDIR)$(schemadir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -725,6 +752,7 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
+@GCONF_SCHEMAS_INSTALL_FALSE@install-data-local:
 clean: clean-recursive
 
 clean-am: clean-binPROGRAMS clean-generic mostlyclean-am
@@ -747,7 +775,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-man
+install-data-am: install-data-local install-man install-schemaDATA
 
 install-dvi: install-dvi-recursive
 
@@ -792,7 +820,7 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-binPROGRAMS uninstall-man
+uninstall-am: uninstall-binPROGRAMS uninstall-man uninstall-schemaDATA
 
 uninstall-man: uninstall-man1
 
@@ -804,17 +832,21 @@ uninstall-man: uninstall-man1
 	clean-generic ctags ctags-recursive distclean \
 	distclean-compile distclean-generic distclean-tags distdir dvi \
 	dvi-am html html-am info info-am install install-am \
-	install-binPROGRAMS install-data install-data-am install-dvi \
-	install-dvi-am install-exec install-exec-am install-html \
-	install-html-am install-info install-info-am install-man \
-	install-man1 install-pdf install-pdf-am install-ps \
-	install-ps-am install-strip installcheck installcheck-am \
-	installdirs installdirs-am maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic pdf pdf-am ps ps-am tags tags-recursive \
-	uninstall uninstall-am uninstall-binPROGRAMS uninstall-man \
-	uninstall-man1
+	install-binPROGRAMS install-data install-data-am \
+	install-data-local install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-man1 install-pdf \
+	install-pdf-am install-ps install-ps-am install-schemaDATA \
+	install-strip installcheck installcheck-am installdirs \
+	installdirs-am maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic pdf pdf-am \
+	ps ps-am tags tags-recursive uninstall uninstall-am \
+	uninstall-binPROGRAMS uninstall-man uninstall-man1 \
+	uninstall-schemaDATA
 
+
+@GCONF_SCHEMAS_INSTALL_TRUE@install-data-local:
+@GCONF_SCHEMAS_INSTALL_TRUE@	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_srcdir)/src/$(schema_DATA)
 
 psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)

@@ -1,6 +1,7 @@
 * v0.7.0.2
 
 ** psensor: added latvian translation file.
+** psensor: added gconf schema. (LP: #1026807)
 
 * v0.7.0.1
 

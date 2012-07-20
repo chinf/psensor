@@ -32,6 +32,15 @@ AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol])
 AM_GNU_GETTEXT_VERSION([0.16])
 AM_GNU_GETTEXT([external])
 
+# Gconf
+AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
+
+if test x"$GCONFTOOL" = xno; then
+  AC_MSG_ERROR([gconftool-2 executable not found in your path - should be installed with GConf])
+fi
+
+AM_GCONF_SOURCE_2
+
 ############### common 
 
 # Checks sensors, required by psensor and psensor-server

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-18 02:05+0200\n"
+"POT-Creation-Date: 2012-07-20 12:13+0200\n"
 "PO-Revision-Date: 2012-04-28 11:24+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -238,8 +238,7 @@ msgstr ""
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:53
-#: tests/test_psensor_type_to_unit_str.c:54
+#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr ""
 

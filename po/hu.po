@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-18 02:05+0200\n"
+"POT-Creation-Date: 2012-07-20 12:13+0200\n"
 "PO-Revision-Date: 2012-07-09 17:56+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -240,8 +240,7 @@ msgstr "Nem lehet létrehozni a kapcsolatot az X11 kiszolgálóval."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "NVIDIA információinak lekérése meghiúsult."
 
-#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:53
-#: tests/test_psensor_type_to_unit_str.c:54
+#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 

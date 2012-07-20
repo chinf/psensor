@@ -86,7 +86,16 @@ endif
 endif
 
 dist_man_MANS = psensor.1
-EXTRA_DIST = description.txt
+EXTRA_DIST = description.txt psensor.schemas
+
+schemadir = $(GCONF_SCHEMA_FILE_DIR)
+schema_in_files = psensor.schemas.in
+schema_DATA = psensor.schemas
+
+if GCONF_SCHEMAS_INSTALL
+install-data-local:
+	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_srcdir)/src/$(schema_DATA)
+endif
 
 psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)

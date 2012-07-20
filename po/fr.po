@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-18 02:05+0200\n"
+"POT-Creation-Date: 2012-07-20 12:13+0200\n"
 "PO-Revision-Date: 2012-05-13 18:15+0000\n"
 "Last-Translator: jeanfi <Unknown>\n"
 "Language-Team: French <>\n"
@@ -241,8 +241,7 @@ msgstr "Impossible d'ouvrir la connexion au serveur X11."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Échec de la récupération des information NVIDIA."
 
-#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:53
-#: tests/test_psensor_type_to_unit_str.c:54
+#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
