@@ -35,7 +35,6 @@ static const char *ICON = "psensor_normal";
 static const char *ATTENTION_ICON = "psensor_hot";
 
 static GtkMenuItem **sensor_menu_items;
-static GtkWidget *main_window;
 static int appindicator_supported = 1;
 static AppIndicator *indicator;
 static struct ui_psensor *ui_psensor;
@@ -259,7 +258,6 @@ void ui_appindicator_init(struct ui_psensor *ui)
 	GtkWidget *menu;
 
 	ui_psensor = ui;
-	main_window = ui->main_window;
 
 	indicator = app_indicator_new
 		("psensor",
