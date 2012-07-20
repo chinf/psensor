@@ -1,6 +1,6 @@
 <gconfschemafile>
   <schemalist>
-    <!-- Graph settings --
+    <!-- Graph settings -->
     <schema>
       <key>/schemas/apps/psensor/graph/alpha_channel_enabled</key>
       <applyto>/apps/psensor/graph/alpha_channel_enabled</applyto>
