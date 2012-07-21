@@ -1,8 +1,6 @@
 psensor (0.7.0.2-1) unstable; urgency=low
 
   * New upstream release
-      - fixed sensor type displayed in sensor preferences
-        dialog. (LP: #968912)
       - added gconf schema. (LP: #1026807)
       -	fixed systray and application indicator visible at the
 	same time. (LP: #971098)
