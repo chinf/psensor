@@ -8,8 +8,6 @@ psensor (0.7.0.2-1) unstable; urgency=low
 	same time. (LP: #971098)
       -	fixed wrong background color, get the background color of
         the window and not the canvas widget. (LP: #973122)
-      -	added the Celcis degree sign. (LP: #1021900)
-      - fixed hide window on startup for gnome-shell. (Closes: #676361)
   * debian/control
       - added builddep to libatasmart-dev
   * debian/psensor.install
