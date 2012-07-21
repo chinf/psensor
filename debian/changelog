@@ -1,20 +1,60 @@
-psensor (0.7.0.0-1ubuntu1) oneiric; urgency=low
+psensor (0.7.0.2-1) unstable; urgency=low
 
   * New upstream release
+      - fixed sensor type displayed in sensor preferences
+        dialog. (LP: #968912)
+      - added gconf schema. (LP: #1026807)
+      -	fixed systray and application indicator visible at the
+	same time. (LP: #971098)
+      -	fixed wrong background color, get the background color of
+        the window and not the canvas widget. (LP: #973122)
+      -	added the Celcis degree sign. (LP: #1021900)
+      - fixed hide window on startup for gnome-shell. (Closes: #676361)
+  * debian/control
+      - added builddep to libatasmart-dev
+  * debian/psensor.install
+      - added gconf schema
+  * debian/rules
+      - set GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL to 1 to avoid gconf
+	schema installation during package build
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 28 Dec 2011 19:55:51 +0100
 
-psensor (0.6.2.16-1ubuntu2) oneiric; urgency=low
+psensor (0.6.2.18-1) unstable; urgency=low
 
   * New upstream release
+      - added degree sign for celcius. (LP: #1021900)
+      - fixed hide window on startup for gnome-shell. (Closes: #676361)
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 14 Dec 2011 01:52:52 +0100
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 12 Jul 2012 13:45:42 -0400
 
-psensor (0.6.2.15-1ubuntu1) oneiric; urgency=low
+psensor (0.6.2.17-2) unstable; urgency=low
 
-  * nightly build
+  * debian/control
+     - replaced libcurl4-openssl-dev build dep to
+       libcurl4-gnutls-dev. (Closes: #668180)
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 01 Dec 2011 01:57:00 +0100
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Mon, 09 Apr 2012 12:15:54 -0400
+
+psensor (0.6.2.17-1) unstable; urgency=low
+
+  * New upstream release
+      - Fixed sensor type displayed in sensor preferences. (LP: #968912)
+  * debian/control
+      - Switched to Standards-Version 3.9.3.
+  * debian/copyright
+      - Changed end date to 2012.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Mon, 26 Mar 2012 05:14:19 -0400
+
+psensor (0.6.2.16-1) unstable; urgency=low
+
+  * New upstream release
+      - removed -pedantic compilation option. (Closes LP: #905893)
+  * debian/control, debian/psensor.install, debian/psensor-server.install:
+      - applied wrap-and-sort. (Closes: #652531)
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 22 Dec 2011 21:11:44 -0500
 
 psensor (0.6.2.15-1) unstable; urgency=low
 
