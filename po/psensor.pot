@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-20 12:13+0200\n"
+"POT-Creation-Date: 2012-07-21 20:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,7 +119,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
 #: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
-#: src/lib/psensor.c:470 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/lib/psensor.c:472 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
 #: src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
 msgstr ""
@@ -237,11 +237,11 @@ msgstr ""
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:468 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:468
+#: src/lib/psensor.c:470
 msgid "%"
 msgstr ""
 
@@ -306,20 +306,20 @@ msgstr ""
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:455
+#: src/main.c:457
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:518
+#: src/main.c:520
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:530 src/server/server.c:371
+#: src/main.c:532 src/server/server.c:371
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:543
+#: src/main.c:545
 msgid "A Psensor instance already exists."
 msgstr ""
 
@@ -469,7 +469,7 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: src/ui.c:184 src/ui_appindicator.c:187 src/ui_graph.c:99
+#: src/ui.c:184 src/ui_appindicator.c:186 src/ui_graph.c:99
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
@@ -534,6 +534,6 @@ msgstr ""
 msgid "Fan alert"
 msgstr ""
 
-#: src/ui_sensorpref.c:478
+#: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr ""

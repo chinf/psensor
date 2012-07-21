@@ -33,6 +33,7 @@ static const char *ATT_SENSOR_ALARM_LOW_THRESHOLD = "alarm/low_threshold";
 static const char *ATT_SENSOR_COLOR = "color";
 static const char *ATT_SENSOR_ENABLED = "enabled";
 static const char *ATT_SENSOR_NAME = "name";
+static const char *ATT_SENSOR_APPINDICATOR_DISABLED = "appindicator/disabled";
 
 static const char *KEY_SENSOR_UPDATE_INTERVAL
 = "/apps/psensor/sensor/update_interval";
@@ -366,6 +367,34 @@ void config_set_sensor_name(const char *sid, const char *name)
 	gconf_client_set_string(client, key, name, NULL);
 	free(key);
 }
+
+unsigned int config_is_appindicator_enabled(const char *sid)
+{
+	char *key;
+	gboolean b;
+
+	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_DISABLED);
+	b = gconf_client_get_bool(client, key, NULL);
+	free(key);
+
+	return b == FALSE;
+}
+
+void config_set_appindicator_enabled(const char *sid, unsigned int enabled)
+{
+	char *key;
+	gboolean b;
+
+	if (enabled)
+		b = FALSE;
+	else
+		b = TRUE;
+
+	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_DISABLED);
+	gconf_client_set_bool(client, key, b, NULL);
+	free(key);
+}
+
 
 static int is_window_decoration_enabled()
 {

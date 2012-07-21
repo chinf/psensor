@@ -109,6 +109,8 @@ struct psensor {
 #endif
 
 	char *url;
+
+	unsigned int appindicator_enabled;
 };
 
 struct psensor *psensor_create(char *id,

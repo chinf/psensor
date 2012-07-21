@@ -143,7 +143,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_combo_box_set_active(GTK_COMBO_BOX(w_temp_unit),
 				 cfg->temperature_unit);
 
-
 	result = gtk_dialog_run(diag);
 
 	if (result == GTK_RESPONSE_ACCEPT) {

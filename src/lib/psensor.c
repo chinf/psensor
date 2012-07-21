@@ -61,6 +61,8 @@ struct psensor *psensor_create(char *id, char *name,
 
 	psensor->color = NULL;
 
+	psensor->appindicator_enabled = 0;
+
 	return psensor;
 }
 

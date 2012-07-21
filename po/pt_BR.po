@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-20 12:13+0200\n"
+"POT-Creation-Date: 2012-07-21 20:37+0200\n"
 "PO-Revision-Date: 2012-06-25 13:26+0000\n"
 "Last-Translator: Rafael Neri <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -120,7 +120,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
 #: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
-#: src/lib/psensor.c:470 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
+#: src/lib/psensor.c:472 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
 #: src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/D"
@@ -239,11 +239,11 @@ msgstr ""
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:466 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:468 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:468
+#: src/lib/psensor.c:470
 msgid "%"
 msgstr "%"
 
@@ -313,20 +313,20 @@ msgstr "Relatar falhas para: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "Página inicial de %s: <%s>\n"
 
-#: src/main.c:455
+#: src/main.c:457
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:518
+#: src/main.c:520
 msgid "Enables debug mode."
 msgstr "Ativar o modo de depuração"
 
-#: src/main.c:530 src/server/server.c:371
+#: src/main.c:532 src/server/server.c:371
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Utilize `%s --help' para mais informações.\n"
 
-#: src/main.c:543
+#: src/main.c:545
 msgid "A Psensor instance already exists."
 msgstr "Uma instancia de Psensor já existe."
 
@@ -480,7 +480,7 @@ msgstr "Sobre"
 msgid "About"
 msgstr "Sobre"
 
-#: src/ui.c:184 src/ui_appindicator.c:187 src/ui_graph.c:99
+#: src/ui.c:184 src/ui_appindicator.c:186 src/ui_graph.c:99
 #, c-format
 msgid "building menus failed: %s"
 msgstr "falha na montagem dos menus: %s"
@@ -545,6 +545,6 @@ msgstr ""
 msgid "Fan alert"
 msgstr ""
 
-#: src/ui_sensorpref.c:478
+#: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr ""

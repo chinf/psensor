@@ -322,6 +322,8 @@ static void associate_preferences(struct psensor **sensors)
 			s->name = n;
 		}
 
+		s->appindicator_enabled = config_is_appindicator_enabled(s->id);
+
 		sensor_cur++;
 	}
 }

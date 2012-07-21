@@ -100,4 +100,7 @@ void config_set_sensor_enabled(const char *, int);
 char *config_get_sensor_name(const char *);
 void config_set_sensor_name(const char *, const char *);
 
+unsigned int config_is_appindicator_enabled(const char *);
+void config_set_appindicator_enabled(const char *, unsigned int);
+
 #endif

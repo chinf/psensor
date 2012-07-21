@@ -25,6 +25,7 @@
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 void ui_appindicator_init(struct ui_psensor *ui);
 void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention);
+void ui_appindicator_update_menu(struct ui_psensor *ui);
 int is_appindicator_supported();
 void ui_appindicator_cleanup();
 #else

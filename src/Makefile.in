@@ -339,11 +339,10 @@ psensor_SOURCES = compat.h cfg.h cfg.c graph.h graph.c main.c ui.h \
 	ui_sensorpref.h ui_sensorpref.c ui_status.h ui_status.c \
 	$(am__append_4) $(am__append_7) $(am__append_16) \
 	$(am__append_19)
+schemadir = $(GCONF_SCHEMA_FILE_DIR)
+schema_DATA = psensor.schemas
 dist_man_MANS = psensor.1
 EXTRA_DIST = description.txt psensor.schemas
-schemadir = $(GCONF_SCHEMA_FILE_DIR)
-schema_in_files = psensor.schemas.in
-schema_DATA = psensor.schemas
 all: all-recursive
 
 .SUFFIXES:

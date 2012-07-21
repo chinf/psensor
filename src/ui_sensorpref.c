@@ -26,6 +26,10 @@
 #include "ui_sensorpref.h"
 #include "ui_color.h"
 
+#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+#include "ui_appindicator.h"
+#endif
+
 struct sensor_pref {
 	struct psensor *sensor;
 	char *name;
@@ -34,6 +38,7 @@ struct sensor_pref {
 	int alarm_enabled;
 	int alarm_high_threshold;
 	int alarm_low_threshold;
+	unsigned int appindicator_enabled;
 };
 
 struct cb_data {
@@ -64,6 +69,8 @@ static struct sensor_pref *sensor_pref_new(struct psensor *s,
 		p->alarm_low_threshold
 			= celcius_to_fahrenheit(s->alarm_low_threshold);
 	}
+
+	p->appindicator_enabled = s->appindicator_enabled;
 
 	return p;
 }
@@ -193,6 +200,18 @@ on_alarm_toggled(GtkToggleButton *btn, gpointer data)
 		p->alarm_enabled = gtk_toggle_button_get_active(btn);
 }
 
+static void
+on_appindicator_toggled(GtkToggleButton *btn, gpointer data)
+{
+	struct cb_data *cbdata = data;
+	struct sensor_pref *p;
+
+	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
+
+	if (p)
+		p->appindicator_enabled = gtk_toggle_button_get_active(btn);
+}
+
 static void on_color_set(GtkColorButton *widget, gpointer data)
 {
 	struct cb_data *cbdata = data;
@@ -258,6 +277,12 @@ static void connect_signals(GtkBuilder *builder, struct cb_data *cbdata)
 			 "value-changed",
 			 G_CALLBACK(on_alarm_low_threshold_changed),
 			 cbdata);
+
+	g_signal_connect(gtk_builder_get_object(builder,
+						"indicator_checkbox"),
+			 "toggled",
+			 G_CALLBACK(on_appindicator_toggled),
+			 cbdata);
 }
 
 static void
@@ -268,7 +293,7 @@ update_pref(struct psensor *s,
 {
 	GtkLabel *w_id, *w_type, *w_high_threshold_unit, *w_low_threshold_unit;
 	GtkEntry *w_name;
-	GtkToggleButton *w_draw, *w_alarm;
+	GtkToggleButton *w_draw, *w_alarm, *w_appindicator_enabled;
 	GtkColorButton *w_color;
 	GtkSpinButton *w_high_threshold, *w_low_threshold;
 	GdkColor *color;
@@ -317,6 +342,9 @@ update_pref(struct psensor *s,
 			   psensor_type_to_unit_str(s->type,
 						    use_celcius));
 
+	w_appindicator_enabled = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder, "indicator_checkbox"));
+
 	if (is_temp_type(s->type) || is_fan_type(s->type)) {
 		gtk_toggle_button_set_active(w_alarm, p->alarm_enabled);
 		gtk_spin_button_set_value(w_high_threshold,
@@ -326,6 +354,8 @@ update_pref(struct psensor *s,
 		gtk_widget_set_sensitive(GTK_WIDGET(w_alarm), TRUE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_high_threshold), TRUE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_low_threshold), TRUE);
+		gtk_toggle_button_set_active(w_appindicator_enabled,
+					     p->appindicator_enabled);
 	} else {
 		gtk_toggle_button_set_active(w_alarm, 0);
 		gtk_spin_button_set_value(w_high_threshold, 0);
@@ -333,6 +363,8 @@ update_pref(struct psensor *s,
 		gtk_widget_set_sensitive(GTK_WIDGET(w_alarm), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_high_threshold), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_low_threshold), FALSE);
+		gtk_toggle_button_set_active(w_appindicator_enabled,
+					     !p->appindicator_enabled);
 	}
 }
 
@@ -430,6 +462,12 @@ apply_prefs(struct sensor_pref **prefs,
 		color_set(s->color,
 			  p->color->red, p->color->green, p->color->blue);
 		config_set_sensor_color(s->id, s->color);
+
+		if (s->appindicator_enabled != p->appindicator_enabled) {
+			s->appindicator_enabled = p->appindicator_enabled;
+			config_set_appindicator_enabled
+				(s->id, s->appindicator_enabled);
+		}
 	}
 }
 
@@ -502,6 +540,9 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	if (result == GTK_RESPONSE_ACCEPT) {
 		apply_prefs(cbdata.prefs, ui->sensors, ui->config);
 		ui_sensorlist_update_sensors_preferences(ui);
+#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+		ui_appindicator_update_menu(ui);
+#endif
 	}
 
 	g_object_unref(G_OBJECT(builder));
