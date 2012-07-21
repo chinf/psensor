@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-21 20:37+0200\n"
+"POT-Creation-Date: 2012-07-22 00:08+0200\n"
 "PO-Revision-Date: 2012-05-03 02:31+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -170,9 +170,8 @@ msgid "Ubuntu Application Indicator"
 msgstr ""
 
 #: src/glade/sensor-edit.glade:458
-#, fuzzy
-msgid "Enable indicator"
-msgstr "Укључено"
+msgid "Display sensor in the Application Indicator menu"
+msgstr ""
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
@@ -539,3 +538,7 @@ msgstr ""
 #: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr "Назив сензора"
+
+#, fuzzy
+#~ msgid "Enable indicator"
+#~ msgstr "Укључено"

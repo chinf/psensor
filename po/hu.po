@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-21 20:37+0200\n"
+"POT-Creation-Date: 2012-07-22 00:08+0200\n"
 "PO-Revision-Date: 2012-07-09 17:56+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -171,9 +171,8 @@ msgid "Ubuntu Application Indicator"
 msgstr ""
 
 #: src/glade/sensor-edit.glade:458
-#, fuzzy
-msgid "Enable indicator"
-msgstr "Engedélyezés"
+msgid "Display sensor in the Application Indicator menu"
+msgstr ""
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
@@ -571,3 +570,7 @@ msgstr "Ventilátor riasztás"
 #: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr "Érzékelő neve"
+
+#, fuzzy
+#~ msgid "Enable indicator"
+#~ msgstr "Engedélyezés"
