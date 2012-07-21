@@ -455,7 +455,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="indicator_checkbox">
-                    <property name="label" translatable="yes">Enable indicator</property>
+                    <property name="label" translatable="yes">Display sensor in the Application Indicator menu</property>
                     <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
