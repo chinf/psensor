@@ -1,18 +1,18 @@
 psensor (0.7.0.x-1) unstable; urgency=low
 
   * New upstream release
-      - added gconf schema. (LP: #1026807)
-      -	fixed systray and application indicator visible at the
-	same time. (LP: #971098)
-      -	fixed wrong background color, get the background color of
+      + added gconf schema. (LP: #1026807)
+      +	fixed systray and application indicator visible at the
+        same time. (LP: #971098)
+      +	fixed wrong background color, get the background color of
         the window and not the canvas widget. (LP: #973122)
   * debian/control
-      - added builddep to libatasmart-dev
+      + added builddep to libatasmart-dev
   * debian/psensor.install
-      - added gconf schema
+      + added gconf schema
   * debian/rules
-      - set GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL to 1 to avoid gconf
-	schema installation during package build
+      + set GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL to 1 to avoid gconf
+        schema installation during package build
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 28 Dec 2011 19:55:51 +0100
 
