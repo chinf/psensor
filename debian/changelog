@@ -1,4 +1,4 @@
-psensor (0.7.0.2-1) unstable; urgency=low
+psensor (0.7.0.x-1) unstable; urgency=low
 
   * New upstream release
       - added gconf schema. (LP: #1026807)
