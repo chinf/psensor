@@ -3,6 +3,8 @@
 ** psensor: added latvian translation file.
 ** psensor: added gconf schema. (LP: #1026807)
 ** psensor: hide sensors in the application indicator.
+** psensor: fixed size of the icon hicolor/48x48/psensor_hot.png.
+   (LP: #1029065)
 
 * v0.7.0.1
 
@@ -55,6 +57,11 @@
 ** psensor: added fan alert support.
 ** psensor: fixed hide window on startup for gnome-shell (Closes:
    #676361).
+
+* v0.6.2.19
+
+** psensor: fixed size of the icon hicolor/48x48/psensor_hot.png.
+   (LP: #1029065)
 
 * v0.6.2.18
 
