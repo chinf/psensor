@@ -6,6 +6,7 @@ psensor (0.7.0.x-1) unstable; urgency=low
         same time. (LP: #971098)
       +	fixed wrong background color, get the background color of
         the window and not the canvas widget. (LP: #973122)
+      + removed hicolor/48x48/psensor_hot.png. (LP: #1029065)
   * debian/control
       + added builddep to libatasmart-dev
   * debian/psensor.install
