@@ -5,7 +5,7 @@ Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
 Build-Depends: autoconf,
                automake,
                autopoint,
-               debhelper (>= 7.0.50~),
+               debhelper (>= 9),
                gettext,
                help2man,
                libappindicator3-dev,

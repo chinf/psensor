@@ -9,11 +9,14 @@ psensor (0.7.0.x-1) unstable; urgency=low
       + removed hicolor/48x48/psensor_hot.png. (LP: #1029065)
   * debian/control
       + added builddep to libatasmart-dev
+      + switched to debhelper 9
   * debian/psensor.install
       + added gconf schema
   * debian/rules
       + set GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL to 1 to avoid gconf
         schema installation during package build
+  * debian/compat
+      + switched to debhelper 9
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 28 Dec 2011 19:55:51 +0100
 
