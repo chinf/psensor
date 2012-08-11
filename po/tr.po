@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-22 00:08+0200\n"
+"POT-Creation-Date: 2012-08-11 09:38+0200\n"
 "PO-Revision-Date: 2012-04-28 11:24+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -34,83 +34,83 @@ msgstr ""
 msgid "Keep window below"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:142
+#: src/glade/psensor-pref.glade:123
 msgid "Enable menu"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:161
+#: src/glade/psensor-pref.glade:142
 msgid "Enable Unity Launcher counter"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:180
+#: src/glade/psensor-pref.glade:161
 msgid "Hide window on startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:199
+#: src/glade/psensor-pref.glade:180
 msgid "Restore window position and size"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:221
+#: src/glade/psensor-pref.glade:202
 msgid "Temperature unit:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:255
+#: src/glade/psensor-pref.glade:256
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/glade/psensor-pref.glade:295
+#: src/glade/psensor-pref.glade:296
 msgid "Foreground:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:310
+#: src/glade/psensor-pref.glade:311
 msgid "Background:"
 msgstr "Arkaplan:"
 
-#: src/glade/psensor-pref.glade:346
+#: src/glade/psensor-pref.glade:347
 msgid "Background opacity:"
 msgstr "Arkaplan belirginliği:"
 
-#: src/glade/psensor-pref.glade:369
+#: src/glade/psensor-pref.glade:370
 msgid "<i>Min</i>"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:396
+#: src/glade/psensor-pref.glade:397
 msgid "<i>Max</i>"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:422
+#: src/glade/psensor-pref.glade:423
 msgid "Colors"
 msgstr "Renk"
 
-#: src/glade/psensor-pref.glade:440
+#: src/glade/psensor-pref.glade:441
 msgid "Monitoring duration:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:478
+#: src/glade/psensor-pref.glade:479
 msgid "minute(s)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
+#: src/glade/psensor-pref.glade:496 src/glade/psensor-pref.glade:648
 msgid "second(s)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:531
+#: src/glade/psensor-pref.glade:532
 msgid "Update interval:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:549
+#: src/glade/psensor-pref.glade:550
 msgid "Measures"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
+#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:197
 msgid "Graph"
 msgstr "Grafik"
 
-#: src/glade/psensor-pref.glade:609
+#: src/glade/psensor-pref.glade:610
 msgid "Measure update interval:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:666
+#: src/glade/psensor-pref.glade:667
 msgid "Sensors"
 msgstr "Algılayıcı"
 

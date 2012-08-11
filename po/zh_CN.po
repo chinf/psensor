@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-22 00:08+0200\n"
+"POT-Creation-Date: 2012-08-11 09:38+0200\n"
 "PO-Revision-Date: 2012-06-14 07:28+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -34,83 +34,83 @@ msgstr "隐藏窗口标题栏"
 msgid "Keep window below"
 msgstr "保持在最底层"
 
-#: src/glade/psensor-pref.glade:142
+#: src/glade/psensor-pref.glade:123
 msgid "Enable menu"
 msgstr "启用菜单"
 
-#: src/glade/psensor-pref.glade:161
+#: src/glade/psensor-pref.glade:142
 msgid "Enable Unity Launcher counter"
 msgstr "启用 Unity 启动器计数器"
 
-#: src/glade/psensor-pref.glade:180
+#: src/glade/psensor-pref.glade:161
 msgid "Hide window on startup"
 msgstr "启动时隐藏窗口"
 
-#: src/glade/psensor-pref.glade:199
+#: src/glade/psensor-pref.glade:180
 msgid "Restore window position and size"
 msgstr "恢复窗口位置和大小"
 
-#: src/glade/psensor-pref.glade:221
+#: src/glade/psensor-pref.glade:202
 msgid "Temperature unit:"
 msgstr "温度单位："
 
-#: src/glade/psensor-pref.glade:255
+#: src/glade/psensor-pref.glade:256
 msgid "Interface"
 msgstr "界面"
 
-#: src/glade/psensor-pref.glade:295
+#: src/glade/psensor-pref.glade:296
 msgid "Foreground:"
 msgstr "前景："
 
-#: src/glade/psensor-pref.glade:310
+#: src/glade/psensor-pref.glade:311
 msgid "Background:"
 msgstr "背景:"
 
-#: src/glade/psensor-pref.glade:346
+#: src/glade/psensor-pref.glade:347
 msgid "Background opacity:"
 msgstr "背景透明："
 
-#: src/glade/psensor-pref.glade:369
+#: src/glade/psensor-pref.glade:370
 msgid "<i>Min</i>"
 msgstr "<i>最小值</i>"
 
-#: src/glade/psensor-pref.glade:396
+#: src/glade/psensor-pref.glade:397
 msgid "<i>Max</i>"
 msgstr "<i>最大值</i>"
 
-#: src/glade/psensor-pref.glade:422
+#: src/glade/psensor-pref.glade:423
 msgid "Colors"
 msgstr "颜色"
 
-#: src/glade/psensor-pref.glade:440
+#: src/glade/psensor-pref.glade:441
 msgid "Monitoring duration:"
 msgstr "监视持续时长："
 
-#: src/glade/psensor-pref.glade:478
+#: src/glade/psensor-pref.glade:479
 msgid "minute(s)"
 msgstr "分钟"
 
-#: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
+#: src/glade/psensor-pref.glade:496 src/glade/psensor-pref.glade:648
 msgid "second(s)"
 msgstr "秒"
 
-#: src/glade/psensor-pref.glade:531
+#: src/glade/psensor-pref.glade:532
 msgid "Update interval:"
 msgstr "更新间隔："
 
-#: src/glade/psensor-pref.glade:549
+#: src/glade/psensor-pref.glade:550
 msgid "Measures"
 msgstr "测量"
 
-#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
+#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:197
 msgid "Graph"
 msgstr "图表"
 
-#: src/glade/psensor-pref.glade:609
+#: src/glade/psensor-pref.glade:610
 msgid "Measure update interval:"
 msgstr "测量更新间隔："
 
-#: src/glade/psensor-pref.glade:666
+#: src/glade/psensor-pref.glade:667
 msgid "Sensors"
 msgstr "传感器"
 

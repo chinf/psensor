@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-07-22 00:08+0200\n"
+"POT-Creation-Date: 2012-08-11 09:38+0200\n"
 "PO-Revision-Date: 2012-05-13 18:15+0000\n"
 "Last-Translator: jeanfi <Unknown>\n"
 "Language-Team: Russian\n"
@@ -34,83 +34,83 @@ msgstr "Спрятать рамку окна"
 msgid "Keep window below"
 msgstr "Держать окно позади"
 
-#: src/glade/psensor-pref.glade:142
+#: src/glade/psensor-pref.glade:123
 msgid "Enable menu"
 msgstr "Включить меню"
 
-#: src/glade/psensor-pref.glade:161
+#: src/glade/psensor-pref.glade:142
 msgid "Enable Unity Launcher counter"
 msgstr "Включить счётчик в панеле запуска Unity"
 
-#: src/glade/psensor-pref.glade:180
+#: src/glade/psensor-pref.glade:161
 msgid "Hide window on startup"
 msgstr "Скрыть окно при запуске"
 
-#: src/glade/psensor-pref.glade:199
+#: src/glade/psensor-pref.glade:180
 msgid "Restore window position and size"
 msgstr "Восстанавливать положение и размер окна"
 
-#: src/glade/psensor-pref.glade:221
+#: src/glade/psensor-pref.glade:202
 msgid "Temperature unit:"
 msgstr "Единица измерения температуры:"
 
-#: src/glade/psensor-pref.glade:255
+#: src/glade/psensor-pref.glade:256
 msgid "Interface"
 msgstr "Внешний вид"
 
-#: src/glade/psensor-pref.glade:295
+#: src/glade/psensor-pref.glade:296
 msgid "Foreground:"
 msgstr "Передний план:"
 
-#: src/glade/psensor-pref.glade:310
+#: src/glade/psensor-pref.glade:311
 msgid "Background:"
 msgstr "Фон:"
 
-#: src/glade/psensor-pref.glade:346
+#: src/glade/psensor-pref.glade:347
 msgid "Background opacity:"
 msgstr "Непрозрачность фона:"
 
-#: src/glade/psensor-pref.glade:369
+#: src/glade/psensor-pref.glade:370
 msgid "<i>Min</i>"
 msgstr "<i>Мин.</i>"
 
-#: src/glade/psensor-pref.glade:396
+#: src/glade/psensor-pref.glade:397
 msgid "<i>Max</i>"
 msgstr "<i>Макс.</i>"
 
-#: src/glade/psensor-pref.glade:422
+#: src/glade/psensor-pref.glade:423
 msgid "Colors"
 msgstr "Цвета"
 
-#: src/glade/psensor-pref.glade:440
+#: src/glade/psensor-pref.glade:441
 msgid "Monitoring duration:"
 msgstr "Время мониторинга:"
 
-#: src/glade/psensor-pref.glade:478
+#: src/glade/psensor-pref.glade:479
 msgid "minute(s)"
 msgstr "мин."
 
-#: src/glade/psensor-pref.glade:495 src/glade/psensor-pref.glade:647
+#: src/glade/psensor-pref.glade:496 src/glade/psensor-pref.glade:648
 msgid "second(s)"
 msgstr "сек."
 
-#: src/glade/psensor-pref.glade:531
+#: src/glade/psensor-pref.glade:532
 msgid "Update interval:"
 msgstr "Интервал обновления:"
 
-#: src/glade/psensor-pref.glade:549
+#: src/glade/psensor-pref.glade:550
 msgid "Measures"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:585 src/glade/sensor-edit.glade:197
+#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:197
 msgid "Graph"
 msgstr "Диаграмма"
 
-#: src/glade/psensor-pref.glade:609
+#: src/glade/psensor-pref.glade:610
 msgid "Measure update interval:"
 msgstr "Интервал обновления замеров"
 
-#: src/glade/psensor-pref.glade:666
+#: src/glade/psensor-pref.glade:667
 msgid "Sensors"
 msgstr "Датчики"
 
