@@ -20,11 +20,19 @@ psensor (0.7.0.x-1) unstable; urgency=low
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 28 Dec 2011 19:55:51 +0100
 
+psensor (0.6.2.19-1) unstable; urgency=low
+
+  * New upstream release
+     - fixed size of the icon hicolor/48x48/psensor_hot.png.
+       (LP: #1029065)
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sat, 11 Aug 2012 10:49:41 +0200
+
 psensor (0.6.2.18-1) unstable; urgency=low
 
   * New upstream release
-      - added degree sign for celcius. (LP: #1021900)
-      - fixed hide window on startup for gnome-shell. (Closes: #676361)
+     - added degree sign for celcius. (LP: #1021900)
+     - fixed hide window on startup for gnome-shell. (Closes: #676361)
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 12 Jul 2012 13:45:42 -0400
 
