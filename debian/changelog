@@ -1,6 +1,12 @@
 psensor (0.7.0.x-1) unstable; urgency=low
 
   * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 28 Dec 2011 19:55:51 +0100
+
+psensor (0.7.0.2-0precise1) precise; urgency=low
+
+  * New upstream release
       + added gconf schema. (LP: #1026807)
       +	fixed systray and application indicator visible at the
         same time. (LP: #971098)
@@ -18,7 +24,7 @@ psensor (0.7.0.x-1) unstable; urgency=low
   * debian/compat
       + switched to debhelper 9
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 28 Dec 2011 19:55:51 +0100
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 16 Aug 2012 12:22:10 +0100
 
 psensor (0.6.2.19-1) unstable; urgency=low
 
