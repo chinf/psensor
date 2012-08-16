@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2012-08-11 09:38+0200\n"
-"PO-Revision-Date: 2012-06-14 07:28+0000\n"
+"PO-Revision-Date: 2012-08-10 09:26+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-02 08:28+0000\n"
-"X-Generator: Launchpad (build 15520)\n"
+"X-Launchpad-Export-Date: 2012-08-16 09:24+0000\n"
+"X-Generator: Launchpad (build 15810)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -167,11 +167,11 @@ msgstr "低阈值："
 
 #: src/glade/sensor-edit.glade:443
 msgid "Ubuntu Application Indicator"
-msgstr ""
+msgstr "Ubuntu 应用指示器"
 
 #: src/glade/sensor-edit.glade:458
 msgid "Display sensor in the Application Indicator menu"
-msgstr ""
+msgstr "在应用指示器菜单中显示监视器"
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
@@ -192,7 +192,7 @@ msgstr "AMD：无法获取适配器数目。"
 #: src/lib/hdd_atasmart.c:144
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
-msgstr ""
+msgstr "atasmart：sk_disk_open() 失败：%s。"
 
 #: src/lib/hdd_hddtemp.c:59
 msgid "hddtemp: failed to open socket."
