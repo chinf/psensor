@@ -8,35 +8,35 @@ msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2012-08-11 09:38+0200\n"
-"PO-Revision-Date: 2012-04-28 16:28+0000\n"
-"Last-Translator: <jeanfi@gmail.com>\n"
+"PO-Revision-Date: 2012-08-13 08:20+0000\n"
+"Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-02 19:16+0000\n"
-"X-Generator: Launchpad (build 15185)\n"
+"X-Launchpad-Export-Date: 2012-08-17 20:28+0000\n"
+"X-Generator: Launchpad (build 15810)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
-msgstr ""
+msgstr "Modifica le preferenze"
 
 #: src/glade/psensor-pref.glade:76
 msgid "Position of sensors table:"
-msgstr ""
+msgstr "Posizione della tabella dei sensori"
 
 #: src/glade/psensor-pref.glade:85
 msgid "Hide window decoration"
-msgstr ""
+msgstr "Nascondi le decorazioni della finestra"
 
 #: src/glade/psensor-pref.glade:104
 msgid "Keep window below"
-msgstr ""
+msgstr "Mantieni la finestra sotto"
 
 #: src/glade/psensor-pref.glade:123
 msgid "Enable menu"
-msgstr ""
+msgstr "Abilita il menù"
 
 #: src/glade/psensor-pref.glade:142
 msgid "Enable Unity Launcher counter"
@@ -44,126 +44,126 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:161
 msgid "Hide window on startup"
-msgstr ""
+msgstr "Nascondi la finestra all'avvio"
 
 #: src/glade/psensor-pref.glade:180
 msgid "Restore window position and size"
-msgstr ""
+msgstr "Ripristina posizione e dimensione della finestra"
 
 #: src/glade/psensor-pref.glade:202
 msgid "Temperature unit:"
-msgstr ""
+msgstr "Unità di misura della temperatura"
 
 #: src/glade/psensor-pref.glade:256
 msgid "Interface"
-msgstr ""
+msgstr "Interfaccia"
 
 #: src/glade/psensor-pref.glade:296
 msgid "Foreground:"
-msgstr ""
+msgstr "Primo piano:"
 
 #: src/glade/psensor-pref.glade:311
 msgid "Background:"
-msgstr ""
+msgstr "Sfondo:"
 
 #: src/glade/psensor-pref.glade:347
 msgid "Background opacity:"
-msgstr ""
+msgstr "Opacità dello sfondo:"
 
 #: src/glade/psensor-pref.glade:370
 msgid "<i>Min</i>"
-msgstr ""
+msgstr "<i>Minimo</i>"
 
 #: src/glade/psensor-pref.glade:397
 msgid "<i>Max</i>"
-msgstr ""
+msgstr "<i>Massimo</i>"
 
 #: src/glade/psensor-pref.glade:423
 msgid "Colors"
-msgstr ""
+msgstr "Colori"
 
 #: src/glade/psensor-pref.glade:441
 msgid "Monitoring duration:"
-msgstr ""
+msgstr "Durata del monitoraggio:"
 
 #: src/glade/psensor-pref.glade:479
 msgid "minute(s)"
-msgstr ""
+msgstr "minuto/i"
 
 #: src/glade/psensor-pref.glade:496 src/glade/psensor-pref.glade:648
 msgid "second(s)"
-msgstr ""
+msgstr "secondo/i"
 
 #: src/glade/psensor-pref.glade:532
 msgid "Update interval:"
-msgstr ""
+msgstr "Intervallo di aggiornamento:"
 
 #: src/glade/psensor-pref.glade:550
 msgid "Measures"
-msgstr ""
+msgstr "Misure"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:197
 msgid "Graph"
-msgstr ""
+msgstr "Grafico"
 
 #: src/glade/psensor-pref.glade:610
 msgid "Measure update interval:"
-msgstr ""
+msgstr "Intervallo di aggiornamento delle misure"
 
 #: src/glade/psensor-pref.glade:667
 msgid "Sensors"
-msgstr ""
+msgstr "Sensori"
 
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
-msgstr ""
+msgstr "Modifica preferenze del sensore"
 
 #: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
 #: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
 #: src/lib/psensor.c:472 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
 #: src/ui_sensorlist.c:380 src/ui_notify.c:81
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 #: src/glade/sensor-edit.glade:119
 msgid "Name:"
-msgstr ""
+msgstr "Nome:"
 
 #: src/glade/sensor-edit.glade:152
 msgid "Type:"
-msgstr ""
+msgstr "Tipo:"
 
 #: src/glade/sensor-edit.glade:182
 msgid "Id:"
-msgstr ""
+msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:215
 msgid "Color:"
-msgstr ""
+msgstr "Colore:"
 
 #: src/glade/sensor-edit.glade:229
 msgid "Alarm"
-msgstr ""
+msgstr "Avviso"
 
 #: src/glade/sensor-edit.glade:244
 msgid "Activate desktop notifications"
-msgstr ""
+msgstr "Attiva le notifiche sul desktop"
 
 #: src/glade/sensor-edit.glade:266
 msgid "Sensor Information"
-msgstr ""
+msgstr "Informazioni sul Sensore"
 
 #: src/glade/sensor-edit.glade:279
 msgid "Draw sensor curve"
-msgstr ""
+msgstr "Disegna curva"
 
 #: src/glade/sensor-edit.glade:367
 msgid "High threshold:"
-msgstr ""
+msgstr "Soglia verso l'alto"
 
 #: src/glade/sensor-edit.glade:382
 msgid "Low threshold:"
-msgstr ""
+msgstr "Soglia verso il basso"
 
 #: src/glade/sensor-edit.glade:443
 msgid "Ubuntu Application Indicator"
@@ -175,15 +175,15 @@ msgstr ""
 
 #: src/lib/amd.c:150
 msgid "AMD: cannot found ADL library."
-msgstr ""
+msgstr "AMD: impossibile trovare la libreria ADL"
 
 #: src/lib/amd.c:174
 msgid "AMD: missing ADL's API."
-msgstr ""
+msgstr "AMD: impossibile trovare l'API di ADL"
 
 #: src/lib/amd.c:182
 msgid "AMD: failed to initialize ADL."
-msgstr ""
+msgstr "AMD: impossibile inizializzare ADL"
 
 #: src/lib/amd.c:189
 msgid "AMD: cannot get the number of adapters."
@@ -192,20 +192,20 @@ msgstr ""
 #: src/lib/hdd_atasmart.c:144
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
-msgstr ""
+msgstr "atasmart: errore sk_disk_open(): %s."
 
 #: src/lib/hdd_hddtemp.c:59
 msgid "hddtemp: failed to open socket."
-msgstr ""
+msgstr "hddtemp: impossibile aprire il socket."
 
 #: src/lib/hdd_hddtemp.c:72
 msgid "hddtemp: failed to open connection."
-msgstr ""
+msgstr "hddtemp: impossibile aprire la connessione."
 
 #: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
 #, c-format
 msgid "hddtemp: wrong string: %s."
-msgstr ""
+msgstr "hddtemp: errore di stringa: %s"
 
 #: src/lib/lmsensor.c:42
 #, c-format
@@ -219,32 +219,32 @@ msgstr ""
 #: src/lib/lmsensor.c:206
 #, c-format
 msgid "lmsensor: initialization failure: %s."
-msgstr ""
+msgstr "lmsensor: inizializzazione fallita: %s"
 
 #: src/lib/log.c:37
 #, c-format
 msgid "Cannot open log file: %s"
-msgstr ""
+msgstr "Impossibile aprire il file di log: %s"
 
 #: src/lib/nvidia.c:54
 msgid "Failed to retrieve NVIDIA temperature."
-msgstr ""
+msgstr "Impossibile leggere la temperatura da NVIDIA"
 
 #: src/lib/nvidia.c:92
 msgid "Cannot open connection to X11 server."
-msgstr ""
+msgstr "Impossibile connettersi al server X11."
 
 #: src/lib/nvidia.c:100
 msgid "Failed to retrieve NVIDIA information."
-msgstr ""
+msgstr "Impossibile recuperare informazioni da NVIDIA"
 
 #: src/lib/psensor.c:468 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
-msgstr ""
+msgstr "RPM"
 
 #: src/lib/psensor.c:470
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #: src/main.c:77
 #, c-format
@@ -259,94 +259,107 @@ msgstr ""
 #: src/main.c:88 src/server/server.c:90
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
-msgstr ""
+msgstr "Uso: %s [OPZIONE]...\n"
 
 #: src/main.c:90
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
+"Psensor è un'applicazione GTK+ per monitorare i sensori dell'hardware, "
+"incluse temperature e velocità delle ventole."
 
 #: src/main.c:94
 msgid "Options:"
-msgstr ""
+msgstr "Opzioni:"
 
 #: src/main.c:95
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
+"  -h, --help mostra questo help ed esce\n"
+"  -v, --version mostra le informazioni sulla versione ed esce"
 
 #: src/main.c:101
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
 msgstr ""
+"  -u, --url=URL URL del server psensor,\n"
+"                      esempio: http://hostname:3131"
 
 #: src/main.c:104
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
 msgstr ""
+"  --use-libatasmart usa la libreria atasmart library per il monitoraggio "
+"dell'hard disk invece del \n"
+"                      servizio hddtemp"
 
 #: src/main.c:107
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
+"  -n, --new-instance forza la creazione di una nuova applicazione Psensor"
 
 #: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
+"  -d, --debug=LEVEL imposta il livello di debug, un intero compreso tra 0 e 3"
 
 #: src/main.c:115 src/server/server.c:110
 #, c-format
 msgid "Report bugs to: %s\n"
-msgstr ""
+msgstr "Segnalare i bug a: %s\n"
 
 #: src/main.c:117 src/server/server.c:112
 #, c-format
 msgid "%s home page: <%s>\n"
-msgstr ""
+msgstr "%s home page: <%s>\n"
 
 #: src/main.c:457
 msgid "Psensor has not been compiled with remote sensor support."
-msgstr ""
+msgstr "Psensor è stato compilato senza il supporto per sensori remoti."
 
 #: src/main.c:520
 msgid "Enables debug mode."
-msgstr ""
+msgstr "Abilita la modalità debug."
 
 #: src/main.c:532 src/server/server.c:371
 #, c-format
 msgid "Try `%s --help' for more information.\n"
-msgstr ""
+msgstr "Usare '%s --help' per maggiori informazioni.\n"
 
 #: src/main.c:545
 msgid "A Psensor instance already exists."
-msgstr ""
+msgstr "Esiste già un'istanza di Psensor"
 
 #: src/rsensor.c:107
 #, c-format
 msgid "Fail to connect to: %s"
-msgstr ""
+msgstr "Impossibile connettersi a: %s"
 
 #: src/rsensor.c:144
 #, c-format
 msgid "Invalid content: %s"
-msgstr ""
+msgstr "Conenuto non valido: %s"
 
 #: src/rsensor.c:184
 #, c-format
 msgid "Invalid JSON: %s"
-msgstr ""
+msgstr "JSON non valido: %s"
 
 #: src/server/server.c:52
 msgid "<html><body><p>Server stop requested</p></body></html>"
-msgstr ""
+msgstr "<html><body><p>Arresto del server richiesto</p></body></html>"
 
 #: src/server/server.c:58
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
+"<html><body><p>Pagina non trovata - Vai a <a href='/'>Pagina principale</a></"
+"p></body>"
 
 #: src/server/server.c:80
 #, c-format
@@ -362,179 +375,188 @@ msgstr ""
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
+"psensor-server è un server HTTP per il monitoraggio remoto di sensori "
+"hardware."
 
 #: src/server/server.c:97
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
+"  -h, --help\t\tmostra questo help ed esce\n"
+"  -v, --version\t\tmostra le informazioni sulla versione ed esce"
 
 #: src/server/server.c:101
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
+"  -p,--port=PORT\tporta del server web\n"
+"  -w,--wdir=DIR\t\tdirectory che contiene le pagine web"
 
 #: src/server/server.c:105
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
+"  -d, --debug=LEVEL imposta il livello di debug, un intero compreso tra 0 e 3"
 
 #: src/server/server.c:107
 msgid "  -l, --log-file=PATH   set the log file to PATH"
-msgstr ""
+msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
 
 #: src/server/server.c:294
 #, c-format
 msgid "HTTP Request: %s"
-msgstr ""
+msgstr "HTTP Request: %s"
 
 #: src/server/server.c:351
 #, c-format
 msgid "Enables debug mode: %d"
-msgstr ""
+msgstr "Abilita modalità di debug: %d"
 
 #: src/server/server.c:387
 msgid "No sensors detected."
-msgstr ""
+msgstr "Nessun sensore rilevato."
 
 #: src/server/server.c:394
 msgid "Failed to create Web server."
-msgstr ""
+msgstr "Impossibile creare il Web server."
 
 #: src/server/server.c:398
 #, c-format
 msgid "Web server started on port: %d"
-msgstr ""
+msgstr "Web server inizializzato sulla porta: %d"
 
 #: src/server/server.c:399
 #, c-format
 msgid "WWW directory: %s"
-msgstr ""
+msgstr "WWW directory: %s"
 
 #: src/server/server.c:400
 #, c-format
 msgid "URL: http://localhost:%d"
-msgstr ""
+msgstr "URL: http://localhost:%d"
 
 #: src/ui.c:81
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr ""
+msgstr "Psensore è un'applicazione GTK+ per monitorare sernsori hardware"
 
 #: src/ui.c:84
 msgid ""
 "Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
 msgstr ""
+"Copyright(c) 2010-2012\n"
+"jeanfi@gmail.com"
 
 #: src/ui.c:87
 msgid "About Psensor"
-msgstr ""
+msgstr "Informazioni su Psensor"
 
 #: src/ui.c:90
 msgid "Psensor Homepage"
-msgstr ""
+msgstr "Psensor Homepage"
 
 #: src/ui.c:145 src/ui_appindicator.c:111
 msgid "_Preferences"
-msgstr ""
+msgstr "_Preferenze"
 
 #: src/ui.c:146 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
-msgstr ""
+msgstr "Preferenze"
 
 #: src/ui.c:150 src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
-msgstr ""
+msgstr "S_ensor Preferenze"
 
 #: src/ui.c:151
 msgid "Sensor Preferences"
-msgstr ""
+msgstr "Sensor Preferenze"
 
 #: src/ui.c:155
 msgid "_Quit"
-msgstr ""
+msgstr "_Esci"
 
 #: src/ui.c:155
 msgid "Quit"
-msgstr ""
+msgstr "Esci"
 
 #: src/ui.c:158
 msgid "_Help"
-msgstr ""
+msgstr "_Aiuto"
 
 #: src/ui.c:161 src/ui_appindicator.c:122
 msgid "_About"
-msgstr ""
+msgstr "_Informazioni"
 
 #: src/ui.c:162 src/ui_appindicator.c:124
 msgid "About"
-msgstr ""
+msgstr "Informazioni su..."
 
 #: src/ui.c:184 src/ui_appindicator.c:186 src/ui_graph.c:99
 #, c-format
 msgid "building menus failed: %s"
-msgstr ""
+msgstr "costruzione dei menù fallita: %s"
 
 #: src/ui.c:236
 msgid "Psensor - Temperature Monitor"
-msgstr ""
+msgstr "Psensor - Monitor temperatura"
 
 #: src/ui.c:244
 msgid "Failed to load Psensor icon."
-msgstr ""
+msgstr "Impossibile caricare l'icona di Psensor."
 
 #: src/ui_sensorlist.c:235
 msgid "Select foreground color"
-msgstr ""
+msgstr "Colore di primo piano:"
 
 #: src/ui_sensorlist.c:312
 msgid "Sensor"
-msgstr ""
+msgstr "Sensore"
 
 #: src/ui_sensorlist.c:318
 msgid "Value"
-msgstr ""
+msgstr "Valore"
 
 #: src/ui_sensorlist.c:324
 msgid "Min"
-msgstr ""
+msgstr "Minimo"
 
 #: src/ui_sensorlist.c:330
 msgid "Max"
-msgstr ""
+msgstr "Massimo"
 
 #: src/ui_sensorlist.c:337
 msgid "Color"
-msgstr ""
+msgstr "Colore"
 
 #: src/ui_sensorlist.c:349
 msgid "Enabled"
-msgstr ""
+msgstr "Abilitato"
 
 #: src/ui_appindicator.c:106
 msgid "_Show"
-msgstr ""
+msgstr "_Mostra"
 
 #: src/ui_appindicator.c:107
 msgid "Show"
-msgstr ""
+msgstr "Mostra"
 
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
-msgstr ""
+msgstr "SensorPreferenze"
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
-msgstr ""
+msgstr "gettimeofday fallito."
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
-msgstr ""
+msgstr "Allarme temperatura"
 
 #: src/ui_notify.c:79
 msgid "Fan alert"
-msgstr ""
+msgstr "Allarme ventola"
 
 #: src/ui_sensorpref.c:516
 msgid "Sensor Name"
-msgstr ""
+msgstr "Nome sensore"
