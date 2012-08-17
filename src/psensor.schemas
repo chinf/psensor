@@ -23,7 +23,6 @@
       <owner>psensor</owner>
       <type>bool</type>
       <default>false</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>Whether the alpha channel is enabled</short>
          <long>
@@ -39,7 +38,6 @@
       <owner>psensor</owner>
       <type>float</type>
       <default>1</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>The alpha value of the background of the graph window</short>
          <long>
@@ -55,7 +53,6 @@
       <owner>psensor</owner>
       <type>string</type>
       <default>#e8f4e8f4a8f5</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>The color of the background of the graph canvas</short>
          <long>
@@ -71,7 +68,6 @@
       <owner>psensor</owner>
       <type>string</type>
       <default>#000000000000</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>The color of the foreground of the graph canvas</short>
          <long>
@@ -87,7 +83,6 @@
       <owner>psensor</owner>
       <type>int</type>
       <default>10</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>The monitoring duration of the graph</short>
          <long>
@@ -103,7 +98,6 @@
       <owner>psensor</owner>
       <type>int</type>
       <default>1</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>The interval between refreshs of the graph</short>
          <long>
@@ -121,7 +115,6 @@
       <owner>psensor</owner>
       <type>bool</type>
       <default>false</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>Whether the graph window is hidden on startup</short>
          <long>
@@ -138,7 +131,6 @@
       <owner>psensor</owner>
       <type>bool</type>
       <default>false</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>Whether the menu of the graph window is disabled</short>
          <long>
@@ -153,7 +145,6 @@
       <owner>psensor</owner>
       <type>int</type>
       <default>0</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
          <short>Position of the sensor list in the graph window</short>
          <long>Position of the sensor list in the graph
@@ -168,7 +159,6 @@
       <owner>psensor</owner>
       <type>bool</type>
       <default>false</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Whether the greatest temperature is displayed in Unity
 	launcher</short>
@@ -183,7 +173,6 @@
       <owner>psensor</owner>
       <type>int</type>
       <default>0</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>The displayed temperature unit</short>
 	<long>The displayed temperature unit, '0' for Celcius, '1' for Fahenrenheit.</long>
@@ -196,7 +185,6 @@
       <owner>psensor</owner>
       <type>int</type>
       <default>0</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Whether the decoration of the window is disabled</short>
 	<long>Whether the decoration of the window is disabled.</long>
@@ -209,7 +197,6 @@
       <owner>psensor</owner>
       <type>bool</type>
       <default>false</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Whether the graph window is kept below all other windows</short>
 	<long>Whether the graph window is kept below all other windows.</long>
@@ -222,7 +209,6 @@
       <owner>psensor</owner>
       <type>bool</type>
       <default>false</default>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Whether the position and size of the graph window are restored</short>
 	<long>Whether the position and size of the graph window are restored</long>
@@ -234,7 +220,6 @@
       <applyto>/apps/psensor/interface/window_divider_pos</applyto>
       <owner>psensor</owner>
       <type>int</type>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Position of the divider between the graph window and the list of sensors</short>
 	<long>Position of the divider between the graph window and the list of sensors</long>
@@ -246,7 +231,6 @@
       <applyto>/apps/psensor/interface/window_w</applyto>
       <owner>psensor</owner>
       <type>int</type>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Width of the graph window</short>
 	<long>Width of the graph window.</long>
@@ -258,7 +242,6 @@
       <applyto>/apps/psensor/interface/window_h</applyto>
       <owner>psensor</owner>
       <type>int</type>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Height of the graph window</short>
 	<long>Height of the graph window.</long>
@@ -270,7 +253,6 @@
       <applyto>/apps/psensor/interface/window_x</applyto>
       <owner>psensor</owner>
       <type>int</type>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Horizontal position of the graph window</short>
 	<long>Horizontal position of the graph window.</long>
@@ -282,7 +264,6 @@
       <applyto>/apps/psensor/interface/window_y</applyto>
       <owner>psensor</owner>
       <type>int</type>
-      <gettext_domain>psensor</gettext_domain>
       <locale name="C">
 	<short>Vertical position of the graph window</short>
 	<long>Vertical position of the graph window.</long>
