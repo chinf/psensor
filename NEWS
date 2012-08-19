@@ -1,6 +1,12 @@
+* v0.7.0.4
+
+** added Spanish translation from LP (Javier
+   buik8roadmaster@hotmail.com).
+
 * v0.7.0.3
 
-** psensor: removed gettext_domain in psensor.schemas causing warnings.
+** psensor: removed gettext_domain in psensor.schemas causing
+   warnings.
 ** merged italian and russian translation from LP.
 
 * v0.7.0.2
