@@ -517,7 +517,7 @@ int main(int argc, char **argv)
 			exit(EXIT_SUCCESS);
 		case 'd':
 			log_level = atoi(optarg);
-			log_printf(LOG_INFO, _("Enables debug mode."));
+			log_info(_("Enables debug mode."));
 			break;
 		case 'n':
 			new_instance = 1;
