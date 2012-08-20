@@ -347,9 +347,7 @@ int main(int argc, char *argv[])
 			exit(EXIT_SUCCESS);
 		case 'd':
 			log_level = atoi(optarg);
-			log_printf(LOG_INFO,
-				   _("Enables debug mode: %d"),
-				   log_level);
+			log_info(_("Enables debug mode: %d"), log_level);
 			break;
 		case 'l':
 			if (optarg)
@@ -395,9 +393,9 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	log_printf(LOG_INFO, _("Web server started on port: %d"), port);
-	log_printf(LOG_INFO, _("WWW directory: %s"), server_data.www_dir);
-	log_printf(LOG_INFO, _("URL: http://localhost:%d"), port);
+	log_info(_("Web server started on port: %d"), port);
+	log_info(_("WWW directory: %s"), server_data.www_dir);
+	log_info(_("URL: http://localhost:%d"), port);
 
 	while (!server_stop_requested) {
 		pthread_mutex_lock(&mutex);

@@ -135,3 +135,12 @@ void log_warn(const char *fmt, ...)
 	vlogf(LOG_WARN, fmt, ap);
 	va_end(ap);
 }
+
+void log_info(const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	vlogf(LOG_INFO, fmt, ap);
+	va_end(ap);
+}
