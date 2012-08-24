@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-08-11 09:38+0200\n"
+"POT-Creation-Date: 2012-08-23 09:50+0200\n"
 "PO-Revision-Date: 2012-08-19 01:12+0000\n"
 "Last-Translator: Javier <buik8roadmaster@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -110,7 +110,12 @@ msgstr "Gráfica"
 msgid "Measure update interval:"
 msgstr "Medir sensores cada:"
 
-#: src/glade/psensor-pref.glade:667
+#: src/glade/psensor-pref.glade:659
+#, fuzzy
+msgid "Enable log of measures"
+msgstr "Activar menú"
+
+#: src/glade/psensor-pref.glade:689
 msgid "Sensors"
 msgstr "Sensores"
 
@@ -246,6 +251,21 @@ msgstr "RPM"
 msgid "%"
 msgstr "%"
 
+#: src/lib/slog.c:38
+#, fuzzy, c-format
+msgid "Cannot open sensor log file: %s"
+msgstr "Imposible abrir el archivo de registro: %s"
+
+#: src/lib/slog.c:43
+#, fuzzy
+msgid "slog_init: gettimeofday failed."
+msgstr "Error en la adquisición del horario."
+
+#: src/lib/slog.c:67
+#, fuzzy
+msgid "slog_write_sensors: gettimeofday failed."
+msgstr "Error en la adquisición del horario."
+
 #: src/main.c:77
 #, c-format
 msgid ""
@@ -262,7 +282,7 @@ msgstr ""
 "y apoyada por su autor.\n"
 "No existe NINGUNA GARANTÍA hasta donde la ley lo permita.\n"
 
-#: src/main.c:88 src/server/server.c:90
+#: src/main.c:88 src/server/server.c:92
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Uso: %s [OPTION]...\n"
@@ -314,12 +334,12 @@ msgstr ""
 "  -d, --depurar=NIVEL   Establece el nivel de depuración con un valor entre "
 "0 y 3"
 
-#: src/main.c:115 src/server/server.c:110
+#: src/main.c:115 src/server/server.c:113
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Comunicar fallos: %s\n"
 
-#: src/main.c:117 src/server/server.c:112
+#: src/main.c:117 src/server/server.c:115
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s Página Oficial: <%s>\n"
@@ -332,7 +352,7 @@ msgstr "Psensor ha sido compilado sin respaldo para sensores remotos."
 msgid "Enables debug mode."
 msgstr "Activa el modo de depuración"
 
-#: src/main.c:532 src/server/server.c:371
+#: src/main.c:532 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Introducir `%s --ayuda' para obtener más información\n"
@@ -356,18 +376,18 @@ msgstr "Contenido no válido:%s"
 msgid "Invalid JSON: %s"
 msgstr "JSON no válido:%s"
 
-#: src/server/server.c:52
+#: src/server/server.c:53
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr "<html><body><p>El servidor solicitó detenerse</p></body></html>"
 
-#: src/server/server.c:58
+#: src/server/server.c:59
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 "<html><body><p>Página no encontrada- Ir a <a href='/'>Main page</a></p></"
 "body>"
 
-#: src/server/server.c:80
+#: src/server/server.c:82
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -383,14 +403,14 @@ msgstr ""
 "apoyada por el autor. \n"
 "No existe NINGUNA GARANTÍA hasta donde la ley lo permita.\n"
 
-#: src/server/server.c:92
+#: src/server/server.c:94
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 "psensor-server es un servidor HTTP para obtener información de los sensores "
 "de forma remota."
 
-#: src/server/server.c:97
+#: src/server/server.c:99
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -398,7 +418,7 @@ msgstr ""
 "  -h, --ayuda\t\tMuestra esta ayuda.\n"
 "  -v, --versión\t\tMuestra la versión."
 
-#: src/server/server.c:101
+#: src/server/server.c:103
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -406,45 +426,50 @@ msgstr ""
 "  -p,--port=PORT\tPuerto del servidor web. \n"
 "  -w,--wdir=DIR\t\tDirectorio de servidores web."
 
-#: src/server/server.c:105
+#: src/server/server.c:107
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --depurar=NIVEL     Establece el nivel de depuración con un número de "
 "0 a 3"
 
-#: src/server/server.c:107
+#: src/server/server.c:109
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH   establece el archivo de registro en PATH"
 
-#: src/server/server.c:294
+#: src/server/server.c:110
+#, fuzzy
+msgid "  -s, --sensor-log-file=PATH set the sensor log file to PATH"
+msgstr "  -l, --log-file=PATH   establece el archivo de registro en PATH"
+
+#: src/server/server.c:297
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "Petición HTTP:%s"
 
-#: src/server/server.c:351
+#: src/server/server.c:354
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Activa el modo de depuración:%d"
 
-#: src/server/server.c:387
+#: src/server/server.c:393
 msgid "No sensors detected."
 msgstr "No se han detectado sensores."
 
-#: src/server/server.c:394
+#: src/server/server.c:400
 msgid "Failed to create Web server."
 msgstr "Fallo al crear el servidor Web"
 
-#: src/server/server.c:398
+#: src/server/server.c:404
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Servidor web iniciado en el puerto:%d"
 
-#: src/server/server.c:399
+#: src/server/server.c:405
 #, c-format
 msgid "WWW directory: %s"
 msgstr "directorio WWW:%s"
 
-#: src/server/server.c:400
+#: src/server/server.c:406
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"

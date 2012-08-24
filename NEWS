@@ -2,6 +2,7 @@
 
 ** added Spanish translation from LP (Javier
    buik8roadmaster@hotmail.com).
+** psensor-server: added sensors log file (--sensor-log-file).
 
 * v0.7.0.3
 

@@ -45,6 +45,7 @@
 #include "psensor_json.h"
 #include "url.h"
 #include "server.h"
+#include "slog.h"
 
 static const char *DEFAULT_LOG_FILE = "/var/log/psensor-server.log";
 
@@ -65,6 +66,7 @@ static struct option long_options[] = {
 	{"wdir", required_argument, 0, 'w'},
 	{"debug", required_argument, 0, 'd'},
 	{"log-file", required_argument, 0, 'l'},
+	{"sensor-log-file", required_argument, 0, 's'},
 	{0, 0, 0, 0}
 };
 
@@ -105,6 +107,7 @@ void print_help()
 	puts(_("  -d, --debug=LEVEL     "
 	       "set the debug level, integer between 0 and 3"));
 	puts(_("  -l, --log-file=PATH   set the log file to PATH"));
+	puts(_("  -s, --sensor-log-file=PATH set the sensor log file to PATH"));
 
 	puts("");
 	printf(_("Report bugs to: %s\n"), PACKAGE_BUGREPORT);
@@ -313,7 +316,7 @@ int main(int argc, char *argv[])
 	int port = DEFAULT_PORT;
 	int optc;
 	int cmdok = 1;
-	char *log_file;
+	char *log_file, *slog_file;
 
 	program_name = argv[0];
 
@@ -327,9 +330,10 @@ int main(int argc, char *argv[])
 	server_data.www_dir = NULL;
 	server_data.psysinfo.interfaces = NULL;
 	log_file = NULL;
+	slog_file = NULL;
 
 	while ((optc = getopt_long(argc, argv,
-				   "vhp:w:d:l:", long_options, NULL)) != -1) {
+				   "vhp:w:d:l:s:", long_options, NULL)) != -1) {
 		switch (optc) {
 		case 'w':
 			if (optarg)
@@ -352,6 +356,10 @@ int main(int argc, char *argv[])
 		case 'l':
 			if (optarg)
 				log_file = strdup(optarg);
+			break;
+		case 's':
+			if (optarg)
+				slog_file = strdup(optarg);
 			break;
 		default:
 			cmdok = 0;
@@ -397,6 +405,9 @@ int main(int argc, char *argv[])
 	log_info(_("WWW directory: %s"), server_data.www_dir);
 	log_info(_("URL: http://localhost:%d"), port);
 
+	if (slog_file)
+		slog_init(slog_file, server_data.sensors);
+
 	while (!server_stop_requested) {
 		pthread_mutex_lock(&mutex);
 
@@ -408,9 +419,13 @@ int main(int argc, char *argv[])
 
 		psensor_log_measures(server_data.sensors);
 
+		slog_write_sensors(server_data.sensors);
+
 		pthread_mutex_unlock(&mutex);
 		sleep(5);
 	}
+
+	slog_close();
 
 	MHD_stop_daemon(d);
 

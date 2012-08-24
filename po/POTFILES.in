@@ -8,6 +8,7 @@ src/lib/lmsensor.c
 src/lib/log.c
 src/lib/nvidia.c
 src/lib/psensor.c
+src/lib/slog.c
 src/main.c
 src/rsensor.c
 src/server/server.c

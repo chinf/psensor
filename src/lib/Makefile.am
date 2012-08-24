@@ -11,6 +11,7 @@ libpsensor_a_SOURCES = \
 	nvidia.h \
 	psensor.h psensor.c\
 	pio.h pio.c \
+	slog.c \
 	url.c url.h
 
 AM_CPPFLAGS = -Wall -Werror

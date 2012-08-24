@@ -50,6 +50,33 @@ containing all JSON objects of type 'sensor'.
 psensor\-server can be stopped by sending an HTTP
 request with the URL 'http://hostname:port/api/1.0/server/stop'.
 
+[SENSOR LOG FILE]
+
+Sensors can be logged using the \-\-sensor-log-file option.
+
+It is using a text format, each line is terminated with a NEWLINE
+char.
+
+The first line is: I,%D,%V
+
+%D is the starting time of the log expressed as the number of seconds
+since EPOC.
+
+%V is the version of psensor-server.
+
+Following lines gives the ordered list of sensors: S,%I
+
+%I is the uniq identifier of the sensor.
+
+Then, the values of all sensors are written: M,%D,%V...
+
+%D is the number of seconds elapsed since the starting time of the
+log.
+
+%V... is the list separated by a comma of the current value of all
+sensors. The ordering is the same than the list of sensor identifiers.
+The value is expressed as a float.
+
 [WARNING]
 
 psensor\-server does not provide any way to restrict the connection to
