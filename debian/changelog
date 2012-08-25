@@ -1,10 +1,4 @@
-psensor (0.7.0.x-1) unstable; urgency=low
-
-  * New upstream release
-
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 28 Dec 2011 19:55:51 +0100
-
-psensor (0.7.0.2-0precise1) precise; urgency=low
+psensor (0.7.0.3-1) unstable; urgency=low
 
   * New upstream release
       + added gconf schema. (LP: #1026807)
@@ -13,34 +7,21 @@ psensor (0.7.0.2-0precise1) precise; urgency=low
       +	fixed wrong background color, get the background color of
         the window and not the canvas widget. (LP: #973122)
       + removed hicolor/48x48/psensor_hot.png. (LP: #1029065)
+      + added degree sign for celcius. (LP: #1021900)
+      + fixed hide window on startup for gnome-shell. (Closes: #676361)
   * debian/control
-      + added builddep to libatasmart-dev
-      + switched to debhelper 9
+      + added builddep to libatasmart-dev.
+      + switched to debhelper 9.
   * debian/psensor.install
-      + added gconf schema
+      + added gconf schema.
   * debian/rules
       + set GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL to 1 to avoid gconf
-        schema installation during package build
+        schema installation during package build.
   * debian/compat
-      + switched to debhelper 9
+      + switched to debhelper 9, fixes hardening-no-relro and
+        hardening-no-fortify-functions lintian warnings.
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 16 Aug 2012 12:22:10 +0100
-
-psensor (0.6.2.19-1) unstable; urgency=low
-
-  * New upstream release
-     - fixed size of the icon hicolor/48x48/psensor_hot.png.
-       (LP: #1029065)
-
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sat, 11 Aug 2012 10:49:41 +0200
-
-psensor (0.6.2.18-1) unstable; urgency=low
-
-  * New upstream release
-     - added degree sign for celcius. (LP: #1021900)
-     - fixed hide window on startup for gnome-shell. (Closes: #676361)
-
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 12 Jul 2012 13:45:42 -0400
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sun, 19 Aug 2012 04:26:27 -0400
 
 psensor (0.6.2.17-2) unstable; urgency=low
 
@@ -53,7 +34,7 @@ psensor (0.6.2.17-2) unstable; urgency=low
 psensor (0.6.2.17-1) unstable; urgency=low
 
   * New upstream release
-      - Fixed sensor type displayed in sensor preferences. (LP: #968912)
+      - Fixed sensor type displayed in sensor preferences. (Closes LP: #968912)
   * debian/control
       - Switched to Standards-Version 3.9.3.
   * debian/copyright
