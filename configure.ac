@@ -18,7 +18,7 @@ AC_PROG_RANLIB
 
 # Checks for header files.
 AC_PATH_X
-AC_CHECK_HEADERS([arpa/inet.h netinet/in.h stdint.h stdlib.h string.h sys/socket.h sys/time.h unistd.h getopt.h])
+AC_CHECK_HEADERS([stdbool.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T

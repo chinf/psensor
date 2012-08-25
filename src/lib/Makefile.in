@@ -62,11 +62,11 @@ AR = ar
 ARFLAGS = cru
 libpsensor_a_AR = $(AR) $(ARFLAGS)
 libpsensor_a_LIBADD =
-am__libpsensor_a_SOURCES_DIST = amd.h color.h color.c cpu.h hdd.h \
-	hdd_hddtemp.c lmsensor.h lmsensor.c log.h log.c measure.h \
-	measure.c nvidia.h psensor.h psensor.c pio.h pio.c slog.c \
-	url.c url.h hdd_atasmart.c nvidia.c amd.c cpu.c psensor_json.h \
-	psensor_json.c
+am__libpsensor_a_SOURCES_DIST = amd.h bool.h color.h color.c cpu.h \
+	hdd.h hdd_hddtemp.c lmsensor.h lmsensor.c log.h log.c \
+	measure.h measure.c nvidia.h psensor.h psensor.c pio.h pio.c \
+	slog.c slog.h url.c url.h hdd_atasmart.c nvidia.c amd.c cpu.c \
+	psensor_json.h psensor_json.c
 @ATASMART_TRUE@am__objects_1 = hdd_atasmart.$(OBJEXT)
 @NVIDIA_TRUE@am__objects_2 = nvidia.$(OBJEXT)
 @LIBATIADL_TRUE@am__objects_3 = amd.$(OBJEXT)
@@ -242,11 +242,11 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libpsensor.a
-libpsensor_a_SOURCES = amd.h color.h color.c cpu.h hdd.h hdd_hddtemp.c \
-	lmsensor.h lmsensor.c log.h log.c measure.h measure.c nvidia.h \
-	psensor.h psensor.c pio.h pio.c slog.c url.c url.h \
-	$(am__append_1) $(am__append_4) $(am__append_7) \
-	$(am__append_8) $(am__append_11)
+libpsensor_a_SOURCES = amd.h bool.h color.h color.c cpu.h hdd.h \
+	hdd_hddtemp.c lmsensor.h lmsensor.c log.h log.c measure.h \
+	measure.c nvidia.h psensor.h psensor.c pio.h pio.c slog.c \
+	slog.h url.c url.h $(am__append_1) $(am__append_4) \
+	$(am__append_7) $(am__append_8) $(am__append_11)
 AM_CPPFLAGS = -Wall -Werror $(am__append_3) $(am__append_6) \
 	$(am__append_10) $(am__append_13)
 EXTRA_DIST = $(libpsensor_a_SOURCES) \

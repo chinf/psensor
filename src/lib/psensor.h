@@ -19,13 +19,14 @@
 #ifndef _PSENSOR_PSENSOR_H_
 #define _PSENSOR_PSENSOR_H_
 
-#include "config.h"
 #include <sensors/sensors.h>
 
+#include "config.h"
 #ifdef HAVE_ATASMART
 #include <atasmart.h>
 #endif
 
+#include "bool.h"
 #include "color.h"
 #include "log.h"
 #include "measure.h"
@@ -73,7 +74,7 @@ struct psensor {
 	struct color *color;
 
 	/* Whether the graph sensor is displayed. */
-	unsigned int enabled;
+	bool enabled;
 
 	/* see psensor_type */
 	unsigned int type;
@@ -85,7 +86,7 @@ struct psensor {
 	double min;
 
 	/* Whether alarm alert is enabled for this sensor */
-	unsigned int alarm_enabled;
+	bool alarm_enabled;
 
 	int alarm_high_threshold;
 	int alarm_low_threshold;
@@ -110,7 +111,7 @@ struct psensor {
 
 	char *url;
 
-	unsigned int appindicator_enabled;
+	bool appindicator_enabled;
 };
 
 struct psensor *psensor_create(char *id,

@@ -19,6 +19,7 @@
 #ifndef _PSENSOR_CONFIG_H_
 #define _PSENSOR_CONFIG_H_
 
+#include "bool.h"
 #include "color.h"
 
 enum temperature_unit {
@@ -39,16 +40,16 @@ struct config {
 
 	double graph_bg_alpha;
 
-	int alpha_channel_enabled;
+	bool alpha_channel_enabled;
 
 	/*
 	 * Position of the sensors list table
 	 */
 	enum sensorlist_position sensorlist_position;
 
-	int window_decoration_enabled;
-	int window_keep_below_enabled;
-	int window_restore_enabled;
+	bool window_decoration_enabled;
+	bool window_keep_below_enabled;
+	bool window_restore_enabled;
 	/* Last saved position of the window. */
 	int window_x;
 	int window_y;
@@ -64,9 +65,9 @@ struct config {
 	int sensor_values_max_length;
 	int sensor_update_interval;
 
-	int menu_bar_disabled;
+	bool menu_bar_disabled;
 
-	int unity_launcher_count_disabled;
+	bool unity_launcher_count_disabled;
 
 	int hide_on_startup;
 
@@ -91,16 +92,16 @@ void config_set_sensor_alarm_high_threshold(const char *, int);
 int config_get_sensor_alarm_low_threshold(const char *);
 void config_set_sensor_alarm_low_threshold(const char *, int);
 
-int config_get_sensor_alarm_enabled(const char *);
-void config_set_sensor_alarm_enabled(const char *, int);
+bool config_get_sensor_alarm_enabled(const char *);
+void config_set_sensor_alarm_enabled(const char *, bool);
 
-int config_is_sensor_enabled(const char *);
-void config_set_sensor_enabled(const char *, int);
+bool config_is_sensor_enabled(const char *);
+void config_set_sensor_enabled(const char *, bool);
 
 char *config_get_sensor_name(const char *);
 void config_set_sensor_name(const char *, const char *);
 
-unsigned int config_is_appindicator_enabled(const char *);
-void config_set_appindicator_enabled(const char *, unsigned int);
+bool config_is_appindicator_enabled(const char *);
+void config_set_appindicator_enabled(const char *, bool);
 
 #endif

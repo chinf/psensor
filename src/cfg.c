@@ -141,7 +141,7 @@ static struct color *get_foreground_color()
 	return c;
 }
 
-static unsigned int is_alpha_channel_enabled()
+static bool is_alpha_channel_enabled()
 {
 	return gconf_client_get_bool(client, KEY_ALPHA_CHANNEL_ENABLED, NULL);
 }
@@ -302,7 +302,7 @@ config_set_sensor_alarm_low_threshold(const char *sid, int threshold)
 	free(key);
 }
 
-int config_get_sensor_alarm_enabled(const char *sid)
+bool config_get_sensor_alarm_enabled(const char *sid)
 {
 	gboolean b;
 	char *key;
@@ -314,7 +314,7 @@ int config_get_sensor_alarm_enabled(const char *sid)
 	return b;
 }
 
-void config_set_sensor_alarm_enabled(const char *sid, int enabled)
+void config_set_sensor_alarm_enabled(const char *sid, bool enabled)
 {
 	char *key;
 
@@ -323,7 +323,7 @@ void config_set_sensor_alarm_enabled(const char *sid, int enabled)
 	free(key);
 }
 
-int config_is_sensor_enabled(const char *sid)
+bool config_is_sensor_enabled(const char *sid)
 {
 	gboolean b;
 	char *key;
@@ -335,7 +335,7 @@ int config_is_sensor_enabled(const char *sid)
 	return b;
 }
 
-void config_set_sensor_enabled(const char *sid, int enabled)
+void config_set_sensor_enabled(const char *sid, bool enabled)
 {
 	char *key;
 
@@ -364,7 +364,7 @@ void config_set_sensor_name(const char *sid, const char *name)
 	free(key);
 }
 
-unsigned int config_is_appindicator_enabled(const char *sid)
+bool config_is_appindicator_enabled(const char *sid)
 {
 	char *key;
 	gboolean b;
@@ -376,7 +376,7 @@ unsigned int config_is_appindicator_enabled(const char *sid)
 	return !b;
 }
 
-void config_set_appindicator_enabled(const char *sid, unsigned int enabled)
+void config_set_appindicator_enabled(const char *sid, bool enabled)
 {
 	char *key;
 
@@ -386,28 +386,28 @@ void config_set_appindicator_enabled(const char *sid, unsigned int enabled)
 }
 
 
-static int is_window_decoration_enabled()
+static bool is_window_decoration_enabled()
 {
 	return !gconf_client_get_bool(client,
 				      KEY_INTERFACE_WINDOW_DECORATION_DISABLED,
 				      NULL);
 }
 
-static int is_window_keep_below_enabled()
+static bool is_window_keep_below_enabled()
 {
 	return gconf_client_get_bool(client,
 				     KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED,
 				     NULL);
 }
 
-static void set_window_decoration_enabled(int enabled)
+static void set_window_decoration_enabled(bool enabled)
 {
 	gconf_client_set_bool
 		(client,
 		 KEY_INTERFACE_WINDOW_DECORATION_DISABLED, !enabled, NULL);
 }
 
-static void set_window_keep_below_enabled(int enabled)
+static void set_window_keep_below_enabled(bool enabled)
 {
 	gconf_client_set_bool(client,
 			      KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED,
