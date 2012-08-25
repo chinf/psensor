@@ -52,7 +52,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkComboBox *w_sensorlist_pos;
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
 		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
-		*w_win_restore;
+		*w_win_restore, *w_slog_enabled;
 	GtkComboBoxText *w_temp_unit;
 
 	cfg = ui->config;
@@ -125,6 +125,10 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		(gtk_builder_get_object(builder, "enable_launcher_counter"));
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
 				     !cfg->unity_launcher_count_disabled);
+
+	w_slog_enabled = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder, "enable_slog"));
+	gtk_toggle_button_set_active(w_slog_enabled, cfg->slog_enabled);
 
 	w_hide_on_startup
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
@@ -208,6 +212,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		cfg->window_restore_enabled
 			= gtk_toggle_button_get_active(w_win_restore);
+
+		cfg->slog_enabled
+			= gtk_toggle_button_get_active(w_slog_enabled);
 
 		cfg->temperature_unit
 			= gtk_combo_box_get_active(GTK_COMBO_BOX(w_temp_unit));

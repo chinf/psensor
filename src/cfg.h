@@ -72,6 +72,8 @@ struct config {
 	int hide_on_startup;
 
 	enum temperature_unit temperature_unit;
+
+	bool slog_enabled;
 };
 
 /*
