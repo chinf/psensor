@@ -21,14 +21,17 @@
 #define _(str) gettext(str)
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/time.h>
 
+#include "bool.h"
 #include "config.h"
 #include "log.h"
 #include "slog.h"
 
 static FILE *file;
 static struct timeval stv;
+static double *last_values;
 
 int slog_init(const char *path, struct psensor **sensors)
 {
@@ -47,7 +50,7 @@ int slog_init(const char *path, struct psensor **sensors)
 	fprintf(file, "I,%ld,%s\n", stv.tv_sec, VERSION);
 
 	while (*sensors) {
-		fprintf(file, "S,%s\n", (*sensors)->id);
+		fprintf(file, "S,%s,%x\n", (*sensors)->id,  (*sensors)->type);
 		sensors++;
 	}
 
@@ -56,9 +59,14 @@ int slog_init(const char *path, struct psensor **sensors)
 	return 1;
 }
 
+
+
 void slog_write_sensors(struct psensor **sensors)
 {
+	int count, i;
+	double v;
 	struct timeval tv;
+	bool first_call;
 
 	if (!file)
 		return ;
@@ -68,11 +76,27 @@ void slog_write_sensors(struct psensor **sensors)
 		return ;
 	}
 
-	fprintf(file, "M,%ld", tv.tv_sec - stv.tv_sec);
-	while (*sensors) {
-		fprintf(file, ",%.1f", psensor_get_current_value(*sensors));
-		sensors++;
+	count = psensor_list_size(sensors);
+
+	if (last_values) {
+		first_call = 0;
+	} else {
+		first_call = 1;
+		last_values = malloc(count * sizeof(double));
 	}
+
+	fprintf(file, "%ld", tv.tv_sec - stv.tv_sec);
+	for (i = 0; i < count; i++) {
+		v = psensor_get_current_value(sensors[i]);
+
+		if (!first_call && last_values[i] == v)
+			fputc(',', file);
+		else
+			fprintf(file, ",%.1f", v);
+
+		last_values[i] = v;
+	}
+
 	fputc('\n', file);
 
 	fflush(file);
@@ -80,6 +104,10 @@ void slog_write_sensors(struct psensor **sensors)
 
 void slog_close()
 {
-	if (file)
+	if (file) {
 		fclose(file);
+		file = NULL;
+		free(last_values);
+		last_values = NULL;
+	}
 }

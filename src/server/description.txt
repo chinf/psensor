@@ -64,18 +64,35 @@ since EPOC.
 
 %V is the version of psensor-server.
 
-Following lines gives the ordered list of sensors: S,%I
+Following lines gives the ordered list of sensors: S,%I,%T
 
 %I is the uniq identifier of the sensor.
 
-Then, the values of all sensors are written: M,%D,%V...
+%T is the hexadecimal representation of the sensor type.
+
+Then, the values of all sensors are written: %D,%V...
 
 %D is the number of seconds elapsed since the starting time of the
 log.
 
 %V... is the list separated by a comma of the current value of all
 sensors. The ordering is the same than the list of sensor identifiers.
-The value is expressed as a float.
+
+The value is expressed as a float with one digit precision. Temperatures
+are using Celcius unit.
+
+The value is written only if it has changed.
+
+Example:
+I,1345974927,0.7.0.4
+S,lmsensor coretemp-isa-0000 Physical id 0,101
+S,lmsensor coretemp-isa-0000 Core 0,101
+S,lmsensor coretemp-isa-0000 Core 1,101
+0,37.0,37.0,36.0
+5,36.0,,36.0
+
+Five seconds after the log starts, the temperature of the second
+sensor (Core 0) is still 37C.
 
 [WARNING]
 
