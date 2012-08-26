@@ -59,8 +59,6 @@ int slog_init(const char *path, struct psensor **sensors)
 	return 1;
 }
 
-
-
 void slog_write_sensors(struct psensor **sensors)
 {
 	int count, i;
