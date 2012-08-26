@@ -38,7 +38,7 @@ int slog_init(const char *path, struct psensor **sensors)
 	file = fopen(path, "a");
 
 	if (!file) {
-		log_err(_("Cannot open sensor log file: %s"), path);
+		log_err(_("slog_init: cannot open sensor log file: %s"), path);
 		return 0;
 	}
 
