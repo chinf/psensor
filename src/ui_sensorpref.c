@@ -354,8 +354,6 @@ update_pref(struct psensor *s,
 		gtk_widget_set_sensitive(GTK_WIDGET(w_alarm), TRUE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_high_threshold), TRUE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_low_threshold), TRUE);
-		gtk_toggle_button_set_active(w_appindicator_enabled,
-					     p->appindicator_enabled);
 	} else {
 		gtk_toggle_button_set_active(w_alarm, 0);
 		gtk_spin_button_set_value(w_high_threshold, 0);
@@ -363,9 +361,11 @@ update_pref(struct psensor *s,
 		gtk_widget_set_sensitive(GTK_WIDGET(w_alarm), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_high_threshold), FALSE);
 		gtk_widget_set_sensitive(GTK_WIDGET(w_low_threshold), FALSE);
-		gtk_toggle_button_set_active(w_appindicator_enabled,
-					     !p->appindicator_enabled);
 	}
+
+	gtk_toggle_button_set_active(w_appindicator_enabled,
+				     p->appindicator_enabled);
+
 }
 
 static void on_changed(GtkTreeSelection *selection, gpointer data)

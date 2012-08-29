@@ -3,6 +3,9 @@
 ** added Spanish translation from LP (Javier
    buik8roadmaster@hotmail.com).
 ** psensor-server: added sensors log file (--sensor-log-file).
+** psensor: fixed 'appindicator enabled' option not working correctly
+   for cpu usage. The option was inversed each it is displayed in the
+   preference dialog.
 
 * v0.7.0.3
 
