@@ -22,7 +22,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
 #include <sys/time.h>
+#include <sys/types.h>
+
 
 #include "bool.h"
 #include "config.h"
@@ -33,17 +37,55 @@ static FILE *file;
 static struct timeval stv;
 static double *last_values;
 
+static const char *DEFAULT_FILENAME = "sensors.log";
+
+static char *get_default_path()
+{
+	char *home, *path, *dir;
+
+	home = getenv("HOME");
+
+	if (home) {
+		dir = malloc(strlen(home)+1+strlen(".psensor")+1);
+		sprintf(dir, "%s/%s", home, ".psensor");
+		mkdir(dir, 0777);
+
+		path = malloc(strlen(dir)+1+strlen(DEFAULT_FILENAME)+1);
+		sprintf(path, "%s/%s", dir, DEFAULT_FILENAME);
+
+		free(dir);
+
+		return path;
+	} else {
+		log_warn(_("HOME variable not set."));
+		return strdup(DEFAULT_FILENAME);
+	}
+}
+
 int slog_init(const char *path, struct psensor **sensors)
 {
-	file = fopen(path, "a");
+	char *lpath;
 
-	if (!file) {
-		log_err(_("slog_init: cannot open sensor log file: %s"), path);
+	if (file) {
+		log_err(_("Sensor log file already open."));
 		return 0;
 	}
 
+	lpath = path ? (char *)path : get_default_path();
+
+	file = fopen(lpath, "a");
+
+	if (!file)
+		log_err(_("Cannot open sensor log file: %s."), lpath);
+
+	if (!path)
+		free((char *)lpath);
+
+	if (!file)
+		return 0;
+
 	if (gettimeofday(&stv, NULL)) {
-		log_err(_("slog_init: gettimeofday failed."));
+		log_err(_("gettimeofday failed."));
 		return 0;
 	}
 
@@ -66,11 +108,13 @@ void slog_write_sensors(struct psensor **sensors)
 	struct timeval tv;
 	bool first_call;
 
-	if (!file)
+	if (!file) {
+		log_err(_("Sensor log file not open."));
 		return ;
+	}
 
 	if (gettimeofday(&tv, NULL)) {
-		log_err(_("slog_write_sensors: gettimeofday failed."));
+		log_err(_("gettimeofday failed."));
 		return ;
 	}
 
@@ -107,5 +151,7 @@ void slog_close()
 		file = NULL;
 		free(last_values);
 		last_values = NULL;
+	} else {
+		log_err(_("Sensor log not open, cannot close."));
 	}
 }

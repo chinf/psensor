@@ -37,6 +37,7 @@
 #include "ui_sensorlist.h"
 #include "ui_color.h"
 #include "lmsensor.h"
+#include "slog.h"
 #include "ui_pref.h"
 #include "ui_graph.h"
 #include "ui_status.h"
@@ -164,6 +165,9 @@ static void update_measures(struct ui_psensor *ui)
 #endif
 
 		psensor_log_measures(sensors);
+
+		if (cfg->slog_enabled)
+			slog_write_sensors(sensors);
 
 		period = cfg->sensor_update_interval;
 

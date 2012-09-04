@@ -17,6 +17,7 @@
  * 02110-1301 USA
  */
 #include "cfg.h"
+#include "slog.h"
 #include "ui.h"
 #include "ui_graph.h"
 #include "ui_pref.h"
@@ -213,6 +214,23 @@ void ui_enable_alpha_channel(struct ui_psensor *ui)
 
 }
 
+static void on_slog_enabled_cb(GConfClient *client,
+			     guint cnxn_id,
+			     GConfEntry *entry,
+			     gpointer user_data)
+{
+	struct psensor **sensors;
+
+	sensors = (struct psensor **)user_data;
+
+	log_debug("cbk_slog_enabled");
+
+	if (is_slog_enabled())
+		slog_init(NULL, sensors);
+	else
+		slog_close(NULL, sensors);
+}
+
 void ui_window_create(struct ui_psensor *ui)
 {
 	GtkWidget *window, *menubar;
@@ -227,6 +245,8 @@ void ui_window_create(struct ui_psensor *ui)
 		gtk_window_move(GTK_WINDOW(window),
 				cfg->window_x,
 				cfg->window_y);
+
+	config_slog_enabled_notify_add(on_slog_enabled_cb, ui->sensors);
 
 	gtk_window_set_default_size(GTK_WINDOW(window),
 				    cfg->window_w,

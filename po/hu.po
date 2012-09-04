@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-08-23 09:50+0200\n"
+"POT-Creation-Date: 2012-08-26 14:20+0200\n"
 "PO-Revision-Date: 2012-07-09 17:56+0000\n"
 "Last-Translator: Richard Somlói <ricsipontaz@gmail.com>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -252,17 +252,21 @@ msgstr "RPM"
 msgid "%"
 msgstr "%"
 
-#: src/lib/slog.c:38
+#: src/lib/slog.c:59
+msgid "slog_get_default_path: no HOME variable"
+msgstr ""
+
+#: src/lib/slog.c:69
 #, fuzzy, c-format
-msgid "Cannot open sensor log file: %s"
+msgid "slog_init: cannot open sensor log file: %s"
 msgstr "A naplófájl megnyitása sikertelen: %s"
 
-#: src/lib/slog.c:43
+#: src/lib/slog.c:74
 #, fuzzy
 msgid "slog_init: gettimeofday failed."
 msgstr "gettimeofday meghiúsult."
 
-#: src/lib/slog.c:67
+#: src/lib/slog.c:101
 #, fuzzy
 msgid "slog_write_sensors: gettimeofday failed."
 msgstr "gettimeofday meghiúsult."

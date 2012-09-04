@@ -19,6 +19,8 @@
 #ifndef _PSENSOR_CONFIG_H_
 #define _PSENSOR_CONFIG_H_
 
+#include <gconf/gconf-client.h>
+
 #include "bool.h"
 #include "color.h"
 
@@ -105,5 +107,8 @@ void config_set_sensor_name(const char *, const char *);
 
 bool config_is_appindicator_enabled(const char *);
 void config_set_appindicator_enabled(const char *, bool);
+
+void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data);
+bool is_slog_enabled();
 
 #endif

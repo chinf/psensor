@@ -21,9 +21,8 @@
 #include <string.h>
 #include <ctype.h>
 
-#include <gconf/gconf-client.h>
-
 #include "cfg.h"
+#include "log.h"
 
 static const char *KEY_SENSORS = "/apps/psensor/sensors";
 
@@ -387,7 +386,7 @@ void config_set_appindicator_enabled(const char *sid, bool enabled)
 	free(key);
 }
 
-static bool is_slog_enabled()
+bool is_slog_enabled()
 {
 	return gconf_client_get_bool(client, KEY_SLOG_ENABLED, NULL);
 }
@@ -395,6 +394,22 @@ static bool is_slog_enabled()
 static void set_slog_enabled(bool enabled)
 {
 	gconf_client_set_bool(client, KEY_SLOG_ENABLED, enabled, NULL);
+}
+
+
+void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data)
+{
+	log_debug("config_slog_enabled_notify_add");
+	gconf_client_add_dir(client,
+			     KEY_SLOG_ENABLED,
+			     GCONF_CLIENT_PRELOAD_NONE,
+			     NULL);
+	gconf_client_notify_add(client,
+				KEY_SLOG_ENABLED,
+				cbk,
+				data,
+				NULL,
+				NULL);
 }
 
 static bool is_window_decoration_enabled()

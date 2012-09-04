@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-08-23 09:50+0200\n"
+"POT-Creation-Date: 2012-08-26 14:20+0200\n"
 "PO-Revision-Date: 2012-04-28 11:24+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -250,16 +250,20 @@ msgstr ""
 msgid "%"
 msgstr ""
 
-#: src/lib/slog.c:38
-#, c-format
-msgid "Cannot open sensor log file: %s"
+#: src/lib/slog.c:59
+msgid "slog_get_default_path: no HOME variable"
 msgstr ""
 
-#: src/lib/slog.c:43
+#: src/lib/slog.c:69
+#, c-format
+msgid "slog_init: cannot open sensor log file: %s"
+msgstr ""
+
+#: src/lib/slog.c:74
 msgid "slog_init: gettimeofday failed."
 msgstr ""
 
-#: src/lib/slog.c:67
+#: src/lib/slog.c:101
 msgid "slog_write_sensors: gettimeofday failed."
 msgstr ""
 
