@@ -107,7 +107,7 @@ void print_help()
 	puts(_("  -d, --debug=LEVEL     "
 	       "set the debug level, integer between 0 and 3"));
 	puts(_("  -l, --log-file=PATH   set the log file to PATH"));
-	puts(_("  -s, --sensor-log-file=PATH set the sensor log file to PATH"));
+	puts(_("  --sensor-log-file=PATH set the sensor log file to PATH"));
 
 	puts("");
 	printf(_("Report bugs to: %s\n"), PACKAGE_BUGREPORT);
