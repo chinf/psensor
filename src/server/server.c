@@ -116,9 +116,9 @@ void print_help()
 }
 
 /*
-  Returns the file path corresponding to a given URL
-*/
-char *get_path(const char *url, const char *www_dir)
+ * Returns the file path corresponding to a given URL
+ */
+static char *get_path(const char *url, const char *www_dir)
 {
 	const char *p;
 	char *res;
