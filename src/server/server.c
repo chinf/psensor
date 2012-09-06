@@ -151,9 +151,7 @@ file_reader(void *cls, uint64_t pos, char *buf, int max)
 }
 
 static struct MHD_Response *
-create_response_api(const char *nurl,
-		    const char *method,
-		    unsigned int *rp_code)
+create_response_api(const char *nurl, const char *method, unsigned int *rp_code)
 {
 	struct MHD_Response *resp;
 	struct psensor *s;
@@ -199,11 +197,10 @@ create_response_api(const char *nurl,
 	return NULL;
 }
 
-static struct MHD_Response *
-create_response_file(const char *nurl,
-		     const char *method,
-		     unsigned int *rp_code,
-		     const char *fpath)
+static struct MHD_Response *create_response_file(const char *nurl,
+						 const char *method,
+						 unsigned int *rp_code,
+						 const char *fpath)
 {
 	struct stat st;
 	int ret;
@@ -264,14 +261,13 @@ create_response(const char *nurl, const char *method, unsigned int *rp_code)
 	}
 }
 
-static int
-cbk_http_request(void *cls,
-		 struct MHD_Connection *connection,
-		 const char *url,
-		 const char *method,
-		 const char *version,
-		 const char *upload_data,
-		 size_t *upload_data_size, void **ptr)
+static int cbk_http_request(void *cls,
+			    struct MHD_Connection *connection,
+			    const char *url,
+			    const char *method,
+			    const char *version,
+			    const char *upload_data,
+			    size_t *upload_data_size, void **ptr)
 {
 	static int dummy;
 	struct MHD_Response *response;
