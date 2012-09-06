@@ -54,7 +54,7 @@ static const char *DEFAULT_LOG_FILE = "/var/log/psensor-server.log";
 
 static const char *program_name;
 
-#define DEFAULT_PORT 3131
+static const int DEFAULT_PORT = 3131;
 
 #define PAGE_NOT_FOUND (_("<html><body><p>"\
 "Page not found - Go to <a href='/'>Main page</a></p></body>"))
@@ -66,7 +66,7 @@ static struct option long_options[] = {
 	{"wdir", required_argument, 0, 'w'},
 	{"debug", required_argument, 0, 'd'},
 	{"log-file", required_argument, 0, 'l'},
-	{"sensor-log-file", required_argument, 0, 's'},
+	{"sensor-log-file", required_argument, 0, 0},
 	{0, 0, 0, 0}
 };
 
@@ -313,9 +313,7 @@ cbk_http_request(void *cls,
 int main(int argc, char *argv[])
 {
 	struct MHD_Daemon *d;
-	int port = DEFAULT_PORT;
-	int optc;
-	int cmdok = 1;
+	int port, opti, optc, cmdok;
 	char *log_file, *slog_file;
 
 	program_name = argv[0];
@@ -331,9 +329,14 @@ int main(int argc, char *argv[])
 	server_data.psysinfo.interfaces = NULL;
 	log_file = NULL;
 	slog_file = NULL;
+	port = DEFAULT_PORT;
+	cmdok = 1;
 
-	while ((optc = getopt_long(argc, argv,
-				   "vhp:w:d:l:s:", long_options, NULL)) != -1) {
+	while ((optc = getopt_long(argc,
+				   argv,
+				   "vhp:w:d:l:",
+				   long_options,
+				   &opti)) != -1) {
 		switch (optc) {
 		case 'w':
 			if (optarg)
@@ -357,8 +360,8 @@ int main(int argc, char *argv[])
 			if (optarg)
 				log_file = strdup(optarg);
 			break;
-		case 's':
-			if (optarg)
+		case 0:
+			if (!strcmp(long_options[opti].name, "sensor-log-file"))
 				slog_file = strdup(optarg);
 			break;
 		default:
@@ -367,17 +370,17 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	if (!server_data.www_dir)
-		server_data.www_dir = strdup(DEFAULT_WWW_DIR);
-
-	if (!log_file)
-		log_file = strdup(DEFAULT_LOG_FILE);
-
 	if (!cmdok || optind != argc) {
 		fprintf(stderr, _("Try `%s --help' for more information.\n"),
 			program_name);
 		exit(EXIT_FAILURE);
 	}
+
+	if (!server_data.www_dir)
+		server_data.www_dir = strdup(DEFAULT_WWW_DIR);
+
+	if (!log_file)
+		log_file = strdup(DEFAULT_LOG_FILE);
 
 	log_open(log_file);
 
