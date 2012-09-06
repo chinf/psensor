@@ -76,7 +76,7 @@ static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 
 static int server_stop_requested;
 
-void print_version()
+static void print_version()
 {
 	printf("psensor-server %s\n", VERSION);
 	printf(_("Copyright (C) %s jeanfi@gmail.com\n"
@@ -87,7 +87,7 @@ void print_version()
 	       "2010-2012");
 }
 
-void print_help()
+static void print_help()
 {
 	printf(_("Usage: %s [OPTION]...\n"), program_name);
 
@@ -150,7 +150,7 @@ file_reader(void *cls, uint64_t pos, char *buf, int max)
 	return fread(buf, 1, max, file);
 }
 
-struct MHD_Response *
+static struct MHD_Response *
 create_response_api(const char *nurl,
 		    const char *method,
 		    unsigned int *rp_code)
@@ -199,7 +199,7 @@ create_response_api(const char *nurl,
 	return NULL;
 }
 
-struct MHD_Response *
+static struct MHD_Response *
 create_response_file(const char *nurl,
 		     const char *method,
 		     unsigned int *rp_code,
@@ -238,7 +238,7 @@ create_response_file(const char *nurl,
 	return NULL;
 }
 
-struct MHD_Response *
+static struct MHD_Response *
 create_response(const char *nurl, const char *method, unsigned int *rp_code)
 {
 	struct MHD_Response *resp = NULL;
