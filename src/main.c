@@ -575,6 +575,9 @@ int main(int argc, char **argv)
 	ui.sensors = create_sensors_list(url, use_libatasmart);
 	associate_cb_alarm_raised(ui.sensors, &ui);
 
+	if (ui.config->slog_enabled)
+		slog_init(NULL, ui.sensors);
+
 #if !defined(HAVE_APPINDICATOR) && !defined(HAVE_APPINDICATOR_029)
 	ui_status_init(&ui);
 	ui_status_set_visible(1);
