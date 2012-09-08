@@ -324,6 +324,7 @@ static void *slog_routine(void *data)
 		sleep(5);
 	}
 
+	/* not reachable but avoid compilation error. */
 	pthread_exit(0);
 }
 
