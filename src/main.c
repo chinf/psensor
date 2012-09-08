@@ -145,7 +145,7 @@ static void update_measures(struct ui_psensor *ui)
 	cfg = ui->config;
 
 	while (1) {
-		g_mutex_lock(ui->sensors_mutex);
+		pthread_mutex_lock(&ui->sensors_mutex);
 
 		sensors = ui->sensors;
 		if (!sensors)
@@ -166,12 +166,9 @@ static void update_measures(struct ui_psensor *ui)
 
 		psensor_log_measures(sensors);
 
-		if (cfg->slog_enabled)
-			slog_write_sensors(sensors);
-
 		period = cfg->sensor_update_interval;
 
-		g_mutex_unlock(ui->sensors_mutex);
+		pthread_mutex_unlock(&ui->sensors_mutex);
 
 		sleep(period);
 	}
@@ -211,7 +208,7 @@ gboolean ui_refresh_thread(gpointer data)
 	ret = TRUE;
 	cfg = ui->config;
 
-	g_mutex_lock(ui->sensors_mutex);
+	pthread_mutex_lock(&ui->sensors_mutex);
 
 	graph_update(ui->sensors, ui->w_graph, ui->config, ui->main_window);
 
@@ -231,7 +228,7 @@ gboolean ui_refresh_thread(gpointer data)
 		ret = FALSE;
 	}
 
-	g_mutex_unlock(ui->sensors_mutex);
+	pthread_mutex_unlock(&ui->sensors_mutex);
 
 	if (ret == FALSE)
 		g_timeout_add(1000 * ui->graph_update_interval,
@@ -410,7 +407,7 @@ static void cb_activate(GApplication *application,
  */
 static void cleanup(struct ui_psensor *ui)
 {
-	g_mutex_lock(ui->sensors_mutex);
+	pthread_mutex_lock(&ui->sensors_mutex);
 
 	log_debug("Cleanup...");
 
@@ -435,7 +432,7 @@ static void cleanup(struct ui_psensor *ui)
 
 	ui_status_cleanup();
 
-	g_mutex_unlock(ui->sensors_mutex);
+	pthread_mutex_unlock(&ui->sensors_mutex);
 
 	config_cleanup();
 
@@ -566,7 +563,7 @@ int main(int argc, char **argv)
 
 	gtk_init(NULL, NULL);
 
-	ui.sensors_mutex = g_mutex_new();
+	pthread_mutex_init(&ui.sensors_mutex, NULL);
 
 	ui.config = config_load();
 
@@ -576,7 +573,7 @@ int main(int argc, char **argv)
 	associate_cb_alarm_raised(ui.sensors, &ui);
 
 	if (ui.config->slog_enabled)
-		slog_init(NULL, ui.sensors);
+		slog_activate(NULL, ui.sensors, &ui.sensors_mutex, 5);
 
 #if !defined(HAVE_APPINDICATOR) && !defined(HAVE_APPINDICATOR_029)
 	ui_status_init(&ui);

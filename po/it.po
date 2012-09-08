@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-08-26 14:20+0200\n"
+"POT-Creation-Date: 2012-09-08 23:26+0200\n"
 "PO-Revision-Date: 2012-08-13 08:20+0000\n"
 "Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -251,26 +251,33 @@ msgstr "RPM"
 msgid "%"
 msgstr "%"
 
-#: src/lib/slog.c:59
-msgid "slog_get_default_path: no HOME variable"
+#: src/lib/slog.c:64
+msgid "HOME variable not set."
 msgstr ""
-
-#: src/lib/slog.c:69
-#, fuzzy, c-format
-msgid "slog_init: cannot open sensor log file: %s"
-msgstr "Impossibile aprire il file di log: %s"
 
 #: src/lib/slog.c:74
 #, fuzzy
-msgid "slog_init: gettimeofday failed."
+msgid "Sensor log file already open."
+msgstr "Esiste già un'istanza di Psensor"
+
+#: src/lib/slog.c:83
+#, fuzzy, c-format
+msgid "Cannot open sensor log file: %s."
+msgstr "Impossibile aprire il file di log: %s"
+
+#: src/lib/slog.c:92 src/ui_notify.c:48
+msgid "gettimeofday failed."
 msgstr "gettimeofday fallito."
 
-#: src/lib/slog.c:101
-#, fuzzy
-msgid "slog_write_sensors: gettimeofday failed."
-msgstr "gettimeofday fallito."
+#: src/lib/slog.c:116
+msgid "Sensor log file not open."
+msgstr ""
 
-#: src/main.c:77
+#: src/lib/slog.c:172
+msgid "Sensor log not open, cannot close."
+msgstr ""
+
+#: src/main.c:78
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -280,12 +287,12 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:88 src/server/server.c:92
+#: src/main.c:89 src/server/server.c:92
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Uso: %s [OPZIONE]...\n"
 
-#: src/main.c:90
+#: src/main.c:91
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -293,11 +300,11 @@ msgstr ""
 "Psensor è un'applicazione GTK+ per monitorare i sensori dell'hardware, "
 "incluse temperature e velocità delle ventole."
 
-#: src/main.c:94
+#: src/main.c:95
 msgid "Options:"
 msgstr "Opzioni:"
 
-#: src/main.c:95
+#: src/main.c:96
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -305,7 +312,7 @@ msgstr ""
 "  -h, --help mostra questo help ed esce\n"
 "  -v, --version mostra le informazioni sulla versione ed esce"
 
-#: src/main.c:101
+#: src/main.c:102
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -313,7 +320,7 @@ msgstr ""
 "  -u, --url=URL URL del server psensor,\n"
 "                      esempio: http://hostname:3131"
 
-#: src/main.c:104
+#: src/main.c:105
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
@@ -322,40 +329,40 @@ msgstr ""
 "dell'hard disk invece del \n"
 "                      servizio hddtemp"
 
-#: src/main.c:107
+#: src/main.c:108
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 "  -n, --new-instance forza la creazione di una nuova applicazione Psensor"
 
-#: src/main.c:110
+#: src/main.c:111
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL imposta il livello di debug, un intero compreso tra 0 e 3"
 
-#: src/main.c:115 src/server/server.c:113
+#: src/main.c:116 src/server/server.c:113
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Segnalare i bug a: %s\n"
 
-#: src/main.c:117 src/server/server.c:115
+#: src/main.c:118 src/server/server.c:115
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s home page: <%s>\n"
 
-#: src/main.c:457
+#: src/main.c:458
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor è stato compilato senza il supporto per sensori remoti."
 
-#: src/main.c:520
+#: src/main.c:521
 msgid "Enables debug mode."
 msgstr "Abilita la modalità debug."
 
-#: src/main.c:532 src/server/server.c:377
+#: src/main.c:533 src/server/server.c:370
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Usare '%s --help' per maggiori informazioni.\n"
 
-#: src/main.c:545
+#: src/main.c:546
 msgid "A Psensor instance already exists."
 msgstr "Esiste già un'istanza di Psensor"
 
@@ -429,47 +436,52 @@ msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
 
 #: src/server/server.c:110
 #, fuzzy
-msgid "  -s, --sensor-log-file=PATH set the sensor log file to PATH"
+msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
 
-#: src/server/server.c:297
+#: src/server/server.c:293
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP Request: %s"
 
-#: src/server/server.c:354
+#: src/server/server.c:353
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Abilita modalità di debug: %d"
 
-#: src/server/server.c:393
+#: src/server/server.c:392
 msgid "No sensors detected."
 msgstr "Nessun sensore rilevato."
 
-#: src/server/server.c:400
+#: src/server/server.c:399
 msgid "Failed to create Web server."
 msgstr "Impossibile creare il Web server."
 
-#: src/server/server.c:404
+#: src/server/server.c:403
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Web server inizializzato sulla porta: %d"
 
-#: src/server/server.c:405
+#: src/server/server.c:404
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW directory: %s"
 
-#: src/server/server.c:406
+#: src/server/server.c:405
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/ui.c:81
+#: src/server/server.c:410
+#, fuzzy
+msgid "Failed to activate logging of sensors."
+msgstr "Impossibile caricare l'icona di Psensor."
+
+#: src/ui.c:82
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensore è un'applicazione GTK+ per monitorare sernsori hardware"
 
-#: src/ui.c:84
+#: src/ui.c:85
 msgid ""
 "Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
@@ -477,60 +489,60 @@ msgstr ""
 "Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
 
-#: src/ui.c:87
+#: src/ui.c:88
 msgid "About Psensor"
 msgstr "Informazioni su Psensor"
 
-#: src/ui.c:90
+#: src/ui.c:91
 msgid "Psensor Homepage"
 msgstr "Psensor Homepage"
 
-#: src/ui.c:145 src/ui_appindicator.c:111
+#: src/ui.c:146 src/ui_appindicator.c:111
 msgid "_Preferences"
 msgstr "_Preferenze"
 
-#: src/ui.c:146 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+#: src/ui.c:147 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: src/ui.c:150 src/ui_appindicator.c:116
+#: src/ui.c:151 src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
 msgstr "S_ensor Preferenze"
 
-#: src/ui.c:151
+#: src/ui.c:152
 msgid "Sensor Preferences"
 msgstr "Sensor Preferenze"
 
-#: src/ui.c:155
+#: src/ui.c:156
 msgid "_Quit"
 msgstr "_Esci"
 
-#: src/ui.c:155
+#: src/ui.c:156
 msgid "Quit"
 msgstr "Esci"
 
-#: src/ui.c:158
+#: src/ui.c:159
 msgid "_Help"
 msgstr "_Aiuto"
 
-#: src/ui.c:161 src/ui_appindicator.c:122
+#: src/ui.c:162 src/ui_appindicator.c:122
 msgid "_About"
 msgstr "_Informazioni"
 
-#: src/ui.c:162 src/ui_appindicator.c:124
+#: src/ui.c:163 src/ui_appindicator.c:124
 msgid "About"
 msgstr "Informazioni su..."
 
-#: src/ui.c:184 src/ui_appindicator.c:186 src/ui_graph.c:99
+#: src/ui.c:185 src/ui_appindicator.c:186 src/ui_graph.c:99
 #, c-format
 msgid "building menus failed: %s"
 msgstr "costruzione dei menù fallita: %s"
 
-#: src/ui.c:236
+#: src/ui.c:260
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor temperatura"
 
-#: src/ui.c:244
+#: src/ui.c:268
 msgid "Failed to load Psensor icon."
 msgstr "Impossibile caricare l'icona di Psensor."
 
@@ -574,10 +586,6 @@ msgstr "Mostra"
 msgid "SensorPreferences"
 msgstr "SensorPreferenze"
 
-#: src/ui_notify.c:48
-msgid "gettimeofday failed."
-msgstr "gettimeofday fallito."
-
 #: src/ui_notify.c:77
 msgid "Temperature alert"
 msgstr "Allarme temperatura"
@@ -589,3 +597,15 @@ msgstr "Allarme ventola"
 #: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr "Nome sensore"
+
+#, fuzzy
+#~ msgid "slog_init: cannot open sensor log file: %s"
+#~ msgstr "Impossibile aprire il file di log: %s"
+
+#, fuzzy
+#~ msgid "slog_init: gettimeofday failed."
+#~ msgstr "gettimeofday fallito."
+
+#, fuzzy
+#~ msgid "slog_write_sensors: gettimeofday failed."
+#~ msgstr "gettimeofday fallito."

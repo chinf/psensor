@@ -215,18 +215,22 @@ void ui_enable_alpha_channel(struct ui_psensor *ui)
 }
 
 static void on_slog_enabled_cb(GConfClient *client,
-			     guint cnxn_id,
-			     GConfEntry *entry,
-			     gpointer user_data)
+			       guint cnxn_id,
+			       GConfEntry *entry,
+			       gpointer user_data)
 {
+	struct ui_psensor *ui;
 	struct psensor **sensors;
+	pthread_mutex_t *mutex;
 
-	sensors = (struct psensor **)user_data;
+	ui = (struct ui_psensor *)user_data;
+	sensors = ui->sensors;
+	mutex = &ui->sensors_mutex;
 
 	log_debug("cbk_slog_enabled");
 
 	if (is_slog_enabled())
-		slog_init(NULL, sensors);
+		slog_activate(NULL, sensors, mutex, 5);
 	else
 		slog_close(NULL, sensors);
 }
@@ -246,7 +250,7 @@ void ui_window_create(struct ui_psensor *ui)
 				cfg->window_x,
 				cfg->window_y);
 
-	config_slog_enabled_notify_add(on_slog_enabled_cb, ui->sensors);
+	config_slog_enabled_notify_add(on_slog_enabled_cb, ui);
 
 	gtk_window_set_default_size(GTK_WINDOW(window),
 				    cfg->window_w,

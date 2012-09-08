@@ -26,7 +26,7 @@
 #include <sys/stat.h>
 #include <sys/time.h>
 #include <sys/types.h>
-
+#include <unistd.h>
 
 #include "bool.h"
 #include "config.h"
@@ -36,6 +36,10 @@
 static FILE *file;
 static struct timeval stv;
 static double *last_values;
+static int period;
+static struct psensor **sensors;
+static pthread_mutex_t *sensors_mutex;
+static pthread_t thread;
 
 static const char *DEFAULT_FILENAME = "sensors.log";
 
@@ -62,7 +66,7 @@ static char *get_default_path()
 	}
 }
 
-int slog_init(const char *path, struct psensor **sensors)
+static bool slog_open(const char *path, struct psensor **sensors)
 {
 	char *lpath;
 
@@ -101,7 +105,7 @@ int slog_init(const char *path, struct psensor **sensors)
 	return 1;
 }
 
-void slog_write_sensors(struct psensor **sensors)
+static void slog_write_sensors(struct psensor **sensors)
 {
 	int count, i;
 	double v;
@@ -113,10 +117,7 @@ void slog_write_sensors(struct psensor **sensors)
 		return ;
 	}
 
-	if (gettimeofday(&tv, NULL)) {
-		log_err(_("gettimeofday failed."));
-		return ;
-	}
+	gettimeofday(&tv, NULL);
 
 	count = psensor_list_size(sensors);
 
@@ -144,9 +145,25 @@ void slog_write_sensors(struct psensor **sensors)
 	fflush(file);
 }
 
+static void *slog_routine(void *data)
+{
+	while (1) {
+		pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
+		pthread_mutex_lock(sensors_mutex);
+		slog_write_sensors(sensors);
+		pthread_mutex_unlock(sensors_mutex);
+		pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+		sleep(period);
+	}
+
+	pthread_exit(0);
+}
+
 void slog_close()
 {
 	if (file) {
+		pthread_cancel(thread);
+
 		fclose(file);
 		file = NULL;
 		free(last_values);
@@ -154,4 +171,25 @@ void slog_close()
 	} else {
 		log_err(_("Sensor log not open, cannot close."));
 	}
+}
+
+bool slog_activate(const char *path,
+		   struct psensor **ss,
+		   pthread_mutex_t *mutex,
+		   int p)
+{
+	bool ret;
+
+	sensors = ss;
+	sensors_mutex = mutex;
+	period = p;
+
+	pthread_mutex_lock(mutex);
+	ret = slog_open(path, sensors);
+	pthread_mutex_unlock(mutex);
+
+	if (ret)
+		pthread_create(&thread, NULL, slog_routine, NULL);
+
+	return ret;
 }

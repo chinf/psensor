@@ -21,6 +21,8 @@
 
 #include "config.h"
 
+#include <pthread.h>
+
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
@@ -34,6 +36,8 @@
 
 struct ui_psensor {
 	struct psensor **sensors;
+	/* mutex which MUST be used for accessing sensors.*/
+	pthread_mutex_t sensors_mutex;
 
 	GtkWidget *w_graph;
 
@@ -58,8 +62,6 @@ struct ui_psensor {
 	GtkWidget *sensor_box;
 
 	int graph_update_interval;
-
-	GMutex *sensors_mutex;
 };
 
 /*

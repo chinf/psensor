@@ -19,10 +19,11 @@
 #ifndef _PSENSOR_SLOG_H_
 #define _PSENSOR_SLOG_H_
 
+#include <pthread.h>
+
 #include "psensor.h"
 
-int slog_init(const char *, struct psensor **);
-void slog_write_sensors(struct psensor **);
+bool slog_activate(const char *, struct psensor **, pthread_mutex_t *, int s);
 void slog_close();
 
 #endif

@@ -306,34 +306,11 @@ static int cbk_http_request(void *cls,
 	return ret;
 }
 
-static void *slog_routine(void *data)
-{
-	char *path;
-
-	path = (char *)data;
-
-	log_debug("slog_routine");
-
-	slog_init(path, server_data.sensors);
-
-	while (1) {
-		pthread_mutex_lock(&mutex);
-		slog_write_sensors(server_data.sensors);
-		pthread_mutex_unlock(&mutex);
-
-		sleep(5);
-	}
-
-	/* not reachable but avoid compilation error. */
-	pthread_exit(0);
-}
-
 int main(int argc, char *argv[])
 {
 	struct MHD_Daemon *d;
 	int port, opti, optc, cmdok, ret;
 	char *log_file, *slog_file;
-	pthread_t slog_thread;
 
 	program_name = argv[0];
 
@@ -428,12 +405,9 @@ int main(int argc, char *argv[])
 	log_info(_("URL: http://localhost:%d"), port);
 
 	if (slog_file) {
-		ret = pthread_create(&slog_thread,
-				     NULL,
-				     slog_routine,
-				     slog_file);
-		if (ret)
-			log_err(_("Failed to create sensor log thread."));
+		ret = slog_activate(slog_file, server_data.sensors, &mutex, 5);
+		if (!ret)
+			log_err(_("Failed to activate logging of sensors."));
 	}
 
 	while (!server_stop_requested) {

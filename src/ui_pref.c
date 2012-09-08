@@ -153,7 +153,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		double value;
 		GdkColor color;
 
-		g_mutex_lock(ui->sensors_mutex);
+		pthread_mutex_lock(&ui->sensors_mutex);
 
 		gtk_color_button_get_color(w_color_fg, &color);
 		color_set(cfg->graph_fgcolor,
@@ -221,7 +221,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		config_save(cfg);
 
-		g_mutex_unlock(ui->sensors_mutex);
+		pthread_mutex_unlock(&ui->sensors_mutex);
 
 		ui_window_update(ui);
 	}
