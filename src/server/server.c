@@ -67,6 +67,7 @@ static struct option long_options[] = {
 	{"debug", required_argument, 0, 'd'},
 	{"log-file", required_argument, 0, 'l'},
 	{"sensor-log-file", required_argument, 0, 0},
+	{"sensor-log-interval", required_argument, 0, 0},
 	{0, 0, 0, 0}
 };
 
@@ -108,6 +109,8 @@ static void print_help()
 	       "set the debug level, integer between 0 and 3"));
 	puts(_("  -l, --log-file=PATH   set the log file to PATH"));
 	puts(_("  --sensor-log-file=PATH set the sensor log file to PATH"));
+	puts(_("  --sensor-log-interval=S "
+	       "set the sensor log interval to S (seconds)"));
 
 	puts("");
 	printf(_("Report bugs to: %s\n"), PACKAGE_BUGREPORT);
@@ -309,7 +312,7 @@ static int cbk_http_request(void *cls,
 int main(int argc, char *argv[])
 {
 	struct MHD_Daemon *d;
-	int port, opti, optc, cmdok, ret;
+	int port, opti, optc, cmdok, ret, slog_interval;
 	char *log_file, *slog_file;
 
 	program_name = argv[0];
@@ -325,6 +328,7 @@ int main(int argc, char *argv[])
 	server_data.psysinfo.interfaces = NULL;
 	log_file = NULL;
 	slog_file = NULL;
+	slog_interval = 300;
 	port = DEFAULT_PORT;
 	cmdok = 1;
 
@@ -359,6 +363,9 @@ int main(int argc, char *argv[])
 		case 0:
 			if (!strcmp(long_options[opti].name, "sensor-log-file"))
 				slog_file = strdup(optarg);
+			else if (!strcmp(long_options[opti].name,
+					 "sensor-log-interval"))
+				slog_interval = atoi(optarg);
 			break;
 		default:
 			cmdok = 0;
@@ -405,7 +412,12 @@ int main(int argc, char *argv[])
 	log_info(_("URL: http://localhost:%d"), port);
 
 	if (slog_file) {
-		ret = slog_activate(slog_file, server_data.sensors, &mutex, 5);
+		if (slog_interval <= 0)
+			slog_interval = 300;
+		ret = slog_activate(slog_file,
+				    server_data.sensors,
+				    &mutex,
+				    slog_interval);
 		if (!ret)
 			log_err(_("Failed to activate logging of sensors."));
 	}
