@@ -14,7 +14,8 @@ LIBS = \
 	../lib/libpsensor.a \
 	$(SENSORS_LIBS) \
 	$(JSON_LIBS) \
-	$(LIBMICROHTTPD_LIBS)
+	$(LIBMICROHTTPD_LIBS) \
+	$(PTHREAD_LIBS)
 
 if GTOP
 AM_CPPFLAGS += $(GTOP_CFLAGS)

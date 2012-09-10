@@ -22,6 +22,7 @@ LIBS = \
 	lib/libpsensor.a \
 	$(GTK_LIBS)\
 	$(GCONF_LIBS)\
+	$(PTHREAD_LIBS)\
 	$(SENSORS_LIBS)
 
 bin_PROGRAMS = psensor

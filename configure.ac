@@ -19,7 +19,6 @@ AC_PROG_RANLIB
 # Checks for header files.
 AC_PATH_X
 AC_CHECK_HEADERS([stdbool.h])
-AC_CHECK_HEADERS(pthread.h,, [AC_MSG_ERROR([pthread.h required])])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T
@@ -45,7 +44,9 @@ AM_GCONF_SOURCE_2
 ############### common 
 
 # Checks pthread
-AC_CHECK_LIB(pthread, pthread_create, [LIBS="$LIBS -lpthread"])
+AC_CHECK_LIB(pthread, pthread_create)
+PTHREAD_LIBS=-pthread
+AC_SUBST(PTHREAD_LIBS)
 
 # Checks sensors, required by psensor and psensor-server
 AC_CHECK_LIB(sensors, sensors_init)
