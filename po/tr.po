@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-08 23:26+0200\n"
+"POT-Creation-Date: 2012-09-10 09:06+0200\n"
 "PO-Revision-Date: 2012-04-28 11:24+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -111,10 +111,18 @@ msgid "Measure update interval:"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:659
-msgid "Enable log of measures"
+msgid "Enable sensors logging"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:689
+#: src/glade/psensor-pref.glade:708
+msgid "Sensors logging inteval"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:725
+msgid "seconds(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:744
 msgid "Sensors"
 msgstr "Algılayıcı"
 
@@ -285,7 +293,7 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:89 src/server/server.c:92
+#: src/main.c:89 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Kullanım: %s [SEÇENEK]...\n"
@@ -326,12 +334,12 @@ msgstr ""
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:116 src/server/server.c:113
+#: src/main.c:116 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Hataları rapor et:%s\n"
 
-#: src/main.c:118 src/server/server.c:115
+#: src/main.c:118 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s ana sayfa: <%s>\n"
@@ -344,7 +352,7 @@ msgstr ""
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:533 src/server/server.c:370
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
@@ -377,7 +385,7 @@ msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 
-#: src/server/server.c:82
+#: src/server/server.c:83
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -387,69 +395,73 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/server/server.c:94
+#: src/server/server.c:95
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 
-#: src/server/server.c:99
+#: src/server/server.c:100
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
 
-#: src/server/server.c:103
+#: src/server/server.c:104
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
 
-#: src/server/server.c:107
+#: src/server/server.c:108
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/server/server.c:109
+#: src/server/server.c:110
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr ""
 
-#: src/server/server.c:110
+#: src/server/server.c:111
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr ""
 
-#: src/server/server.c:293
+#: src/server/server.c:112
+msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
+msgstr ""
+
+#: src/server/server.c:296
 #, c-format
 msgid "HTTP Request: %s"
 msgstr ""
 
-#: src/server/server.c:353
+#: src/server/server.c:357
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr ""
 
-#: src/server/server.c:392
+#: src/server/server.c:399
 msgid "No sensors detected."
 msgstr ""
 
-#: src/server/server.c:399
+#: src/server/server.c:406
 msgid "Failed to create Web server."
 msgstr ""
 
-#: src/server/server.c:403
+#: src/server/server.c:410
 #, c-format
 msgid "Web server started on port: %d"
 msgstr ""
 
-#: src/server/server.c:404
+#: src/server/server.c:411
 #, c-format
 msgid "WWW directory: %s"
 msgstr ""
 
-#: src/server/server.c:405
+#: src/server/server.c:412
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr ""
 
-#: src/server/server.c:410
+#: src/server/server.c:422
 msgid "Failed to activate logging of sensors."
 msgstr ""
 

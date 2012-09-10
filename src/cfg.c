@@ -91,6 +91,7 @@ static const char *KEY_INTERFACE_TEMPERATURE_UNIT
 = "/apps/psensor/interface/temperature_unit";
 
 static const char *KEY_SLOG_ENABLED = "/apps/psensor/slog/enabled";
+static const char *KEY_SLOG_INTERVAL = "/apps/psensor/slog/interval";
 
 static GConfClient *client;
 
@@ -412,6 +413,26 @@ void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data)
 				NULL);
 }
 
+int config_get_slog_interval()
+{
+	int res;
+
+	res = gconf_client_get_int(client, KEY_SLOG_INTERVAL, NULL);
+
+	if (res <= 0)
+		return 300;
+	else
+		return res;
+}
+
+static void set_slog_interval(int interval)
+{
+	if (interval <= 0)
+		interval = 300;
+
+	gconf_client_set_int(client, KEY_SLOG_INTERVAL, interval, NULL);
+}
+
 static bool is_window_decoration_enabled()
 {
 	return !gconf_client_get_bool(client,
@@ -473,6 +494,7 @@ struct config *config_load()
 	c->window_decoration_enabled = is_window_decoration_enabled();
 	c->window_keep_below_enabled = is_window_keep_below_enabled();
 	c->slog_enabled = is_slog_enabled();
+	c->slog_interval = config_get_slog_interval();
 
 	c->sensor_update_interval
 	    = gconf_client_get_int(client, KEY_SENSOR_UPDATE_INTERVAL, NULL);
@@ -554,6 +576,7 @@ void config_save(const struct config *c)
 	set_window_decoration_enabled(c->window_decoration_enabled);
 	set_window_keep_below_enabled(c->window_keep_below_enabled);
 	set_slog_enabled(c->slog_enabled);
+	set_slog_interval(c->slog_interval);
 
 	gconf_client_set_int(client,
 			     KEY_GRAPH_UPDATE_INTERVAL,

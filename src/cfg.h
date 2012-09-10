@@ -76,6 +76,7 @@ struct config {
 	enum temperature_unit temperature_unit;
 
 	bool slog_enabled;
+	int slog_interval;
 };
 
 /*
@@ -110,5 +111,7 @@ void config_set_appindicator_enabled(const char *, bool);
 
 void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data);
 bool is_slog_enabled();
+
+int config_get_slog_interval();
 
 #endif

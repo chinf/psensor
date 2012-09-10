@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-08 23:26+0200\n"
+"POT-Creation-Date: 2012-09-10 09:06+0200\n"
 "PO-Revision-Date: 2012-08-19 01:12+0000\n"
 "Last-Translator: Javier <buik8roadmaster@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -111,11 +111,19 @@ msgid "Measure update interval:"
 msgstr "Medir sensores cada:"
 
 #: src/glade/psensor-pref.glade:659
-#, fuzzy
-msgid "Enable log of measures"
-msgstr "Activar menú"
+msgid "Enable sensors logging"
+msgstr ""
 
-#: src/glade/psensor-pref.glade:689
+#: src/glade/psensor-pref.glade:708
+msgid "Sensors logging inteval"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:725
+#, fuzzy
+msgid "seconds(s)"
+msgstr "segundo(s)"
+
+#: src/glade/psensor-pref.glade:744
 msgid "Sensors"
 msgstr "Sensores"
 
@@ -293,7 +301,7 @@ msgstr ""
 "y apoyada por su autor.\n"
 "No existe NINGUNA GARANTÍA hasta donde la ley lo permita.\n"
 
-#: src/main.c:89 src/server/server.c:92
+#: src/main.c:89 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Uso: %s [OPTION]...\n"
@@ -345,12 +353,12 @@ msgstr ""
 "  -d, --depurar=NIVEL   Establece el nivel de depuración con un valor entre "
 "0 y 3"
 
-#: src/main.c:116 src/server/server.c:113
+#: src/main.c:116 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Comunicar fallos: %s\n"
 
-#: src/main.c:118 src/server/server.c:115
+#: src/main.c:118 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s Página Oficial: <%s>\n"
@@ -363,7 +371,7 @@ msgstr "Psensor ha sido compilado sin respaldo para sensores remotos."
 msgid "Enables debug mode."
 msgstr "Activa el modo de depuración"
 
-#: src/main.c:533 src/server/server.c:370
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Introducir `%s --ayuda' para obtener más información\n"
@@ -398,7 +406,7 @@ msgstr ""
 "<html><body><p>Página no encontrada- Ir a <a href='/'>Main page</a></p></"
 "body>"
 
-#: src/server/server.c:82
+#: src/server/server.c:83
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -414,14 +422,14 @@ msgstr ""
 "apoyada por el autor. \n"
 "No existe NINGUNA GARANTÍA hasta donde la ley lo permita.\n"
 
-#: src/server/server.c:94
+#: src/server/server.c:95
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 "psensor-server es un servidor HTTP para obtener información de los sensores "
 "de forma remota."
 
-#: src/server/server.c:99
+#: src/server/server.c:100
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -429,7 +437,7 @@ msgstr ""
 "  -h, --ayuda\t\tMuestra esta ayuda.\n"
 "  -v, --versión\t\tMuestra la versión."
 
-#: src/server/server.c:103
+#: src/server/server.c:104
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -437,55 +445,60 @@ msgstr ""
 "  -p,--port=PORT\tPuerto del servidor web. \n"
 "  -w,--wdir=DIR\t\tDirectorio de servidores web."
 
-#: src/server/server.c:107
+#: src/server/server.c:108
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --depurar=NIVEL     Establece el nivel de depuración con un número de "
 "0 a 3"
 
-#: src/server/server.c:109
+#: src/server/server.c:110
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH   establece el archivo de registro en PATH"
 
-#: src/server/server.c:110
+#: src/server/server.c:111
 #, fuzzy
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  -l, --log-file=PATH   establece el archivo de registro en PATH"
 
-#: src/server/server.c:293
+#: src/server/server.c:112
+#, fuzzy
+msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
+msgstr "  -l, --log-file=PATH   establece el archivo de registro en PATH"
+
+#: src/server/server.c:296
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "Petición HTTP:%s"
 
-#: src/server/server.c:353
+#: src/server/server.c:357
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Activa el modo de depuración:%d"
 
-#: src/server/server.c:392
+#: src/server/server.c:399
 msgid "No sensors detected."
 msgstr "No se han detectado sensores."
 
-#: src/server/server.c:399
+#: src/server/server.c:406
 msgid "Failed to create Web server."
 msgstr "Fallo al crear el servidor Web"
 
-#: src/server/server.c:403
+#: src/server/server.c:410
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Servidor web iniciado en el puerto:%d"
 
-#: src/server/server.c:404
+#: src/server/server.c:411
 #, c-format
 msgid "WWW directory: %s"
 msgstr "directorio WWW:%s"
 
-#: src/server/server.c:405
+#: src/server/server.c:412
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:410
+#: src/server/server.c:422
 #, fuzzy
 msgid "Failed to activate logging of sensors."
 msgstr "Error al cargar el icono de Psensor"
@@ -612,6 +625,10 @@ msgstr "Alarma por parada de ventilador."
 #: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr "Nombre del sensor"
+
+#, fuzzy
+#~ msgid "Enable log of measures"
+#~ msgstr "Activar menú"
 
 #, fuzzy
 #~ msgid "slog_init: cannot open sensor log file: %s"

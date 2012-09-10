@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-08 23:26+0200\n"
+"POT-Creation-Date: 2012-09-10 09:06+0200\n"
 "PO-Revision-Date: 2012-08-13 08:20+0000\n"
 "Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -111,11 +111,19 @@ msgid "Measure update interval:"
 msgstr "Intervallo di aggiornamento delle misure"
 
 #: src/glade/psensor-pref.glade:659
-#, fuzzy
-msgid "Enable log of measures"
-msgstr "Abilita il menù"
+msgid "Enable sensors logging"
+msgstr ""
 
-#: src/glade/psensor-pref.glade:689
+#: src/glade/psensor-pref.glade:708
+msgid "Sensors logging inteval"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:725
+#, fuzzy
+msgid "seconds(s)"
+msgstr "secondo/i"
+
+#: src/glade/psensor-pref.glade:744
 msgid "Sensors"
 msgstr "Sensori"
 
@@ -287,7 +295,7 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:89 src/server/server.c:92
+#: src/main.c:89 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Uso: %s [OPZIONE]...\n"
@@ -339,12 +347,12 @@ msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL imposta il livello di debug, un intero compreso tra 0 e 3"
 
-#: src/main.c:116 src/server/server.c:113
+#: src/main.c:116 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Segnalare i bug a: %s\n"
 
-#: src/main.c:118 src/server/server.c:115
+#: src/main.c:118 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s home page: <%s>\n"
@@ -357,7 +365,7 @@ msgstr "Psensor è stato compilato senza il supporto per sensori remoti."
 msgid "Enables debug mode."
 msgstr "Abilita la modalità debug."
 
-#: src/main.c:533 src/server/server.c:370
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Usare '%s --help' per maggiori informazioni.\n"
@@ -392,7 +400,7 @@ msgstr ""
 "<html><body><p>Pagina non trovata - Vai a <a href='/'>Pagina principale</a></"
 "p></body>"
 
-#: src/server/server.c:82
+#: src/server/server.c:83
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -402,14 +410,14 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/server/server.c:94
+#: src/server/server.c:95
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 "psensor-server è un server HTTP per il monitoraggio remoto di sensori "
 "hardware."
 
-#: src/server/server.c:99
+#: src/server/server.c:100
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -417,7 +425,7 @@ msgstr ""
 "  -h, --help\t\tmostra questo help ed esce\n"
 "  -v, --version\t\tmostra le informazioni sulla versione ed esce"
 
-#: src/server/server.c:103
+#: src/server/server.c:104
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -425,54 +433,59 @@ msgstr ""
 "  -p,--port=PORT\tporta del server web\n"
 "  -w,--wdir=DIR\t\tdirectory che contiene le pagine web"
 
-#: src/server/server.c:107
+#: src/server/server.c:108
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL imposta il livello di debug, un intero compreso tra 0 e 3"
 
-#: src/server/server.c:109
+#: src/server/server.c:110
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
 
-#: src/server/server.c:110
+#: src/server/server.c:111
 #, fuzzy
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
 
-#: src/server/server.c:293
+#: src/server/server.c:112
+#, fuzzy
+msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
+msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
+
+#: src/server/server.c:296
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP Request: %s"
 
-#: src/server/server.c:353
+#: src/server/server.c:357
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Abilita modalità di debug: %d"
 
-#: src/server/server.c:392
+#: src/server/server.c:399
 msgid "No sensors detected."
 msgstr "Nessun sensore rilevato."
 
-#: src/server/server.c:399
+#: src/server/server.c:406
 msgid "Failed to create Web server."
 msgstr "Impossibile creare il Web server."
 
-#: src/server/server.c:403
+#: src/server/server.c:410
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Web server inizializzato sulla porta: %d"
 
-#: src/server/server.c:404
+#: src/server/server.c:411
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW directory: %s"
 
-#: src/server/server.c:405
+#: src/server/server.c:412
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:410
+#: src/server/server.c:422
 #, fuzzy
 msgid "Failed to activate logging of sensors."
 msgstr "Impossibile caricare l'icona di Psensor."
@@ -597,6 +610,10 @@ msgstr "Allarme ventola"
 #: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr "Nome sensore"
+
+#, fuzzy
+#~ msgid "Enable log of measures"
+#~ msgstr "Abilita il menù"
 
 #, fuzzy
 #~ msgid "slog_init: cannot open sensor log file: %s"

@@ -228,10 +228,10 @@ LIBMICROHTTPD_LIBS = @LIBMICROHTTPD_LIBS@
 LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
-LIBS = lib/libpsensor.a $(GTK_LIBS) $(GCONF_LIBS) $(SENSORS_LIBS) \
-	$(am__append_3) $(am__append_5) $(am__append_8) \
-	$(am__append_11) $(am__append_13) $(am__append_15) \
-	$(am__append_18) $(am__append_20)
+LIBS = lib/libpsensor.a $(GTK_LIBS) $(GCONF_LIBS) $(PTHREAD_LIBS) \
+	$(SENSORS_LIBS) $(am__append_3) $(am__append_5) \
+	$(am__append_8) $(am__append_11) $(am__append_13) \
+	$(am__append_15) $(am__append_18) $(am__append_20)
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -255,6 +255,7 @@ PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
 PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
 POSUB = @POSUB@
+PTHREAD_LIBS = @PTHREAD_LIBS@
 RANLIB = @RANLIB@
 SENSORS_LIBS = @SENSORS_LIBS@
 SET_MAKE = @SET_MAKE@

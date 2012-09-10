@@ -573,7 +573,10 @@ int main(int argc, char **argv)
 	associate_cb_alarm_raised(ui.sensors, &ui);
 
 	if (ui.config->slog_enabled)
-		slog_activate(NULL, ui.sensors, &ui.sensors_mutex, 5);
+		slog_activate(NULL,
+			      ui.sensors,
+			      &ui.sensors_mutex,
+			      config_get_slog_interval());
 
 #if !defined(HAVE_APPINDICATOR) && !defined(HAVE_APPINDICATOR_029)
 	ui_status_init(&ui);

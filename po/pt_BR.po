@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-08 23:26+0200\n"
+"POT-Creation-Date: 2012-09-10 09:06+0200\n"
 "PO-Revision-Date: 2012-06-25 13:26+0000\n"
 "Last-Translator: Rafael Neri <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -111,11 +111,19 @@ msgid "Measure update interval:"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:659
-#, fuzzy
-msgid "Enable log of measures"
-msgstr "Habilitar menu"
+msgid "Enable sensors logging"
+msgstr ""
 
-#: src/glade/psensor-pref.glade:689
+#: src/glade/psensor-pref.glade:708
+msgid "Sensors logging inteval"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:725
+#, fuzzy
+msgid "seconds(s)"
+msgstr "segundo(s)"
+
+#: src/glade/psensor-pref.glade:744
 msgid "Sensors"
 msgstr "Sensores"
 
@@ -292,7 +300,7 @@ msgstr ""
 "Este é um software livre: você é livre para modificar e  redistribuir.\n"
 "Não há NENHUMA GARANTIA, na medida do permitido por lei.\n"
 
-#: src/main.c:89 src/server/server.c:92
+#: src/main.c:89 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Uso: %s [OPÇÃO]...\n"
@@ -333,12 +341,12 @@ msgstr ""
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:116 src/server/server.c:113
+#: src/main.c:116 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Relatar falhas para: %s\n"
 
-#: src/main.c:118 src/server/server.c:115
+#: src/main.c:118 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "Página inicial de %s: <%s>\n"
@@ -351,7 +359,7 @@ msgstr ""
 msgid "Enables debug mode."
 msgstr "Ativar o modo de depuração"
 
-#: src/main.c:533 src/server/server.c:370
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Utilize `%s --help' para mais informações.\n"
@@ -386,7 +394,7 @@ msgstr ""
 "<html><body><p>Página não encontrada - Ir para a <a href='/'>página inicial</"
 "a></p></body>"
 
-#: src/server/server.c:82
+#: src/server/server.c:83
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -396,69 +404,73 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/server/server.c:94
+#: src/server/server.c:95
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 
-#: src/server/server.c:99
+#: src/server/server.c:100
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
 
-#: src/server/server.c:103
+#: src/server/server.c:104
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
 
-#: src/server/server.c:107
+#: src/server/server.c:108
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/server/server.c:109
+#: src/server/server.c:110
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr ""
 
-#: src/server/server.c:110
+#: src/server/server.c:111
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr ""
 
-#: src/server/server.c:293
+#: src/server/server.c:112
+msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
+msgstr ""
+
+#: src/server/server.c:296
 #, c-format
 msgid "HTTP Request: %s"
 msgstr ""
 
-#: src/server/server.c:353
+#: src/server/server.c:357
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr ""
 
-#: src/server/server.c:392
+#: src/server/server.c:399
 msgid "No sensors detected."
 msgstr "Nenhum sensor detectado"
 
-#: src/server/server.c:399
+#: src/server/server.c:406
 msgid "Failed to create Web server."
 msgstr "Falhou ao criar servidor web."
 
-#: src/server/server.c:403
+#: src/server/server.c:410
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Servidor web iniciado na porta: %d"
 
-#: src/server/server.c:404
+#: src/server/server.c:411
 #, c-format
 msgid "WWW directory: %s"
 msgstr "Diretório WWW: %s"
 
-#: src/server/server.c:405
+#: src/server/server.c:412
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:410
+#: src/server/server.c:422
 #, fuzzy
 msgid "Failed to activate logging of sensors."
 msgstr "Falhou ao criar servidor web."
@@ -583,6 +595,10 @@ msgstr ""
 #: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Enable log of measures"
+#~ msgstr "Habilitar menu"
 
 #, fuzzy
 #~ msgid "Enable indicator"

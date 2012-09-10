@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-08 23:26+0200\n"
+"POT-Creation-Date: 2012-09-10 09:06+0200\n"
 "PO-Revision-Date: 2012-08-10 09:26+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -111,11 +111,19 @@ msgid "Measure update interval:"
 msgstr "测量更新间隔："
 
 #: src/glade/psensor-pref.glade:659
-#, fuzzy
-msgid "Enable log of measures"
-msgstr "启用菜单"
+msgid "Enable sensors logging"
+msgstr ""
 
-#: src/glade/psensor-pref.glade:689
+#: src/glade/psensor-pref.glade:708
+msgid "Sensors logging inteval"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:725
+#, fuzzy
+msgid "seconds(s)"
+msgstr "秒"
+
+#: src/glade/psensor-pref.glade:744
 msgid "Sensors"
 msgstr "传感器"
 
@@ -292,7 +300,7 @@ msgstr ""
 "该软件为自由软件：您可以自由修改并分发。\n"
 "There is NO WARRANTY, to the extent permitted by law。\n"
 
-#: src/main.c:89 src/server/server.c:92
+#: src/main.c:89 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "用法：%s [选项]...\n"
@@ -339,12 +347,12 @@ msgstr "  -n, --new-instance  强制创建一个新的 Psensor 例程"
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr "  -d，--debug=LEVEL 设置调试等级，等级为 0 到 3 之间的整数"
 
-#: src/main.c:116 src/server/server.c:113
+#: src/main.c:116 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "报告问题至：%s\n"
 
-#: src/main.c:118 src/server/server.c:115
+#: src/main.c:118 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
@@ -357,7 +365,7 @@ msgstr "Psensor 不支持远程传感器。"
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:533 src/server/server.c:370
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
@@ -390,7 +398,7 @@ msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr "<html><body><p>未找到页面 - 请访问<a href='/'>主页</a></p></body>"
 
-#: src/server/server.c:82
+#: src/server/server.c:83
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -405,12 +413,12 @@ msgstr ""
 "本软件为自由软件：您可以自由修改并分发。\n"
 "There is NO WARRANTY, to the extent permitted by law。\n"
 
-#: src/server/server.c:94
+#: src/server/server.c:95
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
 
-#: src/server/server.c:99
+#: src/server/server.c:100
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -418,7 +426,7 @@ msgstr ""
 "  -h, --help\t\t 显示本帮助并退出\n"
 "  -v, --version\t\t 显示版本信息并退出"
 
-#: src/server/server.c:103
+#: src/server/server.c:104
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -426,53 +434,58 @@ msgstr ""
 "  -p,--port=PORT\t 网络服务器端口\n"
 "  -w,--wdir=DIR\t\t 包括网络服务器页面的目录"
 
-#: src/server/server.c:107
+#: src/server/server.c:108
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr "  -d, --debug=LEVEL     设置调试级别，0～3 之间的整数"
 
-#: src/server/server.c:109
+#: src/server/server.c:110
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
 
-#: src/server/server.c:110
+#: src/server/server.c:111
 #, fuzzy
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
 
-#: src/server/server.c:293
+#: src/server/server.c:112
+#, fuzzy
+msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
+msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
+
+#: src/server/server.c:296
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP 请求：%s"
 
-#: src/server/server.c:353
+#: src/server/server.c:357
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "启用调试模式：%d"
 
-#: src/server/server.c:392
+#: src/server/server.c:399
 msgid "No sensors detected."
 msgstr "未检测到传感器。"
 
-#: src/server/server.c:399
+#: src/server/server.c:406
 msgid "Failed to create Web server."
 msgstr "无法创建网络服务器。"
 
-#: src/server/server.c:403
+#: src/server/server.c:410
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "网络服务器启动端口：%d"
 
-#: src/server/server.c:404
+#: src/server/server.c:411
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW 目录：%s"
 
-#: src/server/server.c:405
+#: src/server/server.c:412
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:410
+#: src/server/server.c:422
 #, fuzzy
 msgid "Failed to activate logging of sensors."
 msgstr "无法加载 Psensor 图标。"
@@ -597,6 +610,10 @@ msgstr "风扇警报"
 #: src/ui_sensorpref.c:516
 msgid "Sensor Name"
 msgstr "传感器名称"
+
+#, fuzzy
+#~ msgid "Enable log of measures"
+#~ msgstr "启用菜单"
 
 #, fuzzy
 #~ msgid "slog_init: cannot open sensor log file: %s"

@@ -230,7 +230,7 @@ static void on_slog_enabled_cb(GConfClient *client,
 	log_debug("cbk_slog_enabled");
 
 	if (is_slog_enabled())
-		slog_activate(NULL, sensors, mutex, 5);
+		slog_activate(NULL, sensors, mutex, config_get_slog_interval());
 	else
 		slog_close(NULL, sensors);
 }
