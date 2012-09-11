@@ -232,7 +232,7 @@ static void on_slog_enabled_cb(GConfClient *client,
 	if (is_slog_enabled())
 		slog_activate(NULL, sensors, mutex, config_get_slog_interval());
 	else
-		slog_close(NULL, sensors);
+		slog_close();
 }
 
 void ui_window_create(struct ui_psensor *ui)
