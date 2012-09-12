@@ -104,9 +104,8 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 {
 	char name[200];
 	const sensors_subfeature *sf;
-	char *label;
 	int type;
-	char *id;
+	char *id, *label, *cname;
 	struct psensor *psensor;
 	sensors_subfeature_type fault_subfeature;
 
@@ -145,7 +144,16 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 		    1);
 	sprintf(id, "lmsensor %s %s", name, label);
 
-	psensor = psensor_create(id, label, type, values_max_length);
+	if (!strcmp(chip->prefix, "coretemp"))
+		cname = strdup("Intel CPU");
+	else if (!strcmp(chip->prefix, "k10temp"))
+		cname = strdup("AMD CPU");
+	else if (!strcmp(chip->prefix, "nouveau"))
+		cname = strdup("Nvidia GPU");
+	else
+		cname = strdup(chip->prefix);
+
+	psensor = psensor_create(id, label, cname, type, values_max_length);
 
 	psensor->iname = chip;
 	psensor->feature = feature;

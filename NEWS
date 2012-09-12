@@ -8,6 +8,9 @@
 ** psensor: added an option to enable logging of sensors
    ($HOME/.psensor/sensors.log).
 ** psensor-server: added sensors logging (--sensor-log-file).
+** psensor: display the name of chip in sensor preferences.
+** psensor: moved the sensor id into a expendable frame of the sensor
+   preferences.
 
 * v0.7.0.3
 

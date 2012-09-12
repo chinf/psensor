@@ -59,6 +59,9 @@ struct psensor {
 	/* Uniq id of the sensor */
 	char *id;
 
+	/* Name of the chip. */
+	char *chip;
+
 	/* lm-sensor */
 	const sensors_chip_name *iname;
 	const sensors_feature *feature;
@@ -115,7 +118,9 @@ struct psensor {
 };
 
 struct psensor *psensor_create(char *id,
-			       char *name, unsigned int type,
+			       char *name,
+			       char *chip,
+			       unsigned int type,
 			       int values_max_length);
 
 void psensor_values_resize(struct psensor *s, int new_size);

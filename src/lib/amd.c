@@ -121,7 +121,7 @@ static struct psensor *create_sensor(int id, int values_len)
 	sid = malloc(strlen("amd") + 1 + strlen(name) + 1);
 	sprintf(sid, "amd %s", name);
 
-	s = psensor_create(sid, strdup(name),
+	s = psensor_create(sid, strdup(name), strdup("ATI GPU"),
 			   sensor_type, values_len);
 
 	s->amd_id = active_amd_adapters[id];

@@ -47,6 +47,7 @@ create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 	struct psensor *s;
 	s = psensor_create(id,
 			   strdup(name),
+			   strdup("HDD"),
 			   SENSOR_TYPE_HDD_TEMP_ATASMART,
 			   values_max_length);
 

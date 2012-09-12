@@ -291,7 +291,8 @@ update_pref(struct psensor *s,
 	    struct config *cfg,
 	    GtkBuilder *builder)
 {
-	GtkLabel *w_id, *w_type, *w_high_threshold_unit, *w_low_threshold_unit;
+	GtkLabel *w_id, *w_type, *w_high_threshold_unit, *w_low_threshold_unit,
+		*w_chipname;
 	GtkEntry *w_name;
 	GtkToggleButton *w_draw, *w_alarm, *w_appindicator_enabled;
 	GtkColorButton *w_color;
@@ -308,6 +309,12 @@ update_pref(struct psensor *s,
 
 	w_name = GTK_ENTRY(gtk_builder_get_object(builder, "sensor_name"));
 	gtk_entry_set_text(w_name, p->name);
+
+	w_chipname = GTK_LABEL(gtk_builder_get_object(builder, "chip_name"));
+	if (s->chip)
+		gtk_label_set_text(w_chipname, s->chip);
+	else
+		gtk_label_set_text(w_chipname, _("Unknown"));
 
 	w_draw = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							  "sensor_draw"));

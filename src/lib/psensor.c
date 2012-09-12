@@ -32,14 +32,18 @@
 #endif
 
 
-struct psensor *psensor_create(char *id, char *name,
-			       unsigned int type, int values_max_length)
+struct psensor *psensor_create(char *id,
+			       char *name,
+			       char *chip,
+			       unsigned int type,
+			       int values_max_length)
 {
 	struct psensor *psensor
 	    = (struct psensor *)malloc(sizeof(struct psensor));
 
 	psensor->id = id;
 	psensor->name = name;
+	psensor->chip = chip;
 	psensor->enabled = 1;
 	psensor->min = UNKNOWN_DBL_VALUE;
 	psensor->max = UNKNOWN_DBL_VALUE;
@@ -95,6 +99,9 @@ void psensor_free(struct psensor *sensor)
 
 		free(sensor->name);
 		free(sensor->id);
+
+		if (sensor->chip)
+			free(sensor->chip);
 
 		if (sensor->color)
 			free(sensor->color);

@@ -150,6 +150,7 @@ struct psensor *psensor_new_from_json(json_object *o,
 
 	s = psensor_create(strdup(url),
 			   strdup(json_object_get_string(oname)),
+			   NULL,
 			   json_object_get_int(otype) | SENSOR_TYPE_REMOTE,
 			   values_max_length);
 	s->url = url;

@@ -115,7 +115,8 @@ static int str_index(char *str, char d)
 static struct psensor *
 create_sensor(char *id, char *name, int values_max_length)
 {
-	return psensor_create(id, name, SENSOR_TYPE_HDD_TEMP_HDDTEMP,
+	return psensor_create(id, name, strdup("HDD"),
+			      SENSOR_TYPE_HDD_TEMP_HDDTEMP,
 			      values_max_length);
 }
 
