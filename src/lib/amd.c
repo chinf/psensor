@@ -56,9 +56,8 @@ static ADL_OVERDRIVE5_FANSPEED_GET        adl_overdrive5_fanspeed_get;
 
 static void *hdll;
 static int adl_main_control_done;
-static int *active_amd_adapters;
+static int *active_adapters;
 
-/* Memory allocation function */
 static void __stdcall *adl_main_memory_alloc(int isize)
 {
 	void *lpbuffer = malloc(isize);
@@ -124,7 +123,7 @@ static struct psensor *create_sensor(int id, int values_len)
 	s = psensor_create(sid, strdup(name), strdup("ATI GPU"),
 			   sensor_type, values_len);
 
-	s->amd_id = active_amd_adapters[id];
+	s->amd_id = active_adapters[id];
 
 	return s;
 }
@@ -143,7 +142,7 @@ static int init()
 
 	hdll = NULL;
 	adl_main_control_done = 0;
-	active_amd_adapters = NULL;
+	active_adapters = NULL;
 	hdll = dlopen("libatiadlxx.so", RTLD_LAZY|RTLD_GLOBAL);
 
 	if (!hdll) {
@@ -175,16 +174,12 @@ static int init()
 		return 0;
 	}
 
-	/* Initialize ADL. The second parameter is 1, which means:
-	   retrieve adapter information only for adapters that
-	   are physically present and enabled in the system */
 	if (ADL_OK != adl_main_control_create(adl_main_memory_alloc, 1)) {
 		log_err(_("AMD: failed to initialize ADL."));
 		return 0;
 	}
 	adl_main_control_done = 1;
 
-	/* Obtain the number of adapters for the system */
 	if (ADL_OK != adl_adapter_numberofadapters_get(&inumberadapters)) {
 		log_err(_("AMD: cannot get the number of adapters."));
 		return 0;
@@ -196,11 +191,9 @@ static int init()
 	lpadapterinfo = malloc(sizeof(AdapterInfo) * inumberadapters);
 	memset(lpadapterinfo, '\0', sizeof(AdapterInfo) * inumberadapters);
 
-	/* Get the AdapterInfo structure for all adapters in the system */
 	adl_adapter_adapterinfo_get(lpadapterinfo,
 				    sizeof(AdapterInfo) * inumberadapters);
 
-	/* Repeat for all available adapters in the system */
 	for (i = 0; i < inumberadapters; i++) {
 
 		iadapterindex = lpadapterinfo[i].iAdapterIndex;
@@ -208,25 +201,26 @@ static int init()
 		if (ADL_OK != adl_adapter_active_get(iadapterindex, &lpstatus))
 			continue;
 		if (lpstatus != ADL_TRUE)
-			/* count only if the adapter is active */
 			continue;
 
-		if (!active_amd_adapters) {
-			active_amd_adapters = (int *) malloc(sizeof(int));
+		if (!active_adapters) {
+			active_adapters = (int *) malloc(sizeof(int));
 			inumberadaptersactive = 1;
 		} else {
 			++inumberadaptersactive;
-			active_amd_adapters = (int *)realloc
-				(active_amd_adapters,
+			active_adapters = (int *)realloc
+				(active_adapters,
 				 sizeof(int)*inumberadaptersactive);
+
+			if (!active_adapters)
+				exit(EXIT_FAILURE);
 		}
-		active_amd_adapters[inumberadaptersactive-1] = iadapterindex;
+		active_adapters[inumberadaptersactive-1] = iadapterindex;
 	}
 
 	free(lpadapterinfo);
 
-	/* Each Adapter has one GPU temperature sensor and one fan
-	   control sensor */
+	/* Each Adapter has one temperature sensor and one fan */
 	return 2*inumberadaptersactive;
 }
 
@@ -278,8 +272,8 @@ void amd_cleanup()
 		dlclose(hdll);
 	}
 
-	if (active_amd_adapters) {
-		free(active_amd_adapters);
-		active_amd_adapters = NULL;
+	if (active_adapters) {
+		free(active_adapters);
+		active_adapters = NULL;
 	}
 }
