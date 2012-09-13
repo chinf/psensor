@@ -4,7 +4,10 @@ check-local: checkpatch.pl
 
 DEFS = -DPACKAGE_DATA_DIR=\"$(pkgdatadir)\" -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
-EXTRA_DIST = checkpatch.pl data test-io-dir-list.sh
+EXTRA_DIST = checkpatch.pl \
+	data \
+	test-cppcheck.sh \
+	test-io-dir-list.sh
 
 check_PROGRAMS = test-io-dir-list \
 	test-psensor-type-to-unit-str \
