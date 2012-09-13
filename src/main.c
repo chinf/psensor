@@ -622,11 +622,14 @@ int main(int argc, char **argv)
 	/* main loop */
 	gtk_main();
 
-	g_object_ref(app);
+	g_object_unref(app);
 	cleanup(&ui);
 
 	log_debug("Quitting...");
 	log_close();
+
+	if (url)
+		free(url);
 
 	return 0;
 }
