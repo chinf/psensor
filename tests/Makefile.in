@@ -41,7 +41,8 @@ check_PROGRAMS = test-io-dir-list$(EXEEXT) \
 @GTOP_TRUE@am__append_2 = $(GTOP_LIBS)
 TESTS = test-io-dir-list.sh test-psensor-type-to-unit-str$(EXEEXT) \
 	test-psensor-value-to-str$(EXEEXT) test-url-encode$(EXEEXT) \
-	test-url-normalize$(EXEEXT)
+	test-url-normalize$(EXEEXT) $(am__append_3)
+@CPPCHECK_TRUE@am__append_3 = test-cppcheck.sh
 subdir = tests
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -130,6 +131,7 @@ GTK_CFLAGS = @GTK_CFLAGS@
 GTK_LIBS = @GTK_LIBS@
 GTOP_CFLAGS = @GTOP_CFLAGS@
 GTOP_LIBS = @GTOP_LIBS@
+HAVE_CPPCHECK = @HAVE_CPPCHECK@
 HELP2MAN = @HELP2MAN@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@

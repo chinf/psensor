@@ -36,3 +36,7 @@ TESTS = test-io-dir-list.sh \
 	test-psensor-value-to-str \
 	test-url-encode \
 	test-url-normalize
+
+if CPPCHECK
+TESTS += test-cppcheck.sh
+endif
