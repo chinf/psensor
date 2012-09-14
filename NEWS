@@ -12,6 +12,7 @@
 ** psensor: moved the sensor id into a expendable frame of the sensor
    preferences.
 ** test target is now running cppcheck if available.
+** fixed cppcheck reported errors (realloc and not freed var)
 
 * v0.7.0.3
 
