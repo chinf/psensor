@@ -11,6 +11,7 @@
 ** psensor: display the name of chip in sensor preferences.
 ** psensor: moved the sensor id into a expendable frame of the sensor
    preferences.
+** test target is now running cppcheck if available.
 
 * v0.7.0.3
 
