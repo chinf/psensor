@@ -169,9 +169,9 @@ Compilation on Fedora 17
    sudo yum install gcc gtk3-devel GConf2-devel lm_sensors-devel
 
  * install additional recommended packages:
-   sudo yum install libatasmart-devel libcurl-devel json-c-devel
-                    libmicrohttpd-devel help2man libnotify-devel
-                    libgtop2-devel
+   sudo yum install cppcheck libatasmart-devel libcurl-devel
+                    json-c-devel libmicrohttpd-devel help2man
+                    libnotify-devel libgtop2-devel
 
  * follow instructions from 'Compilation and Installation Steps'
 
