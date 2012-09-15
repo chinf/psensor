@@ -172,7 +172,7 @@ been found.
 ATI/AMD GPU Support
 ~~~~~~~~~~~~~~~~~~~
 
-When the OpenSource ATI driver(nouveau) is used, the monitoring
+When the OpenSource ATI driver is used, the monitoring
 information is available throw lm-sensors and does not require the
 following instructions.
 
