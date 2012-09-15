@@ -1,9 +1,12 @@
-Psensor - Temperature Monitoring For Linux
-------------------------------------------
+Psensor
+=======
 
-Psensor is a graphical temperature monitor for Linux.
+Introduction
+------------
 
-It can monitor:
+Psensor is a graphical hardware monitoring application for Linux.
+
+It draws realtime charts and raises alerts about:
 
  * the temperature of the motherboard and CPU sensors (using
    lm-sensors).
@@ -13,107 +16,101 @@ It can monitor:
  * the temperature of a remote computer.
  * the cpu load.
 
-Alarms using Desktop Notification can be set to each sensor to notify
-high temperatures.
+Alerts are using Desktop Notification and a specific GTK+ status icon.
 
-For Ubuntu users, Psensor is providing an Application Indicator to
-alert users when a temperature is too high.
+For Ubuntu users, Psensor is providing an Application Indicator which turns
+red under alert and a menu for quickly check all sensors.
 
-To monitor the temperature of a remote computer:
+It is possible to monitor remotely a computer:
 
- * start psensor-server on the remote computer. The default port is
-   3131 and can be changed by using the '--port=PORT' command line
-   option.
+ * start +psensor-server+ on the remote computer.
 
- * start psensor with the '--url' option: psensor
-  --url=http://hostname:3131
+ * start +psensor+ using: +psensor --url=http://hostname:3131+.
 
-WARNING: 
-psensor-server does not provide any way to restrict the connection to
-the HTTP server, worst, no effort has been made against malicious HTTP
-attacks.  You should make the psensor-server port available only to a
-network or computer you trust by using the usual network security
-tools of the system (for example, iptables).
++psensor-server+ is a minimal Web server, a Web browser can be used to
+monitor the remote computer by opening the URL:
++http://hostname:3131+.
 
+[WARNING]
++psensor-server+ does not provide any way to restrict the connection
+to the HTTP server, worst, no effort has been made against malicious
+HTTP attacks.  You should make the +psensor-server+ port available
+only to a network or computer you trust by using the usual network
+security tools of the system (for example:
+http://www.netfilter.org/projects/iptables/index.html[iptables]).
   
-Installation
-------------
-
-Psensor can be compiled and installed on any modern linux
-distribution.
+Installation Using Distribution Packages
+----------------------------------------
 
 Debian
-------
+~~~~~~
 
-For Debian, the binary and source packages are available in the wheezy
-(testing) and sid (unstable) repositories.
+For Debian, the binary and source packages are available in the
+Wheezy, unstable and testing repositories.
 
-Debian package information are available at:
-http://packages.qa.debian.org/p/psensor.html
+Debian package information is available at:
+http://packages.qa.debian.org/p/psensor.html.
 
-Compilation requires the following packages:
-
-asciidoc cppcheck gettext libgtk-3-dev libgconf2-dev libnotify-dev
-libsensors4-dev help2man libcurl4-openssl-dev libjson0-dev
-libmicrohttpd-dev libgtop2-dev libatasmart-dev
-
-Debian kfreebsd
----------------
-
-Compilation requires the following packages:
-asciidoc cppcheck gcc libgtk3.0-dev libsensors4-dev libgconf2-dev
-help2man libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev
-libgtop2-dev libatasmart-dev
+To do the installation:
+--------------------------------------------
+sudo apt-get install psensor psensor-server
+--------------------------------------------
 
 Ubuntu
-------
-
-Notes about installation on Ubuntu is available at:
-http://wpitchoune.net/blog/psensor/ubuntu-integration
+~~~~~~
 
 Since Ubuntu Oneiric (11.10), psensor is available in the universe
 repository of Ubuntu.
 
-For other Ubuntu releases, the easy way to install Psensor and
-Psensor-server is to use the dedicated PPA.
+To install +psensor+ or +psensor-server+:
+------------------------------------
+sudo apt-get install psensor
+sudo apt-get install psensor-server
+------------------------------------
 
-For the last stable version:
+Or search them in the Ubuntu Software Center.
+
+For other Ubuntu releases or user the more recent release, the easiest
+way is to use the dedicated PPA.
+
+Last stable version:
+-------------------------------------------------
 sudo apt-get apt-add-repository ppa:/jfi/psensor
 sudo apt-get update
 sudo apt-get install psensor
+sudo apt-get install psensor-server
+-------------------------------------------------
 
-For the last development version:
+Last development version which should not contain major bugs:
+----------------------------------------------------------
 sudo apt-get apt-add-repository ppa:/jfi/psensor-unstable
 sudo apt-get update
 sudo apt-get install psensor
 sudo apt-get install psensor-server
+----------------------------------------------------------
 
-ATI/AMD GPU Support
--------------------
+Daily trunk build which may contain major bugs and partialy
+implemented features:
+-------------------------------------------------------------
+sudo apt-get apt-add-repository ppa:/jfi/psensor-daily-trunk
+sudo apt-get update
+sudo apt-get install psensor
+sudo apt-get install psensor-server
+-------------------------------------------------------------
 
-To compile Psensor with ATI support on Ubuntu:
-
- * installs the usual Psensor build dependencies and fglrx ubuntu
-   package.
-
- * downloads the ATI ADL SDK from:
-   http://developer.amd.com/sdks/ADLSDK/Pages/default.aspx and
-   extracts the files of the archive into a directory [dir].
-
- * configure the build environment: 
-   ./configure --with-libatiadl=[dir]   
-   where [dir] must be the directory where you have extracted the ATI
-   ADL SDK.
-
- * then follow usual GNU autotools compilation:
-   make clean all
-   make install
-
-Installation from source archive
+Installation From Source Archive
 --------------------------------
 
-Psensor compilation requires:
- * make/gcc	
++psensor+ and +psensor-server+ can be compiled and installed on any
+modern GNU/Linux distribution.
+
+Compilation Prerequisites
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The compilation of +psensor+ requires:
+
+ * make
+ * gcc (or llvm)
  * lm-sensors
  * library sensors4
  * library gtk3
@@ -130,52 +127,60 @@ Psensor compilation requires:
  * library gtop2 (optional, required for CPU usage)
  * library atasmart (optional, for disk monitoring)
 
-Psensor-server compilation requires:
+The specific requirements for +psensor-server+:
 
- * make/gcc	
- * lm-sensors
- * library sensors4
- * help2man 
  * library libmicrohttpd 
  * library json0
- * asciidoc (optional, required to produce the html version of the
-   faq)
- * cppcheck (optional, static source checker)
- * library gtop2 (optional, required for CPU usage)
- * library atasmart (optional, for disk monitoring)
+
+For Debian:
+-----------------------------------------------------------------
+sudo apt-get install asciidoc cppcheck gcc gettext libgtk-3-dev
+libgconf2-dev libnotify-dev libsensors4-dev help2man
+libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev libgtop2-dev
+libatasmart-dev make
+-----------------------------------------------------------------
+
+For Fedora 17:
+-----------------------------------------------------------------------
+sudo yum install gcc gtk3-devel GConf2-devel lm_sensors-devel cppcheck
+libatasmart-devel libcurl-devel json-c-devel libmicrohttpd-devel
+help2man libnotify-devel libgtop2-devel make
+-----------------------------------------------------------------------
 
 Compilation and Installation Steps
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- * Extract files from the source archive
- * Compilation:
-   ./configure
-   make clean all
-   
- * Installation:
-   make install
+1. download the source archive from: http://wpitchoune.net/psensor/files
+2. Extract files from the source archive
+3. Compilation: +./configure;make clean all+
+4. Installation:  +make install+ (require to have root permission)
+5. Start the sensor detection script: +sensors-detect+ and follows the
+instructions. Then, teboot or activate the kernel modules which have
+been found.
+7. To monitor HDDs, the +hddtemp+ daemon must be installed and running.
+8. Run: +psensor+
 
- * Start the sensor detection script: 'sensors-detect' and follows the
-   instructions
+ATI/AMD GPU Support
+~~~~~~~~~~~~~~~~~~~
 
- * Verify the sensor detection by running: 'sensors'
+When the OpenSource ATI driver(nouveau) is used, the monitoring
+information is available throw lm-sensors and does not require the
+following instructions.
 
- * Run 'psensor'
+When the proprietary ATI driver(Catalyst) is used, the build is
+requiring an additional library.
 
-Compilation on Fedora 17
-------------------------
+Download the
+http://developer.amd.com/sdks/ADLSDK/Pages/default.aspx[ATI ADL SDK]
+and extracts the files of the archive into a directory [dir].
 
- * install mandatory packages:
-   sudo yum install gcc gtk3-devel GConf2-devel lm_sensors-devel
-
- * install additional recommended packages:
-   sudo yum install cppcheck libatasmart-devel libcurl-devel
-                    json-c-devel libmicrohttpd-devel help2man
-                    libnotify-devel libgtop2-devel
-
- * follow instructions from 'Compilation and Installation Steps'
+Replace the step 7. of the above section by +./configure
+--with-libatiadl=[dir]+ where +[dir]+ must be the directory where you
+have extracted the ATI ADL SDK. Other steps are indentical.
 
 Contact
 -------
-Bugs and comments can be sent to jeanfi@gmail.com
+
+Bugs and comments can be sent to jeanfi@gmail.com.
+
 Home page: http://wpitchoune.net/psensor

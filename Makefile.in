@@ -305,7 +305,13 @@ SUBDIRS = doc \
 	www \
 	tests
 
-dist_doc_DATA = README COPYING NEWS AUTHORS INSTALL
+dist_doc_DATA = AUTHORS \
+	COPYING \
+	INSTALL \
+	NEWS \
+	README \
+	README.html
+
 autostartdir = $(sysconfdir)/xdg/autostart
 autostart_DATA = psensor.desktop
 desktopdir = $(datadir)/applications
@@ -874,6 +880,9 @@ uninstall-am: uninstall-autostartDATA uninstall-desktopDATA \
 	tags-recursive uninstall uninstall-am uninstall-autostartDATA \
 	uninstall-desktopDATA uninstall-dist_docDATA
 
+
+README.html: README www/style.css
+	asciidoc --theme style -a themedir=`pwd`/www -n -a toc README
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

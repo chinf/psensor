@@ -15,7 +15,12 @@ SUBDIRS = doc \
 	www \
 	tests
 
-dist_doc_DATA = README COPYING NEWS AUTHORS INSTALL
+dist_doc_DATA = AUTHORS \
+	COPYING \
+	INSTALL \
+	NEWS \
+	README \
+	README.html
 
 autostartdir = $(sysconfdir)/xdg/autostart
 autostart_DATA = psensor.desktop
@@ -25,4 +30,5 @@ desktop_DATA = psensor.desktop
 
 EXTRA_DIST = $(desktop_DATA) $(autostart_DATA)
 
-
+README.html: README www/style.css
+	asciidoc --theme style -a themedir=`pwd`/www -n -a toc README
