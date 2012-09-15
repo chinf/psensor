@@ -29,7 +29,7 @@ h1 {
 }
 
 
-h2 {
+h2, #toctitle{
     font-size: 110%;
     font-style: normal;
     font-weight: bold;
@@ -87,14 +87,13 @@ td {
     height: 300px;
 }
 
-ul {
+ul#menu-list li {
     list-style: none;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
 }
 
-ul li ul li {
-    padding-left: 1em;
+#menu-list {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 
 #menu {
@@ -129,6 +128,6 @@ em {
 }
 
 #menu-list ul li {
-    padding: 0 0 0 1em;
+    padding: 0 0 0 0em;
 }
 
