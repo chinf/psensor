@@ -242,6 +242,7 @@ AC_SUBST(GTOP_LIBS)
 
 AC_CONFIG_FILES([
  Makefile
+ doc/Makefile
  src/Makefile
  src/glade/Makefile
  src/lib/Makefile

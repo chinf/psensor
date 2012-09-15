@@ -8725,7 +8725,7 @@ fi
 
 
 
-ac_config_files="$ac_config_files Makefile src/Makefile src/glade/Makefile src/lib/Makefile src/server/Makefile icons/hicolor/scalable/Makefile icons/hicolor/14x14/Makefile icons/hicolor/16x16/Makefile icons/hicolor/22x22/Makefile icons/hicolor/24x24/Makefile icons/hicolor/32x32/Makefile icons/hicolor/48x48/Makefile icons/hicolor/64x64/Makefile icons/ubuntu-mono-dark/status/22/Makefile icons/ubuntu-mono-light/status/22/Makefile icons/ubuntu-mono-dark/apps/22/Makefile www/Makefile po/Makefile.in tests/Makefile"
+ac_config_files="$ac_config_files Makefile doc/Makefile src/Makefile src/glade/Makefile src/lib/Makefile src/server/Makefile icons/hicolor/scalable/Makefile icons/hicolor/14x14/Makefile icons/hicolor/16x16/Makefile icons/hicolor/22x22/Makefile icons/hicolor/24x24/Makefile icons/hicolor/32x32/Makefile icons/hicolor/48x48/Makefile icons/hicolor/64x64/Makefile icons/ubuntu-mono-dark/status/22/Makefile icons/ubuntu-mono-light/status/22/Makefile icons/ubuntu-mono-dark/apps/22/Makefile www/Makefile po/Makefile.in tests/Makefile"
 
 
 for ac_prog in help2man
@@ -9606,6 +9606,7 @@ do
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "po-directories") CONFIG_COMMANDS="$CONFIG_COMMANDS po-directories" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "doc/Makefile") CONFIG_FILES="$CONFIG_FILES doc/Makefile" ;;
     "src/Makefile") CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
     "src/glade/Makefile") CONFIG_FILES="$CONFIG_FILES src/glade/Makefile" ;;
     "src/lib/Makefile") CONFIG_FILES="$CONFIG_FILES src/lib/Makefile" ;;

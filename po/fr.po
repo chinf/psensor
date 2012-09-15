@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-10 09:06+0200\n"
+"POT-Creation-Date: 2012-09-13 23:44+0200\n"
 "PO-Revision-Date: 2012-05-13 18:15+0000\n"
 "Last-Translator: jeanfi <Unknown>\n"
 "Language-Team: French <>\n"
@@ -102,7 +102,7 @@ msgstr "Intervalle de mise à jour:"
 msgid "Measures"
 msgstr "Mesures"
 
-#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:197
+#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
 msgid "Graph"
 msgstr "Graphe"
 
@@ -131,78 +131,87 @@ msgstr "Sondes"
 msgid "Edit Sensor Preferences"
 msgstr "Éditer La Configuration Des Sondes"
 
-#: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
-#: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
-#: src/lib/psensor.c:472 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
-#: src/ui_sensorlist.c:380 src/ui_notify.c:81
-msgid "N/A"
-msgstr "N/A"
-
-#: src/glade/sensor-edit.glade:119
-msgid "Name:"
-msgstr "Nom:"
-
-#: src/glade/sensor-edit.glade:152
+#: src/glade/sensor-edit.glade:121
 msgid "Type:"
 msgstr "Type:"
 
-#: src/glade/sensor-edit.glade:182
-msgid "Id:"
-msgstr "Id:"
+#: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
+#: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:479
+#: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
+#: src/ui_notify.c:81
+msgid "N/A"
+msgstr "N/A"
 
-#: src/glade/sensor-edit.glade:215
+#: src/glade/sensor-edit.glade:170
 msgid "Color:"
 msgstr "Couleur:"
 
-#: src/glade/sensor-edit.glade:229
+#: src/glade/sensor-edit.glade:184
 msgid "Alarm"
 msgstr "Alarme"
 
-#: src/glade/sensor-edit.glade:244
+#: src/glade/sensor-edit.glade:199
 msgid "Activate desktop notifications"
 msgstr "Activer les notifications du bureau"
 
-#: src/glade/sensor-edit.glade:266
+#: src/glade/sensor-edit.glade:221
 msgid "Sensor Information"
 msgstr "Information de la sonde"
 
-#: src/glade/sensor-edit.glade:279
+#: src/glade/sensor-edit.glade:234
 msgid "Draw sensor curve"
 msgstr "Dessiner la courbe de la sonde"
 
-#: src/glade/sensor-edit.glade:367
+#: src/glade/sensor-edit.glade:322
 msgid "High threshold:"
 msgstr "Seuil supérieur:"
 
-#: src/glade/sensor-edit.glade:382
+#: src/glade/sensor-edit.glade:337
 msgid "Low threshold:"
 msgstr "Seuil inférieur:"
 
-#: src/glade/sensor-edit.glade:443
+#: src/glade/sensor-edit.glade:398
 msgid "Ubuntu Application Indicator"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:458
+#: src/glade/sensor-edit.glade:413
 msgid "Display sensor in the Application Indicator menu"
 msgstr ""
 
-#: src/lib/amd.c:150
+#: src/glade/sensor-edit.glade:435
+msgid "Chip:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:480
+msgid "Id:"
+msgstr "Id:"
+
+#: src/glade/sensor-edit.glade:514
+msgid "Details"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:538
+msgid "Name:"
+msgstr "Nom:"
+
+#: src/lib/amd.c:149
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: impossible de trouver la librairie ADL."
 
-#: src/lib/amd.c:174
+#: src/lib/amd.c:173
 msgid "AMD: missing ADL's API."
 msgstr "AMD: l'API ADL est manquante."
 
-#: src/lib/amd.c:182
+#: src/lib/amd.c:178
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: échec de l’initialisation ADL."
 
-#: src/lib/amd.c:189
+#: src/lib/amd.c:184
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: impossible de récupérer le nombre d'adapteurs."
 
-#: src/lib/hdd_atasmart.c:144
+#: src/lib/hdd_atasmart.c:145
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
 msgstr "atasmart: échec de sk_disk_open(): %s."
@@ -215,7 +224,7 @@ msgstr "hddtemp: échec d'ouverture de la connexion."
 msgid "hddtemp: failed to open connection."
 msgstr "hddtemp: échec de l'ouverture de la connexion."
 
-#: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
+#: src/lib/hdd_hddtemp.c:182 src/lib/hdd_hddtemp.c:251
 #, c-format
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: mauvaise chaîne de caractères: %s."
@@ -226,12 +235,12 @@ msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
 "lmsensor: impossible de récupérer la valeur de la sous-fonctionnalité %s: %s."
 
-#: src/lib/lmsensor.c:124
+#: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr ""
 "lmsensor: échec de lmsensor_psensor_create: mauvais type de fonctionnalité."
 
-#: src/lib/lmsensor.c:206
+#: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: échec de l'initialisation: %s."
@@ -245,19 +254,19 @@ msgstr "Impossible d'ouvrir le journal: %s"
 msgid "Failed to retrieve NVIDIA temperature."
 msgstr "Échec de la récupération des températures NVIDIA."
 
-#: src/lib/nvidia.c:92
+#: src/lib/nvidia.c:93
 msgid "Cannot open connection to X11 server."
 msgstr "Impossible d'ouvrir la connexion au serveur X11."
 
-#: src/lib/nvidia.c:100
+#: src/lib/nvidia.c:101
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Échec de la récupération des information NVIDIA."
 
-#: src/lib/psensor.c:468 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:475 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:470
+#: src/lib/psensor.c:477
 msgid "%"
 msgstr "%"
 
@@ -627,7 +636,11 @@ msgstr "Alerte thermique"
 msgid "Fan alert"
 msgstr "Alerte ventilateur"
 
-#: src/ui_sensorpref.c:516
+#: src/ui_sensorpref.c:317
+msgid "Unknown"
+msgstr ""
+
+#: src/ui_sensorpref.c:523
 msgid "Sensor Name"
 msgstr "Nom De La Sonde"
 

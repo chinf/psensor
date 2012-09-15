@@ -2,7 +2,8 @@ Source: psensor
 Section: utils
 Priority: extra
 Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
-Build-Depends: autoconf,
+Build-Depends: asciidoc,
+	       autoconf,
                automake,
                autopoint,
                debhelper (>= 9),

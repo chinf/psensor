@@ -12,7 +12,9 @@
 ** psensor: moved the sensor id into a expendable frame of the sensor
    preferences.
 ** test target is now running cppcheck if available.
-** fixed cppcheck reported errors (realloc and not freed var)
+** fixed cppcheck reported errors (realloc and not freed var).
+** added faq (requires asciidoc to build the html version).
+** check target is now running cppcheck if installed.
 
 * v0.7.0.3
 

@@ -53,17 +53,17 @@ http://packages.qa.debian.org/p/psensor.html
 
 Compilation requires the following packages:
 
-gettext libgtk-3-dev libgconf2-dev libnotify-dev libsensors4-dev
-help2man libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev
-libgtop2-dev libatasmart-dev
+asciidoc cppcheck gettext libgtk-3-dev libgconf2-dev libnotify-dev
+libsensors4-dev help2man libcurl4-openssl-dev libjson0-dev
+libmicrohttpd-dev libgtop2-dev libatasmart-dev
 
 Debian kfreebsd
 ---------------
 
 Compilation requires the following packages:
-gcc libgtk3.0-dev libsensors4-dev libgconf2-dev help2man
-libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev libgtop2-dev
-libatasmart-dev
+asciidoc cppcheck gcc libgtk3.0-dev libsensors4-dev libgconf2-dev
+help2man libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev
+libgtop2-dev libatasmart-dev
 
 Ubuntu
 ------
@@ -113,13 +113,14 @@ Installation from source archive
 --------------------------------
 
 Psensor compilation requires:
-
  * make/gcc	
  * lm-sensors
  * library sensors4
  * library gtk3
  * library gconf2
  * help2man 
+ * asciidoc (optional, required to produce the html version of the
+   faq)
  * cppcheck (optional, static source checker)
  * library libnotify (optional)
  * library libappindicator (optional)
@@ -130,12 +131,15 @@ Psensor compilation requires:
  * library atasmart (optional, for disk monitoring)
 
 Psensor-server compilation requires:
+
  * make/gcc	
  * lm-sensors
  * library sensors4
  * help2man 
  * library libmicrohttpd 
  * library json0
+ * asciidoc (optional, required to produce the html version of the
+   faq)
  * cppcheck (optional, static source checker)
  * library gtop2 (optional, required for CPU usage)
  * library atasmart (optional, for disk monitoring)

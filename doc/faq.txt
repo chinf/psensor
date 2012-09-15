@@ -1,0 +1,221 @@
+Psensor Frequently Asked Questions
+==================================
+
+[[S_NoSensors]]
+No sensors or only cpu usage is displayed
+-----------------------------------------
+
+Psensor is relying on few libraries or softwares for retrieving the information about the computer:
+
+	- motherboard and CPUs sensors: the information is retrieved
+          from the lm-sensors library, it requires that
+          ‘sensors-detect’ has been run and the kernel module
+          correctly installed. ‘sensors’ can be used for checking.
+
+	- GPUs: it depends on which driver you are using:
+
+		* Opensource drivers (nouveau for Nvidia GPUs or
+            	  radeon/ati for ATI GPUs) is used and support sensor
+            	  monitoring for your GPU, the information is using
+            	  lm-sensors, same steps than above.
+
+		* proprietary driver Nvidia: run ‘nvidia-settings’ to
+		  check that it supports sensors monitoring.
+
+		* proprietary driver Catalyst/fglx: use ‘aticonfig’ to
+                  check that it supports sensors monitoring. Important
+                  note: it requires that you are using a Psensor
+                  binary compiled with the ATI support.
+
+	- HDDs: it uses the hddtemp daemon. Verifies that it is
+          correctly reporting temperature by using the ‘sudo hddtemp
+          /dev/sd?’ command. If hddtemp does not support your disk,
+          you may want to try using the libatasmart support instead
+          (option –use-libatasmart option).
+
+If the underlying software is reporting sensors which are not
+displayed by Psensor, it is probably a bug in Psensor, so please
+report it. Otherwise, the issue is on the underlying software itself
+and you should contact the corresponding development team or refer to
+its documentation.
+
+[[S_ATIMonitoring]]
+How to monitor an ATI card using the Catalyst driver?
+-----------------------------------------------------
+
+For monitoring ATI card using the proprietary Catalyst driver, Psensor
+must be compiled with a proprietary library which is not packaged in
+any Linux distribution.
+
+Unfortunely, due to the license of this library, I cannot provide a
+compiled version of Psensor, even in a Ubuntu PPA or Ubuntu/Debian
+standard repositories. You have to compile Psensor sensor. You can
+find the instructions in the section “ATI/AMD GPU Support” of the
+README file available in the Psensor source archives.
+
+If you are using the ATI OpenSource driver, it is not needed to
+compile Psensor with this proprietary library.  
+
+[[S_WrongTemperature]]
+The reported temperature is obviously wrong
+-------------------------------------------
+
+If the reported temperature is obviously wrong (never change, lower
+than the ambiant temperature, negative, higher than the sun
+temperature, etc):
+
+	- most of the time it is not a bug in Psensor nor in the
+          underlying monitoring libraries:
+
+		* if the temperature does not change, it might be due
+                  to an existent sensor not wired by the hardware
+                  manufacturer.
+
+		* the goal of the sensor is to allow the system to
+                  detect critical temperature and NOT to report an
+                  exact temperature. Most sensors report a relative
+                  temperature. The more it differs from the critical
+                  temperature , the more it is wrong.
+
+	- It is only a bug in Psensor if the underlying libraries
+          report a different information than Psensor (use the
+          appropriate command or software: ‘sensors’, ‘aticonfig’ or
+          ‘hddtemp’ to check). In this case, please report a bug.
+
+[[S_WhatIsTheSensor]]
+What is the sensors XXXX?
+-------------------------
+
+Since Psensor v0.7.0.4, open the preferences of the sensor (click on
+its name in the main window and select the menu item Preferences), and
+look at the Chip field.
+
+For older Psensor releases, look at the Id field, if the string is
+starting with:
+
+	- ‘lmsensor coretemp’: Intel CPU.
+	- ‘lmsensor k10temp’,'lmsensor k8temp’,'lmsensor fam15h_power’: AMD CPU.
+	- ‘nvidia’ or ‘lmsensor nouveau’: NVIDIA GPU.
+	- ‘hdd’: hard disk drive.
+	- ‘amd’: AMD GPU.
+	- ‘lmsensor C B’: C is the name of the chip, B the name of the adapter.
+
+For more information about lmsensor devices, see
+http://lm-sensors.org/wiki/Devices.
+
+[[S_BugReport]]
+How to report a bug?
+--------------------
+
+Please use https://bugs.launchpad.net/psensor/+filebug to report bugs
+even if it can only reproduced with a non-Ubuntu distribution or a
+release not available in the standard Ubuntu repositories.
+
+You can also use
+https://bugs.launchpad.net/ubuntu/+source/psensor/+filebug if the bug
+can be reproduced with a package from the standard Ubuntu
+repositories.
+
+If you don’t want to use the launchpad, you can send me the report by
+email to jeanfi@gmail.com.
+
+If the bug is concerning Debian or Ubuntu derivatives distribution,
+please add in its description the output of the command ‘apt-cache
+policy psensor’.
+
+If it is related to the Psensor source compilation, please add the
+full output of the ‘configure’ command.
+
+[[S_SubmitIdea]]
+How to send ideas, questions or comments?
+-----------------------------------------
+
+Check the FAQ or the TODO pages.
+
+If you don’t find the information, I am always happy to help, you can
+contact me:
+
+	- by email: (jeanfi@gmail.com), please add “[psensor]” in the
+          subject, I speak English and French.
+
+	- or IRC: I am on the #psensor channel of the irc.freenode.net
+          server. My nickname is “jfi”. Even if I am most of the time
+          connected, I may not be in front of the computer or
+          available, be patient!
+
+[[S_Contribute]]
+How to contribute?
+------------------
+
+See http://wpitchoune.net/blog/psensor/how-to-contribute/.
+
+[[S_UbuntuInstall]]
+How to install Psensor on Ubuntu?
+---------------------------------
+
+Psensor is in the official repository, search “psensor” in the software center and install it. More information at: http://wpitchoune.net/blog/psensor/ubuntu-integration/.
+
+[[S_DebianInstall]]
+How to install Psensor on Debian?
+---------------------------------
+
+Psensor will be in the official repository since Debian 7.0. You can get the last packaged version from the sid repository. More information at: http://packages.qa.debian.org/p/psensor.html.
+
+[[S_PPA]]
+What is the difference between the 3 Ubuntu PPAs?
+-------------------------------------------------
+
+	- ppa:jfi/ppa: last stable version.
+
+	- ppa:jfi/psensor-unstable: last development version, no major
+          bug is expected.
+
+	- ppa:jfi/psensor-daily-trunk: build each day directly from
+          the SVN source repository. It may contain major bugs or
+          incomplete features. Useful for contributors or testing
+          whether a bug is fixed.
+
+[[S_ArchLinuxInstall]]
+How to install Psensor on ArchLinux?
+------------------------------------
+
+See http://aur.archlinux.org/packages.php?ID=37807.
+
+[[S_OtherInstall]]
+How to install Psensor on my Linux distribution?
+------------------------------------------------
+
+Psensor packages are available in the standard repositories of Ubuntu
+(since Oneiric) and Debian (since v7) distributions.
+
+For other distributions, you will find the compilation and
+installation instructions in the section ‘Installation from source
+archive’ in the README file of the source archive. Psensor should
+compile in any modern distribution.
+
+[[S_LOG]]
+How to log sensors temperatures?
+--------------------------------
+
+The best way is probably to use sensord or a custom script based on
+the output of the different commands like sensors.
+
+Anyway, as I received several requests about such feature, since the
+0.7.0.4 release it is implemented in both psensor ( menu preferences >
+sensors > enable log of measures) and psensor-server (–sensor-log-file
+option).  
+
+[[S_SimilarSoft]]
+Is there any other similar softwares?
+-------------------------------------
+
+Here is a list of few well-known sensors monitoring softwares:
+
+	- for X11: http://freecode.com/projects/xsensors
+
+	- for GNOME2: http://sensors-applet.sourceforge.net/
+
+	- for Ubuntu Unity: https://launchpad.net/indicator-sensors
+
+	- more general, but can be configured to display sensors
+          information: http://conky.sourceforge.net/

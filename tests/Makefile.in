@@ -245,7 +245,11 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-EXTRA_DIST = checkpatch.pl data test-io-dir-list.sh
+EXTRA_DIST = checkpatch.pl \
+	data \
+	test-cppcheck.sh \
+	test-io-dir-list.sh
+
 AM_CPPFLAGS = -pedantic -Werror
 test_io_dir_list_SOURCES = test_io_dir_list.c
 test_psensor_type_to_unit_str_SOURCES = test_psensor_type_to_unit_str.c

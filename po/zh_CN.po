@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-10 09:06+0200\n"
+"POT-Creation-Date: 2012-09-13 23:44+0200\n"
 "PO-Revision-Date: 2012-08-10 09:26+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -102,7 +102,7 @@ msgstr "更新间隔："
 msgid "Measures"
 msgstr "测量"
 
-#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:197
+#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
 msgid "Graph"
 msgstr "图表"
 
@@ -131,78 +131,87 @@ msgstr "传感器"
 msgid "Edit Sensor Preferences"
 msgstr "编辑传感器首选项"
 
-#: src/glade/sensor-edit.glade:102 src/glade/sensor-edit.glade:166
-#: src/glade/sensor-edit.glade:326 src/glade/sensor-edit.glade:422
-#: src/lib/psensor.c:472 src/ui_sensorlist.c:378 src/ui_sensorlist.c:379
-#: src/ui_sensorlist.c:380 src/ui_notify.c:81
-msgid "N/A"
-msgstr "不可用"
-
-#: src/glade/sensor-edit.glade:119
-msgid "Name:"
-msgstr "名称:"
-
-#: src/glade/sensor-edit.glade:152
+#: src/glade/sensor-edit.glade:121
 msgid "Type:"
 msgstr "类型:"
 
-#: src/glade/sensor-edit.glade:182
-msgid "Id:"
-msgstr "标识:"
+#: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
+#: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:479
+#: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
+#: src/ui_notify.c:81
+msgid "N/A"
+msgstr "不可用"
 
-#: src/glade/sensor-edit.glade:215
+#: src/glade/sensor-edit.glade:170
 msgid "Color:"
 msgstr "颜色："
 
-#: src/glade/sensor-edit.glade:229
+#: src/glade/sensor-edit.glade:184
 msgid "Alarm"
 msgstr "警告"
 
-#: src/glade/sensor-edit.glade:244
+#: src/glade/sensor-edit.glade:199
 msgid "Activate desktop notifications"
 msgstr "激活桌面气泡提示"
 
-#: src/glade/sensor-edit.glade:266
+#: src/glade/sensor-edit.glade:221
 msgid "Sensor Information"
 msgstr "传感器信息"
 
-#: src/glade/sensor-edit.glade:279
+#: src/glade/sensor-edit.glade:234
 msgid "Draw sensor curve"
 msgstr "绘制监视曲线"
 
-#: src/glade/sensor-edit.glade:367
+#: src/glade/sensor-edit.glade:322
 msgid "High threshold:"
 msgstr "高阈值："
 
-#: src/glade/sensor-edit.glade:382
+#: src/glade/sensor-edit.glade:337
 msgid "Low threshold:"
 msgstr "低阈值："
 
-#: src/glade/sensor-edit.glade:443
+#: src/glade/sensor-edit.glade:398
 msgid "Ubuntu Application Indicator"
 msgstr "Ubuntu 应用指示器"
 
-#: src/glade/sensor-edit.glade:458
+#: src/glade/sensor-edit.glade:413
 msgid "Display sensor in the Application Indicator menu"
 msgstr "在应用指示器菜单中显示监视器"
 
-#: src/lib/amd.c:150
+#: src/glade/sensor-edit.glade:435
+msgid "Chip:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:480
+msgid "Id:"
+msgstr "标识:"
+
+#: src/glade/sensor-edit.glade:514
+msgid "Details"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:538
+msgid "Name:"
+msgstr "名称:"
+
+#: src/lib/amd.c:149
 msgid "AMD: cannot found ADL library."
 msgstr "AMD：未找到 ADL 库。"
 
-#: src/lib/amd.c:174
+#: src/lib/amd.c:173
 msgid "AMD: missing ADL's API."
 msgstr "AMD：ADL 的 API 丢失。"
 
-#: src/lib/amd.c:182
+#: src/lib/amd.c:178
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD：ADL 初始化出错。"
 
-#: src/lib/amd.c:189
+#: src/lib/amd.c:184
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD：无法获取适配器数目。"
 
-#: src/lib/hdd_atasmart.c:144
+#: src/lib/hdd_atasmart.c:145
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
 msgstr "atasmart：sk_disk_open() 失败：%s。"
@@ -215,7 +224,7 @@ msgstr "硬盘温度：无法打开套接字。"
 msgid "hddtemp: failed to open connection."
 msgstr "硬盘温度：无法打开连接。"
 
-#: src/lib/hdd_hddtemp.c:181 src/lib/hdd_hddtemp.c:250
+#: src/lib/hdd_hddtemp.c:182 src/lib/hdd_hddtemp.c:251
 #, c-format
 msgid "hddtemp: wrong string: %s."
 msgstr "硬盘温度：错误字符：%s。"
@@ -225,11 +234,11 @@ msgstr "硬盘温度：错误字符：%s。"
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr "lmsensor：无法获取子功能%s的值：%s。"
 
-#: src/lib/lmsensor.c:124
+#: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr "lmsensor：lmsensor_psensor_create 失败：错误的功能类型。"
 
-#: src/lib/lmsensor.c:206
+#: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor：初始化失败：%s。"
@@ -243,19 +252,19 @@ msgstr "无法打开日志文件：%s"
 msgid "Failed to retrieve NVIDIA temperature."
 msgstr "无法获取 NVIDIA 温度。"
 
-#: src/lib/nvidia.c:92
+#: src/lib/nvidia.c:93
 msgid "Cannot open connection to X11 server."
 msgstr "无法打开到 X11 服务器的连接。"
 
-#: src/lib/nvidia.c:100
+#: src/lib/nvidia.c:101
 msgid "Failed to retrieve NVIDIA information."
 msgstr "无法获取 NVIDIA 信息。"
 
-#: src/lib/psensor.c:468 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:475 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "转速"
 
-#: src/lib/psensor.c:470
+#: src/lib/psensor.c:477
 msgid "%"
 msgstr "%"
 
@@ -607,7 +616,11 @@ msgstr "温度报警"
 msgid "Fan alert"
 msgstr "风扇警报"
 
-#: src/ui_sensorpref.c:516
+#: src/ui_sensorpref.c:317
+msgid "Unknown"
+msgstr ""
+
+#: src/ui_sensorpref.c:523
 msgid "Sensor Name"
 msgstr "传感器名称"
 
