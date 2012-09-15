@@ -148,14 +148,13 @@ help2man libnotify-devel libgtop2-devel make
 -----------------------------------------------------------------------
 
 For Ubuntu 12.04:
-----------------------------------------------------------------------
-sudo apt-get install autoconf automake gcc gettext autopoint
-                     libgtk2.0-dev libgconf2-dev libnotify-dev
-                     libsensors4-dev help2man libcurl4-openssl-dev
-                     libjson0-dev libmicrohttpd-dev
-                     libgtop2-dev make perl libunity-dev libgtop2-dev 
-                     libappindicator-dev nvidia-settings
-----------------------------------------------------------------------
+-------------------------------------------------------------------------
+sudo apt-get install autoconf automake asciidoc cppcheck gcc gettext
+autopoint libgtk2.0-dev libgconf2-dev libnotify-dev libsensors4-dev
+help2man libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev
+libgtop2-dev make perl libunity-dev libgtop2-dev libappindicator-dev
+nvidia-settings
+-------------------------------------------------------------------------
 
 Compilation and Installation Steps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
