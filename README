@@ -1,5 +1,5 @@
-Psensor
-=======
+Psensor README
+==============
 
 Introduction
 ------------
@@ -164,7 +164,7 @@ Compilation and Installation Steps
 3. Compilation: +./configure;make clean all+
 4. Installation:  +make install+ (require to have root permission)
 5. Start the sensor detection script: +sensors-detect+ and follows the
-instructions. Then, teboot or activate the kernel modules which have
+instructions. Reboot or activate the kernel modules which have
 been found.
 7. To monitor HDDs, the +hddtemp+ daemon must be installed and running.
 8. Run: +psensor+
