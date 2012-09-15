@@ -132,7 +132,7 @@ The specific requirements for +psensor-server+:
  * library libmicrohttpd 
  * library json0
 
-For Debian:
+For Debian 7.0:
 -----------------------------------------------------------------
 sudo apt-get install asciidoc cppcheck gcc gettext libgtk-3-dev
 libgconf2-dev libnotify-dev libsensors4-dev help2man
@@ -146,6 +146,16 @@ sudo yum install gcc gtk3-devel GConf2-devel lm_sensors-devel cppcheck
 libatasmart-devel libcurl-devel json-c-devel libmicrohttpd-devel
 help2man libnotify-devel libgtop2-devel make
 -----------------------------------------------------------------------
+
+For Ubuntu 12.04:
+----------------------------------------------------------------------
+sudo apt-get install autoconf automake gcc gettext autopoint
+                     libgtk2.0-dev libgconf2-dev libnotify-dev
+                     libsensors4-dev help2man libcurl4-openssl-dev
+                     libjson0-dev libmicrohttpd-dev
+                     libgtop2-dev make perl libunity-dev libgtop2-dev 
+                     libappindicator-dev nvidia-settings
+----------------------------------------------------------------------
 
 Compilation and Installation Steps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
