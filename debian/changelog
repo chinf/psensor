@@ -1,8 +1,15 @@
 psensor (0.7.0.x-0ubuntu1) unstable; urgency=low
 
   * New upstream
+      + fixed realloc null returned value not handled in amd.c.
+      + fixed url var in main function not freed.
   * debian/control
       + added builddep to cppcheck.
+      + added builddep to asciidoc.
+  * debian/changelog
+      + fixed tab instead of whitespaces.
+  * debian/psensor-common.install
+      + added faq.txt and faq.html.
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sun, 26 Aug 2012 11:04:33 +0200
 
@@ -10,9 +17,9 @@ psensor (0.7.0.3-1) unstable; urgency=low
 
   * New upstream release
       + added gconf schema. (LP: #1026807)
-      +	fixed systray and application indicator visible at the
+      + fixed systray and application indicator visible at the
         same time. (LP: #971098)
-      +	fixed wrong background color, get the background color of
+      + fixed wrong background color, get the background color of
         the window and not the canvas widget. (LP: #973122)
       + removed hicolor/48x48/psensor_hot.png. (LP: #1029065)
       + added degree sign for celcius. (LP: #1021900)
