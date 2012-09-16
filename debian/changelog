@@ -7,7 +7,7 @@ psensor (0.7.0.x-0ubuntu1) unstable; urgency=low
       + added builddep to cppcheck.
       + added builddep to asciidoc.
   * debian/changelog
-      + fixed tab instead of whitespaces.
+      + fixed 2 tabs instead of whitespaces.
   * debian/psensor-common.install
       + added faq.txt and faq.html.
 
