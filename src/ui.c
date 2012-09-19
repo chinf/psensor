@@ -360,5 +360,6 @@ void ui_window_update(struct ui_psensor *ui)
 void ui_window_show(struct ui_psensor *ui)
 {
 	log_debug("ui_window_show()");
+	ui_window_update(ui);
 	gtk_window_present(GTK_WINDOW(ui->main_window));
 }
