@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-13 23:44+0200\n"
+"POT-Creation-Date: 2012-09-19 08:47+0200\n"
 "PO-Revision-Date: 2012-08-10 09:26+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -115,7 +115,7 @@ msgid "Enable sensors logging"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:708
-msgid "Sensors logging inteval"
+msgid "Sensors logging interval"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:725
@@ -366,20 +366,20 @@ msgstr "报告问题至：%s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
 
-#: src/main.c:458
+#: src/main.c:453
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor 不支持远程传感器。"
 
-#: src/main.c:521
+#: src/main.c:516
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:533 src/server/server.c:377
+#: src/main.c:528 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
 
-#: src/main.c:546
+#: src/main.c:541
 msgid "A Psensor instance already exists."
 msgstr "已存在一个 Psensor 例程。"
 
