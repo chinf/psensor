@@ -705,7 +705,7 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="label" translatable="yes">Sensors logging inteval</property>
+                    <property name="label" translatable="yes">Sensors logging interval</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
