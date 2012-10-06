@@ -613,12 +613,16 @@ int main(int argc, char **argv)
 
 	/*
 	 * hack, did not find a cleaner solution.
-	 * wait 2s to ensure that the status icon is attempted to be
+	 * wait 30s to ensure that the status icon is attempted to be
 	 * drawn before determining whether the main window must be
 	 * show.
 	 */
-	g_timeout_add(2000, (GSourceFunc)initial_window_show, &ui);
+	if  (ui.config->hide_on_startup)
+		g_timeout_add(30000, (GSourceFunc)initial_window_show, &ui);
+	else
+		initial_window_show(&ui);
 
+	printf("main loop\n");
 	/* main loop */
 	gtk_main();
 

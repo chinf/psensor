@@ -16,6 +16,11 @@
 ** added faq (requires asciidoc to build the html version).
 ** check target is now running cppcheck if installed.
 ** display message if no graphs are enabled (Closes #689355).
+** psensor: when 'hide window on startup' is set, it will
+   hide the window only if psensor can register to application
+   indicator or systray. Waiting 30s before trying to do it
+   in order to have better chance that systray is running during
+   session startup.
 
 * v0.7.0.3
 
