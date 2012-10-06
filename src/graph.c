@@ -17,10 +17,15 @@
  * 02110-1301 USA
  */
 #include <stdlib.h>
+#include <string.h>
+
 #include <sys/time.h>
+
+#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
 #include "cfg.h"
+#include "log.h"
 #include "psensor.h"
 
 /* horizontal padding */
@@ -211,6 +216,23 @@ static void draw_sensor_curve(struct psensor *s,
 	cairo_stroke(cr);
 }
 
+static void display_no_graphs_warning(cairo_t *cr, int x, int y)
+{
+	char *msg;
+
+	msg = strdup(_("No graphs enabled"));
+
+	cairo_select_font_face(cr,
+			       "sans-serif",
+			       CAIRO_FONT_SLANT_NORMAL,
+			       CAIRO_FONT_WEIGHT_NORMAL);
+	cairo_set_font_size(cr, 18.0);
+
+	cairo_move_to(cr, x, y);
+	cairo_show_text(cr, msg);
+
+	free(msg);
+}
 
 void
 graph_update(struct psensor **sensors,
@@ -223,7 +245,7 @@ graph_update(struct psensor **sensors,
 	double min_rpm, max_rpm, mint, maxt;
 	char *strmin, *strmax;
 	/* horizontal and vertical offset of the graph */
-	int g_xoff, g_yoff;
+	int g_xoff, g_yoff, no_graphs, min, max;
 	cairo_surface_t *cst;
 	cairo_t *cr, *cr_pixmap;
 	char *str_btime, *str_etime;
@@ -333,12 +355,12 @@ graph_update(struct psensor **sensors,
 
 		cairo_set_line_join(cr, CAIRO_LINE_JOIN_ROUND);
 		cairo_set_line_width(cr, 1);
+		no_graphs = 1;
 		while (*sensor_cur) {
 			struct psensor *s = *sensor_cur;
 
 			if (s->enabled) {
-				double min, max;
-
+				no_graphs = 0;
 				if (is_fan_type(s->type)) {
 					min = min_rpm;
 					max = max_rpm;
@@ -361,6 +383,9 @@ graph_update(struct psensor **sensors,
 
 			sensor_cur++;
 		}
+
+		if (no_graphs)
+			display_no_graphs_warning(cr, g_xoff + 12, g_height /2);
 	}
 
 	cr_pixmap = gdk_cairo_create(gtk_widget_get_window(w_graph));
