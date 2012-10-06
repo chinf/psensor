@@ -346,7 +346,7 @@ static void create_widget(struct ui_psensor *ui)
 	renderer = gtk_cell_renderer_toggle_new();
 	gtk_tree_view_insert_column_with_attributes(ui_sl->treeview,
 						    -1,
-						    _("Enabled"),
+						    _("Graph"),
 						    renderer,
 						    "active", COL_ENABLED,
 						    NULL);
