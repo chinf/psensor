@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.6" />
+<meta name="generator" content="AsciiDoc 8.6.7" />
 <title>Psensor Frequently Asked Questions</title>
 <style type="text/css">
 body {
@@ -183,7 +183,7 @@ toc: function (toclevels) {
 
   function tocEntries(el, toclevels) {
     var result = new Array;
-    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
     // Function that scans the DOM tree for header elements (the DOM2
     // nodeIterator API would be a better technique but not supported by all
     // browsers).
@@ -212,7 +212,7 @@ toc: function (toclevels) {
   var i;
   for (i = 0; i < toc.childNodes.length; i++) {
     var entry = toc.childNodes[i];
-    if (entry.nodeName == 'div'
+    if (entry.nodeName.toLowerCase() == 'div'
      && entry.getAttribute("class")
      && entry.getAttribute("class").match(/^toclevel/))
       tocEntriesToRemove.push(entry);
@@ -258,7 +258,7 @@ footnotes: function () {
   var entriesToRemove = [];
   for (i = 0; i < noteholder.childNodes.length; i++) {
     var entry = noteholder.childNodes[i];
-    if (entry.nodeName == 'div' && entry.getAttribute("class") == "footnote")
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
       entriesToRemove.push(entry);
   }
   for (i = 0; i < entriesToRemove.length; i++) {
@@ -620,7 +620,14 @@ option).</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="S_SimilarSoft">14. Is there any other similar softwares?</h2>
+<h2 id="S_NO_GRAPH_DISPLAYED">14. No graphs are displayed, but the table of the main window is displaying sensors</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>In the sensors table of the main window, switch on the checkbox of the last
+column (named "Enabled" or "Graph" depending on the Psensor version).</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="S_SimilarSoft">15. Is there any other similar softwares?</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Here is a list of few well-known sensors monitoring softwares:</p></div>
 <div class="ulist"><ul>
@@ -652,7 +659,7 @@ more general, but can be configured to display sensors
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-09-15 16:54:46 CEST
+Last updated 2012-10-06 13:58:34 CEST
 </div>
 </div>
 </body>

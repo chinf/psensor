@@ -205,6 +205,14 @@ Anyway, as I received several requests about such feature, since the
 sensors > enable log of measures) and psensor-server (–sensor-log-file
 option).  
 
+[[S_NO_GRAPH_DISPLAYED]]
+
+No graphs are displayed, but the table of the main window is displaying sensors
+-------------------------------------------------------------------------------
+
+In the sensors table of the main window, switch on the checkbox of the last
+column (named "Enabled" or "Graph" depending on the Psensor version).
+
 [[S_SimilarSoft]]
 Is there any other similar softwares?
 -------------------------------------
