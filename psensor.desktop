@@ -6,7 +6,8 @@ GenericName=Psensor
 Comment=Psensor is a graphical temperature monitor for Linux
 Icon=psensor
 TryExec=psensor
-Exec=/bin/sh -c 'sleep 30 && psensor'
+Exec=psensor
 Categories=Application;System;
+X-GNOME-Autostart-Delay=30
 StartupNotify=true
 

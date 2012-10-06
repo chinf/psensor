@@ -15,8 +15,6 @@
 ** fixed cppcheck reported errors (realloc and not freed var).
 ** added faq (requires asciidoc to build the html version).
 ** check target is now running cppcheck if installed.
-** psensor: psensor.desktop:replaced X-GNOME-autostart-delay (not
-   supported by debian gnome-shell) by a sleep on exec.
 
 * v0.7.0.3
 
