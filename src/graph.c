@@ -385,7 +385,9 @@ graph_update(struct psensor **sensors,
 		}
 
 		if (no_graphs)
-			display_no_graphs_warning(cr, g_xoff + 12, g_height /2);
+			display_no_graphs_warning(cr,
+						  g_xoff + 12,
+						  g_height / 2);
 	}
 
 	cr_pixmap = gdk_cairo_create(gtk_widget_get_window(w_graph));
