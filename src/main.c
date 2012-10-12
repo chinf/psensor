@@ -622,7 +622,6 @@ int main(int argc, char **argv)
 	else
 		initial_window_show(&ui);
 
-	printf("main loop\n");
 	/* main loop */
 	gtk_main();
 
