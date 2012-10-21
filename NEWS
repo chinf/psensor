@@ -2,6 +2,7 @@
 
 ** added Spanish translation from LP (Javier
    buik8roadmaster@hotmail.com).
+** merged German translation from LP (Dennis Baudys).
 ** psensor: fixed 'appindicator enabled' option not working correctly
    for cpu usage. The option was inversed each time it is displayed in
    the preference dialog.
