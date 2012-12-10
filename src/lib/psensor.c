@@ -402,7 +402,7 @@ double get_max_temp(struct psensor **sensors)
 
 struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 {
-	struct psensor **psensors = NULL;
+	struct psensor **psensors;
 	struct psensor **tmp_psensors;
 
 	psensors = lmsensor_psensor_list_add(NULL, values_max_length);
