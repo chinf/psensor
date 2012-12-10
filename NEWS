@@ -14,6 +14,7 @@
    preferences.
 ** test target is now running cppcheck if available.
 ** fixed cppcheck reported errors (realloc and not freed var).
+** fixed cppcheck (old values not used).
 ** added faq (requires asciidoc to build the html version).
 ** check target is now running cppcheck if installed.
 ** display a message if no graphs are enabled (Closes #689355).
