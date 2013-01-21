@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-19 08:47+0200\n"
-"PO-Revision-Date: 2012-08-10 09:26+0000\n"
+"POT-Creation-Date: 2013-01-21 21:51+0100\n"
+"PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-16 09:24+0000\n"
-"X-Generator: Launchpad (build 15810)\n"
+"X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
+"X-Generator: Launchpad (build 16430)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -103,6 +103,7 @@ msgid "Measures"
 msgstr "测量"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
+#: src/ui_sensorlist.c:349
 msgid "Graph"
 msgstr "图表"
 
@@ -112,14 +113,13 @@ msgstr "测量更新间隔："
 
 #: src/glade/psensor-pref.glade:659
 msgid "Enable sensors logging"
-msgstr ""
+msgstr "启用监测器记录"
 
 #: src/glade/psensor-pref.glade:708
 msgid "Sensors logging interval"
-msgstr ""
+msgstr "监测器记录间隔"
 
 #: src/glade/psensor-pref.glade:725
-#, fuzzy
 msgid "seconds(s)"
 msgstr "秒"
 
@@ -137,7 +137,7 @@ msgstr "类型:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:479
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:482
 #: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
 #: src/ui_notify.c:81
 msgid "N/A"
@@ -181,7 +181,7 @@ msgstr "在应用指示器菜单中显示监视器"
 
 #: src/glade/sensor-edit.glade:435
 msgid "Chip:"
-msgstr ""
+msgstr "芯片："
 
 #: src/glade/sensor-edit.glade:480
 msgid "Id:"
@@ -189,7 +189,7 @@ msgstr "标识:"
 
 #: src/glade/sensor-edit.glade:514
 msgid "Details"
-msgstr ""
+msgstr "详情"
 
 #: src/glade/sensor-edit.glade:538
 msgid "Name:"
@@ -260,27 +260,27 @@ msgstr "无法打开到 X11 服务器的连接。"
 msgid "Failed to retrieve NVIDIA information."
 msgstr "无法获取 NVIDIA 信息。"
 
-#: src/lib/psensor.c:475 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:478 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "转速"
 
-#: src/lib/psensor.c:477
+#: src/lib/psensor.c:480
 msgid "%"
 msgstr "%"
 
 #: src/lib/slog.c:64
 msgid "HOME variable not set."
-msgstr ""
+msgstr "未设置 HOME 变量。"
 
 #: src/lib/slog.c:74
 #, fuzzy
 msgid "Sensor log file already open."
-msgstr "已存在一个 Psensor 例程。"
+msgstr "已经打开监测器日志文件。"
 
 #: src/lib/slog.c:83
 #, fuzzy, c-format
 msgid "Cannot open sensor log file: %s."
-msgstr "无法打开日志文件：%s"
+msgstr "无法打开监测器日志文件：%s。"
 
 #: src/lib/slog.c:92 src/ui_notify.c:48
 msgid "gettimeofday failed."
@@ -288,11 +288,11 @@ msgstr "获取时间失败。"
 
 #: src/lib/slog.c:116
 msgid "Sensor log file not open."
-msgstr ""
+msgstr "监测器日志文件未打开。"
 
 #: src/lib/slog.c:172
 msgid "Sensor log not open, cannot close."
-msgstr ""
+msgstr "监测器日志未打开，故无法关闭。"
 
 #: src/main.c:78
 #, c-format
@@ -366,20 +366,20 @@ msgstr "报告问题至：%s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
 
-#: src/main.c:453
+#: src/main.c:458
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor 不支持远程传感器。"
 
-#: src/main.c:516
+#: src/main.c:521
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:528 src/server/server.c:377
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
 
-#: src/main.c:541
+#: src/main.c:546
 msgid "A Psensor instance already exists."
 msgstr "已存在一个 Psensor 例程。"
 
@@ -454,7 +454,7 @@ msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
 #: src/server/server.c:111
 #, fuzzy
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
-msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
+msgstr "  --sensor-log-file=路径 设置监测器日志文件的路径"
 
 #: src/server/server.c:112
 #, fuzzy
@@ -497,7 +497,7 @@ msgstr "URL: http://localhost:%d"
 #: src/server/server.c:422
 #, fuzzy
 msgid "Failed to activate logging of sensors."
-msgstr "无法加载 Psensor 图标。"
+msgstr "无法激活监测器日志。"
 
 #: src/ui.c:82
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
@@ -592,10 +592,6 @@ msgstr "最大值"
 msgid "Color"
 msgstr "颜色"
 
-#: src/ui_sensorlist.c:349
-msgid "Enabled"
-msgstr "激活"
-
 #: src/ui_appindicator.c:106
 msgid "_Show"
 msgstr "显示(_S)"
@@ -618,11 +614,14 @@ msgstr "风扇警报"
 
 #: src/ui_sensorpref.c:317
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: src/ui_sensorpref.c:523
 msgid "Sensor Name"
 msgstr "传感器名称"
+
+#~ msgid "Enabled"
+#~ msgstr "激活"
 
 #, fuzzy
 #~ msgid "Enable log of measures"

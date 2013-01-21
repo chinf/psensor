@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-19 08:47+0200\n"
+"POT-Creation-Date: 2013-01-21 21:51+0100\n"
 "PO-Revision-Date: 2012-04-28 11:24+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -103,6 +103,7 @@ msgid "Measures"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
+#: src/ui_sensorlist.c:349
 msgid "Graph"
 msgstr "Grafik"
 
@@ -136,7 +137,7 @@ msgstr "Tür:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:479
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:482
 #: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
 #: src/ui_notify.c:81
 msgid "N/A"
@@ -259,11 +260,11 @@ msgstr ""
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:475 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:478 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:477
+#: src/lib/psensor.c:480
 msgid "%"
 msgstr ""
 
@@ -353,20 +354,20 @@ msgstr "Hataları rapor et:%s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s ana sayfa: <%s>\n"
 
-#: src/main.c:453
+#: src/main.c:458
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:516
+#: src/main.c:521
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:528 src/server/server.c:377
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
 
-#: src/main.c:541
+#: src/main.c:546
 msgid "A Psensor instance already exists."
 msgstr ""
 
@@ -564,10 +565,6 @@ msgstr ""
 #: src/ui_sensorlist.c:337
 msgid "Color"
 msgstr "Renk"
-
-#: src/ui_sensorlist.c:349
-msgid "Enabled"
-msgstr ""
 
 #: src/ui_appindicator.c:106
 msgid "_Show"

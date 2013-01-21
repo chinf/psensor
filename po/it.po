@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-19 08:47+0200\n"
+"POT-Creation-Date: 2013-01-21 21:51+0100\n"
 "PO-Revision-Date: 2012-08-13 08:20+0000\n"
 "Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -103,6 +103,7 @@ msgid "Measures"
 msgstr "Misure"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
+#: src/ui_sensorlist.c:349
 msgid "Graph"
 msgstr "Grafico"
 
@@ -137,7 +138,7 @@ msgstr "Tipo:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:479
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:482
 #: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
 #: src/ui_notify.c:81
 msgid "N/A"
@@ -260,11 +261,11 @@ msgstr "Impossibile connettersi al server X11."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Impossibile recuperare informazioni da NVIDIA"
 
-#: src/lib/psensor.c:475 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:478 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:477
+#: src/lib/psensor.c:480
 msgid "%"
 msgstr "%"
 
@@ -366,20 +367,20 @@ msgstr "Segnalare i bug a: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s home page: <%s>\n"
 
-#: src/main.c:453
+#: src/main.c:458
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor è stato compilato senza il supporto per sensori remoti."
 
-#: src/main.c:516
+#: src/main.c:521
 msgid "Enables debug mode."
 msgstr "Abilita la modalità debug."
 
-#: src/main.c:528 src/server/server.c:377
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Usare '%s --help' per maggiori informazioni.\n"
 
-#: src/main.c:541
+#: src/main.c:546
 msgid "A Psensor instance already exists."
 msgstr "Esiste già un'istanza di Psensor"
 
@@ -592,10 +593,6 @@ msgstr "Massimo"
 msgid "Color"
 msgstr "Colore"
 
-#: src/ui_sensorlist.c:349
-msgid "Enabled"
-msgstr "Abilitato"
-
 #: src/ui_appindicator.c:106
 msgid "_Show"
 msgstr "_Mostra"
@@ -623,6 +620,9 @@ msgstr ""
 #: src/ui_sensorpref.c:523
 msgid "Sensor Name"
 msgstr "Nome sensore"
+
+#~ msgid "Enabled"
+#~ msgstr "Abilitato"
 
 #, fuzzy
 #~ msgid "Enable log of measures"

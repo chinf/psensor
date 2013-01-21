@@ -7,24 +7,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2012-09-19 08:47+0200\n"
-"PO-Revision-Date: 2012-05-13 18:15+0000\n"
-"Last-Translator: jeanfi <Unknown>\n"
+"POT-Creation-Date: 2013-01-21 21:51+0100\n"
+"PO-Revision-Date: 2012-12-13 15:00+0000\n"
+"Last-Translator: Alain-OIivier Breysse <Unknown>\n"
 "Language-Team: French <>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-02 08:28+0000\n"
-"X-Generator: Launchpad (build 15520)\n"
+"X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
+"X-Generator: Launchpad (build 16430)\n"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
-msgstr "Éditer la configuration"
+msgstr "Préférences"
 
 #: src/glade/psensor-pref.glade:76
 msgid "Position of sensors table:"
-msgstr "Position de la table des sondes:"
+msgstr "Position de la table des capteurs:"
 
 #: src/glade/psensor-pref.glade:85
 msgid "Hide window decoration"
@@ -48,7 +48,7 @@ msgstr "Cacher la fenêtre au lancement"
 
 #: src/glade/psensor-pref.glade:180
 msgid "Restore window position and size"
-msgstr "Restaurer la position et la taille de la fenêtre"
+msgstr "Rétablir la position et la taille de la fenêtre"
 
 #: src/glade/psensor-pref.glade:202
 msgid "Temperature unit:"
@@ -68,7 +68,7 @@ msgstr "Arrière-plan:"
 
 #: src/glade/psensor-pref.glade:347
 msgid "Background opacity:"
-msgstr "Opacité du fond:"
+msgstr "Opacité de l'arrière-plan :"
 
 #: src/glade/psensor-pref.glade:370
 msgid "<i>Min</i>"
@@ -103,6 +103,7 @@ msgid "Measures"
 msgstr "Mesures"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
+#: src/ui_sensorlist.c:349
 msgid "Graph"
 msgstr "Graphe"
 
@@ -112,11 +113,11 @@ msgstr "Intervalle de mise à jour des mesures:"
 
 #: src/glade/psensor-pref.glade:659
 msgid "Enable sensors logging"
-msgstr ""
+msgstr "Activer la journalisation des capteurs"
 
 #: src/glade/psensor-pref.glade:708
 msgid "Sensors logging interval"
-msgstr ""
+msgstr "Intervalle de journallisation des capteurs"
 
 #: src/glade/psensor-pref.glade:725
 #, fuzzy
@@ -125,11 +126,11 @@ msgstr "seconde(s)"
 
 #: src/glade/psensor-pref.glade:744
 msgid "Sensors"
-msgstr "Sondes"
+msgstr "Capteurs"
 
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
-msgstr "Éditer La Configuration Des Sondes"
+msgstr "Préférences des capteurs"
 
 #: src/glade/sensor-edit.glade:121
 msgid "Type:"
@@ -137,7 +138,7 @@ msgstr "Type:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:479
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:482
 #: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
 #: src/ui_notify.c:81
 msgid "N/A"
@@ -157,11 +158,11 @@ msgstr "Activer les notifications du bureau"
 
 #: src/glade/sensor-edit.glade:221
 msgid "Sensor Information"
-msgstr "Information de la sonde"
+msgstr "Informations du capteur"
 
 #: src/glade/sensor-edit.glade:234
 msgid "Draw sensor curve"
-msgstr "Dessiner la courbe de la sonde"
+msgstr "Dessiner la courbe du capteur"
 
 #: src/glade/sensor-edit.glade:322
 msgid "High threshold:"
@@ -173,15 +174,15 @@ msgstr "Seuil inférieur:"
 
 #: src/glade/sensor-edit.glade:398
 msgid "Ubuntu Application Indicator"
-msgstr ""
+msgstr "Indicateur d'application d'Ubuntu"
 
 #: src/glade/sensor-edit.glade:413
 msgid "Display sensor in the Application Indicator menu"
-msgstr ""
+msgstr "Afficher le capteur dans le menu de l'indicateur d'application"
 
 #: src/glade/sensor-edit.glade:435
 msgid "Chip:"
-msgstr ""
+msgstr "Puce :"
 
 #: src/glade/sensor-edit.glade:480
 msgid "Id:"
@@ -189,7 +190,7 @@ msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:514
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
 #: src/glade/sensor-edit.glade:538
 msgid "Name:"
@@ -197,19 +198,19 @@ msgstr "Nom:"
 
 #: src/lib/amd.c:149
 msgid "AMD: cannot found ADL library."
-msgstr "AMD: impossible de trouver la librairie ADL."
+msgstr "AMD: impossible de trouver la bibliothèque ADL."
 
 #: src/lib/amd.c:173
 msgid "AMD: missing ADL's API."
-msgstr "AMD: l'API ADL est manquante."
+msgstr "AMD: L'interface de programmation ADL est manquante."
 
 #: src/lib/amd.c:178
 msgid "AMD: failed to initialize ADL."
-msgstr "AMD: échec de l’initialisation ADL."
+msgstr "AMD: échec de l'initialisation d'ADL."
 
 #: src/lib/amd.c:184
 msgid "AMD: cannot get the number of adapters."
-msgstr "AMD: impossible de récupérer le nombre d'adapteurs."
+msgstr "AMD: impossible de récupérer le nombre d'adaptateurs."
 
 #: src/lib/hdd_atasmart.c:145
 #, c-format
@@ -218,7 +219,7 @@ msgstr "atasmart: échec de sk_disk_open(): %s."
 
 #: src/lib/hdd_hddtemp.c:59
 msgid "hddtemp: failed to open socket."
-msgstr "hddtemp: échec d'ouverture de la connexion."
+msgstr "hddtemp: échec d'ouverture de l'interface de connexion."
 
 #: src/lib/hdd_hddtemp.c:72
 msgid "hddtemp: failed to open connection."
@@ -227,18 +228,17 @@ msgstr "hddtemp: échec de l'ouverture de la connexion."
 #: src/lib/hdd_hddtemp.c:182 src/lib/hdd_hddtemp.c:251
 #, c-format
 msgid "hddtemp: wrong string: %s."
-msgstr "hddtemp: mauvaise chaîne de caractères: %s."
+msgstr "hddtemp: mauvaise chaîne : %s."
 
 #: src/lib/lmsensor.c:42
 #, c-format
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
-"lmsensor: impossible de récupérer la valeur de la sous-fonctionnalité %s: %s."
+"lmsensor: impossible de récupérer la valeur de la sous-fonction %s: %s."
 
 #: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr ""
-"lmsensor: échec de lmsensor_psensor_create: mauvais type de fonctionnalité."
+msgstr "lmsensor: échec de lmsensor_psensor_create : mauvais type de fonction."
 
 #: src/lib/lmsensor.c:218
 #, c-format
@@ -262,27 +262,26 @@ msgstr "Impossible d'ouvrir la connexion au serveur X11."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Échec de la récupération des information NVIDIA."
 
-#: src/lib/psensor.c:475 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:478 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
-msgstr "RPM"
+msgstr "Tr/min"
 
-#: src/lib/psensor.c:477
+#: src/lib/psensor.c:480
 msgid "%"
 msgstr "%"
 
 #: src/lib/slog.c:64
 msgid "HOME variable not set."
-msgstr ""
+msgstr "Variable home non définie."
 
 #: src/lib/slog.c:74
-#, fuzzy
 msgid "Sensor log file already open."
-msgstr "Une occurrence de Psensor existe déjà."
+msgstr "Le journal des capteurs est déjà ouvert."
 
 #: src/lib/slog.c:83
 #, fuzzy, c-format
 msgid "Cannot open sensor log file: %s."
-msgstr "Impossible d'ouvrir le journal: %s"
+msgstr "Ne peut ouvrir le journal: %s."
 
 #: src/lib/slog.c:92 src/ui_notify.c:48
 msgid "gettimeofday failed."
@@ -290,11 +289,11 @@ msgstr "Échec de gettimeofday."
 
 #: src/lib/slog.c:116
 msgid "Sensor log file not open."
-msgstr ""
+msgstr "Le journal des capteurs n'est pas ouvert."
 
 #: src/lib/slog.c:172
 msgid "Sensor log not open, cannot close."
-msgstr ""
+msgstr "Le journal des capteurs n'est pas ouvert, il ne peut être fermé."
 
 #: src/main.c:78
 #, c-format
@@ -305,13 +304,13 @@ msgid ""
 "This is free software: you are free to change and  redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
-"Copyright (C) %s wpitchoune@gmail.com\n"
-"Licence GPLv2: GNU GPL version 3 ou ultérieure<http://www.gnu.org/licenses/"
+"Copyright © %s wpitchoune@gmail.com\n"
+"Licence GPLv2 : GNU GPL version 3 ou ultérieure <http://www.gnu.org/licenses/"
 "old-licenses/gpl-2.0.html>\n"
-"Ceci est un logiciel libre, vous êtes libre de le modifier et de le \n"
+"Ceci est un logiciel libre, vous êtes libre de le modifier et de le\n"
 "redistribuer.\n"
 "Ce logiciel n'est accompagné d’ABSOLUMENT AUCUNE GARANTIE, dans les limites\n"
-"autorisées par la loi applicable.\n"
+"autorisées par la loi.\n"
 
 #: src/main.c:89 src/server/server.c:93
 #, c-format
@@ -323,8 +322,8 @@ msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
-"Psensor est une application GTK+ pour surveiller les sondes matérielles "
-"thermiques et les ventilateurs."
+"Psensor est une application GTK+ pour surveiller les capteurs thermiques et "
+"les vitesses de ventilateurs."
 
 #: src/main.c:95
 msgid "Options:"
@@ -375,23 +374,23 @@ msgstr "Signaler les bugs à: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s page d’accueil: <%s>\n"
 
-#: src/main.c:453
+#: src/main.c:458
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 "Psensor n'a pas été compilé avec le support de surveillance à distance."
 
-#: src/main.c:516
+#: src/main.c:521
 msgid "Enables debug mode."
 msgstr "Active le mode de débogage."
 
-#: src/main.c:528 src/server/server.c:377
+#: src/main.c:533 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez `%s --help' pour plus d'informations.\n"
 
-#: src/main.c:541
+#: src/main.c:546
 msgid "A Psensor instance already exists."
-msgstr "Une occurrence de Psensor existe déjà."
+msgstr "Une instance de Psensor existe déjà."
 
 #: src/rsensor.c:107
 #, c-format
@@ -406,7 +405,7 @@ msgstr "Contenu invalide: %s"
 #: src/rsensor.c:184
 #, c-format
 msgid "Invalid JSON: %s"
-msgstr "JSON incorrect: %s"
+msgstr "JSON invalide: %s"
 
 #: src/server/server.c:53
 msgid "<html><body><p>Server stop requested</p></body></html>"
@@ -416,7 +415,7 @@ msgstr "<html><body><p>L’arrêt du serveur a été demandé</p></body></html>"
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
-"<html><body><p>Page non trouvée - Allez à <a href='/'>Main page</a></p></"
+"<html><body><p>Page introuvable - Allez à <a href='/'>Main page</a></p></"
 "body>"
 
 #: src/server/server.c:83
@@ -428,19 +427,19 @@ msgid ""
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
-"Copyright (C) %s wpitchoune@gmail.com\n"
-"License GPLv2: GNU GPL version 3 ou ultérieure<http://www.gnu.org/licenses/"
+"Copyright © %s wpitchoune@gmail.com\n"
+"License GPLv2 : GNU GPL version 3 ou ultérieure <http://www.gnu.org/licenses/"
 "old-licenses/gpl-2.0.html>\n"
 "Ceci est un logiciel libre, vous êtes libre de le modifier et de le \n"
 "redistribuer.\n"
 "Ce logiciel n'est accompagné d'ABSOLUMENT AUCUNE GARANTIE, dans les limites\n"
-"autorisées par la loi applicable.\n"
+"autorisées par la loi.\n"
 
 #: src/server/server.c:95
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
-"psensor-server est un serveur HTTP pour surveiller à distance les sondes "
+"psensor-server est un serveur HTTP pour surveiller à distance les capteurs "
 "matérielles."
 
 #: src/server/server.c:100
@@ -470,14 +469,14 @@ msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH assigner le chemin d’accès au journal"
 
 #: src/server/server.c:111
-#, fuzzy
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
-msgstr "  -l, --log-file=PATH assigner le chemin d’accès au journal"
+msgstr "  --sensor-log-file=PATH assigne le journal du capteur vers PATH"
 
 #: src/server/server.c:112
-#, fuzzy
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
-msgstr "  -l, --log-file=PATH assigner le chemin d’accès au journal"
+msgstr ""
+"  --sensor-log-interval=S assigne l'intervalle de journalisation du capteur "
+"à S (secondes)"
 
 #: src/server/server.c:296
 #, c-format
@@ -487,11 +486,11 @@ msgstr "Requête HTTP: %s"
 #: src/server/server.c:357
 #, c-format
 msgid "Enables debug mode: %d"
-msgstr "Activation du mode de débogage: %d"
+msgstr "Activation du mode de déboguage: %d"
 
 #: src/server/server.c:399
 msgid "No sensors detected."
-msgstr "Aucune sonde détectée."
+msgstr "Aucun capteur détecté."
 
 #: src/server/server.c:406
 msgid "Failed to create Web server."
@@ -500,7 +499,7 @@ msgstr "Échec de la création du serveur Web."
 #: src/server/server.c:410
 #, c-format
 msgid "Web server started on port: %d"
-msgstr "Le serveur Web a été démarre sur le port: %d"
+msgstr "Le serveur Web a été démarré sur le port: %d"
 
 #: src/server/server.c:411
 #, c-format
@@ -513,27 +512,26 @@ msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
 #: src/server/server.c:422
-#, fuzzy
 msgid "Failed to activate logging of sensors."
-msgstr "Échec du chargement de l’icône de Psensor."
+msgstr "Échec de l'activation de la journalisation des capteurs."
 
 #: src/ui.c:82
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
-"Psensor est une application GTK+ pour surveiller les sondes matérielles "
-"thermiques et les ventilateurs."
+"Psensor est une application GTK+ pour surveiller les capteurs thermiques et "
+"les ventilateurs."
 
 #: src/ui.c:85
 msgid ""
 "Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
 msgstr ""
-"Copyright(c) 2010-2012\n"
+"Copyright © 2010-2012\n"
 "jeanfi@gmail.com"
 
 #: src/ui.c:88
 msgid "About Psensor"
-msgstr "A propos de Psensor"
+msgstr "À propos de Psensor"
 
 #: src/ui.c:91
 msgid "Psensor Homepage"
@@ -541,23 +539,23 @@ msgstr "Site internet de Psensor"
 
 #: src/ui.c:146 src/ui_appindicator.c:111
 msgid "_Preferences"
-msgstr "_Configuration"
+msgstr "_Préférences"
 
 #: src/ui.c:147 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
 msgid "Preferences"
-msgstr "Configuration"
+msgstr "Préférences"
 
 #: src/ui.c:151 src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
-msgstr "Configuration Des Sondes"
+msgstr "Configuration des capteurs"
 
 #: src/ui.c:152
 msgid "Sensor Preferences"
-msgstr "Configuration Des Sondes"
+msgstr "Configuration des capteurs"
 
 #: src/ui.c:156
 msgid "_Quit"
-msgstr "Quitter"
+msgstr "_Quitter"
 
 #: src/ui.c:156
 msgid "Quit"
@@ -565,15 +563,15 @@ msgstr "Quitter"
 
 #: src/ui.c:159
 msgid "_Help"
-msgstr "Aide"
+msgstr "_Aide"
 
 #: src/ui.c:162 src/ui_appindicator.c:122
 msgid "_About"
-msgstr "À propos"
+msgstr "À _propos"
 
 #: src/ui.c:163 src/ui_appindicator.c:124
 msgid "About"
-msgstr "A propos"
+msgstr "À propos"
 
 #: src/ui.c:185 src/ui_appindicator.c:186 src/ui_graph.c:99
 #, c-format
@@ -594,7 +592,7 @@ msgstr "Sélectionner la couleur d'avant-plan"
 
 #: src/ui_sensorlist.c:312
 msgid "Sensor"
-msgstr "Sonde"
+msgstr "Capteur"
 
 #: src/ui_sensorlist.c:318
 msgid "Value"
@@ -612,21 +610,17 @@ msgstr "Max"
 msgid "Color"
 msgstr "Couleur"
 
-#: src/ui_sensorlist.c:349
-msgid "Enabled"
-msgstr "Activée"
-
 #: src/ui_appindicator.c:106
 msgid "_Show"
-msgstr "Montrer"
+msgstr "_Afficher"
 
 #: src/ui_appindicator.c:107
 msgid "Show"
-msgstr "Montrer"
+msgstr "Afficher"
 
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
-msgstr "Configuration Des Sondes"
+msgstr "Configuration des capteurs"
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
@@ -638,11 +632,14 @@ msgstr "Alerte ventilateur"
 
 #: src/ui_sensorpref.c:317
 msgid "Unknown"
-msgstr ""
+msgstr "Inconnu"
 
 #: src/ui_sensorpref.c:523
 msgid "Sensor Name"
-msgstr "Nom De La Sonde"
+msgstr "Nom de la Sonde"
+
+#~ msgid "Enabled"
+#~ msgstr "Activé"
 
 #, fuzzy
 #~ msgid "Enable log of measures"

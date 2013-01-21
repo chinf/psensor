@@ -1,8 +1,15 @@
 * v0.7.0.4
 
-** added Spanish translation from LP (Javier
-   buik8roadmaster@hotmail.com).
+** added Spanish translation from LP (Javier and Eduardo Alberto
+   Calvo).
 ** merged German translation from LP (Dennis Baudys).
+** merged French translation from LP (Alain-OIivier Breysse).
+** merged Hungarian from translation LP (Bence Lukács).
+** merged Latvian translation from LP (tuxmaniack).
+** merged Portuguese translation from LP (Daniel Serafim).
+** merged Russian translation from LP (Ilya Volchanetskiy).
+** merged Ukrainian translation from LP (Ilya Volchanetskiy).
+** merged Chinese translation from LP (Wang Dianjin).
 ** psensor: fixed 'appindicator enabled' option not working correctly
    for cpu usage. The option was inversed each time it is displayed in
    the preference dialog.
@@ -23,6 +30,8 @@
    indicator or systray. Waiting 30s before trying to do it
    in order to have better chance that systray is running during
    session startup.
+** fixed displaying of the fahrenheit temperature in the main
+   window.
 
 * v0.7.0.3
 
