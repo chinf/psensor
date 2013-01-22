@@ -547,11 +547,11 @@ msgstr "Préférences"
 
 #: src/ui.c:151 src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
-msgstr "Configuration des capteurs"
+msgstr "Préférences des capteurs"
 
 #: src/ui.c:152
 msgid "Sensor Preferences"
-msgstr "Configuration des capteurs"
+msgstr "Préférences des capteurs"
 
 #: src/ui.c:156
 msgid "_Quit"
