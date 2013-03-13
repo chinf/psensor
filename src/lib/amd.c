@@ -140,7 +140,6 @@ static int init()
 	int i, inumberadapters, inumberadaptersactive = 0;
 	int lpstatus, iadapterindex;
 
-	hdll;
 	adl_main_control_done = 0;
 	active_adapters = NULL;
 	hdll = dlopen("libatiadlxx.so", RTLD_LAZY|RTLD_GLOBAL);
