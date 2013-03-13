@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.6" />
+<meta name="generator" content="AsciiDoc 8.6.7" />
 <title>Psensor README</title>
 <style type="text/css">
 body {
@@ -183,7 +183,7 @@ toc: function (toclevels) {
 
   function tocEntries(el, toclevels) {
     var result = new Array;
-    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
     // Function that scans the DOM tree for header elements (the DOM2
     // nodeIterator API would be a better technique but not supported by all
     // browsers).
@@ -212,7 +212,7 @@ toc: function (toclevels) {
   var i;
   for (i = 0; i < toc.childNodes.length; i++) {
     var entry = toc.childNodes[i];
-    if (entry.nodeName == 'div'
+    if (entry.nodeName.toLowerCase() == 'div'
      && entry.getAttribute("class")
      && entry.getAttribute("class").match(/^toclevel/))
       tocEntriesToRemove.push(entry);
@@ -258,7 +258,7 @@ footnotes: function () {
   var entriesToRemove = [];
   for (i = 0; i < noteholder.childNodes.length; i++) {
     var entry = noteholder.childNodes[i];
-    if (entry.nodeName == 'div' && entry.getAttribute("class") == "footnote")
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
       entriesToRemove.push(entry);
   }
   for (i = 0; i < entriesToRemove.length; i++) {
@@ -595,7 +595,7 @@ help2man libnotify-devel libgtop2-devel make</tt></pre>
 <div class="listingblock">
 <div class="content">
 <pre><tt>sudo apt-get install autoconf automake asciidoc cppcheck gcc gettext
-autopoint libgtk2.0-dev libgconf2-dev libnotify-dev libsensors4-dev
+autopoint libgtk-3-dev libgconf2-dev libnotify-dev libsensors4-dev
 help2man libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev
 libgtop2-dev make perl libunity-dev libgtop2-dev libappindicator-dev
 nvidia-settings</tt></pre>
@@ -653,7 +653,7 @@ requiring an additional library.</p></div>
 <div class="paragraph"><p>Download the
 <a href="http://developer.amd.com/sdks/ADLSDK/Pages/default.aspx">ATI ADL SDK</a>
 and extracts the files of the archive into a directory [dir].</p></div>
-<div class="paragraph"><p>Replace the step 7. of the above section by <tt>./configure
+<div class="paragraph"><p>Replace the step 3. of the above section by <tt>./configure
 --with-libatiadl=[dir]</tt> where <tt>[dir]</tt> must be the directory where you
 have extracted the ATI ADL SDK. Other steps are indentical.</p></div>
 </div>
@@ -670,7 +670,7 @@ have extracted the ATI ADL SDK. Other steps are indentical.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2012-09-15 23:19:06 CEST
+Last updated 2013-03-13 10:55:37 CET
 </div>
 </div>
 </body>
