@@ -32,6 +32,7 @@
    session startup.
 ** fixed displaying of the fahrenheit temperature in the main
    window.
+** fixed compilation error in amd.c (hdll not used).
 
 * v0.7.0.3
 
