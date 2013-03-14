@@ -1,9 +1,15 @@
-psensor (0.7.0.x-0ubuntu1) unstable; urgency=low
+psensor (0.8.0.x-0ubuntu1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 14 Mar 2013 11:04:33 +0200
+
+psensor (0.7.0.4-1quantal1) quantal; urgency=low
 
   * New upstream
       + fixed realloc null returned value not handled in amd.c.
       + fixed url var in main function not freed.
-      + added message when no sensor graphs are enabled. (Closes: #689355)
+      + added message when no sensor graphs are enabled. (Closes: #689355)     
   * debian/control
       + added builddep to cppcheck.
       + added builddep to asciidoc.
@@ -13,7 +19,13 @@ psensor (0.7.0.x-0ubuntu1) unstable; urgency=low
   * debian/psensor-common.install
       + added faq.txt and faq.html.
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sun, 26 Aug 2012 11:04:33 +0200
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Thu, 14 Mar 2013 10:04:33 +0200
+
+psensor (0.7.0.3-1quantal1) quantal; urgency=low
+
+  * Bump Quantal
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sat, 08 Dec 2012 11:34:13 +0100
 
 psensor (0.7.0.3-1) unstable; urgency=low
 
