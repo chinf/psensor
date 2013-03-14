@@ -110,11 +110,15 @@ static struct psensor *create_sensor(int id, int values_len)
 	if (id & 1) {/* odd number ids represent fan sensors */
 		id = id >> 1;
 		sprintf(name, "GPU%dfan", id);
-		sensor_type = SENSOR_TYPE_AMD_FAN;
+		sensor_type = SENSOR_TYPE_ATIADL 
+			| SENSOR_TYPE_FAN
+			| SENSOR_TYPE_RPM;
 	} else {/* even number ids represent temperature sensors */
 		id = id >> 1;
 		sprintf(name, "GPU%dtemp", id);
-		sensor_type = SENSOR_TYPE_AMD_TEMP;
+		sensor_type = SENSOR_TYPE_ATIADL 
+			| SENSOR_TYPE_GPU
+			| SENSOR_TYPE_TEMP;
 	}
 
 	sid = malloc(strlen("amd") + 1 + strlen(name) + 1);
@@ -231,12 +235,14 @@ void amd_psensor_list_update(struct psensor **sensors)
 	while (*ss) {
 		s = *ss;
 
-		if (s->type == SENSOR_TYPE_AMD_TEMP)
-			psensor_set_current_value(s, get_temp(s));
-		else if (s->type == SENSOR_TYPE_AMD_FAN)
-			psensor_set_current_value(s, get_fanspeed(s));
-
-		ss++;
+		if (s->type & SENSOR_TYPE_ATIADL) {
+			if (s->type & SENSOR_TYPE_TEMP)
+				psensor_set_current_value(s, get_temp(s));
+			else if (s->type & SENSOR_TYPE_FAN)
+				psensor_set_current_value(s, get_fanspeed(s));
+		}
+			
+			ss++;
 	}
 }
 
