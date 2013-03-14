@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-01-21 21:51+0100\n"
+"POT-Creation-Date: 2013-03-14 08:47+0100\n"
 "PO-Revision-Date: 2012-12-13 15:00+0000\n"
 "Last-Translator: Alain-OIivier Breysse <Unknown>\n"
 "Language-Team: French <>\n"
@@ -196,19 +196,19 @@ msgstr "Détails"
 msgid "Name:"
 msgstr "Nom:"
 
-#: src/lib/amd.c:149
+#: src/lib/amd.c:148
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: impossible de trouver la bibliothèque ADL."
 
-#: src/lib/amd.c:173
+#: src/lib/amd.c:172
 msgid "AMD: missing ADL's API."
 msgstr "AMD: L'interface de programmation ADL est manquante."
 
-#: src/lib/amd.c:178
+#: src/lib/amd.c:177
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: échec de l'initialisation d'ADL."
 
-#: src/lib/amd.c:184
+#: src/lib/amd.c:183
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: impossible de récupérer le nombre d'adaptateurs."
 

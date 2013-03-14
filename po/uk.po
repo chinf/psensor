@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-01-21 21:51+0100\n"
+"POT-Creation-Date: 2013-03-14 08:47+0100\n"
 "PO-Revision-Date: 2012-10-13 16:24+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -195,19 +195,19 @@ msgstr "Подробиці"
 msgid "Name:"
 msgstr "Назва:"
 
-#: src/lib/amd.c:149
+#: src/lib/amd.c:148
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: не вдалося знайти бібліотеку ADL."
 
-#: src/lib/amd.c:173
+#: src/lib/amd.c:172
 msgid "AMD: missing ADL's API."
 msgstr "AMD: відсутнє API ADL."
 
-#: src/lib/amd.c:178
+#: src/lib/amd.c:177
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: не вдалося ініціалізувати ADL."
 
-#: src/lib/amd.c:184
+#: src/lib/amd.c:183
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: не вдалося отримати кількість адаптерів."
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-01-21 21:51+0100\n"
+"POT-Creation-Date: 2013-03-14 08:47+0100\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -196,19 +196,19 @@ msgstr "Részletek"
 msgid "Name:"
 msgstr "Név:"
 
-#: src/lib/amd.c:149
+#: src/lib/amd.c:148
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: Nem sikerült betölteni az ADL programkönyvtárat."
 
-#: src/lib/amd.c:173
+#: src/lib/amd.c:172
 msgid "AMD: missing ADL's API."
 msgstr "AMD: hiányzó ADL API."
 
-#: src/lib/amd.c:178
+#: src/lib/amd.c:177
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: az ADL előkészítése meghiúsult."
 
-#: src/lib/amd.c:184
+#: src/lib/amd.c:183
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: adapterek számainak lekérése meghiúsult"
 
