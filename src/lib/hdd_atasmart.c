@@ -45,10 +45,14 @@ static struct psensor *
 create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 {
 	struct psensor *s;
+	int t;
+
+	t = SENSOR_TYPE_ATASMART | SENSOR_TYPE_HDD | SENSOR_TYPE_TEMP;
+
 	s = psensor_create(id,
 			   strdup(name),
 			   strdup("HDD"),
-			   SENSOR_TYPE_HDD_TEMP_ATASMART,
+			   t,
 			   values_max_length);
 
 	s->disk = disk;
@@ -165,7 +169,7 @@ void hdd_psensor_list_update(struct psensor **sensors)
 	cur = sensors;
 	while (*cur) {
 		s = *cur;
-		if (s->type == SENSOR_TYPE_HDD_TEMP_ATASMART) {
+		if (s->type & SENSOR_TYPE_ATASMART) {
 			ret = sk_disk_smart_read_data(s->disk);
 
 			if (!ret) {

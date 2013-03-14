@@ -439,19 +439,22 @@ struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 
 const char *psensor_type_to_str(unsigned int type)
 {
-	if ((type & SENSOR_TYPE_NVIDIA_TEMP) == SENSOR_TYPE_NVIDIA_TEMP)
-		return "NVidia GPU Temperature";
+	if (type & SENSOR_TYPE_NVCTRL)
+		return "NVidia GPU";
 
-	if ((type & SENSOR_TYPE_AMD_TEMP) == SENSOR_TYPE_AMD_TEMP)
-		return "AMD GPU Temperature";
-
-	if ((type & SENSOR_TYPE_AMD_FAN) == SENSOR_TYPE_AMD_FAN)
-		return "AMD GPU Fan Speed";
+	if (type & SENSOR_TYPE_ATIADL) {
+		if (type & SENSOR_TYPE_TEMP)
+			return "AMD GPU Temperature";
+		else if (type & SENSOR_TYPE_RPM)
+			return "AMD GPU Fan Speed";
+		else /* type & SENSOR_TYPE_USAGE */
+			return "AMD GPU Usage";
+	}
 
 	if ((type & SENSOR_TYPE_HDD_TEMP) == SENSOR_TYPE_HDD_TEMP)
 		return "HDD Temperature";
 
-	if (type & SENSOR_TYPE_CPU_USAGE)
+	if ((type & SENSOR_TYPE_CPU_USAGE) == SENSOR_TYPE_CPU_USAGE)
 		return "CPU Usage";
 
 	if (type & SENSOR_TYPE_TEMP)
@@ -460,10 +463,13 @@ const char *psensor_type_to_str(unsigned int type)
 	if (type & SENSOR_TYPE_FAN)
 		return "Fan";
 
+	if (type & SENSOR_TYPE_CPU)
+		return "CPU";
+
 	if (type & SENSOR_TYPE_REMOTE)
 		return "Remote";
 
-	return "N/A";		/* should not be possible */
+	return "N/A";
 }
 
 
@@ -491,12 +497,11 @@ void psensor_list_update_measures(struct psensor **sensors)
 	cpu_psensor_list_update(sensors);
 #endif
 
-	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDD_TEMP_HDDTEMP))
+	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDDTEMP))
 		hddtemp_psensor_list_update(sensors);
 
 #ifdef HAVE_ATASMART
-	if (psensor_list_contains_type(sensors,
-				       SENSOR_TYPE_HDD_TEMP_ATASMART))
+	if (psensor_list_contains_type(sensors, SENSOR_TYPE_ATASMART))
 		hdd_psensor_list_update(sensors);
 #endif
 }

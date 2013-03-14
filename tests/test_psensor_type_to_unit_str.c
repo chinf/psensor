@@ -53,10 +53,10 @@ static int test() {
 	if (!test_fct(SENSOR_TYPE_TEMP, 0, "\302\260F"))
 		failures++;
 
-	if (!test_fct(SENSOR_TYPE_LMSENSOR_TEMP, 1, "\302\260C"))
+	if (!test_fct(SENSOR_TYPE_LMSENSOR | SENSOR_TYPE_TEMP, 1, "\302\260C"))
 		failures++;
 
-	if (!test_fct(SENSOR_TYPE_LMSENSOR_TEMP, 0, "\302\260F"))
+	if (!test_fct(SENSOR_TYPE_LMSENSOR | SENSOR_TYPE_TEMP, 0, "\302\260F"))
 		failures++;
 
 	if (!test_fct(SENSOR_TYPE_FAN, 0, _("RPM")))

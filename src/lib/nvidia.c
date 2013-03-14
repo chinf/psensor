@@ -60,16 +60,19 @@ static struct psensor *create_sensor(int id, int values_len)
 	char name[200];
 	char *sid;
 	struct psensor *s;
+	int t;
 
 	sprintf(name, "GPU%d", id);
 
 	sid = malloc(strlen("nvidia") + 1 + strlen(name) + 1);
 	sprintf(sid, "nvidia %s", name);
 
+	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP;
+
 	s = psensor_create(sid,
 			   strdup(name),
 			   strdup("Nvidia GPU"),
-			   SENSOR_TYPE_NVIDIA_TEMP,
+			   t,
 			   values_len);
 
 	s->nvidia_id = id;
@@ -111,7 +114,7 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 	while (*ss) {
 		s = *ss;
 
-		if (s->type == SENSOR_TYPE_NVIDIA_TEMP)
+		if (s->type & SENSOR_TYPE_NVCTRL)
 			psensor_set_current_value(s, get_temp(s));
 
 		ss++;

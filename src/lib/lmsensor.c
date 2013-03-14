@@ -84,14 +84,15 @@ void lmsensor_psensor_list_update(struct psensor **sensors)
 		return ;
 
 	while (*s_ptr) {
-		struct psensor *sensor = *s_ptr;
+		struct psensor *s = *s_ptr;
 
-		if (sensor->type == SENSOR_TYPE_LMSENSOR_TEMP)
-			psensor_set_current_value
-			    (sensor, get_temp_input(sensor));
-		else if (sensor->type == SENSOR_TYPE_LMSENSOR_FAN)
-			psensor_set_current_value(sensor,
-						  get_fan_input(sensor));
+		if (s->type & SENSOR_TYPE_LMSENSOR) {
+			if (s->type & SENSOR_TYPE_TEMP)
+				psensor_set_current_value(s,
+							  get_temp_input(s));
+			else if (s->type & SENSOR_TYPE_RPM)
+				psensor_set_current_value(s, get_fan_input(s));
+		}
 
 		s_ptr++;
 	}
@@ -114,10 +115,8 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 
 	if (feature->type == SENSORS_FEATURE_TEMP) {
 		fault_subfeature = SENSORS_SUBFEATURE_TEMP_FAULT;
-
 	} else if (feature->type == SENSORS_FEATURE_FAN) {
 		fault_subfeature = SENSORS_SUBFEATURE_FAN_FAULT;
-
 	} else {
 		log_err(_(
 "lmsensor: lmsensor_psensor_create failure: wrong feature type."));
@@ -132,11 +131,11 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	if (!label)
 		return NULL;
 
-	type = 0;
+	type = SENSOR_TYPE_LMSENSOR;
 	if (feature->type == SENSORS_FEATURE_TEMP)
-		type = SENSOR_TYPE_LMSENSOR_TEMP;
+		type |= SENSOR_TYPE_TEMP;
 	else if (feature->type == SENSORS_FEATURE_FAN)
-		type = SENSOR_TYPE_LMSENSOR_FAN;
+		type |= (SENSOR_TYPE_RPM|SENSOR_TYPE_FAN);
 	else
 		return NULL;
 
