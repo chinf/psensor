@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2010-2011 thgreasi@gmail.com, jeanfi@gmail.com
- * Copyright (C) 2010-2012 jeanfi@gmail.com
+ * Copyright (C) 2010-2013 jeanfi@gmail.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -110,13 +110,13 @@ static struct psensor *create_sensor(int id, int values_len)
 	if (id & 1) {/* odd number ids represent fan sensors */
 		id = id >> 1;
 		sprintf(name, "GPU%dfan", id);
-		sensor_type = SENSOR_TYPE_ATIADL 
+		sensor_type = SENSOR_TYPE_ATIADL
 			| SENSOR_TYPE_FAN
 			| SENSOR_TYPE_RPM;
 	} else {/* even number ids represent temperature sensors */
 		id = id >> 1;
 		sprintf(name, "GPU%dtemp", id);
-		sensor_type = SENSOR_TYPE_ATIADL 
+		sensor_type = SENSOR_TYPE_ATIADL
 			| SENSOR_TYPE_GPU
 			| SENSOR_TYPE_TEMP;
 	}
