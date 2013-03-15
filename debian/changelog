@@ -9,7 +9,7 @@ psensor (0.7.0.4-1quantal1) quantal; urgency=low
   * New upstream
       + fixed realloc null returned value not handled in amd.c.
       + fixed url var in main function not freed.
-      + added message when no sensor graphs are enabled. (Closes: #689355)     
+      + added message when no sensor graphs are enabled. (Closes: #689355)
   * debian/control
       + added builddep to cppcheck.
       + added builddep to asciidoc.
