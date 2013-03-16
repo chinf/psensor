@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-14 08:47+0100\n"
+"POT-Creation-Date: 2013-03-15 10:15+0100\n"
 "PO-Revision-Date: 2012-11-11 10:38+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -137,7 +137,7 @@ msgstr "Tips:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:482
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:488
 #: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
 #: src/ui_notify.c:81
 msgid "N/A"
@@ -195,23 +195,23 @@ msgstr "Detaļas"
 msgid "Name:"
 msgstr "Nosaukums:"
 
-#: src/lib/amd.c:148
+#: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: nevar atrast ADL bibliotēku."
 
-#: src/lib/amd.c:172
+#: src/lib/amd.c:195
 msgid "AMD: missing ADL's API."
 msgstr "AMD: trūkst ADL programmatūras saskarne."
 
-#: src/lib/amd.c:177
+#: src/lib/amd.c:203
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: neizdevās inicializēt ADL."
 
-#: src/lib/amd.c:183
+#: src/lib/amd.c:209
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: nevar saņemt adapteru skaitu."
 
-#: src/lib/hdd_atasmart.c:145
+#: src/lib/hdd_atasmart.c:149
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
 msgstr "atasmart: sk_disk_open() atteice: %s."
@@ -224,7 +224,7 @@ msgstr "hddtemp: neizdevās atvērt ligzdu."
 msgid "hddtemp: failed to open connection."
 msgstr "hddtemp: neizdevās atvērt savienojumu."
 
-#: src/lib/hdd_hddtemp.c:182 src/lib/hdd_hddtemp.c:251
+#: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:255
 #, c-format
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: nepareiza virkne: %s."
@@ -234,11 +234,11 @@ msgstr "hddtemp: nepareiza virkne: %s."
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr "lmsensor: nevar iegūt vērtību no apakšīpašības %s: %s."
 
-#: src/lib/lmsensor.c:123
+#: src/lib/lmsensor.c:122
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr "lmsensor: lmsensor_psensor_create atteice: nepareis īpašības tips."
 
-#: src/lib/lmsensor.c:218
+#: src/lib/lmsensor.c:217
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: inicializācijas kļūda: %s."
@@ -252,19 +252,19 @@ msgstr "Nevar atvērt žurnāla failu: %s"
 msgid "Failed to retrieve NVIDIA temperature."
 msgstr "Neizdevās saņemt NVIDIA temperatūtu."
 
-#: src/lib/nvidia.c:93
+#: src/lib/nvidia.c:96
 msgid "Cannot open connection to X11 server."
 msgstr "Nevar atvērt savienojumu ar X11 server."
 
-#: src/lib/nvidia.c:101
+#: src/lib/nvidia.c:104
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Neizdevās saņemt NVIDIA informāciju."
 
-#: src/lib/psensor.c:478 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:484 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:480
+#: src/lib/psensor.c:486
 msgid "%"
 msgstr "%"
 

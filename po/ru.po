@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-14 08:47+0100\n"
+"POT-Creation-Date: 2013-03-15 10:15+0100\n"
 "PO-Revision-Date: 2012-12-25 06:05+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Russian\n"
@@ -137,7 +137,7 @@ msgstr "Тип:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:482
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:488
 #: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
 #: src/ui_notify.c:81
 msgid "N/A"
@@ -195,23 +195,23 @@ msgstr "Сведения"
 msgid "Name:"
 msgstr "Название:"
 
-#: src/lib/amd.c:148
+#: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: библиотека ADL не найдена."
 
-#: src/lib/amd.c:172
+#: src/lib/amd.c:195
 msgid "AMD: missing ADL's API."
 msgstr "AMD: отсутствует API ADL."
 
-#: src/lib/amd.c:177
+#: src/lib/amd.c:203
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: не удалось инициализировать ADL."
 
-#: src/lib/amd.c:183
+#: src/lib/amd.c:209
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: ошибка определения количества адаптеров."
 
-#: src/lib/hdd_atasmart.c:145
+#: src/lib/hdd_atasmart.c:149
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
 msgstr "atasmart: ошибка sk_disk_open(): %s."
@@ -224,7 +224,7 @@ msgstr "hddtemp: не удалось открыть сокет."
 msgid "hddtemp: failed to open connection."
 msgstr "hddtemp: не удалось открыть соединение."
 
-#: src/lib/hdd_hddtemp.c:182 src/lib/hdd_hddtemp.c:251
+#: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:255
 #, c-format
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: неправильная строка: %s."
@@ -234,11 +234,11 @@ msgstr "hddtemp: неправильная строка: %s."
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
 
-#: src/lib/lmsensor.c:123
+#: src/lib/lmsensor.c:122
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr ""
 
-#: src/lib/lmsensor.c:218
+#: src/lib/lmsensor.c:217
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: ошибка инициализации: %s."
@@ -252,19 +252,19 @@ msgstr "Ошибка открытия файла журнала: %s"
 msgid "Failed to retrieve NVIDIA temperature."
 msgstr "Не удалось получить температуру NVIDIA."
 
-#: src/lib/nvidia.c:93
+#: src/lib/nvidia.c:96
 msgid "Cannot open connection to X11 server."
 msgstr "Ошибка открытия соединения к серверу X11."
 
-#: src/lib/nvidia.c:101
+#: src/lib/nvidia.c:104
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Не удалось получить информацию NVIDIA."
 
-#: src/lib/psensor.c:478 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:484 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "об/мин"
 
-#: src/lib/psensor.c:480
+#: src/lib/psensor.c:486
 msgid "%"
 msgstr "%"
 

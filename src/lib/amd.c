@@ -2,6 +2,8 @@
  * Copyright (C) 2010-2011 thgreasi@gmail.com, jeanfi@gmail.com
  * Copyright (C) 2010-2013 jeanfi@gmail.com
  *
+ * GPU usage is a contribution of MestreLion
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation; either version 2 of the
@@ -19,10 +21,6 @@
  */
 #ifndef LINUX
 #define LINUX 1
-#endif
-#ifdef HAVE_LIBATIADL
-	/* AMD id for the aticonfig */
-	int amd_id;
 #endif
 
 #include <locale.h>
@@ -43,16 +41,18 @@ typedef int (*ADL_MAIN_CONTROL_DESTROY)();
 typedef int (*ADL_ADAPTER_NUMBEROFADAPTERS_GET) (int *);
 typedef int (*ADL_ADAPTER_ADAPTERINFO_GET) (LPAdapterInfo, int);
 typedef int (*ADL_ADAPTER_ACTIVE_GET) (int, int*);
-typedef int (*ADL_OVERDRIVE5_TEMPERATURE_GET) (int, int, ADLTemperature*);
-typedef int (*ADL_OVERDRIVE5_FANSPEED_GET) (int, int, ADLFanSpeedValue*);
+typedef int (*ADL_OD5_TEMPERATURE_GET) (int, int, ADLTemperature*);
+typedef int (*ADL_OD5_FANSPEED_GET) (int, int, ADLFanSpeedValue*);
+typedef int (*ADL_OD5_CURRENTACTIVITY_GET) (int, ADLPMActivity*);
 
-static ADL_MAIN_CONTROL_CREATE            adl_main_control_create;
-static ADL_MAIN_CONTROL_DESTROY           adl_main_control_destroy;
-static ADL_ADAPTER_NUMBEROFADAPTERS_GET   adl_adapter_numberofadapters_get;
-static ADL_ADAPTER_ADAPTERINFO_GET        adl_adapter_adapterinfo_get;
-static ADL_ADAPTER_ACTIVE_GET             adl_adapter_active_get;
-static ADL_OVERDRIVE5_TEMPERATURE_GET     adl_overdrive5_temperature_get;
-static ADL_OVERDRIVE5_FANSPEED_GET        adl_overdrive5_fanspeed_get;
+static ADL_MAIN_CONTROL_CREATE adl_main_control_create;
+static ADL_MAIN_CONTROL_DESTROY adl_main_control_destroy;
+static ADL_ADAPTER_NUMBEROFADAPTERS_GET adl_adapter_numberofadapters_get;
+static ADL_ADAPTER_ADAPTERINFO_GET adl_adapter_adapterinfo_get;
+static ADL_ADAPTER_ACTIVE_GET adl_adapter_active_get;
+static ADL_OD5_TEMPERATURE_GET adl_od5_temperature_get;
+static ADL_OD5_FANSPEED_GET adl_od5_fanspeed_get;
+static ADL_OD5_CURRENTACTIVITY_GET adl_od5_currentactivity_get;
 
 static void *hdll;
 static int adl_main_control_done;
@@ -70,62 +70,80 @@ static void *getprocaddress(void *plibrary, const char *name)
 }
 
 /*
-  Returns the temperature (Celcius) of an AMD/Ati GPU.
+  Returns the temperature (Celcius) of an AMD/ATI GPU.
 */
 static double get_temp(struct psensor *sensor)
 {
-	ADLTemperature temperature;
+	ADLTemperature v;
 
-	temperature.iSize = sizeof(ADLTemperature);
-	temperature.iTemperature = -273;
-	if (ADL_OK != adl_overdrive5_temperature_get(sensor->amd_id,
-		 0, &temperature))
+	v.iSize = sizeof(ADLTemperature);
+	v.iTemperature = -273;
+	if (ADL_OK == adl_od5_temperature_get(sensor->amd_id, 0, &v))
+		return v.iTemperature/1000;
+	else
 		return UNKNOWN_DBL_VALUE;
-
-	return temperature.iTemperature/1000;
 }
 
 static double get_fanspeed(struct psensor *sensor)
 {
-	ADLFanSpeedValue fanspeedvalue;
+	ADLFanSpeedValue v;
 
-	fanspeedvalue.iSize = sizeof(ADLFanSpeedValue);
-	fanspeedvalue.iSpeedType = ADL_DL_FANCTRL_SPEED_TYPE_RPM;
-	fanspeedvalue.iFanSpeed = -1;
-	if (ADL_OK != adl_overdrive5_fanspeed_get(sensor->amd_id,
-		 0, &fanspeedvalue))
+	v.iSize = sizeof(ADLFanSpeedValue);
+	v.iSpeedType = ADL_DL_FANCTRL_SPEED_TYPE_RPM;
+	v.iFanSpeed = -1;
+	if (ADL_OK == adl_od5_fanspeed_get(sensor->amd_id, 0, &v))
+		return v.iFanSpeed;
+	else
 		return UNKNOWN_DBL_VALUE;
-
-	return fanspeedvalue.iFanSpeed;
 }
 
-static struct psensor *create_sensor(int id, int values_len)
+static double get_usage(struct psensor *sensor)
+{
+	ADLPMActivity v;
+
+	v.iSize = sizeof(ADLPMActivity);
+	if (ADL_OK == adl_od5_currentactivity_get(sensor->amd_id, &v))
+		return v.iActivityPercent;
+	else
+		return UNKNOWN_DBL_VALUE;
+}
+
+static struct psensor *create_sensor(int id, int type, int values_len)
 {
 	char name[200];
 	char *sid;
 	int sensor_type;
-
 	struct psensor *s;
 
-	if (id & 1) {/* odd number ids represent fan sensors */
-		id = id >> 1;
-		sprintf(name, "GPU%dfan", id);
-		sensor_type = SENSOR_TYPE_ATIADL
-			| SENSOR_TYPE_FAN
-			| SENSOR_TYPE_RPM;
-	} else {/* even number ids represent temperature sensors */
-		id = id >> 1;
-		sprintf(name, "GPU%dtemp", id);
-		sensor_type = SENSOR_TYPE_ATIADL
-			| SENSOR_TYPE_GPU
-			| SENSOR_TYPE_TEMP;
+	sensor_type = SENSOR_TYPE_ATIADL;
+	switch (type) {
+	/* Fan rotation speed */
+	case 0:
+		sprintf(name, "AMD GPU%d Fan", id);
+		sensor_type |= SENSOR_TYPE_FAN | SENSOR_TYPE_RPM;
+		break;
+
+	/* Temperature */
+	case 1:
+		sprintf(name, "AMD GPU%d Temperature", id);
+		sensor_type |= SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP;
+		break;
+
+	/* GPU Usage (Activity/Load %) */
+	case 2:
+		sprintf(name, "AMD GPU%d Usage", id);
+		sensor_type |= SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE;
+		break;
 	}
 
 	sid = malloc(strlen("amd") + 1 + strlen(name) + 1);
 	sprintf(sid, "amd %s", name);
 
-	s = psensor_create(sid, strdup(name), strdup("ATI GPU"),
-			   sensor_type, values_len);
+	s = psensor_create(sid,
+			   strdup(name),
+			   strdup("AMD/ATI GPU"),
+			   sensor_type,
+			   values_len);
 
 	s->amd_id = active_adapters[id];
 
@@ -133,50 +151,58 @@ static struct psensor *create_sensor(int id, int values_len)
 }
 
 /*
-  Returns the number of AMD/Ati GPU sensors (temperature and fan
-  speed).
+  Returns the number of active AMD/ATI GPU adapters
 
-  Return 0 if no AMD/Ati gpus or cannot get information.
+  Return 0 if no AMD/ATI GPUs or cannot get information.
 */
 static int init()
 {
-	LPAdapterInfo lpadapterinfo = NULL;
-	int i, inumberadapters, inumberadaptersactive = 0;
-	int lpstatus, iadapterindex;
+	LPAdapterInfo lpadapterinfo;
+	int i, inumberadapters, inumberadaptersactive, lpstatus, iadapterindex;
 
 	adl_main_control_done = 0;
+	inumberadaptersactive = 0;
 	active_adapters = NULL;
-	hdll = dlopen("libatiadlxx.so", RTLD_LAZY|RTLD_GLOBAL);
+	lpadapterinfo = NULL;
 
+	hdll = dlopen("libatiadlxx.so", RTLD_LAZY|RTLD_GLOBAL);
 	if (!hdll) {
-		log_err(_("AMD: cannot found ADL library."));
+		log_debug(_("AMD: cannot found ADL library."));
 		return 0;
 	}
 
 	adl_main_control_create = (ADL_MAIN_CONTROL_CREATE)
-		 getprocaddress(hdll, "ADL_Main_Control_Create");
+		getprocaddress(hdll, "ADL_Main_Control_Create");
 	adl_main_control_destroy = (ADL_MAIN_CONTROL_DESTROY)
-		 getprocaddress(hdll, "ADL_Main_Control_Destroy");
+		getprocaddress(hdll, "ADL_Main_Control_Destroy");
 	adl_adapter_numberofadapters_get = (ADL_ADAPTER_NUMBEROFADAPTERS_GET)
-		 getprocaddress(hdll, "ADL_Adapter_NumberOfAdapters_Get");
+		getprocaddress(hdll, "ADL_Adapter_NumberOfAdapters_Get");
 	adl_adapter_adapterinfo_get = (ADL_ADAPTER_ADAPTERINFO_GET)
-		 getprocaddress(hdll, "ADL_Adapter_AdapterInfo_Get");
+		getprocaddress(hdll, "ADL_Adapter_AdapterInfo_Get");
 	adl_adapter_active_get = (ADL_ADAPTER_ACTIVE_GET)
-		 getprocaddress(hdll, "ADL_Adapter_Active_Get");
-	adl_overdrive5_temperature_get = (ADL_OVERDRIVE5_TEMPERATURE_GET)
-		 getprocaddress(hdll, "ADL_Overdrive5_Temperature_Get");
-	adl_overdrive5_fanspeed_get = (ADL_OVERDRIVE5_FANSPEED_GET)
-		 getprocaddress(hdll, "ADL_Overdrive5_FanSpeed_Get");
-	if (!adl_main_control_create ||
-		!adl_main_control_destroy ||
-		!adl_adapter_numberofadapters_get ||
-		!adl_adapter_adapterinfo_get ||
-		!adl_overdrive5_temperature_get ||
-		!adl_overdrive5_fanspeed_get) {
+		getprocaddress(hdll, "ADL_Adapter_Active_Get");
+	adl_od5_temperature_get = (ADL_OD5_TEMPERATURE_GET)
+		getprocaddress(hdll, "ADL_Overdrive5_Temperature_Get");
+	adl_od5_fanspeed_get = (ADL_OD5_FANSPEED_GET)
+		getprocaddress(hdll, "ADL_Overdrive5_FanSpeed_Get");
+	adl_od5_currentactivity_get = (ADL_OD5_CURRENTACTIVITY_GET)
+		getprocaddress(hdll, "ADL_Overdrive5_CurrentActivity_Get");
+	if (!adl_main_control_create
+	    || !adl_main_control_destroy
+	    || !adl_adapter_numberofadapters_get
+	    || !adl_adapter_adapterinfo_get
+	    || !adl_od5_temperature_get
+	    || !adl_od5_fanspeed_get
+	    || !adl_od5_currentactivity_get) {
 		log_err(_("AMD: missing ADL's API."));
 		return 0;
 	}
 
+	/*
+	   1 in 2nd parameter means retrieve adapter information only
+	   for adapters that are physically present and enabled in the
+	   system
+	 */
 	if (ADL_OK != adl_main_control_create(adl_main_memory_alloc, 1)) {
 		log_err(_("AMD: failed to initialize ADL."));
 		return 0;
@@ -223,10 +249,10 @@ static int init()
 
 	free(lpadapterinfo);
 
-	/* Each Adapter has one temperature sensor and one fan */
-	return 2*inumberadaptersactive;
+	return inumberadaptersactive;
 }
 
+/* Called regularly to update sensors values */
 void amd_psensor_list_update(struct psensor **sensors)
 {
 	struct psensor **ss, *s;
@@ -238,33 +264,37 @@ void amd_psensor_list_update(struct psensor **sensors)
 		if (s->type & SENSOR_TYPE_ATIADL) {
 			if (s->type & SENSOR_TYPE_TEMP)
 				psensor_set_current_value(s, get_temp(s));
-			else if (s->type & SENSOR_TYPE_FAN)
+			else if (s->type & SENSOR_TYPE_RPM)
 				psensor_set_current_value(s, get_fanspeed(s));
+			else if (s->type & SENSOR_TYPE_USAGE)
+				psensor_set_current_value(s, get_usage(s));
 		}
-			
-			ss++;
+
+		ss++;
 	}
 }
 
+/* Entry point for AMD sensors */
 struct psensor * *
 amd_psensor_list_add(struct psensor **sensors, int values_len)
 {
-	int i, n;
+	int i, j, n;
 	struct psensor **tmp, **ss, *s;
 
 	n = init();
 
 	ss = sensors;
-	for (i = 0; i < n; i++) {
-		s = create_sensor(i, values_len);
+	for (i = 0; i < n; i++)
+		/* Each GPU Adapter has 3 sensors: temp, fan speed and usage */
+		for (j = 0; j < 3; j++) {
+			s = create_sensor(i, j, values_len);
+			tmp = psensor_list_add(ss, s);
 
-		tmp = psensor_list_add(ss, s);
+			if (ss != tmp)
+				free(ss);
 
-		if (ss != tmp)
-			free(ss);
-
-		ss = tmp;
-	}
+			ss = tmp;
+		}
 
 	return ss;
 }
