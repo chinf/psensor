@@ -51,7 +51,8 @@ static int get_temp(struct psensor *sensor)
 	if (res == True)
 		return temp;
 
-	log_err(_("Failed to retrieve NVIDIA temperature."));
+	log_debug(_("NVIDIA proprietary driver not used or cannot "
+		    "retrieve NVIDIA GPU temperature."));
 	return 0;
 }
 

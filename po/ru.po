@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-15 10:15+0100\n"
+"POT-Creation-Date: 2013-03-16 09:47+0100\n"
 "PO-Revision-Date: 2012-12-25 06:05+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Russian\n"
@@ -195,19 +195,19 @@ msgstr "Сведения"
 msgid "Name:"
 msgstr "Название:"
 
-#: src/lib/amd.c:168
+#: src/lib/amd.c:170
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: библиотека ADL не найдена."
 
-#: src/lib/amd.c:195
+#: src/lib/amd.c:197
 msgid "AMD: missing ADL's API."
 msgstr "AMD: отсутствует API ADL."
 
-#: src/lib/amd.c:203
+#: src/lib/amd.c:207
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: не удалось инициализировать ADL."
 
-#: src/lib/amd.c:209
+#: src/lib/amd.c:213
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: ошибка определения количества адаптеров."
 
@@ -249,14 +249,16 @@ msgid "Cannot open log file: %s"
 msgstr "Ошибка открытия файла журнала: %s"
 
 #: src/lib/nvidia.c:54
-msgid "Failed to retrieve NVIDIA temperature."
+#, fuzzy
+msgid ""
+"NVidia proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr "Не удалось получить температуру NVIDIA."
 
-#: src/lib/nvidia.c:96
+#: src/lib/nvidia.c:97
 msgid "Cannot open connection to X11 server."
 msgstr "Ошибка открытия соединения к серверу X11."
 
-#: src/lib/nvidia.c:104
+#: src/lib/nvidia.c:105
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Не удалось получить информацию NVIDIA."
 
