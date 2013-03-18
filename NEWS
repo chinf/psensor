@@ -1,6 +1,7 @@
 * v0.8.0.1
 
 ** added AMD GPU usage sensor (Contribution from MestreLion).
+** added support of sensors log interval.
 
 * v0.7.0.4
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-16 09:47+0100\n"
+"POT-Creation-Date: 2013-03-18 10:36+0100\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -252,7 +252,7 @@ msgstr "A naplófájl megnyitása sikertelen: %s"
 #: src/lib/nvidia.c:54
 #, fuzzy
 msgid ""
-"NVidia proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
+"NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr "NVIDIA hőmérsékletének lekérése meghiúsult."
 
 #: src/lib/nvidia.c:97

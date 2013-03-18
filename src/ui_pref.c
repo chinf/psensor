@@ -48,7 +48,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkColorButton *w_color_fg, *w_color_bg;
 	GtkScale *w_bg_opacity;
 	GtkSpinButton *w_update_interval, *w_monitoring_duration,
-		*w_s_update_interval;
+		*w_s_update_interval, *w_slog_interval;
 	GtkComboBox *w_sensorlist_pos;
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
 		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
@@ -129,6 +129,10 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_slog_enabled = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "enable_slog"));
 	gtk_toggle_button_set_active(w_slog_enabled, cfg->slog_enabled);
+
+	w_slog_interval = GTK_SPIN_BUTTON
+		(gtk_builder_get_object(builder, "slog_interval"));
+	gtk_spin_button_set_value(w_slog_interval, cfg->slog_interval);
 
 	w_hide_on_startup
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
@@ -215,6 +219,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		cfg->slog_enabled
 			= gtk_toggle_button_get_active(w_slog_enabled);
+
+		cfg->slog_interval
+			= gtk_spin_button_get_value_as_int(w_slog_interval);
 
 		cfg->temperature_unit
 			= gtk_combo_box_get_active(GTK_COMBO_BOX(w_temp_unit));

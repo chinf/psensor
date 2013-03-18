@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-16 09:47+0100\n"
+"POT-Creation-Date: 2013-03-18 10:36+0100\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -251,7 +251,7 @@ msgstr "无法打开日志文件：%s"
 #: src/lib/nvidia.c:54
 #, fuzzy
 msgid ""
-"NVidia proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
+"NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr "无法获取 NVIDIA 温度。"
 
 #: src/lib/nvidia.c:97

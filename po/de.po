@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-16 09:47+0100\n"
+"POT-Creation-Date: 2013-03-18 10:36+0100\n"
 "PO-Revision-Date: 2012-10-11 21:21+0000\n"
 "Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: German\n"
@@ -252,7 +252,7 @@ msgstr "Protokolldatei kann nicht geöffnet werden: %s"
 #: src/lib/nvidia.c:54
 #, fuzzy
 msgid ""
-"NVidia proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
+"NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr "Ermittlung der NVIDIA-Temperatur gescheitert."
 
 #: src/lib/nvidia.c:97
