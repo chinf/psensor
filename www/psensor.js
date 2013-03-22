@@ -46,23 +46,28 @@ function format_mem_size(s) {
 function type_to_str(stype) {
     var stype_str;
 
-    stype_str = "N/A";
-
-    if (stype & 0x0100)
-        stype_str = "Sensor";
-    else if (stype & 0x0200) 
-        stype_str = "NVidia";
-    else if (stype & 0x0400)
-        stype_str = "HDD";
+    if (stype & 0x0200) 
+        stype_str = "NVidia ";
     else if (stype & 0x0800)
-        stype_str = "CPU Usage Percentage";
-    else if (stype & 0x1000) 
-        stype_str = "AMD";
+        stype_str = "ATI/AMD ";
+    else 
+	stype_str = "";
  
-   if (stype & 0x0001)
-       stype_str += " Temperature";
+    if (stype & 0x04000)
+	stype_str += "HDD ";
+    else if (stype & 0x08000)
+	stype_str += "CPU ";
+    else if (stype & 0x10000)
+	stype_str += "GPU ";
+    else if (stype & 0x20000)
+	stype_str += "Fan ";
+
+    if (stype & 0x0001)
+       stype_str += "Temperature";
     else if (stype & 0x0002)
-       stype_str += " Fan";
+       stype_str += "RPM";
+    else if (stype & 0x0004)
+       stype_str += "Load";
 
     return stype_str;
 }
