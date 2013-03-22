@@ -55,17 +55,17 @@ static size_t cbk_curl(void *buffer, size_t size, size_t nmemb, void *userp)
 	return realsize;
 }
 
-static char *create_api_1_0_sensors_url(const char *base_url)
+static char *create_api_1_1_sensors_url(const char *base_url)
 {
 	char *nurl, *ret;
 	int n;
 
 	nurl = url_normalize(base_url);
-	n = strlen(nurl) + strlen(URL_BASE_API_1_0_SENSORS) + 1;
+	n = strlen(nurl) + strlen(URL_BASE_API_1_1_SENSORS) + 1;
 	ret = malloc(n);
 
 	strcpy(ret, nurl);
-	strcat(ret, URL_BASE_API_1_0_SENSORS);
+	strcat(ret, URL_BASE_API_1_1_SENSORS);
 
 	free(nurl);
 
@@ -121,7 +121,7 @@ struct psensor **get_remote_sensors(const char *server_url,
 
 	sensors = NULL;
 
-	url = create_api_1_0_sensors_url(server_url);
+	url = create_api_1_1_sensors_url(server_url);
 
 	obj = get_json_object(url);
 

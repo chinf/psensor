@@ -22,11 +22,11 @@
 #include "psensor.h"
 #include "sysinfo.h"
 
-#define URL_BASE_API_1_0 "/api/1.0"
-#define URL_BASE_API_1_0_SENSORS "/api/1.0/sensors"
-#define URL_API_1_0_SERVER_STOP "/api/1.0/server/stop"
-#define URL_API_1_0_SYSINFO "/api/1.0/sysinfo"
-#define URL_API_1_0_CPU_USAGE "/api/1.0/cpu/usage"
+#define URL_BASE_API_1_1 "/api/1.1"
+#define URL_BASE_API_1_1_SENSORS "/api/1.1/sensors"
+#define URL_API_1_1_SERVER_STOP "/api/1.1/server/stop"
+#define URL_API_1_1_SYSINFO "/api/1.1/sysinfo"
+#define URL_API_1_1_CPU_USAGE "/api/1.1/cpu/usage"
 
 struct server_data {
 	struct psensor *cpu_usage;

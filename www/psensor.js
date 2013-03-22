@@ -168,19 +168,19 @@ function update_menu() {
 
     str = "";
 
-    $.getJSON("/api/1.0/sensors", function(data) {
+    $.getJSON("/api/1.1/sensors", function(data) {
 	str += "<li><em>Sensors</em>\n<ul>";
 
 	$.each(data, function(i, item) {
             name = item["name"];
-	    url = "details.html?id="+escape("/api/1.0/sensors/"+item["id"]);
+	    url = "details.html?id="+escape("/api/1.1/sensors/"+item["id"]);
 	    link = "<a href='"+url+"'>"+name+"</a>";
 	    str += "<li>"+link+"</li>";
 	});
 	str += "</li></ul>";
 
 	str += "<li><em>CPU</em><ul>";
-	url = "details.html?id="+escape("/api/1.0/cpu/usage");
+	url = "details.html?id="+escape("/api/1.1/cpu/usage");
 	link = "<a href='"+url+"'>usage</a>";
 	str += "<li>"+link+"</li>";
 	
@@ -195,7 +195,7 @@ function update_menu() {
 function update_summary_sensors() {
     var name, value_str, min_str, max_str, type, type_str, url;
 
-    $.getJSON("/api/1.0/sensors", function(data) {
+    $.getJSON("/api/1.1/sensors", function(data) {
 	$("#sensors tbody").html("");
 
         $.each(data, function(i, item) {	    
@@ -205,7 +205,7 @@ function update_summary_sensors() {
             min_str = value_to_str(item["min"], type);
             max_str = value_to_str(item["max"], type);
 	    type_str = type_to_str(type);
-	    url = "details.html?id="+escape("/api/1.0/sensors/"+item["id"]);
+	    url = "details.html?id="+escape("/api/1.1/sensors/"+item["id"]);
 
             $("#sensors tbody").append("<tr>"
 	                         +"<td><a href='"+url+"'>"+name+"</a></td>"
@@ -219,7 +219,7 @@ function update_summary_sensors() {
 }
 
 function update_summary_sysinfo() {
-    $.getJSON("/api/1.0/sysinfo", function(data) {
+    $.getJSON("/api/1.1/sysinfo", function(data) {
 	$("#uptime").html("");
 	$("#cpu tbody").html("");
 	$("#memory").html("");
@@ -236,7 +236,7 @@ function update_summary_sysinfo() {
         var uptime_h = Math.floor((uptime / (60*60)) % 24);
         var uptime_d = Math.floor(uptime / (60*60*24));
 	
-        $("#cpu").append("<tr><td><a href='details.html?id=/api/1.0/cpu/usage'>"+load+"%</a></td><td>"
+        $("#cpu").append("<tr><td><a href='details.html?id=/api/1.1/cpu/usage'>"+load+"%</a></td><td>"
 			 +load_1+"</td><td>"
 			 +load_5+"</td><td>"
 			 +load_15+"</td></tr>");
