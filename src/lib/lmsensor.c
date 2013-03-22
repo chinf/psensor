@@ -86,7 +86,8 @@ void lmsensor_psensor_list_update(struct psensor **sensors)
 	while (*s_ptr) {
 		struct psensor *s = *s_ptr;
 
-		if (s->type & SENSOR_TYPE_LMSENSOR) {
+		if (!(s->type & SENSOR_TYPE_REMOTE)
+		    && s->type & SENSOR_TYPE_LMSENSOR) {
 			if (s->type & SENSOR_TYPE_TEMP)
 				psensor_set_current_value(s,
 							  get_temp_input(s));

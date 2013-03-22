@@ -169,7 +169,8 @@ void hdd_psensor_list_update(struct psensor **sensors)
 	cur = sensors;
 	while (*cur) {
 		s = *cur;
-		if (s->type & SENSOR_TYPE_ATASMART) {
+		if (!(s->type & SENSOR_TYPE_REMOTE)
+		    && s->type & SENSOR_TYPE_ATASMART) {
 			ret = sk_disk_smart_read_data(s->disk);
 
 			if (!ret) {
