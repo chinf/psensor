@@ -31,7 +31,6 @@
 #include "cpu.h"
 #endif
 
-
 struct psensor *psensor_create(char *id,
 			       char *name,
 			       char *chip,
