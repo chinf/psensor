@@ -2,6 +2,12 @@
 
 ** added AMD GPU usage sensor (Contribution from MestreLion).
 ** added support of sensors log interval.
+** psensor-server: protocole changes, API version incremented.
+** fixed cpu load when fahrenheit is enabled.
+
+* v07.0.5
+
+** fixed cpu load when fahrenheit is enabled.
 
 * v0.7.0.4
 

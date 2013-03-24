@@ -233,7 +233,7 @@ psensor_value_to_str(unsigned int type, double value, int use_celcius)
 
 	unit = psensor_type_to_unit_str(type, use_celcius);
 
-	if (!use_celcius)
+	if (is_temp_type(type) && !use_celcius)
 		value = celcius_to_fahrenheit(value);
 
 	sprintf(str, "%.0f%s", value, unit);
