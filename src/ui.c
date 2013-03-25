@@ -230,6 +230,8 @@ void ui_window_create(struct ui_psensor *ui)
 	ui->main_window = window;
 
 	gtk_widget_show_all(ui->main_box);
+
+	g_object_unref(G_OBJECT(builder));
 }
 
 static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
