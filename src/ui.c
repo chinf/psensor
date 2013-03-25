@@ -241,8 +241,25 @@ void ui_window_create(struct ui_psensor *ui)
 	GdkPixbuf *icon;
 	GtkIconTheme *icon_theme;
 	struct config *cfg;
+	guint ok;
+	GtkBuilder *builder;
+	GError *error;
 
-	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+	builder = gtk_builder_new();
+
+	error = NULL;
+	ok = gtk_builder_add_from_file
+		(builder,
+		 PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "psensor.glade",
+		 &error);
+
+	if (!ok) {
+		log_printf(LOG_ERR, error->message);
+		g_error_free(error);
+		return ;
+	}
+
+	window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
 
 	cfg = ui->config;
 	if (cfg->window_restore_enabled)
@@ -255,10 +272,6 @@ void ui_window_create(struct ui_psensor *ui)
 	gtk_window_set_default_size(GTK_WINDOW(window),
 				    cfg->window_w,
 				    cfg->window_h);
-
-	gtk_window_set_title(GTK_WINDOW(window),
-			     _("Psensor - Temperature Monitor"));
-	gtk_window_set_role(GTK_WINDOW(window), "psensor");
 
 	icon_theme = gtk_icon_theme_get_default();
 	icon = gtk_icon_theme_load_icon(icon_theme, "psensor", 48, 0, NULL);
@@ -279,8 +292,7 @@ void ui_window_create(struct ui_psensor *ui)
 	/* main box */
 	menubar = get_menu(ui);
 
-	ui->main_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 1);
-	gtk_box_set_homogeneous(GTK_BOX(ui->main_box), FALSE);
+	ui->main_box = GTK_WIDGET(gtk_builder_get_object(builder, "main_box"));
 	gtk_box_pack_start(GTK_BOX(ui->main_box), menubar,
 			   FALSE, TRUE, 0);
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-18 10:36+0100\n"
+"POT-Creation-Date: 2013-03-25 08:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: src/glade/psensor.glade:6
+msgid "Psensor - Temperature Monitor"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -136,7 +140,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:488
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
 #: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
 #: src/ui_notify.c:81
 msgid "N/A"
@@ -223,7 +227,7 @@ msgstr ""
 msgid "hddtemp: failed to open connection."
 msgstr ""
 
-#: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:255
+#: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:256
 #, c-format
 msgid "hddtemp: wrong string: %s."
 msgstr ""
@@ -233,11 +237,11 @@ msgstr ""
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
 
-#: src/lib/lmsensor.c:122
+#: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr ""
 
-#: src/lib/lmsensor.c:217
+#: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr ""
@@ -260,11 +264,11 @@ msgstr ""
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:484 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:483 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:486
+#: src/lib/psensor.c:485
 msgid "%"
 msgstr ""
 
@@ -534,11 +538,7 @@ msgstr ""
 msgid "building menus failed: %s"
 msgstr ""
 
-#: src/ui.c:260
-msgid "Psensor - Temperature Monitor"
-msgstr ""
-
-#: src/ui.c:268
+#: src/ui.c:281
 msgid "Failed to load Psensor icon."
 msgstr ""
 

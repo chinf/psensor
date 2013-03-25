@@ -251,6 +251,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 gladedir = $(pkgdatadir)
 glade_DATA = \
+	psensor.glade \
 	sensor-edit.glade \
 	psensor-pref.glade
 

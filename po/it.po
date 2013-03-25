@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-18 10:36+0100\n"
+"POT-Creation-Date: 2013-03-25 08:49+0100\n"
 "PO-Revision-Date: 2012-08-13 08:20+0000\n"
 "Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -17,6 +17,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-08-17 20:28+0000\n"
 "X-Generator: Launchpad (build 15810)\n"
+
+#: src/glade/psensor.glade:6
+msgid "Psensor - Temperature Monitor"
+msgstr "Psensor - Monitor temperatura"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -138,7 +142,7 @@ msgstr "Tipo:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:488
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
 #: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
 #: src/ui_notify.c:81
 msgid "N/A"
@@ -225,7 +229,7 @@ msgstr "hddtemp: impossibile aprire il socket."
 msgid "hddtemp: failed to open connection."
 msgstr "hddtemp: impossibile aprire la connessione."
 
-#: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:255
+#: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:256
 #, c-format
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: errore di stringa: %s"
@@ -235,11 +239,11 @@ msgstr "hddtemp: errore di stringa: %s"
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr ""
 
-#: src/lib/lmsensor.c:122
+#: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr ""
 
-#: src/lib/lmsensor.c:217
+#: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: inizializzazione fallita: %s"
@@ -263,11 +267,11 @@ msgstr "Impossibile connettersi al server X11."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Impossibile recuperare informazioni da NVIDIA"
 
-#: src/lib/psensor.c:484 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:483 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:486
+#: src/lib/psensor.c:485
 msgid "%"
 msgstr "%"
 
@@ -563,11 +567,7 @@ msgstr "Informazioni su..."
 msgid "building menus failed: %s"
 msgstr "costruzione dei menù fallita: %s"
 
-#: src/ui.c:260
-msgid "Psensor - Temperature Monitor"
-msgstr "Psensor - Monitor temperatura"
-
-#: src/ui.c:268
+#: src/ui.c:281
 msgid "Failed to load Psensor icon."
 msgstr "Impossibile caricare l'icona di Psensor."
 
