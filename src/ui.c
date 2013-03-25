@@ -92,22 +92,22 @@ void ui_show_about_dialog()
 		 NULL);
 }
 
-static void cb_about(GtkMenuItem *mi, gpointer data)
+void ui_cb_about(GtkMenuItem *mi, gpointer data)
 {
 	ui_show_about_dialog();
 }
 
-static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
+void ui_cb_menu_quit(GtkMenuItem *mi, gpointer data)
 {
 	ui_psensor_quit((struct ui_psensor *)data);
 }
 
-static void cb_preferences(GtkMenuItem *mi, gpointer data)
+void ui_cb_preferences(GtkMenuItem *mi, gpointer data)
 {
 	ui_pref_dialog_run((struct ui_psensor *)data);
 }
 
-static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
+void ui_cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 {
 	struct ui_psensor *ui = data;
 
@@ -122,69 +122,6 @@ void ui_psensor_quit(struct ui_psensor *ui)
 	log_debug("Destroy main window");
 	gtk_widget_destroy(ui->main_window);
 	gtk_main_quit();
-}
-
-static const char *menu_desc =
-"<ui>"
-"  <menubar name='MainMenu'>"
-"    <menu name='Psensor' action='PsensorMenuAction'>"
-"      <menuitem name='Preferences' action='PreferencesAction' />"
-"      <menuitem name='SensorPreferences' action='SensorPreferencesAction' />"
-"      <separator />"
-"      <menuitem name='Quit' action='QuitAction' />"
-"    </menu>"
-"    <menu name='Help' action='HelpMenuAction'>"
-"      <menuitem name='About' action='AboutAction' />"
-"    </menu>"
-"  </menubar>"
-"</ui>";
-
-static GtkActionEntry entries[] = {
-	{ "PsensorMenuAction", NULL, "_Psensor" },
-
-	{ "PreferencesAction", GTK_STOCK_PREFERENCES,
-	  N_("_Preferences"), NULL,
-	  N_("Preferences"),
-	  G_CALLBACK(cb_preferences) },
-
-	{ "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
-	  N_("S_ensor Preferences"), NULL,
-	  N_("Sensor Preferences"),
-	  G_CALLBACK(cb_sensor_preferences) },
-
-	{ "QuitAction",
-	  GTK_STOCK_QUIT, N_("_Quit"), NULL, N_("Quit"),
-	  G_CALLBACK(cb_menu_quit) },
-
-	{ "HelpMenuAction", NULL, N_("_Help") },
-
-	{ "AboutAction", GTK_STOCK_PREFERENCES,
-	  N_("_About"), NULL,
-	  N_("About"),
-	  G_CALLBACK(cb_about) }
-};
-static guint n_entries = G_N_ELEMENTS(entries);
-
-static GtkWidget *get_menu(struct ui_psensor *ui)
-{
-	GtkActionGroup *action_group;
-	GtkUIManager *menu_manager;
-	GError *error;
-
-	action_group = gtk_action_group_new("PsensorActions");
-	gtk_action_group_set_translation_domain(action_group, PACKAGE);
-	menu_manager = gtk_ui_manager_new();
-
-	gtk_action_group_add_actions(action_group, entries, n_entries, ui);
-	gtk_ui_manager_insert_action_group(menu_manager, action_group, 0);
-
-	error = NULL;
-	gtk_ui_manager_add_ui_from_string(menu_manager, menu_desc, -1, &error);
-
-	if (error)
-		g_error(_("building menus failed: %s"), error->message);
-
-	return gtk_ui_manager_get_widget(menu_manager, "/MainMenu");
 }
 
 void ui_enable_alpha_channel(struct ui_psensor *ui)
@@ -211,7 +148,6 @@ void ui_enable_alpha_channel(struct ui_psensor *ui)
 	} else {
 		cfg->alpha_channel_enabled = 0;
 	}
-
 }
 
 static void on_slog_enabled_cb(GConfClient *client,
@@ -260,7 +196,7 @@ void ui_window_create(struct ui_psensor *ui)
 	}
 
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
-
+	gtk_builder_connect_signals(builder, ui);
 	cfg = ui->config;
 	if (cfg->window_restore_enabled)
 		gtk_window_move(GTK_WINDOW(window),
@@ -290,7 +226,7 @@ void ui_window_create(struct ui_psensor *ui)
 				  cfg->window_keep_below_enabled);
 
 	/* main box */
-	menubar = get_menu(ui);
+	menubar = GTK_WIDGET(gtk_builder_get_object(builder, "menu_bar"));
 
 	ui->main_box = GTK_WIDGET(gtk_builder_get_object(builder, "main_box"));
 	gtk_box_pack_start(GTK_BOX(ui->main_box), menubar,

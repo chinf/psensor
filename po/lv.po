@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 08:49+0100\n"
+"POT-Creation-Date: 2013-03-25 10:24+0100\n"
 "PO-Revision-Date: 2012-11-11 10:38+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -18,9 +18,34 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
 "X-Generator: Launchpad (build 16430)\n"
 
-#: src/glade/psensor.glade:6
+#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+msgid "About"
+msgstr "Par"
+
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr "Iestatījumi"
+
+#: src/glade/psensor.glade:13
+msgid "Quit"
+msgstr "Iziet"
+
+#: src/glade/psensor.glade:17
+msgid "Sensor Preferences"
+msgstr "Sensoru iestatījumi"
+
+#: src/glade/psensor.glade:22
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - temperatūras pārraugs"
+
+#: src/glade/psensor.glade:37
+#, fuzzy
+msgid "_Psensor"
+msgstr "Sensors"
+
+#: src/glade/psensor.glade:81
+msgid "_Help"
+msgstr "_Palīdzība"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -519,48 +544,7 @@ msgstr "Par Psensor"
 msgid "Psensor Homepage"
 msgstr "Psensor mājas lapa"
 
-#: src/ui.c:146 src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Iestatījumi"
-
-#: src/ui.c:147 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
-msgid "Preferences"
-msgstr "Iestatījumi"
-
-#: src/ui.c:151 src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "S_ensoru iestatījumi"
-
-#: src/ui.c:152
-msgid "Sensor Preferences"
-msgstr "Sensoru iestatījumi"
-
-#: src/ui.c:156
-msgid "_Quit"
-msgstr "_Iziet"
-
-#: src/ui.c:156
-msgid "Quit"
-msgstr "Iziet"
-
-#: src/ui.c:159
-msgid "_Help"
-msgstr "_Palīdzība"
-
-#: src/ui.c:162 src/ui_appindicator.c:122
-msgid "_About"
-msgstr "P_ar"
-
-#: src/ui.c:163 src/ui_appindicator.c:124
-msgid "About"
-msgstr "Par"
-
-#: src/ui.c:185 src/ui_appindicator.c:186 src/ui_graph.c:99
-#, c-format
-msgid "building menus failed: %s"
-msgstr "neizdevās izveidot izvēlnes: %s"
-
-#: src/ui.c:281
+#: src/ui.c:217
 msgid "Failed to load Psensor icon."
 msgstr "Neizdevās ielādēt Psensor ikonu."
 
@@ -596,9 +580,26 @@ msgstr "_Rādīt"
 msgid "Show"
 msgstr "Rādīt"
 
+#: src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr "_Iestatījumi"
+
+#: src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr "S_ensoru iestatījumi"
+
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
 msgstr "SensoraIestatījumi"
+
+#: src/ui_appindicator.c:122
+msgid "_About"
+msgstr "P_ar"
+
+#: src/ui_appindicator.c:186 src/ui_graph.c:99
+#, c-format
+msgid "building menus failed: %s"
+msgstr "neizdevās izveidot izvēlnes: %s"
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
@@ -615,6 +616,9 @@ msgstr "Nezināms"
 #: src/ui_sensorpref.c:523
 msgid "Sensor Name"
 msgstr "Sensora nosaukums"
+
+#~ msgid "_Quit"
+#~ msgstr "_Iziet"
 
 #~ msgid "Enabled"
 #~ msgstr "Aktivizēts"

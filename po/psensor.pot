@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 08:49+0100\n"
+"POT-Creation-Date: 2013-03-25 10:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/glade/psensor.glade:6
+#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+msgid "About"
+msgstr ""
+
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr ""
+
+#: src/glade/psensor.glade:13
+msgid "Quit"
+msgstr ""
+
+#: src/glade/psensor.glade:17
+msgid "Sensor Preferences"
+msgstr ""
+
+#: src/glade/psensor.glade:22
 msgid "Psensor - Temperature Monitor"
+msgstr ""
+
+#: src/glade/psensor.glade:37
+msgid "_Psensor"
+msgstr ""
+
+#: src/glade/psensor.glade:81
+msgid "_Help"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:7
@@ -497,48 +521,7 @@ msgstr ""
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:146 src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr ""
-
-#: src/ui.c:147 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
-msgid "Preferences"
-msgstr ""
-
-#: src/ui.c:151 src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr ""
-
-#: src/ui.c:152
-msgid "Sensor Preferences"
-msgstr ""
-
-#: src/ui.c:156
-msgid "_Quit"
-msgstr ""
-
-#: src/ui.c:156
-msgid "Quit"
-msgstr ""
-
-#: src/ui.c:159
-msgid "_Help"
-msgstr ""
-
-#: src/ui.c:162 src/ui_appindicator.c:122
-msgid "_About"
-msgstr ""
-
-#: src/ui.c:163 src/ui_appindicator.c:124
-msgid "About"
-msgstr ""
-
-#: src/ui.c:185 src/ui_appindicator.c:186 src/ui_graph.c:99
-#, c-format
-msgid "building menus failed: %s"
-msgstr ""
-
-#: src/ui.c:281
+#: src/ui.c:217
 msgid "Failed to load Psensor icon."
 msgstr ""
 
@@ -574,8 +557,25 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
+#: src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr ""
+
+#: src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr ""
+
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
+msgstr ""
+
+#: src/ui_appindicator.c:122
+msgid "_About"
+msgstr ""
+
+#: src/ui_appindicator.c:186 src/ui_graph.c:99
+#, c-format
+msgid "building menus failed: %s"
 msgstr ""
 
 #: src/ui_notify.c:77

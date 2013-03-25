@@ -347,7 +347,9 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 SUBDIRS = lib glade $(am__append_1)
-AM_LDFLAGS = -Wl,--as-needed 
+
+# -export-dynamic is need for defining handlers in the glade file.
+AM_LDFLAGS = -Wl,--as-needed -export-dynamic
 
 # -no-deprecated-declarations to avoid some glib deprecation warnings
 AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \

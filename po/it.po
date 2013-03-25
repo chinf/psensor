@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 08:49+0100\n"
+"POT-Creation-Date: 2013-03-25 10:24+0100\n"
 "PO-Revision-Date: 2012-08-13 08:20+0000\n"
 "Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -18,9 +18,34 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-08-17 20:28+0000\n"
 "X-Generator: Launchpad (build 15810)\n"
 
-#: src/glade/psensor.glade:6
+#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+msgid "About"
+msgstr "Informazioni su..."
+
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr "Preferenze"
+
+#: src/glade/psensor.glade:13
+msgid "Quit"
+msgstr "Esci"
+
+#: src/glade/psensor.glade:17
+msgid "Sensor Preferences"
+msgstr "Sensor Preferenze"
+
+#: src/glade/psensor.glade:22
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor temperatura"
+
+#: src/glade/psensor.glade:37
+#, fuzzy
+msgid "_Psensor"
+msgstr "Sensore"
+
+#: src/glade/psensor.glade:81
+msgid "_Help"
+msgstr "_Aiuto"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -526,48 +551,7 @@ msgstr "Informazioni su Psensor"
 msgid "Psensor Homepage"
 msgstr "Psensor Homepage"
 
-#: src/ui.c:146 src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Preferenze"
-
-#: src/ui.c:147 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
-msgid "Preferences"
-msgstr "Preferenze"
-
-#: src/ui.c:151 src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "S_ensor Preferenze"
-
-#: src/ui.c:152
-msgid "Sensor Preferences"
-msgstr "Sensor Preferenze"
-
-#: src/ui.c:156
-msgid "_Quit"
-msgstr "_Esci"
-
-#: src/ui.c:156
-msgid "Quit"
-msgstr "Esci"
-
-#: src/ui.c:159
-msgid "_Help"
-msgstr "_Aiuto"
-
-#: src/ui.c:162 src/ui_appindicator.c:122
-msgid "_About"
-msgstr "_Informazioni"
-
-#: src/ui.c:163 src/ui_appindicator.c:124
-msgid "About"
-msgstr "Informazioni su..."
-
-#: src/ui.c:185 src/ui_appindicator.c:186 src/ui_graph.c:99
-#, c-format
-msgid "building menus failed: %s"
-msgstr "costruzione dei menù fallita: %s"
-
-#: src/ui.c:281
+#: src/ui.c:217
 msgid "Failed to load Psensor icon."
 msgstr "Impossibile caricare l'icona di Psensor."
 
@@ -603,9 +587,26 @@ msgstr "_Mostra"
 msgid "Show"
 msgstr "Mostra"
 
+#: src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr "_Preferenze"
+
+#: src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr "S_ensor Preferenze"
+
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
 msgstr "SensorPreferenze"
+
+#: src/ui_appindicator.c:122
+msgid "_About"
+msgstr "_Informazioni"
+
+#: src/ui_appindicator.c:186 src/ui_graph.c:99
+#, c-format
+msgid "building menus failed: %s"
+msgstr "costruzione dei menù fallita: %s"
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
@@ -622,6 +623,9 @@ msgstr ""
 #: src/ui_sensorpref.c:523
 msgid "Sensor Name"
 msgstr "Nome sensore"
+
+#~ msgid "_Quit"
+#~ msgstr "_Esci"
 
 #~ msgid "Enabled"
 #~ msgstr "Abilitato"

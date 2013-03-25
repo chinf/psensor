@@ -1,6 +1,7 @@
 SUBDIRS = lib glade
 
-AM_LDFLAGS = -Wl,--as-needed 
+# -export-dynamic is need for defining handlers in the glade file.
+AM_LDFLAGS = -Wl,--as-needed -export-dynamic
 
 if LIBMICROHTTPD
 if JSON

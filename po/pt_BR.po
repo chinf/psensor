@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 08:49+0100\n"
+"POT-Creation-Date: 2013-03-25 10:24+0100\n"
 "PO-Revision-Date: 2012-09-10 04:01+0000\n"
 "Last-Translator: Daniel Serafim <daniel.serafim@gmail.com>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -18,9 +18,34 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
 "X-Generator: Launchpad (build 16430)\n"
 
-#: src/glade/psensor.glade:6
+#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+msgid "About"
+msgstr "Sobre"
+
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr "Preferências"
+
+#: src/glade/psensor.glade:13
+msgid "Quit"
+msgstr "Sair"
+
+#: src/glade/psensor.glade:17
+msgid "Sensor Preferences"
+msgstr "Preferências de sensores"
+
+#: src/glade/psensor.glade:22
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor de temperatura"
+
+#: src/glade/psensor.glade:37
+#, fuzzy
+msgid "_Psensor"
+msgstr "Sensor"
+
+#: src/glade/psensor.glade:81
+msgid "_Help"
+msgstr "Ajuda"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
@@ -511,48 +536,7 @@ msgstr "Sobre o Psensor"
 msgid "Psensor Homepage"
 msgstr "Site do Psensor"
 
-#: src/ui.c:146 src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Preferências"
-
-#: src/ui.c:147 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
-msgid "Preferences"
-msgstr "Preferências"
-
-#: src/ui.c:151 src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr ""
-
-#: src/ui.c:152
-msgid "Sensor Preferences"
-msgstr "Preferências de sensores"
-
-#: src/ui.c:156
-msgid "_Quit"
-msgstr "Sair"
-
-#: src/ui.c:156
-msgid "Quit"
-msgstr "Sair"
-
-#: src/ui.c:159
-msgid "_Help"
-msgstr "Ajuda"
-
-#: src/ui.c:162 src/ui_appindicator.c:122
-msgid "_About"
-msgstr "Sobre"
-
-#: src/ui.c:163 src/ui_appindicator.c:124
-msgid "About"
-msgstr "Sobre"
-
-#: src/ui.c:185 src/ui_appindicator.c:186 src/ui_graph.c:99
-#, c-format
-msgid "building menus failed: %s"
-msgstr "falha na montagem dos menus: %s"
-
-#: src/ui.c:281
+#: src/ui.c:217
 msgid "Failed to load Psensor icon."
 msgstr "Falha ao carregar o ícone do Psensor."
 
@@ -588,9 +572,26 @@ msgstr "Mo_strar"
 msgid "Show"
 msgstr "Mostrar"
 
+#: src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr "_Preferências"
+
+#: src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr ""
+
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
 msgstr ""
+
+#: src/ui_appindicator.c:122
+msgid "_About"
+msgstr "Sobre"
+
+#: src/ui_appindicator.c:186 src/ui_graph.c:99
+#, c-format
+msgid "building menus failed: %s"
+msgstr "falha na montagem dos menus: %s"
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
@@ -607,6 +608,9 @@ msgstr ""
 #: src/ui_sensorpref.c:523
 msgid "Sensor Name"
 msgstr "Nome do sensor"
+
+#~ msgid "_Quit"
+#~ msgstr "Sair"
 
 #~ msgid "Enabled"
 #~ msgstr "Habilitado"
