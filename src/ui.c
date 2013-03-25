@@ -173,7 +173,7 @@ static void on_slog_enabled_cb(GConfClient *client,
 
 void ui_window_create(struct ui_psensor *ui)
 {
-	GtkWidget *window, *menubar;
+	GtkWidget *window;
 	GdkPixbuf *icon;
 	GtkIconTheme *icon_theme;
 	struct config *cfg;
@@ -225,17 +225,9 @@ void ui_window_create(struct ui_psensor *ui)
 	gtk_window_set_keep_below(GTK_WINDOW(window),
 				  cfg->window_keep_below_enabled);
 
-	/* main box */
-	menubar = GTK_WIDGET(gtk_builder_get_object(builder, "menu_bar"));
-
+	ui->menu_bar = GTK_WIDGET(gtk_builder_get_object(builder, "menu_bar"));
 	ui->main_box = GTK_WIDGET(gtk_builder_get_object(builder, "main_box"));
-	gtk_box_pack_start(GTK_BOX(ui->main_box), menubar,
-			   FALSE, TRUE, 0);
-
-	gtk_container_add(GTK_CONTAINER(window), ui->main_box);
-
 	ui->main_window = window;
-	ui->menu_bar = menubar;
 
 	gtk_widget_show_all(ui->main_box);
 }
