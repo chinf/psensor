@@ -61,8 +61,8 @@ GtkWidget *ui_graph_create(struct ui_psensor *ui)
 	gtk_widget_add_events(w_graph, GDK_BUTTON_PRESS_MASK);
 
 	g_signal_connect(GTK_WIDGET(w_graph),
-			   "button_press_event",
-			   (GCallback) on_graph_clicked, ui);
+			 "button_press_event",
+			 (GCallback) on_graph_clicked, ui);
 
 	return w_graph;
 }
