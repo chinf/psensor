@@ -49,6 +49,8 @@ struct ui_psensor {
 
 	GtkWidget *menu_bar;
 
+	GtkWidget *popup_menu;
+
 	/*
 	 * The main vertical box, top contains the menubar, bottom
 	 * contains the sensor_box.
@@ -93,5 +95,4 @@ void ui_cb_preferences(GtkMenuItem *mi, gpointer data);
 void ui_cb_about(GtkMenuItem *mi, gpointer data);
 void ui_cb_menu_quit(GtkMenuItem *mi, gpointer data);
 void ui_cb_sensor_preferences(GtkMenuItem *mi, gpointer data);
-
 #endif

@@ -227,6 +227,9 @@ void ui_window_create(struct ui_psensor *ui)
 
 	ui->menu_bar = GTK_WIDGET(gtk_builder_get_object(builder, "menu_bar"));
 	ui->main_box = GTK_WIDGET(gtk_builder_get_object(builder, "main_box"));
+	ui->popup_menu = GTK_WIDGET(gtk_builder_get_object(builder,
+							   "popup_menu"));
+	g_object_ref(G_OBJECT(ui->popup_menu));
 	ui->main_window = window;
 
 	gtk_widget_show_all(ui->main_box);

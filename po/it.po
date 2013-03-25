@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 10:24+0100\n"
+"POT-Creation-Date: 2013-03-25 21:21+0100\n"
 "PO-Revision-Date: 2012-08-13 08:20+0000\n"
 "Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -34,16 +34,16 @@ msgstr "Esci"
 msgid "Sensor Preferences"
 msgstr "Sensor Preferenze"
 
-#: src/glade/psensor.glade:22
+#: src/glade/psensor.glade:70
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor temperatura"
 
-#: src/glade/psensor.glade:37
+#: src/glade/psensor.glade:85
 #, fuzzy
 msgid "_Psensor"
 msgstr "Sensore"
 
-#: src/glade/psensor.glade:81
+#: src/glade/psensor.glade:132
 msgid "_Help"
 msgstr "_Aiuto"
 
@@ -603,7 +603,7 @@ msgstr "SensorPreferenze"
 msgid "_About"
 msgstr "_Informazioni"
 
-#: src/ui_appindicator.c:186 src/ui_graph.c:99
+#: src/ui_appindicator.c:186
 #, c-format
 msgid "building menus failed: %s"
 msgstr "costruzione dei menù fallita: %s"

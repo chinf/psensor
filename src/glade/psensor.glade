@@ -17,6 +17,54 @@
     <property name="label" translatable="yes">Sensor Preferences</property>
     <signal name="activate" handler="ui_cb_sensor_preferences" swapped="no"/>
   </object>
+  <object class="GtkMenu" id="popup_menu">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkImageMenuItem" id="popup_pref">
+        <property name="related_action">PreferencesAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="popup_sensorpref">
+        <property name="related_action">SensorPreferencesAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatoritem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="popup_about">
+        <property name="related_action">AboutAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="separatoritem1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="popup_quit">
+        <property name="related_action">QuitAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+  </object>
   <object class="GtkWindow" id="window">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Psensor - Temperature Monitor</property>
@@ -45,6 +93,7 @@
                         <property name="related_action">PreferencesAction</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                       </object>
                     </child>
@@ -53,6 +102,7 @@
                         <property name="related_action">SensorPreferencesAction</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                       </object>
                     </child>
@@ -67,6 +117,7 @@
                         <property name="related_action">QuitAction</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                       </object>
                     </child>
@@ -89,6 +140,7 @@
                         <property name="related_action">AboutAction</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
                       </object>
                     </child>

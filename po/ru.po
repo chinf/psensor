@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 10:24+0100\n"
+"POT-Creation-Date: 2013-03-25 21:21+0100\n"
 "PO-Revision-Date: 2012-12-25 06:05+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Russian\n"
@@ -34,16 +34,16 @@ msgstr "Выход"
 msgid "Sensor Preferences"
 msgstr "Параметры датчиков"
 
-#: src/glade/psensor.glade:22
+#: src/glade/psensor.glade:70
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - монитор температуры"
 
-#: src/glade/psensor.glade:37
+#: src/glade/psensor.glade:85
 #, fuzzy
 msgid "_Psensor"
 msgstr "Датчик"
 
-#: src/glade/psensor.glade:81
+#: src/glade/psensor.glade:132
 msgid "_Help"
 msgstr "_Справка"
 
@@ -595,7 +595,7 @@ msgstr ""
 msgid "_About"
 msgstr "_О программе"
 
-#: src/ui_appindicator.c:186 src/ui_graph.c:99
+#: src/ui_appindicator.c:186
 #, c-format
 msgid "building menus failed: %s"
 msgstr "не удалось создать меню: %s"

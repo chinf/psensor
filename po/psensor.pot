@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 10:24+0100\n"
+"POT-Creation-Date: 2013-03-25 21:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,15 +33,15 @@ msgstr ""
 msgid "Sensor Preferences"
 msgstr ""
 
-#: src/glade/psensor.glade:22
+#: src/glade/psensor.glade:70
 msgid "Psensor - Temperature Monitor"
 msgstr ""
 
-#: src/glade/psensor.glade:37
+#: src/glade/psensor.glade:85
 msgid "_Psensor"
 msgstr ""
 
-#: src/glade/psensor.glade:81
+#: src/glade/psensor.glade:132
 msgid "_Help"
 msgstr ""
 
@@ -573,7 +573,7 @@ msgstr ""
 msgid "_About"
 msgstr ""
 
-#: src/ui_appindicator.c:186 src/ui_graph.c:99
+#: src/ui_appindicator.c:186
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 10:24+0100\n"
+"POT-Creation-Date: 2013-03-25 21:21+0100\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -34,16 +34,16 @@ msgstr "退出"
 msgid "Sensor Preferences"
 msgstr "传感器首选项"
 
-#: src/glade/psensor.glade:22
+#: src/glade/psensor.glade:70
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - 温度监视器"
 
-#: src/glade/psensor.glade:37
+#: src/glade/psensor.glade:85
 #, fuzzy
 msgid "_Psensor"
 msgstr "监视设备"
 
-#: src/glade/psensor.glade:81
+#: src/glade/psensor.glade:132
 msgid "_Help"
 msgstr "帮助(_H)"
 
@@ -602,7 +602,7 @@ msgstr "传感器首选项"
 msgid "_About"
 msgstr "关于(_A)"
 
-#: src/ui_appindicator.c:186 src/ui_graph.c:99
+#: src/ui_appindicator.c:186
 #, c-format
 msgid "building menus failed: %s"
 msgstr "创建菜单失败：%s"
