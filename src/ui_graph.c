@@ -18,8 +18,6 @@
  */
 #include "graph.h"
 #include "ui_graph.h"
-#include "ui_pref.h"
-#include "ui_sensorpref.h"
 
 static int
 on_graph_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
