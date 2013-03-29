@@ -232,7 +232,6 @@ static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 
 			gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
 				       event->button, event->time);
-
 		}
 
 	}
