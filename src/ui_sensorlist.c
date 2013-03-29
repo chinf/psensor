@@ -64,15 +64,12 @@ void ui_sensorlist_update(struct ui_psensor *ui)
 	GtkTreeModel *model
 	    = gtk_tree_view_get_model(ui_sl->treeview);
 	gboolean valid = gtk_tree_model_get_iter_first(model, &iter);
-	struct psensor **sensor = ui->sensors;
 	int use_celcius;
 
 	use_celcius = ui->config->temperature_unit == CELCIUS;
 
 	while (valid) {
-		gtk_tree_model_get(model, &iter, 
-				   COL_SENSOR, &s, 
-				   -1);
+		gtk_tree_model_get(model, &iter, COL_SENSOR, &s, -1);
 
 		str = psensor_value_to_str(s->type,
 					   s->measures[s->values_max_length -
@@ -94,7 +91,6 @@ void ui_sensorlist_update(struct ui_psensor *ui)
 		free(str);
 
 		valid = gtk_tree_model_iter_next(model, &iter);
-		sensor++;
 	}
 }
 
