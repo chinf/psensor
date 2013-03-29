@@ -36,6 +36,7 @@ enum {
 	COL_COLOR_STR,
 	COL_ENABLED,
 	COL_EMPTY,
+	COL_SENSOR,
 	COLS_COUNT
 };
 
@@ -68,8 +69,10 @@ void ui_sensorlist_update(struct ui_psensor *ui)
 
 	use_celcius = ui->config->temperature_unit == CELCIUS;
 
-	while (valid && *sensor) {
-		s = *sensor;
+	while (valid) {
+		gtk_tree_model_get(model, &iter, 
+				   COL_SENSOR, &s, 
+				   -1);
 
 		str = psensor_value_to_str(s->type,
 					   s->measures[s->values_max_length -
@@ -219,6 +222,7 @@ static GtkWidget *create_sensor_popup(struct ui_psensor *ui,
 
 static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
+	GtkWidget *menu;
 	struct ui_psensor *ui = (struct ui_psensor *)data;
 	GtkTreeView *view = ui->ui_sensorlist->treeview;
 
@@ -238,9 +242,9 @@ static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 				config_set_sensor_color(sensor->id,
 							sensor->color);
 			}
-		} else if (coli >= 0 && coli != COL_ENABLED) {
-			GtkWidget *menu = create_sensor_popup(ui,
-							      sensor);
+		} else if (coli >= 0 && coli != COL_ENABLED
+			   && event->button == 3) {
+			menu = create_sensor_popup(ui, sensor);
 
 			gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
 				       event->button, event->time);
@@ -293,10 +297,6 @@ static void create_widget(struct ui_psensor *ui)
 	store = ui->sensors_store;
 
 	ui_sl->treeview = ui->sensors_tree;
-
-	gtk_tree_selection_set_mode
-		(gtk_tree_view_get_selection(ui_sl->treeview),
-		 GTK_SELECTION_NONE);
 
 	renderer = gtk_cell_renderer_text_new();
 	gtk_tree_view_insert_column_with_attributes(ui_sl->treeview,
@@ -371,7 +371,8 @@ static void create_widget(struct ui_psensor *ui)
 				   COL_TEMP_MIN, _("N/A"),
 				   COL_TEMP_MAX, _("N/A"),
 				   COL_COLOR_STR, scolor,
-				   COL_ENABLED, s->enabled, -1);
+				   COL_ENABLED, s->enabled,
+				   COL_SENSOR, s, -1);
 
 		free(scolor);
 
