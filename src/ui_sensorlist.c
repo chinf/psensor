@@ -290,17 +290,9 @@ static void create_widget(struct ui_psensor *ui)
 	struct psensor **s_cur = ui->sensors;
 	struct ui_sensorlist *ui_sl = ui->ui_sensorlist;
 
-	store = gtk_list_store_new(COLS_COUNT,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_STRING,
-				   G_TYPE_BOOLEAN, G_TYPE_STRING);
+	store = ui->sensors_store;
 
-	ui_sl->treeview = GTK_TREE_VIEW
-		(gtk_tree_view_new_with_model(GTK_TREE_MODEL(store)));
+	ui_sl->treeview = ui->sensors_tree;
 
 	gtk_tree_selection_set_mode
 		(gtk_tree_view_get_selection(ui_sl->treeview),
@@ -385,16 +377,11 @@ static void create_widget(struct ui_psensor *ui)
 
 		s_cur++;
 	}
-
-	ui_sl->widget = gtk_scrolled_window_new(NULL, NULL);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(ui_sl->widget),
-				       GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
-	gtk_container_add(GTK_CONTAINER(ui_sl->widget),
-			  GTK_WIDGET(ui_sl->treeview));
 }
 
 void ui_sensorlist_create(struct ui_psensor *ui)
 {
+	log_debug("ui_sensorlist_create()");
 	ui->ui_sensorlist = malloc(sizeof(struct ui_sensorlist));
 	ui->ui_sensorlist->sensors = ui->sensors;
 

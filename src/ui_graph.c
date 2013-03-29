@@ -45,11 +45,13 @@ on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 	return FALSE;
 }
 
-GtkWidget *ui_graph_create(struct ui_psensor *ui)
+void ui_graph_create(struct ui_psensor *ui)
 {
 	GtkWidget *w_graph;
 
-	w_graph = gtk_drawing_area_new();
+	log_debug("ui_graph_create()");
+
+	w_graph = ui->w_graph;
 
 	g_signal_connect(GTK_WIDGET(w_graph),
 			 "draw",
@@ -62,5 +64,5 @@ GtkWidget *ui_graph_create(struct ui_psensor *ui)
 			 "button_press_event",
 			 (GCallback) on_graph_clicked, ui);
 
-	return w_graph;
+	log_debug("ui_graph_create() ends");
 }

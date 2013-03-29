@@ -27,9 +27,6 @@ struct ui_sensorlist {
 	/* The GtkTreeView widget containing the list of sensors */
 	GtkTreeView *treeview;
 
-	/* Scrolled widget containing the GtkTreeView */
-	GtkWidget *widget;
-
 	struct psensor **sensors;
 };
 

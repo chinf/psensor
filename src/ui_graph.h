@@ -23,6 +23,6 @@
 
 #include "ui.h"
 
-GtkWidget *ui_graph_create(struct ui_psensor *ui);
+void ui_graph_create(struct ui_psensor *ui);
 
 #endif

@@ -585,15 +585,8 @@ int main(int argc, char **argv)
 
 	/* main window */
 	ui_window_create(&ui);
-	ui.sensor_box = NULL;
-
-	/* drawing box */
-	ui.w_graph = ui_graph_create(&ui);
 
 	ui_enable_alpha_channel(&ui);
-
-	/* sensor list */
-	ui_sensorlist_create(&ui);
 
 	thread = g_thread_create((GThreadFunc) update_measures,
 				 &ui, TRUE, &error);

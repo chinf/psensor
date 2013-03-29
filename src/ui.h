@@ -63,6 +63,9 @@ struct ui_psensor {
 	 */
 	GtkWidget *sensor_box;
 
+	GtkListStore *sensors_store;
+	GtkTreeView *sensors_tree;
+
 	int graph_update_interval;
 };
 

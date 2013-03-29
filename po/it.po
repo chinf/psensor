@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 21:21+0100\n"
+"POT-Creation-Date: 2013-03-29 09:52+0100\n"
 "PO-Revision-Date: 2012-08-13 08:20+0000\n"
 "Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -34,16 +34,16 @@ msgstr "Esci"
 msgid "Sensor Preferences"
 msgstr "Sensor Preferenze"
 
-#: src/glade/psensor.glade:70
+#: src/glade/psensor.glade:94
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor temperatura"
 
-#: src/glade/psensor.glade:85
+#: src/glade/psensor.glade:109
 #, fuzzy
 msgid "_Psensor"
 msgstr "Sensore"
 
-#: src/glade/psensor.glade:132
+#: src/glade/psensor.glade:156
 msgid "_Help"
 msgstr "_Aiuto"
 
@@ -132,7 +132,7 @@ msgid "Measures"
 msgstr "Misure"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:349
+#: src/ui_sensorlist.c:352
 msgid "Graph"
 msgstr "Grafico"
 
@@ -168,7 +168,7 @@ msgstr "Tipo:"
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
 #: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
-#: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
+#: src/ui_sensorlist.c:381 src/ui_sensorlist.c:382 src/ui_sensorlist.c:383
 #: src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/A"
@@ -559,23 +559,23 @@ msgstr "Impossibile caricare l'icona di Psensor."
 msgid "Select foreground color"
 msgstr "Colore di primo piano:"
 
-#: src/ui_sensorlist.c:312
+#: src/ui_sensorlist.c:315
 msgid "Sensor"
 msgstr "Sensore"
 
-#: src/ui_sensorlist.c:318
+#: src/ui_sensorlist.c:321
 msgid "Value"
 msgstr "Valore"
 
-#: src/ui_sensorlist.c:324
+#: src/ui_sensorlist.c:327
 msgid "Min"
 msgstr "Minimo"
 
-#: src/ui_sensorlist.c:330
+#: src/ui_sensorlist.c:333
 msgid "Max"
 msgstr "Massimo"
 
-#: src/ui_sensorlist.c:337
+#: src/ui_sensorlist.c:340
 msgid "Color"
 msgstr "Colore"
 

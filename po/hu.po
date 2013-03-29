@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-25 21:21+0100\n"
+"POT-Creation-Date: 2013-03-29 09:52+0100\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -35,16 +35,16 @@ msgstr "Kilépés"
 msgid "Sensor Preferences"
 msgstr "Érzékelő beállításai"
 
-#: src/glade/psensor.glade:70
+#: src/glade/psensor.glade:94
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - hőmérsékletfigyelő"
 
-#: src/glade/psensor.glade:85
+#: src/glade/psensor.glade:109
 #, fuzzy
 msgid "_Psensor"
 msgstr "Érzékelő"
 
-#: src/glade/psensor.glade:132
+#: src/glade/psensor.glade:156
 msgid "_Help"
 msgstr "_Súgó"
 
@@ -133,7 +133,7 @@ msgid "Measures"
 msgstr "Mérések"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:349
+#: src/ui_sensorlist.c:352
 msgid "Graph"
 msgstr "Grafikon"
 
@@ -168,7 +168,7 @@ msgstr "Típus:"
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
 #: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
-#: src/ui_sensorlist.c:378 src/ui_sensorlist.c:379 src/ui_sensorlist.c:380
+#: src/ui_sensorlist.c:381 src/ui_sensorlist.c:382 src/ui_sensorlist.c:383
 #: src/ui_notify.c:81
 msgid "N/A"
 msgstr "---"
@@ -567,23 +567,23 @@ msgstr "Nem sikerült betölteni a Psensor ikont."
 msgid "Select foreground color"
 msgstr "Előtérszín kiválasztása"
 
-#: src/ui_sensorlist.c:312
+#: src/ui_sensorlist.c:315
 msgid "Sensor"
 msgstr "Érzékelő"
 
-#: src/ui_sensorlist.c:318
+#: src/ui_sensorlist.c:321
 msgid "Value"
 msgstr "Érték"
 
-#: src/ui_sensorlist.c:324
+#: src/ui_sensorlist.c:327
 msgid "Min"
 msgstr "Minimum"
 
-#: src/ui_sensorlist.c:330
+#: src/ui_sensorlist.c:333
 msgid "Max"
 msgstr "Maximum"
 
-#: src/ui_sensorlist.c:337
+#: src/ui_sensorlist.c:340
 msgid "Color"
 msgstr "Szín"
 

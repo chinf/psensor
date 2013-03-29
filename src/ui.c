@@ -231,10 +231,26 @@ void ui_window_create(struct ui_psensor *ui)
 							   "popup_menu"));
 	g_object_ref(G_OBJECT(ui->popup_menu));
 	ui->main_window = window;
+	ui->w_graph = GTK_WIDGET(gtk_builder_get_object(builder,
+							"graph"));
+	ui_graph_create(ui);
 
+	ui->sensor_box = GTK_WIDGET(gtk_builder_get_object(builder,
+							   "sensor_box"));
+	ui->sensors_store = GTK_LIST_STORE(gtk_builder_get_object
+					   (builder, "sensors_store"));
+	ui->sensors_tree = GTK_TREE_VIEW(gtk_builder_get_object
+					 (builder, "sensors_tree"));
+
+	ui_sensorlist_create(ui);
+
+	log_debug("ui_window_create(): show_all");
 	gtk_widget_show_all(ui->main_box);
 
 	g_object_unref(G_OBJECT(builder));
+
+
+	log_debug("ui_window_create() ends");
 }
 
 static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
@@ -248,20 +264,26 @@ static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
 void ui_window_update(struct ui_psensor *ui)
 {
 	struct config *cfg;
-	int init = 1;
+	/*int init = 1;*/
+
+	log_debug("ui_window_update()");
 
 	cfg = ui->config;
-
+	/*
 	if (ui->sensor_box) {
 		g_object_ref(GTK_WIDGET(ui->ui_sensorlist->widget));
 
+		if (ui->ui_sensorlist && ui->ui_sensorlist->widget) {
+			printf("remove sensor_list\n");
+			gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
+					     ui->ui_sensorlist->widget);
+		}
+
 		gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
-				     ui->ui_sensorlist->widget);
+				     ui->w_graph);
 
 		gtk_container_remove(GTK_CONTAINER(ui->main_box),
 				     ui->sensor_box);
-
-		ui->w_graph = ui_graph_create(ui);
 
 		init = 0;
 	}
@@ -292,14 +314,14 @@ void ui_window_update(struct ui_psensor *ui)
 				       ui->config->window_divider_pos);
 
 	if (!init)
-		g_object_unref(GTK_WIDGET(ui->ui_sensorlist->widget));
+	g_object_unref(GTK_WIDGET(ui->ui_sensorlist->widget));*/
 
-	gtk_widget_show_all(ui->sensor_box);
+	/*	gtk_widget_show_all(ui->sensor_box);*/
 
 	if (cfg->menu_bar_disabled)
 		menu_bar_show(0, ui);
 	else
-		menu_bar_show(1, ui);
+	menu_bar_show(1, ui);
 }
 
 void ui_window_show(struct ui_psensor *ui)
