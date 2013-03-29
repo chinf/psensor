@@ -226,6 +226,9 @@ static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	struct ui_psensor *ui = (struct ui_psensor *)data;
 	GtkTreeView *view = ui->ui_sensorlist->treeview;
 
+	if (event->button != 3)
+		return FALSE;
+
 	struct psensor *sensor = get_sensor_at_pos(view,
 						   event->x,
 						   event->y,
@@ -242,8 +245,7 @@ static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 				config_set_sensor_color(sensor->id,
 							sensor->color);
 			}
-		} else if (coli >= 0 && coli != COL_ENABLED
-			   && event->button == 3) {
+		} else if (coli >= 0 && coli != COL_ENABLED) {
 			menu = create_sensor_popup(ui, sensor);
 
 			gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
@@ -252,7 +254,7 @@ static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		}
 
 	}
-	return FALSE;
+	return TRUE;
 }
 
 static void
