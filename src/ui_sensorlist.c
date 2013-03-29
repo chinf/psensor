@@ -57,56 +57,52 @@ static int col_index_to_col(int idx)
 
 void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
 {
-	char *str, *scolor;
+	char *scolor, *value, *min, *max;
 	struct psensor *s;
 	GtkTreeIter iter;
-	struct ui_sensorlist *ui_sl = ui->ui_sensorlist;
-	GtkTreeModel *model
-	    = gtk_tree_view_get_model(ui_sl->treeview);
-	gboolean valid = gtk_tree_model_get_iter_first(model, &iter);
+	GtkTreeModel *model;
+	gboolean valid;
 	int use_celcius;
 	GdkColor color;
+	GtkListStore *store;
+
+	model = gtk_tree_view_get_model(ui->sensors_tree);
+	store = GTK_LIST_STORE(model);
 
 	use_celcius = ui->config->temperature_unit == CELCIUS;
 
+	valid = gtk_tree_model_get_iter_first(model, &iter);
 	while (valid) {
 		gtk_tree_model_get(model, &iter, COL_SENSOR, &s, -1);
 
-		str = psensor_value_to_str(s->type,
-					   s->measures[s->values_max_length -
-						       1].value,
-					   use_celcius);
+		value = psensor_value_to_str(s->type,
+					     s->measures[s->values_max_length -
+							 1].value,
+					     use_celcius);
+		min = psensor_value_to_str(s->type, s->min, use_celcius);
+		max = psensor_value_to_str(s->type, s->max, use_celcius);
 
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter, COL_TEMP, str,
+		gtk_list_store_set(store, &iter,
+				   COL_TEMP, value,
+				   COL_TEMP_MIN, min,
+				   COL_TEMP_MAX, max,
 				   -1);
-		free(str);
-
-		str = psensor_value_to_str(s->type, s->min, use_celcius);
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
-				   COL_TEMP_MIN, str, -1);
-		free(str);
-
-		str = psensor_value_to_str(s->type, s->max, use_celcius);
-		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
-				   COL_TEMP_MAX, str, -1);
-		free(str);
+		free(value);
+		free(min);
+		free(max);
 
 		if (complete) {
 			color.red = s->color->red;
 			color.green = s->color->green;
 			color.blue = s->color->blue;
-			
+
 			scolor = gdk_color_to_string(&color);
-			
-			gtk_list_store_set(GTK_LIST_STORE(model),
-					   &iter, COL_NAME, s->name, -1);
-			
-			gtk_list_store_set(GTK_LIST_STORE(model),
-					   &iter, COL_COLOR_STR, scolor, -1);
-			
-			gtk_list_store_set(GTK_LIST_STORE(model),
-					   &iter, COL_ENABLED, s->enabled, -1);
-			
+
+			gtk_list_store_set(store, &iter,
+					   COL_NAME, s->name,
+					   COL_COLOR_STR, scolor,
+					   COL_ENABLED, s->enabled,
+					   -1);
 			free(scolor);
 		}
 
