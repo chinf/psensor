@@ -33,7 +33,7 @@ struct ui_sensorlist {
 void ui_sensorlist_create(struct ui_psensor *);
 
 /* Update values current/min/max */
-void ui_sensorlist_update(struct ui_psensor *ui);
+void ui_sensorlist_update(struct ui_psensor *ui, bool complete);
 
 void ui_sensorlist_update_sensors_preferences(struct ui_psensor *);
 

@@ -55,9 +55,9 @@ static int col_index_to_col(int idx)
 	return idx;
 }
 
-void ui_sensorlist_update(struct ui_psensor *ui)
+void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
 {
-	char *str;
+	char *str, *scolor;
 	struct psensor *s;
 	GtkTreeIter iter;
 	struct ui_sensorlist *ui_sl = ui->ui_sensorlist;
@@ -65,6 +65,7 @@ void ui_sensorlist_update(struct ui_psensor *ui)
 	    = gtk_tree_view_get_model(ui_sl->treeview);
 	gboolean valid = gtk_tree_model_get_iter_first(model, &iter);
 	int use_celcius;
+	GdkColor color;
 
 	use_celcius = ui->config->temperature_unit == CELCIUS;
 
@@ -89,6 +90,25 @@ void ui_sensorlist_update(struct ui_psensor *ui)
 		gtk_list_store_set(GTK_LIST_STORE(model), &iter,
 				   COL_TEMP_MAX, str, -1);
 		free(str);
+
+		if (complete) {
+			color.red = s->color->red;
+			color.green = s->color->green;
+			color.blue = s->color->blue;
+			
+			scolor = gdk_color_to_string(&color);
+			
+			gtk_list_store_set(GTK_LIST_STORE(model),
+					   &iter, COL_NAME, s->name, -1);
+			
+			gtk_list_store_set(GTK_LIST_STORE(model),
+					   &iter, COL_COLOR_STR, scolor, -1);
+			
+			gtk_list_store_set(GTK_LIST_STORE(model),
+					   &iter, COL_ENABLED, s->enabled, -1);
+			
+			free(scolor);
+		}
 
 		valid = gtk_tree_model_iter_next(model, &iter);
 	}
@@ -141,40 +161,6 @@ static int get_col_index_at_pos(GtkTreeView *view, int x)
 	}
 
 	return -1;
-}
-
-void ui_sensorlist_update_sensors_preferences(struct ui_psensor *ui)
-{
-	GtkTreeIter iter;
-	GtkTreeModel *model
-	    = gtk_tree_view_get_model(ui->ui_sensorlist->treeview);
-	gboolean valid = gtk_tree_model_get_iter_first(model, &iter);
-	struct psensor **sensor = ui->ui_sensorlist->sensors;
-
-	while (valid && *sensor) {
-		GdkColor color;
-		gchar *scolor;
-
-		color.red = (*sensor)->color->red;
-		color.green = (*sensor)->color->green;
-		color.blue = (*sensor)->color->blue;
-
-		scolor = gdk_color_to_string(&color);
-
-		gtk_list_store_set(GTK_LIST_STORE(model),
-				   &iter, COL_NAME, (*sensor)->name, -1);
-
-		gtk_list_store_set(GTK_LIST_STORE(model),
-				   &iter, COL_COLOR_STR, scolor, -1);
-
-		gtk_list_store_set(GTK_LIST_STORE(model),
-				   &iter, COL_ENABLED, (*sensor)->enabled, -1);
-
-		free(scolor);
-
-		valid = gtk_tree_model_iter_next(model, &iter);
-		sensor++;
-	}
 }
 
 static void on_preferences_activated(GtkWidget *menu_item, gpointer data)
@@ -237,7 +223,7 @@ static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		if (coli == COL_COLOR) {
 			if (ui_change_color(_("Select foreground color"),
 					    sensor->color)) {
-				ui_sensorlist_update_sensors_preferences(ui);
+				ui_sensorlist_update(ui, 1);
 				config_set_sensor_color(sensor->id,
 							sensor->color);
 			}

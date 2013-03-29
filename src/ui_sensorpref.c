@@ -546,7 +546,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 
 	if (result == GTK_RESPONSE_ACCEPT) {
 		apply_prefs(cbdata.prefs, ui->sensors, ui->config);
-		ui_sensorlist_update_sensors_preferences(ui);
+		ui_sensorlist_update(ui, 1);
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 		ui_appindicator_update_menu(ui);
 #endif

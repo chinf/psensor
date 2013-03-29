@@ -212,7 +212,7 @@ gboolean ui_refresh_thread(gpointer data)
 
 	graph_update(ui->sensors, ui->w_graph, ui->config, ui->main_window);
 
-	ui_sensorlist_update(ui);
+	ui_sensorlist_update(ui, 0);
 
 	if (is_appindicator_supported() || is_status_supported())
 		indicators_update(ui);
