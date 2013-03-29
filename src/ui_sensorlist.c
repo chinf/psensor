@@ -36,8 +36,7 @@ enum {
 	COL_COLOR_STR,
 	COL_ENABLED,
 	COL_EMPTY,
-	COL_SENSOR,
-	COLS_COUNT
+	COL_SENSOR
 };
 
 struct cb_data {
