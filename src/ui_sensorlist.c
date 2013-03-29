@@ -76,8 +76,7 @@ void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
 		gtk_tree_model_get(model, &iter, COL_SENSOR, &s, -1);
 
 		value = psensor_value_to_str(s->type,
-					     s->measures[s->values_max_length -
-							 1].value,
+					     psensor_get_current_value(s),
 					     use_celcius);
 		min = psensor_value_to_str(s->type, s->min, use_celcius);
 		max = psensor_value_to_str(s->type, s->max, use_celcius);
