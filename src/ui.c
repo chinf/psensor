@@ -249,7 +249,6 @@ void ui_window_create(struct ui_psensor *ui)
 
 	g_object_unref(G_OBJECT(builder));
 
-
 	log_debug("ui_window_create() ends");
 }
 
