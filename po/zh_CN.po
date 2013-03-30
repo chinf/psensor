@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-29 09:52+0100\n"
+"POT-Creation-Date: 2013-03-30 12:16+0100\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "关于"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:182 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "首选项"
 
@@ -34,16 +34,16 @@ msgstr "退出"
 msgid "Sensor Preferences"
 msgstr "传感器首选项"
 
-#: src/glade/psensor.glade:94
+#: src/glade/psensor.glade:96
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - 温度监视器"
 
-#: src/glade/psensor.glade:109
+#: src/glade/psensor.glade:111
 #, fuzzy
 msgid "_Psensor"
 msgstr "监视设备"
 
-#: src/glade/psensor.glade:156
+#: src/glade/psensor.glade:158
 msgid "_Help"
 msgstr "帮助(_H)"
 
@@ -132,7 +132,7 @@ msgid "Measures"
 msgstr "测量"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:352
+#: src/ui_sensorlist.c:316
 msgid "Graph"
 msgstr "图表"
 
@@ -167,7 +167,7 @@ msgstr "类型:"
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
 #: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
-#: src/ui_sensorlist.c:381 src/ui_sensorlist.c:382 src/ui_sensorlist.c:383
+#: src/ui_sensorlist.c:345 src/ui_sensorlist.c:346 src/ui_sensorlist.c:347
 #: src/ui_notify.c:81
 msgid "N/A"
 msgstr "不可用"
@@ -325,7 +325,7 @@ msgstr "监测器日志文件未打开。"
 msgid "Sensor log not open, cannot close."
 msgstr "监测器日志未打开，故无法关闭。"
 
-#: src/main.c:78
+#: src/main.c:76
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -340,22 +340,22 @@ msgstr ""
 "该软件为自由软件：您可以自由修改并分发。\n"
 "There is NO WARRANTY, to the extent permitted by law。\n"
 
-#: src/main.c:89 src/server/server.c:93
+#: src/main.c:87 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "用法：%s [选项]...\n"
 
-#: src/main.c:91
+#: src/main.c:89
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr "Psensor 是一款 GTK+ 应用程序，可监测硬件传感器，包括温度与风扇转速。"
 
-#: src/main.c:95
+#: src/main.c:93
 msgid "Options:"
 msgstr "选项："
 
-#: src/main.c:96
+#: src/main.c:94
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -363,7 +363,7 @@ msgstr ""
 "  -h, --help 显示这个帮助并退出\n"
 "  -v, --version 显示版本信息并退出"
 
-#: src/main.c:102
+#: src/main.c:100
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -371,7 +371,7 @@ msgstr ""
 "  -u, --url=URL       psensor 服务器 URL\n"
 "                      例如：http://hostname:3131"
 
-#: src/main.c:105
+#: src/main.c:103
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
@@ -379,38 +379,38 @@ msgstr ""
 "  --use-libatasmart   使用 atasmart 库来监测硬盘，而不是\n"
 "                      hddtemp 进程"
 
-#: src/main.c:108
+#: src/main.c:106
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  强制创建一个新的 Psensor 例程"
 
-#: src/main.c:111
+#: src/main.c:109
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr "  -d，--debug=LEVEL 设置调试等级，等级为 0 到 3 之间的整数"
 
-#: src/main.c:116 src/server/server.c:116
+#: src/main.c:114 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "报告问题至：%s\n"
 
-#: src/main.c:118 src/server/server.c:118
+#: src/main.c:116 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
 
-#: src/main.c:458
+#: src/main.c:456
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor 不支持远程传感器。"
 
-#: src/main.c:521
+#: src/main.c:519
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:533 src/server/server.c:377
+#: src/main.c:531 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
 
-#: src/main.c:546
+#: src/main.c:544
 msgid "A Psensor instance already exists."
 msgstr "已存在一个 Psensor 例程。"
 
@@ -554,27 +554,27 @@ msgstr "Psensor 主页"
 msgid "Failed to load Psensor icon."
 msgstr "无法加载 Psensor 图标。"
 
-#: src/ui_sensorlist.c:235
+#: src/ui_sensorlist.c:219
 msgid "Select foreground color"
 msgstr "选择前景色"
 
-#: src/ui_sensorlist.c:315
+#: src/ui_sensorlist.c:279
 msgid "Sensor"
 msgstr "监视设备"
 
-#: src/ui_sensorlist.c:321
+#: src/ui_sensorlist.c:285
 msgid "Value"
 msgstr "值"
 
-#: src/ui_sensorlist.c:327
+#: src/ui_sensorlist.c:291
 msgid "Min"
 msgstr "最小值"
 
-#: src/ui_sensorlist.c:333
+#: src/ui_sensorlist.c:297
 msgid "Max"
 msgstr "最大值"
 
-#: src/ui_sensorlist.c:340
+#: src/ui_sensorlist.c:304
 msgid "Color"
 msgstr "颜色"
 

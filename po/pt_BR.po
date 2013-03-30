@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-29 09:52+0100\n"
+"POT-Creation-Date: 2013-03-30 12:16+0100\n"
 "PO-Revision-Date: 2012-09-10 04:01+0000\n"
 "Last-Translator: Daniel Serafim <daniel.serafim@gmail.com>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "Sobre"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:182 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Preferências"
 
@@ -34,16 +34,16 @@ msgstr "Sair"
 msgid "Sensor Preferences"
 msgstr "Preferências de sensores"
 
-#: src/glade/psensor.glade:94
+#: src/glade/psensor.glade:96
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor de temperatura"
 
-#: src/glade/psensor.glade:109
+#: src/glade/psensor.glade:111
 #, fuzzy
 msgid "_Psensor"
 msgstr "Sensor"
 
-#: src/glade/psensor.glade:156
+#: src/glade/psensor.glade:158
 msgid "_Help"
 msgstr "Ajuda"
 
@@ -132,7 +132,7 @@ msgid "Measures"
 msgstr "Medidas"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:352
+#: src/ui_sensorlist.c:316
 msgid "Graph"
 msgstr "Grafo"
 
@@ -168,7 +168,7 @@ msgstr "Tipo:"
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
 #: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
-#: src/ui_sensorlist.c:381 src/ui_sensorlist.c:382 src/ui_sensorlist.c:383
+#: src/ui_sensorlist.c:345 src/ui_sensorlist.c:346 src/ui_sensorlist.c:347
 #: src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/D"
@@ -326,7 +326,7 @@ msgstr "Arquivo de registros do sensor não foi aberto."
 msgid "Sensor log not open, cannot close."
 msgstr ""
 
-#: src/main.c:78
+#: src/main.c:76
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -341,71 +341,71 @@ msgstr ""
 "Este é um software livre: você é livre para modificar e  redistribuir.\n"
 "Não há NENHUMA GARANTIA, na medida do permitido por lei.\n"
 
-#: src/main.c:89 src/server/server.c:93
+#: src/main.c:87 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Uso: %s [OPÇÃO]...\n"
 
-#: src/main.c:91
+#: src/main.c:89
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
 
-#: src/main.c:95
+#: src/main.c:93
 msgid "Options:"
 msgstr "Opções:"
 
-#: src/main.c:96
+#: src/main.c:94
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
 
-#: src/main.c:102
+#: src/main.c:100
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
 msgstr ""
 
-#: src/main.c:105
+#: src/main.c:103
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
 msgstr ""
 
-#: src/main.c:108
+#: src/main.c:106
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 
-#: src/main.c:111
+#: src/main.c:109
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:116 src/server/server.c:116
+#: src/main.c:114 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Relatar falhas para: %s\n"
 
-#: src/main.c:118 src/server/server.c:118
+#: src/main.c:116 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "Página inicial de %s: <%s>\n"
 
-#: src/main.c:458
+#: src/main.c:456
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:521
+#: src/main.c:519
 msgid "Enables debug mode."
 msgstr "Ativar o modo de depuração"
 
-#: src/main.c:533 src/server/server.c:377
+#: src/main.c:531 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Utilize `%s --help' para mais informações.\n"
 
-#: src/main.c:546
+#: src/main.c:544
 msgid "A Psensor instance already exists."
 msgstr "Uma instancia de Psensor já existe."
 
@@ -540,27 +540,27 @@ msgstr "Site do Psensor"
 msgid "Failed to load Psensor icon."
 msgstr "Falha ao carregar o ícone do Psensor."
 
-#: src/ui_sensorlist.c:235
+#: src/ui_sensorlist.c:219
 msgid "Select foreground color"
 msgstr "Selecionar cor do primeiro plano"
 
-#: src/ui_sensorlist.c:315
+#: src/ui_sensorlist.c:279
 msgid "Sensor"
 msgstr "Sensor"
 
-#: src/ui_sensorlist.c:321
+#: src/ui_sensorlist.c:285
 msgid "Value"
 msgstr "Valor"
 
-#: src/ui_sensorlist.c:327
+#: src/ui_sensorlist.c:291
 msgid "Min"
 msgstr "Min"
 
-#: src/ui_sensorlist.c:333
+#: src/ui_sensorlist.c:297
 msgid "Max"
 msgstr "Max"
 
-#: src/ui_sensorlist.c:340
+#: src/ui_sensorlist.c:304
 msgid "Color"
 msgstr "Cor"
 

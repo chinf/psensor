@@ -585,7 +585,7 @@ PACKAGE_STRING='psensor 0.8.0.x'
 PACKAGE_BUGREPORT='jeanfi@gmail.com'
 PACKAGE_URL='http://wpitchoune.net/psensor'
 
-ac_unique_file="src/compat.h"
+ac_unique_file="src/ui.c"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>

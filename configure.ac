@@ -6,7 +6,7 @@ AC_INIT([psensor], [0.8.0.x],[jeanfi@gmail.com],[psensor],[http://wpitchoune.net
 
 AM_INIT_AUTOMAKE([-Wall -Werror gnu])
 
-AC_CONFIG_SRCDIR([src/compat.h])
+AC_CONFIG_SRCDIR([src/ui.c])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.

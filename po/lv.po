@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-29 09:52+0100\n"
+"POT-Creation-Date: 2013-03-30 12:16+0100\n"
 "PO-Revision-Date: 2012-11-11 10:38+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "Par"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:204 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:182 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Iestatījumi"
 
@@ -34,16 +34,16 @@ msgstr "Iziet"
 msgid "Sensor Preferences"
 msgstr "Sensoru iestatījumi"
 
-#: src/glade/psensor.glade:94
+#: src/glade/psensor.glade:96
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - temperatūras pārraugs"
 
-#: src/glade/psensor.glade:109
+#: src/glade/psensor.glade:111
 #, fuzzy
 msgid "_Psensor"
 msgstr "Sensors"
 
-#: src/glade/psensor.glade:156
+#: src/glade/psensor.glade:158
 msgid "_Help"
 msgstr "_Palīdzība"
 
@@ -132,7 +132,7 @@ msgid "Measures"
 msgstr "Mērījumi"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:352
+#: src/ui_sensorlist.c:316
 msgid "Graph"
 msgstr "Grafiks"
 
@@ -167,7 +167,7 @@ msgstr "Tips:"
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
 #: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
-#: src/ui_sensorlist.c:381 src/ui_sensorlist.c:382 src/ui_sensorlist.c:383
+#: src/ui_sensorlist.c:345 src/ui_sensorlist.c:346 src/ui_sensorlist.c:347
 #: src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/P"
@@ -324,7 +324,7 @@ msgstr "Sensora žurnāla fails nav atvērts."
 msgid "Sensor log not open, cannot close."
 msgstr "Sensora žurnāls nav atvērts, nevar aizvērt."
 
-#: src/main.c:78
+#: src/main.c:76
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -334,12 +334,12 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:89 src/server/server.c:93
+#: src/main.c:87 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr ""
 
-#: src/main.c:91
+#: src/main.c:89
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -347,11 +347,11 @@ msgstr ""
 "Psensor ir GTK+ lietotne aparatūras sensoru pārraudzībai, ieskaitot "
 "temperatūras un ventilatoru ātrumus."
 
-#: src/main.c:95
+#: src/main.c:93
 msgid "Options:"
 msgstr "Opcijas:"
 
-#: src/main.c:96
+#: src/main.c:94
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -359,7 +359,7 @@ msgstr ""
 "  -h, --help          rādīt šo palīdzību un iziet\n"
 "  -v, --version       rādīt versijas informāciju un iziet"
 
-#: src/main.c:102
+#: src/main.c:100
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -367,7 +367,7 @@ msgstr ""
 "  -u, --url=SAITE       psensor-server adrese,\n"
 "                      piemērs: http://saimniekdatoravārds:3131"
 
-#: src/main.c:105
+#: src/main.c:103
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
@@ -375,38 +375,38 @@ msgstr ""
 "  --use-libatasmart  izmantot atasmart bibliotēku disku monitorēšanai\n"
 "                      hddtemp dēmona vietā"
 
-#: src/main.c:108
+#: src/main.c:106
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  piespiest izveidot jaunu Psensor lietotni"
 
-#: src/main.c:111
+#: src/main.c:109
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr "  -d, --debug=LĪMENIS   iestatīt atkļūdošanas līmeni, starp 0 un 3"
 
-#: src/main.c:116 src/server/server.c:116
+#: src/main.c:114 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Ziņojiet kļūdas uz: %s.\n"
 
-#: src/main.c:118 src/server/server.c:118
+#: src/main.c:116 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s mājas lapa: <%s>\n"
 
-#: src/main.c:458
+#: src/main.c:456
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor nav kompilēts ar attālināto sensoru atbalstu."
 
-#: src/main.c:521
+#: src/main.c:519
 msgid "Enables debug mode."
 msgstr "Aktivizēt atkļūdošanas režīmu."
 
-#: src/main.c:533 src/server/server.c:377
+#: src/main.c:531 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Mēģiniet `%s --help', lai iegūtu vairāk informācijas.\n"
 
-#: src/main.c:546
+#: src/main.c:544
 msgid "A Psensor instance already exists."
 msgstr "Psensor instance jau eksistē."
 
@@ -548,27 +548,27 @@ msgstr "Psensor mājas lapa"
 msgid "Failed to load Psensor icon."
 msgstr "Neizdevās ielādēt Psensor ikonu."
 
-#: src/ui_sensorlist.c:235
+#: src/ui_sensorlist.c:219
 msgid "Select foreground color"
 msgstr "Izvēlieties priekšplāna krāsu"
 
-#: src/ui_sensorlist.c:315
+#: src/ui_sensorlist.c:279
 msgid "Sensor"
 msgstr "Sensors"
 
-#: src/ui_sensorlist.c:321
+#: src/ui_sensorlist.c:285
 msgid "Value"
 msgstr "Vērtība"
 
-#: src/ui_sensorlist.c:327
+#: src/ui_sensorlist.c:291
 msgid "Min"
 msgstr "Min."
 
-#: src/ui_sensorlist.c:333
+#: src/ui_sensorlist.c:297
 msgid "Max"
 msgstr "Maks."
 
-#: src/ui_sensorlist.c:340
+#: src/ui_sensorlist.c:304
 msgid "Color"
 msgstr "Krāsa"
 

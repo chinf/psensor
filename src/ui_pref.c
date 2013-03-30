@@ -23,7 +23,6 @@
 #include "cfg.h"
 #include "ui_pref.h"
 #include "ui_color.h"
-#include "compat.h"
 
 GdkColor *color_to_gdkcolor(struct color *color)
 {

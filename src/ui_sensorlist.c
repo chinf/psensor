@@ -25,7 +25,6 @@
 #include "ui_sensorpref.h"
 #include "cfg.h"
 #include "ui_color.h"
-#include "compat.h"
 
 enum {
 	COL_NAME = 0,

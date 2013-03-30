@@ -28,7 +28,6 @@ LIBS = \
 
 bin_PROGRAMS = psensor
 psensor_SOURCES = \
-	compat.h \
 	cfg.h cfg.c \
 	graph.h graph.c \
 	main.c \

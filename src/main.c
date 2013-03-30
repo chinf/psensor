@@ -68,8 +68,6 @@
 #include "cpu.h"
 #endif
 
-#include "compat.h"
-
 static const char *program_name;
 
 static void print_version()
