@@ -23,13 +23,6 @@
 
 #include "psensor.h"
 
-struct ui_sensorlist {
-	/* The GtkTreeView widget containing the list of sensors */
-	GtkTreeView *treeview;
-
-	struct psensor **sensors;
-};
-
 void ui_sensorlist_create(struct ui_psensor *);
 
 /* Update values current/min/max */

@@ -41,8 +41,6 @@ struct ui_psensor {
 
 	GtkWidget *w_graph;
 
-	struct ui_sensorlist *ui_sensorlist;
-
 	struct config *config;
 
 	GtkWidget *main_window;
