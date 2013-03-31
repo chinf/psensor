@@ -178,6 +178,8 @@ struct psensor **get_all_sensors(int use_libatasmart, int values_max_length);
 struct psensor **psensor_list_add(struct psensor **sensors,
 				  struct psensor *sensor);
 
+struct psensor **psensor_list_copy(struct psensor **);
+
 void psensor_set_current_value(struct psensor *sensor, double value);
 void psensor_set_current_measure(struct psensor *sensor, double value,
 				 struct timeval tv);

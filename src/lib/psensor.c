@@ -526,3 +526,18 @@ void psensor_cleanup()
 {
 	lmsensor_cleanup();
 }
+
+struct psensor **psensor_list_copy(struct psensor **sensors)
+{
+	struct psensor **result;
+	int n, i;
+
+	n = psensor_list_size(sensors);
+	result = malloc((n+1) * sizeof(struct psensor *));
+	for (i = 0; i < n; i++)
+		result[i] = sensors[i];
+	result[n] = NULL;
+
+	return result;
+}
+
