@@ -343,7 +343,7 @@ static void create_widget(struct ui_psensor *ui)
 
 	ordered_sensors = psensor_list_copy(ui->sensors);
 	qsort(ordered_sensors,
-	      psensor_list_size(ordered_sensors)-1,
+	      psensor_list_size(ordered_sensors),
 	      sizeof(struct psensor *),
 	      cmp_sensors);
 
