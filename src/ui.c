@@ -277,8 +277,7 @@ void ui_window_update(struct ui_psensor *ui)
 	gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
 			     GTK_WIDGET(ui->sensors_scrolled_tree));
 
-	gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
-			     ui->w_graph);
+	gtk_container_remove(GTK_CONTAINER(ui->sensor_box), ui->w_graph);
 
 	gtk_container_remove(GTK_CONTAINER(ui->main_box),
 			     GTK_WIDGET(ui->sensor_box));
