@@ -114,4 +114,7 @@ bool is_slog_enabled();
 
 int config_get_slog_interval();
 
+int config_get_sensor_position(const char *);
+void config_set_sensor_position(const char *, int);
+
 #endif

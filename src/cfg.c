@@ -33,6 +33,7 @@ static const char *ATT_SENSOR_COLOR = "color";
 static const char *ATT_SENSOR_ENABLED = "enabled";
 static const char *ATT_SENSOR_NAME = "name";
 static const char *ATT_SENSOR_APPINDICATOR_DISABLED = "appindicator/disabled";
+static const char *ATT_SENSOR_POSITION = "position";
 
 static const char *KEY_SENSOR_UPDATE_INTERVAL
 = "/apps/psensor/sensor/update_interval";
@@ -363,6 +364,27 @@ void config_set_sensor_name(const char *sid, const char *name)
 
 	key = get_sensor_att_key(sid, ATT_SENSOR_NAME);
 	gconf_client_set_string(client, key, name, NULL);
+	free(key);
+}
+
+int config_get_sensor_position(const char *sid)
+{
+	char *key;
+	int pos;
+
+	key = get_sensor_att_key(sid, ATT_SENSOR_POSITION);
+	pos = gconf_client_get_int(client, key, NULL);
+	free(key);
+
+	return pos;
+}
+
+void config_set_sensor_position(const char *sid, int pos)
+{
+	char *key;
+
+	key = get_sensor_att_key(sid, ATT_SENSOR_POSITION);
+	gconf_client_set_int(client, key, pos, NULL);
 	free(key);
 }
 
