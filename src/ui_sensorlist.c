@@ -35,7 +35,7 @@ enum {
 	COL_COLOR_STR,
 	COL_ENABLED,
 	COL_EMPTY,
-	COL_SENSOR
+	COL_SENSOR,
 };
 
 struct cb_data {
@@ -265,12 +265,27 @@ on_toggled(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 	gtk_tree_path_free(path);
 }
 
+static int cmp_sensors(const void *p1, const void *p2)
+{
+	const struct psensor *s1, *s2;
+	int pos1, pos2;
+
+	s1 = *(void **)p1;
+	s2 = *(void **)p2;
+
+	pos1 = config_get_sensor_position(s1->id);
+	pos2 = config_get_sensor_position(s2->id);
+
+	return pos1 - pos2;
+}
+
 static void create_widget(struct ui_psensor *ui)
 {
 	GtkListStore *store;
 	GtkCellRenderer *renderer;
 	struct psensor **s_cur;
 	GtkTreeIter iter;
+	struct psensor **ordered_sensors;
 
 	renderer = gtk_cell_renderer_text_new();
 	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
@@ -326,8 +341,14 @@ static void create_widget(struct ui_psensor *ui)
 						    renderer,
 						    "text", COL_EMPTY, NULL);
 
+	ordered_sensors = psensor_list_copy(ui->sensors);
+	qsort(ordered_sensors,
+	      psensor_list_size(ordered_sensors)-1,
+	      sizeof(struct psensor *),
+	      cmp_sensors);
+
 	store = ui->sensors_store;
-	for (s_cur = ui->sensors; *s_cur; s_cur++) {
+	for (s_cur = ordered_sensors; *s_cur; s_cur++) {
 		gtk_list_store_append(store, &iter);
 		gtk_list_store_set(store, &iter, COL_SENSOR, *s_cur, -1);
 	}
