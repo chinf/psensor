@@ -59,10 +59,11 @@ struct ui_psensor {
 	 * The box which contains the sensors graph and the sensors
 	 * information list.
 	 */
-	GtkWidget *sensor_box;
+	GtkPaned *sensor_box;
 
 	GtkListStore *sensors_store;
 	GtkTreeView *sensors_tree;
+	GtkScrolledWindow *sensors_scrolled_tree;
 
 	int graph_update_interval;
 };

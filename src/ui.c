@@ -235,12 +235,15 @@ void ui_window_create(struct ui_psensor *ui)
 							"graph"));
 	ui_graph_create(ui);
 
-	ui->sensor_box = GTK_WIDGET(gtk_builder_get_object(builder,
-							   "sensor_box"));
+	ui->sensor_box = GTK_PANED(gtk_builder_get_object(builder,
+							  "sensor_box"));
 	ui->sensors_store = GTK_LIST_STORE(gtk_builder_get_object
 					   (builder, "sensors_store"));
 	ui->sensors_tree = GTK_TREE_VIEW(gtk_builder_get_object
 					 (builder, "sensors_tree"));
+	ui->sensors_scrolled_tree
+		= GTK_SCROLLED_WINDOW(gtk_builder_get_object
+				      (builder, "sensors_scrolled_tree"));
 
 	ui_sensorlist_create(ui);
 
@@ -263,64 +266,61 @@ static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
 void ui_window_update(struct ui_psensor *ui)
 {
 	struct config *cfg;
-	/*int init = 1;*/
 
 	log_debug("ui_window_update()");
 
 	cfg = ui->config;
-	/*
-	if (ui->sensor_box) {
-		g_object_ref(GTK_WIDGET(ui->ui_sensorlist->widget));
 
-		if (ui->ui_sensorlist && ui->ui_sensorlist->widget) {
-			printf("remove sensor_list\n");
-			gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
-					     ui->ui_sensorlist->widget);
-		}
+	g_object_ref(GTK_WIDGET(ui->sensors_scrolled_tree));
+	g_object_ref(GTK_WIDGET(ui->w_graph));
 
-		gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
-				     ui->w_graph);
+	gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
+			     GTK_WIDGET(ui->sensors_scrolled_tree));
 
-		gtk_container_remove(GTK_CONTAINER(ui->main_box),
-				     ui->sensor_box);
+	gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
+			     ui->w_graph);
 
-		init = 0;
-	}
+	gtk_container_remove(GTK_CONTAINER(ui->main_box),
+			     GTK_WIDGET(ui->sensor_box));
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
 	    || cfg->sensorlist_position == SENSORLIST_POSITION_LEFT)
-		ui->sensor_box = gtk_paned_new(GTK_ORIENTATION_HORIZONTAL);
+		ui->sensor_box
+			= GTK_PANED(gtk_paned_new(GTK_ORIENTATION_HORIZONTAL));
 	else
-		ui->sensor_box = gtk_paned_new(GTK_ORIENTATION_VERTICAL);
+		ui->sensor_box
+			= GTK_PANED(gtk_paned_new(GTK_ORIENTATION_VERTICAL));
 
-	gtk_box_pack_end(GTK_BOX(ui->main_box), ui->sensor_box, TRUE, TRUE, 2);
+	gtk_box_pack_end(GTK_BOX(ui->main_box),
+			 GTK_WIDGET(ui->sensor_box), TRUE, TRUE, 2);
 
 	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
 	    || cfg->sensorlist_position == SENSORLIST_POSITION_BOTTOM) {
-		gtk_paned_pack1(GTK_PANED(ui->sensor_box),
+		gtk_paned_pack1(ui->sensor_box,
 				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
-		gtk_paned_pack2(GTK_PANED(ui->sensor_box),
-				ui->ui_sensorlist->widget, FALSE, TRUE);
+		gtk_paned_pack2(ui->sensor_box,
+				GTK_WIDGET(ui->sensors_scrolled_tree),
+				FALSE, TRUE);
 	} else {
-		gtk_paned_pack1(GTK_PANED(ui->sensor_box),
-				ui->ui_sensorlist->widget, FALSE, TRUE);
-		gtk_paned_pack2(GTK_PANED(ui->sensor_box),
+		gtk_paned_pack1(ui->sensor_box,
+				GTK_WIDGET(ui->sensors_scrolled_tree),
+				FALSE, TRUE);
+		gtk_paned_pack2(ui->sensor_box,
 				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
 	}
 
 	if (cfg->window_restore_enabled)
-		gtk_paned_set_position(GTK_PANED(ui->sensor_box),
-				       ui->config->window_divider_pos);
+		gtk_paned_set_position(ui->sensor_box, cfg->window_divider_pos);
 
-	if (!init)
-	g_object_unref(GTK_WIDGET(ui->ui_sensorlist->widget));*/
+	g_object_unref(GTK_WIDGET(ui->sensors_scrolled_tree));
+	g_object_unref(GTK_WIDGET(ui->w_graph));
 
-	/*	gtk_widget_show_all(ui->sensor_box);*/
+	gtk_widget_show_all(GTK_WIDGET(ui->sensor_box));
 
 	if (cfg->menu_bar_disabled)
 		menu_bar_show(0, ui);
 	else
-	menu_bar_show(1, ui);
+		menu_bar_show(1, ui);
 }
 
 void ui_window_show(struct ui_psensor *ui)
