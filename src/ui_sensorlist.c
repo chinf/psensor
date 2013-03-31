@@ -269,9 +269,8 @@ static void create_widget(struct ui_psensor *ui)
 {
 	GtkListStore *store;
 	GtkCellRenderer *renderer;
-	struct psensor **s_cur = ui->sensors;
-
-	store = ui->sensors_store;
+	struct psensor **s_cur;
+	GtkTreeIter iter;
 
 	renderer = gtk_cell_renderer_text_new();
 	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
@@ -327,32 +326,13 @@ static void create_widget(struct ui_psensor *ui)
 						    renderer,
 						    "text", COL_EMPTY, NULL);
 
-	while (*s_cur) {
-		GtkTreeIter iter;
-		GdkColor color;
-		gchar *scolor;
-		struct psensor *s = *s_cur;
-
-		color.red = s->color->red;
-		color.green = s->color->green;
-		color.blue = s->color->blue;
-
-		scolor = gdk_color_to_string(&color);
-
+	store = ui->sensors_store;
+	for (s_cur = ui->sensors; *s_cur; s_cur++) {
 		gtk_list_store_append(store, &iter);
-		gtk_list_store_set(store, &iter,
-				   COL_NAME, s->name,
-				   COL_TEMP, _("N/A"),
-				   COL_TEMP_MIN, _("N/A"),
-				   COL_TEMP_MAX, _("N/A"),
-				   COL_COLOR_STR, scolor,
-				   COL_ENABLED, s->enabled,
-				   COL_SENSOR, s, -1);
-
-		free(scolor);
-
-		s_cur++;
+		gtk_list_store_set(store, &iter, COL_SENSOR, *s_cur, -1);
 	}
+
+	ui_sensorlist_update(ui, 1);
 }
 
 void ui_sensorlist_create(struct ui_psensor *ui)
