@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-30 12:16+0100\n"
+"POT-Creation-Date: 2013-04-01 11:08+0200\n"
 "PO-Revision-Date: 2012-09-10 04:01+0000\n"
 "Last-Translator: Daniel Serafim <daniel.serafim@gmail.com>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "Sobre"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:182 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:185 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Preferências"
 
@@ -132,7 +132,7 @@ msgid "Measures"
 msgstr "Medidas"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:316
+#: src/ui_sensorlist.c:331
 msgid "Graph"
 msgstr "Grafo"
 
@@ -167,9 +167,7 @@ msgstr "Tipo:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
-#: src/ui_sensorlist.c:345 src/ui_sensorlist.c:346 src/ui_sensorlist.c:347
-#: src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/D"
 
@@ -540,27 +538,27 @@ msgstr "Site do Psensor"
 msgid "Failed to load Psensor icon."
 msgstr "Falha ao carregar o ícone do Psensor."
 
-#: src/ui_sensorlist.c:219
+#: src/ui_sensorlist.c:222
 msgid "Select foreground color"
 msgstr "Selecionar cor do primeiro plano"
 
-#: src/ui_sensorlist.c:279
+#: src/ui_sensorlist.c:294
 msgid "Sensor"
 msgstr "Sensor"
 
-#: src/ui_sensorlist.c:285
+#: src/ui_sensorlist.c:300
 msgid "Value"
 msgstr "Valor"
 
-#: src/ui_sensorlist.c:291
+#: src/ui_sensorlist.c:306
 msgid "Min"
 msgstr "Min"
 
-#: src/ui_sensorlist.c:297
+#: src/ui_sensorlist.c:312
 msgid "Max"
 msgstr "Max"
 
-#: src/ui_sensorlist.c:304
+#: src/ui_sensorlist.c:319
 msgid "Color"
 msgstr "Cor"
 

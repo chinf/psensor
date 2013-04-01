@@ -171,9 +171,7 @@ static void on_preferences_activated(GtkWidget *menu_item, gpointer data)
 static GtkWidget *create_sensor_popup(struct ui_psensor *ui,
 				      struct psensor *sensor)
 {
-	GtkWidget *menu;
-	GtkWidget *item;
-	GtkWidget *separator;
+	GtkWidget *menu, *item, *separator;
 	struct cb_data *data;
 
 	menu = gtk_menu_new();

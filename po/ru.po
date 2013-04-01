@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-30 12:16+0100\n"
+"POT-Creation-Date: 2013-04-01 11:08+0200\n"
 "PO-Revision-Date: 2012-12-25 06:05+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Russian\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "О программе"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:182 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:185 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -132,7 +132,7 @@ msgid "Measures"
 msgstr "Замеры"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:316
+#: src/ui_sensorlist.c:331
 msgid "Graph"
 msgstr "Диаграмма"
 
@@ -166,9 +166,7 @@ msgstr "Тип:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
-#: src/ui_sensorlist.c:345 src/ui_sensorlist.c:346 src/ui_sensorlist.c:347
-#: src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487 src/ui_notify.c:81
 msgid "N/A"
 msgstr "Н/Д"
 
@@ -547,27 +545,27 @@ msgstr "Домашняя страница Psensor"
 msgid "Failed to load Psensor icon."
 msgstr "Не удалось загрузить значок Psensor."
 
-#: src/ui_sensorlist.c:219
+#: src/ui_sensorlist.c:222
 msgid "Select foreground color"
 msgstr "Выберите цвет переднего плана"
 
-#: src/ui_sensorlist.c:279
+#: src/ui_sensorlist.c:294
 msgid "Sensor"
 msgstr "Датчик"
 
-#: src/ui_sensorlist.c:285
+#: src/ui_sensorlist.c:300
 msgid "Value"
 msgstr "Значение"
 
-#: src/ui_sensorlist.c:291
+#: src/ui_sensorlist.c:306
 msgid "Min"
 msgstr "Мин."
 
-#: src/ui_sensorlist.c:297
+#: src/ui_sensorlist.c:312
 msgid "Max"
 msgstr "Макс."
 
-#: src/ui_sensorlist.c:304
+#: src/ui_sensorlist.c:319
 msgid "Color"
 msgstr "Цвет"
 

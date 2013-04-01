@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-03-30 12:16+0100\n"
+"POT-Creation-Date: 2013-04-01 11:08+0200\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "About"
 msgstr "Névjegy"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:182 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:185 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -133,7 +133,7 @@ msgid "Measures"
 msgstr "Mérések"
 
 #: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:316
+#: src/ui_sensorlist.c:331
 msgid "Graph"
 msgstr "Grafikon"
 
@@ -167,9 +167,7 @@ msgstr "Típus:"
 
 #: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
 #: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487
-#: src/ui_sensorlist.c:345 src/ui_sensorlist.c:346 src/ui_sensorlist.c:347
-#: src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487 src/ui_notify.c:81
 msgid "N/A"
 msgstr "---"
 
@@ -563,27 +561,27 @@ msgstr "A Psensor honlapja"
 msgid "Failed to load Psensor icon."
 msgstr "Nem sikerült betölteni a Psensor ikont."
 
-#: src/ui_sensorlist.c:219
+#: src/ui_sensorlist.c:222
 msgid "Select foreground color"
 msgstr "Előtérszín kiválasztása"
 
-#: src/ui_sensorlist.c:279
+#: src/ui_sensorlist.c:294
 msgid "Sensor"
 msgstr "Érzékelő"
 
-#: src/ui_sensorlist.c:285
+#: src/ui_sensorlist.c:300
 msgid "Value"
 msgstr "Érték"
 
-#: src/ui_sensorlist.c:291
+#: src/ui_sensorlist.c:306
 msgid "Min"
 msgstr "Minimum"
 
-#: src/ui_sensorlist.c:297
+#: src/ui_sensorlist.c:312
 msgid "Max"
 msgstr "Maximum"
 
-#: src/ui_sensorlist.c:304
+#: src/ui_sensorlist.c:319
 msgid "Color"
 msgstr "Szín"
 
