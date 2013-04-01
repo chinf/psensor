@@ -149,7 +149,7 @@ static int get_col_index_at_pos(GtkTreeView *view, int x)
 	colx = 0;
 	coli = 0;
 	for (node = cols; node; node = node->next) {
-		checkcol = (GtkTreeViewColumn *) node->data;
+		checkcol = (GtkTreeViewColumn *)node->data;
 
 		if (x >= colx &&
 		    x < (colx + gtk_tree_view_column_get_width(checkcol)))
