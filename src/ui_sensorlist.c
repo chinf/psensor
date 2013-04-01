@@ -114,16 +114,21 @@ void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
  * <null> if none.
  */
 static struct psensor *
-get_sensor_at_pos(GtkTreeView *view, int x, int y, struct psensor **sensors)
+get_sensor_at_pos(GtkTreeView *view, int x, int y, struct ui_psensor *ui)
 {
 	GtkTreePath *path;
+	GtkTreeModel *model;
+	GtkTreeIter iter;
+	struct psensor *s;
 
 	gtk_tree_view_get_path_at_pos(view, x, y, &path, NULL, NULL, NULL);
+	model = gtk_tree_view_get_model(ui->sensors_tree);
 
 	if (path) {
-		gint *i = gtk_tree_path_get_indices(path);
-		if (i)
-			return *(sensors + *i);
+		if (gtk_tree_model_get_iter(model, &iter, path)) {
+			gtk_tree_model_get(model, &iter, COL_SENSOR, &s, -1);
+			return s;
+		}
 	}
 	return NULL;
 }
@@ -209,7 +214,7 @@ static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	struct psensor *sensor = get_sensor_at_pos(view,
 						   event->x,
 						   event->y,
-						   ui->sensors);
+						   ui);
 
 	if (sensor) {
 		int coli = col_index_to_col(get_col_index_at_pos(view,
