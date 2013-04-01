@@ -241,7 +241,6 @@ toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 	GtkTreeModel *model;
 	GtkTreeIter iter;
 	GtkTreePath *path;
-	gboolean fixed;
 	struct psensor *s;
 
 	ui = (struct ui_psensor *)data;
@@ -251,11 +250,8 @@ toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 	gtk_tree_model_get_iter(model, &iter, path);
 
 	gtk_tree_model_get(model, &iter, COL_SENSOR, &s, -1);
-	gtk_tree_model_get(model, &iter, COL_ENABLED, &fixed, -1);
 
-	fixed ^= 1;
-
-	s->enabled = fixed;
+	s->enabled ^= 1;
 	config_set_sensor_enabled(s->id, s->enabled);
 
 	gtk_list_store_set(GTK_LIST_STORE(model), &iter,
