@@ -353,6 +353,7 @@ static void create_widget(struct ui_psensor *ui)
 		gtk_list_store_append(store, &iter);
 		gtk_list_store_set(store, &iter, COL_SENSOR, *s_cur, -1);
 	}
+	free(ordered_sensors);
 
 	ui_sensorlist_update(ui, 1);
 }
