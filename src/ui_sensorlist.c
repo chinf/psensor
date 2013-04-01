@@ -201,32 +201,30 @@ static GtkWidget *create_sensor_popup(struct ui_psensor *ui,
 static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
 	GtkWidget *menu;
-	struct ui_psensor *ui = (struct ui_psensor *)data;
+	struct ui_psensor *ui;
 	GtkTreeView *view;
+	struct psensor *s;
+	int coli;
 
 	if (event->button != 3)
 		return FALSE;
 
+	ui = (struct ui_psensor *)data;
 	view = ui->sensors_tree;
 
-	struct psensor *sensor = get_sensor_at_pos(view,
-						   event->x,
-						   event->y,
-						   ui);
+	s = get_sensor_at_pos(view, event->x, event->y, ui);
 
-	if (sensor) {
-		int coli = col_index_to_col(get_col_index_at_pos(view,
-								 event->x));
+	if (s) {
+		coli = col_index_to_col(get_col_index_at_pos(view, event->x));
 
 		if (coli == COL_COLOR) {
 			if (ui_change_color(_("Select foreground color"),
-					    sensor->color)) {
+					    s->color)) {
 				ui_sensorlist_update(ui, 1);
-				config_set_sensor_color(sensor->id,
-							sensor->color);
+				config_set_sensor_color(s->id, s->color);
 			}
 		} else if (coli >= 0 && coli != COL_ENABLED) {
-			menu = create_sensor_popup(ui, sensor);
+			menu = create_sensor_popup(ui, s);
 
 			gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
 				       event->button, event->time);
