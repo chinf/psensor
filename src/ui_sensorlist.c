@@ -163,15 +163,15 @@ static int get_col_index_at_pos(GtkTreeView *view, int x)
 	return -1;
 }
 
-static void on_preferences_activated(GtkWidget *menu_item, gpointer data)
+static void preferences_activated_cbk(GtkWidget *menu_item, gpointer data)
 {
 	struct cb_data *cb_data = data;
 
 	ui_sensorpref_dialog_run(cb_data->sensor, cb_data->ui);
 }
 
-static GtkWidget *create_sensor_popup(struct ui_psensor *ui,
-				      struct psensor *sensor)
+static GtkWidget *
+create_sensor_popup(struct ui_psensor *ui, struct psensor *sensor)
 {
 	GtkWidget *menu, *item, *separator;
 	struct cb_data *data;
@@ -193,14 +193,14 @@ static GtkWidget *create_sensor_popup(struct ui_psensor *ui,
 
 	g_signal_connect(item,
 			 "activate",
-			 G_CALLBACK(on_preferences_activated), data);
+			 G_CALLBACK(preferences_activated_cbk), data);
 
 	gtk_widget_show_all(menu);
 
 	return menu;
 }
 
-static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
+static int clicked_cbk(GtkWidget *widget, GdkEventButton *event, gpointer data)
 {
 	GtkWidget *menu;
 	struct ui_psensor *ui;
@@ -321,7 +321,7 @@ void ui_sensorlist_create(struct ui_psensor *ui)
 						    NULL);
 
 	g_signal_connect(ui->sensors_tree,
-			 "button-press-event", (GCallback) on_clicked, ui);
+			 "button-press-event", (GCallback)clicked_cbk, ui);
 
 	renderer = gtk_cell_renderer_toggle_new();
 	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
