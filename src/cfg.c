@@ -419,7 +419,6 @@ static void set_slog_enabled(bool enabled)
 	gconf_client_set_bool(client, KEY_SLOG_ENABLED, enabled, NULL);
 }
 
-
 void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data)
 {
 	log_debug("config_slog_enabled_notify_add");
