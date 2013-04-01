@@ -24,6 +24,7 @@
       <object class="GtkBox" id="dialog-vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox" id="dialog-action_area1">
@@ -33,11 +34,9 @@
             <child>
               <object class="GtkButton" id="btn_ok">
                 <property name="label">gtk-ok</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_stock">True</property>
               </object>
               <packing>
@@ -49,11 +48,9 @@
             <child>
               <object class="GtkButton" id="btn_cancel">
                 <property name="label">gtk-cancel</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
                 <property name="use_stock">True</property>
               </object>
               <packing>
@@ -94,6 +91,12 @@
                 <property name="can_focus">False</property>
                 <property name="n_rows">15</property>
                 <property name="n_columns">2</property>
+                <child>
+                  <placeholder/>
+                </child>
+                <child>
+                  <placeholder/>
+                </child>
                 <child>
                   <object class="GtkEntry" id="sensor_name">
                     <property name="visible">True</property>
@@ -197,11 +200,9 @@
                 <child>
                   <object class="GtkCheckButton" id="sensor_alarm">
                     <property name="label" translatable="yes">Activate desktop notifications</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
@@ -232,11 +233,9 @@
                 <child>
                   <object class="GtkCheckButton" id="sensor_draw">
                     <property name="label" translatable="yes">Draw sensor curve</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
@@ -296,11 +295,9 @@
                 </child>
                 <child>
                   <object class="GtkColorButton" id="sensor_color">
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="color">#000000000000</property>
                   </object>
@@ -309,7 +306,7 @@
                     <property name="right_attach">2</property>
                     <property name="top_attach">8</property>
                     <property name="bottom_attach">9</property>
-                    <property name="x_options"></property>
+                    <property name="x_options"/>
                     <property name="x_padding">4</property>
                     <property name="y_padding">4</property>
                   </packing>
@@ -411,11 +408,9 @@
                 <child>
                   <object class="GtkCheckButton" id="indicator_checkbox">
                     <property name="label" translatable="yes">Display sensor in the Application Indicator menu</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                   </object>
@@ -522,12 +517,6 @@
                     <property name="x_padding">14</property>
                     <property name="y_padding">4</property>
                   </packing>
-                </child>
-                <child>
-                  <placeholder/>
-                </child>
-                <child>
-                  <placeholder/>
                 </child>
                 <child>
                   <object class="GtkLabel" id="label3">
