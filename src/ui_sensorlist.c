@@ -280,13 +280,15 @@ static int cmp_sensors(const void *p1, const void *p2)
 	return pos1 - pos2;
 }
 
-static void create_widget(struct ui_psensor *ui)
+void ui_sensorlist_create(struct ui_psensor *ui)
 {
 	GtkListStore *store;
 	GtkCellRenderer *renderer;
 	struct psensor **s_cur;
 	GtkTreeIter iter;
 	struct psensor **ordered_sensors;
+
+	log_debug("ui_sensorlist_create()");
 
 	renderer = gtk_cell_renderer_text_new();
 	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
@@ -356,10 +358,4 @@ static void create_widget(struct ui_psensor *ui)
 	free(ordered_sensors);
 
 	ui_sensorlist_update(ui, 1);
-}
-
-void ui_sensorlist_create(struct ui_psensor *ui)
-{
-	log_debug("ui_sensorlist_create()");
-	create_widget(ui);
 }
