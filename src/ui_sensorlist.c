@@ -239,33 +239,31 @@ static int on_clicked(GtkWidget *widget, GdkEventButton *event, gpointer data)
 }
 
 static void
-on_toggled(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
+toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 {
-	struct ui_psensor *ui = (struct ui_psensor *)data;
-	GtkTreeModel *model
-	    = gtk_tree_view_get_model(ui->sensors_tree);
+	struct ui_psensor *ui;
+	GtkTreeModel *model;
 	GtkTreeIter iter;
-	GtkTreePath *path = gtk_tree_path_new_from_string(path_str);
+	GtkTreePath *path;
 	gboolean fixed;
-	gint *i;
+	struct psensor *s;
+
+	ui = (struct ui_psensor *)data;
+	model = gtk_tree_view_get_model(ui->sensors_tree);
+	path = gtk_tree_path_new_from_string(path_str);
 
 	gtk_tree_model_get_iter(model, &iter, path);
+
+	gtk_tree_model_get(model, &iter, COL_SENSOR, &s, -1);
 	gtk_tree_model_get(model, &iter, COL_ENABLED, &fixed, -1);
 
 	fixed ^= 1;
 
-	i = gtk_tree_path_get_indices(path);
-	if (i) {
-		int n = *i;
-		struct psensor **sensor = ui->sensors;
-		while (n--)
-			sensor++;
-		(*sensor)->enabled = fixed;
-		config_set_sensor_enabled((*sensor)->id, (*sensor)->enabled);
-	}
+	s->enabled = fixed;
+	config_set_sensor_enabled(s->id, s->enabled);
 
-	gtk_list_store_set(GTK_LIST_STORE(model),
-			   &iter, COL_ENABLED, fixed, -1);
+	gtk_list_store_set(GTK_LIST_STORE(model), &iter,
+			   COL_ENABLED, s->enabled, -1);
 
 	gtk_tree_path_free(path);
 }
@@ -337,7 +335,7 @@ static void create_widget(struct ui_psensor *ui)
 						    "active", COL_ENABLED,
 						    NULL);
 	g_signal_connect(G_OBJECT(renderer),
-			 "toggled", (GCallback) on_toggled, ui);
+			 "toggled", (GCallback) toggled_cbk, ui);
 
 	renderer = gtk_cell_renderer_text_new();
 	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
