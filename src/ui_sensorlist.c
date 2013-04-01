@@ -141,13 +141,15 @@ get_sensor_at_pos(GtkTreeView *view, int x, int y, struct ui_psensor *ui)
  */
 static int get_col_index_at_pos(GtkTreeView *view, int x)
 {
-	GList *columns = gtk_tree_view_get_columns(view);
-	GList *node;
-	int colx = 0;
-	int coli = 0;
+	GList *cols, *node;
+	int colx, coli;
+	GtkTreeViewColumn *checkcol;
 
-	for (node = columns; node; node = node->next) {
-		GtkTreeViewColumn *checkcol = (GtkTreeViewColumn *) node->data;
+	cols = gtk_tree_view_get_columns(view);
+	colx = 0;
+	coli = 0;
+	for (node = cols; node; node = node->next) {
+		checkcol = (GtkTreeViewColumn *) node->data;
 
 		if (x >= colx &&
 		    x < (colx + gtk_tree_view_column_get_width(checkcol)))
