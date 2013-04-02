@@ -49,7 +49,6 @@ struct sensor_pref {
 struct cb_data {
 	struct ui_psensor *ui;
 	GtkBuilder *builder;
-	struct sensor_pref **prefs;
 };
 
 static struct sensor_pref *sensor_pref_new(struct psensor *s,
@@ -91,73 +90,22 @@ static void sensor_pref_free(struct sensor_pref *p)
 	free(p);
 }
 
-static struct sensor_pref **sensor_pref_list_new(struct psensor **sensors,
-						 struct config *cfg)
-{
-	int n, i;
-	struct sensor_pref **pref_list;
-
-	n = psensor_list_size(sensors);
-	pref_list = malloc(sizeof(struct sensor_pref *) * (n+1));
-
-	for (i = 0; i < n; i++)
-		pref_list[i] = sensor_pref_new(sensors[i],
-					       cfg);
-
-	pref_list[n] = NULL;
-
-	return pref_list;
-}
-
-static void sensor_pref_list_free(struct sensor_pref **list)
-{
-	struct sensor_pref **cur;
-
-	for (cur = list; *cur; cur++) 
-		sensor_pref_free(*cur);
-
-	free(list);
-}
-
 static struct sensor_pref *
-sensor_pref_get(struct sensor_pref **ps, struct psensor *s)
-{
-	struct sensor_pref **p_cur = ps;
-
-	while (*p_cur) {
-		struct sensor_pref *p = *p_cur;
-
-		if (p->sensor == s)
-			return p;
-
-		p_cur++;
-	}
-
-	return NULL;
-}
-
-static struct sensor_pref *
-get_selected_sensor_pref(GtkBuilder *builder, struct sensor_pref **ps)
+get_selected_sensor_pref(GtkBuilder *builder)
 {
 	GtkTreeModel *model;
 	GtkTreeIter iter;
-	struct sensor_pref *pref = NULL;
+	struct sensor_pref *pref;
 	GtkTreeSelection *selection;
 	GtkTreeView *tree;
 
-	tree = GTK_TREE_VIEW(gtk_builder_get_object(builder,
-				     "sensors_list"));
+	tree = GTK_TREE_VIEW(gtk_builder_get_object(builder, "sensors_list"));
 
 	selection = gtk_tree_view_get_selection(tree);
 
-	if (gtk_tree_selection_get_selected(selection, &model, &iter)) {
-		GtkTreePath *p = gtk_tree_model_get_path(model, &iter);
-		gint *indices = gtk_tree_path_get_indices(p);
-
-		pref = ps[*indices];
-
-		gtk_tree_path_free(p);
-	}
+	pref = NULL;
+	if (gtk_tree_selection_get_selected(selection, &model, &iter))
+		gtk_tree_model_get(model, &iter, COL_SENSOR, &pref, -1);
 
 	return pref;
 }
@@ -170,7 +118,7 @@ static void on_name_changed(GtkEntry *entry, gpointer data)
 
 	str = gtk_entry_get_text(entry);
 
-	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder);
 
 	if (p && strcmp(p->name, str)) {
 		free(p->name);
@@ -184,7 +132,7 @@ on_drawed_toggled(GtkToggleButton *btn, gpointer data)
 	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder);
 
 	if (p)
 		p->enabled = gtk_toggle_button_get_active(btn);
@@ -196,7 +144,7 @@ on_alarm_toggled(GtkToggleButton *btn, gpointer data)
 	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder);
 
 	if (p)
 		p->alarm_enabled = gtk_toggle_button_get_active(btn);
@@ -208,7 +156,7 @@ on_appindicator_toggled(GtkToggleButton *btn, gpointer data)
 	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder);
 
 	if (p)
 		p->appindicator_enabled = gtk_toggle_button_get_active(btn);
@@ -220,7 +168,7 @@ static void on_color_set(GtkColorButton *widget, gpointer data)
 	struct sensor_pref *p;
 	GdkColor color;
 
-	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder);
 
 	if (p) {
 		gtk_color_button_get_color(widget, &color);
@@ -235,7 +183,7 @@ static void on_alarm_high_threshold_changed(GtkSpinButton *btn, gpointer data)
 
 	cbdata = data;
 
-	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder);
 
 	if (p)
 		p->alarm_high_threshold = gtk_spin_button_get_value(btn);
@@ -248,7 +196,7 @@ static void on_alarm_low_threshold_changed(GtkSpinButton *btn, gpointer data)
 
 	cbdata = data;
 
-	p = get_selected_sensor_pref(cbdata->builder, cbdata->prefs);
+	p = get_selected_sensor_pref(cbdata->builder);
 
 	if (p)
 		p->alarm_low_threshold = gtk_spin_button_get_value(btn);
@@ -288,10 +236,7 @@ static void connect_signals(GtkBuilder *builder, struct cb_data *cbdata)
 }
 
 static void
-update_pref(struct psensor *s,
-	    struct sensor_pref **prefs,
-	    struct config *cfg,
-	    GtkBuilder *builder)
+update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 {
 	GtkLabel *w_id, *w_type, *w_high_threshold_unit, *w_low_threshold_unit,
 		*w_chipname;
@@ -300,8 +245,10 @@ update_pref(struct psensor *s,
 	GtkColorButton *w_color;
 	GtkSpinButton *w_high_threshold, *w_low_threshold;
 	GdkColor *color;
-	struct sensor_pref *p = sensor_pref_get(prefs, s);
+	struct psensor *s;
 	int use_celcius;
+
+	s = p->sensor;
 
 	w_id = GTK_LABEL(gtk_builder_get_object(builder, "sensor_id"));
 	gtk_label_set_text(w_id, s->id);
@@ -379,23 +326,12 @@ update_pref(struct psensor *s,
 
 static void on_changed(GtkTreeSelection *selection, gpointer data)
 {
-	GtkTreeModel *model;
-	GtkTreeIter iter;
 	struct cb_data *cbdata = data;
 	struct ui_psensor *ui = cbdata->ui;
+	struct sensor_pref *p;
 
-	if (gtk_tree_selection_get_selected(selection, &model, &iter)) {
-		GtkTreePath *p = gtk_tree_model_get_path(model, &iter);
-		gint *indices = gtk_tree_path_get_indices(p);
-		struct psensor *s = *(ui->sensors + *indices);
-
-		update_pref(s,
-			    cbdata->prefs,
-			    ui->config,
-			    cbdata->builder);
-
-		gtk_tree_path_free(p);
-	}
+	p = get_selected_sensor_pref(cbdata->builder);
+	update_pref(p, ui->config, cbdata->builder);
 }
 
 static void
@@ -423,60 +359,63 @@ select_sensor(struct psensor *s, struct psensor **sensors, GtkTreeView *tree)
 	}
 }
 
-static void
-apply_prefs(struct sensor_pref **prefs,
-	    struct psensor **sensors,
-	    struct config *cfg)
+static void apply_pref(struct sensor_pref *p, struct config *cfg)
 {
-	int n = psensor_list_size(sensors);
-	int i;
+	struct psensor *s;
 
-	for (i = 0; i < n; i++) {
-		struct psensor *s = sensors[i];
-		struct sensor_pref *p = prefs[i];
+	s = p->sensor;
 
-		if (strcmp(p->name, s->name)) {
-			free(s->name);
-			s->name = strdup(p->name);
-			config_set_sensor_name(s->id, s->name);
-		}
+	if (strcmp(p->name, s->name)) {
+		free(s->name);
+		s->name = strdup(p->name);
+		config_set_sensor_name(s->id, s->name);
+	}
 
-		if (s->enabled != p->enabled) {
-			s->enabled = p->enabled;
-			config_set_sensor_enabled(s->id, s->enabled);
-		}
+	if (s->enabled != p->enabled) {
+		s->enabled = p->enabled;
+		config_set_sensor_enabled(s->id, s->enabled);
+	}
 
-		if (is_temp_type(s->type)
-		    && cfg->temperature_unit == FAHRENHEIT) {
-			s->alarm_high_threshold = fahrenheit_to_celcius
-				(p->alarm_high_threshold);
-			s->alarm_low_threshold = fahrenheit_to_celcius
-				(p->alarm_low_threshold);
-		} else {
-			s->alarm_high_threshold = p->alarm_high_threshold;
-			s->alarm_low_threshold = p->alarm_low_threshold;
-		}
+	if (is_temp_type(s->type)
+	    && cfg->temperature_unit == FAHRENHEIT) {
+		s->alarm_high_threshold
+			= fahrenheit_to_celcius(p->alarm_high_threshold);
+		s->alarm_low_threshold
+			= fahrenheit_to_celcius(p->alarm_low_threshold);
+	} else {
+		s->alarm_high_threshold = p->alarm_high_threshold;
+		s->alarm_low_threshold = p->alarm_low_threshold;
+	}
 
-		config_set_sensor_alarm_high_threshold(s->id,
-						      s->alarm_high_threshold);
-		config_set_sensor_alarm_low_threshold(s->id,
-						     s->alarm_low_threshold);
+	config_set_sensor_alarm_high_threshold(s->id, s->alarm_high_threshold);
+	config_set_sensor_alarm_low_threshold(s->id, s->alarm_low_threshold);
 
-		if (s->alarm_enabled != p->alarm_enabled) {
-			s->alarm_enabled = p->alarm_enabled;
-			config_set_sensor_alarm_enabled(s->id,
-							s->alarm_enabled);
-		}
+	if (s->alarm_enabled != p->alarm_enabled) {
+		s->alarm_enabled = p->alarm_enabled;
+		config_set_sensor_alarm_enabled(s->id, s->alarm_enabled);
+	}
 
-		color_set(s->color,
-			  p->color->red, p->color->green, p->color->blue);
-		config_set_sensor_color(s->id, s->color);
+	color_set(s->color, p->color->red, p->color->green, p->color->blue);
+	config_set_sensor_color(s->id, s->color);
 
-		if (s->appindicator_enabled != p->appindicator_enabled) {
-			s->appindicator_enabled = p->appindicator_enabled;
-			config_set_appindicator_enabled
-				(s->id, s->appindicator_enabled);
-		}
+	if (s->appindicator_enabled != p->appindicator_enabled) {
+		s->appindicator_enabled = p->appindicator_enabled;
+		config_set_appindicator_enabled(s->id, s->appindicator_enabled);
+	}
+}
+
+static void
+apply_prefs(GtkTreeModel *model, struct config *cfg)
+{
+	gboolean valid;
+	struct sensor_pref *spref;
+	GtkTreeIter iter;
+
+	valid = gtk_tree_model_get_iter_first(model, &iter);
+	while (valid) {
+		gtk_tree_model_get(model, &iter, COL_SENSOR, &spref, -1);
+		apply_pref(spref, cfg);
+		valid = gtk_tree_model_iter_next(model, &iter);
 	}
 }
 
@@ -493,9 +432,11 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	GtkTreeSelection *selection;
 	struct cb_data cbdata;
 	GtkTreeIter iter;
+	struct sensor_pref *spref;
+	gboolean valid;
+	GtkTreeModel *model;
 
 	cbdata.ui = ui;
-	cbdata.prefs = sensor_pref_list_new(ui->sensors, ui->config);
 
 	builder = gtk_builder_new();
 	cbdata.builder = builder;
@@ -511,7 +452,6 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		return ;
 	}
 
-	update_pref(sensor, cbdata.prefs, ui->config, builder);
 	connect_signals(builder, &cbdata);
 
 	w_sensors_list
@@ -524,10 +464,15 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	for (s_cur = ui->sensors; *s_cur; s_cur++) {
 		s = *s_cur;
 		gtk_list_store_append(store, &iter);
+
+		spref = sensor_pref_new(s, ui->config);
 		gtk_list_store_set(store, &iter,
 				   COL_NAME, s->name,
-				   COL_SENSOR, s,
+				   COL_SENSOR, spref,
 				   -1);
+
+		if (s == sensor)
+			update_pref(spref, ui->config, builder);
 	}
 
 	selection = gtk_tree_view_get_selection(w_sensors_list);
@@ -537,17 +482,24 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	diag = GTK_DIALOG(gtk_builder_get_object(builder, "dialog1"));
 	result = gtk_dialog_run(diag);
 
+	model = gtk_tree_view_get_model(w_sensors_list);
+
 	if (result == GTK_RESPONSE_ACCEPT) {
-		apply_prefs(cbdata.prefs, ui->sensors, ui->config);
+		apply_prefs(model, ui->config);
 		ui_sensorlist_update(ui, 1);
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 		ui_appindicator_update_menu(ui);
 #endif
 	}
 
+	valid = gtk_tree_model_get_iter_first(model, &iter);
+	while (valid) {
+		gtk_tree_model_get(model, &iter, COL_SENSOR, &spref, -1);
+		sensor_pref_free(spref);
+		valid = gtk_tree_model_iter_next(model, &iter);
+	}
+
 	g_object_unref(G_OBJECT(builder));
 
 	gtk_widget_destroy(GTK_WIDGET(diag));
-
-	sensor_pref_list_free(cbdata.prefs);
 }

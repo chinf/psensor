@@ -77,6 +77,7 @@
                 <property name="can_focus">True</property>
                 <property name="model">sensors_liststore</property>
                 <property name="headers_clickable">False</property>
+                <property name="reorderable">True</property>
                 <property name="search_column">1</property>
                 <child internal-child="selection">
                   <object class="GtkTreeSelection" id="treeview-selection1"/>
