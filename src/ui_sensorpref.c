@@ -51,8 +51,8 @@ struct cb_data {
 	GtkBuilder *builder;
 };
 
-static struct sensor_pref *sensor_pref_new(struct psensor *s,
-					   struct config *cfg)
+static struct sensor_pref *
+sensor_pref_new(struct psensor *s, struct config *cfg)
 {
 	struct sensor_pref *p;
 
@@ -316,7 +316,7 @@ static void on_changed(GtkTreeSelection *selection, gpointer data)
 	struct ui_psensor *ui = cbdata->ui;
 	struct sensor_pref *p;
 	GtkTreeView *tree;
-	
+
 	tree = GTK_TREE_VIEW(gtk_builder_get_object(cbdata->builder,
 						    "sensors_list"));
 	p = get_selected_sensor_pref(tree);
@@ -406,7 +406,7 @@ apply_prefs(GtkTreeModel *model, struct config *cfg)
 	i = 0;
 	while (valid) {
 		gtk_tree_model_get(model, &iter, COL_SENSOR, &spref, -1);
-		apply_pref(spref, i, cfg);		
+		apply_pref(spref, i, cfg);
 		valid = gtk_tree_model_iter_next(model, &iter);
 		i++;
 	}
