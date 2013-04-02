@@ -111,13 +111,10 @@ static struct sensor_pref **sensor_pref_list_new(struct psensor **sensors,
 
 static void sensor_pref_list_free(struct sensor_pref **list)
 {
-	struct sensor_pref **cur = list;
+	struct sensor_pref **cur;
 
-	while (*cur) {
+	for (cur = list; *cur; cur++) 
 		sensor_pref_free(*cur);
-
-		cur++;
-	}
 
 	free(list);
 }
