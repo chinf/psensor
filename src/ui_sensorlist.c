@@ -262,20 +262,6 @@ toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 	gtk_tree_path_free(path);
 }
 
-static int cmp_sensors(const void *p1, const void *p2)
-{
-	const struct psensor *s1, *s2;
-	int pos1, pos2;
-
-	s1 = *(void **)p1;
-	s2 = *(void **)p2;
-
-	pos1 = config_get_sensor_position(s1->id);
-	pos2 = config_get_sensor_position(s2->id);
-
-	return pos1 - pos2;
-}
-
 void ui_sensorlist_create(struct ui_psensor *ui)
 {
 	GtkListStore *store;
@@ -340,11 +326,7 @@ void ui_sensorlist_create(struct ui_psensor *ui)
 						    renderer,
 						    "text", COL_EMPTY, NULL);
 
-	ordered_sensors = psensor_list_copy(ui->sensors);
-	qsort(ordered_sensors,
-	      psensor_list_size(ordered_sensors),
-	      sizeof(struct psensor *),
-	      cmp_sensors);
+	ordered_sensors = ui_get_sensors_ordered_by_position(ui);
 
 	store = ui->sensors_store;
 	for (s_cur = ordered_sensors; *s_cur; s_cur++) {

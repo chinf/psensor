@@ -16,6 +16,8 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301 USA
  */
+#include <stdlib.h>
+
 #include "cfg.h"
 #include "slog.h"
 #include "ui.h"
@@ -325,4 +327,31 @@ void ui_window_show(struct ui_psensor *ui)
 	log_debug("ui_window_show()");
 	ui_window_update(ui);
 	gtk_window_present(GTK_WINDOW(ui->main_window));
+}
+
+static int cmp_sensors(const void *p1, const void *p2)
+{
+	const struct psensor *s1, *s2;
+	int pos1, pos2;
+
+	s1 = *(void **)p1;
+	s2 = *(void **)p2;
+
+	pos1 = config_get_sensor_position(s1->id);
+	pos2 = config_get_sensor_position(s2->id);
+
+	return pos1 - pos2;
+}
+
+struct psensor **ui_get_sensors_ordered_by_position(struct ui_psensor *ui)
+{
+	struct psensor **result;
+
+	result = psensor_list_copy(ui->sensors);
+	qsort(result,
+	      psensor_list_size(result),
+	      sizeof(struct psensor *),
+	      cmp_sensors);
+
+	return result;
 }
