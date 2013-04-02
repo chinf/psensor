@@ -90,8 +90,7 @@ static void sensor_pref_free(struct sensor_pref *p)
 	free(p);
 }
 
-static struct sensor_pref *
-get_selected_sensor_pref(GtkTreeView *tree)
+static struct sensor_pref *get_selected_sensor_pref(GtkTreeView *tree)
 {
 	GtkTreeModel *model;
 	GtkTreeIter iter;
@@ -122,8 +121,7 @@ static void on_name_changed(GtkEntry *entry, gpointer data)
 	}
 }
 
-static void
-on_drawed_toggled(GtkToggleButton *btn, gpointer data)
+static void on_drawed_toggled(GtkToggleButton *btn, gpointer data)
 {
 	struct sensor_pref *p;
 
@@ -133,8 +131,7 @@ on_drawed_toggled(GtkToggleButton *btn, gpointer data)
 		p->enabled = gtk_toggle_button_get_active(btn);
 }
 
-static void
-on_alarm_toggled(GtkToggleButton *btn, gpointer data)
+static void on_alarm_toggled(GtkToggleButton *btn, gpointer data)
 {
 	struct sensor_pref *p;
 
@@ -144,8 +141,7 @@ on_alarm_toggled(GtkToggleButton *btn, gpointer data)
 		p->alarm_enabled = gtk_toggle_button_get_active(btn);
 }
 
-static void
-on_appindicator_toggled(GtkToggleButton *btn, gpointer data)
+static void on_appindicator_toggled(GtkToggleButton *btn, gpointer data)
 {
 	struct sensor_pref *p;
 
