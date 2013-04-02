@@ -82,7 +82,7 @@
                   <object class="GtkTreeSelection" id="treeview-selection1"/>
                 </child>
                 <child>
-                  <object class="GtkTreeViewColumn" id="sensor_name1">
+                  <object class="GtkTreeViewColumn" id="sensor_name_col">
                     <property name="title" translatable="yes">Name</property>
                     <child>
                       <object class="GtkCellRendererText" id="cellrenderertext1"/>
@@ -569,8 +569,10 @@
   </object>
   <object class="GtkListStore" id="sensors_liststore">
     <columns>
-      <!-- column-name Sensor Name -->
+      <!-- column-name Name -->
       <column type="gchararray"/>
+      <!-- column-name Sensor -->
+      <column type="gpointer"/>
     </columns>
   </object>
 </interface>

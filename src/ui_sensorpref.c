@@ -31,7 +31,8 @@
 #endif
 
 enum {
-	COL_NAME = 0
+	COL_NAME = 0,
+	COL_SENSOR
 };
 
 struct sensor_pref {
@@ -526,7 +527,10 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	for (s_cur = ui->sensors; *s_cur; s_cur++) {
 		s = *s_cur;
 		gtk_list_store_append(store, &iter);
-		gtk_list_store_set(store, &iter, COL_NAME, s->name, -1);
+		gtk_list_store_set(store, &iter,
+				   COL_NAME, s->name,
+				   COL_SENSOR, s,
+				   -1);
 	}
 
 	selection = gtk_tree_view_get_selection(w_sensors_list);
