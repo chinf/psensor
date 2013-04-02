@@ -97,4 +97,6 @@ void ui_cb_preferences(GtkMenuItem *mi, gpointer data);
 void ui_cb_about(GtkMenuItem *mi, gpointer data);
 void ui_cb_menu_quit(GtkMenuItem *mi, gpointer data);
 void ui_cb_sensor_preferences(GtkMenuItem *mi, gpointer data);
+
+struct psensor **ui_get_sensors_ordered_by_position(struct ui_psensor *);
 #endif
