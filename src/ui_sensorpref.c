@@ -91,15 +91,12 @@ static void sensor_pref_free(struct sensor_pref *p)
 }
 
 static struct sensor_pref *
-get_selected_sensor_pref(GtkBuilder *builder)
+get_selected_sensor_pref(GtkTreeView *tree)
 {
 	GtkTreeModel *model;
 	GtkTreeIter iter;
 	struct sensor_pref *pref;
 	GtkTreeSelection *selection;
-	GtkTreeView *tree;
-
-	tree = GTK_TREE_VIEW(gtk_builder_get_object(builder, "sensors_list"));
 
 	selection = gtk_tree_view_get_selection(tree);
 
@@ -112,13 +109,12 @@ get_selected_sensor_pref(GtkBuilder *builder)
 
 static void on_name_changed(GtkEntry *entry, gpointer data)
 {
-	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 	const char *str;
 
 	str = gtk_entry_get_text(entry);
 
-	p = get_selected_sensor_pref(cbdata->builder);
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p && strcmp(p->name, str)) {
 		free(p->name);
@@ -129,10 +125,9 @@ static void on_name_changed(GtkEntry *entry, gpointer data)
 static void
 on_drawed_toggled(GtkToggleButton *btn, gpointer data)
 {
-	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_selected_sensor_pref(cbdata->builder);
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p)
 		p->enabled = gtk_toggle_button_get_active(btn);
@@ -141,10 +136,9 @@ on_drawed_toggled(GtkToggleButton *btn, gpointer data)
 static void
 on_alarm_toggled(GtkToggleButton *btn, gpointer data)
 {
-	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_selected_sensor_pref(cbdata->builder);
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p)
 		p->alarm_enabled = gtk_toggle_button_get_active(btn);
@@ -153,10 +147,9 @@ on_alarm_toggled(GtkToggleButton *btn, gpointer data)
 static void
 on_appindicator_toggled(GtkToggleButton *btn, gpointer data)
 {
-	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 
-	p = get_selected_sensor_pref(cbdata->builder);
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p)
 		p->appindicator_enabled = gtk_toggle_button_get_active(btn);
@@ -164,11 +157,10 @@ on_appindicator_toggled(GtkToggleButton *btn, gpointer data)
 
 static void on_color_set(GtkColorButton *widget, gpointer data)
 {
-	struct cb_data *cbdata = data;
 	struct sensor_pref *p;
 	GdkColor color;
 
-	p = get_selected_sensor_pref(cbdata->builder);
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p) {
 		gtk_color_button_get_color(widget, &color);
@@ -178,12 +170,9 @@ static void on_color_set(GtkColorButton *widget, gpointer data)
 
 static void on_alarm_high_threshold_changed(GtkSpinButton *btn, gpointer data)
 {
-	struct cb_data *cbdata;
 	struct sensor_pref *p;
 
-	cbdata = data;
-
-	p = get_selected_sensor_pref(cbdata->builder);
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p)
 		p->alarm_high_threshold = gtk_spin_button_get_value(btn);
@@ -191,48 +180,45 @@ static void on_alarm_high_threshold_changed(GtkSpinButton *btn, gpointer data)
 
 static void on_alarm_low_threshold_changed(GtkSpinButton *btn, gpointer data)
 {
-	struct cb_data *cbdata;
 	struct sensor_pref *p;
 
-	cbdata = data;
-
-	p = get_selected_sensor_pref(cbdata->builder);
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p)
 		p->alarm_low_threshold = gtk_spin_button_get_value(btn);
 }
 
-static void connect_signals(GtkBuilder *builder, struct cb_data *cbdata)
+static void connect_signals(GtkBuilder *builder, GtkTreeView *tree)
 {
 	g_signal_connect(gtk_builder_get_object(builder, "sensor_name"),
-			 "changed", G_CALLBACK(on_name_changed), cbdata);
+			 "changed", G_CALLBACK(on_name_changed), tree);
 
 	g_signal_connect(gtk_builder_get_object(builder, "sensor_draw"),
-			 "toggled", G_CALLBACK(on_drawed_toggled), cbdata);
+			 "toggled", G_CALLBACK(on_drawed_toggled), tree);
 
 	g_signal_connect(gtk_builder_get_object(builder, "sensor_color"),
-			 "color-set", G_CALLBACK(on_color_set), cbdata);
+			 "color-set", G_CALLBACK(on_color_set), tree);
 
 	g_signal_connect(gtk_builder_get_object(builder, "sensor_alarm"),
-			 "toggled", G_CALLBACK(on_alarm_toggled), cbdata);
+			 "toggled", G_CALLBACK(on_alarm_toggled), tree);
 
 	g_signal_connect(gtk_builder_get_object(builder,
 						"sensor_alarm_high_threshold"),
 			 "value-changed",
 			 G_CALLBACK(on_alarm_high_threshold_changed),
-			 cbdata);
+			 tree);
 
 	g_signal_connect(gtk_builder_get_object(builder,
 						"sensor_alarm_low_threshold"),
 			 "value-changed",
 			 G_CALLBACK(on_alarm_low_threshold_changed),
-			 cbdata);
+			 tree);
 
 	g_signal_connect(gtk_builder_get_object(builder,
 						"indicator_checkbox"),
 			 "toggled",
 			 G_CALLBACK(on_appindicator_toggled),
-			 cbdata);
+			 tree);
 }
 
 static void
@@ -329,8 +315,11 @@ static void on_changed(GtkTreeSelection *selection, gpointer data)
 	struct cb_data *cbdata = data;
 	struct ui_psensor *ui = cbdata->ui;
 	struct sensor_pref *p;
-
-	p = get_selected_sensor_pref(cbdata->builder);
+	GtkTreeView *tree;
+	
+	tree = GTK_TREE_VIEW(gtk_builder_get_object(cbdata->builder,
+						    "sensors_list"));
+	p = get_selected_sensor_pref(tree);
 	update_pref(p, ui->config, cbdata->builder);
 }
 
@@ -453,11 +442,10 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		return ;
 	}
 
-	connect_signals(builder, &cbdata);
-
 	w_sensors_list
 		= GTK_TREE_VIEW(gtk_builder_get_object(builder,
 						       "sensors_list"));
+	connect_signals(builder, w_sensors_list);
 
 	store = GTK_LIST_STORE(gtk_builder_get_object(builder,
 						      "sensors_liststore"));
