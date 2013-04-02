@@ -30,6 +30,10 @@
 #include "ui_appindicator.h"
 #endif
 
+enum {
+	COL_NAME = 0
+};
+
 struct sensor_pref {
 	struct psensor *sensor;
 	char *name;
@@ -486,7 +490,6 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	GError *error = NULL;
 	GtkTreeView *w_sensors_list;
 	guint ok;
-	GtkCellRenderer *renderer;
 	GtkListStore *store;
 	struct psensor **s_cur;
 	GtkTreeSelection *selection;
@@ -517,14 +520,8 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		= GTK_TREE_VIEW(gtk_builder_get_object(builder,
 						       "sensors_list"));
 
-	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(w_sensors_list,
-						    -1,
-						    _("Sensor Name"),
-						    renderer,
-						    "text", 0, NULL);
-
-	store = GTK_LIST_STORE(gtk_tree_view_get_model(w_sensors_list));
+	store = GTK_LIST_STORE(gtk_builder_get_object(builder,
+						      "sensors_liststore"));
 
 	s_cur = ui->sensors;
 	while (*s_cur) {
@@ -532,7 +529,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		struct psensor *s = *s_cur;
 
 		gtk_list_store_append(store, &iter);
-		gtk_list_store_set(store, &iter, 0, s->name, -1);
+		gtk_list_store_set(store, &iter, COL_NAME, s->name, -1);
 
 		s_cur++;
 	}
