@@ -491,13 +491,13 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	GtkTreeView *w_sensors_list;
 	guint ok;
 	GtkListStore *store;
-	struct psensor **s_cur;
+	struct psensor **s_cur, *s;
 	GtkTreeSelection *selection;
 	struct cb_data cbdata;
+	GtkTreeIter iter;
 
 	cbdata.ui = ui;
-	cbdata.prefs = sensor_pref_list_new(ui->sensors,
-					    ui->config);
+	cbdata.prefs = sensor_pref_list_new(ui->sensors, ui->config);
 
 	builder = gtk_builder_new();
 	cbdata.builder = builder;
@@ -523,15 +523,10 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	store = GTK_LIST_STORE(gtk_builder_get_object(builder,
 						      "sensors_liststore"));
 
-	s_cur = ui->sensors;
-	while (*s_cur) {
-		GtkTreeIter iter;
-		struct psensor *s = *s_cur;
-
+	for (s_cur = ui->sensors; *s_cur; s_cur++) {
+		s = *s_cur;
 		gtk_list_store_append(store, &iter);
 		gtk_list_store_set(store, &iter, COL_NAME, s->name, -1);
-
-		s_cur++;
 	}
 
 	selection = gtk_tree_view_get_selection(w_sensors_list);
