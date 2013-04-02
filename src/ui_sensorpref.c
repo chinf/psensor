@@ -423,17 +423,16 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 {
 	GtkDialog *diag;
 	gint result;
-	GtkBuilder *builder;
-	GError *error = NULL;
-	GtkTreeView *w_sensors_list;
 	guint ok;
+	GtkBuilder *builder;
+	GError *error;
+	GtkTreeView *w_sensors_list;
 	GtkListStore *store;
-	struct psensor **s_cur, *s;
+	struct psensor **s_cur, *s, **ordered_sensors;
 	GtkTreeSelection *selection;
 	struct cb_data cbdata;
 	GtkTreeIter iter;
 	struct sensor_pref *spref;
-	struct psensor **ordered_sensors;
 	gboolean valid;
 	GtkTreeModel *model;
 
@@ -442,6 +441,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	builder = gtk_builder_new();
 	cbdata.builder = builder;
 
+	error = NULL;
 	ok = gtk_builder_add_from_file
 		(builder,
 		 PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "sensor-edit.glade",
@@ -476,11 +476,12 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		if (s == sensor)
 			update_pref(spref, ui->config, builder);
 	}
-	free(ordered_sensors);
 
 	selection = gtk_tree_view_get_selection(w_sensors_list);
 	g_signal_connect(selection, "changed", G_CALLBACK(on_changed), &cbdata);
-	select_sensor(sensor, ui->sensors, w_sensors_list);
+	select_sensor(sensor, ordered_sensors, w_sensors_list);
+
+	free(ordered_sensors);
 
 	diag = GTK_DIALOG(gtk_builder_get_object(builder, "dialog1"));
 	result = gtk_dialog_run(diag);
