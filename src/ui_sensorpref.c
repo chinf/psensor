@@ -365,8 +365,7 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 		config_set_sensor_enabled(s->id, s->enabled);
 	}
 
-	if (is_temp_type(s->type)
-	    && cfg->temperature_unit == FAHRENHEIT) {
+	if (is_temp_type(s->type) && cfg->temperature_unit == FAHRENHEIT) {
 		s->alarm_high_threshold
 			= fahrenheit_to_celcius(p->alarm_high_threshold);
 		s->alarm_low_threshold
