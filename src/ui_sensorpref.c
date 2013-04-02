@@ -32,7 +32,7 @@
 
 enum {
 	COL_NAME = 0,
-	COL_SENSOR
+	COL_SENSOR_PREF
 };
 
 struct sensor_pref {
@@ -102,7 +102,7 @@ get_selected_sensor_pref(GtkTreeView *tree)
 
 	pref = NULL;
 	if (gtk_tree_selection_get_selected(selection, &model, &iter))
-		gtk_tree_model_get(model, &iter, COL_SENSOR, &pref, -1);
+		gtk_tree_model_get(model, &iter, COL_SENSOR_PREF, &pref, -1);
 
 	return pref;
 }
@@ -405,7 +405,7 @@ apply_prefs(GtkTreeModel *model, struct config *cfg)
 	valid = gtk_tree_model_get_iter_first(model, &iter);
 	i = 0;
 	while (valid) {
-		gtk_tree_model_get(model, &iter, COL_SENSOR, &spref, -1);
+		gtk_tree_model_get(model, &iter, COL_SENSOR_PREF, &spref, -1);
 		apply_pref(spref, i, cfg);
 		valid = gtk_tree_model_iter_next(model, &iter);
 		i++;
@@ -462,7 +462,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 		spref = sensor_pref_new(s, ui->config);
 		gtk_list_store_set(store, &iter,
 				   COL_NAME, s->name,
-				   COL_SENSOR, spref,
+				   COL_SENSOR_PREF, spref,
 				   -1);
 
 		if (s == sensor)
@@ -490,7 +490,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 
 	valid = gtk_tree_model_get_iter_first(model, &iter);
 	while (valid) {
-		gtk_tree_model_get(model, &iter, COL_SENSOR, &spref, -1);
+		gtk_tree_model_get(model, &iter, COL_SENSOR_PREF, &spref, -1);
 		sensor_pref_free(spref);
 		valid = gtk_tree_model_iter_next(model, &iter);
 	}
