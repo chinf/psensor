@@ -393,8 +393,7 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 	config_set_sensor_position(s->id, pos);
 }
 
-static void
-apply_prefs(GtkTreeModel *model, struct config *cfg)
+static void apply_prefs(GtkTreeModel *model, struct config *cfg)
 {
 	gboolean valid;
 	struct sensor_pref *spref;
