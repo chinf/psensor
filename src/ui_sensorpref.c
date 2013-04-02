@@ -307,7 +307,6 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 
 	gtk_toggle_button_set_active(w_appindicator_enabled,
 				     p->appindicator_enabled);
-
 }
 
 static void on_changed(GtkTreeSelection *selection, gpointer data)
