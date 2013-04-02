@@ -348,7 +348,7 @@ select_sensor(struct psensor *s, struct psensor **sensors, GtkTreeView *tree)
 	}
 }
 
-static void apply_pref(struct sensor_pref *p, struct config *cfg)
+static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 {
 	struct psensor *s;
 
@@ -391,6 +391,8 @@ static void apply_pref(struct sensor_pref *p, struct config *cfg)
 		s->appindicator_enabled = p->appindicator_enabled;
 		config_set_appindicator_enabled(s->id, s->appindicator_enabled);
 	}
+
+	config_set_sensor_position(s->id, pos);
 }
 
 static void
@@ -399,12 +401,15 @@ apply_prefs(GtkTreeModel *model, struct config *cfg)
 	gboolean valid;
 	struct sensor_pref *spref;
 	GtkTreeIter iter;
+	int i;
 
 	valid = gtk_tree_model_get_iter_first(model, &iter);
+	i = 0;
 	while (valid) {
 		gtk_tree_model_get(model, &iter, COL_SENSOR, &spref, -1);
-		apply_pref(spref, cfg);
+		apply_pref(spref, i, cfg);		
 		valid = gtk_tree_model_iter_next(model, &iter);
+		i++;
 	}
 }
 
