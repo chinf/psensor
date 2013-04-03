@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-04-01 11:08+0200\n"
+"POT-Creation-Date: 2013-04-03 08:51+0200\n"
 "PO-Revision-Date: 2012-09-10 04:01+0000\n"
 "Last-Translator: Daniel Serafim <daniel.serafim@gmail.com>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "Sobre"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:185 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "Preferências"
 
@@ -131,8 +131,8 @@ msgstr "Intervalo de atualização:"
 msgid "Measures"
 msgstr "Medidas"
 
-#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:331
+#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:169
+#: src/ui_sensorlist.c:333
 msgid "Graph"
 msgstr "Grafo"
 
@@ -161,65 +161,70 @@ msgstr "Sensores"
 msgid "Edit Sensor Preferences"
 msgstr "Editar preferências do sensor"
 
-#: src/glade/sensor-edit.glade:121
+#: src/glade/sensor-edit.glade:87
+#, fuzzy
+msgid "Name"
+msgstr "Nome:"
+
+#: src/glade/sensor-edit.glade:138
 msgid "Type:"
 msgstr "Tipo:"
 
-#: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
-#: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
+#: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
+#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:487 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/D"
 
-#: src/glade/sensor-edit.glade:170
+#: src/glade/sensor-edit.glade:187
 msgid "Color:"
 msgstr "Cor:"
 
-#: src/glade/sensor-edit.glade:184
+#: src/glade/sensor-edit.glade:201
 msgid "Alarm"
 msgstr "Alarme"
 
-#: src/glade/sensor-edit.glade:199
+#: src/glade/sensor-edit.glade:216
 msgid "Activate desktop notifications"
 msgstr "Ativar notificações de desktop"
 
-#: src/glade/sensor-edit.glade:221
+#: src/glade/sensor-edit.glade:236
 msgid "Sensor Information"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:234
+#: src/glade/sensor-edit.glade:249
 msgid "Draw sensor curve"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:322
+#: src/glade/sensor-edit.glade:333
 msgid "High threshold:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:337
+#: src/glade/sensor-edit.glade:348
 msgid "Low threshold:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:398
+#: src/glade/sensor-edit.glade:409
 msgid "Ubuntu Application Indicator"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:413
+#: src/glade/sensor-edit.glade:424
 msgid "Display sensor in the Application Indicator menu"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:435
+#: src/glade/sensor-edit.glade:444
 msgid "Chip:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:480
+#: src/glade/sensor-edit.glade:489
 msgid "Id:"
 msgstr "ID:"
 
-#: src/glade/sensor-edit.glade:514
+#: src/glade/sensor-edit.glade:523
 msgid "Details"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:538
+#: src/glade/sensor-edit.glade:541
 msgid "Name:"
 msgstr "Nome:"
 
@@ -390,20 +395,20 @@ msgstr "Relatar falhas para: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "Página inicial de %s: <%s>\n"
 
-#: src/main.c:456
+#: src/main.c:451
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:519
+#: src/main.c:514
 msgid "Enables debug mode."
 msgstr "Ativar o modo de depuração"
 
-#: src/main.c:531 src/server/server.c:377
+#: src/main.c:526 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Utilize `%s --help' para mais informações.\n"
 
-#: src/main.c:544
+#: src/main.c:539
 msgid "A Psensor instance already exists."
 msgstr "Uma instancia de Psensor já existe."
 
@@ -514,11 +519,11 @@ msgstr "URL: http://localhost:%d"
 msgid "Failed to activate logging of sensors."
 msgstr "Falhou ao criar servidor web."
 
-#: src/ui.c:82
+#: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensor é uma aplicação GTK+ para monitorar sensores de hardware"
 
-#: src/ui.c:85
+#: src/ui.c:87
 msgid ""
 "Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
@@ -526,11 +531,11 @@ msgstr ""
 "Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
 
-#: src/ui.c:88
+#: src/ui.c:90
 msgid "About Psensor"
 msgstr "Sobre o Psensor"
 
-#: src/ui.c:91
+#: src/ui.c:93
 msgid "Psensor Homepage"
 msgstr "Site do Psensor"
 
@@ -538,27 +543,27 @@ msgstr "Site do Psensor"
 msgid "Failed to load Psensor icon."
 msgstr "Falha ao carregar o ícone do Psensor."
 
-#: src/ui_sensorlist.c:222
+#: src/ui_sensorlist.c:245
 msgid "Select foreground color"
 msgstr "Selecionar cor do primeiro plano"
 
-#: src/ui_sensorlist.c:294
+#: src/ui_sensorlist.c:296
 msgid "Sensor"
 msgstr "Sensor"
 
-#: src/ui_sensorlist.c:300
+#: src/ui_sensorlist.c:302
 msgid "Value"
 msgstr "Valor"
 
-#: src/ui_sensorlist.c:306
+#: src/ui_sensorlist.c:308
 msgid "Min"
 msgstr "Min"
 
-#: src/ui_sensorlist.c:312
+#: src/ui_sensorlist.c:314
 msgid "Max"
 msgstr "Max"
 
-#: src/ui_sensorlist.c:319
+#: src/ui_sensorlist.c:321
 msgid "Color"
 msgstr "Cor"
 
@@ -599,13 +604,12 @@ msgstr "Alerta de temperatura"
 msgid "Fan alert"
 msgstr "Alenta do ventilador"
 
-#: src/ui_sensorpref.c:317
+#: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr ""
 
-#: src/ui_sensorpref.c:523
-msgid "Sensor Name"
-msgstr "Nome do sensor"
+#~ msgid "Sensor Name"
+#~ msgstr "Nome do sensor"
 
 #~ msgid "_Quit"
 #~ msgstr "Sair"

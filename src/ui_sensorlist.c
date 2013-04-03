@@ -53,19 +53,56 @@ static int col_index_to_col(int idx)
 	return idx;
 }
 
+static void populate(struct ui_psensor *ui)
+{
+	GtkTreeIter iter;
+	GtkListStore *store;
+	GdkColor color;
+	char *scolor;
+	struct psensor **ordered_sensors, **s_cur, *s;
+
+	ordered_sensors = ui_get_sensors_ordered_by_position(ui);
+	store = ui->sensors_store;
+
+	gtk_list_store_clear(store);
+
+	for (s_cur = ordered_sensors; *s_cur; s_cur++) {
+		s = *s_cur;
+
+		gtk_list_store_append(store, &iter);
+
+		color.red = s->color->red;
+		color.green = s->color->green;
+		color.blue = s->color->blue;
+
+		scolor = gdk_color_to_string(&color);
+
+		gtk_list_store_set(store, &iter,
+				   COL_NAME, s->name,
+				   COL_COLOR_STR, scolor,
+				   COL_ENABLED, s->enabled,
+				   COL_SENSOR, s,
+				   -1);
+		free(scolor);
+	}
+	free(ordered_sensors);
+}
+
 void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
 {
-	char *scolor, *value, *min, *max;
+	char *value, *min, *max;
 	struct psensor *s;
 	GtkTreeIter iter;
 	GtkTreeModel *model;
 	gboolean valid;
 	int use_celcius;
-	GdkColor color;
 	GtkListStore *store;
 
+	if (complete)
+		populate(ui);
+
 	model = gtk_tree_view_get_model(ui->sensors_tree);
-	store = GTK_LIST_STORE(model);
+	store = ui->sensors_store;
 
 	use_celcius = ui->config->temperature_unit == CELCIUS;
 
@@ -87,21 +124,6 @@ void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
 		free(value);
 		free(min);
 		free(max);
-
-		if (complete) {
-			color.red = s->color->red;
-			color.green = s->color->green;
-			color.blue = s->color->blue;
-
-			scolor = gdk_color_to_string(&color);
-
-			gtk_list_store_set(store, &iter,
-					   COL_NAME, s->name,
-					   COL_COLOR_STR, scolor,
-					   COL_ENABLED, s->enabled,
-					   -1);
-			free(scolor);
-		}
 
 		valid = gtk_tree_model_iter_next(model, &iter);
 	}
@@ -264,11 +286,7 @@ toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 
 void ui_sensorlist_create(struct ui_psensor *ui)
 {
-	GtkListStore *store;
 	GtkCellRenderer *renderer;
-	struct psensor **s_cur;
-	GtkTreeIter iter;
-	struct psensor **ordered_sensors;
 
 	log_debug("ui_sensorlist_create()");
 
@@ -325,15 +343,6 @@ void ui_sensorlist_create(struct ui_psensor *ui)
 						    "",
 						    renderer,
 						    "text", COL_EMPTY, NULL);
-
-	ordered_sensors = ui_get_sensors_ordered_by_position(ui);
-
-	store = ui->sensors_store;
-	for (s_cur = ordered_sensors; *s_cur; s_cur++) {
-		gtk_list_store_append(store, &iter);
-		gtk_list_store_set(store, &iter, COL_SENSOR, *s_cur, -1);
-	}
-	free(ordered_sensors);
 
 	ui_sensorlist_update(ui, 1);
 }

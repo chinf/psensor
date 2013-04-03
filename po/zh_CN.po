@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-04-01 11:08+0200\n"
+"POT-Creation-Date: 2013-04-03 08:51+0200\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "About"
 msgstr "关于"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:185 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
 msgid "Preferences"
 msgstr "首选项"
 
@@ -131,8 +131,8 @@ msgstr "更新间隔："
 msgid "Measures"
 msgstr "测量"
 
-#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:152
-#: src/ui_sensorlist.c:331
+#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:169
+#: src/ui_sensorlist.c:333
 msgid "Graph"
 msgstr "图表"
 
@@ -160,65 +160,70 @@ msgstr "传感器"
 msgid "Edit Sensor Preferences"
 msgstr "编辑传感器首选项"
 
-#: src/glade/sensor-edit.glade:121
+#: src/glade/sensor-edit.glade:87
+#, fuzzy
+msgid "Name"
+msgstr "名称:"
+
+#: src/glade/sensor-edit.glade:138
 msgid "Type:"
 msgstr "类型:"
 
-#: src/glade/sensor-edit.glade:136 src/glade/sensor-edit.glade:281
-#: src/glade/sensor-edit.glade:377 src/glade/sensor-edit.glade:450
-#: src/glade/sensor-edit.glade:499 src/lib/psensor.c:487 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
+#: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
+#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:487 src/ui_notify.c:81
 msgid "N/A"
 msgstr "不可用"
 
-#: src/glade/sensor-edit.glade:170
+#: src/glade/sensor-edit.glade:187
 msgid "Color:"
 msgstr "颜色："
 
-#: src/glade/sensor-edit.glade:184
+#: src/glade/sensor-edit.glade:201
 msgid "Alarm"
 msgstr "警告"
 
-#: src/glade/sensor-edit.glade:199
+#: src/glade/sensor-edit.glade:216
 msgid "Activate desktop notifications"
 msgstr "激活桌面气泡提示"
 
-#: src/glade/sensor-edit.glade:221
+#: src/glade/sensor-edit.glade:236
 msgid "Sensor Information"
 msgstr "传感器信息"
 
-#: src/glade/sensor-edit.glade:234
+#: src/glade/sensor-edit.glade:249
 msgid "Draw sensor curve"
 msgstr "绘制监视曲线"
 
-#: src/glade/sensor-edit.glade:322
+#: src/glade/sensor-edit.glade:333
 msgid "High threshold:"
 msgstr "高阈值："
 
-#: src/glade/sensor-edit.glade:337
+#: src/glade/sensor-edit.glade:348
 msgid "Low threshold:"
 msgstr "低阈值："
 
-#: src/glade/sensor-edit.glade:398
+#: src/glade/sensor-edit.glade:409
 msgid "Ubuntu Application Indicator"
 msgstr "Ubuntu 应用指示器"
 
-#: src/glade/sensor-edit.glade:413
+#: src/glade/sensor-edit.glade:424
 msgid "Display sensor in the Application Indicator menu"
 msgstr "在应用指示器菜单中显示监视器"
 
-#: src/glade/sensor-edit.glade:435
+#: src/glade/sensor-edit.glade:444
 msgid "Chip:"
 msgstr "芯片："
 
-#: src/glade/sensor-edit.glade:480
+#: src/glade/sensor-edit.glade:489
 msgid "Id:"
 msgstr "标识:"
 
-#: src/glade/sensor-edit.glade:514
+#: src/glade/sensor-edit.glade:523
 msgid "Details"
 msgstr "详情"
 
-#: src/glade/sensor-edit.glade:538
+#: src/glade/sensor-edit.glade:541
 msgid "Name:"
 msgstr "名称:"
 
@@ -395,20 +400,20 @@ msgstr "报告问题至：%s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
 
-#: src/main.c:456
+#: src/main.c:451
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor 不支持远程传感器。"
 
-#: src/main.c:519
+#: src/main.c:514
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:531 src/server/server.c:377
+#: src/main.c:526 src/server/server.c:377
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
 
-#: src/main.c:544
+#: src/main.c:539
 msgid "A Psensor instance already exists."
 msgstr "已存在一个 Psensor 例程。"
 
@@ -528,11 +533,11 @@ msgstr "URL: http://localhost:%d"
 msgid "Failed to activate logging of sensors."
 msgstr "无法激活监测器日志。"
 
-#: src/ui.c:82
+#: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensor 是一款 GTK+ 硬件监测传感应用程序"
 
-#: src/ui.c:85
+#: src/ui.c:87
 msgid ""
 "Copyright(c) 2010-2012\n"
 "jeanfi@gmail.com"
@@ -540,11 +545,11 @@ msgstr ""
 "版权所有(c) 2010-2012\n"
 "jeanfi@gmail.com"
 
-#: src/ui.c:88
+#: src/ui.c:90
 msgid "About Psensor"
 msgstr "关于 Psensor"
 
-#: src/ui.c:91
+#: src/ui.c:93
 msgid "Psensor Homepage"
 msgstr "Psensor 主页"
 
@@ -552,27 +557,27 @@ msgstr "Psensor 主页"
 msgid "Failed to load Psensor icon."
 msgstr "无法加载 Psensor 图标。"
 
-#: src/ui_sensorlist.c:222
+#: src/ui_sensorlist.c:245
 msgid "Select foreground color"
 msgstr "选择前景色"
 
-#: src/ui_sensorlist.c:294
+#: src/ui_sensorlist.c:296
 msgid "Sensor"
 msgstr "监视设备"
 
-#: src/ui_sensorlist.c:300
+#: src/ui_sensorlist.c:302
 msgid "Value"
 msgstr "值"
 
-#: src/ui_sensorlist.c:306
+#: src/ui_sensorlist.c:308
 msgid "Min"
 msgstr "最小值"
 
-#: src/ui_sensorlist.c:312
+#: src/ui_sensorlist.c:314
 msgid "Max"
 msgstr "最大值"
 
-#: src/ui_sensorlist.c:319
+#: src/ui_sensorlist.c:321
 msgid "Color"
 msgstr "颜色"
 
@@ -613,13 +618,12 @@ msgstr "温度报警"
 msgid "Fan alert"
 msgstr "风扇警报"
 
-#: src/ui_sensorpref.c:317
+#: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "未知"
 
-#: src/ui_sensorpref.c:523
-msgid "Sensor Name"
-msgstr "传感器名称"
+#~ msgid "Sensor Name"
+#~ msgstr "传感器名称"
 
 #~ msgid "_Quit"
 #~ msgstr "退出(_Q)"
