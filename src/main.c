@@ -259,22 +259,17 @@ static void associate_colors(struct psensor **sensors)
 		{0x0000, 0x0000, 0x7fff},	/* dark blue */
 		{0x0000, 0x7fff, 0x0000}	/* dark green */
 	};
+	struct psensor **cur;
+	int i;
+	struct color c;
 
-	struct psensor **sensor_cur = sensors;
-	int i = 0;
-	while (*sensor_cur) {
-		struct color default_color;
-		color_set(&default_color,
+	for (cur = sensors, i = 0; *cur; cur++) {
+		color_set(&c,
 			  colors[i % COLORS_COUNT][0],
 			  colors[i % COLORS_COUNT][1],
 			  colors[i % COLORS_COUNT][2]);
 
-		(*sensor_cur)->color
-		    = config_get_sensor_color((*sensor_cur)->id,
-					      &default_color);
-
-		sensor_cur++;
-		i++;
+		(*cur)->color = config_get_sensor_color((*cur)->id, &c);
 	}
 }
 

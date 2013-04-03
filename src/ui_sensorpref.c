@@ -321,19 +321,16 @@ static void on_changed(GtkTreeSelection *selection, gpointer data)
 static void
 select_sensor(struct psensor *s, struct psensor **sensors, GtkTreeView *tree)
 {
-	struct psensor **s_cur = sensors;
-	int i = 0;
-	GtkTreePath *p = NULL;
+	struct psensor **s_cur;
+	int i;
+	GtkTreePath *p;
 
-	while (*s_cur) {
+	p = NULL;
+	for (s_cur = sensors, i = 0; *s_cur; s_cur++, i++)
 		if (s == *s_cur) {
 			p = gtk_tree_path_new_from_indices(i, -1);
 			break;
 		}
-
-		i++;
-		s_cur++;
-	}
 
 	if (p) {
 		GtkTreeSelection *s = gtk_tree_view_get_selection(tree);
