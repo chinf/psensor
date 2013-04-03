@@ -210,9 +210,7 @@
                     <property name="hexpand">True</property>
                     <property name="vexpand">True</property>
                     <property name="model">sensors_store</property>
-                    <property name="reorderable">True</property>
                     <property name="search_column">0</property>
-                    <property name="enable_grid_lines">both</property>
                     <property name="enable_tree_lines">True</property>
                     <child internal-child="selection">
                       <object class="GtkTreeSelection" id="treeview-selection1">
