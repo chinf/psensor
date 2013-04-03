@@ -4,6 +4,8 @@
 ** added support of sensors log interval.
 ** psensor-server: protocole changes, API version incremented.
 ** fixed cpu load when fahrenheit is enabled.
+** list of sensors can be reordered using the sensor preferences
+   dialog.
 
 * v07.0.5
 
