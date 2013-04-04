@@ -184,7 +184,7 @@ void psensor_set_current_value(struct psensor *sensor, double value);
 void psensor_set_current_measure(struct psensor *sensor, double value,
 				 struct timeval tv);
 
-double psensor_get_current_value(struct psensor *sensor);
+double psensor_get_current_value(const struct psensor *);
 
 struct measure *psensor_get_current_measure(struct psensor *sensor);
 
@@ -206,6 +206,7 @@ double get_max_value(struct psensor **sensors, int type);
 double celcius_to_fahrenheit(double c);
 double fahrenheit_to_celcius(double c);
 
+char *psensor_current_value_to_str(const struct psensor *, unsigned int);
 
 void psensor_log_measures(struct psensor **sensors);
 

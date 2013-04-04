@@ -133,20 +133,15 @@ static void
 update_menu_item(GtkMenuItem *item, struct psensor *s, int use_celcius)
 {
 	gchar *str;
-	double v;
+	char *v;
 
-	v = psensor_get_current_value(s);
+	v = psensor_current_value_to_str(s, use_celcius);
 
-	if (is_temp_type(s->type) && !use_celcius)
-		v = celcius_to_fahrenheit(v);
-
-	str = g_strdup_printf("%s: %2.f %s",
-			      s->name,
-			      v,
-			      psensor_type_to_unit_str(s->type, use_celcius));
+	str = g_strdup_printf("%s: %s", s->name, v);
 
 	gtk_menu_item_set_label(item, str);
 
+	free(v);
 	g_free(str);
 }
 

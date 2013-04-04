@@ -287,7 +287,7 @@ psensor_set_current_measure(struct psensor *s,
 	}
 }
 
-double psensor_get_current_value(struct psensor *sensor)
+double psensor_get_current_value(const struct psensor *sensor)
 {
 	return sensor->measures[sensor->values_max_length - 1].value;
 }
@@ -541,3 +541,10 @@ struct psensor **psensor_list_copy(struct psensor **sensors)
 	return result;
 }
 
+char *
+psensor_current_value_to_str(const struct psensor *s, unsigned int celcius)
+{
+	return psensor_value_to_str(s->type,
+				    psensor_get_current_value(s),
+				    celcius);
+}
