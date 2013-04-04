@@ -163,8 +163,7 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	GtkUIManager *menu_manager;
 	GError *error;
 	GtkMenu *menu;
-	int i, n, j;
-	int celcius;
+	int i, n, j, celcius;
 	const char *name;
 
 	action_group = gtk_action_group_new("PsensorActions");
