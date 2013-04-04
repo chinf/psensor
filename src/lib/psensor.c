@@ -258,9 +258,7 @@ void psensor_set_current_value(struct psensor *sensor, double value)
 	psensor_set_current_measure(sensor, value, tv);
 }
 
-void
-psensor_set_current_measure(struct psensor *s,
-			    double v, struct timeval tv)
+void psensor_set_current_measure(struct psensor *s, double v, struct timeval tv)
 {
 	memmove(s->measures,
 		&s->measures[1],
