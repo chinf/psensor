@@ -234,7 +234,7 @@ static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 {
 	GtkStatusIcon *ico;
 
-	log_debug("ui_appindicator#unity_fallback");
+	log_debug("ui_appindicator.unity_fallback()");
 
 	appindicator_supported = 0;
 
@@ -248,7 +248,7 @@ static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 static void
 unity_unfallback(AppIndicator *indicator, GtkStatusIcon *status_icon)
 {
-	log_debug("ui_appindicator#unity_unfallback");
+	log_debug("ui_appindicator.unity_unfallback()");
 
 	ui_status_set_visible(0);
 
