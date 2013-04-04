@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-04-03 08:51+0200\n"
+"POT-Creation-Date: 2013-04-04 09:15+0200\n"
 "PO-Revision-Date: 2012-11-11 10:38+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -171,7 +171,7 @@ msgstr "Tips:"
 
 #: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
 #: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
-#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:487 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:485 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/P"
 
@@ -294,11 +294,11 @@ msgstr "Nevar atvērt savienojumu ar X11 server."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Neizdevās saņemt NVIDIA informāciju."
 
-#: src/lib/psensor.c:483 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:481 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:485
+#: src/lib/psensor.c:483
 msgid "%"
 msgstr "%"
 
@@ -599,7 +599,7 @@ msgstr "SensoraIestatījumi"
 msgid "_About"
 msgstr "P_ar"
 
-#: src/ui_appindicator.c:186
+#: src/ui_appindicator.c:217
 #, c-format
 msgid "building menus failed: %s"
 msgstr "neizdevās izveidot izvēlnes: %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-04-03 08:51+0200\n"
+"POT-Creation-Date: 2013-04-04 09:15+0200\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -171,7 +171,7 @@ msgstr "类型:"
 
 #: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
 #: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
-#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:487 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:485 src/ui_notify.c:81
 msgid "N/A"
 msgstr "不可用"
 
@@ -294,11 +294,11 @@ msgstr "无法打开到 X11 服务器的连接。"
 msgid "Failed to retrieve NVIDIA information."
 msgstr "无法获取 NVIDIA 信息。"
 
-#: src/lib/psensor.c:483 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:481 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "转速"
 
-#: src/lib/psensor.c:485
+#: src/lib/psensor.c:483
 msgid "%"
 msgstr "%"
 
@@ -605,7 +605,7 @@ msgstr "传感器首选项"
 msgid "_About"
 msgstr "关于(_A)"
 
-#: src/ui_appindicator.c:186
+#: src/ui_appindicator.c:217
 #, c-format
 msgid "building menus failed: %s"
 msgstr "创建菜单失败：%s"

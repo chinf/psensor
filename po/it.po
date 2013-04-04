@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-04-03 08:51+0200\n"
+"POT-Creation-Date: 2013-04-04 09:15+0200\n"
 "PO-Revision-Date: 2012-08-13 08:20+0000\n"
 "Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
 "Language-Team: Italian\n"
@@ -172,7 +172,7 @@ msgstr "Tipo:"
 
 #: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
 #: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
-#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:487 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:485 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/A"
 
@@ -295,11 +295,11 @@ msgstr "Impossibile connettersi al server X11."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Impossibile recuperare informazioni da NVIDIA"
 
-#: src/lib/psensor.c:483 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:481 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:485
+#: src/lib/psensor.c:483
 msgid "%"
 msgstr "%"
 
@@ -606,7 +606,7 @@ msgstr "SensorPreferenze"
 msgid "_About"
 msgstr "_Informazioni"
 
-#: src/ui_appindicator.c:186
+#: src/ui_appindicator.c:217
 #, c-format
 msgid "building menus failed: %s"
 msgstr "costruzione dei menù fallita: %s"

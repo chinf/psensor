@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-04-03 08:51+0200\n"
+"POT-Creation-Date: 2013-04-04 09:15+0200\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -172,7 +172,7 @@ msgstr "Típus:"
 
 #: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
 #: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
-#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:487 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:485 src/ui_notify.c:81
 msgid "N/A"
 msgstr "---"
 
@@ -295,11 +295,11 @@ msgstr "Nem lehet létrehozni a kapcsolatot az X11 kiszolgálóval."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "NVIDIA információinak lekérése meghiúsult."
 
-#: src/lib/psensor.c:483 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:481 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:485
+#: src/lib/psensor.c:483
 msgid "%"
 msgstr "%"
 
@@ -614,7 +614,7 @@ msgstr "Érzékelőbeállítások"
 msgid "_About"
 msgstr "_Névjegy"
 
-#: src/ui_appindicator.c:186
+#: src/ui_appindicator.c:217
 #, c-format
 msgid "building menus failed: %s"
 msgstr "menük építése meghiúsult: %s"
