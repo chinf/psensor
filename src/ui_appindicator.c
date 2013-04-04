@@ -157,29 +157,14 @@ static void update_menu_items(int use_celcius)
 		update_menu_item(*m, *s, use_celcius);
 }
 
-static GtkWidget *get_menu(struct ui_psensor *ui)
+static void
+build_sensor_menu_items(const struct ui_psensor *ui,
+			GtkMenu *menu)
 {
-	GtkActionGroup *action_group;
-	GtkUIManager *menu_manager;
-	GError *error;
-	GtkMenu *menu;
-	int i, n, j, celcius;
+	int i, j, n, celcius;
 	const char *name;
 
-	action_group = gtk_action_group_new("PsensorActions");
-	gtk_action_group_set_translation_domain(action_group, PACKAGE);
-	menu_manager = gtk_ui_manager_new();
-
-	gtk_action_group_add_actions(action_group, entries, n_entries, ui);
-	gtk_ui_manager_insert_action_group(menu_manager, action_group, 0);
-
-	error = NULL;
-	gtk_ui_manager_add_ui_from_string(menu_manager, menu_desc, -1, &error);
-
-	if (error)
-		g_error(_("building menus failed: %s"), error->message);
-
-	menu = GTK_MENU(gtk_ui_manager_get_widget(menu_manager, "/MainMenu"));
+	free(menu_items);
 
 	celcius  = ui->config->temperature_unit == CELCIUS;
 
@@ -205,6 +190,31 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	}
 
 	sensors[j] = NULL;
+}
+
+static GtkWidget *get_menu(struct ui_psensor *ui)
+{
+	GtkActionGroup *action_group;
+	GtkUIManager *menu_manager;
+	GError *error;
+	GtkMenu *menu;
+
+	action_group = gtk_action_group_new("PsensorActions");
+	gtk_action_group_set_translation_domain(action_group, PACKAGE);
+	menu_manager = gtk_ui_manager_new();
+
+	gtk_action_group_add_actions(action_group, entries, n_entries, ui);
+	gtk_ui_manager_insert_action_group(menu_manager, action_group, 0);
+
+	error = NULL;
+	gtk_ui_manager_add_ui_from_string(menu_manager, menu_desc, -1, &error);
+
+	if (error)
+		g_error(_("building menus failed: %s"), error->message);
+
+	menu = GTK_MENU(gtk_ui_manager_get_widget(menu_manager, "/MainMenu"));
+
+	build_sensor_menu_items(ui, menu);
 
 	return GTK_WIDGET(menu);
 }
