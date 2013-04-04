@@ -163,17 +163,19 @@ build_sensor_menu_items(const struct ui_psensor *ui,
 {
 	int i, j, n, celcius;
 	const char *name;
+	struct psensor **sorted_sensors;
 
 	free(menu_items);
 
 	celcius  = ui->config->temperature_unit == CELCIUS;
 
-	n = psensor_list_size(ui->sensors);
+	sorted_sensors = ui_get_sensors_ordered_by_position(ui);
+	n = psensor_list_size(sorted_sensors);
 	menu_items = malloc(n * sizeof(GtkWidget *));
 	sensors = malloc((n + 1) * sizeof(struct psensor *));
 	for (i = 0, j = 0; i < n; i++) {
-		if (config_is_appindicator_enabled(ui->sensors[i]->id)) {
-			sensors[j] = ui->sensors[i];
+		if (config_is_appindicator_enabled(sorted_sensors[i]->id)) {
+			sensors[j] = sorted_sensors[i];
 			name = sensors[j]->name;
 
 			menu_items[j] = GTK_MENU_ITEM
@@ -190,6 +192,8 @@ build_sensor_menu_items(const struct ui_psensor *ui,
 	}
 
 	sensors[j] = NULL;
+
+	free(sorted_sensors);
 }
 
 static GtkWidget *get_menu(struct ui_psensor *ui)
