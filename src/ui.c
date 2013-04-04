@@ -84,7 +84,7 @@ void ui_show_about_dialog()
 		 _("Psensor is a GTK+ application for monitoring hardware "
 		   "sensors"),
 		 "copyright",
-		 _("Copyright(c) 2010-2012\njeanfi@gmail.com"),
+		 _("Copyright(c) 2010-2013\njeanfi@gmail.com"),
 		 "logo-icon-name", "psensor",
 		 "program-name", "Psensor",
 		 "title", _("About Psensor"),

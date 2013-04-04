@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-04-04 09:15+0200\n"
+"POT-Creation-Date: 2013-04-04 12:42+0200\n"
 "PO-Revision-Date: 2012-04-28 11:24+0000\n"
 "Last-Translator: zeugma <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -514,7 +514,7 @@ msgstr ""
 
 #: src/ui.c:87
 msgid ""
-"Copyright(c) 2010-2012\n"
+"Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 msgstr ""
 
