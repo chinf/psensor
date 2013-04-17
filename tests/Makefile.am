@@ -15,7 +15,7 @@ check_PROGRAMS = test-io-dir-list \
 	test-url-encode \
 	test-url-normalize
 
-AM_CPPFLAGS = -pedantic -Werror
+AM_CPPFLAGS = -Wall -Werror
 
 LIBS += ../src/lib/libpsensor.a \
 	$(SENSORS_LIBS)
