@@ -85,7 +85,7 @@ static int test_2files_dir()
 static int tests_dir_list() {
 	int failures;
 
-	failures += test_empty_dir();
+	failures = test_empty_dir();
 
 	failures += test_2files_dir();
 
@@ -96,9 +96,7 @@ int main(int argc, char **argv)
 {
 	int failures;
 
-	failures = 0;
-
-	failures += tests_dir_list();
+	failures = tests_dir_list();
 
 	if (failures) 
 		exit(EXIT_FAILURE);
