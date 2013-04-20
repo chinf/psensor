@@ -272,7 +272,7 @@ EXTRA_DIST = checkpatch.pl \
 	test-cppcheck.sh \
 	test-io-dir-list.sh
 
-AM_CPPFLAGS = -pedantic -Werror
+AM_CPPFLAGS = -Wall -Werror
 test_io_dir_list_SOURCES = test_io_dir_list.c
 test_psensor_type_to_unit_str_SOURCES = test_psensor_type_to_unit_str.c
 test_psensor_value_to_str_SOURCES = test_psensor_value_to_str.c
