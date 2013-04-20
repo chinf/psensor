@@ -39,9 +39,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr ""
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "Датчик"
+msgstr ""
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -161,9 +160,8 @@ msgid "Edit Sensor Preferences"
 msgstr "Редагувати налаштування датчика"
 
 #: src/glade/sensor-edit.glade:87
-#, fuzzy
 msgid "Name"
-msgstr "Назва:"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -281,10 +279,9 @@ msgid "Cannot open log file: %s"
 msgstr "Не вдалося відкрити лог-файл: %s"
 
 #: src/lib/nvidia.c:54
-#, fuzzy
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr "Не вдалося отримати температуру NVIDIA."
+msgstr ""
 
 #: src/lib/nvidia.c:97
 msgid "Cannot open connection to X11 server."
@@ -519,9 +516,8 @@ msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
 #: src/server/server.c:422
-#, fuzzy
 msgid "Failed to activate logging of sensors."
-msgstr "Помилка створення веб-сервера."
+msgstr ""
 
 #: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"

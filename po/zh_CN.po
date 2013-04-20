@@ -39,9 +39,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - 温度监视器"
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "监视设备"
+msgstr ""
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -161,9 +160,8 @@ msgid "Edit Sensor Preferences"
 msgstr "编辑传感器首选项"
 
 #: src/glade/sensor-edit.glade:87
-#, fuzzy
 msgid "Name"
-msgstr "名称:"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -281,10 +279,9 @@ msgid "Cannot open log file: %s"
 msgstr "无法打开日志文件：%s"
 
 #: src/lib/nvidia.c:54
-#, fuzzy
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr "无法获取 NVIDIA 温度。"
+msgstr ""
 
 #: src/lib/nvidia.c:97
 msgid "Cannot open connection to X11 server."
@@ -307,7 +304,6 @@ msgid "HOME variable not set."
 msgstr "未设置 HOME 变量。"
 
 #: src/lib/slog.c:74
-#, fuzzy
 msgid "Sensor log file already open."
 msgstr "已经打开监测器日志文件。"
 
@@ -486,14 +482,12 @@ msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
 
 #: src/server/server.c:111
-#, fuzzy
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  --sensor-log-file=路径 设置监测器日志文件的路径"
 
 #: src/server/server.c:112
-#, fuzzy
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
-msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
+msgstr ""
 
 #: src/server/server.c:296
 #, c-format
@@ -529,7 +523,6 @@ msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
 #: src/server/server.c:422
-#, fuzzy
 msgid "Failed to activate logging of sensors."
 msgstr "无法激活监测器日志。"
 
@@ -538,12 +531,11 @@ msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensor 是一款 GTK+ 硬件监测传感应用程序"
 
 #: src/ui.c:87
-#, fuzzy
 msgid ""
 "Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 msgstr ""
-"版权所有(c) 2010-2012\n"
+"版权所有(c) 2010-2013\n"
 "jeanfi@gmail.com"
 
 #: src/ui.c:90

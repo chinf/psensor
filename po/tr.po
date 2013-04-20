@@ -39,9 +39,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr ""
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "Algılayıcı"
+msgstr ""
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -161,9 +160,8 @@ msgid "Edit Sensor Preferences"
 msgstr "Tercihleri düzenle"
 
 #: src/glade/sensor-edit.glade:87
-#, fuzzy
 msgid "Name"
-msgstr "İsim:"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"

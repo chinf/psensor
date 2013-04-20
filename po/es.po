@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-04-04 12:42+0200\n"
-"PO-Revision-Date: 2012-11-07 14:42+0000\n"
-"Last-Translator: Eduardo Alberto Calvo <Unknown>\n"
+"PO-Revision-Date: 2013-04-01 09:00+0000\n"
+"Last-Translator: Javier <buik8roadmaster@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
-"X-Generator: Launchpad (build 16430)\n"
+"X-Launchpad-Export-Date: 2013-04-20 08:36+0000\n"
+"X-Generator: Launchpad (build 16567)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -39,9 +39,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor de temperatura"
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "Sensor"
+msgstr "_Psensor"
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -142,11 +141,11 @@ msgstr "Medir sensores cada:"
 
 #: src/glade/psensor-pref.glade:659
 msgid "Enable sensors logging"
-msgstr ""
+msgstr "Activar registro de sensores"
 
 #: src/glade/psensor-pref.glade:708
 msgid "Sensors logging interval"
-msgstr ""
+msgstr "Intervalo de registro de sensores"
 
 #: src/glade/psensor-pref.glade:725
 msgid "seconds(s)"
@@ -161,9 +160,8 @@ msgid "Edit Sensor Preferences"
 msgstr "Configurar sensores"
 
 #: src/glade/sensor-edit.glade:87
-#, fuzzy
 msgid "Name"
-msgstr "Nombre:"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -281,10 +279,11 @@ msgid "Cannot open log file: %s"
 msgstr "Imposible abrir el archivo de registro: %s"
 
 #: src/lib/nvidia.c:54
-#, fuzzy
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr "Error al obtener la temperatura de NVIDIA."
+msgstr ""
+"Controlador propietario de NVIDIA no activado ó incapaz de obtener la "
+"temperatura de la GPU"
 
 #: src/lib/nvidia.c:97
 msgid "Cannot open connection to X11 server."
@@ -307,14 +306,13 @@ msgid "HOME variable not set."
 msgstr "La variable HOME no ha sido definida"
 
 #: src/lib/slog.c:74
-#, fuzzy
 msgid "Sensor log file already open."
-msgstr "Ya existe un Psensor en ejecución."
+msgstr "Ya existe un registro de sensores abierto"
 
 #: src/lib/slog.c:83
 #, fuzzy, c-format
 msgid "Cannot open sensor log file: %s."
-msgstr "Imposible abrir el archivo de registro: %s"
+msgstr "No se puede abrir el archivo de registro: %s."
 
 #: src/lib/slog.c:92 src/ui_notify.c:48
 msgid "gettimeofday failed."
@@ -322,11 +320,11 @@ msgstr "Error en la adquisición del horario."
 
 #: src/lib/slog.c:116
 msgid "Sensor log file not open."
-msgstr ""
+msgstr "No se abrió el archivo de registro."
 
 #: src/lib/slog.c:172
 msgid "Sensor log not open, cannot close."
-msgstr ""
+msgstr "¡No existe archivo que cerrar!"
 
 #: src/main.c:76
 #, c-format
@@ -499,14 +497,13 @@ msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH   establece el archivo de registro en PATH"
 
 #: src/server/server.c:111
-#, fuzzy
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
-msgstr "  -l, --log-file=PATH   establece el archivo de registro en PATH"
+msgstr "  --sensor-log-file=PATH establecer el archivo de registro en PATH"
 
 #: src/server/server.c:112
 #, fuzzy
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
-msgstr "  -l, --log-file=PATH   establece el archivo de registro en PATH"
+msgstr "  --sensor-log-interval=S registrar sensores cada S (seconds)"
 
 #: src/server/server.c:296
 #, c-format
@@ -542,9 +539,8 @@ msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
 #: src/server/server.c:422
-#, fuzzy
 msgid "Failed to activate logging of sensors."
-msgstr "Error al cargar el icono de Psensor"
+msgstr "Error al activar el registro de sensores"
 
 #: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
@@ -553,12 +549,11 @@ msgstr ""
 "sensores del hardware."
 
 #: src/ui.c:87
-#, fuzzy
 msgid ""
 "Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 msgstr ""
-"Copyright(c) 2010-2012\n"
+"Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 
 #: src/ui.c:90

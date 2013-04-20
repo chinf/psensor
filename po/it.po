@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-04-04 12:42+0200\n"
-"PO-Revision-Date: 2012-08-13 08:20+0000\n"
-"Last-Translator: Andrea Bernini <andrea.bernini@gmail.com>\n"
+"PO-Revision-Date: 2013-04-14 16:06+0000\n"
+"Last-Translator: Diego Pierotto <Unknown>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-17 20:28+0000\n"
-"X-Generator: Launchpad (build 15810)\n"
+"X-Launchpad-Export-Date: 2013-04-20 08:36+0000\n"
+"X-Generator: Launchpad (build 16567)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -39,9 +39,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor temperatura"
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "Sensore"
+msgstr "_Psensor"
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -69,7 +68,7 @@ msgstr "Abilita il menù"
 
 #: src/glade/psensor-pref.glade:142
 msgid "Enable Unity Launcher counter"
-msgstr ""
+msgstr "Abilita contatore nel Launcher Unity"
 
 #: src/glade/psensor-pref.glade:161
 msgid "Hide window on startup"
@@ -142,16 +141,15 @@ msgstr "Intervallo di aggiornamento delle misure"
 
 #: src/glade/psensor-pref.glade:659
 msgid "Enable sensors logging"
-msgstr ""
+msgstr "Abilita registrazione sensori"
 
 #: src/glade/psensor-pref.glade:708
 msgid "Sensors logging interval"
-msgstr ""
+msgstr "Intervallo registrazione sensori"
 
 #: src/glade/psensor-pref.glade:725
-#, fuzzy
 msgid "seconds(s)"
-msgstr "secondo/i"
+msgstr "secondo(i)"
 
 #: src/glade/psensor-pref.glade:744
 msgid "Sensors"
@@ -162,9 +160,8 @@ msgid "Edit Sensor Preferences"
 msgstr "Modifica preferenze del sensore"
 
 #: src/glade/sensor-edit.glade:87
-#, fuzzy
 msgid "Name"
-msgstr "Nome:"
+msgstr "Nome"
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -206,15 +203,15 @@ msgstr "Soglia verso il basso"
 
 #: src/glade/sensor-edit.glade:409
 msgid "Ubuntu Application Indicator"
-msgstr ""
+msgstr "Indicatore Applicazione Ubuntu"
 
 #: src/glade/sensor-edit.glade:424
 msgid "Display sensor in the Application Indicator menu"
-msgstr ""
+msgstr "Mostra sensore nel menu indicatore Applicazione"
 
 #: src/glade/sensor-edit.glade:444
 msgid "Chip:"
-msgstr ""
+msgstr "Processore:"
 
 #: src/glade/sensor-edit.glade:489
 msgid "Id:"
@@ -222,7 +219,7 @@ msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:523
 msgid "Details"
-msgstr ""
+msgstr "Dettagli"
 
 #: src/glade/sensor-edit.glade:541
 msgid "Name:"
@@ -242,7 +239,7 @@ msgstr "AMD: impossibile inizializzare ADL"
 
 #: src/lib/amd.c:213
 msgid "AMD: cannot get the number of adapters."
-msgstr ""
+msgstr "AMD: impossibile rilevare il numero di adattatori."
 
 #: src/lib/hdd_atasmart.c:149
 #, c-format
@@ -265,11 +262,11 @@ msgstr "hddtemp: errore di stringa: %s"
 #: src/lib/lmsensor.c:42
 #, c-format
 msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr ""
+msgstr "lmsensor: impossibile rilevare il valore della sotto funzione %s: %s."
 
 #: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr ""
+msgstr "lmsensor: lmsensor_psensor_create fallito: tipo di funzione errata."
 
 #: src/lib/lmsensor.c:218
 #, c-format
@@ -282,10 +279,11 @@ msgid "Cannot open log file: %s"
 msgstr "Impossibile aprire il file di log: %s"
 
 #: src/lib/nvidia.c:54
-#, fuzzy
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr "Impossibile leggere la temperatura da NVIDIA"
+msgstr ""
+"Driver proprietario NVIDIA non usato o impossibile rilevare la temperatura "
+"della GPU NVIDIA."
 
 #: src/lib/nvidia.c:97
 msgid "Cannot open connection to X11 server."
@@ -305,17 +303,17 @@ msgstr "%"
 
 #: src/lib/slog.c:64
 msgid "HOME variable not set."
-msgstr ""
+msgstr "Variabile HOME non impostata."
 
 #: src/lib/slog.c:74
 #, fuzzy
 msgid "Sensor log file already open."
-msgstr "Esiste già un'istanza di Psensor"
+msgstr "File di registazione sensori già aperto."
 
 #: src/lib/slog.c:83
 #, fuzzy, c-format
 msgid "Cannot open sensor log file: %s."
-msgstr "Impossibile aprire il file di log: %s"
+msgstr "Impossibile aprire il file di registrazione sensori: %s."
 
 #: src/lib/slog.c:92 src/ui_notify.c:48
 msgid "gettimeofday failed."
@@ -323,11 +321,11 @@ msgstr "gettimeofday fallito."
 
 #: src/lib/slog.c:116
 msgid "Sensor log file not open."
-msgstr ""
+msgstr "File di registazione sensori non aperto."
 
 #: src/lib/slog.c:172
 msgid "Sensor log not open, cannot close."
-msgstr ""
+msgstr "Registro sensori non aperto, impossibile chiuderlo."
 
 #: src/main.c:76
 #, c-format
@@ -338,6 +336,11 @@ msgid ""
 "This is free software: you are free to change and  redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"Licenza GPLv2: GNU GPL versione 2 o successiva <http://www.gnu.org/licenses/"
+"old-licenses/gpl-2.0.html>\n"
+"Questo è software libero: sei libero di modificarlo e ridistribuirlo.\n"
+"NON esiste GARANZIA, per gli scopi permessi dalla legge.\n"
 
 #: src/main.c:87 src/server/server.c:93
 #, c-format
@@ -453,6 +456,11 @@ msgid ""
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"Licenza GPLv2: GNU GPL versione 2 o successiva <http://www.gnu.org/licenses/"
+"old-licenses/gpl-2.0.html>\n"
+"Questo è software libero: sei libero di modificarlo e redistribuirlo.\n"
+"NON esiste GARANZIA, per gli scopi permessi dalla legge.\n"
 
 #: src/server/server.c:95
 msgid ""
@@ -487,14 +495,16 @@ msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
 
 #: src/server/server.c:111
-#, fuzzy
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
-msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
+msgstr ""
+"  --sensor-log-file=PATH imposta il file di registro dei sensori come PATH"
 
 #: src/server/server.c:112
 #, fuzzy
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
-msgstr "  -l, --log-file=PATH imposta il file di log su PATH"
+msgstr ""
+"  --sensor-log-interval=S imposta l'intervallo del registro di sensori come "
+"S (secondi)"
 
 #: src/server/server.c:296
 #, c-format
@@ -530,21 +540,19 @@ msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
 #: src/server/server.c:422
-#, fuzzy
 msgid "Failed to activate logging of sensors."
-msgstr "Impossibile caricare l'icona di Psensor."
+msgstr "Attivazione registro dei sensori fallita."
 
 #: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensore è un'applicazione GTK+ per monitorare sernsori hardware"
 
 #: src/ui.c:87
-#, fuzzy
 msgid ""
 "Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 msgstr ""
-"Copyright(c) 2010-2012\n"
+"Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 
 #: src/ui.c:90
@@ -622,7 +630,7 @@ msgstr "Allarme ventola"
 
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
-msgstr ""
+msgstr "Sconosciuto"
 
 #~ msgid "Sensor Name"
 #~ msgstr "Nome sensore"

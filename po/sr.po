@@ -39,9 +39,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr ""
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "Сензор"
+msgstr ""
 
 #: src/glade/psensor.glade:158
 msgid "_Help"

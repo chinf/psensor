@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-04-04 12:42+0200\n"
-"PO-Revision-Date: 2012-09-10 04:01+0000\n"
-"Last-Translator: Daniel Serafim <daniel.serafim@gmail.com>\n"
+"PO-Revision-Date: 2013-03-12 16:07+0000\n"
+"Last-Translator: MestreLion <launchpad@rodrigosilva.com>\n"
 "Language-Team: Brazilian Portuguese\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
-"X-Generator: Launchpad (build 16430)\n"
+"X-Launchpad-Export-Date: 2013-04-20 08:36+0000\n"
+"X-Generator: Launchpad (build 16567)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -39,9 +39,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor de temperatura"
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "Sensor"
+msgstr ""
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -138,15 +137,15 @@ msgstr "Grafo"
 
 #: src/glade/psensor-pref.glade:610
 msgid "Measure update interval:"
-msgstr ""
+msgstr "Intervalo de atualização das medições:"
 
 #: src/glade/psensor-pref.glade:659
 msgid "Enable sensors logging"
-msgstr ""
+msgstr "Habilitar registro (log) de sensores"
 
 #: src/glade/psensor-pref.glade:708
 msgid "Sensors logging interval"
-msgstr ""
+msgstr "Intervalo de registro dos sensores"
 
 #: src/glade/psensor-pref.glade:725
 #, fuzzy
@@ -162,9 +161,8 @@ msgid "Edit Sensor Preferences"
 msgstr "Editar preferências do sensor"
 
 #: src/glade/sensor-edit.glade:87
-#, fuzzy
 msgid "Name"
-msgstr "Nome:"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -190,19 +188,19 @@ msgstr "Ativar notificações de desktop"
 
 #: src/glade/sensor-edit.glade:236
 msgid "Sensor Information"
-msgstr ""
+msgstr "Informações do sensor"
 
 #: src/glade/sensor-edit.glade:249
 msgid "Draw sensor curve"
-msgstr ""
+msgstr "Desenhar curva do sensor"
 
 #: src/glade/sensor-edit.glade:333
 msgid "High threshold:"
-msgstr ""
+msgstr "Limite superior:"
 
 #: src/glade/sensor-edit.glade:348
 msgid "Low threshold:"
-msgstr ""
+msgstr "Limite inferior:"
 
 #: src/glade/sensor-edit.glade:409
 msgid "Ubuntu Application Indicator"
@@ -214,7 +212,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:444
 msgid "Chip:"
-msgstr ""
+msgstr "Chip:"
 
 #: src/glade/sensor-edit.glade:489
 msgid "Id:"
@@ -222,7 +220,7 @@ msgstr "ID:"
 
 #: src/glade/sensor-edit.glade:523
 msgid "Details"
-msgstr ""
+msgstr "Detalhes"
 
 #: src/glade/sensor-edit.glade:541
 msgid "Name:"
@@ -230,24 +228,24 @@ msgstr "Nome:"
 
 #: src/lib/amd.c:170
 msgid "AMD: cannot found ADL library."
-msgstr ""
+msgstr "AMD: não foi possível encontrar a biblioteca ADL."
 
 #: src/lib/amd.c:197
 msgid "AMD: missing ADL's API."
-msgstr ""
+msgstr "AMD: está faltando a API da ADL."
 
 #: src/lib/amd.c:207
 msgid "AMD: failed to initialize ADL."
-msgstr ""
+msgstr "AMD: falha ao iniciar ADL."
 
 #: src/lib/amd.c:213
 msgid "AMD: cannot get the number of adapters."
-msgstr ""
+msgstr "AMD: não foi possível obter número de adaptadores."
 
 #: src/lib/hdd_atasmart.c:149
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
-msgstr ""
+msgstr "atasmart: falha em sk_disk_open(): %s."
 
 #: src/lib/hdd_hddtemp.c:59
 msgid "hddtemp: failed to open socket."
@@ -255,7 +253,7 @@ msgstr ""
 
 #: src/lib/hdd_hddtemp.c:72
 msgid "hddtemp: failed to open connection."
-msgstr ""
+msgstr "hddtemp: falha em abrir conexão."
 
 #: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:256
 #, c-format
@@ -265,7 +263,7 @@ msgstr ""
 #: src/lib/lmsensor.c:42
 #, c-format
 msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr ""
+msgstr "lmsensor: não foi possível obter valor do sub-recurso %s: %s."
 
 #: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
@@ -274,7 +272,7 @@ msgstr ""
 #: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
-msgstr ""
+msgstr "lmsensor: falha na inicialização: %s."
 
 #: src/lib/log.c:37
 #, c-format
@@ -282,10 +280,9 @@ msgid "Cannot open log file: %s"
 msgstr "Não é possível abrir arquivo de log: %s"
 
 #: src/lib/nvidia.c:54
-#, fuzzy
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr "Falha ao recuperar temperatura de NVIDIA."
+msgstr ""
 
 #: src/lib/nvidia.c:97
 msgid "Cannot open connection to X11 server."
@@ -305,10 +302,9 @@ msgstr "%"
 
 #: src/lib/slog.c:64
 msgid "HOME variable not set."
-msgstr ""
+msgstr "Variável HOME não configurada."
 
 #: src/lib/slog.c:74
-#, fuzzy
 msgid "Sensor log file already open."
 msgstr "Arquivo de registro do sensor já está aberto."
 
@@ -319,7 +315,7 @@ msgstr "Não é possível abrir arquivo de log do sensor: %s."
 
 #: src/lib/slog.c:92 src/ui_notify.c:48
 msgid "gettimeofday failed."
-msgstr ""
+msgstr "falha em gettimeofday."
 
 #: src/lib/slog.c:116
 msgid "Sensor log file not open."
@@ -354,6 +350,8 @@ msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
+"Psensor é um aplicativo GTK+ para monitoramento de sensores de hardware, "
+"incluindo temperatura e velocidade de ventoinhas."
 
 #: src/main.c:93
 msgid "Options:"
@@ -364,12 +362,16 @@ msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
+"  -h, --help          exibir esta ajuda e sair\n"
+"  -v, --version       exibir informação de versão e sair"
 
 #: src/main.c:100
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
 msgstr ""
+"  -u, --url=URL       a URL  do psensor-server,\n"
+"                      exemplo: http://hostname:3131"
 
 #: src/main.c:103
 msgid ""
@@ -452,6 +454,8 @@ msgstr ""
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
+"psensor-server é um servidor HTTP para monitoramento remoto de sensores de "
+"hardware."
 
 #: src/server/server.c:100
 msgid ""
@@ -484,12 +488,12 @@ msgstr ""
 #: src/server/server.c:296
 #, c-format
 msgid "HTTP Request: %s"
-msgstr ""
+msgstr "Requisição HTTP: %s"
 
 #: src/server/server.c:357
 #, c-format
 msgid "Enables debug mode: %d"
-msgstr ""
+msgstr "Habilita modo de depuração: %d"
 
 #: src/server/server.c:399
 msgid "No sensors detected."
@@ -515,21 +519,19 @@ msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
 #: src/server/server.c:422
-#, fuzzy
 msgid "Failed to activate logging of sensors."
-msgstr "Falhou ao criar servidor web."
+msgstr ""
 
 #: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensor é uma aplicação GTK+ para monitorar sensores de hardware"
 
 #: src/ui.c:87
-#, fuzzy
 msgid ""
 "Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 msgstr ""
-"Copyright(c) 2010-2012\n"
+"Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 
 #: src/ui.c:90
@@ -607,7 +609,7 @@ msgstr "Alenta do ventilador"
 
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #~ msgid "Sensor Name"
 #~ msgstr "Nome do sensor"

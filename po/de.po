@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-04-04 12:42+0200\n"
-"PO-Revision-Date: 2012-10-11 21:21+0000\n"
+"PO-Revision-Date: 2013-03-30 13:52+0000\n"
 "Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-10-14 14:00+0000\n"
-"X-Generator: Launchpad (build 16137)\n"
+"X-Launchpad-Export-Date: 2013-04-20 08:36+0000\n"
+"X-Generator: Launchpad (build 16567)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -32,16 +32,15 @@ msgstr "Beenden"
 
 #: src/glade/psensor.glade:17
 msgid "Sensor Preferences"
-msgstr "Sensor-Einstellungen"
+msgstr "Sensoreinstellungen"
 
 #: src/glade/psensor.glade:96
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor – Temperaturüberwachung"
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "Sensor"
+msgstr "_Psensor"
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -149,7 +148,6 @@ msgid "Sensors logging interval"
 msgstr "Sensoren-Protokollierungsintervall"
 
 #: src/glade/psensor-pref.glade:725
-#, fuzzy
 msgid "seconds(s)"
 msgstr "Sekunde(n)"
 
@@ -162,9 +160,8 @@ msgid "Edit Sensor Preferences"
 msgstr "Sensor-Einstellungen bearbeiten"
 
 #: src/glade/sensor-edit.glade:87
-#, fuzzy
 msgid "Name"
-msgstr "Name:"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -190,11 +187,11 @@ msgstr "Benachrichtigungen aktivieren"
 
 #: src/glade/sensor-edit.glade:236
 msgid "Sensor Information"
-msgstr "Sensor-Informationen"
+msgstr "Sensorinformationen"
 
 #: src/glade/sensor-edit.glade:249
 msgid "Draw sensor curve"
-msgstr "Sensor-Graph darstellen"
+msgstr "Sensorgraphen darstellen"
 
 #: src/glade/sensor-edit.glade:333
 msgid "High threshold:"
@@ -210,7 +207,7 @@ msgstr "Ubuntu-Anwendungsindikator"
 
 #: src/glade/sensor-edit.glade:424
 msgid "Display sensor in the Application Indicator menu"
-msgstr "Sensor im Anwendungen-Indikatormenü zeigen"
+msgstr "Sensor im Indikatormenü für Anwendungen zeigen"
 
 #: src/glade/sensor-edit.glade:444
 msgid "Chip:"
@@ -282,10 +279,11 @@ msgid "Cannot open log file: %s"
 msgstr "Protokolldatei kann nicht geöffnet werden: %s"
 
 #: src/lib/nvidia.c:54
-#, fuzzy
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr "Ermittlung der NVIDIA-Temperatur gescheitert."
+msgstr ""
+"Entweder wird kein proprietärer NVIDIA-Treiber verwendet oder die NVIDIA-GPU-"
+"Temperatur kann nicht ermittelt werden."
 
 #: src/lib/nvidia.c:97
 msgid "Cannot open connection to X11 server."
@@ -551,12 +549,11 @@ msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensor ist eine GTK-Anwendung zur Überwachung von Hardware-Sensoren"
 
 #: src/ui.c:87
-#, fuzzy
 msgid ""
 "Copyright(c) 2010-2013\n"
 "jeanfi@gmail.com"
 msgstr ""
-"Copyright © 2010-2012\n"
+"Copyright © 2010-2013\n"
 "jeanfi@gmail.com"
 
 #: src/ui.c:90
@@ -609,11 +606,11 @@ msgstr "_Einstellungen"
 
 #: src/ui_appindicator.c:116
 msgid "S_ensor Preferences"
-msgstr "S_ensoreinstellungen"
+msgstr "_Sensoreinstellungen"
 
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
-msgstr "SensorEinstellungen"
+msgstr "Sensoreinstellungen"
 
 #: src/ui_appindicator.c:122
 msgid "_About"
