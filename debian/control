@@ -20,7 +20,7 @@ Build-Depends: asciidoc,
                libnotify-dev,
                libsensors4-dev,
                perl
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
 Homepage: http://wpitchoune.net/psensor
 
 Package: psensor
