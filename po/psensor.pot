@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-04-04 12:42+0200\n"
+"POT-Creation-Date: 2013-05-09 11:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,6 +238,16 @@ msgstr ""
 
 #: src/lib/amd.c:213
 msgid "AMD: cannot get the number of adapters."
+msgstr ""
+
+#: src/lib/amd.c:252
+#, c-format
+msgid "Number of AMD/ATI adapters: %d"
+msgstr ""
+
+#: src/lib/amd.c:253
+#, c-format
+msgid "Number of active AMD/ATI adapters: %d"
 msgstr ""
 
 #: src/lib/hdd_atasmart.c:149

@@ -249,6 +249,10 @@ static int init()
 
 	free(lpadapterinfo);
 
+	log_debug(_("Number of AMD/ATI adapters: %d"), inumberadapters);
+	log_debug(_("Number of active AMD/ATI adapters: %d"),
+		  inumberadaptersactive);
+
 	return inumberadaptersactive;
 }
 
