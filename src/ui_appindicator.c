@@ -125,7 +125,10 @@ static GtkActionEntry entries[] = {
 	  G_CALLBACK(cb_about) },
 
 	{ "QuitAction",
-	  GTK_STOCK_QUIT, "_Quit", NULL, "Quit", G_CALLBACK(cb_menu_quit) }
+	  GTK_STOCK_QUIT,
+	  N_("_Quit"),
+	  NULL, N_("Quit"),
+	  G_CALLBACK(cb_menu_quit) }
 };
 static guint n_entries = G_N_ELEMENTS(entries);
 
