@@ -6,10 +6,12 @@
 ** fixed cpu load when fahrenheit is enabled.
 ** list of sensors can be reordered using the sensor preferences
    dialog.
-** merged Spanish translation from LP (Javier).
+** merged Spanish translation from LP (Javier) and Tomeu R. .
 ** merged French translation from LP (Hélion du Mas des Bourboux).
 ** merged Italian translation from LP (Diego Pierotto).
 ** merged Brazillian Portugues translation from LP (MestreLion).
+** fixed the quit menu of the application indicator which was
+   not translatable.
 
 * v07.0.5
 
