@@ -116,8 +116,12 @@ https://bugs.launchpad.net/ubuntu/+source/psensor/+filebug if the bug
 can be reproduced with a package from the standard Ubuntu
 repositories.
 
-If you don’t want to use the launchpad, you can send me the report by
-email to jeanfi@gmail.com.
+If you don’t want to use the launchpad, you can send the report by
+email to:
+
+      - psensor-users@googlegroups.com (require registration at:
+        https://groups.google.com/forum/?fromgroups&hl=en#!forum/psensor-users)
+      - or jeanfi@gmail.com.
 
 If the bug is concerning Debian or Ubuntu derivatives distribution,
 please add in its description the output of the command ‘apt-cache
@@ -132,16 +136,11 @@ How to send ideas, questions or comments?
 
 Check the FAQ or the TODO pages.
 
-If you don’t find the information, I am always happy to help, you can
-contact me:
-
-	- by email: (jeanfi@gmail.com), please add “[psensor]” in the
-          subject, I speak English and French.
-
-	- or IRC: I am on the #psensor channel of the irc.freenode.net
-          server. My nickname is “jfi”. Even if I am most of the time
-          connected, I may not be in front of the computer or
-          available, be patient!
+If you don’t find the information, you can send an email to the public
+mailing-list psensor-users@googlegroups.com (require registration at:
+https://groups.google.com/forum/?fromgroups&hl=en#!forum/psensor-users) 
+or send an email directly to me: jeanfi@gmail.com.
+	
 
 [[S_Contribute]]
 How to contribute?
