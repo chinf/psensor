@@ -299,7 +299,7 @@ struct measure *psensor_get_current_measure(struct psensor *sensor)
   Returns the minimal value of a given 'type' (SENSOR_TYPE_TEMP or
   SENSOR_TYPE_FAN)
  */
-double get_min_value(struct psensor **sensors, int type)
+static double get_min_value(struct psensor **sensors, int type)
 {
 	double m = UNKNOWN_DBL_VALUE;
 	struct psensor **s = sensors;
