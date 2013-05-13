@@ -37,8 +37,9 @@ struct psensor *psensor_create(char *id,
 			       unsigned int type,
 			       int values_max_length)
 {
-	struct psensor *psensor
-	    = (struct psensor *)malloc(sizeof(struct psensor));
+	struct psensor *psensor;
+
+	psensor = (struct psensor *)malloc(sizeof(struct psensor));
 
 	psensor->id = id;
 	psensor->name = name;
