@@ -262,7 +262,6 @@ graph_update(struct psensor **sensors,
 	max_rpm = get_max_rpm(sensors);
 
 	mint = get_min_temp(sensors);
-
 	strmin = psensor_value_to_str(SENSOR_TYPE_TEMP,
 				      mint,
 				      config->temperature_unit == CELCIUS);
