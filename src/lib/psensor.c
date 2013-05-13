@@ -307,7 +307,7 @@ static double get_min_value(struct psensor **sensors, int type)
 	while (*s) {
 		struct psensor *sensor = *s;
 
-		if (sensor->graph_enabled && (sensor->type & type)) {
+		if (sensor->type & type) {
 			int i;
 			double t;
 
@@ -339,7 +339,7 @@ double get_max_value(struct psensor **sensors, int type)
 	while (*s) {
 		struct psensor *sensor = *s;
 
-		if (sensor->graph_enabled && (sensor->type & type)) {
+		if (sensor->type & type) {
 			int i;
 			double t;
 			for (i = 0; i < sensor->values_max_length; i++) {
@@ -545,4 +545,27 @@ psensor_current_value_to_str(const struct psensor *s, unsigned int celcius)
 	return psensor_value_to_str(s->type,
 				    psensor_get_current_value(s),
 				    celcius);
+}
+
+struct psensor **psensor_list_filter_graph_enabled(struct psensor **sensors)
+{
+	int n, i;
+	struct psensor **result, **cur, *s;
+
+	if (!sensors)
+		return NULL;
+
+	n = psensor_list_size(sensors);
+	result = malloc((n+1) * sizeof(struct psensor *));
+
+	for (cur = sensors, i = 0; *cur; cur++) {
+		s = *cur;
+
+		if (s->graph_enabled)
+			result[i++] = s;
+	}
+
+	result[i] = NULL;
+
+	return result;
 }

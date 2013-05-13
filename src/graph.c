@@ -250,7 +250,7 @@ graph_update(struct psensor **sensors,
 	cairo_t *cr, *cr_pixmap;
 	char *str_btime, *str_etime;
 	cairo_text_extents_t te_btime, te_etime, te_max, te_min;
-	struct psensor **sensor_cur;
+	struct psensor **sensor_cur, **enabled_sensors;
 	GtkAllocation galloc;
 	GtkStyleContext *style_ctx;
 	GdkRGBA rgba;
@@ -258,15 +258,17 @@ graph_update(struct psensor **sensors,
 	if (!gtk_widget_is_drawable(w_graph))
 		return ;
 
-	min_rpm = get_min_rpm(sensors);
-	max_rpm = get_max_rpm(sensors);
+	enabled_sensors = psensor_list_filter_graph_enabled(sensors);
 
-	mint = get_min_temp(sensors);
+	min_rpm = get_min_rpm(enabled_sensors);
+	max_rpm = get_max_rpm(enabled_sensors);
+
+	mint = get_min_temp(enabled_sensors);
 	strmin = psensor_value_to_str(SENSOR_TYPE_TEMP,
 				      mint,
 				      config->temperature_unit == CELCIUS);
 
-	maxt = get_max_temp(sensors);
+	maxt = get_max_temp(enabled_sensors);
 	strmax = psensor_value_to_str(SENSOR_TYPE_TEMP,
 				      maxt,
 				      config->temperature_unit == CELCIUS);
@@ -350,7 +352,7 @@ graph_update(struct psensor **sensors,
 	et = get_graph_end_time_s();
 
 	if (bt && et) {
-		sensor_cur = sensors;
+		sensor_cur = enabled_sensors;
 
 		cairo_set_line_join(cr, CAIRO_LINE_JOIN_ROUND);
 		cairo_set_line_width(cr, 1);
@@ -358,27 +360,24 @@ graph_update(struct psensor **sensors,
 		while (*sensor_cur) {
 			struct psensor *s = *sensor_cur;
 
-			if (s->graph_enabled) {
-				no_graphs = 0;
-				if (is_fan_type(s->type)) {
-					min = min_rpm;
-					max = max_rpm;
-				} else if (s->type & SENSOR_TYPE_CPU_USAGE) {
-					min = 0;
-					max = get_max_value
-						(sensors,
-						 SENSOR_TYPE_CPU_USAGE);
-				} else {
-					min = mint;
-					max = maxt;
-				}
-
-				draw_sensor_curve(s, cr,
-						  min, max,
-						  bt, et,
-						  g_width, g_height,
-						  g_xoff, g_yoff);
+			no_graphs = 0;
+			if (is_fan_type(s->type)) {
+				min = min_rpm;
+				max = max_rpm;
+			} else if (s->type & SENSOR_TYPE_CPU_USAGE) {
+				min = 0;
+				max = get_max_value(enabled_sensors,
+						    SENSOR_TYPE_CPU_USAGE);
+			} else {
+				min = mint;
+				max = maxt;
 			}
+
+			draw_sensor_curve(s, cr,
+					  min, max,
+					  bt, et,
+					  g_width, g_height,
+					  g_xoff, g_yoff);
 
 			sensor_cur++;
 		}
@@ -399,6 +398,8 @@ graph_update(struct psensor **sensors,
 		cairo_set_source_surface(cr_pixmap, cst, 0, 0);
 		cairo_paint(cr_pixmap);
 	}
+
+	free(enabled_sensors);
 
 	cairo_destroy(cr_pixmap);
 	cairo_surface_destroy(cst);

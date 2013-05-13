@@ -136,6 +136,8 @@ void psensor_free(struct psensor *sensor);
 void psensor_list_free(struct psensor **sensors);
 int psensor_list_size(struct psensor **sensors);
 
+struct psensor **psensor_list_filter_graph_enabled(struct psensor **);
+
 struct psensor *psensor_list_get_by_id(struct psensor **sensors,
 				       const char *id);
 
