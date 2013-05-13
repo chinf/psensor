@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-09 11:19+0200\n"
+"POT-Creation-Date: 2013-05-11 12:05+0200\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -26,7 +26,7 @@ msgstr "关于"
 msgid "Preferences"
 msgstr "首选项"
 
-#: src/glade/psensor.glade:13
+#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
 msgid "Quit"
 msgstr "退出"
 
@@ -608,7 +608,11 @@ msgstr "传感器首选项"
 msgid "_About"
 msgstr "关于(_A)"
 
-#: src/ui_appindicator.c:217
+#: src/ui_appindicator.c:129
+msgid "_Quit"
+msgstr "退出(_Q)"
+
+#: src/ui_appindicator.c:220
 #, c-format
 msgid "building menus failed: %s"
 msgstr "创建菜单失败：%s"
@@ -627,9 +631,6 @@ msgstr "未知"
 
 #~ msgid "Sensor Name"
 #~ msgstr "传感器名称"
-
-#~ msgid "_Quit"
-#~ msgstr "退出(_Q)"
 
 #~ msgid "Enabled"
 #~ msgstr "激活"

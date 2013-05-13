@@ -84,7 +84,7 @@ struct psensor {
 	struct color *color;
 
 	/* Whether the graph sensor is displayed. */
-	bool enabled;
+	bool graph_enabled;
 
 	/* see psensor_type */
 	unsigned int type;

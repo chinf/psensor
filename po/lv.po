@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-09 11:19+0200\n"
+"POT-Creation-Date: 2013-05-11 12:05+0200\n"
 "PO-Revision-Date: 2012-11-11 10:38+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Par"
 msgid "Preferences"
 msgstr "Iestatījumi"
 
-#: src/glade/psensor.glade:13
+#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
 msgid "Quit"
 msgstr "Iziet"
 
@@ -606,7 +606,11 @@ msgstr "SensoraIestatījumi"
 msgid "_About"
 msgstr "P_ar"
 
-#: src/ui_appindicator.c:217
+#: src/ui_appindicator.c:129
+msgid "_Quit"
+msgstr "_Iziet"
+
+#: src/ui_appindicator.c:220
 #, c-format
 msgid "building menus failed: %s"
 msgstr "neizdevās izveidot izvēlnes: %s"
@@ -625,9 +629,6 @@ msgstr "Nezināms"
 
 #~ msgid "Sensor Name"
 #~ msgstr "Sensora nosaukums"
-
-#~ msgid "_Quit"
-#~ msgstr "_Iziet"
 
 #~ msgid "Enabled"
 #~ msgstr "Aktivizēts"

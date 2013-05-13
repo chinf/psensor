@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-09 11:19+0200\n"
+"POT-Creation-Date: 2013-05-11 12:05+0200\n"
 "PO-Revision-Date: 2013-03-30 13:52+0000\n"
 "Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: German\n"
@@ -26,7 +26,7 @@ msgstr "Info"
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: src/glade/psensor.glade:13
+#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
 msgid "Quit"
 msgstr "Beenden"
 
@@ -626,7 +626,11 @@ msgstr "Sensoreinstellungen"
 msgid "_About"
 msgstr "_Info"
 
-#: src/ui_appindicator.c:217
+#: src/ui_appindicator.c:129
+msgid "_Quit"
+msgstr "_Beenden"
+
+#: src/ui_appindicator.c:220
 #, c-format
 msgid "building menus failed: %s"
 msgstr "Erstellen der Menüs ist gescheitert: %s"
@@ -645,9 +649,6 @@ msgstr "Unbekannt"
 
 #~ msgid "Sensor Name"
 #~ msgstr "Sensor-Name"
-
-#~ msgid "_Quit"
-#~ msgstr "_Beenden"
 
 #~ msgid "Enabled"
 #~ msgstr "Aktiviert"

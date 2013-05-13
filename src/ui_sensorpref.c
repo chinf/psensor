@@ -60,7 +60,7 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 
 	p->sensor = s;
 	p->name = strdup(s->name);
-	p->enabled = s->enabled;
+	p->enabled = s->graph_enabled;
 	p->alarm_enabled = s->alarm_enabled;
 	p->color = color_dup(s->color);
 
@@ -352,9 +352,9 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 		config_set_sensor_name(s->id, s->name);
 	}
 
-	if (s->enabled != p->enabled) {
-		s->enabled = p->enabled;
-		config_set_sensor_enabled(s->id, s->enabled);
+	if (s->graph_enabled != p->enabled) {
+		s->graph_enabled = p->enabled;
+		config_set_sensor_enabled(s->id, s->graph_enabled);
 	}
 
 	if (is_temp_type(s->type) && cfg->temperature_unit == FAHRENHEIT) {

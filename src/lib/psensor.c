@@ -43,7 +43,6 @@ struct psensor *psensor_create(char *id,
 	psensor->id = id;
 	psensor->name = name;
 	psensor->chip = chip;
-	psensor->enabled = 1;
 	psensor->min = UNKNOWN_DBL_VALUE;
 	psensor->max = UNKNOWN_DBL_VALUE;
 
@@ -64,6 +63,7 @@ struct psensor *psensor_create(char *id,
 
 	psensor->color = NULL;
 
+	psensor->graph_enabled = 1;
 	psensor->appindicator_enabled = 0;
 
 	return psensor;
@@ -307,7 +307,7 @@ double get_min_value(struct psensor **sensors, int type)
 	while (*s) {
 		struct psensor *sensor = *s;
 
-		if (sensor->enabled && (sensor->type & type)) {
+		if (sensor->graph_enabled && (sensor->type & type)) {
 			int i;
 			double t;
 
@@ -339,7 +339,7 @@ double get_max_value(struct psensor **sensors, int type)
 	while (*s) {
 		struct psensor *sensor = *s;
 
-		if (sensor->enabled && (sensor->type & type)) {
+		if (sensor->graph_enabled && (sensor->type & type)) {
 			int i;
 			double t;
 			for (i = 0; i < sensor->values_max_length; i++) {
@@ -367,7 +367,7 @@ psensor_get_max_current_value(struct psensor **sensors, unsigned int type)
 	while (*s_cur) {
 		struct psensor *s = *s_cur;
 
-		if (s->enabled && (s->type & type)) {
+		if (s->graph_enabled && (s->type & type)) {
 			double v = psensor_get_current_value(s);
 
 			if (m == UNKNOWN_DBL_VALUE || v > m)

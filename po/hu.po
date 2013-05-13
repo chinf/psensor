@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-09 11:19+0200\n"
+"POT-Creation-Date: 2013-05-11 12:05+0200\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -27,7 +27,7 @@ msgstr "Névjegy"
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: src/glade/psensor.glade:13
+#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
 msgid "Quit"
 msgstr "Kilépés"
 
@@ -621,7 +621,11 @@ msgstr "Érzékelőbeállítások"
 msgid "_About"
 msgstr "_Névjegy"
 
-#: src/ui_appindicator.c:217
+#: src/ui_appindicator.c:129
+msgid "_Quit"
+msgstr "_Kilépés"
+
+#: src/ui_appindicator.c:220
 #, c-format
 msgid "building menus failed: %s"
 msgstr "menük építése meghiúsult: %s"
@@ -640,9 +644,6 @@ msgstr "Ismeretlen"
 
 #~ msgid "Sensor Name"
 #~ msgstr "Érzékelő neve"
-
-#~ msgid "_Quit"
-#~ msgstr "_Kilépés"
 
 #~ msgid "Enabled"
 #~ msgstr "Engedélyezés"

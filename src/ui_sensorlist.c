@@ -80,7 +80,7 @@ static void populate(struct ui_psensor *ui)
 		gtk_list_store_set(store, &iter,
 				   COL_NAME, s->name,
 				   COL_COLOR_STR, scolor,
-				   COL_ENABLED, s->enabled,
+				   COL_ENABLED, s->graph_enabled,
 				   COL_SENSOR, s,
 				   -1);
 		free(scolor);
@@ -275,11 +275,11 @@ toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 
 	gtk_tree_model_get(model, &iter, COL_SENSOR, &s, -1);
 
-	s->enabled ^= 1;
-	config_set_sensor_enabled(s->id, s->enabled);
+	s->graph_enabled ^= 1;
+	config_set_sensor_enabled(s->id, s->graph_enabled);
 
 	gtk_list_store_set(GTK_LIST_STORE(model), &iter,
-			   COL_ENABLED, s->enabled, -1);
+			   COL_ENABLED, s->graph_enabled, -1);
 
 	gtk_tree_path_free(path);
 }

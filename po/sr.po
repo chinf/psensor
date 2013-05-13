@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-09 11:19+0200\n"
+"POT-Creation-Date: 2013-05-11 12:05+0200\n"
 "PO-Revision-Date: 2012-05-03 02:31+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "О програму"
 msgid "Preferences"
 msgstr "Поставке"
 
-#: src/glade/psensor.glade:13
+#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
 msgid "Quit"
 msgstr "Изађи"
 
@@ -586,7 +586,11 @@ msgstr ""
 msgid "_About"
 msgstr "О _програму"
 
-#: src/ui_appindicator.c:217
+#: src/ui_appindicator.c:129
+msgid "_Quit"
+msgstr "_Изађи"
+
+#: src/ui_appindicator.c:220
 #, c-format
 msgid "building menus failed: %s"
 msgstr ""
@@ -605,9 +609,6 @@ msgstr ""
 
 #~ msgid "Sensor Name"
 #~ msgstr "Назив сензора"
-
-#~ msgid "_Quit"
-#~ msgstr "_Изађи"
 
 #~ msgid "Enabled"
 #~ msgstr "Укључено"

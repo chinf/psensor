@@ -359,7 +359,7 @@ graph_update(struct psensor **sensors,
 		while (*sensor_cur) {
 			struct psensor *s = *sensor_cur;
 
-			if (s->enabled) {
+			if (s->graph_enabled) {
 				no_graphs = 0;
 				if (is_fan_type(s->type)) {
 					min = min_rpm;
