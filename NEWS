@@ -1,5 +1,8 @@
 * v0.8.0.2
 
+** GConf2 optional to allow psensor-server compilation without it.
+** Added support of libjson-c.
+
 * v0.8.0.1
 
 ** added AMD GPU usage sensor (Contribution from MestreLion).

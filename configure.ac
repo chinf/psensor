@@ -145,7 +145,7 @@ PKG_CHECK_MODULES(JSON,
 		  [AC_DEFINE([HAVE_JSON],[1],[Use JSON])], 
 		  [AC_MSG_WARN("json-c missing")])
 
-if test "JSON_LIBS" == ""; then
+if test "$JSON_LIBS" == ""; then
 PKG_CHECK_MODULES(JSON, 
 		  json, 
 		  [AC_DEFINE([HAVE_JSON],[1],[Use JSON])
