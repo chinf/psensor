@@ -7011,11 +7011,6 @@ fi
 
 
 
-if test x"$GCONFTOOL" = xno; then
-  as_fn_error $? "gconftool-2 executable not found in your path - should be installed with GConf" "$LINENO" 5
-fi
-
-
   if test "x$GCONF_SCHEMA_INSTALL_SOURCE" = "x"; then
     GCONF_SCHEMA_CONFIG_SOURCE=`gconftool-2 --get-default-source`
   else
