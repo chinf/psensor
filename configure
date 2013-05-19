@@ -7678,7 +7678,8 @@ else
 	GCONF_LIBS=$pkg_cv_GCONF_LIBS
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
-
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"gconf2 not present\"" >&5
+$as_echo "$as_me: WARNING: \"gconf2 not present\"" >&2;}
 fi
 
 
