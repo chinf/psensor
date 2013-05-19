@@ -670,6 +670,8 @@ ATASMART_FALSE
 ATASMART_TRUE
 ATASMART_LIBS
 ATASMART_CFLAGS
+GCONF_FALSE
+GCONF_TRUE
 GCONF_LIBS
 GCONF_CFLAGS
 GTK_LIBS
@@ -7648,39 +7650,30 @@ fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$GCONF_PKG_ERRORS" >&5
 
-	as_fn_error $? "Package requirements (gconf-2.0) were not met:
-
-$GCONF_PKG_ERRORS
-
-Consider adjusting the PKG_CONFIG_PATH environment variable if you
-installed software in a non-standard prefix.
-
-Alternatively, you may set the environment variables GCONF_CFLAGS
-and GCONF_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details." "$LINENO" 5
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"gconf2 not present\"" >&5
+$as_echo "$as_me: WARNING: \"gconf2 not present\"" >&2;}
 elif test $pkg_failed = untried; then
      	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
-	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "The pkg-config script could not be found or is too old.  Make sure it
-is in your PATH or set the PKG_CONFIG environment variable to the full
-path to pkg-config.
-
-Alternatively, you may set the environment variables GCONF_CFLAGS
-and GCONF_LIBS to avoid the need to call pkg-config.
-See the pkg-config man page for more details.
-
-To get pkg-config, see <http://pkg-config.freedesktop.org/>.
-See \`config.log' for more details" "$LINENO" 5; }
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"gconf2 not present\"" >&5
+$as_echo "$as_me: WARNING: \"gconf2 not present\"" >&2;}
 else
 	GCONF_CFLAGS=$pkg_cv_GCONF_CFLAGS
 	GCONF_LIBS=$pkg_cv_GCONF_LIBS
         { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
 $as_echo "yes" >&6; }
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"gconf2 not present\"" >&5
-$as_echo "$as_me: WARNING: \"gconf2 not present\"" >&2;}
+
+$as_echo "#define HAVE_GCON2 1" >>confdefs.h
+
 fi
+ if test -n "$GCONF_LIBS"; then
+  GCONF_TRUE=
+  GCONF_FALSE='#'
+else
+  GCONF_TRUE='#'
+  GCONF_FALSE=
+fi
+
 
 
 
@@ -8957,6 +8950,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${GCONF_SCHEMAS_INSTALL_TRUE}" && test -z "${GCONF_SCHEMAS_INSTALL_FALSE}"; then
   as_fn_error $? "conditional \"GCONF_SCHEMAS_INSTALL\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${GCONF_TRUE}" && test -z "${GCONF_FALSE}"; then
+  as_fn_error $? "conditional \"GCONF\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ATASMART_TRUE}" && test -z "${ATASMART_FALSE}"; then
