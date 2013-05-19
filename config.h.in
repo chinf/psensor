@@ -32,7 +32,7 @@
 #undef HAVE_DCGETTEXT
 
 /* Use gconf2 */
-#undef HAVE_GCON2
+#undef HAVE_GCONF2
 
 /* Define if the GNU gettext() function is already present or preinstalled. */
 #undef HAVE_GETTEXT

@@ -75,7 +75,7 @@ AC_SUBST(GTK_LIBS)
 
 # Check GCONF
 PKG_CHECK_MODULES(GCONF, gconf-2.0,
-	          [AC_DEFINE([HAVE_GCON2],[1],[Use gconf2])],
+	          [AC_DEFINE([HAVE_GCONF2],[1],[Use gconf2])],
 	          [AC_MSG_WARN("gconf2 not present")])
 AM_CONDITIONAL(GCONF, test -n "$GCONF_LIBS")
 AC_SUBST(GCONF_CFLAGS)

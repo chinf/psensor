@@ -90,7 +90,7 @@ dist_man_MANS = psensor.1
 EXTRA_DIST = description.txt psensor.schemas
 
 
-if GCONF_SCHEMAS_INSTALL
+if GCONF
 schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = psensor.schemas
 

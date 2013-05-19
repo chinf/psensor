@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-11 12:05+0200\n"
+"POT-Creation-Date: 2013-05-19 10:32+0200\n"
 "PO-Revision-Date: 2013-03-12 16:07+0000\n"
 "Last-Translator: MestreLion <launchpad@rodrigosilva.com>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -170,7 +170,7 @@ msgstr "Tipo:"
 
 #: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
 #: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
-#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:485 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:486 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/D"
 
@@ -302,11 +302,11 @@ msgstr "Não é possível abrir conexão com o servidor X11."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Falha ao recuperar informações de NVIDIA."
 
-#: src/lib/psensor.c:481 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:482 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:483
+#: src/lib/psensor.c:484
 msgid "%"
 msgstr "%"
 

@@ -367,8 +367,8 @@ psensor_SOURCES = cfg.h cfg.c graph.h graph.c main.c ui.h ui.c \
 	$(am__append_19)
 dist_man_MANS = psensor.1
 EXTRA_DIST = description.txt psensor.schemas
-@GCONF_SCHEMAS_INSTALL_TRUE@schemadir = $(GCONF_SCHEMA_FILE_DIR)
-@GCONF_SCHEMAS_INSTALL_TRUE@schema_DATA = psensor.schemas
+@GCONF_TRUE@schemadir = $(GCONF_SCHEMA_FILE_DIR)
+@GCONF_TRUE@schema_DATA = psensor.schemas
 all: all-recursive
 
 .SUFFIXES:
@@ -787,7 +787,7 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
-@GCONF_SCHEMAS_INSTALL_FALSE@install-data-local:
+@GCONF_FALSE@install-data-local:
 clean: clean-recursive
 
 clean-am: clean-binPROGRAMS clean-generic mostlyclean-am
@@ -880,8 +880,8 @@ uninstall-man: uninstall-man1
 	uninstall-schemaDATA
 
 
-@GCONF_SCHEMAS_INSTALL_TRUE@install-data-local:
-@GCONF_SCHEMAS_INSTALL_TRUE@	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_srcdir)/src/$(schema_DATA)
+@GCONF_TRUE@install-data-local:
+@GCONF_TRUE@	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_srcdir)/src/$(schema_DATA)
 
 psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)
