@@ -19,7 +19,13 @@
 #ifndef _PSENSOR_PSENSOR_JSON_H_
 #define _PSENSOR_PSENSOR_JSON_H_
 
+#include "config.h"
+
+#ifdef HAVE_JSON_0
 #include <json/json.h>
+#else
+#include <json-c/json.h>
+#endif
 
 #include "psensor.h"
 

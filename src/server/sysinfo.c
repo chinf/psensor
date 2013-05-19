@@ -21,7 +21,13 @@
 #include <glibtop/netlist.h>
 #include <glibtop/netload.h>
 
+#include "config.h"
+
+#ifdef HAVE_JSON_0
 #include <json/json.h>
+#else
+#include <json-c/json.h>
+#endif
 
 #include "sysinfo.h"
 

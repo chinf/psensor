@@ -52,6 +52,9 @@
 /* Use JSON */
 #undef HAVE_JSON
 
+/* Use JSON0 */
+#undef HAVE_JSON_0
+
 /* libatiadl is available */
 #undef HAVE_LIBATIADL
 

@@ -8203,6 +8203,83 @@ if test -n "$JSON_CFLAGS"; then
     pkg_cv_JSON_CFLAGS="$JSON_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"json-c\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "json-c") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_JSON_CFLAGS=`$PKG_CONFIG --cflags "json-c" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$JSON_LIBS"; then
+    pkg_cv_JSON_LIBS="$JSON_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"json-c\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "json-c") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_JSON_LIBS=`$PKG_CONFIG --libs "json-c" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        JSON_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "json-c" 2>&1`
+        else
+	        JSON_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "json-c" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$JSON_PKG_ERRORS" >&5
+
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"json-c missing\"" >&5
+$as_echo "$as_me: WARNING: \"json-c missing\"" >&2;}
+elif test $pkg_failed = untried; then
+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"json-c missing\"" >&5
+$as_echo "$as_me: WARNING: \"json-c missing\"" >&2;}
+else
+	JSON_CFLAGS=$pkg_cv_JSON_CFLAGS
+	JSON_LIBS=$pkg_cv_JSON_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+$as_echo "#define HAVE_JSON 1" >>confdefs.h
+
+fi
+
+if test "JSON_LIBS" == ""; then
+
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for JSON" >&5
+$as_echo_n "checking for JSON... " >&6; }
+
+if test -n "$JSON_CFLAGS"; then
+    pkg_cv_JSON_CFLAGS="$JSON_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"json\""; } >&5
   ($PKG_CONFIG --exists --print-errors "json") 2>&5
   ac_status=$?
@@ -8253,13 +8330,13 @@ fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$JSON_PKG_ERRORS" >&5
 
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"Remote monitoring disabled" >&5
-$as_echo "$as_me: WARNING: \"Remote monitoring disabled" >&2;}
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"json0 missing\"" >&5
+$as_echo "$as_me: WARNING: \"json0 missing\"" >&2;}
 elif test $pkg_failed = untried; then
      	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"Remote monitoring disabled" >&5
-$as_echo "$as_me: WARNING: \"Remote monitoring disabled" >&2;}
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"json0 missing\"" >&5
+$as_echo "$as_me: WARNING: \"json0 missing\"" >&2;}
 else
 	JSON_CFLAGS=$pkg_cv_JSON_CFLAGS
 	JSON_LIBS=$pkg_cv_JSON_LIBS
@@ -8268,7 +8345,12 @@ $as_echo "yes" >&6; }
 
 $as_echo "#define HAVE_JSON 1" >>confdefs.h
 
+
+$as_echo "#define HAVE_JSON_0 1" >>confdefs.h
+
 fi
+fi
+
  if test -n "$JSON_LIBS"; then
   JSON_TRUE=
   JSON_FALSE='#'
