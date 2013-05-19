@@ -365,10 +365,10 @@ psensor_SOURCES = cfg.h cfg.c graph.h graph.c main.c ui.h ui.c \
 	ui_sensorpref.h ui_sensorpref.c ui_status.h ui_status.c \
 	$(am__append_4) $(am__append_7) $(am__append_16) \
 	$(am__append_19)
-schemadir = $(GCONF_SCHEMA_FILE_DIR)
-schema_DATA = psensor.schemas
 dist_man_MANS = psensor.1
 EXTRA_DIST = description.txt psensor.schemas
+@GCONF_SCHEMAS_INSTALL_TRUE@schemadir = $(GCONF_SCHEMA_FILE_DIR)
+@GCONF_SCHEMAS_INSTALL_TRUE@schema_DATA = psensor.schemas
 all: all-recursive
 
 .SUFFIXES:
