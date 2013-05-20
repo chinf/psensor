@@ -26,7 +26,17 @@ LIBS = \
 	$(PTHREAD_LIBS)\
 	$(SENSORS_LIBS)
 
+if GTK
+if X11
+if XEXT
+if GCONF
 bin_PROGRAMS = psensor
+dist_man_MANS = psensor.1
+endif
+endif
+endif
+endif
+
 psensor_SOURCES = \
 	cfg.h cfg.c \
 	graph.h graph.c \
@@ -58,8 +68,10 @@ AM_CPPFLAGS += $(APPINDICATOR_CFLAGS)
 endif
 
 if NVIDIA
+if X11
 AM_CPPFLAGS += $(NVIDIA_CFLAGS)
 LIBS +=  $(NVIDIA_LIBS)
+endif
 endif
 
 if LIBATIADL
@@ -86,7 +98,6 @@ AM_CPPFLAGS += $(CURL_CFLAGS) $(JSON_CFLAGS)
 endif
 endif
 
-dist_man_MANS = psensor.1
 EXTRA_DIST = description.txt psensor.schemas
 
 

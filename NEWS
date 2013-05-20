@@ -1,6 +1,7 @@
 * v0.8.0.2
 
-** GConf2 optional to allow psensor-server compilation without it.
+** GConf2/GTK/XEXT/X11 lib optional to allow psensor-server
+   compilation without them.
 ** Added support of libjson-c.
 
 * v0.8.0.1

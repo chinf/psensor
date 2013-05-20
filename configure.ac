@@ -53,16 +53,19 @@ AC_SUBST(SENSORS_LIBS)
 
 ### Required
 
-PKG_CHECK_MODULES(X11, x11)
+PKG_CHECK_MODULES(X11, x11,,[AC_MSG_WARN("x11 missing psensor will not be built")])
+AM_CONDITIONAL(X11, test -n "$X11_LIBS")
 AC_SUBST(X11_CFLAGS)
 AC_SUBST(X11_LIBS)
 
-PKG_CHECK_MODULES(XEXT, xext)
+PKG_CHECK_MODULES(XEXT, xext,,[AC_MSG_WARN("xext missing psensor will not be built")])
+AM_CONDITIONAL(XEXT, test -n "$XEXT_LIBS")
 AC_SUBST(XEXT_CFLAGS)
 AC_SUBST(XEXT_LIBS)
 
 # Checks GTK+ 3.0
-PKG_CHECK_MODULES(GTK, gtk+-3.0)		
+PKG_CHECK_MODULES(GTK, gtk+-3.0,,[AC_MSG_WARN("gtk missing psensor will not be built")])
+AM_CONDITIONAL(GTK, test -n "$GTK_LIBS")
 # ensure that only allowed headers are included
 GTK_CFLAGS+=" -DGTK_DISABLE_SINGLE_INCLUDES "
 # ensure that no gtk deprecated symbols are used
@@ -76,7 +79,7 @@ AC_SUBST(GTK_LIBS)
 # Check GCONF
 PKG_CHECK_MODULES(GCONF, gconf-2.0,
 	          [AC_DEFINE([HAVE_GCONF2],[1],[Use gconf2])],
-	          [AC_MSG_WARN("gconf2 not present")])
+	          [AC_MSG_WARN("gconf2 missing psensor will not be built")])
 AM_CONDITIONAL(GCONF, test -n "$GCONF_LIBS")
 AC_SUBST(GCONF_CFLAGS)
 AC_SUBST(GCONF_LIBS)
