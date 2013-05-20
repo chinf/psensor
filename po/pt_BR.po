@@ -148,7 +148,6 @@ msgid "Sensors logging interval"
 msgstr "Intervalo de registro dos sensores"
 
 #: src/glade/psensor-pref.glade:725
-#, fuzzy
 msgid "seconds(s)"
 msgstr "segundo(s)"
 

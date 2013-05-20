@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-05-19 10:32+0200\n"
-"PO-Revision-Date: 2013-03-02 03:05+0000\n"
-"Last-Translator: Hélion du Mas des Bourboux <helion331990@gmail.com>\n"
+"PO-Revision-Date: 2013-04-20 19:57+0000\n"
+"Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: French <>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-20 08:36+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-05-20 08:44+0000\n"
+"X-Generator: Launchpad (build 16626)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -39,9 +39,8 @@ msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Surveillance Des Températures"
 
 #: src/glade/psensor.glade:111
-#, fuzzy
 msgid "_Psensor"
-msgstr "Capteur"
+msgstr ""
 
 #: src/glade/psensor.glade:158
 msgid "_Help"

@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-05-19 10:32+0200\n"
-"PO-Revision-Date: 2012-11-11 10:38+0000\n"
+"PO-Revision-Date: 2013-05-01 09:48+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
-"X-Generator: Launchpad (build 16430)\n"
+"X-Launchpad-Export-Date: 2013-05-20 08:44+0000\n"
+"X-Generator: Launchpad (build 16626)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -40,7 +40,7 @@ msgstr "Psensor - temperatūras pārraugs"
 
 #: src/glade/psensor.glade:111
 msgid "_Psensor"
-msgstr ""
+msgstr "_Psensor"
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -80,7 +80,7 @@ msgstr "Atjaunot loga pozīciju un izmēru"
 
 #: src/glade/psensor-pref.glade:202
 msgid "Temperature unit:"
-msgstr "Temperatūras vienība:"
+msgstr "Temperatūras mērvienība:"
 
 #: src/glade/psensor-pref.glade:256
 msgid "Interface"
@@ -161,7 +161,7 @@ msgstr "Rediģēt sensoru iestatījumus"
 
 #: src/glade/sensor-edit.glade:87
 msgid "Name"
-msgstr ""
+msgstr "Nosaukums"
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -382,7 +382,7 @@ msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
 msgstr ""
-"  --use-libatasmart  izmantot atasmart bibliotēku disku monitorēšanai\n"
+"  --use-libatasmart   izmantot atasmart bibliotēku disku pārraudzībai\n"
 "                      hddtemp dēmona vietā"
 
 #: src/main.c:106

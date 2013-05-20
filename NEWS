@@ -3,6 +3,8 @@
 ** GConf2/GTK/XEXT/X11 lib optional to allow psensor-server
    compilation without them.
 ** Added support of libjson-c.
+** merged German translation from LP (Dennis Baudys).
+** merged Latvian translation from LP (tuxmaniack).
 
 * v0.8.0.1
 

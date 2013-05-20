@@ -510,7 +510,6 @@ msgstr ""
 "  --sensor-log-file=PATH imposta il file di registro dei sensori come PATH"
 
 #: src/server/server.c:112
-#, fuzzy
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
 "  --sensor-log-interval=S imposta l'intervallo del registro di sensori come "
