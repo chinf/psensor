@@ -169,7 +169,7 @@ void slog_close()
 		free(last_values);
 		last_values = NULL;
 	} else {
-		log_err(_("Sensor log not open, cannot close."));
+		log_debug(_("Sensor log not open, cannot close."));
 	}
 }
 
