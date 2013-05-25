@@ -100,7 +100,6 @@ endif
 
 EXTRA_DIST = description.txt psensor.schemas
 
-
 if GCONF
 schemadir = $(GCONF_SCHEMA_FILE_DIR)
 schema_DATA = psensor.schemas
