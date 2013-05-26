@@ -15,7 +15,7 @@ Build-Depends: asciidoc,
                libgconf2-dev,
                libgtk-3-dev,
                libgtop2-dev,
-               libjson0-dev,
+               libjson-c-dev,
                libmicrohttpd-dev,
                libnotify-dev,
                libsensors4-dev,
@@ -39,7 +39,7 @@ Description: display graphs for monitoring hardware temperature
  It can monitor:
   * the temperature of the motherboard and CPU sensors (using lm-sensors).
   * the temperature of the NVidia GPUs (using XNVCtrl).
-  * the temperature of the Hard Disk Drives (using hddtemp).
+  * the temperature of the Hard Disk Drives (using hddtemp or atasmart lib).
   * the rotation speed of the fans (using lm-sensors).
   * the sensors of a remote computer (using psensor-server).
  .
