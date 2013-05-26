@@ -4,22 +4,23 @@ psensor (0.8.0.x-0ubuntu1) unstable; urgency=low
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Mon, 27 May 2013 11:04:33 +0200
 
-psensor (0.8.0.2-1) unstable; urgency=low
+psensor (0.8.0.3-1) unstable; urgency=low
 
   * New upstream release
       + fixed realloc null returned value not handled in amd.c.
       + fixed url var in main function not freed.
       + added message when no sensor graphs are enabled. (Closes: #689355)
+      + replaced deprecated GtkColorSelectionDialog by GtkColorChooserDialog
+	to avoid build failure with recent GTK releases. (LP: #1184442)
   * debian/control
       + added builddep to cppcheck.
       + added builddep to asciidoc.
       + added mention of FAQ in the psensor-common description.
       + added mention of libatasmart support in psensor description.
       + replaced builddep libjson0-dev by libjson-c-dev.
+      + switched to Standards-Version 3.9.4.
   * debian/psensor-common.install
       + added faq.txt and faq.html.
-  * debian/control
-      + switched to Standards-Version 3.9.4.
   * debian/psensor.install
       + added psensor.glade.
 
