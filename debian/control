@@ -3,11 +3,11 @@ Section: utils
 Priority: extra
 Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
 Build-Depends: asciidoc,
-	       autoconf,
+               autoconf,
                automake,
                autopoint,
                debhelper (>= 9),
-	       cppcheck,
+               cppcheck,
                gettext,
                help2man,
                libatasmart-dev,
@@ -70,6 +70,6 @@ Package: psensor-common
 Architecture: all
 Depends: ${misc:Depends}
 Description: common files for Psensor and Psensor server
- It contains languages packs for both Psensor and Psensor server and the
+ It contains languages packs for both Psensor and Psensor server, and the
  FAQ.
  .
