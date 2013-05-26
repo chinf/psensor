@@ -325,7 +325,9 @@ int main(int argc, char *argv[])
 #endif
 
 	server_data.www_dir = NULL;
+#ifdef HAVE_GTOP
 	server_data.psysinfo.interfaces = NULL;
+#endif
 	log_file = NULL;
 	slog_file = NULL;
 	slog_interval = 300;

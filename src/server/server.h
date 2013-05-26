@@ -19,8 +19,13 @@
 #ifndef _PSENSOR_SERVER_H_
 #define _PSENSOR_SERVER_H_
 
+#include "config.h"
+
 #include "psensor.h"
+
+#ifdef HAVE_GTOP
 #include "sysinfo.h"
+#endif
 
 #define URL_BASE_API_1_1 "/api/1.1"
 #define URL_BASE_API_1_1_SENSORS "/api/1.1/sensors"
@@ -31,7 +36,9 @@
 struct server_data {
 	struct psensor *cpu_usage;
 	struct psensor **sensors;
+#ifdef HAVE_GTOP
 	struct psysinfo psysinfo;
+#endif
 	char *www_dir;
 };
 

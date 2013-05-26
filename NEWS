@@ -2,6 +2,7 @@
 
 ** Switched to GtkColorChooserDialog instead of the
    deprecated widget GtkColorSelectionDialog.
+** psensor-server: fixed compilation without gtop2 lib.
 
 * v0.8.0.2
 
