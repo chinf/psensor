@@ -1,3 +1,9 @@
+psensor (0.8.0.x-0ubuntu1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Mon, 27 May 2013 11:04:33 +0200
+
 psensor (0.8.0.2-1) unstable; urgency=low
 
   * New upstream release
