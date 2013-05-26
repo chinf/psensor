@@ -22,10 +22,10 @@
 #include "color.h"
 
 /*
-  UI to change a given color.
-
-  Returns 1 if the color has been modified.
+ * UI to change a given color.
+ *
+ * Returns 1 if the color has been modified.
  */
-int ui_change_color(const char *title, struct color *col);
+int ui_change_color(const char *title, struct color *col, GtkWindow *win);
 
 #endif

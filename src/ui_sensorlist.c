@@ -243,7 +243,8 @@ static int clicked_cbk(GtkWidget *widget, GdkEventButton *event, gpointer data)
 
 		if (coli == COL_COLOR) {
 			if (ui_change_color(_("Select foreground color"),
-					    s->color)) {
+					    s->color,
+					    GTK_WINDOW(ui->main_window))) {
 				ui_sensorlist_update(ui, 1);
 				config_set_sensor_color(s->id, s->color);
 			}

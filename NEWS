@@ -1,3 +1,8 @@
+* v0.8.0.3
+
+** Switched to GtkColorChooserDialog instead of the
+   deprecated widget GtkColorSelectionDialog.
+
 * v0.8.0.2
 
 ** GConf2/GTK/XEXT/X11 lib optional to allow psensor-server
