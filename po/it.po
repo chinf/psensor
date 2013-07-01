@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-19 10:32+0200\n"
+"POT-Creation-Date: 2013-05-30 09:07+0200\n"
 "PO-Revision-Date: 2013-04-14 16:06+0000\n"
 "Last-Translator: Diego Pierotto <Unknown>\n"
 "Language-Team: Italian\n"
@@ -50,108 +50,108 @@ msgstr "_Aiuto"
 msgid "Edit Preferences"
 msgstr "Modifica le preferenze"
 
-#: src/glade/psensor-pref.glade:76
+#: src/glade/psensor-pref.glade:72
 msgid "Position of sensors table:"
 msgstr "Posizione della tabella dei sensori"
 
-#: src/glade/psensor-pref.glade:85
+#: src/glade/psensor-pref.glade:81
 msgid "Hide window decoration"
 msgstr "Nascondi le decorazioni della finestra"
 
-#: src/glade/psensor-pref.glade:104
+#: src/glade/psensor-pref.glade:98
 msgid "Keep window below"
 msgstr "Mantieni la finestra sotto"
 
-#: src/glade/psensor-pref.glade:123
+#: src/glade/psensor-pref.glade:115
 msgid "Enable menu"
 msgstr "Abilita il menù"
 
-#: src/glade/psensor-pref.glade:142
+#: src/glade/psensor-pref.glade:132
 msgid "Enable Unity Launcher counter"
 msgstr "Abilita contatore nel Launcher Unity"
 
-#: src/glade/psensor-pref.glade:161
+#: src/glade/psensor-pref.glade:149
 msgid "Hide window on startup"
 msgstr "Nascondi la finestra all'avvio"
 
-#: src/glade/psensor-pref.glade:180
+#: src/glade/psensor-pref.glade:166
 msgid "Restore window position and size"
 msgstr "Ripristina posizione e dimensione della finestra"
 
-#: src/glade/psensor-pref.glade:202
+#: src/glade/psensor-pref.glade:186
 msgid "Temperature unit:"
 msgstr "Unità di misura della temperatura"
 
-#: src/glade/psensor-pref.glade:256
+#: src/glade/psensor-pref.glade:238
 msgid "Interface"
 msgstr "Interfaccia"
 
-#: src/glade/psensor-pref.glade:296
+#: src/glade/psensor-pref.glade:276
 msgid "Foreground:"
 msgstr "Primo piano:"
 
-#: src/glade/psensor-pref.glade:311
+#: src/glade/psensor-pref.glade:291
 msgid "Background:"
 msgstr "Sfondo:"
 
-#: src/glade/psensor-pref.glade:347
+#: src/glade/psensor-pref.glade:325
 msgid "Background opacity:"
 msgstr "Opacità dello sfondo:"
 
-#: src/glade/psensor-pref.glade:370
+#: src/glade/psensor-pref.glade:348
 msgid "<i>Min</i>"
 msgstr "<i>Minimo</i>"
 
-#: src/glade/psensor-pref.glade:397
+#: src/glade/psensor-pref.glade:375
 msgid "<i>Max</i>"
 msgstr "<i>Massimo</i>"
 
-#: src/glade/psensor-pref.glade:423
+#: src/glade/psensor-pref.glade:401
 msgid "Colors"
 msgstr "Colori"
 
-#: src/glade/psensor-pref.glade:441
+#: src/glade/psensor-pref.glade:419
 msgid "Monitoring duration:"
 msgstr "Durata del monitoraggio:"
 
-#: src/glade/psensor-pref.glade:479
+#: src/glade/psensor-pref.glade:457
 msgid "minute(s)"
 msgstr "minuto/i"
 
-#: src/glade/psensor-pref.glade:496 src/glade/psensor-pref.glade:648
+#: src/glade/psensor-pref.glade:474 src/glade/psensor-pref.glade:626
 msgid "second(s)"
 msgstr "secondo/i"
 
-#: src/glade/psensor-pref.glade:532
+#: src/glade/psensor-pref.glade:510
 msgid "Update interval:"
 msgstr "Intervallo di aggiornamento:"
 
-#: src/glade/psensor-pref.glade:550
+#: src/glade/psensor-pref.glade:528
 msgid "Measures"
 msgstr "Misure"
 
-#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:169
-#: src/ui_sensorlist.c:333
+#: src/glade/psensor-pref.glade:564 src/glade/sensor-edit.glade:169
+#: src/ui_sensorlist.c:334
 msgid "Graph"
 msgstr "Grafico"
 
-#: src/glade/psensor-pref.glade:610
+#: src/glade/psensor-pref.glade:588
 msgid "Measure update interval:"
 msgstr "Intervallo di aggiornamento delle misure"
 
-#: src/glade/psensor-pref.glade:659
+#: src/glade/psensor-pref.glade:637
 msgid "Enable sensors logging"
 msgstr "Abilita registrazione sensori"
 
-#: src/glade/psensor-pref.glade:708
+#: src/glade/psensor-pref.glade:684
 msgid "Sensors logging interval"
 msgstr "Intervallo registrazione sensori"
 
-#: src/glade/psensor-pref.glade:725
+#: src/glade/psensor-pref.glade:701
 msgid "seconds(s)"
 msgstr "secondo(i)"
 
-#: src/glade/psensor-pref.glade:744
+#: src/glade/psensor-pref.glade:720
 msgid "Sensors"
 msgstr "Sensori"
 
@@ -422,7 +422,7 @@ msgstr "Psensor è stato compilato senza il supporto per sensori remoti."
 msgid "Enables debug mode."
 msgstr "Abilita la modalità debug."
 
-#: src/main.c:526 src/server/server.c:377
+#: src/main.c:526 src/server/server.c:379
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Usare '%s --help' per maggiori informazioni.\n"
@@ -520,41 +520,41 @@ msgstr ""
 msgid "HTTP Request: %s"
 msgstr "HTTP Request: %s"
 
-#: src/server/server.c:357
+#: src/server/server.c:359
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Abilita modalità di debug: %d"
 
-#: src/server/server.c:399
+#: src/server/server.c:401
 msgid "No sensors detected."
 msgstr "Nessun sensore rilevato."
 
-#: src/server/server.c:406
+#: src/server/server.c:408
 msgid "Failed to create Web server."
 msgstr "Impossibile creare il Web server."
 
-#: src/server/server.c:410
+#: src/server/server.c:412
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Web server inizializzato sulla porta: %d"
 
-#: src/server/server.c:411
+#: src/server/server.c:413
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW directory: %s"
 
-#: src/server/server.c:412
+#: src/server/server.c:414
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:422
+#: src/server/server.c:424
 msgid "Failed to activate logging of sensors."
 msgstr "Attivazione registro dei sensori fallita."
 
 #: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr "Psensore è un'applicazione GTK+ per monitorare sernsori hardware"
+msgstr "Psensor è un'applicazione GTK+ per monitorare i sensori hardware"
 
 #: src/ui.c:87
 msgid ""
@@ -580,23 +580,23 @@ msgstr "Impossibile caricare l'icona di Psensor."
 msgid "Select foreground color"
 msgstr "Colore di primo piano:"
 
-#: src/ui_sensorlist.c:296
+#: src/ui_sensorlist.c:297
 msgid "Sensor"
 msgstr "Sensore"
 
-#: src/ui_sensorlist.c:302
+#: src/ui_sensorlist.c:303
 msgid "Value"
 msgstr "Valore"
 
-#: src/ui_sensorlist.c:308
+#: src/ui_sensorlist.c:309
 msgid "Min"
 msgstr "Minimo"
 
-#: src/ui_sensorlist.c:314
+#: src/ui_sensorlist.c:315
 msgid "Max"
 msgstr "Massimo"
 
-#: src/ui_sensorlist.c:321
+#: src/ui_sensorlist.c:322
 msgid "Color"
 msgstr "Colore"
 

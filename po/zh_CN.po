@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-19 10:32+0200\n"
+"POT-Creation-Date: 2013-05-30 09:07+0200\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -50,108 +50,108 @@ msgstr "帮助(_H)"
 msgid "Edit Preferences"
 msgstr "编辑首选项"
 
-#: src/glade/psensor-pref.glade:76
+#: src/glade/psensor-pref.glade:72
 msgid "Position of sensors table:"
 msgstr "监视设备列表位置:"
 
-#: src/glade/psensor-pref.glade:85
+#: src/glade/psensor-pref.glade:81
 msgid "Hide window decoration"
 msgstr "隐藏窗口标题栏"
 
-#: src/glade/psensor-pref.glade:104
+#: src/glade/psensor-pref.glade:98
 msgid "Keep window below"
 msgstr "保持在最底层"
 
-#: src/glade/psensor-pref.glade:123
+#: src/glade/psensor-pref.glade:115
 msgid "Enable menu"
 msgstr "启用菜单"
 
-#: src/glade/psensor-pref.glade:142
+#: src/glade/psensor-pref.glade:132
 msgid "Enable Unity Launcher counter"
 msgstr "启用 Unity 启动器计数器"
 
-#: src/glade/psensor-pref.glade:161
+#: src/glade/psensor-pref.glade:149
 msgid "Hide window on startup"
 msgstr "启动时隐藏窗口"
 
-#: src/glade/psensor-pref.glade:180
+#: src/glade/psensor-pref.glade:166
 msgid "Restore window position and size"
 msgstr "恢复窗口位置和大小"
 
-#: src/glade/psensor-pref.glade:202
+#: src/glade/psensor-pref.glade:186
 msgid "Temperature unit:"
 msgstr "温度单位："
 
-#: src/glade/psensor-pref.glade:256
+#: src/glade/psensor-pref.glade:238
 msgid "Interface"
 msgstr "界面"
 
-#: src/glade/psensor-pref.glade:296
+#: src/glade/psensor-pref.glade:276
 msgid "Foreground:"
 msgstr "前景："
 
-#: src/glade/psensor-pref.glade:311
+#: src/glade/psensor-pref.glade:291
 msgid "Background:"
 msgstr "背景:"
 
-#: src/glade/psensor-pref.glade:347
+#: src/glade/psensor-pref.glade:325
 msgid "Background opacity:"
 msgstr "背景透明："
 
-#: src/glade/psensor-pref.glade:370
+#: src/glade/psensor-pref.glade:348
 msgid "<i>Min</i>"
 msgstr "<i>最小值</i>"
 
-#: src/glade/psensor-pref.glade:397
+#: src/glade/psensor-pref.glade:375
 msgid "<i>Max</i>"
 msgstr "<i>最大值</i>"
 
-#: src/glade/psensor-pref.glade:423
+#: src/glade/psensor-pref.glade:401
 msgid "Colors"
 msgstr "颜色"
 
-#: src/glade/psensor-pref.glade:441
+#: src/glade/psensor-pref.glade:419
 msgid "Monitoring duration:"
 msgstr "监视持续时长："
 
-#: src/glade/psensor-pref.glade:479
+#: src/glade/psensor-pref.glade:457
 msgid "minute(s)"
 msgstr "分钟"
 
-#: src/glade/psensor-pref.glade:496 src/glade/psensor-pref.glade:648
+#: src/glade/psensor-pref.glade:474 src/glade/psensor-pref.glade:626
 msgid "second(s)"
 msgstr "秒"
 
-#: src/glade/psensor-pref.glade:532
+#: src/glade/psensor-pref.glade:510
 msgid "Update interval:"
 msgstr "更新间隔："
 
-#: src/glade/psensor-pref.glade:550
+#: src/glade/psensor-pref.glade:528
 msgid "Measures"
 msgstr "测量"
 
-#: src/glade/psensor-pref.glade:586 src/glade/sensor-edit.glade:169
-#: src/ui_sensorlist.c:333
+#: src/glade/psensor-pref.glade:564 src/glade/sensor-edit.glade:169
+#: src/ui_sensorlist.c:334
 msgid "Graph"
 msgstr "图表"
 
-#: src/glade/psensor-pref.glade:610
+#: src/glade/psensor-pref.glade:588
 msgid "Measure update interval:"
 msgstr "测量更新间隔："
 
-#: src/glade/psensor-pref.glade:659
+#: src/glade/psensor-pref.glade:637
 msgid "Enable sensors logging"
 msgstr "启用监测器记录"
 
-#: src/glade/psensor-pref.glade:708
+#: src/glade/psensor-pref.glade:684
 msgid "Sensors logging interval"
 msgstr "监测器记录间隔"
 
-#: src/glade/psensor-pref.glade:725
+#: src/glade/psensor-pref.glade:701
 msgid "seconds(s)"
 msgstr "秒"
 
-#: src/glade/psensor-pref.glade:744
+#: src/glade/psensor-pref.glade:720
 msgid "Sensors"
 msgstr "传感器"
 
@@ -414,7 +414,7 @@ msgstr "Psensor 不支持远程传感器。"
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:526 src/server/server.c:377
+#: src/main.c:526 src/server/server.c:379
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
@@ -504,35 +504,35 @@ msgstr ""
 msgid "HTTP Request: %s"
 msgstr "HTTP 请求：%s"
 
-#: src/server/server.c:357
+#: src/server/server.c:359
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "启用调试模式：%d"
 
-#: src/server/server.c:399
+#: src/server/server.c:401
 msgid "No sensors detected."
 msgstr "未检测到传感器。"
 
-#: src/server/server.c:406
+#: src/server/server.c:408
 msgid "Failed to create Web server."
 msgstr "无法创建网络服务器。"
 
-#: src/server/server.c:410
+#: src/server/server.c:412
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "网络服务器启动端口：%d"
 
-#: src/server/server.c:411
+#: src/server/server.c:413
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW 目录：%s"
 
-#: src/server/server.c:412
+#: src/server/server.c:414
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:422
+#: src/server/server.c:424
 msgid "Failed to activate logging of sensors."
 msgstr "无法激活监测器日志。"
 
@@ -564,23 +564,23 @@ msgstr "无法加载 Psensor 图标。"
 msgid "Select foreground color"
 msgstr "选择前景色"
 
-#: src/ui_sensorlist.c:296
+#: src/ui_sensorlist.c:297
 msgid "Sensor"
 msgstr "监视设备"
 
-#: src/ui_sensorlist.c:302
+#: src/ui_sensorlist.c:303
 msgid "Value"
 msgstr "值"
 
-#: src/ui_sensorlist.c:308
+#: src/ui_sensorlist.c:309
 msgid "Min"
 msgstr "最小值"
 
-#: src/ui_sensorlist.c:314
+#: src/ui_sensorlist.c:315
 msgid "Max"
 msgstr "最大值"
 
-#: src/ui_sensorlist.c:321
+#: src/ui_sensorlist.c:322
 msgid "Color"
 msgstr "颜色"
 
