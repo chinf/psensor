@@ -1,13 +1,16 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.64])
+AC_PREREQ([2.69])
 AC_INIT([psensor], [0.8.0.x],[jeanfi@gmail.com],[psensor],[http://wpitchoune.net/psensor])
 
 AM_INIT_AUTOMAKE([-Wall -Werror gnu])
 
 AC_CONFIG_SRCDIR([src/ui.c])
 AC_CONFIG_HEADERS([config.h])
+
+# m4
+AC_CONFIG_MACRO_DIR([m4])
 
 # Checks for programs.
 AC_PROG_CC
