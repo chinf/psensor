@@ -89,19 +89,20 @@ CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(man1dir)" \
 	"$(DESTDIR)$(schemadir)"
 PROGRAMS = $(bin_PROGRAMS)
-am__psensor_SOURCES_DIST = cfg.h cfg.c graph.h graph.c main.c ui.h \
-	ui.c ui_appindicator.h ui_color.h ui_color.c ui_graph.h \
-	ui_graph.c ui_pref.h ui_pref.c ui_sensorlist.h ui_sensorlist.c \
-	ui_sensorpref.h ui_sensorpref.c ui_status.h ui_status.c \
-	ui_notify.h ui_notify.c ui_appindicator.c ui_unity.h \
-	ui_unity.c rsensor.h rsensor.c
+am__psensor_SOURCES_DIST = cfg.h cfg.c notify_cmd.c notify_cmd.h \
+	graph.h graph.c main.c ui.h ui.c ui_appindicator.h ui_color.h \
+	ui_color.c ui_graph.h ui_graph.c ui_pref.h ui_pref.c \
+	ui_sensorlist.h ui_sensorlist.c ui_sensorpref.h \
+	ui_sensorpref.c ui_status.h ui_status.c ui_notify.h \
+	ui_notify.c ui_appindicator.c ui_unity.h ui_unity.c rsensor.h \
+	rsensor.c
 @LIBNOTIFY_TRUE@am__objects_1 = ui_notify.$(OBJEXT)
 @APPINDICATOR_TRUE@am__objects_2 = ui_appindicator.$(OBJEXT)
 @UNITY_TRUE@am__objects_3 = ui_unity.$(OBJEXT)
 @CURL_TRUE@@JSON_TRUE@am__objects_4 = rsensor.$(OBJEXT)
-am_psensor_OBJECTS = cfg.$(OBJEXT) graph.$(OBJEXT) main.$(OBJEXT) \
-	ui.$(OBJEXT) ui_color.$(OBJEXT) ui_graph.$(OBJEXT) \
-	ui_pref.$(OBJEXT) ui_sensorlist.$(OBJEXT) \
+am_psensor_OBJECTS = cfg.$(OBJEXT) notify_cmd.$(OBJEXT) \
+	graph.$(OBJEXT) main.$(OBJEXT) ui.$(OBJEXT) ui_color.$(OBJEXT) \
+	ui_graph.$(OBJEXT) ui_pref.$(OBJEXT) ui_sensorlist.$(OBJEXT) \
 	ui_sensorpref.$(OBJEXT) ui_status.$(OBJEXT) $(am__objects_1) \
 	$(am__objects_2) $(am__objects_3) $(am__objects_4)
 psensor_OBJECTS = $(am_psensor_OBJECTS)
@@ -361,12 +362,12 @@ AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \
 	$(am__append_10) $(am__append_12) $(am__append_14) \
 	$(am__append_17) $(am__append_21)
 @GCONF_TRUE@@GTK_TRUE@@X11_TRUE@@XEXT_TRUE@dist_man_MANS = psensor.1
-psensor_SOURCES = cfg.h cfg.c graph.h graph.c main.c ui.h ui.c \
-	ui_appindicator.h ui_color.h ui_color.c ui_graph.h ui_graph.c \
-	ui_pref.h ui_pref.c ui_sensorlist.h ui_sensorlist.c \
-	ui_sensorpref.h ui_sensorpref.c ui_status.h ui_status.c \
-	$(am__append_4) $(am__append_7) $(am__append_16) \
-	$(am__append_19)
+psensor_SOURCES = cfg.h cfg.c notify_cmd.c notify_cmd.h graph.h \
+	graph.c main.c ui.h ui.c ui_appindicator.h ui_color.h \
+	ui_color.c ui_graph.h ui_graph.c ui_pref.h ui_pref.c \
+	ui_sensorlist.h ui_sensorlist.c ui_sensorpref.h \
+	ui_sensorpref.c ui_status.h ui_status.c $(am__append_4) \
+	$(am__append_7) $(am__append_16) $(am__append_19)
 EXTRA_DIST = description.txt psensor.schemas
 @GCONF_TRUE@schemadir = $(GCONF_SCHEMA_FILE_DIR)
 @GCONF_TRUE@schema_DATA = psensor.schemas
@@ -457,6 +458,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/cfg.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/graph.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/notify_cmd.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rsensor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ui_appindicator.Po@am__quote@

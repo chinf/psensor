@@ -37,6 +37,7 @@
 #include "ui_sensorlist.h"
 #include "ui_color.h"
 #include "lmsensor.h"
+#include "notify_cmd.h"
 #include "slog.h"
 #include "ui_pref.h"
 #include "ui_graph.h"
@@ -241,6 +242,8 @@ static void cb_alarm_raised(struct psensor *sensor, void *data)
 	if (sensor->alarm_enabled)
 		ui_notify(sensor, (struct ui_psensor *)data);
 #endif
+
+	notify_cmd(sensor);
 }
 
 static void associate_colors(struct psensor **sensors)

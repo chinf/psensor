@@ -116,4 +116,7 @@ int config_get_slog_interval();
 
 int config_get_sensor_position(const char *);
 void config_set_sensor_position(const char *, int);
+
+char *config_get_notif_script();
+void config_set_notif_script(const char *);
 #endif

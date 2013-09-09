@@ -53,6 +53,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
 		*w_win_restore, *w_slog_enabled;
 	GtkComboBoxText *w_temp_unit;
+	GtkEntry *w_notif_script;
+	char *notif_script;
 
 	cfg = ui->config;
 
@@ -70,6 +72,14 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	}
 
 	diag = GTK_DIALOG(gtk_builder_get_object(builder, "dialog1"));
+
+	w_notif_script = GTK_ENTRY(gtk_builder_get_object(builder,
+							  "notif_script"));
+	notif_script = config_get_notif_script();
+	if (notif_script) {
+		gtk_entry_set_text(GTK_ENTRY(w_notif_script), notif_script);
+		free(notif_script);
+	}
 
 	color_fg = color_to_gdkcolor(cfg->graph_fgcolor);
 	w_color_fg = GTK_COLOR_BUTTON(gtk_builder_get_object(builder,
@@ -157,6 +167,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		GdkColor color;
 
 		pthread_mutex_lock(&ui->sensors_mutex);
+
+		config_set_notif_script
+			(gtk_entry_get_text(GTK_ENTRY(w_notif_script)));
 
 		gtk_color_button_get_color(w_color_fg, &color);
 		color_set(cfg->graph_fgcolor,

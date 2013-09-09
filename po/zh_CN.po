@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-30 09:07+0200\n"
+"POT-Creation-Date: 2013-09-09 13:55+0200\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -151,7 +151,11 @@ msgstr "监测器记录间隔"
 msgid "seconds(s)"
 msgstr "秒"
 
-#: src/glade/psensor-pref.glade:720
+#: src/glade/psensor-pref.glade:718
+msgid "Script executed when an alarm is raised"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:751
 msgid "Sensors"
 msgstr "传感器"
 
@@ -334,7 +338,7 @@ msgstr "监测器日志文件未打开。"
 msgid "Sensor log not open, cannot close."
 msgstr "监测器日志未打开，故无法关闭。"
 
-#: src/main.c:76
+#: src/main.c:77
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -349,22 +353,22 @@ msgstr ""
 "该软件为自由软件：您可以自由修改并分发。\n"
 "There is NO WARRANTY, to the extent permitted by law。\n"
 
-#: src/main.c:87 src/server/server.c:93
+#: src/main.c:88 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "用法：%s [选项]...\n"
 
-#: src/main.c:89
+#: src/main.c:90
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr "Psensor 是一款 GTK+ 应用程序，可监测硬件传感器，包括温度与风扇转速。"
 
-#: src/main.c:93
+#: src/main.c:94
 msgid "Options:"
 msgstr "选项："
 
-#: src/main.c:94
+#: src/main.c:95
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -372,7 +376,7 @@ msgstr ""
 "  -h, --help 显示这个帮助并退出\n"
 "  -v, --version 显示版本信息并退出"
 
-#: src/main.c:100
+#: src/main.c:101
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -380,7 +384,7 @@ msgstr ""
 "  -u, --url=URL       psensor 服务器 URL\n"
 "                      例如：http://hostname:3131"
 
-#: src/main.c:103
+#: src/main.c:104
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
@@ -388,38 +392,38 @@ msgstr ""
 "  --use-libatasmart   使用 atasmart 库来监测硬盘，而不是\n"
 "                      hddtemp 进程"
 
-#: src/main.c:106
+#: src/main.c:107
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  强制创建一个新的 Psensor 例程"
 
-#: src/main.c:109
+#: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr "  -d，--debug=LEVEL 设置调试等级，等级为 0 到 3 之间的整数"
 
-#: src/main.c:114 src/server/server.c:116
+#: src/main.c:115 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "报告问题至：%s\n"
 
-#: src/main.c:116 src/server/server.c:118
+#: src/main.c:117 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
 
-#: src/main.c:451
+#: src/main.c:454
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor 不支持远程传感器。"
 
-#: src/main.c:514
+#: src/main.c:517
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:526 src/server/server.c:379
+#: src/main.c:529 src/server/server.c:379
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
 
-#: src/main.c:539
+#: src/main.c:542
 msgid "A Psensor instance already exists."
 msgstr "已存在一个 Psensor 例程。"
 

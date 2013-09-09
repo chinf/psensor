@@ -94,6 +94,8 @@ static const char *KEY_INTERFACE_TEMPERATURE_UNIT
 static const char *KEY_SLOG_ENABLED = "/apps/psensor/slog/enabled";
 static const char *KEY_SLOG_INTERVAL = "/apps/psensor/slog/interval";
 
+static const char *KEY_NOTIFICATION_SCRIPT = "/apps/psensor/notif_script";
+
 static GConfClient *client;
 
 static char *get_string(const char *key, const char *default_value)
@@ -108,6 +110,29 @@ static char *get_string(const char *key, const char *default_value)
 	}
 
 	return value;
+}
+
+char *config_get_notif_script()
+{
+	char *str;
+
+	str =  gconf_client_get_string(client, KEY_NOTIFICATION_SCRIPT, NULL);
+	if (str && !strlen(str)) {
+		free(str);
+		str = NULL;
+	}
+
+	return str;
+}
+
+void config_set_notif_script(const char *str)
+{
+	if (str && strlen(str) > 0)
+		gconf_client_set_string(client,
+					KEY_NOTIFICATION_SCRIPT, str, NULL);
+	else
+		gconf_client_set_string(client,
+					KEY_NOTIFICATION_SCRIPT, "", NULL);
 }
 
 static struct color *get_background_color()

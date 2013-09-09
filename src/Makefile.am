@@ -39,6 +39,7 @@ endif
 
 psensor_SOURCES = \
 	cfg.h cfg.c \
+	notify_cmd.c notify_cmd.h \
 	graph.h graph.c \
 	main.c \
 	ui.h ui.c \

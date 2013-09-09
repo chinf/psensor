@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-05-30 09:07+0200\n"
+"POT-Creation-Date: 2013-09-09 13:55+0200\n"
 "PO-Revision-Date: 2012-04-14 21:02+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -151,7 +151,11 @@ msgstr ""
 msgid "seconds(s)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:720
+#: src/glade/psensor-pref.glade:718
+msgid "Script executed when an alarm is raised"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:751
 msgid "Sensors"
 msgstr ""
 
@@ -334,7 +338,7 @@ msgstr ""
 msgid "Sensor log not open, cannot close."
 msgstr ""
 
-#: src/main.c:76
+#: src/main.c:77
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -344,71 +348,71 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:87 src/server/server.c:93
+#: src/main.c:88 src/server/server.c:93
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr ""
 
-#: src/main.c:89
+#: src/main.c:90
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
 
-#: src/main.c:93
+#: src/main.c:94
 msgid "Options:"
 msgstr ""
 
-#: src/main.c:94
+#: src/main.c:95
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
 
-#: src/main.c:100
+#: src/main.c:101
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
 msgstr ""
 
-#: src/main.c:103
+#: src/main.c:104
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
 msgstr ""
 
-#: src/main.c:106
+#: src/main.c:107
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 
-#: src/main.c:109
+#: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:114 src/server/server.c:116
+#: src/main.c:115 src/server/server.c:116
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr ""
 
-#: src/main.c:116 src/server/server.c:118
+#: src/main.c:117 src/server/server.c:118
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:451
+#: src/main.c:454
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:514
+#: src/main.c:517
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:526 src/server/server.c:379
+#: src/main.c:529 src/server/server.c:379
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:539
+#: src/main.c:542
 msgid "A Psensor instance already exists."
 msgstr ""
 
