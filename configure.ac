@@ -18,6 +18,7 @@ AM_PROG_CC_C_O
 
 # Checks lib build
 AC_PROG_RANLIB
+AM_PROG_AR
 
 # Checks for header files.
 AC_PATH_X
