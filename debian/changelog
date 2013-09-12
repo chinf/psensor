@@ -1,9 +1,9 @@
-psensor (0.8.0.x-0ubuntu1) unstable; urgency=low
+psensor (0.8.0.3-2) unstable; urgency=low
 
-  * New upstream release
-  * debian/changelog: fixed tab/whitespaces raising lintian warning.
+  * debian/control
+      + exclude build dep to atasmart lib for hurd and kfreebsd
 
- -- Jean-Philippe Orsini <jeanfi@gmail.com>  Mon, 27 May 2013 11:04:33 +0200
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sun, 08 Sep 2013 06:36:33 -0400
 
 psensor (0.8.0.3-1) unstable; urgency=low
 
@@ -12,7 +12,7 @@ psensor (0.8.0.3-1) unstable; urgency=low
       + fixed url var in main function not freed.
       + added message when no sensor graphs are enabled. (Closes: #689355)
       + replaced deprecated GtkColorSelectionDialog by GtkColorChooserDialog
-	to avoid build failure with recent GTK releases. (LP: #1184442)
+        to avoid build failure with recent GTK releases. (LP: #1184442)
   * debian/control
       + added builddep to cppcheck.
       + added builddep to asciidoc.
