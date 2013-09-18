@@ -1,7 +1,20 @@
+psensor (0.8.0.3-3) unstable; urgency=low
+
+  * debian/changelog
+      + added dot at the end of sentence.
+  * debian/compat
+      + removed useless empty lines.
+  * debian/control
+      + fixed ordering of build-deps.
+  * debian/copyright
+      + copyright end date set to 2013.
+
+ -- Jean-Philippe Orsini <jeanfi@gmail.com>  Wed, 18 Sep 2013 20:02:20 +0200
+
 psensor (0.8.0.3-2) unstable; urgency=low
 
   * debian/control
-      + exclude build dep to atasmart lib for hurd and kfreebsd
+      + exclude build dep to atasmart lib for hurd and kfreebsd.
 
  -- Jean-Philippe Orsini <jeanfi@gmail.com>  Sun, 08 Sep 2013 06:36:33 -0400
 
