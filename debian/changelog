@@ -6,6 +6,7 @@ psensor (0.8.0.3-3) unstable; urgency=low
       + removed useless empty lines.
   * debian/control
       + fixed ordering of build-deps.
+      + added Vcs fields.
   * debian/copyright
       + copyright end date set to 2013.
 

@@ -21,6 +21,8 @@ Build-Depends: asciidoc,
                libsensors4-dev,
                perl
 Standards-Version: 3.9.4
+Vcs-Browser: http://wpitchoune.net/svnpub/psensor/trunk/debian
+Vcs-Svn: http://wpitchoune.net/svnpub/psensor/trunk/debian
 Homepage: http://wpitchoune.net/psensor
 
 Package: psensor
