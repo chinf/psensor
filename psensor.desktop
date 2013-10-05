@@ -4,6 +4,7 @@ Version=1.0
 Name=Psensor
 GenericName=Psensor
 Comment=Psensor is a graphical temperature monitor for Linux
+Keywords=temperature;fan;monitoring;indicator
 Icon=psensor
 TryExec=psensor
 Exec=psensor
