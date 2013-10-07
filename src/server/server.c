@@ -16,11 +16,12 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301 USA
  */
+#define _LARGEFILE_SOURCE 1
+#include "config.h"
+
 #include <locale.h>
 #include <libintl.h>
 #define _(str) gettext(str)
-
-#include "config.h"
 
 #include <stdarg.h>
 #include <stdio.h>
