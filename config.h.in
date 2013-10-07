@@ -31,6 +31,9 @@
    */
 #undef HAVE_DCGETTEXT
 
+/* Define to 1 if fseeko (and presumably ftello) exists and is declared. */
+#undef HAVE_FSEEKO
+
 /* Use gconf2 */
 #undef HAVE_GCONF2
 
@@ -168,8 +171,25 @@
 /* Version number of package */
 #undef VERSION
 
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
+#endif
+
+/* Number of bits in a file offset, on hosts where this is settable. */
+#undef _FILE_OFFSET_BITS
+
+/* Define to 1 to make fseeko visible on some hosts (e.g. glibc 2.2). */
+#undef _LARGEFILE_SOURCE
+
+/* Define for large files, on AIX-style hosts. */
+#undef _LARGE_FILES
+
 /* Define to rpl_malloc if the replacement function should be used. */
 #undef malloc
+
+/* Define to `long int' if <sys/types.h> does not define. */
+#undef off_t
 
 /* Define to rpl_realloc if the replacement function should be used. */
 #undef realloc

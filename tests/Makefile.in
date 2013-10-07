@@ -119,6 +119,7 @@ ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
 APPINDICATOR_CFLAGS = @APPINDICATOR_CFLAGS@
 APPINDICATOR_LIBS = @APPINDICATOR_LIBS@
+AR = @AR@
 ATASMART_CFLAGS = @ATASMART_CFLAGS@
 ATASMART_LIBS = @ATASMART_LIBS@
 AUTOCONF = @AUTOCONF@
@@ -221,6 +222,7 @@ abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
+ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -268,7 +270,6 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 EXTRA_DIST = checkpatch.pl \
-	data \
 	test-cppcheck.sh \
 	test-io-dir-list.sh
 

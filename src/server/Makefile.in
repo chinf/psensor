@@ -128,6 +128,7 @@ ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
 APPINDICATOR_CFLAGS = @APPINDICATOR_CFLAGS@
 APPINDICATOR_LIBS = @APPINDICATOR_LIBS@
+AR = @AR@
 ATASMART_CFLAGS = @ATASMART_CFLAGS@
 ATASMART_LIBS = @ATASMART_LIBS@
 AUTOCONF = @AUTOCONF@
@@ -231,6 +232,7 @@ abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
+ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
@@ -280,8 +282,8 @@ top_srcdir = @top_srcdir@
 psensor_server_SOURCES = server.c server.h $(am__append_3)
 AM_CPPFLAGS = -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
 	-I$(top_srcdir)/src -I$(top_srcdir)/src/lib $(SENSORS_CFLAGS) \
-	$(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) $(am__append_1) \
-	$(am__append_4)
+	$(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) $(LFS_CFLAGS) \
+	$(am__append_1) $(am__append_4)
 @GTOP_TRUE@AM_LDFLAGS = -Wl,--as-needed
 dist_man_MANS = psensor-server.1
 EXTRA_DIST = description.txt

@@ -55,8 +55,9 @@ subdir = .
 DIST_COMMON = README $(am__configure_deps) $(dist_doc_DATA) \
 	$(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/config.h.in $(top_srcdir)/configure ABOUT-NLS \
-	AUTHORS COPYING ChangeLog INSTALL NEWS compile config.guess \
-	config.rpath config.sub depcomp install-sh missing
+	AUTHORS COPYING ChangeLog INSTALL NEWS ar-lib compile \
+	config.guess config.rpath config.sub depcomp install-sh \
+	missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
@@ -163,6 +164,7 @@ ACLOCAL = @ACLOCAL@
 AMTAR = @AMTAR@
 APPINDICATOR_CFLAGS = @APPINDICATOR_CFLAGS@
 APPINDICATOR_LIBS = @APPINDICATOR_LIBS@
+AR = @AR@
 ATASMART_CFLAGS = @ATASMART_CFLAGS@
 ATASMART_LIBS = @ATASMART_LIBS@
 AUTOCONF = @AUTOCONF@
@@ -264,6 +266,7 @@ abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
 abs_top_srcdir = @abs_top_srcdir@
+ac_ct_AR = @ac_ct_AR@
 ac_ct_CC = @ac_ct_CC@
 am__include = @am__include@
 am__leading_dot = @am__leading_dot@
