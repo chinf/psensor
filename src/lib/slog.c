@@ -34,15 +34,16 @@
 #include "bool.h"
 #include "config.h"
 #include "log.h"
+#include "ptime.h"
 #include "slog.h"
 
 static FILE *file;
-static struct timeval stv;
 static double *last_values;
 static int period;
 static struct psensor **sensors;
 static pthread_mutex_t *sensors_mutex;
 static pthread_t thread;
+static time_t st;
 
 static const char *DEFAULT_FILENAME = "sensors.log";
 
@@ -71,7 +72,7 @@ static char *get_default_path()
 
 static bool slog_open(const char *path, struct psensor **sensors)
 {
-	char *lpath;
+	char *lpath, *t;
 
 	if (file) {
 		log_err(_("Sensor log file already open."));
@@ -91,12 +92,10 @@ static bool slog_open(const char *path, struct psensor **sensors)
 	if (!file)
 		return 0;
 
-	if (gettimeofday(&stv, NULL)) {
-		log_err(_("gettimeofday failed."));
-		return 0;
-	}
+	st = time(NULL);
+	t = time_to_str(&st);
 
-	fprintf(file, "I,%ld,%s\n", stv.tv_sec, VERSION);
+	fprintf(file, "I,%s,%s\n", t, VERSION);
 
 	while (*sensors) {
 		fprintf(file, "S,%s,%x\n", (*sensors)->id,  (*sensors)->type);
@@ -131,7 +130,7 @@ static void slog_write_sensors(struct psensor **sensors)
 		last_values = malloc(count * sizeof(double));
 	}
 
-	fprintf(file, "%ld", tv.tv_sec - stv.tv_sec);
+	fprintf(file, "%ld", (long int)(tv.tv_sec - st));
 	for (i = 0; i < count; i++) {
 		v = psensor_get_current_value(sensors[i]);
 

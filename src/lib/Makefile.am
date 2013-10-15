@@ -9,6 +9,7 @@ libpsensor_a_SOURCES = \
 	lmsensor.h lmsensor.c \
 	log.h log.c \
 	measure.h measure.c \
+	ptime.h ptime.c \
 	nvidia.h \
 	psensor.h psensor.c\
 	pio.h pio.c \

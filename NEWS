@@ -4,6 +4,7 @@
 ** Reordering of the list of sensors.
 ** Added keywords in .desktop file.
 ** Added LFS support.
+** Fixed compilation issue for x32 architecture on 64bits systems.
 
 * v0.8.0.3
 

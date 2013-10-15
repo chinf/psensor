@@ -282,8 +282,8 @@ top_srcdir = @top_srcdir@
 psensor_server_SOURCES = server.c server.h $(am__append_3)
 AM_CPPFLAGS = -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
 	-I$(top_srcdir)/src -I$(top_srcdir)/src/lib $(SENSORS_CFLAGS) \
-	$(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) $(LFS_CFLAGS) \
-	$(am__append_1) $(am__append_4)
+	$(JSON_CFLAGS) $(LIBMICROHTTPD_CFLAGS) $(am__append_1) \
+	$(am__append_4)
 @GTOP_TRUE@AM_LDFLAGS = -Wl,--as-needed
 dist_man_MANS = psensor-server.1
 EXTRA_DIST = description.txt

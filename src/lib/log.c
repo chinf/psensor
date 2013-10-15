@@ -25,9 +25,12 @@
 
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/time.h>
+#include <time.h>
 
 #include "log.h"
+#include "ptime.h"
 
 static FILE *file;
 int log_level =  LOG_WARN;
@@ -54,9 +57,8 @@ void log_close()
 #define LOG_BUFFER 4096
 static void vlogf(int lvl, const char *fmt, va_list ap)
 {
-	struct timeval tv;
 	char buffer[1 + LOG_BUFFER];
-	char *lvl_str;
+	char *lvl_str, *t;
 	FILE *stdf;
 
 	if (lvl > LOG_INFO && (!file || lvl > log_level))
@@ -64,9 +66,6 @@ static void vlogf(int lvl, const char *fmt, va_list ap)
 
 	vsnprintf(buffer, LOG_BUFFER, fmt, ap);
 	buffer[LOG_BUFFER] = '\0';
-
-	if (gettimeofday(&tv, NULL) != 0)
-		timerclear(&tv);
 
 	switch (lvl) {
 	case LOG_WARN:
@@ -85,9 +84,15 @@ static void vlogf(int lvl, const char *fmt, va_list ap)
 		lvl_str = "[??]";
 	}
 
+	t = get_time_str();
+	if (!t)
+		return ;
+
 	if (file && lvl <= log_level) {
-		fprintf(file, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
+		fprintf(file, "[%s] %s %s\n", t, lvl_str, buffer);
 		fflush(file);
+	} else {
+		t = NULL;
 	}
 
 	if (lvl <= LOG_INFO) {
@@ -96,8 +101,11 @@ static void vlogf(int lvl, const char *fmt, va_list ap)
 		else
 			stdf = stdout;
 
-		fprintf(stdf, "[%ld] %s %s\n", tv.tv_sec, lvl_str, buffer);
+
+		fprintf(stdf, "[%s] %s %s\n", t, lvl_str, buffer);
 	}
+
+	free(t);
 }
 
 void log_printf(int lvl, const char *fmt, ...)
