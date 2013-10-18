@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-09-09 13:55+0200\n"
+"POT-Creation-Date: 2013-10-16 09:19+0200\n"
 "PO-Revision-Date: 2012-12-25 06:05+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Russian\n"
@@ -255,7 +255,7 @@ msgstr ""
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr ""
 
-#: src/lib/hdd_atasmart.c:149
+#: src/lib/hdd_atasmart.c:152
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
 msgstr "atasmart: ошибка sk_disk_open(): %s."
@@ -287,7 +287,7 @@ msgstr ""
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: ошибка инициализации: %s."
 
-#: src/lib/log.c:37
+#: src/lib/log.c:43
 #, c-format
 msgid "Cannot open log file: %s"
 msgstr "Ошибка открытия файла журнала: %s"
@@ -313,28 +313,24 @@ msgstr "об/мин"
 msgid "%"
 msgstr "%"
 
-#: src/lib/slog.c:64
+#: src/lib/slog.c:68
 msgid "HOME variable not set."
 msgstr "Переменная HOME не установлена."
 
-#: src/lib/slog.c:74
+#: src/lib/slog.c:78
 msgid "Sensor log file already open."
 msgstr "Файл журнала датчика уже открыт."
 
-#: src/lib/slog.c:83
+#: src/lib/slog.c:87
 #, fuzzy, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "Не удалось открыть файл журнала датчика: %s."
 
-#: src/lib/slog.c:92 src/ui_notify.c:48
-msgid "gettimeofday failed."
-msgstr "ошибка gettimeofday."
-
-#: src/lib/slog.c:116
+#: src/lib/slog.c:118
 msgid "Sensor log file not open."
 msgstr "Файл журнала датчика не открыт."
 
-#: src/lib/slog.c:172
+#: src/lib/slog.c:174
 msgid "Sensor log not open, cannot close."
 msgstr "Файл журнала датчика не открыт, не удалось закрыть."
 
@@ -348,7 +344,7 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:88 src/server/server.c:93
+#: src/main.c:88 src/server/server.c:94
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Использование: %s [КЛЮЧ]...\n"
@@ -397,12 +393,12 @@ msgstr ""
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr "  -d, --debug=УРОВЕНЬ   установить уровень отладки, целое между 0 и 3"
 
-#: src/main.c:115 src/server/server.c:116
+#: src/main.c:115 src/server/server.c:117
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Сообщайте об ошибках на: %s\n"
 
-#: src/main.c:117 src/server/server.c:118
+#: src/main.c:117 src/server/server.c:119
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s домашняя страница: <%s>\n"
@@ -415,7 +411,7 @@ msgstr "Psensor не был собран с поддержкой удалённ�
 msgid "Enables debug mode."
 msgstr "Включает режим отладки."
 
-#: src/main.c:529 src/server/server.c:379
+#: src/main.c:529 src/server/server.c:380
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Попробуйте `%s --help' для дополнительной информации.↵\n"
@@ -439,18 +435,18 @@ msgstr "Неправильное содержимое: %s"
 msgid "Invalid JSON: %s"
 msgstr "Неправильный JSON: %s"
 
-#: src/server/server.c:53
+#: src/server/server.c:54
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr "<html><body><p>Запрошена остановка сервера</p></body></html>"
 
-#: src/server/server.c:59
+#: src/server/server.c:60
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 "<html><body><p>Страница не найдена - Перейти к <a href='/'>Главной странице</"
 "a></p></body>"
 
-#: src/server/server.c:83
+#: src/server/server.c:84
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -460,14 +456,14 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/server/server.c:95
+#: src/server/server.c:96
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 "psensor-server ‌— это HTTP-сервер для удалённого мониторинга аппаратных "
 "датчиков."
 
-#: src/server/server.c:100
+#: src/server/server.c:101
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -475,7 +471,7 @@ msgstr ""
 "  -h, --help\t\tпоказать эту справку и выйти\n"
 "  -v, --version\t\tпоказать версию и выйти"
 
-#: src/server/server.c:104
+#: src/server/server.c:105
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -483,58 +479,58 @@ msgstr ""
 "  -p,--port=PORT\tпорт веб-сервера\n"
 "  -w,--wdir=DIR\t\tдиректория для страниц веб-сервера"
 
-#: src/server/server.c:108
+#: src/server/server.c:109
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr "  -d, --debug=LEVEL   установить уровень отладки, целое между 0 и 3"
 
-#: src/server/server.c:110
+#: src/server/server.c:111
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=ПУТЬ   установить ПУТЬ к файлу журнала"
 
-#: src/server/server.c:111
+#: src/server/server.c:112
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  --sensor-log-file=ПУТЬ установить ПУТЬ к файлу журнала датчика"
 
-#: src/server/server.c:112
+#: src/server/server.c:113
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
 "  --sensor-log-interval=ПЕРИОД установить ПЕРИОД журналирования датчиков (в "
 "секундах)"
 
-#: src/server/server.c:296
+#: src/server/server.c:297
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP запрос: %s"
 
-#: src/server/server.c:359
+#: src/server/server.c:360
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Включает режим отладки: %d"
 
-#: src/server/server.c:401
+#: src/server/server.c:402
 msgid "No sensors detected."
 msgstr "Датчики не обнаружены."
 
-#: src/server/server.c:408
+#: src/server/server.c:409
 msgid "Failed to create Web server."
 msgstr "Не удалось создать веб-сервер."
 
-#: src/server/server.c:412
+#: src/server/server.c:413
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Веб-сервер запущен на порту: %d"
 
-#: src/server/server.c:413
+#: src/server/server.c:414
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW-каталог: %s"
 
-#: src/server/server.c:414
+#: src/server/server.c:415
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:424
+#: src/server/server.c:425
 msgid "Failed to activate logging of sensors."
 msgstr "Не удалось включить журналирование датчиков."
 
@@ -616,6 +612,10 @@ msgstr "_Выход"
 #, c-format
 msgid "building menus failed: %s"
 msgstr "не удалось создать меню: %s"
+
+#: src/ui_notify.c:48
+msgid "gettimeofday failed."
+msgstr "ошибка gettimeofday."
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
