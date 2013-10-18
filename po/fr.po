@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-10-16 09:19+0200\n"
-"PO-Revision-Date: 2013-04-20 19:57+0000\n"
-"Last-Translator: Jean-Philippe Orsini <Unknown>\n"
+"PO-Revision-Date: 2013-06-29 15:14+0000\n"
+"Last-Translator: londumas <helion331990@gmail.com>\n"
 "Language-Team: French <>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-20 08:44+0000\n"
-"X-Generator: Launchpad (build 16626)\n"
+"X-Launchpad-Export-Date: 2013-10-18 06:32+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -48,7 +48,7 @@ msgstr "_Aide"
 
 #: src/glade/psensor-pref.glade:7
 msgid "Edit Preferences"
-msgstr "Préférences"
+msgstr "Modifier les préférences"
 
 #: src/glade/psensor-pref.glade:72
 msgid "Position of sensors table:"
@@ -165,11 +165,11 @@ msgstr "Préférences des capteurs"
 
 #: src/glade/sensor-edit.glade:87
 msgid "Name"
-msgstr "Nom:"
+msgstr "Nom :"
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
-msgstr "Type:"
+msgstr "Type :"
 
 #: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
 #: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
@@ -325,7 +325,7 @@ msgstr "Le journal des capteurs est déjà ouvert."
 #: src/lib/slog.c:87
 #, fuzzy, c-format
 msgid "Cannot open sensor log file: %s."
-msgstr "Ne peut ouvrir le journal: %s."
+msgstr "Ne peut ouvrir le journal : %s."
 
 #: src/lib/slog.c:118
 msgid "Sensor log file not open."

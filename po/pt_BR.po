@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-10-16 09:19+0200\n"
-"PO-Revision-Date: 2013-03-12 16:07+0000\n"
-"Last-Translator: MestreLion <launchpad@rodrigosilva.com>\n"
+"PO-Revision-Date: 2013-09-01 18:54+0000\n"
+"Last-Translator: Celio Alves <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-20 08:36+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-10-18 06:32+0000\n"
+"X-Generator: Launchpad (build 16799)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -40,7 +40,7 @@ msgstr "Psensor - Monitor de temperatura"
 
 #: src/glade/psensor.glade:111
 msgid "_Psensor"
-msgstr ""
+msgstr "_Psensor"
 
 #: src/glade/psensor.glade:158
 msgid "_Help"
@@ -165,7 +165,7 @@ msgstr "Editar preferências do sensor"
 
 #: src/glade/sensor-edit.glade:87
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -248,12 +248,12 @@ msgstr "AMD: não foi possível obter número de adaptadores."
 #: src/lib/amd.c:252
 #, c-format
 msgid "Number of AMD/ATI adapters: %d"
-msgstr ""
+msgstr "Número de adaptadores AMD/ATI: %d"
 
 #: src/lib/amd.c:253
 #, c-format
 msgid "Number of active AMD/ATI adapters: %d"
-msgstr ""
+msgstr "Número de adaptadores AMD/ATI ativos: %d"
 
 #: src/lib/hdd_atasmart.c:152
 #, c-format
@@ -597,7 +597,7 @@ msgstr ""
 
 #: src/ui_appindicator.c:118
 msgid "SensorPreferences"
-msgstr ""
+msgstr "Preferências do Sensor"
 
 #: src/ui_appindicator.c:122
 msgid "_About"

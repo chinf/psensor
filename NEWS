@@ -5,6 +5,10 @@
 ** Added keywords in .desktop file.
 ** Added LFS support.
 ** Fixed compilation issue for x32 architecture on 64bits systems.
+** Merged German translation from LP (Dennis Baudys).
+** Merged Spanish translation from LP (Javier).
+** Merged French translation from LP (londumas).
+** Merged Brazilian translation from LP (Celio Alves).
 
 * v0.8.0.3
 
