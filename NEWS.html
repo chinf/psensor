@@ -1,0 +1,2439 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.7" />
+<title>Psensor NEWS</title>
+<style type="text/css">
+
+body {
+    background: #e2e2e2;
+    color: #333333;
+    font-family: Ubuntu,Arial,sans-serif;
+    line-height: 1.6;
+    font-weight: lighter;
+    margin: 1em 2em 2em 2em;
+    padding: 0 0 0 0;
+}
+
+h1 {
+    font-size: 2.813em;
+    margin: 0 0 0.267em 0;
+    padding: 0 0 0 0;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 0 0 0.375em;
+    padding: 0 0 0 0;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 1.438em;
+    margin: 0 0 0.522em;
+    padding: 0 0 0 0;
+    font-weight: normal;
+}
+
+h4 {
+    font-size: 1.219em;
+    margin: 0 0 0.615em;
+    padding: 0 0 0 0;
+    font-weight: normal;
+}
+
+h5 {
+    font-size: 1em;
+    margin: 0 0 0.75em;
+    padding: 0 0 0 0;
+    font-weight: bold;
+}
+
+h6 {
+    font-weight: normal;
+    font-size: 0.813em;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.923em;
+    text-transform: uppercase;
+    padding: 0 0 0 0;
+}
+
+li {
+    margin: 0 0 0 1em;
+    line-height: 1.6;
+}
+
+li p {
+    margin: 0 0 0 0;
+}
+
+ul {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+a:link, a:visited {
+    color: #19B6EE;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+code, pre, tt {
+    font-family: "Ubuntu Mono","Courier New",Courier,monospace;
+    font-weight: normal;
+    color: #333333;
+}
+
+pre {
+    background: none repeat scroll 0 0 #e0e0e0;
+    border-radius: 4px;
+    padding: 0.5em 0.5em;
+    margin: 0 0 0 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+}
+
+#footer {
+    margin: 0 0 0 0;
+    font-size: 0.8em;
+    font-weight: lighter;
+    clear: both;
+    text-align: right;
+}
+
+#page {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+#main {
+    background: #ffffff;
+
+   -moz-box-sizing: border-box;
+
+    padding: 2em 2em 2em 2em;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-box-shadow: 0 2px 2px 0 #C2C2C2;
+    box-shadow: 0 2px 2px 0 #C2C2C2;
+}
+
+#menu {
+    background: #ffffff;
+   -moz-box-sizing: border-box;
+    padding: 2em 2em 2em 2em;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-box-shadow: 0 2px 2px 0 #C2C2C2;
+    box-shadow: 0 2px 2px 0 #C2C2C2;
+}
+
+#menu-list, #menu-list > li > ul  {
+    list-style-type: none;
+}
+
+/* menu on left col, content on right col */
+
+#menu {
+    float: left;
+    width: 18%;
+}
+
+#main {
+    float: right;
+    width: 80%;
+}
+
+/* asciidoc */
+
+#toc, #content {
+    margin: 0em 0em 2em 0em;
+
+    background: #ffffff;
+   -moz-box-sizing: border-box;
+    padding: 2em 2em 2em 2em;
+
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+
+    -webkit-box-shadow: 0 2px 2px 0 #C2C2C2;
+    box-shadow: 0 2px 2px 0 #C2C2C2;
+}
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>Psensor NEWS</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_v0_8_0_5">v0.8.0.5</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Added NEWS.html.
+</p>
+</li>
+<li>
+<p>
+Converted NEWS file to asciidoc.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+removed web fonts causing lintian warnings.
+</p>
+</li>
+<li>
+<p>
+redesigned web pages.
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_8_0_4">v0.8.0.4</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Added calling script when an alarm is raised.
+</p>
+</li>
+<li>
+<p>
+Reordering of the list of sensors.
+</p>
+</li>
+<li>
+<p>
+Added keywords in .desktop file.
+</p>
+</li>
+<li>
+<p>
+Added LFS support.
+</p>
+</li>
+<li>
+<p>
+Fixed compilation issue for x32 architecture on 64bits systems.
+</p>
+</li>
+<li>
+<p>
+Merged German translation from LP (Dennis Baudys).
+</p>
+</li>
+<li>
+<p>
+Merged Spanish translation from LP (Javier).
+</p>
+</li>
+<li>
+<p>
+Merged French translation from LP (londumas).
+</p>
+</li>
+<li>
+<p>
+Merged Brazilian translation from LP (Celio Alves).
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_8_0_3">v0.8.0.3</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Switched to GtkColorChooserDialog instead of the
+   deprecated widget GtkColorSelectionDialog. (LP: #1184442)
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: fixed compilation without gtop2 lib.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_8_0_2">v0.8.0.2</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+GConf2/GTK/XEXT/X11 lib optional to allow psensor-server
+   compilation without them.
+</p>
+</li>
+<li>
+<p>
+Added support of libjson-c.
+</p>
+</li>
+<li>
+<p>
+merged German translation from LP (Dennis Baudys).
+</p>
+</li>
+<li>
+<p>
+merged Latvian translation from LP (tuxmaniack).
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_8_0_1">v0.8.0.1</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+added AMD GPU usage sensor (Contribution from MestreLion).
+</p>
+</li>
+<li>
+<p>
+added support of sensors log interval.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: protocole changes, API version incremented.
+</p>
+</li>
+<li>
+<p>
+fixed cpu load when fahrenheit is enabled.
+</p>
+</li>
+<li>
+<p>
+list of sensors can be reordered using the sensor preferences
+   dialog.
+</p>
+</li>
+<li>
+<p>
+merged Spanish translation from LP (Javier) and Tomeu R. .
+</p>
+</li>
+<li>
+<p>
+merged French translation from LP (Hélion du Mas des Bourboux).
+</p>
+</li>
+<li>
+<p>
+merged Italian translation from LP (Diego Pierotto).
+</p>
+</li>
+<li>
+<p>
+merged Brazillian Portugues translation from LP (MestreLion).
+</p>
+</li>
+<li>
+<p>
+fixed the quit menu of the application indicator which was
+   not translatable.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v07_0_5">v07.0.5</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+fixed cpu load when fahrenheit is enabled.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_7_0_4">v0.7.0.4</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+added Spanish translation from LP (Javier and Eduardo Alberto
+   Calvo).
+</p>
+</li>
+<li>
+<p>
+merged German translation from LP (Dennis Baudys).
+</p>
+</li>
+<li>
+<p>
+merged French translation from LP (Alain-OIivier Breysse).
+</p>
+</li>
+<li>
+<p>
+merged Hungarian from translation LP (Bence Lukács).
+</p>
+</li>
+<li>
+<p>
+merged Latvian translation from LP (tuxmaniack).
+</p>
+</li>
+<li>
+<p>
+merged Portuguese translation from LP (Daniel Serafim).
+</p>
+</li>
+<li>
+<p>
+merged Russian translation from LP (Ilya Volchanetskiy).
+</p>
+</li>
+<li>
+<p>
+merged Ukrainian translation from LP (Ilya Volchanetskiy).
+</p>
+</li>
+<li>
+<p>
+merged Chinese translation from LP (Wang Dianjin).
+</p>
+</li>
+<li>
+<p>
+psensor: fixed <em>appindicator enabled</em> option not working correctly
+   for cpu usage. The option was inversed each time it is displayed in
+   the preference dialog.
+</p>
+</li>
+<li>
+<p>
+psensor: added an option to enable logging of sensors
+   ($HOME/.psensor/sensors.log).
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: added sensors logging (--sensor-log-file).
+</p>
+</li>
+<li>
+<p>
+psensor: display the name of chip in sensor preferences.
+</p>
+</li>
+<li>
+<p>
+psensor: moved the sensor id into a expendable frame of the sensor
+   preferences.
+</p>
+</li>
+<li>
+<p>
+test target is now running cppcheck if available.
+</p>
+</li>
+<li>
+<p>
+fixed cppcheck reported errors (realloc and not freed var).
+</p>
+</li>
+<li>
+<p>
+fixed cppcheck (old values not used).
+</p>
+</li>
+<li>
+<p>
+added faq (requires asciidoc to build the html version).
+</p>
+</li>
+<li>
+<p>
+check target is now running cppcheck if installed.
+</p>
+</li>
+<li>
+<p>
+display a message if no graphs are enabled (Closes #689355).
+</p>
+</li>
+<li>
+<p>
+psensor: when <em>hide window on startup</em> is set, it will
+   hide the window only if psensor can register to application
+   indicator or systray. Waiting 30s before trying to do it
+   in order to have better chance that systray is running during
+   session startup.
+</p>
+</li>
+<li>
+<p>
+fixed displaying of the fahrenheit temperature in the main
+   window.
+</p>
+</li>
+<li>
+<p>
+fixed compilation error in amd.c (hdll not used).
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_7_0_3">v0.7.0.3</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: removed gettext_domain in psensor.schemas causing
+   warnings.
+</p>
+</li>
+<li>
+<p>
+merged italian and russian translation from LP.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_7_0_2">v0.7.0.2</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: added latvian translation file.
+</p>
+</li>
+<li>
+<p>
+psensor: added gconf schema. (LP: #1026807)
+</p>
+</li>
+<li>
+<p>
+psensor: hide sensors in the application indicator.
+</p>
+</li>
+<li>
+<p>
+psensor: removed hicolor/48x48/psensor_hot.png. (LP: #1029065)
+</p>
+</li>
+<li>
+<p>
+merge chinese translation from LP.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_7_0_1">v0.7.0.1</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: minimum GTK version is now 3.0, GTK v2.x is no more
+   supported.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed sensor type displayed in sensor preferences
+   dialog. (Closes LP: #968912)
+</p>
+</li>
+<li>
+<p>
+psensor: not calling g_thread_init when compiled with glib &gt;= 2.31.
+</p>
+</li>
+<li>
+<p>
+psensor: added basic instruction in the README for compiling psensor
+            with the ATI/AMD GPU support.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed compilation error on 64bits with ATI/AMD GPU support.
+</p>
+</li>
+<li>
+<p>
+psensor: added capability to use libatasmart for sata disk monitoring.
+</p>
+</li>
+<li>
+<p>
+psensor: added option --use-libatasmart.
+</p>
+</li>
+<li>
+<p>
+changed copyright dates to 2012.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed systray and application indicator visible at the
+   same time. (Closes LP: #971098)
+</p>
+</li>
+<li>
+<p>
+psensor: fixed wrong background color, get the background color of
+   the window and not the canvas widget. (Closes LP: #973122)
+</p>
+</li>
+<li>
+<p>
+psensor: used the foreground color defined by the theme for the
+   font of the graph legend.
+</p>
+</li>
+<li>
+<p>
+psensor: used tab layout for psensor preferences.
+</p>
+</li>
+<li>
+<p>
+psensor: temperature unit choice (celcius/fahrenheit).
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: fixed --wdir option.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: added log level to -d option.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: added --log-file option.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: logged measures when log level is 3.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed many memory leaks in cfg.c (gconf2 keys).
+</p>
+</li>
+<li>
+<p>
+psensor: fixed memory leak (sensor name when specified by the
+   configuration).
+</p>
+</li>
+<li>
+<p>
+psensor: implemented the psensor uniquess, non-primary psensor
+   instances show the window of the primary psensor instance and
+   exits.
+</p>
+</li>
+<li>
+<p>
+many code quality improvements.
+</p>
+</li>
+<li>
+<p>
+psensor: added --new-instance option to allow the creation of
+   multiple instances of Psensor.
+</p>
+</li>
+<li>
+<p>
+psensor: added the degree sign before the temperature symbols
+            (Closes LP: #1021900).
+</p>
+</li>
+<li>
+<p>
+psensor: alarm limit edition using the temperature unit set in the
+   global pref.
+</p>
+</li>
+<li>
+<p>
+psensor: improved notification (added psensor icon and value of the
+   sensor).
+</p>
+</li>
+<li>
+<p>
+full french and hungarian translation.
+</p>
+</li>
+<li>
+<p>
+merged some chinese translation provided by LP.
+</p>
+</li>
+<li>
+<p>
+added translation files for Brazilian Portuguese, and Italian.
+</p>
+</li>
+<li>
+<p>
+partial translations for Russian, Serbian, Ukrainian, Slovenian and
+   German.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed i18n support for the application indicator menu.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed i18n support for the application menu.
+</p>
+</li>
+<li>
+<p>
+psensor: added low thresold support for alerts.
+</p>
+</li>
+<li>
+<p>
+psensor: added fan alert support.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed hide window on startup for gnome-shell (Closes:
+   #676361).
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_19">v0.6.2.19</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: fixed size of the icon hicolor/48x48/psensor_hot.png.
+   (LP: #1029065)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_18">v0.6.2.18</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+added degree sign for celcius (Closes LP: #1021900).
+</p>
+</li>
+<li>
+<p>
+added russian, brazilian, hungarian, serbian, slovenian,
+   italian, ukrainian and german translation files.
+</p>
+</li>
+<li>
+<p>
+merged translations from LP.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed hide window on startup for gnome-shell (Closes:
+   #676361).
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_17">v0.6.2.17</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: fixed sensor type displayed in sensor preferences
+   dialog. (Closes LP: #968912)
+</p>
+</li>
+<li>
+<p>
+psensor: fixed compilation error on 64bits with ATI/AMD GPU support.
+</p>
+</li>
+<li>
+<p>
+psensor: not calling g_thread_init when compiled with glib &gt;= 2.31.
+</p>
+</li>
+<li>
+<p>
+changed copyright dates to 2012.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_16">v0.6.2.16</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: removed -pedantic and ignores deprecation warnings
+   to fix compilation against the glib version of Ubuntu Precise.
+   It fixes Ubuntu bug #905893.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_15">v0.6.2.15</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>psensor-server</tt>: uses glibtop instead of <em>sysinfo</em> which is not
+   available on kfreebsd. It fixes Debian bug #650533.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_14">v0.6.2.14</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: support of gtk&gt;=2.18
+</p>
+</li>
+<li>
+<p>
+psensor: inner space of the graph using the theme background color
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: fixed compilation with microhttpd &gt;=0x90200 and
+   64bits.
+</p>
+</li>
+<li>
+<p>
+added some information in the README (mostly about compilation on
+   CentOS).
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: support of symbolic links to webfiles.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_13">v0.6.2.13</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor can now be compiled and run with gtk3.
+</p>
+</li>
+<li>
+<p>
+psensor: added gtk3 support build detection.
+</p>
+</li>
+<li>
+<p>
+psensor: added libappindicator3-01 (gtk3 compliant version)
+   detection.
+</p>
+</li>
+<li>
+<p>
+psensor: use <em>draw</em> signal instead of <em>expose-event</em> when compiled
+   with gtk3.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed typo in french translation file.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: fixed compilation with microhttpd &gt;= 0.9.2 (version
+   used by Fedora15) which introduced incompatible API changes.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed compilation with libnotify 0.5.2 (submitted by Lubos
+   Stanek).
+</p>
+</li>
+<li>
+<p>
+psensor: added missing CPPFLAGS for Gtop (submitted by Lubos Stanek).
+</p>
+</li>
+<li>
+<p>
+psensor: fixed compilation with AMD/ATI GPU monitoring support
+   (submitted by Lubos Stanek).
+</p>
+</li>
+<li>
+<p>
+psensor: default log level set to LOG_WARN.
+</p>
+</li>
+<li>
+<p>
+few code refactoring and cleanup.
+</p>
+</li>
+<li>
+<p>
+psensor: added support of status tray icon for DE not supporting
+   Ubuntu Application Indicator.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_12">v0.6.2.12</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: added -d option to enable debug log (written to $HOME/.psensor/log).
+</p>
+</li>
+<li>
+<p>
+psensor: log sensor values in debug mode.
+</p>
+</li>
+<li>
+<p>
+psensor: added option to restore window position and size.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_11">v0.6.2.11</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor-server/web interface: use jqplot default css.
+</p>
+</li>
+<li>
+<p>
+psensor-server/web interface: added excanvas for ie &lt; 9 support.
+</p>
+</li>
+<li>
+<p>
+psensor-server/web interface: automatic update of the monitoring page.
+</p>
+</li>
+<li>
+<p>
+psensor-server/web interface: improved styling and navigation.
+</p>
+</li>
+<li>
+<p>
+psensor-server/web interface: added graph for cpu usage.
+</p>
+</li>
+<li>
+<p>
+psensor-server/web interface: fixed IE8 bug (page title change not
+   allowed).
+</p>
+</li>
+<li>
+<p>
+psensor-server/web interface: dynamic refresh of the graph.
+</p>
+</li>
+<li>
+<p>
+psensor: added appindicator monochrome icons from Christoph Buchner
+   (bilderbuchi).
+</p>
+</li>
+<li>
+<p>
+psensor: added log file (~/.psensor/log).
+</p>
+</li>
+<li>
+<p>
+psensor: added X-GNOME-Autostart-Delay in .desktop file to
+   workaround LP: #859724.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_10">v0.6.2.10</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>psensor-server</tt>: added network, cpu load and memory information in
+   JSON web interface.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: added monitor.html and details.html using jquery
+   and retrieving monitoring data from the JSON web interface.
+</p>
+</li>
+<li>
+<p>
+added experimental support for ATI/AMD gpus and fans.
+</p>
+</li>
+<li>
+<p>
+psensor: added support of CPU usage monitoring.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: display graph of sensors (web server).
+</p>
+</li>
+<li>
+<p>
+psensor: bug fixed compilation with -Wall.
+</p>
+</li>
+<li>
+<p>
+psensor: bug fixed unallocated memory read during termination.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed memleak when window not drawable.
+</p>
+</li>
+<li>
+<p>
+psensor: release GConfClient when quitting.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_9">v0.6.2.9</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: fixed UI freeze on Ubuntu Lucid when <em>sensor preferences</em>.
+   is selected with application indicator.
+</p>
+</li>
+<li>
+<p>
+added missing src/description.txt file into source archive.
+</p>
+</li>
+<li>
+<p>
+psensor: appindicator displays unit of sensor values.
+</p>
+</li>
+<li>
+<p>
+psensor: added preference for hiding main window on startup.
+</p>
+</li>
+<li>
+<p>
+psensor: added <em>about</em> dialog.
+</p>
+</li>
+<li>
+<p>
+psensor: merged Chinese Simplified translation from royclarck
+</p>
+</li>
+<li>
+<p>
+psensor: autostarted by default
+</p>
+</li>
+<li>
+<p>
+nvidia: code cleanup
+</p>
+</li>
+<li>
+<p>
+nvidia: fixed init, error var not initialized
+</p>
+</li>
+<li>
+<p>
+nvidia: fixed nvidia_psensor_list_add, incorrect memory free
+</p>
+</li>
+<li>
+<p>
+psensor: when appindicator is not supported by wm:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+psensor quit on window close
+</p>
+</li>
+<li>
+<p>
+show psensor even if hide on startup is enabled
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_8">v0.6.2.8</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: escaped - in manpage.
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: escaped - in manpage.
+</p>
+</li>
+<li>
+<p>
+psensor: added support of libnotify 0.7.
+</p>
+</li>
+<li>
+<p>
+psensor: added turkish support.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed multi-languages support used by glade.
+</p>
+</li>
+<li>
+<p>
+switched from <a href="mailto:wpitchoune@gmail.com">wpitchoune@gmail.com</a> to <a href="mailto:jeanfi@gmail.com">jeanfi@gmail.com</a> (my usual
+   email).
+</p>
+</li>
+<li>
+<p>
+merged french translation from v0.6.1.8.
+</p>
+</li>
+<li>
+<p>
+added missing french translation.
+</p>
+</li>
+<li>
+<p>
+added different sizes of psensor.png .
+</p>
+</li>
+<li>
+<p>
+psensor: added menu.
+</p>
+</li>
+<li>
+<p>
+psensor: added enable/disable unity launcher counter.
+</p>
+</li>
+<li>
+<p>
+psensor: unity launcher counter displays the higher temperature.
+</p>
+</li>
+<li>
+<p>
+avoid fetching hddtemp daemon when no hdd in the sensors list.
+</p>
+</li>
+<li>
+<p>
+psensor: closing the window hides psensor instead of quitting when
+   application indicator support is enabled.
+</p>
+</li>
+<li>
+<p>
+psensor: dialog window for editing all sensors preferences.
+</p>
+</li>
+<li>
+<p>
+psensor: added support of GTK3.0 (GTK2.0 still supported).
+</p>
+</li>
+<li>
+<p>
+psensor: fixed crash when glade files cannot be read.
+</p>
+</li>
+<li>
+<p>
+psensor: display sensors information in the application indicator.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_7">v0.6.2.7</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: src/glade/psensor-pref.glade, added button separator.
+</p>
+</li>
+<li>
+<p>
+psensor: src/glade/sensor-edit.glade, fixed horiz/vert padding.
+</p>
+</li>
+<li>
+<p>
+psensor: src/lib/measure.c, initialize time.
+</p>
+</li>
+<li>
+<p>
+psensor: fixed freeze when click on preferences appindicator with
+   natty.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_6">v0.6.2.6</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: fixed min temp/fan of the graph
+</p>
+</li>
+<li>
+<p>
+psensor: very minor optimization (graph.c)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_5">v0.6.2.5</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: dialog box for editing psensor preferences is using Glade
+</p>
+</li>
+<li>
+<p>
+psensor: dialog box for editing sensor preferences is using Glade
+</p>
+</li>
+<li>
+<p>
+psensor: added support of negative temperatures (lm-sensors)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_4">v0.6.2.4</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor, graph: fixed padding bugs
+</p>
+</li>
+<li>
+<p>
+psensor, graph: drawing code refactored
+</p>
+</li>
+<li>
+<p>
+psensor: the value of the first detected sensor is displayed in the
+   unity launcher entry of psensor (requires unity &gt;=3.4.2).
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_3">v0.6.2.3</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>psensor-server</tt>: new global variable <em>psensor_version</em> for lua template
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: /index.html replaced by /index.lua
+</p>
+</li>
+<li>
+<p>
+avoid useless lib linkage by using --as-needed
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_2">v0.6.2.2</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+<tt>psensor-server</tt>: web server support binary files
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: added favicon.ico
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: moved index.lua to monitor.lua
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: added index.html (welcome page)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_2_1">v0.6.2.1</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+added uptime/memory information (psensor-server web)
+</p>
+</li>
+<li>
+<p>
+added debug mode for psensor-server (--debug)
+</p>
+</li>
+<li>
+<p>
+when used in debug mode, psensor-server can be stopped remotely
+   using <a href="http://hostname:port/api/1.0/server/stop">http://hostname:port/api/1.0/server/stop</a>
+</p>
+</li>
+<li>
+<p>
+fixed memory leak (label of lmsensor)
+</p>
+</li>
+<li>
+<p>
+some code cleanup/refactoring
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_10">v0.6.1.10</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: support of appindicator &lt; 0.2.9
+</p>
+</li>
+<li>
+<p>
+psensor: closing the window hides psensor instead of quitting when
+   application indicator support is enabled.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_9">v0.6.1.9</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+avoid fetching hddtemp daemon when no hdd in the sensors list
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_8">v0.6.1.8</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: added turkish language
+</p>
+</li>
+<li>
+<p>
+psensor: fixed freeze when click on preferences appindicator with
+   natty.
+</p>
+</li>
+<li>
+<p>
+</p>
+</li>
+<li>
+<p>
+psensor: full french language support
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_7">v0.6.1.7</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: add support of libnotify 0.7
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_6">v0.6.1.6</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor: escaped - in manpage
+</p>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>: escaped - in manpage
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_5">v0.6.1.5</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+added multi-language for hdd.c/nvidia.c/lmsensor.c
+</p>
+</li>
+<li>
+<p>
+some code cleanup/refactoring
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_4">v0.6.1.4</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+fixed manpage formatting in <em>REPORTING BUGS</em> section
+</p>
+</li>
+<li>
+<p>
+improved manpages
+</p>
+</li>
+<li>
+<p>
+removed few useless translations (fr/zh_CN)
+</p>
+</li>
+<li>
+<p>
+improved error messages for remote sensors + multilanguages support
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_3">v0.6.1.3</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+fixed compilation error of psensor when libcurl is present but not
+   libjson0
+</p>
+</li>
+<li>
+<p>
+suppress pointer to Textinfo manual (psensor/psensor-server).
+</p>
+</li>
+<li>
+<p>
+added --name to help2man call (psensor/psensor-server manpages).
+</p>
+</li>
+<li>
+<p>
+added more information in the psensor/psensor-server manpages.
+</p>
+</li>
+<li>
+<p>
+added warning about psensor-server and security in README.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1_1">v0.6.1.1</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+application icon is loaded using GtkIconTheme
+</p>
+</li>
+<li>
+<p>
+appindicator icon is now the psensor one
+</p>
+</li>
+<li>
+<p>
+added appindicator icon for status <em>attention</em>
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_1">v0.6.1</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+added style.css for psensor-server
+</p>
+</li>
+<li>
+<p>
+use some styling in index.lua
+</p>
+</li>
+<li>
+<p>
+fixed typo in README
+</p>
+</li>
+<li>
+<p>
+fixed psensor-server short option -p
+</p>
+</li>
+<li>
+<p>
+multi-language support for psensor-server
+</p>
+</li>
+<li>
+<p>
+added some translation for French language0
+</p>
+</li>
+<li>
+<p>
+fixed psensor-server bug: first sensor was not displayed
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_6_0_14">v0.6.0.14</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+psensor (gtk client):
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+added global preference: graph update interval
+</p>
+</li>
+<li>
+<p>
+added global preference: graph monitoring duration
+</p>
+</li>
+<li>
+<p>
+added global preference: sensor update interval
+</p>
+</li>
+<li>
+<p>
+standard gnu command line interface for psensor
+</p>
+</li>
+<li>
+<p>
+new psensor options: --help, --version, --url
+</p>
+</li>
+<li>
+<p>
+added generation and installation of the psensor man
+</p>
+</li>
+<li>
+<p>
+added remote monitoring it requires a new optionnal dependencies
+    (libjson0 and libcurl)
+</p>
+</li>
+<li>
+<p>
+added internationnalization support for the UI
+</p>
+</li>
+<li>
+<p>
+added Simplified Chinese Language (from DaBao &lt;<a href="mailto:linux.dabao@gmail.com">linux.dabao@gmail.com</a>&gt;)
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+<tt>psensor-server</tt>:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+psensor-server is now a minimal webserver based on microhttpd.
+    Lua5.1 is used to generate HTML pages to display temperatures and
+    gtop2 information
+</p>
+</li>
+<li>
+<p>
+temperature information can be retrieved using a webservice based
+    on json
+</p>
+</li>
+<li>
+<p>
+added cpu information (requires optional libgtop-2.0)
+</p>
+</li>
+<li>
+<p>
+psensor-server
+</p>
+</li>
+<li>
+<p>
+psensor-server options: --port, --help, --version
+</p>
+</li>
+<li>
+<p>
+added generation and installation of the psensor-server man
+</p>
+</li>
+</ul></div>
+</li>
+<li>
+<p>
+common news for psensor and psensor-server:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+moved to autoconf/automake
+</p>
+</li>
+<li>
+<p>
+gnu standard: use NEWS instead of CHANGES file
+</p>
+</li>
+<li>
+<p>
+moved LICENSE to COPYING
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_5_1">v0.5.1</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Makefile: avoid debug compilation by default
+</p>
+</li>
+<li>
+<p>
+Makefile: fixed duplicate server.o in OBJS_SERVER
+</p>
+</li>
+<li>
+<p>
+moved LICENSE to copyright
+</p>
+</li>
+<li>
+<p>
+moved CHANGES to NEWS
+</p>
+</li>
+<li>
+<p>
+Fixed creation of directories for the target <em>install</em>
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_5_0">v0.5.0</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Added double buffering of the graph to avoid flickering
+</p>
+</li>
+<li>
+<p>
+Fixed README error gconf package name
+</p>
+</li>
+<li>
+<p>
+Refactoring makefile
+</p>
+</li>
+<li>
+<p>
+Added desktop notification support
+</p>
+</li>
+<li>
+<p>
+Added application indicator support
+</p>
+</li>
+<li>
+<p>
+Fixed MT issue (UI freeze, refresh_thread)
+</p>
+</li>
+<li>
+<p>
+Added global preferences editor (right click on the graph)
+</p>
+</li>
+<li>
+<p>
+Added sensor preferences editor (right click on the sensor table)
+</p>
+</li>
+<li>
+<p>
+Displayed name of each sensor can be changed
+</p>
+</li>
+<li>
+<p>
+Position of the sensor table can be changed
+</p>
+</li>
+<li>
+<p>
+Window decoration can be hidden
+</p>
+</li>
+<li>
+<p>
+Added <em>keep window below</em> setting
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_4_5">v0.4.5</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Makefile: fixed duplicate server.o in OBJS_SERVER
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_4_4">v0.4.4</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Added README.debian</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_4_3">v0.4.3</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed foreground graph color first time psensor is started
+</p>
+</li>
+<li>
+<p>
+Added support of gtk 2.12 (used by Debian 5.0.6 Lenny) by redefining
+</p>
+</li>
+<li>
+<p>
+gtk_dialog_get_content_area which exist since 2.14
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_4_2">v0.4.2</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed potential MT issue (refresh_thread)
+</p>
+</li>
+<li>
+<p>
+Added double buffering of the graph to avoid flickering
+</p>
+</li>
+<li>
+<p>
+Fixed minor graph code bugs
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_4_1">v0.4.1</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed README error gconf package name
+</p>
+</li>
+<li>
+<p>
+Refactoring makefile
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_4_0">v0.4.0</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Added FAN support
+</p>
+</li>
+<li>
+<p>
+Added HDD support (using hddtemp daemon)
+</p>
+</li>
+<li>
+<p>
+Added popup menu for changing graph bg/fg colors and opacity
+</p>
+</li>
+<li>
+<p>
+Graph background can be transparent, opacity can be changed
+</p>
+</li>
+<li>
+<p>
+Fixed BR3: sensors with the same name but different chips share the same color configuration
+</p>
+</li>
+<li>
+<p>
+Fixed BR4: wrong OBJS variable and gconf when calling pkg-config in Makefile.distrib for compiling with NVidia support
+Changed website URL
+</p>
+</li>
+<li>
+<p>
+Fixed BR5: Psensor crashes during startup with "You forgot to call g_type_init()"
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_3_3">v0.3.3</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed potential MT issue  (refresh_thread)
+</p>
+</li>
+<li>
+<p>
+Improved Makefile
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_3_2">v0.3.2</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed BR4: wrong OBJS variable and gconf when calling pkg-config in Makefile.distrib for compiling with NVidia support
+</p>
+</li>
+<li>
+<p>
+Changed website URL
+</p>
+</li>
+<li>
+<p>
+Fixed BR5: Psensor crashes during startup with "You forgot to call g_type_init()"
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_3_1">v0.3.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Fixed BR3: sensors with the same name but different chips share the same color configuration</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_3_0">v0.3.0</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Sensor graph colors can be changed: click on the colored sensor cell in the information table)
+</p>
+</li>
+<li>
+<p>
+Background color of the graph can be changed: click on the graph
+</p>
+</li>
+<li>
+<p>
+Configuration is stored using GConf
+</p>
+</li>
+<li>
+<p>
+Fixed not initialized memory bug (min/max) in nvidia support
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_2_7">v0.2.7</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Updated the website URL
+</p>
+</li>
+<li>
+<p>
+Added contact information in the README
+</p>
+</li>
+<li>
+<p>
+Backported Makefile improvement from trunk
+</p>
+</li>
+<li>
+<p>
+Removed pwiki styling of the README
+</p>
+</li>
+<li>
+<p>
+Backport: Fixed not initialized memory bug (min/max) in nvidia support
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_2_6">v0.2.6</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Changed default graph colors and background
+</p>
+</li>
+<li>
+<p>
+Added vertical padding for the graph canvas
+</p>
+</li>
+<li>
+<p>
+Disabled row selection of the sensor table
+</p>
+</li>
+<li>
+<p>
+Fixed BR2: nvidia gpu is always using black color
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_2_5">v0.2.5</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Added a basic server to retrieve remotely temperatures</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_2_4">v0.2.4</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Added application icon
+</p>
+</li>
+<li>
+<p>
+Added .desktop file
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_2_3">v0.2.3</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Added max and min temperature information for each sensor
+</p>
+</li>
+<li>
+<p>
+Fixed a missing #include in nvidia.c
+</p>
+</li>
+<li>
+<p>
+Small UI improvements (scrollbar for the right panel + slider)
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_2_2">v0.2.2</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Fixed compilation warning when NVidia support is disabled
+</p>
+</li>
+<li>
+<p>
+Fixed BR1: crash when no temperature sensor is available
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_2_1">v0.2.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Compilation dependance to Nvidia lib is optional</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_2_0">v0.2.0</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Added support of NVidia GPUs</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_1_1">v0.1.1</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Improved right panel (list of sensors) + ability to disable each sensor graph</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_1_0">v0.1.0</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Initial release</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2014-02-11 18:42:08 CET
+</div>
+</div>
+</body>
+</html>
