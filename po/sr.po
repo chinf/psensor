@@ -610,17 +610,3 @@ msgstr ""
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr ""
-
-#~ msgid "Sensor Name"
-#~ msgstr "Назив сензора"
-
-#~ msgid "Enabled"
-#~ msgstr "Укључено"
-
-#, fuzzy
-#~ msgid "Enable log of measures"
-#~ msgstr "Укључено"
-
-#, fuzzy
-#~ msgid "Enable indicator"
-#~ msgstr "Укључено"

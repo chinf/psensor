@@ -1,22 +1,22 @@
 # Russian translations for psensor package.
 # Copyright (C) 2012 Free Software Foundation, Inc.
 # This file is distributed under the same license as the psensor package.
-#  <jeanfi@gmail.com>, 2012.
+#  <jeanfi@gmail.com>, 2012-2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2013-10-16 09:19+0200\n"
-"PO-Revision-Date: 2012-12-25 06:05+0000\n"
-"Last-Translator: Ilya Volchanetskiy <Unknown>\n"
+"PO-Revision-Date: 2014-01-27 16:37+0000\n"
+"Last-Translator: Dmitry <dmitri.s93@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
-"X-Generator: Launchpad (build 16430)\n"
+"X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
+"X-Generator: Launchpad (build 16916)\n"
 
 #: src/glade/psensor.glade:5 src/ui_appindicator.c:124
 msgid "About"
@@ -165,7 +165,7 @@ msgstr "Изменить параметры датчика"
 
 #: src/glade/sensor-edit.glade:87
 msgid "Name"
-msgstr ""
+msgstr "Название"
 
 #: src/glade/sensor-edit.glade:138
 msgid "Type:"
@@ -628,29 +628,3 @@ msgstr "Уведомление вентилятора"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr ""
-
-#~ msgid "Sensor Name"
-#~ msgstr "Название датчика"
-
-#~ msgid "Enabled"
-#~ msgstr "Включён"
-
-#, fuzzy
-#~ msgid "Enable log of measures"
-#~ msgstr "Включить меню"
-
-#, fuzzy
-#~ msgid "slog_init: cannot open sensor log file: %s"
-#~ msgstr "Ошибка открытия файла журнала: %s"
-
-#, fuzzy
-#~ msgid "slog_init: gettimeofday failed."
-#~ msgstr "ошибка gettimeofday."
-
-#, fuzzy
-#~ msgid "slog_write_sensors: gettimeofday failed."
-#~ msgstr "ошибка gettimeofday."
-
-#, fuzzy
-#~ msgid "Enable indicator"
-#~ msgstr "Включён"

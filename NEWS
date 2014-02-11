@@ -9,6 +9,10 @@ v0.8.0.5
 * +psensor-server+:
   - removed web fonts causing lintian warnings.
   - redesigned web pages.
+* Merged German translation from LP (Dennis Baudys).
+* Merged Latvian translation from LP (tuxmaniack).
+* Merged Russian translation from LP (Dmitry).
+* Merged Turkish translation from LP (İbrahim Çelik).
 
 v0.8.0.4
 --------

@@ -649,3 +649,47 @@ msgstr "Alarma por parada de ventilador."
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Desconocido"
+
+#~ msgid ""
+#~ "Copyright(c) 2010-2012\n"
+#~ "jeanfi@gmail.com"
+#~ msgstr ""
+#~ "Copyright(c) 2010-2012\n"
+#~ "jeanfi@gmail.com"
+
+#~ msgid "Enabled"
+#~ msgstr "Activado."
+
+#~ msgid "Sensor Name"
+#~ msgstr "Nombre del sensor"
+
+#~ msgid ""
+#~ "Copyright (C) %s wpitchoune@gmail.com\n"
+#~ "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/"
+#~ "old-licenses/gpl-2.0.html>\n"
+#~ "This is free software: you are free to change and redistribute it.\n"
+#~ "There is NO WARRANTY, to the extent permitted by law.\n"
+#~ msgstr ""
+#~ "Copyright © %s wpitchoune@gmail.com\n"
+#~ "Licencia GPLv2: GNU GPL versión 2 o posterior <http://www.gnu.org/"
+#~ "licenses/old-licenses/gpl-2.0.html>\n"
+#~ "Esto es software libre: es libre de modificarlo y redistribuirlo.\n"
+#~ "NO HAY GARANTÍA, en la medida en que lo permita la ley.\n"
+
+#~ msgid "Current"
+#~ msgstr "Actual"
+
+#~ msgid "Left"
+#~ msgstr "Izquierda"
+
+#~ msgid "Bottom"
+#~ msgstr "Abajo"
+
+#~ msgid "Temperature limit:"
+#~ msgstr "Límite de temperatura:"
+
+#~ msgid "Right"
+#~ msgstr "Derecha"
+
+#~ msgid "Top"
+#~ msgstr "Arriba"

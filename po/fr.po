@@ -1,7 +1,7 @@
 # Oriya translations for psensor package.
 # Copyright (C) 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the psensor package.
-# Jean-Philippe Orsini <jeanfi@gmail.com>, 2011, 2012.
+# Jean-Philippe Orsini <jeanfi@gmail.com>, 2011-2014.
 #
 msgid ""
 msgstr ""
@@ -653,29 +653,3 @@ msgstr "Alerte ventilateur"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Inconnu"
-
-#~ msgid "Sensor Name"
-#~ msgstr "Nom de la Sonde"
-
-#~ msgid "Enabled"
-#~ msgstr "Activé"
-
-#, fuzzy
-#~ msgid "Enable log of measures"
-#~ msgstr "Activer le menu"
-
-#, fuzzy
-#~ msgid "slog_init: cannot open sensor log file: %s"
-#~ msgstr "Impossible d'ouvrir le journal: %s"
-
-#, fuzzy
-#~ msgid "slog_init: gettimeofday failed."
-#~ msgstr "Échec de gettimeofday."
-
-#, fuzzy
-#~ msgid "slog_write_sensors: gettimeofday failed."
-#~ msgstr "Échec de gettimeofday."
-
-#, fuzzy
-#~ msgid "Enable indicator"
-#~ msgstr "Activée"
