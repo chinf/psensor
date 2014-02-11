@@ -4,7 +4,6 @@ defaultwww_DATA = \
 	index.html \
         excanvas.js \
 	favicon.ico \
-	monitor.html \
 	psensor.js \
 	jqplot.dateAxisRenderer.js \
 	jqplot.css \

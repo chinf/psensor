@@ -169,21 +169,23 @@ function update_menu() {
     str = "";
 
     $.getJSON("/api/1.1/sensors", function(data) {
-	str += "<li><em>Sensors</em>\n<ul>";
+	str += "<li><a href=\"index.html#cpu\">CPU</a><ul>";
+	url = "details.html?id="+escape("/api/1.1/cpu/usage");
+	link = "<a href='"+url+"'>usage</a>";
+	str += "<li>"+link+"</li>";
+	str += "</li></ul>";	
 
+	str += "<li><a href=\"index.html#network\">Network</a></li>";
+
+	str += "<li><a href=\"index.html#memory\">Memory</a></li>";
+
+	str += "<li><a href=\"index.html#sensors\">Sensors</a>\n<ul>";
 	$.each(data, function(i, item) {
             name = item["name"];
 	    url = "details.html?id="+escape("/api/1.1/sensors/"+item["id"]);
 	    link = "<a href='"+url+"'>"+name+"</a>";
 	    str += "<li>"+link+"</li>";
 	});
-	str += "</li></ul>";
-
-	str += "<li><em>CPU</em><ul>";
-	url = "details.html?id="+escape("/api/1.1/cpu/usage");
-	link = "<a href='"+url+"'>usage</a>";
-	str += "<li>"+link+"</li>";
-	
 	str += "</li></ul>";
 	
 	$("#menu-list").append(str);
