@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2013 jeanfi@gmail.com
+ * Copyright (C) 2010-2014 jeanfi@gmail.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as

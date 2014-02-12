@@ -1,14 +1,14 @@
 # Hungarian translation for psensor
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the psensor package.
+# Maintained by Jean-Philippe Orsini <jeanfi@gmail.com>
 #
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 # Lukács Bence <lukacs.bence1 at gmail dot com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-10-16 09:19+0200\n"
+"POT-Creation-Date: 2014-02-12 09:01+0100\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -555,10 +555,10 @@ msgstr "A Psensor egy GTK+ alkalmazás a hardver érzékelőinek figyelésére"
 
 #: src/ui.c:87
 msgid ""
-"Copyright(c) 2010-2013\n"
+"Copyright(c) 2010-2014\n"
 "jeanfi@gmail.com"
 msgstr ""
-"Copyright(c) 2010-2013\n"
+"Copyright(c) 2010-2014\n"
 "jeanfi@gmail.com"
 
 #: src/ui.c:90

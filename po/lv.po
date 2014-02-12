@@ -1,13 +1,13 @@
 # Latvian translation for psensor
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the psensor package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012-2014.
+# Maintained by Jean-Philippe Orsini <jeanfi@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2013-10-16 09:19+0200\n"
+"POT-Creation-Date: 2014-02-12 09:01+0100\n"
 "PO-Revision-Date: 2013-10-24 12:32+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -540,10 +540,10 @@ msgstr "Psensor ir GTK+ lietotne aparatūras sensoru pārraudzībai"
 
 #: src/ui.c:87
 msgid ""
-"Copyright(c) 2010-2013\n"
+"Copyright(c) 2010-2014\n"
 "jeanfi@gmail.com"
 msgstr ""
-"Autortiesības(c) 2010-2013\n"
+"Autortiesības(c) 2010-2014\n"
 "jeanfi@gmail.com"
 
 #: src/ui.c:90

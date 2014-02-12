@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2013 jeanfi@gmail.com
+ * Copyright (C) 2010-2014 jeanfi@gmail.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -84,7 +84,7 @@ void ui_show_about_dialog()
 		 _("Psensor is a GTK+ application for monitoring hardware "
 		   "sensors"),
 		 "copyright",
-		 _("Copyright(c) 2010-2013\njeanfi@gmail.com"),
+		 _("Copyright(c) 2010-2014\njeanfi@gmail.com"),
 		 "logo-icon-name", "psensor",
 		 "program-name", "Psensor",
 		 "title", _("About Psensor"),
