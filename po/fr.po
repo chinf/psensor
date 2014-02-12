@@ -36,7 +36,7 @@ msgstr "Préférences des capteurs"
 
 #: src/glade/psensor.glade:96
 msgid "Psensor - Temperature Monitor"
-msgstr "Psensor - Surveillance Des Températures"
+msgstr "Psensor - Surveillance des températures"
 
 #: src/glade/psensor.glade:111
 msgid "_Psensor"
@@ -308,7 +308,7 @@ msgstr "Échec de la récupération des information NVIDIA."
 
 #: src/lib/psensor.c:482 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
-msgstr "Tr/min"
+msgstr "Tr/mn"
 
 #: src/lib/psensor.c:484
 msgid "%"
