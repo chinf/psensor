@@ -40,17 +40,12 @@ static int appindicator_supported = 1;
 static AppIndicator *indicator;
 static struct ui_psensor *ui_psensor;
 
-static void cb_menu_show(GtkMenuItem *mi, gpointer data)
+void cb_menu_show(GtkMenuItem *mi, gpointer data)
 {
 	ui_window_show((struct ui_psensor *)data);
 }
 
-static void cb_menu_quit(GtkMenuItem *mi, gpointer data)
-{
-	ui_psensor_quit(data);
-}
-
-static void cb_menu_preferences(GtkMenuItem *mi, gpointer data)
+void ui_appindicator_cb_preferences(GtkMenuItem *mi, gpointer data)
 {
 #ifdef HAVE_APPINDICATOR_029
 	gdk_threads_enter();
@@ -63,7 +58,7 @@ static void cb_menu_preferences(GtkMenuItem *mi, gpointer data)
 #endif
 }
 
-static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
+void ui_appindicator_cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 {
 	struct ui_psensor *ui = data;
 
@@ -78,59 +73,6 @@ static void cb_sensor_preferences(GtkMenuItem *mi, gpointer data)
 	gdk_threads_leave();
 #endif
 }
-
-static void cb_about(GtkMenuItem *mi, gpointer data)
-{
-	ui_show_about_dialog();
-}
-
-static const char *menu_desc =
-"<ui>"
-"  <popup name='MainMenu'>"
-"      <menuitem name='Show' action='ShowAction' />"
-"      <separator />"
-"      <separator />"
-"      <menuitem name='Preferences' action='PreferencesAction' />"
-"      <menuitem name='SensorPreferences' action='SensorPreferencesAction' />"
-"      <separator />"
-"      <menuitem name='About' action='AboutAction' />"
-"      <separator />"
-"      <menuitem name='Quit' action='QuitAction' />"
-"  </popup>"
-"</ui>";
-
-static GtkActionEntry entries[] = {
-	{ "PsensorMenuAction", NULL, "_Psensor" },
-
-	{ "ShowAction", NULL,
-	  N_("_Show"), NULL,
-	  N_("Show"),
-	  G_CALLBACK(cb_menu_show) },
-
-	{ "PreferencesAction", GTK_STOCK_PREFERENCES,
-	  N_("_Preferences"), NULL,
-	  N_("Preferences"),
-	  G_CALLBACK(cb_menu_preferences) },
-
-	{ "SensorPreferencesAction", GTK_STOCK_PREFERENCES,
-	  N_("S_ensor Preferences"),
-	  NULL,
-	  N_("SensorPreferences"),
-	  G_CALLBACK(cb_sensor_preferences) },
-
-	{ "AboutAction", NULL,
-	  N_("_About"),
-	  NULL,
-	  N_("About"),
-	  G_CALLBACK(cb_about) },
-
-	{ "QuitAction",
-	  GTK_STOCK_QUIT,
-	  N_("_Quit"),
-	  NULL, N_("Quit"),
-	  G_CALLBACK(cb_menu_quit) }
-};
-static guint n_entries = G_N_ELEMENTS(entries);
 
 static void
 update_menu_item(GtkMenuItem *item, struct psensor *s, int use_celcius)
@@ -201,27 +143,31 @@ build_sensor_menu_items(const struct ui_psensor *ui,
 
 static GtkWidget *get_menu(struct ui_psensor *ui)
 {
-	GtkActionGroup *action_group;
-	GtkUIManager *menu_manager;
 	GError *error;
 	GtkMenu *menu;
+	guint ok;
+	GtkBuilder *builder;
 
-	action_group = gtk_action_group_new("PsensorActions");
-	gtk_action_group_set_translation_domain(action_group, PACKAGE);
-	menu_manager = gtk_ui_manager_new();
-
-	gtk_action_group_add_actions(action_group, entries, n_entries, ui);
-	gtk_ui_manager_insert_action_group(menu_manager, action_group, 0);
+	builder = gtk_builder_new();
 
 	error = NULL;
-	gtk_ui_manager_add_ui_from_string(menu_manager, menu_desc, -1, &error);
+	ok = gtk_builder_add_from_file
+		(builder,
+		 PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "psensor.glade",
+		 &error);
 
-	if (error)
-		g_error(_("building menus failed: %s"), error->message);
+	if (!ok) {
+		log_printf(LOG_ERR, error->message);
+		g_error_free(error);
+		return NULL;
+	}
 
-	menu = GTK_MENU(gtk_ui_manager_get_widget(menu_manager, "/MainMenu"));
-
+	menu = GTK_MENU(gtk_builder_get_object(builder, "appindicator_menu"));
 	build_sensor_menu_items(ui, menu);
+	gtk_builder_connect_signals(builder, ui);
+
+	g_object_ref(G_OBJECT(menu));
+	g_object_unref(G_OBJECT(builder));
 
 	return GTK_WIDGET(menu);
 }
@@ -307,5 +253,4 @@ int is_appindicator_supported()
 void ui_appindicator_cleanup()
 {
 	free(sensors);
-	/* TODO: cleanup menu items. */
 }
