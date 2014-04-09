@@ -1,0 +1,650 @@
+# Dutch translation for psensor
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the psensor package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: psensor\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-02-12 09:01+0100\n"
+"PO-Revision-Date: 2014-04-07 08:50+0000\n"
+"Last-Translator: Pjotr12345 <Unknown>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-04-09 22:52+0000\n"
+"X-Generator: Launchpad (build 16976)\n"
+
+#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+msgid "About"
+msgstr "Over"
+
+#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
+msgid "Preferences"
+msgstr "Voorkeuren"
+
+#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: src/glade/psensor.glade:17
+msgid "Sensor Preferences"
+msgstr "Sensorvoorkeuren"
+
+#: src/glade/psensor.glade:96
+msgid "Psensor - Temperature Monitor"
+msgstr "Psensor - Temperatuurbewaker"
+
+#: src/glade/psensor.glade:111
+msgid "_Psensor"
+msgstr "_Psensor"
+
+#: src/glade/psensor.glade:158
+msgid "_Help"
+msgstr "_Hulp"
+
+#: src/glade/psensor-pref.glade:7
+msgid "Edit Preferences"
+msgstr "Voorkeuren bewerken"
+
+#: src/glade/psensor-pref.glade:72
+msgid "Position of sensors table:"
+msgstr "Positie van sensorentabel:"
+
+#: src/glade/psensor-pref.glade:81
+msgid "Hide window decoration"
+msgstr "Vensteromlijsting verbergen"
+
+#: src/glade/psensor-pref.glade:98
+msgid "Keep window below"
+msgstr "Houd venster eronder"
+
+#: src/glade/psensor-pref.glade:115
+msgid "Enable menu"
+msgstr "Menu inschakelen"
+
+#: src/glade/psensor-pref.glade:132
+msgid "Enable Unity Launcher counter"
+msgstr "Teller voor Unity-starter inschakelen"
+
+#: src/glade/psensor-pref.glade:149
+msgid "Hide window on startup"
+msgstr "Venster bij opstarten verbergen"
+
+#: src/glade/psensor-pref.glade:166
+msgid "Restore window position and size"
+msgstr "Vensterpositie en -grootte herstellen"
+
+#: src/glade/psensor-pref.glade:186
+msgid "Temperature unit:"
+msgstr "Temperatuureenheid:"
+
+#: src/glade/psensor-pref.glade:238
+msgid "Interface"
+msgstr "Bedieningsschil"
+
+#: src/glade/psensor-pref.glade:276
+msgid "Foreground:"
+msgstr "Voorgrond:"
+
+#: src/glade/psensor-pref.glade:291
+msgid "Background:"
+msgstr "Achtergrond:"
+
+#: src/glade/psensor-pref.glade:325
+msgid "Background opacity:"
+msgstr "Ondoorzichtigheid van achtergrond:"
+
+#: src/glade/psensor-pref.glade:348
+msgid "<i>Min</i>"
+msgstr "<i>Min</i>"
+
+#: src/glade/psensor-pref.glade:375
+msgid "<i>Max</i>"
+msgstr "<i>Max</i>"
+
+#: src/glade/psensor-pref.glade:401
+msgid "Colors"
+msgstr "Kleuren"
+
+#: src/glade/psensor-pref.glade:419
+msgid "Monitoring duration:"
+msgstr "Duur van bewaking:"
+
+#: src/glade/psensor-pref.glade:457
+msgid "minute(s)"
+msgstr "minu(u)t(en)"
+
+#: src/glade/psensor-pref.glade:474 src/glade/psensor-pref.glade:626
+msgid "second(s)"
+msgstr "seconde(n)"
+
+#: src/glade/psensor-pref.glade:510
+msgid "Update interval:"
+msgstr "Tussenpoze voor bijwerken:"
+
+#: src/glade/psensor-pref.glade:528
+msgid "Measures"
+msgstr "Metingen"
+
+#: src/glade/psensor-pref.glade:564 src/glade/sensor-edit.glade:169
+#: src/ui_sensorlist.c:334
+msgid "Graph"
+msgstr "Grafiek"
+
+#: src/glade/psensor-pref.glade:588
+msgid "Measure update interval:"
+msgstr "Tussenpoze voor bijwerken van meting:"
+
+#: src/glade/psensor-pref.glade:637
+msgid "Enable sensors logging"
+msgstr "Logboeken bijhouden inschakelen voor sensoren"
+
+#: src/glade/psensor-pref.glade:684
+msgid "Sensors logging interval"
+msgstr "Tussenpoze voor bijhouden van logboeken voor sensoren"
+
+#: src/glade/psensor-pref.glade:701
+msgid "seconds(s)"
+msgstr "seconden(s)"
+
+#: src/glade/psensor-pref.glade:718
+msgid "Script executed when an alarm is raised"
+msgstr "Script dat wordt uitgevoerd wanneer er een alarm plaatsvindt"
+
+#: src/glade/psensor-pref.glade:751
+msgid "Sensors"
+msgstr "Sensoren"
+
+#: src/glade/sensor-edit.glade:19
+msgid "Edit Sensor Preferences"
+msgstr "Sensorvoorkeuren bewerken"
+
+#: src/glade/sensor-edit.glade:87
+msgid "Name"
+msgstr "Naam"
+
+#: src/glade/sensor-edit.glade:138
+msgid "Type:"
+msgstr "Soort:"
+
+#: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
+#: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
+#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:486 src/ui_notify.c:81
+msgid "N/A"
+msgstr "N.v.t."
+
+#: src/glade/sensor-edit.glade:187
+msgid "Color:"
+msgstr "Kleur:"
+
+#: src/glade/sensor-edit.glade:201
+msgid "Alarm"
+msgstr "Alarm"
+
+#: src/glade/sensor-edit.glade:216
+msgid "Activate desktop notifications"
+msgstr "Bureaubladmeldingen inschakelen"
+
+#: src/glade/sensor-edit.glade:236
+msgid "Sensor Information"
+msgstr "Sensorinformatie"
+
+#: src/glade/sensor-edit.glade:249
+msgid "Draw sensor curve"
+msgstr "Sensor-curve tekenen"
+
+#: src/glade/sensor-edit.glade:333
+msgid "High threshold:"
+msgstr "Drempel voor hoog:"
+
+#: src/glade/sensor-edit.glade:348
+msgid "Low threshold:"
+msgstr "Drempel voor laag:"
+
+#: src/glade/sensor-edit.glade:409
+msgid "Ubuntu Application Indicator"
+msgstr "Ubuntu Toepassingsindicator"
+
+#: src/glade/sensor-edit.glade:424
+msgid "Display sensor in the Application Indicator menu"
+msgstr "Sensor tonen in het menu van de Toepassingsindicator"
+
+#: src/glade/sensor-edit.glade:444
+msgid "Chip:"
+msgstr "Chip:"
+
+#: src/glade/sensor-edit.glade:489
+msgid "Id:"
+msgstr "Id:"
+
+#: src/glade/sensor-edit.glade:523
+msgid "Details"
+msgstr "Bijzonderheden"
+
+#: src/glade/sensor-edit.glade:541
+msgid "Name:"
+msgstr "Naam:"
+
+#: src/lib/amd.c:170
+msgid "AMD: cannot found ADL library."
+msgstr "AMD: kan ADL-bibliotheekbestand niet vinden"
+
+#: src/lib/amd.c:197
+msgid "AMD: missing ADL's API."
+msgstr "AMD: ontbrekende ADL's API."
+
+#: src/lib/amd.c:207
+msgid "AMD: failed to initialize ADL."
+msgstr "AMD: kon ADL niet initialiseren."
+
+#: src/lib/amd.c:213
+msgid "AMD: cannot get the number of adapters."
+msgstr "AMD: kan het aantal videokaarten niet bepalen."
+
+#: src/lib/amd.c:252
+#, c-format
+msgid "Number of AMD/ATI adapters: %d"
+msgstr "Aantal AMD/ATI-videokaarten: %d"
+
+#: src/lib/amd.c:253
+#, c-format
+msgid "Number of active AMD/ATI adapters: %d"
+msgstr "Aantal actieve AMD/ATI-videokaarten: %d"
+
+#: src/lib/hdd_atasmart.c:152
+#, c-format
+msgid "atasmart: sk_disk_open() failure: %s."
+msgstr "atasmart: sk_disk_open() mislukking: %s."
+
+#: src/lib/hdd_hddtemp.c:59
+msgid "hddtemp: failed to open socket."
+msgstr "hddtemp: kon contactpunt niet openen."
+
+#: src/lib/hdd_hddtemp.c:72
+msgid "hddtemp: failed to open connection."
+msgstr "hddtemp: kon verbinding niet openen."
+
+#: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:256
+#, c-format
+msgid "hddtemp: wrong string: %s."
+msgstr "hddtemp: verkeerde tekenreeks: %s."
+
+#: src/lib/lmsensor.c:42
+#, c-format
+msgid "lmsensor: cannot get value of subfeature %s: %s."
+msgstr "lmsensor: kan waarde van subfunctie %s niet bepalen: %s."
+
+#: src/lib/lmsensor.c:123
+msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
+msgstr "lmsensor: lmsensor_psensor_create failure: verkeerd functietype."
+
+#: src/lib/lmsensor.c:218
+#, c-format
+msgid "lmsensor: initialization failure: %s."
+msgstr "lmsensor: opstartfout: %s."
+
+#: src/lib/log.c:43
+#, c-format
+msgid "Cannot open log file: %s"
+msgstr "Kan logboekbestand niet openen: %s"
+
+#: src/lib/nvidia.c:54
+msgid ""
+"NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
+msgstr ""
+"Het niet-vrije Nvidia-stuurprogramma wordt niet gebruikt of het kan de "
+"temperatuur van de grafische Nvidia-chip niet bepalen."
+
+#: src/lib/nvidia.c:97
+msgid "Cannot open connection to X11 server."
+msgstr "Kan verbinding met X11-server niet openen."
+
+#: src/lib/nvidia.c:105
+msgid "Failed to retrieve NVIDIA information."
+msgstr "Kon Nvidia-informatie niet ophalen."
+
+#: src/lib/psensor.c:482 tests/test_psensor_type_to_unit_str.c:62
+msgid "RPM"
+msgstr "RPM"
+
+#: src/lib/psensor.c:484
+msgid "%"
+msgstr "%"
+
+#: src/lib/slog.c:68
+msgid "HOME variable not set."
+msgstr "Variabele voor HOME niet ingesteld."
+
+#: src/lib/slog.c:78
+msgid "Sensor log file already open."
+msgstr "Logboekbestand van sensor is al geopend."
+
+#: src/lib/slog.c:87
+#, c-format
+msgid "Cannot open sensor log file: %s."
+msgstr "Kan logboekbestand van sensor niet openen: %s."
+
+#: src/lib/slog.c:118
+msgid "Sensor log file not open."
+msgstr "Logboekbestand van sensor niet geopend."
+
+#: src/lib/slog.c:174
+msgid "Sensor log not open, cannot close."
+msgstr "Logboekbestand van sensor niet geopend, kan niet sluiten."
+
+#: src/main.c:77
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and  redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Auteursrecht (C) %s jeanfi@gmail.com\n"
+"Licentie GPLv2: GNU GPL versie 2 of nieuwer <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"Dit is vrije programmatuur: u mag hem wijzigen en doorgeven.\n"
+"Er zit geen garantie op, voor zover de wet dat toestaat.\n"
+
+#: src/main.c:88 src/server/server.c:94
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr "Gebruik: %s [OPTIE]...\n"
+
+#: src/main.c:90
+msgid ""
+"Psensor is a GTK+ application for monitoring hardware sensors, including "
+"temperatures and fan speeds."
+msgstr ""
+"Psensor is een GTK+ toepassing voor het bewaken van apparatuursensoren, "
+"inclusief temperaturen en ventilatorsnelheden."
+
+#: src/main.c:94
+msgid "Options:"
+msgstr "Opties:"
+
+#: src/main.c:95
+msgid ""
+"  -h, --help          display this help and exit\n"
+"  -v, --version       display version information and exit"
+msgstr ""
+"  -h, --help          toon deze hulpinformatie en sluit af\n"
+"  -v, --version       toon versie-informatie en sluit af"
+
+#: src/main.c:101
+msgid ""
+"  -u, --url=URL       the URL of the psensor-server,\n"
+"                      example: http://hostname:3131"
+msgstr ""
+"  -u, --url=URL       het webadres van de psensor-server,\n"
+"                      voorbeeld: http://hostname:3131"
+
+#: src/main.c:104
+msgid ""
+"  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
+"                      hddtemp daemon"
+msgstr ""
+"  --use-libatasmart   gebruik atasmart-bibiotheekbestand voor "
+"schijfbewaking\n"
+"               i.p.v. hddtemp-achtergronddienst"
+
+#: src/main.c:107
+msgid "  -n, --new-instance  force the creation of a new Psensor application"
+msgstr ""
+"  -n, --new-instance  forceer het aanmaken van een nieuwe Psensor-toepassing"
+
+#: src/main.c:110
+msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
+msgstr ""
+"  -d, --debug=LEVEL   stel het foutopsporingsniveau in, integer tussen 0 en 3"
+
+#: src/main.c:115 src/server/server.c:117
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr "Meld fouten aan: %s\n"
+
+#: src/main.c:117 src/server/server.c:119
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr "Webpagina van %s: <%s>\n"
+
+#: src/main.c:454
+msgid "Psensor has not been compiled with remote sensor support."
+msgstr ""
+"Psensor os niet gecompileerd met ondersteuning voor sensoren op afstand."
+
+#: src/main.c:517
+msgid "Enables debug mode."
+msgstr "Schakelt foutopsporingsmodus in."
+
+#: src/main.c:529 src/server/server.c:380
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr "Probeer '%s --help' voor meer informatie.\n"
+
+#: src/main.c:542
+msgid "A Psensor instance already exists."
+msgstr "Er bestaat reeds een instantie van Psensor."
+
+#: src/rsensor.c:107
+#, c-format
+msgid "Fail to connect to: %s"
+msgstr "Kon niet verbinden met: %s"
+
+#: src/rsensor.c:144
+#, c-format
+msgid "Invalid content: %s"
+msgstr "Ongeldige inhoud: %s"
+
+#: src/rsensor.c:184
+#, c-format
+msgid "Invalid JSON: %s"
+msgstr "Ongeldige JSON: %s"
+
+#: src/server/server.c:54
+msgid "<html><body><p>Server stop requested</p></body></html>"
+msgstr "<html><body><p>Stilzetting van server verzocht</p></body></html>"
+
+#: src/server/server.c:60
+msgid ""
+"<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
+msgstr ""
+"<html><body><p>Pagina niet gevonden - ga naar <a "
+"href='/'>Hoofdpagina</a></p></body>"
+
+#: src/server/server.c:84
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+"Auteursrecht (C) %s jeanfi@gmail.com\n"
+"Licentie GPLv2: GNU GPL versie 2 of nieuwer <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"Dit is vrije programmatuur: u mag hem wijzigen en doorgeven.\n"
+"Er zit geen garantie op, voor zover de wet dat toestaat.\n"
+
+#: src/server/server.c:96
+msgid ""
+"psensor-server is an HTTP server for monitoring hardware sensors remotely."
+msgstr ""
+"psensor-server is een HTTP-server voor het bewaken van apparatuursensoren op "
+"afstand."
+
+#: src/server/server.c:101
+msgid ""
+"  -h, --help\t\tdisplay this help and exit\n"
+"  -v, --version\t\tdisplay version information and exit"
+msgstr ""
+"  -h, --help\t\ttoon deze hulptekst en sluit af\n"
+"  -v, --version\t\ttoon versie-infomatie en sluit af"
+
+#: src/server/server.c:105
+msgid ""
+"  -p,--port=PORT\twebserver port\n"
+"  -w,--wdir=DIR\t\tdirectory containing webserver pages"
+msgstr ""
+"  -p,--port=PORT\twebserverpoort\n"
+"  -w,--wdir=DIR\t\tmap die webserverpagina's bevat"
+
+#: src/server/server.c:109
+msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
+msgstr ""
+"  -d, --debug=LEVEL     stel het foutopsporingsniveau in, integer tussen 0 "
+"en 3"
+
+#: src/server/server.c:111
+msgid "  -l, --log-file=PATH   set the log file to PATH"
+msgstr "  -l, --log-file=PATH   stel het logboekbestand in op PATH"
+
+#: src/server/server.c:112
+msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
+msgstr "  --sensor-log-file=PATH stel het sensorlogboekbestand in op PATH"
+
+#: src/server/server.c:113
+msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
+msgstr ""
+"  --sensor-log-interval=S stel de tussenpoze voor het sensorlogboek in op S "
+"(seconden)"
+
+#: src/server/server.c:297
+#, c-format
+msgid "HTTP Request: %s"
+msgstr "HTTP-verzoek: %s"
+
+#: src/server/server.c:360
+#, c-format
+msgid "Enables debug mode: %d"
+msgstr "Schakelt foutopsporingsmodus in: %d"
+
+#: src/server/server.c:402
+msgid "No sensors detected."
+msgstr "Geen sensoren bespeurd."
+
+#: src/server/server.c:409
+msgid "Failed to create Web server."
+msgstr "Kon geen webserver maken."
+
+#: src/server/server.c:413
+#, c-format
+msgid "Web server started on port: %d"
+msgstr "Webserver gestart op poort: %d"
+
+#: src/server/server.c:414
+#, c-format
+msgid "WWW directory: %s"
+msgstr "WWW-map: %s"
+
+#: src/server/server.c:415
+#, c-format
+msgid "URL: http://localhost:%d"
+msgstr "URL: http://localhost:%d"
+
+#: src/server/server.c:425
+msgid "Failed to activate logging of sensors."
+msgstr "Kon logboeken bijhouden niet inschakelen voor sensoren."
+
+#: src/ui.c:84
+msgid "Psensor is a GTK+ application for monitoring hardware sensors"
+msgstr ""
+"Psensor is een GTK+ toepassing voor het bewaken van apparatuursensoren"
+
+#: src/ui.c:87
+msgid ""
+"Copyright(c) 2010-2014\n"
+"jeanfi@gmail.com"
+msgstr ""
+"Auteursrecht(c) 2010-2014\n"
+"jeanfi@gmail.com"
+
+#: src/ui.c:90
+msgid "About Psensor"
+msgstr "Over Psensor"
+
+#: src/ui.c:93
+msgid "Psensor Homepage"
+msgstr "Thuispagina van Psensor"
+
+#: src/ui.c:217
+msgid "Failed to load Psensor icon."
+msgstr "Kon pictogram van Psensor niet laden."
+
+#: src/ui_sensorlist.c:245
+msgid "Select foreground color"
+msgstr "Kies voorgrondkleur"
+
+#: src/ui_sensorlist.c:297
+msgid "Sensor"
+msgstr "Sensor"
+
+#: src/ui_sensorlist.c:303
+msgid "Value"
+msgstr "Waarde"
+
+#: src/ui_sensorlist.c:309
+msgid "Min"
+msgstr "Min"
+
+#: src/ui_sensorlist.c:315
+msgid "Max"
+msgstr "Max"
+
+#: src/ui_sensorlist.c:322
+msgid "Color"
+msgstr "Kleur"
+
+#: src/ui_appindicator.c:106
+msgid "_Show"
+msgstr "_Tonen"
+
+#: src/ui_appindicator.c:107
+msgid "Show"
+msgstr "Tonen"
+
+#: src/ui_appindicator.c:111
+msgid "_Preferences"
+msgstr "_Voorkeuren"
+
+#: src/ui_appindicator.c:116
+msgid "S_ensor Preferences"
+msgstr "Sensorvoorkeuren"
+
+#: src/ui_appindicator.c:118
+msgid "SensorPreferences"
+msgstr "Sensorvoorkeuren"
+
+#: src/ui_appindicator.c:122
+msgid "_About"
+msgstr "_Over"
+
+#: src/ui_appindicator.c:129
+msgid "_Quit"
+msgstr "_Afsluiten"
+
+#: src/ui_appindicator.c:220
+#, c-format
+msgid "building menus failed: %s"
+msgstr "opbouwen van menu's is mislukt: %s"
+
+#: src/ui_notify.c:48
+msgid "gettimeofday failed."
+msgstr "gettimeofday (tijdbepaling) is mislukt."
+
+#: src/ui_notify.c:77
+msgid "Temperature alert"
+msgstr "Temperatuurwaarschuwing"
+
+#: src/ui_notify.c:79
+msgid "Fan alert"
+msgstr "Ventilatorwaarschuwing"
+
+#: src/ui_sensorpref.c:248
+msgid "Unknown"
+msgstr "Onbekend"

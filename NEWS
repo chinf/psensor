@@ -13,6 +13,7 @@ v0.8.0.5
 * Merged Latvian translation from LP (tuxmaniack).
 * Merged Russian translation from LP (Dmitry).
 * Merged Turkish translation from LP (İbrahim Çelik).
+* Added Dutch translation from LP (Pjotr12345).
 * Fixed some french translations.
 * AppIndicator icons: removed shadow, added padding. (Closes LP:
 #1290072).
