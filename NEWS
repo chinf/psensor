@@ -15,11 +15,10 @@ v0.8.0.5
 * Merged Turkish translation from LP (İbrahim Çelik).
 * Added Dutch translation from LP (Pjotr12345).
 * Fixed some french translations.
-* AppIndicator icons: removed shadow, added padding. (Closes LP:
-#1290072).
+* AppIndicator icons: removed shadow, added padding. (LP: #1290072).
 * Fixed compilation issue with gtk3.10 and deprecation of
   GtkActionEntry. Menu is defined in glade file instead of
-  hardcoded. (Closes LP: #1304108).
+  hardcoded. (LP: #1304108).
 
 v0.8.0.4
 --------
