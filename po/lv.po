@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-02-12 09:01+0100\n"
+"POT-Creation-Date: 2014-04-10 08:17+0200\n"
 "PO-Revision-Date: 2013-10-24 12:32+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -18,31 +18,37 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
 "X-Generator: Launchpad (build 16916)\n"
 
-#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+#: src/glade/psensor.glade:5
 msgid "About"
 msgstr "Par"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/glade/psensor.glade:10
+#: src/glade/psensor.glade:19 src/ui_sensorlist.c:209
 msgid "Preferences"
 msgstr "Iestatījumi"
 
-#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
-msgid "Quit"
-msgstr "Iziet"
-
-#: src/glade/psensor.glade:17
+#: src/glade/psensor.glade:14 src/glade/psensor.glade:15
+#: src/glade/psensor.glade:27
 msgid "Sensor Preferences"
 msgstr "Sensoru iestatījumi"
 
-#: src/glade/psensor.glade:96
+#: src/glade/psensor.glade:23
+msgid "Quit"
+msgstr "Iziet"
+
+#: src/glade/psensor.glade:31
+msgid "Show"
+msgstr "Rādīt"
+
+#: src/glade/psensor.glade:180
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - temperatūras pārraugs"
 
-#: src/glade/psensor.glade:111
+#: src/glade/psensor.glade:195
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:158
+#: src/glade/psensor.glade:242
 msgid "_Help"
 msgstr "_Palīdzība"
 
@@ -582,39 +588,6 @@ msgstr "Maks."
 msgid "Color"
 msgstr "Krāsa"
 
-#: src/ui_appindicator.c:106
-msgid "_Show"
-msgstr "_Rādīt"
-
-#: src/ui_appindicator.c:107
-msgid "Show"
-msgstr "Rādīt"
-
-#: src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Iestatījumi"
-
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "S_ensoru iestatījumi"
-
-#: src/ui_appindicator.c:118
-msgid "SensorPreferences"
-msgstr "SensoraIestatījumi"
-
-#: src/ui_appindicator.c:122
-msgid "_About"
-msgstr "P_ar"
-
-#: src/ui_appindicator.c:129
-msgid "_Quit"
-msgstr "_Iziet"
-
-#: src/ui_appindicator.c:220
-#, c-format
-msgid "building menus failed: %s"
-msgstr "neizdevās izveidot izvēlnes: %s"
-
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
 msgstr "gettimeofday neizdevās."
@@ -630,3 +603,24 @@ msgstr "Ventilatora trauksme"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Nezināms"
+
+#~ msgid "_Show"
+#~ msgstr "_Rādīt"
+
+#~ msgid "_Preferences"
+#~ msgstr "_Iestatījumi"
+
+#~ msgid "S_ensor Preferences"
+#~ msgstr "S_ensoru iestatījumi"
+
+#~ msgid "SensorPreferences"
+#~ msgstr "SensoraIestatījumi"
+
+#~ msgid "_About"
+#~ msgstr "P_ar"
+
+#~ msgid "_Quit"
+#~ msgstr "_Iziet"
+
+#~ msgid "building menus failed: %s"
+#~ msgstr "neizdevās izveidot izvēlnes: %s"

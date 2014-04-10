@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-02-12 09:01+0100\n"
+"POT-Creation-Date: 2014-04-10 08:17+0200\n"
 "PO-Revision-Date: 2013-10-20 09:56+0000\n"
 "Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: German\n"
@@ -18,31 +18,37 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
 "X-Generator: Launchpad (build 16916)\n"
 
-#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+#: src/glade/psensor.glade:5
 msgid "About"
 msgstr "Info"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/glade/psensor.glade:10
+#: src/glade/psensor.glade:19 src/ui_sensorlist.c:209
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
-msgid "Quit"
-msgstr "Beenden"
-
-#: src/glade/psensor.glade:17
+#: src/glade/psensor.glade:14 src/glade/psensor.glade:15
+#: src/glade/psensor.glade:27
 msgid "Sensor Preferences"
 msgstr "Sensoreinstellungen"
 
-#: src/glade/psensor.glade:96
+#: src/glade/psensor.glade:23
+msgid "Quit"
+msgstr "Beenden"
+
+#: src/glade/psensor.glade:31
+msgid "Show"
+msgstr "Anzeigen"
+
+#: src/glade/psensor.glade:180
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor – Temperaturüberwachung"
 
-#: src/glade/psensor.glade:111
+#: src/glade/psensor.glade:195
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:158
+#: src/glade/psensor.glade:242
 msgid "_Help"
 msgstr "_Hilfe"
 
@@ -602,39 +608,6 @@ msgstr "Max."
 msgid "Color"
 msgstr "Farbe"
 
-#: src/ui_appindicator.c:106
-msgid "_Show"
-msgstr "_Anzeigen"
-
-#: src/ui_appindicator.c:107
-msgid "Show"
-msgstr "Anzeigen"
-
-#: src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Einstellungen"
-
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "_Sensoreinstellungen"
-
-#: src/ui_appindicator.c:118
-msgid "SensorPreferences"
-msgstr "Sensoreinstellungen"
-
-#: src/ui_appindicator.c:122
-msgid "_About"
-msgstr "_Info"
-
-#: src/ui_appindicator.c:129
-msgid "_Quit"
-msgstr "_Beenden"
-
-#: src/ui_appindicator.c:220
-#, c-format
-msgid "building menus failed: %s"
-msgstr "Erstellen der Menüs ist gescheitert: %s"
-
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
 msgstr "gettimeofday ist gescheitert."
@@ -650,3 +623,24 @@ msgstr "Lüfteralarm"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Unbekannt"
+
+#~ msgid "_Show"
+#~ msgstr "_Anzeigen"
+
+#~ msgid "_Preferences"
+#~ msgstr "_Einstellungen"
+
+#~ msgid "S_ensor Preferences"
+#~ msgstr "_Sensoreinstellungen"
+
+#~ msgid "SensorPreferences"
+#~ msgstr "Sensoreinstellungen"
+
+#~ msgid "_About"
+#~ msgstr "_Info"
+
+#~ msgid "_Quit"
+#~ msgstr "_Beenden"
+
+#~ msgid "building menus failed: %s"
+#~ msgstr "Erstellen der Menüs ist gescheitert: %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-02-12 09:01+0100\n"
+"POT-Creation-Date: 2014-04-10 08:17+0200\n"
 "PO-Revision-Date: 2014-01-27 16:37+0000\n"
 "Last-Translator: Dmitry <dmitri.s93@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -18,31 +18,37 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
 "X-Generator: Launchpad (build 16916)\n"
 
-#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+#: src/glade/psensor.glade:5
 msgid "About"
 msgstr "О программе"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/glade/psensor.glade:10
+#: src/glade/psensor.glade:19 src/ui_sensorlist.c:209
 msgid "Preferences"
 msgstr "Параметры"
 
-#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
-msgid "Quit"
-msgstr "Выход"
-
-#: src/glade/psensor.glade:17
+#: src/glade/psensor.glade:14 src/glade/psensor.glade:15
+#: src/glade/psensor.glade:27
 msgid "Sensor Preferences"
 msgstr "Параметры датчиков"
 
-#: src/glade/psensor.glade:96
+#: src/glade/psensor.glade:23
+msgid "Quit"
+msgstr "Выход"
+
+#: src/glade/psensor.glade:31
+msgid "Show"
+msgstr "Показать"
+
+#: src/glade/psensor.glade:180
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - монитор температуры"
 
-#: src/glade/psensor.glade:111
+#: src/glade/psensor.glade:195
 msgid "_Psensor"
 msgstr ""
 
-#: src/glade/psensor.glade:158
+#: src/glade/psensor.glade:242
 msgid "_Help"
 msgstr "_Справка"
 
@@ -580,39 +586,6 @@ msgstr "Макс."
 msgid "Color"
 msgstr "Цвет"
 
-#: src/ui_appindicator.c:106
-msgid "_Show"
-msgstr "_Показать"
-
-#: src/ui_appindicator.c:107
-msgid "Show"
-msgstr "Показать"
-
-#: src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Параметры"
-
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "Параметры д_атчика"
-
-#: src/ui_appindicator.c:118
-msgid "SensorPreferences"
-msgstr ""
-
-#: src/ui_appindicator.c:122
-msgid "_About"
-msgstr "_О программе"
-
-#: src/ui_appindicator.c:129
-msgid "_Quit"
-msgstr "_Выход"
-
-#: src/ui_appindicator.c:220
-#, c-format
-msgid "building menus failed: %s"
-msgstr "не удалось создать меню: %s"
-
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
 msgstr "ошибка gettimeofday."
@@ -628,3 +601,21 @@ msgstr "Уведомление вентилятора"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr ""
+
+#~ msgid "_Show"
+#~ msgstr "_Показать"
+
+#~ msgid "_Preferences"
+#~ msgstr "_Параметры"
+
+#~ msgid "S_ensor Preferences"
+#~ msgstr "Параметры д_атчика"
+
+#~ msgid "_About"
+#~ msgstr "_О программе"
+
+#~ msgid "_Quit"
+#~ msgstr "_Выход"
+
+#~ msgid "building menus failed: %s"
+#~ msgstr "не удалось создать меню: %s"

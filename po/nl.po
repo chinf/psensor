@@ -6,42 +6,49 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-02-12 09:01+0100\n"
+"Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
+"POT-Creation-Date: 2014-04-10 08:17+0200\n"
 "PO-Revision-Date: 2014-04-07 08:50+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-04-09 22:52+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 
-#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+#: src/glade/psensor.glade:5
 msgid "About"
 msgstr "Over"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/glade/psensor.glade:10
+#: src/glade/psensor.glade:19 src/ui_sensorlist.c:209
 msgid "Preferences"
 msgstr "Voorkeuren"
 
-#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
-msgid "Quit"
-msgstr "Afsluiten"
-
-#: src/glade/psensor.glade:17
+#: src/glade/psensor.glade:14 src/glade/psensor.glade:15
+#: src/glade/psensor.glade:27
 msgid "Sensor Preferences"
 msgstr "Sensorvoorkeuren"
 
-#: src/glade/psensor.glade:96
+#: src/glade/psensor.glade:23
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: src/glade/psensor.glade:31
+msgid "Show"
+msgstr "Tonen"
+
+#: src/glade/psensor.glade:180
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Temperatuurbewaker"
 
-#: src/glade/psensor.glade:111
+#: src/glade/psensor.glade:195
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:158
+#: src/glade/psensor.glade:242
 msgid "_Help"
 msgstr "_Hulp"
 
@@ -453,8 +460,8 @@ msgstr "<html><body><p>Stilzetting van server verzocht</p></body></html>"
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
-"<html><body><p>Pagina niet gevonden - ga naar <a "
-"href='/'>Hoofdpagina</a></p></body>"
+"<html><body><p>Pagina niet gevonden - ga naar <a href='/'>Hoofdpagina</a></"
+"p></body>"
 
 #: src/server/server.c:84
 #, c-format
@@ -553,8 +560,7 @@ msgstr "Kon logboeken bijhouden niet inschakelen voor sensoren."
 
 #: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr ""
-"Psensor is een GTK+ toepassing voor het bewaken van apparatuursensoren"
+msgstr "Psensor is een GTK+ toepassing voor het bewaken van apparatuursensoren"
 
 #: src/ui.c:87
 msgid ""
@@ -600,39 +606,6 @@ msgstr "Max"
 msgid "Color"
 msgstr "Kleur"
 
-#: src/ui_appindicator.c:106
-msgid "_Show"
-msgstr "_Tonen"
-
-#: src/ui_appindicator.c:107
-msgid "Show"
-msgstr "Tonen"
-
-#: src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Voorkeuren"
-
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "Sensorvoorkeuren"
-
-#: src/ui_appindicator.c:118
-msgid "SensorPreferences"
-msgstr "Sensorvoorkeuren"
-
-#: src/ui_appindicator.c:122
-msgid "_About"
-msgstr "_Over"
-
-#: src/ui_appindicator.c:129
-msgid "_Quit"
-msgstr "_Afsluiten"
-
-#: src/ui_appindicator.c:220
-#, c-format
-msgid "building menus failed: %s"
-msgstr "opbouwen van menu's is mislukt: %s"
-
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
 msgstr "gettimeofday (tijdbepaling) is mislukt."
@@ -648,3 +621,24 @@ msgstr "Ventilatorwaarschuwing"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Onbekend"
+
+#~ msgid "_Show"
+#~ msgstr "_Tonen"
+
+#~ msgid "_Preferences"
+#~ msgstr "_Voorkeuren"
+
+#~ msgid "S_ensor Preferences"
+#~ msgstr "Sensorvoorkeuren"
+
+#~ msgid "SensorPreferences"
+#~ msgstr "Sensorvoorkeuren"
+
+#~ msgid "_About"
+#~ msgstr "_Over"
+
+#~ msgid "_Quit"
+#~ msgstr "_Afsluiten"
+
+#~ msgid "building menus failed: %s"
+#~ msgstr "opbouwen van menu's is mislukt: %s"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-02-12 09:01+0100\n"
+"POT-Creation-Date: 2014-04-10 08:17+0200\n"
 "PO-Revision-Date: 2013-05-12 22:16+0000\n"
 "Last-Translator: Javier <buik8roadmaster@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -18,31 +18,37 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-10-18 06:32+0000\n"
 "X-Generator: Launchpad (build 16799)\n"
 
-#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+#: src/glade/psensor.glade:5
 msgid "About"
 msgstr "Acerca de"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/glade/psensor.glade:10
+#: src/glade/psensor.glade:19 src/ui_sensorlist.c:209
 msgid "Preferences"
 msgstr "Ajustes"
 
-#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
-msgid "Quit"
-msgstr "Salir"
-
-#: src/glade/psensor.glade:17
+#: src/glade/psensor.glade:14 src/glade/psensor.glade:15
+#: src/glade/psensor.glade:27
 msgid "Sensor Preferences"
 msgstr "Ajustes de los Sensores"
 
-#: src/glade/psensor.glade:96
+#: src/glade/psensor.glade:23
+msgid "Quit"
+msgstr "Salir"
+
+#: src/glade/psensor.glade:31
+msgid "Show"
+msgstr "Mostrar"
+
+#: src/glade/psensor.glade:180
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor de temperatura"
 
-#: src/glade/psensor.glade:111
+#: src/glade/psensor.glade:195
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:158
+#: src/glade/psensor.glade:242
 msgid "_Help"
 msgstr "_Ayuda"
 
@@ -601,39 +607,6 @@ msgstr "Máx"
 msgid "Color"
 msgstr "Color"
 
-#: src/ui_appindicator.c:106
-msgid "_Show"
-msgstr "_Mostrar"
-
-#: src/ui_appindicator.c:107
-msgid "Show"
-msgstr "Mostrar"
-
-#: src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Ajustes"
-
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "Ajust_es del sensores"
-
-#: src/ui_appindicator.c:118
-msgid "SensorPreferences"
-msgstr "Ajustes del sensor"
-
-#: src/ui_appindicator.c:122
-msgid "_About"
-msgstr "_Acerca de"
-
-#: src/ui_appindicator.c:129
-msgid "_Quit"
-msgstr "_Salir"
-
-#: src/ui_appindicator.c:220
-#, c-format
-msgid "building menus failed: %s"
-msgstr "Error al construir los menús :%s"
-
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
 msgstr "Error en la adquisición del horario."
@@ -649,6 +622,27 @@ msgstr "Alarma por parada de ventilador."
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Desconocido"
+
+#~ msgid "_Show"
+#~ msgstr "_Mostrar"
+
+#~ msgid "_Preferences"
+#~ msgstr "_Ajustes"
+
+#~ msgid "S_ensor Preferences"
+#~ msgstr "Ajust_es del sensores"
+
+#~ msgid "SensorPreferences"
+#~ msgstr "Ajustes del sensor"
+
+#~ msgid "_About"
+#~ msgstr "_Acerca de"
+
+#~ msgid "_Quit"
+#~ msgstr "_Salir"
+
+#~ msgid "building menus failed: %s"
+#~ msgstr "Error al construir los menús :%s"
 
 #~ msgid ""
 #~ "Copyright(c) 2010-2012\n"

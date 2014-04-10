@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-02-12 09:01+0100\n"
+"POT-Creation-Date: 2014-04-10 08:17+0200\n"
 "PO-Revision-Date: 2013-11-24 08:42+0000\n"
 "Last-Translator: İbrahim Çelik <ibrahimcelik89@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -18,31 +18,37 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
 "X-Generator: Launchpad (build 16916)\n"
 
-#: src/glade/psensor.glade:5 src/ui_appindicator.c:124
+#: src/glade/psensor.glade:5
 msgid "About"
 msgstr "Hakkında"
 
-#: src/glade/psensor.glade:9 src/ui_sensorlist.c:209 src/ui_appindicator.c:112
+#: src/glade/psensor.glade:9 src/glade/psensor.glade:10
+#: src/glade/psensor.glade:19 src/ui_sensorlist.c:209
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/glade/psensor.glade:13 src/ui_appindicator.c:130
-msgid "Quit"
-msgstr "Çıkış"
-
-#: src/glade/psensor.glade:17
+#: src/glade/psensor.glade:14 src/glade/psensor.glade:15
+#: src/glade/psensor.glade:27
 msgid "Sensor Preferences"
 msgstr "Algılayıcı Tercihleri"
 
-#: src/glade/psensor.glade:96
+#: src/glade/psensor.glade:23
+msgid "Quit"
+msgstr "Çıkış"
+
+#: src/glade/psensor.glade:31
+msgid "Show"
+msgstr "Göster"
+
+#: src/glade/psensor.glade:180
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Sıcaklık Gözlemleyici"
 
-#: src/glade/psensor.glade:111
+#: src/glade/psensor.glade:195
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:158
+#: src/glade/psensor.glade:242
 msgid "_Help"
 msgstr "_Yardım"
 
@@ -600,39 +606,6 @@ msgstr "Azami"
 msgid "Color"
 msgstr "Renk"
 
-#: src/ui_appindicator.c:106
-msgid "_Show"
-msgstr "_Göster"
-
-#: src/ui_appindicator.c:107
-msgid "Show"
-msgstr "Göster"
-
-#: src/ui_appindicator.c:111
-msgid "_Preferences"
-msgstr "_Tercihler"
-
-#: src/ui_appindicator.c:116
-msgid "S_ensor Preferences"
-msgstr "A_lgılayıcı Tercihleri"
-
-#: src/ui_appindicator.c:118
-msgid "SensorPreferences"
-msgstr "AlgılayıcıTercihleri"
-
-#: src/ui_appindicator.c:122
-msgid "_About"
-msgstr "_Hakkında"
-
-#: src/ui_appindicator.c:129
-msgid "_Quit"
-msgstr "_Çıkış"
-
-#: src/ui_appindicator.c:220
-#, c-format
-msgid "building menus failed: %s"
-msgstr "menüler inşaa edilemedi: %s"
-
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
 msgstr "gettimeofday başarısız."
@@ -648,3 +621,24 @@ msgstr "Fan uyarısı"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Bilinmeyen"
+
+#~ msgid "_Show"
+#~ msgstr "_Göster"
+
+#~ msgid "_Preferences"
+#~ msgstr "_Tercihler"
+
+#~ msgid "S_ensor Preferences"
+#~ msgstr "A_lgılayıcı Tercihleri"
+
+#~ msgid "SensorPreferences"
+#~ msgstr "AlgılayıcıTercihleri"
+
+#~ msgid "_About"
+#~ msgstr "_Hakkında"
+
+#~ msgid "_Quit"
+#~ msgstr "_Çıkış"
+
+#~ msgid "building menus failed: %s"
+#~ msgstr "menüler inşaa edilemedi: %s"
