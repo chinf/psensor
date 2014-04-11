@@ -1,29 +1,33 @@
 Source: psensor
 Section: utils
 Priority: extra
-Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
-Build-Depends: asciidoc
-	       autoconf,
-               automake,
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+XSBC-Original-Maintainer: Jean-Philippe Orsini <jeanfi@gmail.com>
+Build-Depends: asciidoc,
+               autoconf,
+               automake1.11,
                autopoint,
+	           autotools-dev,
+               cppcheck,
                debhelper (>= 9),
-	       cppcheck
                gettext,
                help2man,
                libappindicator3-dev,
-	       libatasmart-dev,
+               libatasmart-dev [!hurd-any !kfreebsd-any],
                libcurl4-gnutls-dev,
                libgconf2-dev,
                libgtk-3-dev,
                libgtop2-dev,
-               libjson0-dev,
+               libjson-c-dev,
                libmicrohttpd-dev,
                libnotify-dev,
                libsensors4-dev,
                libunity-dev,
-               nvidia-settings,
+               nvidia-settings [i386 amd64],
                perl
-Standards-Version: 3.9.3
+Standards-Version: 3.9.4
+Vcs-Browser: http://wpitchoune.net/svnpub/packages/ubuntu/psensor/trunk
+Vcs-Svn: http://wpitchoune.net/svnpub/packages/ubuntu/psensor/trunk
 Homepage: http://wpitchoune.net/psensor
 
 Package: psensor
@@ -42,7 +46,7 @@ Description: display graphs for monitoring hardware temperature
  It can monitor:
   * the temperature of the motherboard and CPU sensors (using lm-sensors).
   * the temperature of the NVidia GPUs (using XNVCtrl).
-  * the temperature of the Hard Disk Drives (using hddtemp).
+  * the temperature of the Hard Disk Drives (using hddtemp or atasmart lib).
   * the rotation speed of the fans (using lm-sensors).
   * the sensors of a remote computer (using psensor-server).
  .
@@ -73,5 +77,9 @@ Package: psensor-common
 Architecture: all
 Depends: ${misc:Depends}
 Description: common files for Psensor and Psensor server
- It contains languages packs for both Psensor and Psensor server.
+ It contains:
+  * the languages packs,
+  * the README,
+  * and the FAQ.
+ This package is required by psensor and psensor-server packages.
  .
