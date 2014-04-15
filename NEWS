@@ -1,6 +1,15 @@
 Psensor NEWS
 ============
 
+v0.8.0.6
+--------
+
+* Updated jquery and jqplot to last version.
+* Removed excanvas for copyright reason (apache license not compatible
+  with GPLv2 license).
+* Use non-minimized version of .js and .css to avoid lintian errors
+  (source-is-missing).
+
 v0.8.0.5
 --------
 
