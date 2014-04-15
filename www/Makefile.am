@@ -2,7 +2,6 @@ defaultwwwdir = $(pkgdatadir)/www
 defaultwww_DATA = \
 	details.html \
 	index.html \
-        excanvas.js \
 	favicon.ico \
 	psensor.js \
 	jqplot.dateAxisRenderer.js \
