@@ -1,13 +1,13 @@
 defaultwwwdir = $(pkgdatadir)/www
 defaultwww_DATA = \
 	details.html \
-	index.html \
 	favicon.ico \
-	psensor.js \
-	jqplot.dateAxisRenderer.js \
+	index.html \
 	jqplot.css \
+	jqplot.dateAxisRenderer.js \
 	jqplot.js \
 	jquery.js \
+	psensor.js \
 	style.css 
 
 EXTRA_DIST=$(defaultwww_DATA)
