@@ -175,11 +175,20 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention)
 {
 	AppIndicatorStatus status;
+	char *label;
+	double v;
 
 	if (!indicator)
 		return;
 
 	status = app_indicator_get_status(indicator);
+
+	v = psensor_get_max_current_value(ui->sensors, SENSOR_TYPE_TEMP);
+	if (v != UNKNOWN_DBL_VALUE) {
+		label = psensor_value_to_str(SENSOR_TYPE_TEMP, v, 1);
+		app_indicator_set_label(indicator, label, NULL);
+		free(label);
+	}
 
 	if (!attention && status == APP_INDICATOR_STATUS_ATTENTION)
 		app_indicator_set_status(indicator,
