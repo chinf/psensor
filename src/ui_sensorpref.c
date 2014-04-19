@@ -44,6 +44,7 @@ struct sensor_pref {
 	int alarm_high_threshold;
 	int alarm_low_threshold;
 	unsigned int appindicator_enabled;
+	unsigned int appindicator_label_enabled;
 };
 
 struct cb_data {
@@ -75,6 +76,8 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 	}
 
 	p->appindicator_enabled = s->appindicator_enabled;
+	p->appindicator_label_enabled
+		= config_is_appindicator_label_enabled(s->id);
 
 	return p;
 }
@@ -106,7 +109,7 @@ static struct sensor_pref *get_selected_sensor_pref(GtkTreeView *tree)
 	return pref;
 }
 
-static void on_name_changed(GtkEntry *entry, gpointer data)
+void ui_sensorpref_name_changed_cb(GtkEntry *entry, gpointer data)
 {
 	struct sensor_pref *p;
 	const char *str;
@@ -121,7 +124,7 @@ static void on_name_changed(GtkEntry *entry, gpointer data)
 	}
 }
 
-static void on_drawed_toggled(GtkToggleButton *btn, gpointer data)
+void ui_sensorpref_draw_toggled_cb(GtkToggleButton *btn, gpointer data)
 {
 	struct sensor_pref *p;
 
@@ -131,7 +134,7 @@ static void on_drawed_toggled(GtkToggleButton *btn, gpointer data)
 		p->enabled = gtk_toggle_button_get_active(btn);
 }
 
-static void on_alarm_toggled(GtkToggleButton *btn, gpointer data)
+void ui_sensorpref_alarm_toggled_cb(GtkToggleButton *btn, gpointer data)
 {
 	struct sensor_pref *p;
 
@@ -141,7 +144,8 @@ static void on_alarm_toggled(GtkToggleButton *btn, gpointer data)
 		p->alarm_enabled = gtk_toggle_button_get_active(btn);
 }
 
-static void on_appindicator_toggled(GtkToggleButton *btn, gpointer data)
+void
+ui_sensorpref_appindicator_menu_toggled_cb(GtkToggleButton *btn, gpointer data)
 {
 	struct sensor_pref *p;
 
@@ -151,7 +155,19 @@ static void on_appindicator_toggled(GtkToggleButton *btn, gpointer data)
 		p->appindicator_enabled = gtk_toggle_button_get_active(btn);
 }
 
-static void on_color_set(GtkColorButton *widget, gpointer data)
+void
+ui_sensorpref_appindicator_label_toggled_cb(GtkToggleButton *btn, gpointer data)
+{
+	struct sensor_pref *p;
+
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
+
+	if (p)
+		p->appindicator_label_enabled
+			= gtk_toggle_button_get_active(btn);
+}
+
+void ui_sensorpref_color_set_cb(GtkColorButton *widget, gpointer data)
 {
 	struct sensor_pref *p;
 	GdkColor color;
@@ -164,7 +180,8 @@ static void on_color_set(GtkColorButton *widget, gpointer data)
 	}
 }
 
-static void on_alarm_high_threshold_changed(GtkSpinButton *btn, gpointer data)
+void
+ui_sensorpref_alarm_high_threshold_changed_cb(GtkSpinButton *btn, gpointer data)
 {
 	struct sensor_pref *p;
 
@@ -174,7 +191,8 @@ static void on_alarm_high_threshold_changed(GtkSpinButton *btn, gpointer data)
 		p->alarm_high_threshold = gtk_spin_button_get_value(btn);
 }
 
-static void on_alarm_low_threshold_changed(GtkSpinButton *btn, gpointer data)
+void
+ui_sensorpref_alarm_low_threshold_changed_cb(GtkSpinButton *btn, gpointer data)
 {
 	struct sensor_pref *p;
 
@@ -184,46 +202,14 @@ static void on_alarm_low_threshold_changed(GtkSpinButton *btn, gpointer data)
 		p->alarm_low_threshold = gtk_spin_button_get_value(btn);
 }
 
-static void connect_signals(GtkBuilder *builder, GtkTreeView *tree)
-{
-	g_signal_connect(gtk_builder_get_object(builder, "sensor_name"),
-			 "changed", G_CALLBACK(on_name_changed), tree);
-
-	g_signal_connect(gtk_builder_get_object(builder, "sensor_draw"),
-			 "toggled", G_CALLBACK(on_drawed_toggled), tree);
-
-	g_signal_connect(gtk_builder_get_object(builder, "sensor_color"),
-			 "color-set", G_CALLBACK(on_color_set), tree);
-
-	g_signal_connect(gtk_builder_get_object(builder, "sensor_alarm"),
-			 "toggled", G_CALLBACK(on_alarm_toggled), tree);
-
-	g_signal_connect(gtk_builder_get_object(builder,
-						"sensor_alarm_high_threshold"),
-			 "value-changed",
-			 G_CALLBACK(on_alarm_high_threshold_changed),
-			 tree);
-
-	g_signal_connect(gtk_builder_get_object(builder,
-						"sensor_alarm_low_threshold"),
-			 "value-changed",
-			 G_CALLBACK(on_alarm_low_threshold_changed),
-			 tree);
-
-	g_signal_connect(gtk_builder_get_object(builder,
-						"indicator_checkbox"),
-			 "toggled",
-			 G_CALLBACK(on_appindicator_toggled),
-			 tree);
-}
-
 static void
 update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 {
 	GtkLabel *w_id, *w_type, *w_high_threshold_unit, *w_low_threshold_unit,
 		*w_chipname;
 	GtkEntry *w_name;
-	GtkToggleButton *w_draw, *w_alarm, *w_appindicator_enabled;
+	GtkToggleButton *w_draw, *w_alarm, *w_appindicator_enabled,
+		*w_appindicator_label_enabled;
 	GtkColorButton *w_color;
 	GtkSpinButton *w_high_threshold, *w_low_threshold;
 	GdkColor *color;
@@ -282,6 +268,9 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 
 	w_appindicator_enabled = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "indicator_checkbox"));
+	w_appindicator_label_enabled = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder, "indicator_label_checkbox"));
+
 
 	if (is_temp_type(s->type) || is_fan_type(s->type)) {
 		gtk_toggle_button_set_active(w_alarm, p->alarm_enabled);
@@ -303,6 +292,9 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 
 	gtk_toggle_button_set_active(w_appindicator_enabled,
 				     p->appindicator_enabled);
+
+	gtk_toggle_button_set_active(w_appindicator_label_enabled,
+				     p->appindicator_label_enabled);
 }
 
 static void on_changed(GtkTreeSelection *selection, gpointer data)
@@ -383,6 +375,9 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 		config_set_appindicator_enabled(s->id, s->appindicator_enabled);
 	}
 
+	config_set_appindicator_label_enabled(s->id,
+					      p->appindicator_label_enabled);
+
 	config_set_sensor_position(s->id, pos);
 }
 
@@ -440,7 +435,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	w_sensors_list
 		= GTK_TREE_VIEW(gtk_builder_get_object(builder,
 						       "sensors_list"));
-	connect_signals(builder, w_sensors_list);
+	gtk_builder_connect_signals(builder, w_sensors_list);
 
 	store = GTK_LIST_STORE(gtk_builder_get_object(builder,
 						      "sensors_liststore"));

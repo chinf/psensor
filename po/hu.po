@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-10 08:17+0200\n"
+"POT-Creation-Date: 2014-04-19 10:21+0200\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -89,6 +89,14 @@ msgstr "Ablak pozíciójának és méretének visszaállítása"
 msgid "Temperature unit:"
 msgstr "Hőmérséklet mértékegysége:"
 
+#: src/glade/psensor-pref.glade:201
+msgid "Celcius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:202
+msgid "Fahrenheit"
+msgstr ""
+
 #: src/glade/psensor-pref.glade:238
 msgid "Interface"
 msgstr "Felület"
@@ -166,6 +174,23 @@ msgstr ""
 msgid "Sensors"
 msgstr "Érzékelők"
 
+#: src/glade/psensor-pref.glade:797
+msgctxt "psensor"
+msgid "Right"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:800
+msgid "Left"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:803
+msgid "Top"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:806
+msgid "Bottom"
+msgstr ""
+
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
 msgstr "Érzékelő beállításainak szerkesztése"
@@ -213,11 +238,13 @@ msgid "Low threshold:"
 msgstr "Alsó küszöbérték:"
 
 #: src/glade/sensor-edit.glade:409
-msgid "Ubuntu Application Indicator"
+#, fuzzy
+msgid "Application Indicator"
 msgstr "Ubuntu Alkalmazásmenü"
 
 #: src/glade/sensor-edit.glade:424
-msgid "Display sensor in the Application Indicator menu"
+#, fuzzy
+msgid "Display sensor in the menu"
 msgstr "Érzékelők megjelenítése az alkalmazásmenüben"
 
 #: src/glade/sensor-edit.glade:444
@@ -235,6 +262,11 @@ msgstr "Részletek"
 #: src/glade/sensor-edit.glade:541
 msgid "Name:"
 msgstr "Név:"
+
+#: src/glade/sensor-edit.glade:553
+#, fuzzy
+msgid "Display sensor in the label"
+msgstr "Érzékelők megjelenítése az alkalmazásmenüben"
 
 #: src/lib/amd.c:170
 msgid "AMD: cannot found ADL library."

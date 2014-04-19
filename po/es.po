@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-10 08:17+0200\n"
+"POT-Creation-Date: 2014-04-19 10:21+0200\n"
 "PO-Revision-Date: 2013-05-12 22:16+0000\n"
 "Last-Translator: Javier <buik8roadmaster@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -88,6 +88,14 @@ msgstr "Restaurar tamaño y posición de la ventana"
 msgid "Temperature unit:"
 msgstr "Unidad de temperatura"
 
+#: src/glade/psensor-pref.glade:201
+msgid "Celcius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:202
+msgid "Fahrenheit"
+msgstr ""
+
 #: src/glade/psensor-pref.glade:238
 msgid "Interface"
 msgstr "Interfaz"
@@ -165,6 +173,24 @@ msgstr ""
 msgid "Sensors"
 msgstr "Sensores"
 
+#: src/glade/psensor-pref.glade:797
+#, fuzzy
+msgctxt "psensor"
+msgid "Right"
+msgstr "Derecha"
+
+#: src/glade/psensor-pref.glade:800
+msgid "Left"
+msgstr "Izquierda"
+
+#: src/glade/psensor-pref.glade:803
+msgid "Top"
+msgstr "Arriba"
+
+#: src/glade/psensor-pref.glade:806
+msgid "Bottom"
+msgstr "Abajo"
+
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
 msgstr "Editar Ajustes Sensores"
@@ -212,11 +238,13 @@ msgid "Low threshold:"
 msgstr "Límite inferior"
 
 #: src/glade/sensor-edit.glade:409
-msgid "Ubuntu Application Indicator"
+#, fuzzy
+msgid "Application Indicator"
 msgstr "Indicador de aplicación de Ubuntu"
 
 #: src/glade/sensor-edit.glade:424
-msgid "Display sensor in the Application Indicator menu"
+#, fuzzy
+msgid "Display sensor in the menu"
 msgstr "Mostrar sensor en el menú de aplicaciones"
 
 #: src/glade/sensor-edit.glade:444
@@ -234,6 +262,11 @@ msgstr "Detalles"
 #: src/glade/sensor-edit.glade:541
 msgid "Name:"
 msgstr "Nombre:"
+
+#: src/glade/sensor-edit.glade:553
+#, fuzzy
+msgid "Display sensor in the label"
+msgstr "Mostrar sensor en el menú de aplicaciones"
 
 #: src/lib/amd.c:170
 msgid "AMD: cannot found ADL library."
@@ -673,17 +706,5 @@ msgstr "Desconocido"
 #~ msgid "Current"
 #~ msgstr "Actual"
 
-#~ msgid "Left"
-#~ msgstr "Izquierda"
-
-#~ msgid "Bottom"
-#~ msgstr "Abajo"
-
 #~ msgid "Temperature limit:"
 #~ msgstr "Límite de temperatura:"
-
-#~ msgid "Right"
-#~ msgstr "Derecha"
-
-#~ msgid "Top"
-#~ msgstr "Arriba"

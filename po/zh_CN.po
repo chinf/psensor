@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-10 08:17+0200\n"
+"POT-Creation-Date: 2014-04-19 10:21+0200\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -88,6 +88,14 @@ msgstr "恢复窗口位置和大小"
 msgid "Temperature unit:"
 msgstr "温度单位："
 
+#: src/glade/psensor-pref.glade:201
+msgid "Celcius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:202
+msgid "Fahrenheit"
+msgstr ""
+
 #: src/glade/psensor-pref.glade:238
 msgid "Interface"
 msgstr "界面"
@@ -165,6 +173,23 @@ msgstr ""
 msgid "Sensors"
 msgstr "传感器"
 
+#: src/glade/psensor-pref.glade:797
+msgctxt "psensor"
+msgid "Right"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:800
+msgid "Left"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:803
+msgid "Top"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:806
+msgid "Bottom"
+msgstr ""
+
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
 msgstr "编辑传感器首选项"
@@ -212,11 +237,13 @@ msgid "Low threshold:"
 msgstr "低阈值："
 
 #: src/glade/sensor-edit.glade:409
-msgid "Ubuntu Application Indicator"
+#, fuzzy
+msgid "Application Indicator"
 msgstr "Ubuntu 应用指示器"
 
 #: src/glade/sensor-edit.glade:424
-msgid "Display sensor in the Application Indicator menu"
+#, fuzzy
+msgid "Display sensor in the menu"
 msgstr "在应用指示器菜单中显示监视器"
 
 #: src/glade/sensor-edit.glade:444
@@ -234,6 +261,11 @@ msgstr "详情"
 #: src/glade/sensor-edit.glade:541
 msgid "Name:"
 msgstr "名称:"
+
+#: src/glade/sensor-edit.glade:553
+#, fuzzy
+msgid "Display sensor in the label"
+msgstr "在应用指示器菜单中显示监视器"
 
 #: src/lib/amd.c:170
 msgid "AMD: cannot found ADL library."

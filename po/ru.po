@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-10 08:17+0200\n"
+"POT-Creation-Date: 2014-04-19 10:21+0200\n"
 "PO-Revision-Date: 2014-01-27 16:37+0000\n"
 "Last-Translator: Dmitry <dmitri.s93@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -88,6 +88,14 @@ msgstr "Восстанавливать положение и размер окн
 msgid "Temperature unit:"
 msgstr "Единица измерения температуры:"
 
+#: src/glade/psensor-pref.glade:201
+msgid "Celcius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:202
+msgid "Fahrenheit"
+msgstr ""
+
 #: src/glade/psensor-pref.glade:238
 msgid "Interface"
 msgstr "Внешний вид"
@@ -165,6 +173,23 @@ msgstr ""
 msgid "Sensors"
 msgstr "Датчики"
 
+#: src/glade/psensor-pref.glade:797
+msgctxt "psensor"
+msgid "Right"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:800
+msgid "Left"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:803
+msgid "Top"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:806
+msgid "Bottom"
+msgstr ""
+
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
 msgstr "Изменить параметры датчика"
@@ -212,11 +237,13 @@ msgid "Low threshold:"
 msgstr "Нижний порог:"
 
 #: src/glade/sensor-edit.glade:409
-msgid "Ubuntu Application Indicator"
+#, fuzzy
+msgid "Application Indicator"
 msgstr "Индикатор приложения"
 
 #: src/glade/sensor-edit.glade:424
-msgid "Display sensor in the Application Indicator menu"
+#, fuzzy
+msgid "Display sensor in the menu"
 msgstr "Показать датчик в индикаторе меню приложений"
 
 #: src/glade/sensor-edit.glade:444
@@ -234,6 +261,11 @@ msgstr "Сведения"
 #: src/glade/sensor-edit.glade:541
 msgid "Name:"
 msgstr "Название:"
+
+#: src/glade/sensor-edit.glade:553
+#, fuzzy
+msgid "Display sensor in the label"
+msgstr "Показать датчик в индикаторе меню приложений"
 
 #: src/lib/amd.c:170
 msgid "AMD: cannot found ADL library."

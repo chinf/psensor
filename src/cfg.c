@@ -33,6 +33,9 @@ static const char *ATT_SENSOR_COLOR = "color";
 static const char *ATT_SENSOR_ENABLED = "enabled";
 static const char *ATT_SENSOR_NAME = "name";
 static const char *ATT_SENSOR_APPINDICATOR_DISABLED = "appindicator/disabled";
+static const char *ATT_SENSOR_APPINDICATOR_LABEL_ENABLED
+= "appindicator/menu/enabled";
+
 static const char *ATT_SENSOR_POSITION = "position";
 
 static const char *KEY_SENSOR_UPDATE_INTERVAL
@@ -431,6 +434,27 @@ void config_set_appindicator_enabled(const char *sid, bool enabled)
 
 	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_DISABLED);
 	gconf_client_set_bool(client, key, !enabled, NULL);
+	free(key);
+}
+
+bool config_is_appindicator_label_enabled(const char *sid)
+{
+	char *key;
+	gboolean b;
+
+	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_LABEL_ENABLED);
+	b = gconf_client_get_bool(client, key, NULL);
+	free(key);
+
+	return b;
+}
+
+void config_set_appindicator_label_enabled(const char *sid, bool enabled)
+{
+	char *key;
+
+	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_LABEL_ENABLED);
+	gconf_client_set_bool(client, key, enabled, NULL);
 	free(key);
 }
 

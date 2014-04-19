@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.1 -->
 <interface>
-  <!-- interface-requires gtk+ 3.0 -->
+  <requires lib="gtk+" version="3.0"/>
   <object class="GtkAdjustment" id="alarm_high_threshold_value">
     <property name="lower">-9999</property>
     <property name="upper">9999</property>
@@ -12,6 +13,14 @@
     <property name="upper">9999</property>
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
+  </object>
+  <object class="GtkListStore" id="sensors_liststore">
+    <columns>
+      <!-- column-name Name -->
+      <column type="gchararray"/>
+      <!-- column-name Sensor -->
+      <column type="gpointer"/>
+    </columns>
   </object>
   <object class="GtkDialog" id="dialog1">
     <property name="can_focus">False</property>
@@ -103,7 +112,7 @@
               <object class="GtkTable" id="table1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="n_rows">15</property>
+                <property name="n_rows">16</property>
                 <property name="n_columns">2</property>
                 <child>
                   <placeholder/>
@@ -116,9 +125,9 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
-                    <property name="invisible_char_set">True</property>
                     <property name="primary_icon_activatable">False</property>
                     <property name="secondary_icon_activatable">False</property>
+                    <signal name="changed" handler="ui_sensorpref_name_changed_cb" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -219,6 +228,7 @@
                     <property name="receives_default">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="ui_sensorpref_alarm_toggled_cb" swapped="no"/>
                   </object>
                   <packing>
                     <property name="right_attach">2</property>
@@ -252,6 +262,7 @@
                     <property name="receives_default">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="ui_sensorpref_draw_toggled_cb" swapped="no"/>
                   </object>
                   <packing>
                     <property name="right_attach">2</property>
@@ -270,7 +281,6 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
-                        <property name="invisible_char_set">True</property>
                         <property name="primary_icon_activatable">False</property>
                         <property name="secondary_icon_activatable">False</property>
                         <property name="adjustment">alarm_high_threshold_value</property>
@@ -278,6 +288,7 @@
                         <property name="snap_to_ticks">True</property>
                         <property name="numeric">True</property>
                         <property name="update_policy">if-valid</property>
+                        <signal name="value-changed" handler="ui_sensorpref_alarm_high_threshold_changed_cb" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -314,6 +325,7 @@
                     <property name="receives_default">True</property>
                     <property name="xalign">0</property>
                     <property name="color">#000000000000</property>
+                    <signal name="color-set" handler="ui_sensorpref_color_set_cb" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -364,7 +376,6 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
-                        <property name="invisible_char_set">True</property>
                         <property name="primary_icon_activatable">False</property>
                         <property name="secondary_icon_activatable">False</property>
                         <property name="adjustment">alarm_low_threshold_value</property>
@@ -372,6 +383,7 @@
                         <property name="snap_to_ticks">True</property>
                         <property name="numeric">True</property>
                         <property name="update_policy">if-valid</property>
+                        <signal name="value-changed" handler="ui_sensorpref_alarm_low_threshold_changed_cb" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -406,7 +418,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Ubuntu Application Indicator</property>
+                    <property name="label" translatable="yes">Application Indicator</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -421,12 +433,13 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="indicator_checkbox">
-                    <property name="label" translatable="yes">Display sensor in the Application Indicator menu</property>
+                    <property name="label" translatable="yes">Display sensor in the menu</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="ui_sensorpref_appindicator_menu_toggled_cb" swapped="no"/>
                   </object>
                   <packing>
                     <property name="right_attach">2</property>
@@ -548,6 +561,24 @@
                     <property name="y_padding">4</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkCheckButton" id="indicator_label_checkbox">
+                    <property name="label" translatable="yes">Display sensor in the label</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="receives_default">False</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="ui_sensorpref_appindicator_label_toggled_cb" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="right_attach">2</property>
+                    <property name="top_attach">15</property>
+                    <property name="bottom_attach">16</property>
+                    <property name="x_padding">14</property>
+                    <property name="y_padding">4</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="resize">True</property>
@@ -567,13 +598,5 @@
       <action-widget response="-3">btn_ok</action-widget>
       <action-widget response="0">btn_cancel</action-widget>
     </action-widgets>
-  </object>
-  <object class="GtkListStore" id="sensors_liststore">
-    <columns>
-      <!-- column-name Name -->
-      <column type="gchararray"/>
-      <!-- column-name Sensor -->
-      <column type="gpointer"/>
-    </columns>
   </object>
 </interface>

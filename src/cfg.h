@@ -109,6 +109,9 @@ void config_set_sensor_name(const char *, const char *);
 bool config_is_appindicator_enabled(const char *);
 void config_set_appindicator_enabled(const char *, bool);
 
+bool config_is_appindicator_label_enabled(const char *);
+void config_set_appindicator_label_enabled(const char *, bool);
+
 void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data);
 bool is_slog_enabled();
 

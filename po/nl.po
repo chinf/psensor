@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-10 08:17+0200\n"
+"POT-Creation-Date: 2014-04-19 10:21+0200\n"
 "PO-Revision-Date: 2014-04-07 08:50+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -88,6 +88,14 @@ msgstr "Vensterpositie en -grootte herstellen"
 msgid "Temperature unit:"
 msgstr "Temperatuureenheid:"
 
+#: src/glade/psensor-pref.glade:201
+msgid "Celcius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:202
+msgid "Fahrenheit"
+msgstr ""
+
 #: src/glade/psensor-pref.glade:238
 msgid "Interface"
 msgstr "Bedieningsschil"
@@ -165,6 +173,23 @@ msgstr "Script dat wordt uitgevoerd wanneer er een alarm plaatsvindt"
 msgid "Sensors"
 msgstr "Sensoren"
 
+#: src/glade/psensor-pref.glade:797
+msgctxt "psensor"
+msgid "Right"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:800
+msgid "Left"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:803
+msgid "Top"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:806
+msgid "Bottom"
+msgstr ""
+
 #: src/glade/sensor-edit.glade:19
 msgid "Edit Sensor Preferences"
 msgstr "Sensorvoorkeuren bewerken"
@@ -212,11 +237,13 @@ msgid "Low threshold:"
 msgstr "Drempel voor laag:"
 
 #: src/glade/sensor-edit.glade:409
-msgid "Ubuntu Application Indicator"
+#, fuzzy
+msgid "Application Indicator"
 msgstr "Ubuntu Toepassingsindicator"
 
 #: src/glade/sensor-edit.glade:424
-msgid "Display sensor in the Application Indicator menu"
+#, fuzzy
+msgid "Display sensor in the menu"
 msgstr "Sensor tonen in het menu van de Toepassingsindicator"
 
 #: src/glade/sensor-edit.glade:444
@@ -234,6 +261,11 @@ msgstr "Bijzonderheden"
 #: src/glade/sensor-edit.glade:541
 msgid "Name:"
 msgstr "Naam:"
+
+#: src/glade/sensor-edit.glade:553
+#, fuzzy
+msgid "Display sensor in the label"
+msgstr "Sensor tonen in het menu van de Toepassingsindicator"
 
 #: src/lib/amd.c:170
 msgid "AMD: cannot found ADL library."

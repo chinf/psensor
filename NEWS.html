@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
 <title>Psensor NEWS</title>
 <style type="text/css">
 
@@ -177,6 +177,8 @@ table {
     -webkit-box-shadow: 0 2px 2px 0 #C2C2C2;
     box-shadow: 0 2px 2px 0 #C2C2C2;
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -379,6 +381,47 @@ asciidoc.install();
 </div>
 <div id="content">
 <div class="sect1">
+<h2 id="_v0_8_0_7">v0.8.0.7</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+smaller and more consistent with ubuntu themes appindicator icons.
+</p>
+</li>
+<li>
+<p>
+sensors displayed directly in the top bar.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_v0_8_0_6">v0.8.0.6</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Updated jquery and jqplot to last version.
+</p>
+</li>
+<li>
+<p>
+Removed excanvas for copyright reason (apache license not compatible
+  with GPLv2 license).
+</p>
+</li>
+<li>
+<p>
+Use non-minimized version of .js and .css to avoid lintian errors
+  (source-is-missing).
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_v0_8_0_5">v0.8.0.5</h2>
 <div class="sectionbody">
 <div class="ulist"><ul>
@@ -394,7 +437,7 @@ Converted NEWS file to asciidoc.
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>:
+<code>psensor-server</code>:
 </p>
 <div class="ulist"><ul>
 <li>
@@ -518,7 +561,7 @@ Switched to GtkColorChooserDialog instead of the
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: fixed compilation without gtop2 lib.
+<code>psensor-server</code>: fixed compilation without gtop2 lib.
 </p>
 </li>
 </ul></div>
@@ -568,7 +611,7 @@ added support of sensors log interval.
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: protocole changes, API version incremented.
+<code>psensor-server</code>: protocole changes, API version incremented.
 </p>
 </li>
 <li>
@@ -688,7 +731,7 @@ psensor: added an option to enable logging of sensors
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: added sensors logging (--sensor-log-file).
+<code>psensor-server</code>: added sensors logging (--sensor-log-file).
 </p>
 </li>
 <li>
@@ -882,22 +925,22 @@ psensor: temperature unit choice (celcius/fahrenheit).
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: fixed --wdir option.
+<code>psensor-server</code>: fixed --wdir option.
 </p>
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: added log level to -d option.
+<code>psensor-server</code>: added log level to -d option.
 </p>
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: added --log-file option.
+<code>psensor-server</code>: added --log-file option.
 </p>
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: logged measures when log level is 3.
+<code>psensor-server</code>: logged measures when log level is 3.
 </p>
 </li>
 <li>
@@ -1087,7 +1130,7 @@ psensor: removed -pedantic and ignores deprecation warnings
 <div class="ulist"><ul>
 <li>
 <p>
-<tt>psensor-server</tt>: uses glibtop instead of <em>sysinfo</em> which is not
+<code>psensor-server</code>: uses glibtop instead of <em>sysinfo</em> which is not
    available on kfreebsd. It fixes Debian bug #650533.
 </p>
 </li>
@@ -1110,7 +1153,7 @@ psensor: inner space of the graph using the theme background color
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: fixed compilation with microhttpd &gt;=0x90200 and
+<code>psensor-server</code>: fixed compilation with microhttpd &gt;=0x90200 and
    64bits.
 </p>
 </li>
@@ -1122,7 +1165,7 @@ added some information in the README (mostly about compilation on
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: support of symbolic links to webfiles.
+<code>psensor-server</code>: support of symbolic links to webfiles.
 </p>
 </li>
 </ul></div>
@@ -1161,7 +1204,7 @@ psensor: fixed typo in french translation file.
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: fixed compilation with microhttpd &gt;= 0.9.2 (version
+<code>psensor-server</code>: fixed compilation with microhttpd &gt;= 0.9.2 (version
    used by Fedora15) which introduced incompatible API changes.
 </p>
 </li>
@@ -1289,13 +1332,13 @@ psensor: added X-GNOME-Autostart-Delay in .desktop file to
 <div class="ulist"><ul>
 <li>
 <p>
-<tt>psensor-server</tt>: added network, cpu load and memory information in
+<code>psensor-server</code>: added network, cpu load and memory information in
    JSON web interface.
 </p>
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: added monitor.html and details.html using jquery
+<code>psensor-server</code>: added monitor.html and details.html using jquery
    and retrieving monitoring data from the JSON web interface.
 </p>
 </li>
@@ -1311,7 +1354,7 @@ psensor: added support of CPU usage monitoring.
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: display graph of sensors (web server).
+<code>psensor-server</code>: display graph of sensors (web server).
 </p>
 </li>
 <li>
@@ -1423,7 +1466,7 @@ psensor: escaped - in manpage.
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: escaped - in manpage.
+<code>psensor-server</code>: escaped - in manpage.
 </p>
 </li>
 <li>
@@ -1607,12 +1650,12 @@ psensor: the value of the first detected sensor is displayed in the
 <div class="ulist"><ul>
 <li>
 <p>
-<tt>psensor-server</tt>: new global variable <em>psensor_version</em> for lua template
+<code>psensor-server</code>: new global variable <em>psensor_version</em> for lua template
 </p>
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: /index.html replaced by /index.lua
+<code>psensor-server</code>: /index.html replaced by /index.lua
 </p>
 </li>
 <li>
@@ -1629,22 +1672,22 @@ avoid useless lib linkage by using --as-needed
 <div class="ulist"><ul>
 <li>
 <p>
-<tt>psensor-server</tt>: web server support binary files
+<code>psensor-server</code>: web server support binary files
 </p>
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: added favicon.ico
+<code>psensor-server</code>: added favicon.ico
 </p>
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: moved index.lua to monitor.lua
+<code>psensor-server</code>: moved index.lua to monitor.lua
 </p>
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: added index.html (welcome page)
+<code>psensor-server</code>: added index.html (welcome page)
 </p>
 </li>
 </ul></div>
@@ -1763,7 +1806,7 @@ psensor: escaped - in manpage
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>: escaped - in manpage
+<code>psensor-server</code>: escaped - in manpage
 </p>
 </li>
 </ul></div>
@@ -1969,7 +2012,7 @@ added Simplified Chinese Language (from DaBao &lt;<a href="mailto:linux.dabao@gm
 </li>
 <li>
 <p>
-<tt>psensor-server</tt>:
+<code>psensor-server</code>:
 </p>
 <div class="ulist"><ul>
 <li>
@@ -2474,7 +2517,7 @@ Fixed BR1: crash when no temperature sensor is available
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-04-10 08:44:57 CEST
+Last updated 2014-04-19 11:17:37 CEST
 </div>
 </div>
 </body>
