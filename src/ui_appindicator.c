@@ -187,7 +187,8 @@ void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention)
 	label = NULL;
 	while (*p) {
 		if (config_is_appindicator_label_enabled((*p)->id)) {
-			str = psensor_current_value_to_str(*p, 1);
+			str = psensor_current_value_to_str
+				(*p, ui->config->temperature_unit == CELCIUS);
 			if (label == NULL) {
 				label = str;
 			} else {
