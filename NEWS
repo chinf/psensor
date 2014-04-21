@@ -6,6 +6,8 @@ v0.8.0.7
 
 * smaller and more consistent with ubuntu themes appindicator icons.
 * sensors displayed directly in the top bar.
+* improved status icon in hicolor theme to fit well with white
+  background. (LP: #1310323).
 
 v0.8.0.6
 --------
