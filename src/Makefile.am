@@ -10,7 +10,9 @@ endif
 endif
 
 # -no-deprecated-declarations to avoid some glib deprecation warnings
-AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
+AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \
+	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
+	-DDATADIR=\""$(datadir)"\"\
 	-I$(top_srcdir)/src/lib \
 	-I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS)\
@@ -49,7 +51,8 @@ psensor_SOURCES = \
 	ui_pref.h ui_pref.c \
 	ui_sensorlist.h ui_sensorlist.c \
 	ui_sensorpref.h ui_sensorpref.c \
-	ui_status.h ui_status.c
+	ui_status.h ui_status.c \
+	pxdg.h pxdg.c
 
 if GTOP
 AM_CPPFLAGS += $(GTOP_CFLAGS)
