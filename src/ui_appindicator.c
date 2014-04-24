@@ -220,8 +220,6 @@ static void update_label(struct ui_psensor *ui)
 		}
 		p++;
 	}
-	printf("%s\n", label);
-	printf("%s\n", guide);
 
 	app_indicator_set_label(indicator, label, guide);
 }
