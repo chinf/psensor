@@ -29,8 +29,8 @@
 #include <sys/time.h>
 #include <time.h>
 
-#include "log.h"
-#include "ptime.h"
+#include <plog.h>
+#include <ptime.h>
 
 static FILE *file;
 int log_level =  LOG_WARN;
@@ -55,7 +55,7 @@ void log_close()
 
 
 #define LOG_BUFFER 4096
-static void vlogf(int lvl, const char *fmt, va_list ap)
+static void vlogf(int lvl, const char *fct, const char *fmt, va_list ap)
 {
 	char buffer[1 + LOG_BUFFER];
 	char *lvl_str, *t;
@@ -84,12 +84,16 @@ static void vlogf(int lvl, const char *fmt, va_list ap)
 		lvl_str = "[??]";
 	}
 
-	t = get_time_str();
+	t = get_current_ISO8601_time();
 	if (!t)
 		return ;
 
 	if (file && lvl <= log_level) {
-		fprintf(file, "[%s] %s %s\n", t, lvl_str, buffer);
+		if (fct)
+			fprintf(file,
+				"[%s] %s %s(): %s\n", t, lvl_str, fct, buffer);
+		else
+			fprintf(file, "[%s] %s %s\n", t, lvl_str, buffer);
 		fflush(file);
 	} else {
 		t = NULL;
@@ -101,8 +105,11 @@ static void vlogf(int lvl, const char *fmt, va_list ap)
 		else
 			stdf = stdout;
 
-
-		fprintf(stdf, "[%s] %s %s\n", t, lvl_str, buffer);
+		if (fct)
+			fprintf(file,
+				"[%s] %s %s(): %s\n", t, lvl_str, fct, buffer);
+		else
+			fprintf(stdf, "[%s] %s %s\n", t, lvl_str, buffer);
 	}
 
 	free(t);
@@ -113,7 +120,7 @@ void log_printf(int lvl, const char *fmt, ...)
 	va_list ap;
 
 	va_start(ap, fmt);
-	vlogf(lvl, fmt, ap);
+	vlogf(lvl, NULL, fmt, ap);
 	va_end(ap);
 }
 
@@ -125,7 +132,7 @@ void log_debug(const char *fmt, ...)
 		return ;
 
 	va_start(ap, fmt);
-	vlogf(LOG_DEBUG, fmt, ap);
+	vlogf(LOG_DEBUG, NULL, fmt, ap);
 	va_end(ap);
 }
 
@@ -134,7 +141,7 @@ void log_err(const char *fmt, ...)
 	va_list ap;
 
 	va_start(ap, fmt);
-	vlogf(LOG_ERR, fmt, ap);
+	vlogf(LOG_ERR, NULL, fmt, ap);
 	va_end(ap);
 }
 
@@ -143,7 +150,7 @@ void log_warn(const char *fmt, ...)
 	va_list ap;
 
 	va_start(ap, fmt);
-	vlogf(LOG_WARN, fmt, ap);
+	vlogf(LOG_WARN, NULL, fmt, ap);
 	va_end(ap);
 }
 
@@ -152,6 +159,15 @@ void log_info(const char *fmt, ...)
 	va_list ap;
 
 	va_start(ap, fmt);
-	vlogf(LOG_INFO, fmt, ap);
+	vlogf(LOG_INFO, NULL, fmt, ap);
+	va_end(ap);
+}
+
+void _log(const char *fct, const char *fmt, ...)
+{
+	va_list ap;
+
+	va_start(ap, fmt);
+	vlogf(LOG_DEBUG, fct, fmt, ap);
 	va_end(ap);
 }

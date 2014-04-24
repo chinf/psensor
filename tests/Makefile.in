@@ -73,16 +73,21 @@ CONFIG_CLEAN_VPATH_FILES =
 am_test_io_dir_list_OBJECTS = test_io_dir_list.$(OBJEXT)
 test_io_dir_list_OBJECTS = $(am_test_io_dir_list_OBJECTS)
 test_io_dir_list_LDADD = $(LDADD)
-am_test_psensor_type_to_unit_str_OBJECTS =  \
-	test_psensor_type_to_unit_str.$(OBJEXT)
+am_test_psensor_type_to_unit_str_OBJECTS = test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.$(OBJEXT)
 test_psensor_type_to_unit_str_OBJECTS =  \
 	$(am_test_psensor_type_to_unit_str_OBJECTS)
 test_psensor_type_to_unit_str_LDADD = $(LDADD)
+test_psensor_type_to_unit_str_LINK = $(CCLD) \
+	$(test_psensor_type_to_unit_str_CFLAGS) $(CFLAGS) \
+	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 am_test_psensor_value_to_str_OBJECTS =  \
-	test_psensor_value_to_str.$(OBJEXT)
+	test_psensor_value_to_str-test_psensor_value_to_str.$(OBJEXT)
 test_psensor_value_to_str_OBJECTS =  \
 	$(am_test_psensor_value_to_str_OBJECTS)
 test_psensor_value_to_str_LDADD = $(LDADD)
+test_psensor_value_to_str_LINK = $(CCLD) \
+	$(test_psensor_value_to_str_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 am_test_url_encode_OBJECTS = test_url_encode.$(OBJEXT)
 test_url_encode_OBJECTS = $(am_test_url_encode_OBJECTS)
 test_url_encode_LDADD = $(LDADD)
@@ -276,7 +281,9 @@ EXTRA_DIST = checkpatch.pl \
 AM_CPPFLAGS = -Wall -Werror
 test_io_dir_list_SOURCES = test_io_dir_list.c
 test_psensor_type_to_unit_str_SOURCES = test_psensor_type_to_unit_str.c
+test_psensor_type_to_unit_str_CFLAGS = -I$(top_srcdir)/src/lib
 test_psensor_value_to_str_SOURCES = test_psensor_value_to_str.c
+test_psensor_value_to_str_CFLAGS = -I$(top_srcdir)/src/lib
 test_url_encode_SOURCES = test_url_encode.c
 test_url_normalize_SOURCES = test_url_normalize.c
 all: all-am
@@ -321,10 +328,10 @@ test-io-dir-list$(EXEEXT): $(test_io_dir_list_OBJECTS) $(test_io_dir_list_DEPEND
 	$(LINK) $(test_io_dir_list_OBJECTS) $(test_io_dir_list_LDADD) $(LIBS)
 test-psensor-type-to-unit-str$(EXEEXT): $(test_psensor_type_to_unit_str_OBJECTS) $(test_psensor_type_to_unit_str_DEPENDENCIES) $(EXTRA_test_psensor_type_to_unit_str_DEPENDENCIES) 
 	@rm -f test-psensor-type-to-unit-str$(EXEEXT)
-	$(LINK) $(test_psensor_type_to_unit_str_OBJECTS) $(test_psensor_type_to_unit_str_LDADD) $(LIBS)
+	$(test_psensor_type_to_unit_str_LINK) $(test_psensor_type_to_unit_str_OBJECTS) $(test_psensor_type_to_unit_str_LDADD) $(LIBS)
 test-psensor-value-to-str$(EXEEXT): $(test_psensor_value_to_str_OBJECTS) $(test_psensor_value_to_str_DEPENDENCIES) $(EXTRA_test_psensor_value_to_str_DEPENDENCIES) 
 	@rm -f test-psensor-value-to-str$(EXEEXT)
-	$(LINK) $(test_psensor_value_to_str_OBJECTS) $(test_psensor_value_to_str_LDADD) $(LIBS)
+	$(test_psensor_value_to_str_LINK) $(test_psensor_value_to_str_OBJECTS) $(test_psensor_value_to_str_LDADD) $(LIBS)
 test-url-encode$(EXEEXT): $(test_url_encode_OBJECTS) $(test_url_encode_DEPENDENCIES) $(EXTRA_test_url_encode_DEPENDENCIES) 
 	@rm -f test-url-encode$(EXEEXT)
 	$(LINK) $(test_url_encode_OBJECTS) $(test_url_encode_LDADD) $(LIBS)
@@ -339,8 +346,8 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_io_dir_list.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_psensor_type_to_unit_str.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_psensor_value_to_str.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_psensor_value_to_str-test_psensor_value_to_str.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_url_encode.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_url_normalize.Po@am__quote@
 
@@ -357,6 +364,34 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='$<' object='$@' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+
+test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.o: test_psensor_type_to_unit_str.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_psensor_type_to_unit_str_CFLAGS) $(CFLAGS) -MT test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.o -MD -MP -MF $(DEPDIR)/test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.Tpo -c -o test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.o `test -f 'test_psensor_type_to_unit_str.c' || echo '$(srcdir)/'`test_psensor_type_to_unit_str.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.Tpo $(DEPDIR)/test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_psensor_type_to_unit_str.c' object='test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_psensor_type_to_unit_str_CFLAGS) $(CFLAGS) -c -o test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.o `test -f 'test_psensor_type_to_unit_str.c' || echo '$(srcdir)/'`test_psensor_type_to_unit_str.c
+
+test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.obj: test_psensor_type_to_unit_str.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_psensor_type_to_unit_str_CFLAGS) $(CFLAGS) -MT test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.obj -MD -MP -MF $(DEPDIR)/test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.Tpo -c -o test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.obj `if test -f 'test_psensor_type_to_unit_str.c'; then $(CYGPATH_W) 'test_psensor_type_to_unit_str.c'; else $(CYGPATH_W) '$(srcdir)/test_psensor_type_to_unit_str.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.Tpo $(DEPDIR)/test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_psensor_type_to_unit_str.c' object='test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_psensor_type_to_unit_str_CFLAGS) $(CFLAGS) -c -o test_psensor_type_to_unit_str-test_psensor_type_to_unit_str.obj `if test -f 'test_psensor_type_to_unit_str.c'; then $(CYGPATH_W) 'test_psensor_type_to_unit_str.c'; else $(CYGPATH_W) '$(srcdir)/test_psensor_type_to_unit_str.c'; fi`
+
+test_psensor_value_to_str-test_psensor_value_to_str.o: test_psensor_value_to_str.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_psensor_value_to_str_CFLAGS) $(CFLAGS) -MT test_psensor_value_to_str-test_psensor_value_to_str.o -MD -MP -MF $(DEPDIR)/test_psensor_value_to_str-test_psensor_value_to_str.Tpo -c -o test_psensor_value_to_str-test_psensor_value_to_str.o `test -f 'test_psensor_value_to_str.c' || echo '$(srcdir)/'`test_psensor_value_to_str.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/test_psensor_value_to_str-test_psensor_value_to_str.Tpo $(DEPDIR)/test_psensor_value_to_str-test_psensor_value_to_str.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_psensor_value_to_str.c' object='test_psensor_value_to_str-test_psensor_value_to_str.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_psensor_value_to_str_CFLAGS) $(CFLAGS) -c -o test_psensor_value_to_str-test_psensor_value_to_str.o `test -f 'test_psensor_value_to_str.c' || echo '$(srcdir)/'`test_psensor_value_to_str.c
+
+test_psensor_value_to_str-test_psensor_value_to_str.obj: test_psensor_value_to_str.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_psensor_value_to_str_CFLAGS) $(CFLAGS) -MT test_psensor_value_to_str-test_psensor_value_to_str.obj -MD -MP -MF $(DEPDIR)/test_psensor_value_to_str-test_psensor_value_to_str.Tpo -c -o test_psensor_value_to_str-test_psensor_value_to_str.obj `if test -f 'test_psensor_value_to_str.c'; then $(CYGPATH_W) 'test_psensor_value_to_str.c'; else $(CYGPATH_W) '$(srcdir)/test_psensor_value_to_str.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/test_psensor_value_to_str-test_psensor_value_to_str.Tpo $(DEPDIR)/test_psensor_value_to_str-test_psensor_value_to_str.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test_psensor_value_to_str.c' object='test_psensor_value_to_str-test_psensor_value_to_str.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(test_psensor_value_to_str_CFLAGS) $(CFLAGS) -c -o test_psensor_value_to_str-test_psensor_value_to_str.obj `if test -f 'test_psensor_value_to_str.c'; then $(CYGPATH_W) 'test_psensor_value_to_str.c'; else $(CYGPATH_W) '$(srcdir)/test_psensor_value_to_str.c'; fi`
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)
 	list='$(SOURCES) $(HEADERS) $(LISP) $(TAGS_FILES)'; \

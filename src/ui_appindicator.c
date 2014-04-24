@@ -172,23 +172,19 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	return GTK_WIDGET(menu);
 }
 
-void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention)
+static void update_label(struct ui_psensor *ui)
 {
-	AppIndicatorStatus status;
-	char *label, *str, *tmp;
+	char *label, *str, *tmp, *guide;
 	struct psensor **p;
-
-	if (!indicator)
-		return;
-
-	status = app_indicator_get_status(indicator);
 
 	p =  ui_get_sensors_ordered_by_position(ui);
 	label = NULL;
+	guide = NULL;
 	while (*p) {
 		if (config_is_appindicator_label_enabled((*p)->id)) {
 			str = psensor_current_value_to_str
 				(*p, ui->config->temperature_unit == CELCIUS);
+
 			if (label == NULL) {
 				label = str;
 			} else {
@@ -201,11 +197,45 @@ void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention)
 				free(str);
 				label = tmp;
 			}
+
+			if (is_temp_type((*p)->type))
+				str = "999UUU";
+			else if (is_fan_type((*p)->type))
+				str = "999UUU";
+			else /* cpu load */
+				str = "999%";
+
+			if (guide == NULL) {
+				guide = strdup(str);
+			} else {
+				tmp = malloc(strlen(guide)
+					     + 1
+					     + strlen(str)
+					     + 1);
+				sprintf(tmp, "%sW%s", guide, str);
+				free(guide);
+				guide = tmp;
+			}
+
 		}
 		p++;
 	}
+	printf("%s\n", label);
+	printf("%s\n", guide);
 
-	app_indicator_set_label(indicator, label, NULL);
+	app_indicator_set_label(indicator, label, guide);
+}
+
+void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention)
+{
+	AppIndicatorStatus status;
+
+	if (!indicator)
+		return;
+
+	update_label(ui);
+
+	status = app_indicator_get_status(indicator);
 
 	if (!attention && status == APP_INDICATOR_STATUS_ATTENTION)
 		app_indicator_set_status(indicator,

@@ -25,7 +25,7 @@
 #include <gtk/gtk.h>
 
 #include "cfg.h"
-#include "log.h"
+#include <plog.h>
 #include "psensor.h"
 
 /* horizontal padding */

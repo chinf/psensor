@@ -16,7 +16,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301 USA
  */
-#include "log.h"
+#include <plog.h>
 #include "ui_status.h"
 
 static const char *ICON = "psensor_normal";

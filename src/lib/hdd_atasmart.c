@@ -37,7 +37,7 @@
 
 #include "pio.h"
 #include "hdd.h"
-#include "log.h"
+#include <plog.h>
 
 static int filter_sd(const char *p)
 {

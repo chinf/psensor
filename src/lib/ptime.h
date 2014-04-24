@@ -21,7 +21,14 @@
 
 #include <time.h>
 
-char *get_time_str();
-char *time_to_str(time_t *t);
+extern const int P_TIME_VER;
+
+char *get_current_ISO8601_time();
+
+char *time_to_ISO8601_time(time_t *);
+char *time_to_ISO8601_date(time_t *);
+
+char *tm_to_ISO8601_date(struct tm *);
+char *tm_to_ISO8601_time(struct tm *);
 
 #endif

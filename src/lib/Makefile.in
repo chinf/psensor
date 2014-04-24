@@ -79,7 +79,7 @@ ARFLAGS = cru
 libpsensor_a_AR = $(AR) $(ARFLAGS)
 libpsensor_a_LIBADD =
 am__libpsensor_a_SOURCES_DIST = amd.h bool.h color.h color.c cpu.h \
-	hdd.h hdd_hddtemp.c lmsensor.h lmsensor.c log.h log.c \
+	hdd.h hdd_hddtemp.c lmsensor.h lmsensor.c plog.h plog.c \
 	measure.h measure.c ptime.h ptime.c nvidia.h psensor.h \
 	psensor.c pio.h pio.c slog.c slog.h url.c url.h hdd_atasmart.c \
 	nvidia.c amd.c cpu.c psensor_json.h psensor_json.c
@@ -89,7 +89,7 @@ am__libpsensor_a_SOURCES_DIST = amd.h bool.h color.h color.c cpu.h \
 @GTOP_TRUE@am__objects_4 = cpu.$(OBJEXT)
 @JSON_TRUE@am__objects_5 = psensor_json.$(OBJEXT)
 am_libpsensor_a_OBJECTS = color.$(OBJEXT) hdd_hddtemp.$(OBJEXT) \
-	lmsensor.$(OBJEXT) log.$(OBJEXT) measure.$(OBJEXT) \
+	lmsensor.$(OBJEXT) plog.$(OBJEXT) measure.$(OBJEXT) \
 	ptime.$(OBJEXT) psensor.$(OBJEXT) pio.$(OBJEXT) slog.$(OBJEXT) \
 	url.$(OBJEXT) $(am__objects_1) $(am__objects_2) \
 	$(am__objects_3) $(am__objects_4) $(am__objects_5)
@@ -268,7 +268,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libpsensor.a
 libpsensor_a_SOURCES = amd.h bool.h color.h color.c cpu.h hdd.h \
-	hdd_hddtemp.c lmsensor.h lmsensor.c log.h log.c measure.h \
+	hdd_hddtemp.c lmsensor.h lmsensor.c plog.h plog.c measure.h \
 	measure.c ptime.h ptime.c nvidia.h psensor.h psensor.c pio.h \
 	pio.c slog.c slog.h url.c url.h $(am__append_1) \
 	$(am__append_4) $(am__append_7) $(am__append_8) \
@@ -334,10 +334,10 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hdd_atasmart.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hdd_hddtemp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lmsensor.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/log.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/measure.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/nvidia.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pio.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/plog.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/psensor.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/psensor_json.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ptime.Po@am__quote@

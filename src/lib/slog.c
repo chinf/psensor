@@ -33,7 +33,7 @@
 
 #include "bool.h"
 #include "config.h"
-#include "log.h"
+#include <plog.h>
 #include "ptime.h"
 #include "slog.h"
 
@@ -46,6 +46,24 @@ static pthread_t thread;
 static time_t st;
 
 static const char *DEFAULT_FILENAME = "sensors.log";
+
+static char *time_to_str(time_t *t)
+{
+	struct tm lt;
+	char *str;
+
+	if (!localtime_r(t, &lt))
+		return NULL;
+
+	str = malloc(64);
+
+	if (strftime(str, 64, "%s", &lt)) {
+		return str;
+	} else {
+		free(str);
+		return NULL;
+	}
+}
 
 static char *get_default_path()
 {

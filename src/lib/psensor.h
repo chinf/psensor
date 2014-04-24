@@ -28,7 +28,7 @@
 
 #include "bool.h"
 #include "color.h"
-#include "log.h"
+#include <plog.h>
 #include "measure.h"
 
 enum psensor_type {

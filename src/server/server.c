@@ -42,7 +42,7 @@
 #include "cpu.h"
 #endif
 
-#include "log.h"
+#include <plog.h>
 #include "psensor_json.h"
 #include "url.h"
 #include "server.h"

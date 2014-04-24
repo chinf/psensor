@@ -22,7 +22,7 @@
 #include <ctype.h>
 
 #include "cfg.h"
-#include "log.h"
+#include <plog.h>
 
 static const char *KEY_SENSORS = "/apps/psensor/sensors";
 

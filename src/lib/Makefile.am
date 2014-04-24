@@ -7,7 +7,7 @@ libpsensor_a_SOURCES = \
 	cpu.h \
 	hdd.h hdd_hddtemp.c\
 	lmsensor.h lmsensor.c \
-	log.h log.c \
+	plog.h plog.c \
 	measure.h measure.c \
 	ptime.h ptime.c \
 	nvidia.h \

@@ -29,7 +29,9 @@ endif
 
 test_io_dir_list_SOURCES = test_io_dir_list.c
 test_psensor_type_to_unit_str_SOURCES = test_psensor_type_to_unit_str.c
+test_psensor_type_to_unit_str_CFLAGS = -I$(top_srcdir)/src/lib
 test_psensor_value_to_str_SOURCES = test_psensor_value_to_str.c
+test_psensor_value_to_str_CFLAGS = -I$(top_srcdir)/src/lib
 test_url_encode_SOURCES = test_url_encode.c
 test_url_normalize_SOURCES = test_url_normalize.c
 
