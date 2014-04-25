@@ -23,9 +23,6 @@ dist_doc_DATA = AUTHORS \
 	README \
 	README.html
 
-autostartdir = $(sysconfdir)/xdg/autostart
-autostart_DATA = psensor.desktop
-
 desktopdir = $(datadir)/applications
 desktop_DATA = psensor.desktop
 
