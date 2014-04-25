@@ -109,9 +109,8 @@ am__uninstall_files_from_dir = { \
     || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
          $(am__cd) "$$dir" && rm -f $$files; }; \
   }
-am__installdirs = "$(DESTDIR)$(autostartdir)" \
-	"$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(docdir)"
-DATA = $(autostart_DATA) $(desktop_DATA) $(dist_doc_DATA)
+am__installdirs = "$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(docdir)"
+DATA = $(desktop_DATA) $(dist_doc_DATA)
 RECURSIVE_CLEAN_TARGETS = mostlyclean-recursive clean-recursive	\
   distclean-recursive maintainer-clean-recursive
 AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
@@ -338,8 +337,6 @@ dist_doc_DATA = AUTHORS \
 	README \
 	README.html
 
-autostartdir = $(sysconfdir)/xdg/autostart
-autostart_DATA = psensor.desktop
 desktopdir = $(datadir)/applications
 desktop_DATA = psensor.desktop
 EXTRA_DIST = $(desktop_DATA) $(autostart_DATA)
@@ -396,27 +393,6 @@ $(srcdir)/config.h.in:  $(am__configure_deps)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-install-autostartDATA: $(autostart_DATA)
-	@$(NORMAL_INSTALL)
-	@list='$(autostart_DATA)'; test -n "$(autostartdir)" || list=; \
-	if test -n "$$list"; then \
-	  echo " $(MKDIR_P) '$(DESTDIR)$(autostartdir)'"; \
-	  $(MKDIR_P) "$(DESTDIR)$(autostartdir)" || exit 1; \
-	fi; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(autostartdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(autostartdir)" || exit $$?; \
-	done
-
-uninstall-autostartDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(autostart_DATA)'; test -n "$(autostartdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	dir='$(DESTDIR)$(autostartdir)'; $(am__uninstall_files_from_dir)
 install-desktopDATA: $(desktop_DATA)
 	@$(NORMAL_INSTALL)
 	@list='$(desktop_DATA)'; test -n "$(desktopdir)" || list=; \
@@ -787,7 +763,7 @@ check: check-recursive
 all-am: Makefile $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
-	for dir in "$(DESTDIR)$(autostartdir)" "$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(docdir)"; do \
+	for dir in "$(DESTDIR)$(desktopdir)" "$(DESTDIR)$(docdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-recursive
@@ -841,8 +817,7 @@ info: info-recursive
 
 info-am:
 
-install-data-am: install-autostartDATA install-desktopDATA \
-	install-dist_docDATA
+install-data-am: install-desktopDATA install-dist_docDATA
 
 install-dvi: install-dvi-recursive
 
@@ -888,8 +863,7 @@ ps: ps-recursive
 
 ps-am:
 
-uninstall-am: uninstall-autostartDATA uninstall-desktopDATA \
-	uninstall-dist_docDATA
+uninstall-am: uninstall-desktopDATA uninstall-dist_docDATA
 
 .MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) all \
 	ctags-recursive install-am install-strip tags-recursive
@@ -901,15 +875,14 @@ uninstall-am: uninstall-autostartDATA uninstall-desktopDATA \
 	distcheck distclean distclean-generic distclean-hdr \
 	distclean-tags distcleancheck distdir distuninstallcheck dvi \
 	dvi-am html html-am info info-am install install-am \
-	install-autostartDATA install-data install-data-am \
-	install-desktopDATA install-dist_docDATA install-dvi \
-	install-dvi-am install-exec install-exec-am install-html \
-	install-html-am install-info install-info-am install-man \
-	install-pdf install-pdf-am install-ps install-ps-am \
-	install-strip installcheck installcheck-am installdirs \
-	installdirs-am maintainer-clean maintainer-clean-generic \
-	mostlyclean mostlyclean-generic pdf pdf-am ps ps-am tags \
-	tags-recursive uninstall uninstall-am uninstall-autostartDATA \
+	install-data install-data-am install-desktopDATA \
+	install-dist_docDATA install-dvi install-dvi-am install-exec \
+	install-exec-am install-html install-html-am install-info \
+	install-info-am install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic pdf \
+	pdf-am ps ps-am tags tags-recursive uninstall uninstall-am \
 	uninstall-desktopDATA uninstall-dist_docDATA
 
 

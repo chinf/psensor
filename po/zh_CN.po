@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-19 10:21+0200\n"
+"POT-Creation-Date: 2014-04-25 11:48+0200\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -52,219 +52,223 @@ msgstr ""
 msgid "_Help"
 msgstr "帮助(_H)"
 
-#: src/glade/psensor-pref.glade:7
-msgid "Edit Preferences"
-msgstr "编辑首选项"
-
-#: src/glade/psensor-pref.glade:72
-msgid "Position of sensors table:"
-msgstr "监视设备列表位置:"
-
-#: src/glade/psensor-pref.glade:81
-msgid "Hide window decoration"
-msgstr "隐藏窗口标题栏"
-
-#: src/glade/psensor-pref.glade:98
-msgid "Keep window below"
-msgstr "保持在最底层"
-
-#: src/glade/psensor-pref.glade:115
-msgid "Enable menu"
-msgstr "启用菜单"
-
-#: src/glade/psensor-pref.glade:132
-msgid "Enable Unity Launcher counter"
-msgstr "启用 Unity 启动器计数器"
-
-#: src/glade/psensor-pref.glade:149
-msgid "Hide window on startup"
-msgstr "启动时隐藏窗口"
-
-#: src/glade/psensor-pref.glade:166
-msgid "Restore window position and size"
-msgstr "恢复窗口位置和大小"
-
-#: src/glade/psensor-pref.glade:186
-msgid "Temperature unit:"
-msgstr "温度单位："
-
-#: src/glade/psensor-pref.glade:201
-msgid "Celcius"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:202
-msgid "Fahrenheit"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:238
-msgid "Interface"
-msgstr "界面"
-
-#: src/glade/psensor-pref.glade:276
-msgid "Foreground:"
-msgstr "前景："
-
-#: src/glade/psensor-pref.glade:291
-msgid "Background:"
-msgstr "背景:"
-
-#: src/glade/psensor-pref.glade:325
-msgid "Background opacity:"
-msgstr "背景透明："
-
-#: src/glade/psensor-pref.glade:348
-msgid "<i>Min</i>"
-msgstr "<i>最小值</i>"
-
-#: src/glade/psensor-pref.glade:375
-msgid "<i>Max</i>"
-msgstr "<i>最大值</i>"
-
-#: src/glade/psensor-pref.glade:401
-msgid "Colors"
-msgstr "颜色"
-
-#: src/glade/psensor-pref.glade:419
-msgid "Monitoring duration:"
-msgstr "监视持续时长："
-
-#: src/glade/psensor-pref.glade:457
-msgid "minute(s)"
-msgstr "分钟"
-
-#: src/glade/psensor-pref.glade:474 src/glade/psensor-pref.glade:626
-msgid "second(s)"
-msgstr "秒"
-
-#: src/glade/psensor-pref.glade:510
-msgid "Update interval:"
-msgstr "更新间隔："
-
-#: src/glade/psensor-pref.glade:528
-msgid "Measures"
-msgstr "测量"
-
-#: src/glade/psensor-pref.glade:564 src/glade/sensor-edit.glade:169
-#: src/ui_sensorlist.c:334
-msgid "Graph"
-msgstr "图表"
-
-#: src/glade/psensor-pref.glade:588
-msgid "Measure update interval:"
-msgstr "测量更新间隔："
-
-#: src/glade/psensor-pref.glade:637
-msgid "Enable sensors logging"
-msgstr "启用监测器记录"
-
-#: src/glade/psensor-pref.glade:684
-msgid "Sensors logging interval"
-msgstr "监测器记录间隔"
-
-#: src/glade/psensor-pref.glade:701
-msgid "seconds(s)"
-msgstr "秒"
-
-#: src/glade/psensor-pref.glade:718
-msgid "Script executed when an alarm is raised"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:751
-msgid "Sensors"
-msgstr "传感器"
-
-#: src/glade/psensor-pref.glade:797
+#: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:800
+#: src/glade/psensor-pref.glade:27
 msgid "Left"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:803
+#: src/glade/psensor-pref.glade:30
 msgid "Top"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:806
+#: src/glade/psensor-pref.glade:33
 msgid "Bottom"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:19
+#: src/glade/psensor-pref.glade:60
+msgid "Edit Preferences"
+msgstr "编辑首选项"
+
+#: src/glade/psensor-pref.glade:128
+msgid "Position of sensors table:"
+msgstr "监视设备列表位置:"
+
+#: src/glade/psensor-pref.glade:146
+msgid "Celcius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:147
+msgid "Fahrenheit"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:183
+msgid "Hide window decoration"
+msgstr "隐藏窗口标题栏"
+
+#: src/glade/psensor-pref.glade:203
+msgid "Keep window below"
+msgstr "保持在最底层"
+
+#: src/glade/psensor-pref.glade:223
+msgid "Enable menu"
+msgstr "启用菜单"
+
+#: src/glade/psensor-pref.glade:243
+msgid "Enable Unity Launcher counter"
+msgstr "启用 Unity 启动器计数器"
+
+#: src/glade/psensor-pref.glade:263
+msgid "Hide window on startup"
+msgstr "启动时隐藏窗口"
+
+#: src/glade/psensor-pref.glade:283
+msgid "Restore window position and size"
+msgstr "恢复窗口位置和大小"
+
+#: src/glade/psensor-pref.glade:310
+msgid "Temperature unit:"
+msgstr "温度单位："
+
+#: src/glade/psensor-pref.glade:321
+msgid "Launch on session startup"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:345
+msgid "Interface"
+msgstr "界面"
+
+#: src/glade/psensor-pref.glade:382
+msgid "Foreground:"
+msgstr "前景："
+
+#: src/glade/psensor-pref.glade:397
+msgid "Background:"
+msgstr "背景:"
+
+#: src/glade/psensor-pref.glade:431
+msgid "Background opacity:"
+msgstr "背景透明："
+
+#: src/glade/psensor-pref.glade:454
+msgid "<i>Min</i>"
+msgstr "<i>最小值</i>"
+
+#: src/glade/psensor-pref.glade:481
+msgid "<i>Max</i>"
+msgstr "<i>最大值</i>"
+
+#: src/glade/psensor-pref.glade:507
+msgid "Colors"
+msgstr "颜色"
+
+#: src/glade/psensor-pref.glade:525
+msgid "Monitoring duration:"
+msgstr "监视持续时长："
+
+#: src/glade/psensor-pref.glade:562
+msgid "minute(s)"
+msgstr "分钟"
+
+#: src/glade/psensor-pref.glade:579 src/glade/psensor-pref.glade:729
+msgid "second(s)"
+msgstr "秒"
+
+#: src/glade/psensor-pref.glade:614
+msgid "Update interval:"
+msgstr "更新间隔："
+
+#: src/glade/psensor-pref.glade:632
+msgid "Measures"
+msgstr "测量"
+
+#: src/glade/psensor-pref.glade:668 src/glade/sensor-edit.glade:178
+#: src/ui_sensorlist.c:334
+msgid "Graph"
+msgstr "图表"
+
+#: src/glade/psensor-pref.glade:692
+msgid "Measure update interval:"
+msgstr "测量更新间隔："
+
+#: src/glade/psensor-pref.glade:740
+msgid "Enable sensors logging"
+msgstr "启用监测器记录"
+
+#: src/glade/psensor-pref.glade:787
+msgid "Sensors logging interval"
+msgstr "监测器记录间隔"
+
+#: src/glade/psensor-pref.glade:804
+msgid "seconds(s)"
+msgstr "秒"
+
+#: src/glade/psensor-pref.glade:821
+msgid "Script executed when an alarm is raised"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:854
+msgid "Sensors"
+msgstr "传感器"
+
+#: src/glade/sensor-edit.glade:28
 msgid "Edit Sensor Preferences"
 msgstr "编辑传感器首选项"
 
-#: src/glade/sensor-edit.glade:87
+#: src/glade/sensor-edit.glade:96
 msgid "Name"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:138
+#: src/glade/sensor-edit.glade:147
 msgid "Type:"
 msgstr "类型:"
 
-#: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
-#: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
-#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:486 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:162 src/glade/sensor-edit.glade:305
+#: src/glade/sensor-edit.glade:400 src/glade/sensor-edit.glade:472
+#: src/glade/sensor-edit.glade:521 src/lib/psensor.c:486 src/ui_notify.c:81
 msgid "N/A"
 msgstr "不可用"
 
-#: src/glade/sensor-edit.glade:187
+#: src/glade/sensor-edit.glade:196
 msgid "Color:"
 msgstr "颜色："
 
-#: src/glade/sensor-edit.glade:201
+#: src/glade/sensor-edit.glade:210
 msgid "Alarm"
 msgstr "警告"
 
-#: src/glade/sensor-edit.glade:216
+#: src/glade/sensor-edit.glade:225
 msgid "Activate desktop notifications"
 msgstr "激活桌面气泡提示"
 
-#: src/glade/sensor-edit.glade:236
+#: src/glade/sensor-edit.glade:246
 msgid "Sensor Information"
 msgstr "传感器信息"
 
-#: src/glade/sensor-edit.glade:249
+#: src/glade/sensor-edit.glade:259
 msgid "Draw sensor curve"
 msgstr "绘制监视曲线"
 
-#: src/glade/sensor-edit.glade:333
+#: src/glade/sensor-edit.glade:345
 msgid "High threshold:"
 msgstr "高阈值："
 
-#: src/glade/sensor-edit.glade:348
+#: src/glade/sensor-edit.glade:360
 msgid "Low threshold:"
 msgstr "低阈值："
 
-#: src/glade/sensor-edit.glade:409
+#: src/glade/sensor-edit.glade:421
 #, fuzzy
 msgid "Application Indicator"
 msgstr "Ubuntu 应用指示器"
 
-#: src/glade/sensor-edit.glade:424
+#: src/glade/sensor-edit.glade:436
 #, fuzzy
 msgid "Display sensor in the menu"
 msgstr "在应用指示器菜单中显示监视器"
 
-#: src/glade/sensor-edit.glade:444
+#: src/glade/sensor-edit.glade:457
 msgid "Chip:"
 msgstr "芯片："
 
-#: src/glade/sensor-edit.glade:489
+#: src/glade/sensor-edit.glade:502
 msgid "Id:"
 msgstr "标识:"
 
-#: src/glade/sensor-edit.glade:523
+#: src/glade/sensor-edit.glade:536
 msgid "Details"
 msgstr "详情"
 
-#: src/glade/sensor-edit.glade:541
+#: src/glade/sensor-edit.glade:554
 msgid "Name:"
 msgstr "名称:"
 
-#: src/glade/sensor-edit.glade:553
+#: src/glade/sensor-edit.glade:566
 #, fuzzy
-msgid "Display sensor in the label"
+msgid "Display sensor in the label (experimental)"
 msgstr "在应用指示器菜单中显示监视器"
 
 #: src/lib/amd.c:170
@@ -325,7 +329,7 @@ msgstr "lmsensor：lmsensor_psensor_create 失败：错误的功能类型。"
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor：初始化失败：%s。"
 
-#: src/lib/log.c:43
+#: src/lib/plog.c:43
 #, c-format
 msgid "Cannot open log file: %s"
 msgstr "无法打开日志文件：%s"
@@ -351,24 +355,24 @@ msgstr "转速"
 msgid "%"
 msgstr "%"
 
-#: src/lib/slog.c:68
+#: src/lib/slog.c:86
 msgid "HOME variable not set."
 msgstr "未设置 HOME 变量。"
 
-#: src/lib/slog.c:78
+#: src/lib/slog.c:96
 msgid "Sensor log file already open."
 msgstr "已经打开监测器日志文件。"
 
-#: src/lib/slog.c:87
+#: src/lib/slog.c:105
 #, fuzzy, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "无法打开监测器日志文件：%s。"
 
-#: src/lib/slog.c:118
+#: src/lib/slog.c:136
 msgid "Sensor log file not open."
 msgstr "监测器日志文件未打开。"
 
-#: src/lib/slog.c:174
+#: src/lib/slog.c:192
 msgid "Sensor log not open, cannot close."
 msgstr "监测器日志未打开，故无法关闭。"
 
@@ -634,7 +638,7 @@ msgstr "温度报警"
 msgid "Fan alert"
 msgstr "风扇警报"
 
-#: src/ui_sensorpref.c:248
+#: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "未知"
 

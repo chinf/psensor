@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-19 10:21+0200\n"
+"POT-Creation-Date: 2014-04-25 11:48+0200\n"
 "PO-Revision-Date: 2013-10-20 09:56+0000\n"
 "Last-Translator: Dennis Baudys <Unknown>\n"
 "Language-Team: German\n"
@@ -52,219 +52,223 @@ msgstr "_Psensor"
 msgid "_Help"
 msgstr "_Hilfe"
 
-#: src/glade/psensor-pref.glade:7
-msgid "Edit Preferences"
-msgstr "Einstellungen bearbeiten"
-
-#: src/glade/psensor-pref.glade:72
-msgid "Position of sensors table:"
-msgstr "Position der Sensorentabelle:"
-
-#: src/glade/psensor-pref.glade:81
-msgid "Hide window decoration"
-msgstr "Keine Fensterdekorationen verwenden"
-
-#: src/glade/psensor-pref.glade:98
-msgid "Keep window below"
-msgstr "Fenster unterhalb anheften"
-
-#: src/glade/psensor-pref.glade:115
-msgid "Enable menu"
-msgstr "Menü aktivieren"
-
-#: src/glade/psensor-pref.glade:132
-msgid "Enable Unity Launcher counter"
-msgstr "Wert im Starter von Unity anzeigen"
-
-#: src/glade/psensor-pref.glade:149
-msgid "Hide window on startup"
-msgstr "Fenster beim Programmstart ausblenden"
-
-#: src/glade/psensor-pref.glade:166
-msgid "Restore window position and size"
-msgstr "Fensterposition und -größe merken"
-
-#: src/glade/psensor-pref.glade:186
-msgid "Temperature unit:"
-msgstr "Temperatureinheit:"
-
-#: src/glade/psensor-pref.glade:201
-msgid "Celcius"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:202
-msgid "Fahrenheit"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:238
-msgid "Interface"
-msgstr "Benutzeroberfläche"
-
-#: src/glade/psensor-pref.glade:276
-msgid "Foreground:"
-msgstr "Vordergrund:"
-
-#: src/glade/psensor-pref.glade:291
-msgid "Background:"
-msgstr "Hintergrund:"
-
-#: src/glade/psensor-pref.glade:325
-msgid "Background opacity:"
-msgstr "Hintergrunddeckkraft:"
-
-#: src/glade/psensor-pref.glade:348
-msgid "<i>Min</i>"
-msgstr "<i>Min.</i>"
-
-#: src/glade/psensor-pref.glade:375
-msgid "<i>Max</i>"
-msgstr "<i>Max.</i>"
-
-#: src/glade/psensor-pref.glade:401
-msgid "Colors"
-msgstr "Farben"
-
-#: src/glade/psensor-pref.glade:419
-msgid "Monitoring duration:"
-msgstr "Überwachungszeitraum:"
-
-#: src/glade/psensor-pref.glade:457
-msgid "minute(s)"
-msgstr "Minute(n)"
-
-#: src/glade/psensor-pref.glade:474 src/glade/psensor-pref.glade:626
-msgid "second(s)"
-msgstr "Sekunde(n)"
-
-#: src/glade/psensor-pref.glade:510
-msgid "Update interval:"
-msgstr "Aktualisierungsintervall:"
-
-#: src/glade/psensor-pref.glade:528
-msgid "Measures"
-msgstr "Messungen"
-
-#: src/glade/psensor-pref.glade:564 src/glade/sensor-edit.glade:169
-#: src/ui_sensorlist.c:334
-msgid "Graph"
-msgstr "Graph"
-
-#: src/glade/psensor-pref.glade:588
-msgid "Measure update interval:"
-msgstr "Messintervall:"
-
-#: src/glade/psensor-pref.glade:637
-msgid "Enable sensors logging"
-msgstr "Sensorenprotokollierung aktivieren"
-
-#: src/glade/psensor-pref.glade:684
-msgid "Sensors logging interval"
-msgstr "Sensoren-Protokollierungsintervall"
-
-#: src/glade/psensor-pref.glade:701
-msgid "seconds(s)"
-msgstr "Sekunde(n)"
-
-#: src/glade/psensor-pref.glade:718
-msgid "Script executed when an alarm is raised"
-msgstr "Bei Alarm auszuführendes Skript"
-
-#: src/glade/psensor-pref.glade:751
-msgid "Sensors"
-msgstr "Sensoren"
-
-#: src/glade/psensor-pref.glade:797
+#: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:800
+#: src/glade/psensor-pref.glade:27
 msgid "Left"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:803
+#: src/glade/psensor-pref.glade:30
 msgid "Top"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:806
+#: src/glade/psensor-pref.glade:33
 msgid "Bottom"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:19
+#: src/glade/psensor-pref.glade:60
+msgid "Edit Preferences"
+msgstr "Einstellungen bearbeiten"
+
+#: src/glade/psensor-pref.glade:128
+msgid "Position of sensors table:"
+msgstr "Position der Sensorentabelle:"
+
+#: src/glade/psensor-pref.glade:146
+msgid "Celcius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:147
+msgid "Fahrenheit"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:183
+msgid "Hide window decoration"
+msgstr "Keine Fensterdekorationen verwenden"
+
+#: src/glade/psensor-pref.glade:203
+msgid "Keep window below"
+msgstr "Fenster unterhalb anheften"
+
+#: src/glade/psensor-pref.glade:223
+msgid "Enable menu"
+msgstr "Menü aktivieren"
+
+#: src/glade/psensor-pref.glade:243
+msgid "Enable Unity Launcher counter"
+msgstr "Wert im Starter von Unity anzeigen"
+
+#: src/glade/psensor-pref.glade:263
+msgid "Hide window on startup"
+msgstr "Fenster beim Programmstart ausblenden"
+
+#: src/glade/psensor-pref.glade:283
+msgid "Restore window position and size"
+msgstr "Fensterposition und -größe merken"
+
+#: src/glade/psensor-pref.glade:310
+msgid "Temperature unit:"
+msgstr "Temperatureinheit:"
+
+#: src/glade/psensor-pref.glade:321
+msgid "Launch on session startup"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:345
+msgid "Interface"
+msgstr "Benutzeroberfläche"
+
+#: src/glade/psensor-pref.glade:382
+msgid "Foreground:"
+msgstr "Vordergrund:"
+
+#: src/glade/psensor-pref.glade:397
+msgid "Background:"
+msgstr "Hintergrund:"
+
+#: src/glade/psensor-pref.glade:431
+msgid "Background opacity:"
+msgstr "Hintergrunddeckkraft:"
+
+#: src/glade/psensor-pref.glade:454
+msgid "<i>Min</i>"
+msgstr "<i>Min.</i>"
+
+#: src/glade/psensor-pref.glade:481
+msgid "<i>Max</i>"
+msgstr "<i>Max.</i>"
+
+#: src/glade/psensor-pref.glade:507
+msgid "Colors"
+msgstr "Farben"
+
+#: src/glade/psensor-pref.glade:525
+msgid "Monitoring duration:"
+msgstr "Überwachungszeitraum:"
+
+#: src/glade/psensor-pref.glade:562
+msgid "minute(s)"
+msgstr "Minute(n)"
+
+#: src/glade/psensor-pref.glade:579 src/glade/psensor-pref.glade:729
+msgid "second(s)"
+msgstr "Sekunde(n)"
+
+#: src/glade/psensor-pref.glade:614
+msgid "Update interval:"
+msgstr "Aktualisierungsintervall:"
+
+#: src/glade/psensor-pref.glade:632
+msgid "Measures"
+msgstr "Messungen"
+
+#: src/glade/psensor-pref.glade:668 src/glade/sensor-edit.glade:178
+#: src/ui_sensorlist.c:334
+msgid "Graph"
+msgstr "Graph"
+
+#: src/glade/psensor-pref.glade:692
+msgid "Measure update interval:"
+msgstr "Messintervall:"
+
+#: src/glade/psensor-pref.glade:740
+msgid "Enable sensors logging"
+msgstr "Sensorenprotokollierung aktivieren"
+
+#: src/glade/psensor-pref.glade:787
+msgid "Sensors logging interval"
+msgstr "Sensoren-Protokollierungsintervall"
+
+#: src/glade/psensor-pref.glade:804
+msgid "seconds(s)"
+msgstr "Sekunde(n)"
+
+#: src/glade/psensor-pref.glade:821
+msgid "Script executed when an alarm is raised"
+msgstr "Bei Alarm auszuführendes Skript"
+
+#: src/glade/psensor-pref.glade:854
+msgid "Sensors"
+msgstr "Sensoren"
+
+#: src/glade/sensor-edit.glade:28
 msgid "Edit Sensor Preferences"
 msgstr "Sensoreinstellungen bearbeiten"
 
-#: src/glade/sensor-edit.glade:87
+#: src/glade/sensor-edit.glade:96
 msgid "Name"
 msgstr "Name"
 
-#: src/glade/sensor-edit.glade:138
+#: src/glade/sensor-edit.glade:147
 msgid "Type:"
 msgstr "Typ:"
 
-#: src/glade/sensor-edit.glade:153 src/glade/sensor-edit.glade:294
-#: src/glade/sensor-edit.glade:388 src/glade/sensor-edit.glade:459
-#: src/glade/sensor-edit.glade:508 src/lib/psensor.c:486 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:162 src/glade/sensor-edit.glade:305
+#: src/glade/sensor-edit.glade:400 src/glade/sensor-edit.glade:472
+#: src/glade/sensor-edit.glade:521 src/lib/psensor.c:486 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/V"
 
-#: src/glade/sensor-edit.glade:187
+#: src/glade/sensor-edit.glade:196
 msgid "Color:"
 msgstr "Farbe:"
 
-#: src/glade/sensor-edit.glade:201
+#: src/glade/sensor-edit.glade:210
 msgid "Alarm"
 msgstr "Alarm"
 
-#: src/glade/sensor-edit.glade:216
+#: src/glade/sensor-edit.glade:225
 msgid "Activate desktop notifications"
 msgstr "Benachrichtigungen aktivieren"
 
-#: src/glade/sensor-edit.glade:236
+#: src/glade/sensor-edit.glade:246
 msgid "Sensor Information"
 msgstr "Sensorinformationen"
 
-#: src/glade/sensor-edit.glade:249
+#: src/glade/sensor-edit.glade:259
 msgid "Draw sensor curve"
 msgstr "Sensorgraphen darstellen"
 
-#: src/glade/sensor-edit.glade:333
+#: src/glade/sensor-edit.glade:345
 msgid "High threshold:"
 msgstr "Obere Grenze:"
 
-#: src/glade/sensor-edit.glade:348
+#: src/glade/sensor-edit.glade:360
 msgid "Low threshold:"
 msgstr "Untere Grenze:"
 
-#: src/glade/sensor-edit.glade:409
+#: src/glade/sensor-edit.glade:421
 #, fuzzy
 msgid "Application Indicator"
 msgstr "Ubuntu-Anwendungsindikator"
 
-#: src/glade/sensor-edit.glade:424
+#: src/glade/sensor-edit.glade:436
 #, fuzzy
 msgid "Display sensor in the menu"
 msgstr "Sensor im Indikatormenü für Anwendungen zeigen"
 
-#: src/glade/sensor-edit.glade:444
+#: src/glade/sensor-edit.glade:457
 msgid "Chip:"
 msgstr "Chip:"
 
-#: src/glade/sensor-edit.glade:489
+#: src/glade/sensor-edit.glade:502
 msgid "Id:"
 msgstr "Id:"
 
-#: src/glade/sensor-edit.glade:523
+#: src/glade/sensor-edit.glade:536
 msgid "Details"
 msgstr "Details"
 
-#: src/glade/sensor-edit.glade:541
+#: src/glade/sensor-edit.glade:554
 msgid "Name:"
 msgstr "Name:"
 
-#: src/glade/sensor-edit.glade:553
+#: src/glade/sensor-edit.glade:566
 #, fuzzy
-msgid "Display sensor in the label"
+msgid "Display sensor in the label (experimental)"
 msgstr "Sensor im Indikatormenü für Anwendungen zeigen"
 
 #: src/lib/amd.c:170
@@ -325,7 +329,7 @@ msgstr "lmsensor: lmsensor_psensor_create gescheitert: Falscher Funktionstyp."
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: Initialisierung gescheitert: %s."
 
-#: src/lib/log.c:43
+#: src/lib/plog.c:43
 #, c-format
 msgid "Cannot open log file: %s"
 msgstr "Protokolldatei kann nicht geöffnet werden: %s"
@@ -353,24 +357,24 @@ msgstr "U/min"
 msgid "%"
 msgstr "%"
 
-#: src/lib/slog.c:68
+#: src/lib/slog.c:86
 msgid "HOME variable not set."
 msgstr "HOME-Variable ist nicht festgelegt."
 
-#: src/lib/slog.c:78
+#: src/lib/slog.c:96
 msgid "Sensor log file already open."
 msgstr "Sensorprotokolldatei ist bereits geöffnet."
 
-#: src/lib/slog.c:87
+#: src/lib/slog.c:105
 #, fuzzy, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "Sensorprotokolldatei kann nicht geöffnet werden: %s."
 
-#: src/lib/slog.c:118
+#: src/lib/slog.c:136
 msgid "Sensor log file not open."
 msgstr "Sensorprotokolldatei ist nicht geöffnet."
 
-#: src/lib/slog.c:174
+#: src/lib/slog.c:192
 msgid "Sensor log not open, cannot close."
 msgstr ""
 "Sensorprotokolldatei ist nicht geöffnet und kann deswegen nicht geschlossen "
@@ -652,7 +656,7 @@ msgstr "Temperaturalarm"
 msgid "Fan alert"
 msgstr "Lüfteralarm"
 
-#: src/ui_sensorpref.c:248
+#: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "Unbekannt"
 
