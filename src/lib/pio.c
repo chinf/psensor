@@ -20,7 +20,6 @@
 #include "config.h"
 
 #include <dirent.h>
-#include <fts.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -341,61 +340,4 @@ file_copy_print_error(int code, const char *src, const char *dst)
 	default:
 		printf("File copy error: unknown error %d.\n", code);
 	}
-}
-
-int dir_rcopy(const char *src, const char *dst)
-{
-	int ret;
-	char **paths;
-	FTS *ftsp;
-	FTSENT *p, *chp;
-	int fts_options = FTS_COMFOLLOW | FTS_LOGICAL | FTS_NOCHDIR;
-	char *p_dst, *n_dst;
-
-	log_fct_enter();
-
-	log_fct("copy dir %s to %s", src, dst);
-
-	paths = malloc(2 * sizeof(char *));
-	paths[0] = strdup(src);
-	paths[1] = NULL;
-
-	ftsp = fts_open(paths, fts_options, NULL);
-	if (!ftsp)
-		return 1;
-
-	chp = fts_children(ftsp, 0);
-	if (!chp)
-		return 0;
-
-	n_dst = dir_normalize(dst);
-
-	while ((p = fts_read(ftsp)) != NULL) {
-		switch (p->fts_info) {
-		case FTS_D:
-			p_dst = path_append(n_dst,
-					    p->fts_path + strlen(src) + 1);
-			mkdirs(p_dst, 0777);
-			free(p_dst);
-			break;
-		case FTS_F:
-			p_dst = path_append(n_dst,
-					    p->fts_path + strlen(src) + 1);
-			file_copy(p->fts_path, p_dst);
-			free(p_dst);
-			break;
-		default:
-			break;
-		}
-	}
-	fts_close(ftsp);
-
-	free(n_dst);
-	free(paths);
-
-	ret = 0;
-
-	log_fct_exit();
-
-	return ret;
 }
