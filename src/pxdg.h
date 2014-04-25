@@ -19,7 +19,13 @@
 #ifndef _PXDG_H_
 #define _PXDG_H_
 
-unsigned int pxdg_is_autostarted();
+/*
+ * returns:
+ *  - 1 if psensor is currently launch during session startup.
+ *  - 0 if psensor is not currently launch during session startup.
+ *  - -1 if it cannot be determined.
+ */
+int pxdg_is_autostarted();
 void pxdg_set_autostart(unsigned int);
 
 #endif
