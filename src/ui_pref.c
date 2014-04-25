@@ -23,6 +23,7 @@
 #include "cfg.h"
 #include "ui_pref.h"
 #include "ui_color.h"
+#include <pxdg.h>
 
 GdkColor *color_to_gdkcolor(struct color *color)
 {
@@ -51,7 +52,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkComboBox *w_sensorlist_pos;
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
 		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
-		*w_win_restore, *w_slog_enabled;
+		*w_win_restore, *w_slog_enabled, *w_autostart;
 	GtkComboBoxText *w_temp_unit;
 	GtkEntry *w_notif_script;
 	char *notif_script;
@@ -125,6 +126,10 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		(gtk_builder_get_object(builder, "keep_window_below"));
 	gtk_toggle_button_set_active(w_keep_window_below,
 				     cfg->window_keep_below_enabled);
+
+	w_autostart = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder, "autostart"));
+	gtk_toggle_button_set_active(w_autostart, pxdg_is_autostarted());
 
 	w_enable_menu = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "enable_menu"));
@@ -239,6 +244,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 			= gtk_combo_box_get_active(GTK_COMBO_BOX(w_temp_unit));
 
 		config_save(cfg);
+
+		pxdg_set_autostart(gtk_toggle_button_get_active(w_autostart));
 
 		pthread_mutex_unlock(&ui->sensors_mutex);
 
