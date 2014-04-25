@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.1 -->
 <interface>
-  <!-- interface-requires gtk+ 3.0 -->
+  <requires lib="gtk+" version="3.4"/>
   <object class="GtkAction" id="AboutAction">
     <property name="label" translatable="yes">About</property>
     <signal name="activate" handler="ui_cb_about" swapped="no"/>
@@ -26,80 +27,6 @@
   <object class="GtkAction" id="SensorPreferencesAction">
     <property name="label" translatable="yes">Sensor Preferences</property>
     <signal name="activate" handler="ui_cb_sensor_preferences" swapped="no"/>
-  </object>
-  <object class="GtkAction" id="ShowAction">
-    <property name="label" translatable="yes">Show</property>
-    <signal name="activate" handler="cb_menu_show" swapped="no"/>
-  </object>
-  <object class="GtkMenu" id="appindicator_menu">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <child>
-      <object class="GtkImageMenuItem" id="menuitem8">
-        <property name="related_action">ShowAction</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="use_stock">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkSeparatorMenuItem" id="menuitem9">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImageMenuItem" id="menuitem1">
-        <property name="related_action">AppIndicatorPreferencesAction</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="use_stock">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImageMenuItem" id="menuitem2">
-        <property name="related_action">AppIndicatorSensorPreferencesAction</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="use_stock">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkSeparatorMenuItem" id="menuitem3">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkSeparatorMenuItem" id="menuitem4">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImageMenuItem" id="menuitem5">
-        <property name="related_action">AboutAction</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkSeparatorMenuItem" id="menuitem6">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImageMenuItem" id="menuitem7">
-        <property name="related_action">QuitAction</property>
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="use_underline">True</property>
-        <property name="use_stock">True</property>
-      </object>
-    </child>
   </object>
   <object class="GtkMenu" id="popup_menu">
     <property name="visible">True</property>
@@ -145,6 +72,83 @@
     </child>
     <child>
       <object class="GtkImageMenuItem" id="popup_quit">
+        <property name="related_action">QuitAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAction" id="ShowAction">
+    <property name="label" translatable="yes">Show</property>
+    <signal name="activate" handler="cb_menu_show" swapped="no"/>
+  </object>
+  <object class="GtkMenu" id="appindicator_menu">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkImageMenuItem" id="menuitem8">
+        <property name="related_action">ShowAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="menuitem9">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menuitem1">
+        <property name="related_action">AppIndicatorPreferencesAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menuitem2">
+        <property name="related_action">AppIndicatorSensorPreferencesAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="menuitem3">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="menuitem4">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menuitem5">
+        <property name="related_action">AboutAction</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="use_stock">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="menuitem6">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menuitem7">
         <property name="related_action">QuitAction</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
