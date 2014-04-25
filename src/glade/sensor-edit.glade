@@ -563,7 +563,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="indicator_label_checkbox">
-                    <property name="label" translatable="yes">Display sensor in the label</property>
+                    <property name="label" translatable="yes">Display sensor in the label (experimental)</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="receives_default">False</property>
