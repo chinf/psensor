@@ -1,7 +1,7 @@
 Psensor NEWS
 ============
 
-v0.8.0.7
+v0.9.0.0
 --------
 
 * smaller and more consistent with ubuntu themes appindicator icons.
@@ -11,6 +11,8 @@ v0.8.0.7
 * psensor not autostarted by default.
 * added a setting to launch psensor on session startup. (Closes:
   #728754).
+* fixed minor GUI bugs (widget alignments, padding, layout policy,
+  etc).
 
 v0.8.0.6
 --------
