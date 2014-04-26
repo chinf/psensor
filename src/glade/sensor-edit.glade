@@ -470,7 +470,7 @@
                       <object class="GtkLabel" id="sensor_alarm_high_threshold_unit">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="valign">start</property>
+                        <property name="valign">center</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">N/A</property>
                       </object>
@@ -518,7 +518,7 @@
                       <object class="GtkLabel" id="sensor_alarm_low_threshold_unit">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="valign">start</property>
+                        <property name="valign">center</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">N/A</property>
                       </object>
