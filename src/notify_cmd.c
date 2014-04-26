@@ -20,14 +20,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "notify_cmd.h"
-#include "cfg.h"
+#include <notify_cmd.h>
+#include <cfg.h>
 
 void notify_cmd(struct psensor *s)
 {
-	char *script;
-	char *v;
-	char *cmd;
+	char *script, *v, *cmd;
 	int ret;
 
 	script = config_get_notif_script();
@@ -35,14 +33,21 @@ void notify_cmd(struct psensor *s)
 	if (script) {
 		v = psensor_current_value_to_str(s, 1);
 
-		cmd = malloc(strlen(script)+1+1+strlen(s->id)+1+strlen(v)+1);
+		cmd = malloc(strlen(script)
+			     + 1
+			     + 1
+			     + strlen(s->id)
+			     + 1
+			     + strlen(v)
+			     + 1);
+
 		sprintf(cmd, "%s \"%s\" %s", script, s->id, v);
 
-		log_debug("execute cmd: %s", cmd);
+		log_fct("execute cmd: %s", cmd);
 
 		ret = system(cmd);
 
-		log_debug("cmd returns: %d", ret);
+		log_fct("cmd returns: %d", ret);
 
 		free(cmd);
 		free(v);
