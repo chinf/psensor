@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-25 11:48+0200\n"
+"POT-Creation-Date: 2014-04-26 17:00+0200\n"
 "PO-Revision-Date: 2013-10-24 12:32+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -18,37 +18,37 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
 "X-Generator: Launchpad (build 16916)\n"
 
-#: src/glade/psensor.glade:5
+#: src/glade/psensor.glade:6
 msgid "About"
 msgstr "Par"
 
-#: src/glade/psensor.glade:9 src/glade/psensor.glade:10
-#: src/glade/psensor.glade:19 src/ui_sensorlist.c:209
+#: src/glade/psensor.glade:10 src/glade/psensor.glade:11
+#: src/glade/psensor.glade:20 src/ui_sensorlist.c:209
 msgid "Preferences"
 msgstr "Iestatījumi"
 
-#: src/glade/psensor.glade:14 src/glade/psensor.glade:15
-#: src/glade/psensor.glade:27
+#: src/glade/psensor.glade:15 src/glade/psensor.glade:16
+#: src/glade/psensor.glade:28
 msgid "Sensor Preferences"
 msgstr "Sensoru iestatījumi"
 
-#: src/glade/psensor.glade:23
+#: src/glade/psensor.glade:24
 msgid "Quit"
 msgstr "Iziet"
 
-#: src/glade/psensor.glade:31
+#: src/glade/psensor.glade:84
 msgid "Show"
 msgstr "Rādīt"
 
-#: src/glade/psensor.glade:180
+#: src/glade/psensor.glade:184
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - temperatūras pārraugs"
 
-#: src/glade/psensor.glade:195
+#: src/glade/psensor.glade:199
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:242
+#: src/glade/psensor.glade:246
 msgid "_Help"
 msgstr "_Palīdzība"
 
@@ -73,124 +73,130 @@ msgstr ""
 msgid "Edit Preferences"
 msgstr "Rediģēt iestatījumus"
 
-#: src/glade/psensor-pref.glade:128
-msgid "Position of sensors table:"
-msgstr "Sensoru tabulas novietojums:"
-
-#: src/glade/psensor-pref.glade:146
-msgid "Celcius"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:147
-msgid "Fahrenheit"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:183
+#: src/glade/psensor-pref.glade:121
 msgid "Hide window decoration"
 msgstr "Slēpt loga apdari"
 
-#: src/glade/psensor-pref.glade:203
+#: src/glade/psensor-pref.glade:141
 msgid "Keep window below"
 msgstr "Turēt logu apakšā"
 
-#: src/glade/psensor-pref.glade:223
+#: src/glade/psensor-pref.glade:161
 msgid "Enable menu"
 msgstr "Aktivizēt izvēlni"
 
-#: src/glade/psensor-pref.glade:243
+#: src/glade/psensor-pref.glade:181
 msgid "Enable Unity Launcher counter"
 msgstr "Aktivizēt Unity palaidēja skaitītāju"
 
-#: src/glade/psensor-pref.glade:263
-msgid "Hide window on startup"
-msgstr "Slēpt logu pieteicoties sistēmā"
-
-#: src/glade/psensor-pref.glade:283
+#: src/glade/psensor-pref.glade:201
 msgid "Restore window position and size"
 msgstr "Atjaunot loga pozīciju un izmēru"
 
-#: src/glade/psensor-pref.glade:310
+#: src/glade/psensor-pref.glade:229
+msgid "Celcius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:230
+msgid "Fahrenheit"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:274
 msgid "Temperature unit:"
 msgstr "Temperatūras mērvienība:"
 
-#: src/glade/psensor-pref.glade:321
-msgid "Launch on session startup"
-msgstr ""
+#: src/glade/psensor-pref.glade:292
+msgid "Position of sensors table:"
+msgstr "Sensoru tabulas novietojums:"
 
-#: src/glade/psensor-pref.glade:345
+#: src/glade/psensor-pref.glade:307
 msgid "Interface"
 msgstr "Saskarne"
 
-#: src/glade/psensor-pref.glade:382
+#: src/glade/psensor-pref.glade:319
+msgid "Launch on session startup"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:340
+msgid "Hide window on startup"
+msgstr "Slēpt logu pieteicoties sistēmā"
+
+#: src/glade/psensor-pref.glade:367
+msgid "Startup"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:405
 msgid "Foreground:"
 msgstr "Priekšplāns:"
 
-#: src/glade/psensor-pref.glade:397
+#: src/glade/psensor-pref.glade:420
 msgid "Background:"
 msgstr "Fons:"
 
-#: src/glade/psensor-pref.glade:431
+#: src/glade/psensor-pref.glade:454
 msgid "Background opacity:"
 msgstr "Fona necaurspīdība:"
 
-#: src/glade/psensor-pref.glade:454
+#: src/glade/psensor-pref.glade:477
 msgid "<i>Min</i>"
 msgstr "<i>Min.</i>"
 
-#: src/glade/psensor-pref.glade:481
+#: src/glade/psensor-pref.glade:504
 msgid "<i>Max</i>"
 msgstr "<i>Maks.</i>"
 
-#: src/glade/psensor-pref.glade:507
+#: src/glade/psensor-pref.glade:530
 msgid "Colors"
 msgstr "Krāsas"
 
-#: src/glade/psensor-pref.glade:525
+#: src/glade/psensor-pref.glade:548
 msgid "Monitoring duration:"
 msgstr "Pārraudzības ilgums:"
 
-#: src/glade/psensor-pref.glade:562
+#: src/glade/psensor-pref.glade:585
 msgid "minute(s)"
 msgstr "minūte(s)"
 
-#: src/glade/psensor-pref.glade:579 src/glade/psensor-pref.glade:729
+#: src/glade/psensor-pref.glade:602 src/glade/psensor-pref.glade:752
 msgid "second(s)"
 msgstr "sekunde(s)"
 
-#: src/glade/psensor-pref.glade:614
+#: src/glade/psensor-pref.glade:637
 msgid "Update interval:"
 msgstr "Atjaunināšanas intervāls:"
 
-#: src/glade/psensor-pref.glade:632
+#: src/glade/psensor-pref.glade:655
 msgid "Measures"
 msgstr "Mērījumi"
 
-#: src/glade/psensor-pref.glade:668 src/glade/sensor-edit.glade:178
+#: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
 #: src/ui_sensorlist.c:334
 msgid "Graph"
 msgstr "Grafiks"
 
-#: src/glade/psensor-pref.glade:692
+#: src/glade/psensor-pref.glade:715
 msgid "Measure update interval:"
 msgstr "Mērījumu atjaunināšanas intervāls:"
 
-#: src/glade/psensor-pref.glade:740
+#: src/glade/psensor-pref.glade:763
 msgid "Enable sensors logging"
 msgstr "Aktivizēt sensora žurnalēšanu"
 
-#: src/glade/psensor-pref.glade:787
-msgid "Sensors logging interval"
+#: src/glade/psensor-pref.glade:810
+#, fuzzy
+msgid "Sensors logging interval:"
 msgstr "Sensoru žurnalēšanas intervāls"
 
-#: src/glade/psensor-pref.glade:804
+#: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
 msgstr "sekunde(s)"
 
-#: src/glade/psensor-pref.glade:821
-msgid "Script executed when an alarm is raised"
+#: src/glade/psensor-pref.glade:844
+#, fuzzy
+msgid "Script executed when an alarm is raised:"
 msgstr "Skrips izpildīts, kad trauksme ir aktivizēta"
 
-#: src/glade/psensor-pref.glade:854
+#: src/glade/psensor-pref.glade:877
 msgid "Sensors"
 msgstr "Sensori"
 
@@ -202,74 +208,74 @@ msgstr "Rediģēt sensoru iestatījumus"
 msgid "Name"
 msgstr "Nosaukums"
 
-#: src/glade/sensor-edit.glade:147
+#: src/glade/sensor-edit.glade:140
 msgid "Type:"
 msgstr "Tips:"
 
-#: src/glade/sensor-edit.glade:162 src/glade/sensor-edit.glade:305
-#: src/glade/sensor-edit.glade:400 src/glade/sensor-edit.glade:472
-#: src/glade/sensor-edit.glade:521 src/lib/psensor.c:486 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:155 src/glade/sensor-edit.glade:202
+#: src/glade/sensor-edit.glade:249 src/glade/sensor-edit.glade:475
+#: src/glade/sensor-edit.glade:523 src/lib/psensor.c:486 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/P"
 
-#: src/glade/sensor-edit.glade:196
-msgid "Color:"
-msgstr "Krāsa:"
-
-#: src/glade/sensor-edit.glade:210
-msgid "Alarm"
-msgstr "Trauksme"
-
-#: src/glade/sensor-edit.glade:225
-msgid "Activate desktop notifications"
-msgstr "Aktivizēt darbvirsmas paziņojumus"
-
-#: src/glade/sensor-edit.glade:246
+#: src/glade/sensor-edit.glade:170
 msgid "Sensor Information"
 msgstr "Sensora informācija"
 
-#: src/glade/sensor-edit.glade:259
+#: src/glade/sensor-edit.glade:188
+msgid "Chip:"
+msgstr "Mikroshēma:"
+
+#: src/glade/sensor-edit.glade:217
+msgid "Name:"
+msgstr "Nosaukums:"
+
+#: src/glade/sensor-edit.glade:232
+msgid "Id:"
+msgstr "Id:"
+
+#: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
 msgstr "Zīmēt sensora līkni"
 
+#: src/glade/sensor-edit.glade:300
+msgid "Color:"
+msgstr "Krāsa:"
+
+#: src/glade/sensor-edit.glade:331
+msgid "Alarm"
+msgstr "Trauksme"
+
 #: src/glade/sensor-edit.glade:345
+msgid "Activate desktop notifications"
+msgstr "Aktivizēt darbvirsmas paziņojumus"
+
+#: src/glade/sensor-edit.glade:367
 msgid "High threshold:"
 msgstr "Augsts slieksnis:"
 
-#: src/glade/sensor-edit.glade:360
+#: src/glade/sensor-edit.glade:382
 msgid "Low threshold:"
 msgstr "Zems slieksnis:"
 
-#: src/glade/sensor-edit.glade:421
+#: src/glade/sensor-edit.glade:397
 #, fuzzy
 msgid "Application Indicator"
 msgstr "Ubuntu aplikāciju indikators"
 
-#: src/glade/sensor-edit.glade:436
+#: src/glade/sensor-edit.glade:411
 #, fuzzy
 msgid "Display sensor in the menu"
 msgstr "Rādīt sensoru aplikāciju indikatora izvēlnē"
 
-#: src/glade/sensor-edit.glade:457
-msgid "Chip:"
-msgstr "Mikroshēma:"
-
-#: src/glade/sensor-edit.glade:502
-msgid "Id:"
-msgstr "Id:"
-
-#: src/glade/sensor-edit.glade:536
-msgid "Details"
-msgstr "Detaļas"
-
-#: src/glade/sensor-edit.glade:554
-msgid "Name:"
-msgstr "Nosaukums:"
-
-#: src/glade/sensor-edit.glade:566
+#: src/glade/sensor-edit.glade:429
 #, fuzzy
 msgid "Display sensor in the label (experimental)"
 msgstr "Rādīt sensoru aplikāciju indikatora izvēlnē"
+
+#: src/glade/sensor-edit.glade:500
+msgid "-1"
+msgstr ""
 
 #: src/lib/amd.c:170
 msgid "AMD: cannot found ADL library."
@@ -639,6 +645,9 @@ msgstr "Ventilatora trauksme"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "Nezināms"
+
+#~ msgid "Details"
+#~ msgstr "Detaļas"
 
 #~ msgid "_Show"
 #~ msgstr "_Rādīt"
