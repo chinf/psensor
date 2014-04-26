@@ -18,7 +18,7 @@
  */
 #include <unity.h>
 
-#include "psensor.h"
+#include <ui_unity.h>
 
 static int initialized;
 static UnityLauncherEntry *psensor_entry;
@@ -29,7 +29,6 @@ void ui_unity_launcher_entry_update(struct psensor **sensors,
 				    int use_celcius)
 {
 	double v;
-
 
 	if (!initialized) {
 		psensor_entry = unity_launcher_entry_get_for_desktop_file
