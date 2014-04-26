@@ -13,6 +13,7 @@ v0.9.0.0
   #728754).
 * fixed minor GUI bugs (widget alignments, padding, layout policy,
   etc).
+* fixed missing translatable strings.
 
 v0.8.0.6
 --------

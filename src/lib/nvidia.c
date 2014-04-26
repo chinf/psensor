@@ -72,7 +72,7 @@ static struct psensor *create_sensor(int id, int values_len)
 
 	s = psensor_create(sid,
 			   strdup(name),
-			   strdup("Nvidia GPU"),
+			   strdup(_("NVidia GPU")),
 			   t,
 			   values_len);
 

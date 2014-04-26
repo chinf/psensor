@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-26 17:00+0200\n"
+"POT-Creation-Date: 2014-04-26 22:12+0200\n"
 "PO-Revision-Date: 2013-09-01 18:54+0000\n"
 "Last-Translator: Celio Alves <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -89,37 +89,37 @@ msgstr "Habilitar menu"
 msgid "Enable Unity Launcher counter"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:201
-msgid "Restore window position and size"
-msgstr "Restaurar posição e tamanho da janela"
-
-#: src/glade/psensor-pref.glade:229
+#: src/glade/psensor-pref.glade:209
 msgid "Celcius"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:230
+#: src/glade/psensor-pref.glade:210
 msgid "Fahrenheit"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:274
+#: src/glade/psensor-pref.glade:254
 msgid "Temperature unit:"
 msgstr "Unidade de temperatura:"
 
-#: src/glade/psensor-pref.glade:292
+#: src/glade/psensor-pref.glade:272
 msgid "Position of sensors table:"
 msgstr "Posição da tabela de sensores:"
 
-#: src/glade/psensor-pref.glade:307
+#: src/glade/psensor-pref.glade:287
 msgid "Interface"
 msgstr "Interface"
 
-#: src/glade/psensor-pref.glade:319
+#: src/glade/psensor-pref.glade:299
 msgid "Launch on session startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:340
+#: src/glade/psensor-pref.glade:320
 msgid "Hide window on startup"
 msgstr "Ocultar janela na inicialização"
+
+#: src/glade/psensor-pref.glade:340
+msgid "Restore window position and size"
+msgstr "Restaurar posição e tamanho da janela"
 
 #: src/glade/psensor-pref.glade:367
 msgid "Startup"
@@ -299,6 +299,14 @@ msgstr "Número de adaptadores AMD/ATI: %d"
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr "Número de adaptadores AMD/ATI ativos: %d"
 
+#: src/lib/cpu.c:46
+msgid "CPU"
+msgstr ""
+
+#: src/lib/hdd_atasmart.c:57 src/lib/hdd_hddtemp.c:122
+msgid "Disk"
+msgstr ""
+
 #: src/lib/hdd_atasmart.c:152
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
@@ -326,6 +334,22 @@ msgstr "lmsensor: não foi possível obter valor do sub-recurso %s: %s."
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr ""
 
+#: src/lib/lmsensor.c:148
+msgid "Intel CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:152
+msgid "AMD CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:154
+msgid "Nvidia GPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:156
+msgid "VIA CPU"
+msgstr ""
+
 #: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
@@ -339,6 +363,10 @@ msgstr "Não é possível abrir arquivo de log: %s"
 #: src/lib/nvidia.c:54
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
+msgstr ""
+
+#: src/lib/nvidia.c:75
+msgid "NVidia GPU"
 msgstr ""
 
 #: src/lib/nvidia.c:97

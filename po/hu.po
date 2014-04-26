@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-26 17:00+0200\n"
+"POT-Creation-Date: 2014-04-26 22:12+0200\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -90,37 +90,37 @@ msgstr "Menü engedélyezése"
 msgid "Enable Unity Launcher counter"
 msgstr "Unity indítón lévő számláló engedélyezése"
 
-#: src/glade/psensor-pref.glade:201
-msgid "Restore window position and size"
-msgstr "Ablak pozíciójának és méretének visszaállítása"
-
-#: src/glade/psensor-pref.glade:229
+#: src/glade/psensor-pref.glade:209
 msgid "Celcius"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:230
+#: src/glade/psensor-pref.glade:210
 msgid "Fahrenheit"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:274
+#: src/glade/psensor-pref.glade:254
 msgid "Temperature unit:"
 msgstr "Hőmérséklet mértékegysége:"
 
-#: src/glade/psensor-pref.glade:292
+#: src/glade/psensor-pref.glade:272
 msgid "Position of sensors table:"
 msgstr "Érzékelőtábla pozíciója:"
 
-#: src/glade/psensor-pref.glade:307
+#: src/glade/psensor-pref.glade:287
 msgid "Interface"
 msgstr "Felület"
 
-#: src/glade/psensor-pref.glade:319
+#: src/glade/psensor-pref.glade:299
 msgid "Launch on session startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:340
+#: src/glade/psensor-pref.glade:320
 msgid "Hide window on startup"
 msgstr "Ablak elrejtése induláskor"
+
+#: src/glade/psensor-pref.glade:340
+msgid "Restore window position and size"
+msgstr "Ablak pozíciójának és méretének visszaállítása"
 
 #: src/glade/psensor-pref.glade:367
 msgid "Startup"
@@ -303,6 +303,14 @@ msgstr ""
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr ""
 
+#: src/lib/cpu.c:46
+msgid "CPU"
+msgstr ""
+
+#: src/lib/hdd_atasmart.c:57 src/lib/hdd_hddtemp.c:122
+msgid "Disk"
+msgstr ""
+
 #: src/lib/hdd_atasmart.c:152
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
@@ -330,6 +338,22 @@ msgstr "lmsensor: alfunkció értékének lekérdezése meghiúsult %s: %s."
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr "lmsensor: lmsensor_psensor_create hiba: rossz funkciótípus."
 
+#: src/lib/lmsensor.c:148
+msgid "Intel CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:152
+msgid "AMD CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:154
+msgid "Nvidia GPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:156
+msgid "VIA CPU"
+msgstr ""
+
 #: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
@@ -343,6 +367,10 @@ msgstr "A naplófájl megnyitása sikertelen: %s"
 #: src/lib/nvidia.c:54
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
+msgstr ""
+
+#: src/lib/nvidia.c:75
+msgid "NVidia GPU"
 msgstr ""
 
 #: src/lib/nvidia.c:97

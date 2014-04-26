@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-26 17:00+0200\n"
+"POT-Creation-Date: 2014-04-26 22:12+0200\n"
 "PO-Revision-Date: 2013-11-24 08:42+0000\n"
 "Last-Translator: İbrahim Çelik <ibrahimcelik89@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -89,37 +89,37 @@ msgstr "Menüyü etkinleştir"
 msgid "Enable Unity Launcher counter"
 msgstr "Unity Başlatıcı sayacını etkinleştir"
 
-#: src/glade/psensor-pref.glade:201
-msgid "Restore window position and size"
-msgstr "Pencere konumunu ve boyutunu yeniden yükle"
-
-#: src/glade/psensor-pref.glade:229
+#: src/glade/psensor-pref.glade:209
 msgid "Celcius"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:230
+#: src/glade/psensor-pref.glade:210
 msgid "Fahrenheit"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:274
+#: src/glade/psensor-pref.glade:254
 msgid "Temperature unit:"
 msgstr "Sıcaklık birimi:"
 
-#: src/glade/psensor-pref.glade:292
+#: src/glade/psensor-pref.glade:272
 msgid "Position of sensors table:"
 msgstr "Gözlemleyici tablosunun konumu:"
 
-#: src/glade/psensor-pref.glade:307
+#: src/glade/psensor-pref.glade:287
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/glade/psensor-pref.glade:319
+#: src/glade/psensor-pref.glade:299
 msgid "Launch on session startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:340
+#: src/glade/psensor-pref.glade:320
 msgid "Hide window on startup"
 msgstr "Başlangıçta pencereyi gizle"
+
+#: src/glade/psensor-pref.glade:340
+msgid "Restore window position and size"
+msgstr "Pencere konumunu ve boyutunu yeniden yükle"
 
 #: src/glade/psensor-pref.glade:367
 msgid "Startup"
@@ -303,6 +303,14 @@ msgstr "AMD/ATI bağdaştırıcı sayısı: %d"
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr "Etkin AMD/ATI bağdaştırıcı sayısı: %d"
 
+#: src/lib/cpu.c:46
+msgid "CPU"
+msgstr ""
+
+#: src/lib/hdd_atasmart.c:57 src/lib/hdd_hddtemp.c:122
+msgid "Disk"
+msgstr ""
+
 #: src/lib/hdd_atasmart.c:152
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
@@ -330,6 +338,22 @@ msgstr "lmsensor: %s alt özelliğinin değeri alınamıyor: %s."
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr "lmsensor: lmsensor_psensor_create hatası: yanlış özellik tipi."
 
+#: src/lib/lmsensor.c:148
+msgid "Intel CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:152
+msgid "AMD CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:154
+msgid "Nvidia GPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:156
+msgid "VIA CPU"
+msgstr ""
+
 #: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
@@ -346,6 +370,10 @@ msgid ""
 msgstr ""
 "NVIDIA kapalı kaynak sürücüsü kullanılmıyor veya NVIDIA ekran kartı "
 "sıcaklığı alınamıyor."
+
+#: src/lib/nvidia.c:75
+msgid "NVidia GPU"
+msgstr ""
 
 #: src/lib/nvidia.c:97
 msgid "Cannot open connection to X11 server."

@@ -119,7 +119,7 @@ create_sensor(char *id, char *name, int values_max_length)
 
 	t = SENSOR_TYPE_HDD | SENSOR_TYPE_HDDTEMP | SENSOR_TYPE_TEMP;
 
-	return psensor_create(id, name, strdup("HDD"),
+	return psensor_create(id, name, strdup(_("Disk")),
 			      t,
 			      values_max_length);
 }

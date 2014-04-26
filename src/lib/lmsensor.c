@@ -145,15 +145,15 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	sprintf(id, "lmsensor %s %s", name, label);
 
 	if (!strcmp(chip->prefix, "coretemp"))
-		cname = strdup("Intel CPU");
+		cname = strdup(_("Intel CPU"));
 	else if (!strcmp(chip->prefix, "k10temp")
 		 || !strcmp(chip->prefix, "k8temp")
 		 || !strcmp(chip->prefix, "fam15h_power"))
-		cname = strdup("AMD CPU");
+		cname = strdup(_("AMD CPU"));
 	else if (!strcmp(chip->prefix, "nouveau"))
-		cname = strdup("Nvidia GPU");
+		cname = strdup(_("Nvidia GPU"));
 	else if (!strcmp(chip->prefix, "via-cputemp"))
-		cname = strdup("VIA CPU");
+		cname = strdup(_("VIA CPU"));
 	else
 		cname = strdup(chip->prefix);
 

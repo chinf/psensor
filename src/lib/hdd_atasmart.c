@@ -54,7 +54,7 @@ create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 
 	s = psensor_create(id,
 			   strdup(name),
-			   strdup("HDD"),
+			   strdup(_("Disk")),
 			   t,
 			   values_max_length);
 
