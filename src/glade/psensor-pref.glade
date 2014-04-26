@@ -117,68 +117,6 @@
                 <property name="can_focus">False</property>
                 <property name="column_homogeneous">True</property>
                 <child>
-                  <object class="GtkLabel" id="label14">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="margin_left">4</property>
-                    <property name="margin_right">4</property>
-                    <property name="margin_top">4</property>
-                    <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
-                    <property name="label" translatable="yes">Position of sensors table:</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">8</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkComboBoxText" id="temperature_unit">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="margin_left">4</property>
-                    <property name="margin_right">4</property>
-                    <property name="margin_top">4</property>
-                    <property name="margin_bottom">4</property>
-                    <items>
-                      <item translatable="yes">Celcius</item>
-                      <item translatable="yes">Fahrenheit</item>
-                    </items>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">7</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkComboBox" id="sensors_list_position">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="margin_left">4</property>
-                    <property name="margin_right">4</property>
-                    <property name="margin_top">4</property>
-                    <property name="margin_bottom">4</property>
-                    <property name="model">position_list_store</property>
-                    <property name="active">0</property>
-                    <child>
-                      <object class="GtkCellRendererText" id="cellrenderertext1"/>
-                      <attributes>
-                        <attribute name="text">0</attribute>
-                      </attributes>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="left_attach">1</property>
-                    <property name="top_attach">8</property>
-                    <property name="width">1</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
                   <object class="GtkCheckButton" id="hide_window_decoration">
                     <property name="label" translatable="yes">Hide window decoration</property>
                     <property name="visible">True</property>
@@ -193,7 +131,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
+                    <property name="top_attach">0</property>
                     <property name="width">2</property>
                     <property name="height">1</property>
                   </packing>
@@ -213,7 +151,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">2</property>
+                    <property name="top_attach">1</property>
                     <property name="width">2</property>
                     <property name="height">1</property>
                   </packing>
@@ -233,7 +171,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">3</property>
+                    <property name="top_attach">2</property>
                     <property name="width">2</property>
                     <property name="height">1</property>
                   </packing>
@@ -253,27 +191,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">4</property>
-                    <property name="width">2</property>
-                    <property name="height">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="hide_on_startup">
-                    <property name="label" translatable="yes">Hide window on startup</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="margin_left">4</property>
-                    <property name="margin_right">4</property>
-                    <property name="margin_top">4</property>
-                    <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">5</property>
+                    <property name="top_attach">3</property>
                     <property name="width">2</property>
                     <property name="height">1</property>
                   </packing>
@@ -293,8 +211,54 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">6</property>
+                    <property name="top_attach">4</property>
                     <property name="width">2</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBoxText" id="temperature_unit">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
+                    <items>
+                      <item translatable="yes">Celcius</item>
+                      <item translatable="yes">Fahrenheit</item>
+                    </items>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">5</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="sensors_list_position">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="halign">start</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
+                    <property name="model">position_list_store</property>
+                    <property name="active">0</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">6</property>
+                    <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
                 </child>
@@ -311,28 +275,26 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">7</property>
+                    <property name="top_attach">5</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkCheckButton" id="autostart">
-                    <property name="label" translatable="yes">Launch on session startup</property>
+                  <object class="GtkLabel" id="label14">
                     <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
+                    <property name="can_focus">False</property>
                     <property name="margin_left">4</property>
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
                     <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
+                    <property name="label" translatable="yes">Position of sensors table:</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
-                    <property name="width">2</property>
+                    <property name="top_attach">6</property>
+                    <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
                 </child>
@@ -345,6 +307,67 @@
                 <property name="label" translatable="yes">Interface</property>
               </object>
               <packing>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkGrid" id="grid4">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkCheckButton" id="autostart">
+                    <property name="label" translatable="yes">Launch on session startup</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
+                    <property name="xalign">0</property>
+                    <property name="yalign">0.49000000953674316</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="hide_on_startup">
+                    <property name="label" translatable="yes">Hide window on startup</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="label5">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Startup</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>
@@ -658,7 +681,7 @@
                 </child>
               </object>
               <packing>
-                <property name="position">1</property>
+                <property name="position">2</property>
               </packing>
             </child>
             <child type="tab">
@@ -668,7 +691,7 @@
                 <property name="label" translatable="yes">Graph</property>
               </object>
               <packing>
-                <property name="position">1</property>
+                <property name="position">2</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>
@@ -784,7 +807,7 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="label" translatable="yes">Sensors logging interval</property>
+                    <property name="label" translatable="yes">Sensors logging interval:</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -818,7 +841,7 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="label" translatable="yes">Script executed when an alarm is raised</property>
+                    <property name="label" translatable="yes">Script executed when an alarm is raised:</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -843,7 +866,7 @@
                 </child>
               </object>
               <packing>
-                <property name="position">2</property>
+                <property name="position">3</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>
@@ -854,7 +877,7 @@
                 <property name="label" translatable="yes">Sensors</property>
               </object>
               <packing>
-                <property name="position">2</property>
+                <property name="position">3</property>
                 <property name="tab_fill">False</property>
               </packing>
             </child>
