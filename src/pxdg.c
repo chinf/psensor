@@ -28,6 +28,8 @@
 #include <pio.h>
 #include <plog.h>
 
+static const char *KEY_GNOME_AUTOSTART = "X-GNOME-Autostart-enabled";
+
 static char *get_user_autostart_dir()
 {
 	const char *xdg_cfg_dir;
@@ -89,11 +91,11 @@ static int is_user_desktop_autostarted(GKeyFile *f)
 {
 	return (!g_key_file_has_key(f,
 				    G_KEY_FILE_DESKTOP_GROUP,
-				    "X-GNOME-Autostart-enabled",
+				    KEY_GNOME_AUTOSTART,
 				    NULL))
 		|| g_key_file_get_boolean(f,
 					  G_KEY_FILE_DESKTOP_GROUP,
-					  "X-GNOME-Autostart-enabled",
+					  KEY_GNOME_AUTOSTART,
 					  NULL);
 }
 
@@ -132,10 +134,33 @@ int pxdg_is_autostarted()
 	return ret;
 }
 
+static void enable_gnome_autostart(const char *path)
+{
+	GKeyFile *f;
+	char *data;
+
+	f = get_key_file(path);
+	if (f) {
+		if (g_key_file_has_key(f,
+				       G_KEY_FILE_DESKTOP_GROUP,
+				       KEY_GNOME_AUTOSTART,
+				       NULL))
+			g_key_file_set_boolean(f,
+					       G_KEY_FILE_DESKTOP_GROUP,
+					       KEY_GNOME_AUTOSTART,
+					       TRUE);
+		data = g_key_file_to_data(f, NULL, NULL);
+		g_file_set_contents(path, data, -1, NULL);
+
+		g_key_file_free(f);
+	} else {
+		log_err("Fail to enable %s", KEY_GNOME_AUTOSTART);
+	}
+}
+
 void pxdg_set_autostart(unsigned int enable)
 {
-	char *user_desktop, *data;
-	GKeyFile *f;
+	char *user_desktop;
 
 	log_fct_enter();
 
@@ -148,26 +173,7 @@ void pxdg_set_autostart(unsigned int enable)
 	if (enable) {
 		if (!is_file_exists(user_desktop))
 			file_copy(get_desktop_file(), user_desktop);
-
-		f = get_key_file(user_desktop);
-		if (f) {
-			if (g_key_file_has_key(f,
-					       G_KEY_FILE_DESKTOP_GROUP,
-					       "X-GNOME-Autostart-enabled",
-					       NULL))
-				g_key_file_set_boolean
-					(f,
-					 G_KEY_FILE_DESKTOP_GROUP,
-					 "X-GNOME-Autostart-enabled",
-					 TRUE);
-			data = g_key_file_to_data(f, NULL, NULL);
-			g_file_set_contents(user_desktop,
-					    data,
-					    -1,
-					    NULL);
-
-			g_key_file_free(f);
-		}
+		enable_gnome_autostart(user_desktop);
 	} else {
 		/* because X-GNOME-Autostart-enabled does not turn off
 		 * autostart on all Desktop Envs. */
