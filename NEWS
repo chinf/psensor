@@ -1,8 +1,8 @@
 Psensor NEWS
 ============
 
-v0.9.0.0
---------
+v1.0.1
+------
 
 * smaller and more consistent with ubuntu themes appindicator icons.
 * sensors displayed directly in the top bar (experimental).
@@ -14,6 +14,8 @@ v0.9.0.0
 * fixed minor GUI bugs (widget alignments, padding, layout policy,
   etc).
 * fixed missing translatable strings.
+* fixed FTBFS due to deprecation of json_object_object_get. (Closes:
+  #746145).
 
 v0.8.0.6
 --------
