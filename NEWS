@@ -17,6 +17,12 @@ v1.0.1
 * fixed FTBFS due to deprecation of json_object_object_get. (Closes:
   #746145).
 
+v0.8.0.7
+--------
+
+* fixed FTBFS due to deprecation of json_object_object_get. (Closes:
+  #746145).
+
 v0.8.0.6
 --------
 
