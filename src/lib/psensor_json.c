@@ -140,9 +140,9 @@ struct psensor *psensor_new_from_json(json_object *o,
 	struct psensor *s;
 	char *eid, *url;
 
-	oid = json_object_object_get(o, "id");
-	oname = json_object_object_get(o, "name");
-	otype = json_object_object_get(o, "type");
+	json_object_object_get_ex(o, "id", &oid);
+	json_object_object_get_ex(o, "name", &oname);
+	json_object_object_get_ex(o, "type", &otype);
 
 	eid = url_encode(json_object_get_string(oid));
 	url = malloc(strlen(sensors_url) + 1 + strlen(eid) + 1);
