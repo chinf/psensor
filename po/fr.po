@@ -55,19 +55,19 @@ msgstr "_Aide"
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
-msgstr ""
+msgstr "Droite"
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "Gauche"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
-msgstr ""
+msgstr "Haut"
 
 #: src/glade/psensor-pref.glade:33
 msgid "Bottom"
-msgstr ""
+msgstr "Bas"
 
 #: src/glade/psensor-pref.glade:60
 msgid "Edit Preferences"
@@ -183,9 +183,8 @@ msgid "Enable sensors logging"
 msgstr "Activer la journalisation des capteurs"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Intervalle de journallisation des capteurs"
+msgstr "Interval de journallisation des capteurs :"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
@@ -258,19 +257,16 @@ msgid "Low threshold:"
 msgstr "Seuil inférieur :"
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
-msgstr "Indicateur d'application d'Ubuntu"
+msgstr "Indicateur d'application"
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
-msgstr "Afficher le capteur dans le menu de l'indicateur d'application"
+msgstr "Afficher le capteur dans le menu"
 
 #: src/glade/sensor-edit.glade:429
-#, fuzzy
 msgid "Display sensor in the label (experimental)"
-msgstr "Afficher le capteur dans le menu de l'indicateur d'application"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:500
 msgid "-1"
@@ -316,7 +312,6 @@ msgid "atasmart: sk_disk_open() failure: %s."
 msgstr "atasmart : échec de sk_disk_open() : %s."
 
 #: src/lib/hdd_hddtemp.c:59
-#, fuzzy
 msgid "hddtemp: failed to open socket."
 msgstr "hddtemp : échec d'ouverture de l'interface de connexion."
 
@@ -400,7 +395,7 @@ msgid "Sensor log file already open."
 msgstr "Le journal des capteurs est déjà ouvert."
 
 #: src/lib/slog.c:105
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "Ne peut ouvrir le journal : %s."
 
@@ -697,27 +692,3 @@ msgstr "Alerte ventilateur"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "Inconnu"
-
-#~ msgid "Details"
-#~ msgstr "Détails"
-
-#~ msgid "_Show"
-#~ msgstr "_Afficher"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Préférences"
-
-#~ msgid "S_ensor Preferences"
-#~ msgstr "Préférences des capteurs"
-
-#~ msgid "SensorPreferences"
-#~ msgstr "Configuration des capteurs"
-
-#~ msgid "_About"
-#~ msgstr "À _propos"
-
-#~ msgid "_Quit"
-#~ msgstr "_Quitter"
-
-#~ msgid "building menus failed: %s"
-#~ msgstr "La construction des menus a échouée : %s"
