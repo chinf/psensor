@@ -673,27 +673,3 @@ msgstr "Ventilatora trauksme"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "Nezināms"
-
-#~ msgid "Details"
-#~ msgstr "Detaļas"
-
-#~ msgid "_Show"
-#~ msgstr "_Rādīt"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Iestatījumi"
-
-#~ msgid "S_ensor Preferences"
-#~ msgstr "S_ensoru iestatījumi"
-
-#~ msgid "SensorPreferences"
-#~ msgstr "SensoraIestatījumi"
-
-#~ msgid "_About"
-#~ msgstr "P_ar"
-
-#~ msgid "_Quit"
-#~ msgstr "_Iziet"
-
-#~ msgid "building menus failed: %s"
-#~ msgstr "neizdevās izveidot izvēlnes: %s"

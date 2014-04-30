@@ -670,24 +670,3 @@ msgstr "Уведомление вентилятора"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr ""
-
-#~ msgid "Details"
-#~ msgstr "Сведения"
-
-#~ msgid "_Show"
-#~ msgstr "_Показать"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Параметры"
-
-#~ msgid "S_ensor Preferences"
-#~ msgstr "Параметры д_атчика"
-
-#~ msgid "_About"
-#~ msgstr "_О программе"
-
-#~ msgid "_Quit"
-#~ msgstr "_Выход"
-
-#~ msgid "building menus failed: %s"
-#~ msgstr "не удалось создать меню: %s"

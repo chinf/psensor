@@ -183,9 +183,8 @@ msgid "Enable sensors logging"
 msgstr "启用监测器记录"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "监测器记录间隔"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
@@ -258,19 +257,16 @@ msgid "Low threshold:"
 msgstr "低阈值："
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
-msgstr "Ubuntu 应用指示器"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
 msgstr "在应用指示器菜单中显示监视器"
 
 #: src/glade/sensor-edit.glade:429
-#, fuzzy
 msgid "Display sensor in the label (experimental)"
-msgstr "在应用指示器菜单中显示监视器"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:500
 msgid "-1"
@@ -397,9 +393,9 @@ msgid "Sensor log file already open."
 msgstr "已经打开监测器日志文件。"
 
 #: src/lib/slog.c:105
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot open sensor log file: %s."
-msgstr "无法打开监测器日志文件：%s。"
+msgstr ""
 
 #: src/lib/slog.c:136
 msgid "Sensor log file not open."
@@ -674,53 +670,3 @@ msgstr "风扇警报"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "未知"
-
-#~ msgid "Details"
-#~ msgstr "详情"
-
-#~ msgid "_Show"
-#~ msgstr "显示(_S)"
-
-#~ msgid "_Preferences"
-#~ msgstr "首选项(_P)"
-
-#~ msgid "S_ensor Preferences"
-#~ msgstr "传感器首选项(_E)"
-
-#~ msgid "SensorPreferences"
-#~ msgstr "传感器首选项"
-
-#~ msgid "_About"
-#~ msgstr "关于(_A)"
-
-#~ msgid "_Quit"
-#~ msgstr "退出(_Q)"
-
-#~ msgid "building menus failed: %s"
-#~ msgstr "创建菜单失败：%s"
-
-#~ msgid "Sensor Name"
-#~ msgstr "传感器名称"
-
-#~ msgid "Enabled"
-#~ msgstr "激活"
-
-#, fuzzy
-#~ msgid "Enable log of measures"
-#~ msgstr "启用菜单"
-
-#, fuzzy
-#~ msgid "slog_init: cannot open sensor log file: %s"
-#~ msgstr "无法打开日志文件：%s"
-
-#, fuzzy
-#~ msgid "slog_init: gettimeofday failed."
-#~ msgstr "获取时间失败。"
-
-#, fuzzy
-#~ msgid "slog_write_sensors: gettimeofday failed."
-#~ msgstr "获取时间失败。"
-
-#, fuzzy
-#~ msgid "Enable indicator"
-#~ msgstr "激活"

@@ -666,38 +666,3 @@ msgstr "Alenta do ventilador"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "Desconhecido"
-
-#~ msgid "Details"
-#~ msgstr "Detalhes"
-
-#~ msgid "_Show"
-#~ msgstr "Mo_strar"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Preferências"
-
-#~ msgid "SensorPreferences"
-#~ msgstr "Preferências do Sensor"
-
-#~ msgid "_About"
-#~ msgstr "Sobre"
-
-#~ msgid "_Quit"
-#~ msgstr "Sair"
-
-#~ msgid "building menus failed: %s"
-#~ msgstr "falha na montagem dos menus: %s"
-
-#~ msgid "Sensor Name"
-#~ msgstr "Nome do sensor"
-
-#~ msgid "Enabled"
-#~ msgstr "Habilitado"
-
-#, fuzzy
-#~ msgid "Enable log of measures"
-#~ msgstr "Habilitar menu"
-
-#, fuzzy
-#~ msgid "Enable indicator"
-#~ msgstr "Habilitado"

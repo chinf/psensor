@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2014-04-26 22:12+0200\n"
-"PO-Revision-Date: 2013-10-20 09:56+0000\n"
-"Last-Translator: Dennis Baudys <Unknown>\n"
+"PO-Revision-Date: 2014-04-30 16:48+0100\n"
+"Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
-"X-Generator: Launchpad (build 16916)\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: src/glade/psensor.glade:6
 msgid "About"
@@ -183,18 +183,16 @@ msgid "Enable sensors logging"
 msgstr "Sensorenprotokollierung aktivieren"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Sensoren-Protokollierungsintervall"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
 msgstr "Sekunde(n)"
 
 #: src/glade/psensor-pref.glade:844
-#, fuzzy
 msgid "Script executed when an alarm is raised:"
-msgstr "Bei Alarm auszuführendes Skript"
+msgstr ""
 
 #: src/glade/psensor-pref.glade:877
 msgid "Sensors"
@@ -259,19 +257,16 @@ msgid "Low threshold:"
 msgstr "Untere Grenze:"
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
-msgstr "Ubuntu-Anwendungsindikator"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
-msgstr "Sensor im Indikatormenü für Anwendungen zeigen"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:429
-#, fuzzy
 msgid "Display sensor in the label (experimental)"
-msgstr "Sensor im Indikatormenü für Anwendungen zeigen"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:500
 msgid "-1"
@@ -693,27 +688,3 @@ msgstr "Lüfteralarm"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "Unbekannt"
-
-#~ msgid "Details"
-#~ msgstr "Details"
-
-#~ msgid "_Show"
-#~ msgstr "_Anzeigen"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Einstellungen"
-
-#~ msgid "S_ensor Preferences"
-#~ msgstr "_Sensoreinstellungen"
-
-#~ msgid "SensorPreferences"
-#~ msgstr "Sensoreinstellungen"
-
-#~ msgid "_About"
-#~ msgstr "_Info"
-
-#~ msgid "_Quit"
-#~ msgstr "_Beenden"
-
-#~ msgid "building menus failed: %s"
-#~ msgstr "Erstellen der Menüs ist gescheitert: %s"

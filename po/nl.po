@@ -691,27 +691,3 @@ msgstr "Ventilatorwaarschuwing"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "Onbekend"
-
-#~ msgid "Details"
-#~ msgstr "Bijzonderheden"
-
-#~ msgid "_Show"
-#~ msgstr "_Tonen"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Voorkeuren"
-
-#~ msgid "S_ensor Preferences"
-#~ msgstr "Sensorvoorkeuren"
-
-#~ msgid "SensorPreferences"
-#~ msgstr "Sensorvoorkeuren"
-
-#~ msgid "_About"
-#~ msgstr "_Over"
-
-#~ msgid "_Quit"
-#~ msgstr "_Afsluiten"
-
-#~ msgid "building menus failed: %s"
-#~ msgstr "opbouwen van menu's is mislukt: %s"

@@ -691,27 +691,3 @@ msgstr "Fan uyarısı"
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
 msgstr "Bilinmeyen"
-
-#~ msgid "Details"
-#~ msgstr "Ayrıntılar"
-
-#~ msgid "_Show"
-#~ msgstr "_Göster"
-
-#~ msgid "_Preferences"
-#~ msgstr "_Tercihler"
-
-#~ msgid "S_ensor Preferences"
-#~ msgstr "A_lgılayıcı Tercihleri"
-
-#~ msgid "SensorPreferences"
-#~ msgstr "AlgılayıcıTercihleri"
-
-#~ msgid "_About"
-#~ msgstr "_Hakkında"
-
-#~ msgid "_Quit"
-#~ msgstr "_Çıkış"
-
-#~ msgid "building menus failed: %s"
-#~ msgstr "menüler inşaa edilemedi: %s"
