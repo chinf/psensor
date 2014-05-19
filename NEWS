@@ -16,6 +16,7 @@ v1.0.1
 * fixed missing translatable strings.
 * fixed FTBFS due to deprecation of json_object_object_get. (Closes:
   #746145).
+* fixed typo (Celcius/Celsius).
 
 v0.8.0.6
 --------
