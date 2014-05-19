@@ -206,7 +206,7 @@
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
                     <items>
-                      <item translatable="yes">Celcius</item>
+                      <item translatable="yes">Celsius</item>
                       <item translatable="yes">Fahrenheit</item>
                     </items>
                   </object>

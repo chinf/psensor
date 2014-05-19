@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-04-26 22:12+0200\n"
+"POT-Creation-Date: 2014-05-19 08:15+0200\n"
 "PO-Revision-Date: 2013-09-01 18:54+0000\n"
 "Last-Translator: Celio Alves <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -90,7 +90,7 @@ msgid "Enable Unity Launcher counter"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:209
-msgid "Celcius"
+msgid "Celsius"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:210
