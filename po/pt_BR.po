@@ -183,9 +183,8 @@ msgid "Enable sensors logging"
 msgstr "Habilitar registro (log) de sensores"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Intervalo de registro dos sensores"
+msgstr "Intervalo de registro dos sensores:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"

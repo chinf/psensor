@@ -184,9 +184,8 @@ msgid "Enable sensors logging"
 msgstr "Érzékelők naplózásának engedélyezése"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Naplózás időköze"
+msgstr "Naplózás időköze:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
@@ -259,12 +258,10 @@ msgid "Low threshold:"
 msgstr "Alsó küszöbérték:"
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
-msgstr "Ubuntu Alkalmazásmenü"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
 msgstr "Érzékelők megjelenítése az alkalmazásmenüben"
 

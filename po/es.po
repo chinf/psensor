@@ -53,7 +53,6 @@ msgid "_Help"
 msgstr "_Ayuda"
 
 #: src/glade/psensor-pref.glade:24
-#, fuzzy
 msgctxt "psensor"
 msgid "Right"
 msgstr "Derecha"
@@ -184,9 +183,8 @@ msgid "Enable sensors logging"
 msgstr "Activar registro de sensores"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Intervalo de registro de sensores"
+msgstr "Intervalo de registro de sensores:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
@@ -259,12 +257,10 @@ msgid "Low threshold:"
 msgstr "Límite inferior"
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
-msgstr "Indicador de aplicación de Ubuntu"
+msgstr "Indicador de aplicación"
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
 msgstr "Mostrar sensor en el menú de aplicaciones"
 
@@ -400,7 +396,7 @@ msgid "Sensor log file already open."
 msgstr "Ya existe un registro de sensores abierto"
 
 #: src/lib/slog.c:105
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "No se puede abrir el archivo de registro: %s."
 
@@ -476,8 +472,8 @@ msgstr "  -n, --new-instance  Fuerza el inicio de otro Psensor paralelo"
 #: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
-" -d, --debug=NIVEL   Establece el nivel de depuración con un valor entre 0 y "
-"3"
+"  -d, --debug=NIVEL   Establece el nivel de depuración con un valor entre 0 "
+"y 3"
 
 #: src/main.c:115 src/server/server.c:117
 #, c-format

@@ -183,18 +183,16 @@ msgid "Enable sensors logging"
 msgstr "Logboeken bijhouden inschakelen voor sensoren"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Tussenpoze voor bijhouden van logboeken voor sensoren"
+msgstr "Tussenpoze voor bijhouden van logboeken voor sensoren:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
 msgstr "seconden(s)"
 
 #: src/glade/psensor-pref.glade:844
-#, fuzzy
 msgid "Script executed when an alarm is raised:"
-msgstr "Script dat wordt uitgevoerd wanneer er een alarm plaatsvindt"
+msgstr "Script dat wordt uitgevoerd wanneer er een alarm plaatsvindt:"
 
 #: src/glade/psensor-pref.glade:877
 msgid "Sensors"
@@ -264,7 +262,6 @@ msgid "Application Indicator"
 msgstr "Ubuntu Toepassingsindicator"
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
 msgstr "Sensor tonen in het menu van de Toepassingsindicator"
 

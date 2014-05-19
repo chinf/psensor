@@ -55,11 +55,11 @@ msgstr "_Aiuto"
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
-msgstr ""
+msgstr "Diritto"
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "Sinestra"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
@@ -183,9 +183,8 @@ msgid "Enable sensors logging"
 msgstr "Abilita registrazione sensori"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Intervallo registrazione sensori"
+msgstr "Intervallo registrazione sensori:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
@@ -258,19 +257,16 @@ msgid "Low threshold:"
 msgstr "Soglia verso il basso"
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
-msgstr "Indicatore Applicazione Ubuntu"
+msgstr "Indicatore Applicazione"
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
-msgstr "Mostra sensore nel menu indicatore Applicazione"
+msgstr "Mostra sensore nel menu"
 
 #: src/glade/sensor-edit.glade:429
-#, fuzzy
 msgid "Display sensor in the label (experimental)"
-msgstr "Mostra sensore nel menu indicatore Applicazione"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:500
 msgid "-1"
@@ -395,12 +391,11 @@ msgid "HOME variable not set."
 msgstr "Variabile HOME non impostata."
 
 #: src/lib/slog.c:96
-#, fuzzy
 msgid "Sensor log file already open."
 msgstr "File di registazione sensori già aperto."
 
 #: src/lib/slog.c:105
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "Impossibile aprire il file di registrazione sensori: %s."
 

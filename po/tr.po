@@ -55,19 +55,19 @@ msgstr "_Yardım"
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
-msgstr ""
+msgstr "Sağ"
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "Sol"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
-msgstr ""
+msgstr "Üstte"
 
 #: src/glade/psensor-pref.glade:33
 msgid "Bottom"
-msgstr ""
+msgstr "Alt"
 
 #: src/glade/psensor-pref.glade:60
 msgid "Edit Preferences"
@@ -95,7 +95,7 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:210
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Fahrenhayt"
 
 #: src/glade/psensor-pref.glade:254
 msgid "Temperature unit:"
@@ -183,18 +183,16 @@ msgid "Enable sensors logging"
 msgstr "Algılayıcı günlük kaydını etkinleştir"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Algılayıcı günlük kaydı aralığı"
+msgstr "Algılayıcı günlük kaydı aralığı:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
 msgstr "saniye"
 
 #: src/glade/psensor-pref.glade:844
-#, fuzzy
 msgid "Script executed when an alarm is raised:"
-msgstr "Alarm çaldığında betik çalıştırılır"
+msgstr "Alarm çaldığında betik çalıştırılır:"
 
 #: src/glade/psensor-pref.glade:877
 msgid "Sensors"
@@ -259,14 +257,12 @@ msgid "Low threshold:"
 msgstr "Düşük eşik:"
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
-msgstr "Ubuntu Uygulama Göstergesi"
+msgstr "Uygulama Göstergesi"
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
-msgstr "Algılayıcıyı Uygulama Göstergesi menüsünde göster"
+msgstr "Algılayıcıları menüde göster"
 
 #: src/glade/sensor-edit.glade:429
 #, fuzzy

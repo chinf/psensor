@@ -183,18 +183,16 @@ msgid "Enable sensors logging"
 msgstr "Aktivizēt sensora žurnalēšanu"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Sensoru žurnalēšanas intervāls"
+msgstr "Sensoru žurnalēšanas intervāls:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
 msgstr "sekunde(s)"
 
 #: src/glade/psensor-pref.glade:844
-#, fuzzy
 msgid "Script executed when an alarm is raised:"
-msgstr "Skrips izpildīts, kad trauksme ir aktivizēta"
+msgstr "Skrips izpildīts, kad trauksme ir aktivizēta:"
 
 #: src/glade/psensor-pref.glade:877
 msgid "Sensors"
@@ -259,12 +257,10 @@ msgid "Low threshold:"
 msgstr "Zems slieksnis:"
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
-msgstr "Ubuntu aplikāciju indikators"
+msgstr "Aplikāciju indikators"
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
 msgstr "Rādīt sensoru aplikāciju indikatora izvēlnē"
 

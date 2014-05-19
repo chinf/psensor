@@ -59,15 +59,15 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "links"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
-msgstr ""
+msgstr "Oberseite"
 
 #: src/glade/psensor-pref.glade:33
 msgid "Bottom"
-msgstr ""
+msgstr "Unterseite"
 
 #: src/glade/psensor-pref.glade:60
 msgid "Edit Preferences"
@@ -395,7 +395,7 @@ msgid "Sensor log file already open."
 msgstr "Sensorprotokolldatei ist bereits geöffnet."
 
 #: src/lib/slog.c:105
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "Sensorprotokolldatei kann nicht geöffnet werden: %s."
 

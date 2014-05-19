@@ -183,9 +183,8 @@ msgid "Enable sensors logging"
 msgstr "Вести журнал событий датчиков"
 
 #: src/glade/psensor-pref.glade:810
-#, fuzzy
 msgid "Sensors logging interval:"
-msgstr "Интервал ведения журнала событий датчиков"
+msgstr "Интервал ведения журнала событий датчиков:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
@@ -258,19 +257,16 @@ msgid "Low threshold:"
 msgstr "Нижний порог:"
 
 #: src/glade/sensor-edit.glade:397
-#, fuzzy
 msgid "Application Indicator"
 msgstr "Индикатор приложения"
 
 #: src/glade/sensor-edit.glade:411
-#, fuzzy
 msgid "Display sensor in the menu"
 msgstr "Показать датчик в индикаторе меню приложений"
 
 #: src/glade/sensor-edit.glade:429
-#, fuzzy
 msgid "Display sensor in the label (experimental)"
-msgstr "Показать датчик в индикаторе меню приложений"
+msgstr ""
 
 #: src/glade/sensor-edit.glade:500
 msgid "-1"

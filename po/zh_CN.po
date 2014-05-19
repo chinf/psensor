@@ -59,15 +59,15 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "左侧"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
-msgstr ""
+msgstr "顶部"
 
 #: src/glade/psensor-pref.glade:33
 msgid "Bottom"
-msgstr ""
+msgstr "底部"
 
 #: src/glade/psensor-pref.glade:60
 msgid "Edit Preferences"
