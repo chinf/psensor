@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-05-19 08:15+0200\n"
+"POT-Creation-Date: 2014-05-19 08:55+0200\n"
 "PO-Revision-Date: 2013-05-12 22:16+0000\n"
 "Last-Translator: Javier <buik8roadmaster@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -277,28 +277,28 @@ msgstr "Mostrar sensor en el menú de aplicaciones"
 msgid "-1"
 msgstr ""
 
-#: src/lib/amd.c:170
+#: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: no se ha encontrado la librería ADL"
 
-#: src/lib/amd.c:197
+#: src/lib/amd.c:195
 msgid "AMD: missing ADL's API."
 msgstr "AMD: ADL's API perdidos"
 
-#: src/lib/amd.c:207
+#: src/lib/amd.c:205
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: error al iniciar ADL"
 
-#: src/lib/amd.c:213
+#: src/lib/amd.c:211
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: imposible listar el número de adaptadores"
 
-#: src/lib/amd.c:252
+#: src/lib/amd.c:250
 #, c-format
 msgid "Number of AMD/ATI adapters: %d"
 msgstr "Numero de adaptadores AMD/ATI: %d"
 
-#: src/lib/amd.c:253
+#: src/lib/amd.c:251
 #, c-format
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr "Numero de adaptadores AMD/ATI: %d"
@@ -364,22 +364,22 @@ msgstr "lmsensor: Fallo de inicialización:%s."
 msgid "Cannot open log file: %s"
 msgstr "Imposible abrir el archivo de registro: %s"
 
-#: src/lib/nvidia.c:54
+#: src/lib/nvidia.c:52
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr ""
 "Controlador propietario de NVIDIA no activado ó incapaz de obtener la "
 "temperatura de la GPU"
 
-#: src/lib/nvidia.c:75
+#: src/lib/nvidia.c:73
 msgid "NVidia GPU"
 msgstr ""
 
-#: src/lib/nvidia.c:97
+#: src/lib/nvidia.c:95
 msgid "Cannot open connection to X11 server."
 msgstr "Imposible establecer conexión con el servidor X11."
 
-#: src/lib/nvidia.c:105
+#: src/lib/nvidia.c:103
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Error al obtener la información de NVIDIA"
 

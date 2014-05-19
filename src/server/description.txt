@@ -79,7 +79,7 @@ log.
 sensors. The ordering is the same than the list of sensor identifiers.
 
 The value is expressed as a float with one digit precision. Temperatures
-are using Celcius unit.
+are using Celsius unit.
 
 The value is written only if it has changed.
 

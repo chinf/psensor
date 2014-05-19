@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-05-19 08:15+0200\n"
+"POT-Creation-Date: 2014-05-19 08:55+0200\n"
 "PO-Revision-Date: 2013-04-14 16:06+0000\n"
 "Last-Translator: Diego Pierotto <Unknown>\n"
 "Language-Team: Italian\n"
@@ -276,28 +276,28 @@ msgstr "Mostra sensore nel menu indicatore Applicazione"
 msgid "-1"
 msgstr ""
 
-#: src/lib/amd.c:170
+#: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: impossibile trovare la libreria ADL"
 
-#: src/lib/amd.c:197
+#: src/lib/amd.c:195
 msgid "AMD: missing ADL's API."
 msgstr "AMD: impossibile trovare l'API di ADL"
 
-#: src/lib/amd.c:207
+#: src/lib/amd.c:205
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: impossibile inizializzare ADL"
 
-#: src/lib/amd.c:213
+#: src/lib/amd.c:211
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: impossibile rilevare il numero di adattatori."
 
-#: src/lib/amd.c:252
+#: src/lib/amd.c:250
 #, c-format
 msgid "Number of AMD/ATI adapters: %d"
 msgstr ""
 
-#: src/lib/amd.c:253
+#: src/lib/amd.c:251
 #, c-format
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr ""
@@ -363,22 +363,22 @@ msgstr "lmsensor: inizializzazione fallita: %s"
 msgid "Cannot open log file: %s"
 msgstr "Impossibile aprire il file di log: %s"
 
-#: src/lib/nvidia.c:54
+#: src/lib/nvidia.c:52
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr ""
 "Driver proprietario NVIDIA non usato o impossibile rilevare la temperatura "
 "della GPU NVIDIA."
 
-#: src/lib/nvidia.c:75
+#: src/lib/nvidia.c:73
 msgid "NVidia GPU"
 msgstr ""
 
-#: src/lib/nvidia.c:97
+#: src/lib/nvidia.c:95
 msgid "Cannot open connection to X11 server."
 msgstr "Impossibile connettersi al server X11."
 
-#: src/lib/nvidia.c:105
+#: src/lib/nvidia.c:103
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Impossibile recuperare informazioni da NVIDIA"
 

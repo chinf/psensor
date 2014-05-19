@@ -170,7 +170,7 @@ v0.7.0.1
 * psensor: used the foreground color defined by the theme for the
    font of the graph legend.
 * psensor: used tab layout for psensor preferences.
-* psensor: temperature unit choice (celcius/fahrenheit).
+* psensor: temperature unit choice (celsius/fahrenheit).
 * +psensor-server+: fixed --wdir option.
 * +psensor-server+: added log level to -d option.
 * +psensor-server+: added --log-file option.
@@ -211,7 +211,7 @@ v0.6.2.19
 v0.6.2.18
 ---------
 
-* added degree sign for celcius (Closes LP: #1021900).
+* added degree sign for celsius (Closes LP: #1021900).
 * added russian, brazilian, hungarian, serbian, slovenian,
    italian, ukrainian and german translation files.
 * merged translations from LP.

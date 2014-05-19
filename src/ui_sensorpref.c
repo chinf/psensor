@@ -65,14 +65,14 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 	p->alarm_enabled = s->alarm_enabled;
 	p->color = color_dup(s->color);
 
-	if (cfg->temperature_unit == CELCIUS) {
+	if (cfg->temperature_unit == CELSIUS) {
 		p->alarm_high_threshold = s->alarm_high_threshold;
 		p->alarm_low_threshold = s->alarm_low_threshold;
 	} else {
 		p->alarm_high_threshold
-			= celcius_to_fahrenheit(s->alarm_high_threshold);
+			= celsius_to_fahrenheit(s->alarm_high_threshold);
 		p->alarm_low_threshold
-			= celcius_to_fahrenheit(s->alarm_low_threshold);
+			= celsius_to_fahrenheit(s->alarm_low_threshold);
 	}
 
 	p->appindicator_enabled = s->appindicator_enabled;
@@ -214,7 +214,7 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 	GtkSpinButton *w_high_threshold, *w_low_threshold;
 	GdkColor *color;
 	struct psensor *s;
-	int use_celcius;
+	int use_celsius;
 
 	s = p->sensor;
 
@@ -258,13 +258,13 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 					(builder,
 					 "sensor_alarm_low_threshold_unit"));
 
-	use_celcius = cfg->temperature_unit == CELCIUS ? 1 : 0;
+	use_celsius = cfg->temperature_unit == CELSIUS ? 1 : 0;
 	gtk_label_set_text(w_high_threshold_unit,
 			   psensor_type_to_unit_str(s->type,
-						    use_celcius));
+						    use_celsius));
 	gtk_label_set_text(w_low_threshold_unit,
 			   psensor_type_to_unit_str(s->type,
-						    use_celcius));
+						    use_celsius));
 
 	w_appindicator_enabled = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "indicator_checkbox"));
@@ -351,9 +351,9 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 
 	if (is_temp_type(s->type) && cfg->temperature_unit == FAHRENHEIT) {
 		s->alarm_high_threshold
-			= fahrenheit_to_celcius(p->alarm_high_threshold);
+			= fahrenheit_to_celsius(p->alarm_high_threshold);
 		s->alarm_low_threshold
-			= fahrenheit_to_celcius(p->alarm_low_threshold);
+			= fahrenheit_to_celsius(p->alarm_low_threshold);
 	} else {
 		s->alarm_high_threshold = p->alarm_high_threshold;
 		s->alarm_low_threshold = p->alarm_low_threshold;

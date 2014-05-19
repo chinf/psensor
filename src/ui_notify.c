@@ -40,7 +40,7 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 	char *body, *svalue;
 	const char *summary;
 	NotifyNotification *notif;
-	unsigned int use_celcius;
+	unsigned int use_celsius;
 
 	log_debug("last_notification %d", last_notification_tv.tv_sec);
 
@@ -59,15 +59,15 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		notify_init("psensor");
 
 	if (notify_is_initted() == TRUE) {
-		if (ui->config->temperature_unit == CELCIUS)
-			use_celcius = 1;
+		if (ui->config->temperature_unit == CELSIUS)
+			use_celsius = 1;
 		else
-			use_celcius = 0;
+			use_celsius = 0;
 
 		svalue = psensor_measure_to_str
 			(psensor_get_current_measure(sensor),
 			 sensor->type,
-			 use_celcius);
+			 use_celsius);
 
 		body = malloc(strlen(sensor->name) + 3 + strlen(svalue) + 1);
 		sprintf(body, "%s : %s", sensor->name, svalue);

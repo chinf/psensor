@@ -33,9 +33,7 @@
 
 Display *display;
 
-/*
-  Returns the temperature (Celcius) of a NVidia GPU.
-*/
+/* Returns the temperature (Celsius) of a NVidia GPU. */
 static int get_temp(struct psensor *sensor)
 {
 	int temp;

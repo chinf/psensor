@@ -209,18 +209,18 @@ int is_fan_type(unsigned int type)
 	return type & SENSOR_TYPE_FAN;
 }
 
-double celcius_to_fahrenheit(double c)
+double celsius_to_fahrenheit(double c)
 {
 	return c * (9.0/5.0) + 32;
 }
 
-double fahrenheit_to_celcius(double f)
+double fahrenheit_to_celsius(double f)
 {
 	return (f - 32) * (5.0/9.0);
 }
 
 char *
-psensor_value_to_str(unsigned int type, double value, int use_celcius)
+psensor_value_to_str(unsigned int type, double value, int use_celsius)
 {
 	char *str;
 	const char *unit;
@@ -231,10 +231,10 @@ psensor_value_to_str(unsigned int type, double value, int use_celcius)
 	 */
 	str = malloc(20);
 
-	unit = psensor_type_to_unit_str(type, use_celcius);
+	unit = psensor_type_to_unit_str(type, use_celsius);
 
-	if (is_temp_type(type) && !use_celcius)
-		value = celcius_to_fahrenheit(value);
+	if (is_temp_type(type) && !use_celsius)
+		value = celsius_to_fahrenheit(value);
 
 	sprintf(str, "%.0f%s", value, unit);
 
@@ -244,9 +244,9 @@ psensor_value_to_str(unsigned int type, double value, int use_celcius)
 char *
 psensor_measure_to_str(const struct measure *m,
 		       unsigned int type,
-		       unsigned int use_celcius)
+		       unsigned int use_celsius)
 {
-	return psensor_value_to_str(type, m->value, use_celcius);
+	return psensor_value_to_str(type, m->value, use_celsius);
 }
 
 void psensor_set_current_value(struct psensor *sensor, double value)
@@ -471,10 +471,10 @@ const char *psensor_type_to_str(unsigned int type)
 }
 
 
-const char *psensor_type_to_unit_str(unsigned int type, int use_celcius)
+const char *psensor_type_to_unit_str(unsigned int type, int use_celsius)
 {
 	if (is_temp_type(type)) {
-		if (use_celcius)
+		if (use_celsius)
 			return "\302\260C";
 		else
 			return "\302\260F";
@@ -541,11 +541,11 @@ struct psensor **psensor_list_copy(struct psensor **sensors)
 }
 
 char *
-psensor_current_value_to_str(const struct psensor *s, unsigned int celcius)
+psensor_current_value_to_str(const struct psensor *s, unsigned int use_celsius)
 {
 	return psensor_value_to_str(s->type,
 				    psensor_get_current_value(s),
-				    celcius);
+				    use_celsius);
 }
 
 struct psensor **psensor_list_filter_graph_enabled(struct psensor **sensors)

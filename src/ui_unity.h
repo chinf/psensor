@@ -23,6 +23,6 @@
 
 void ui_unity_launcher_entry_update(struct psensor **sensors,
 				    unsigned int show,
-				    int use_celcius);
+				    int use_celsius);
 
 #endif

@@ -25,7 +25,7 @@
 #include "color.h"
 
 enum temperature_unit {
-	CELCIUS,
+	CELSIUS,
 	FAHRENHEIT
 };
 

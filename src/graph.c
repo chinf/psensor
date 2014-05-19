@@ -266,12 +266,12 @@ graph_update(struct psensor **sensors,
 	mint = get_min_temp(enabled_sensors);
 	strmin = psensor_value_to_str(SENSOR_TYPE_TEMP,
 				      mint,
-				      config->temperature_unit == CELCIUS);
+				      config->temperature_unit == CELSIUS);
 
 	maxt = get_max_temp(enabled_sensors);
 	strmax = psensor_value_to_str(SENSOR_TYPE_TEMP,
 				      maxt,
-				      config->temperature_unit == CELCIUS);
+				      config->temperature_unit == CELSIUS);
 
 	str_btime = time_to_str(get_graph_begin_time_s(config));
 	str_etime = time_to_str(get_graph_end_time_s());

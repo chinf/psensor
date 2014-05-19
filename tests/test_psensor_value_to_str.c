@@ -24,18 +24,18 @@
 
 #include "../src/lib/psensor.h"
 
-#define CELCIUS "\302\260C"
+#define CELSIUS "\302\260C"
 #define FAHRENHEIT "\302\260F"
 
 static int
 test_psensor_value_to_str(unsigned int type,
 			  double value,
-			  int celcius,
+			  int celsius,
 			  const char *ref)
 {
 	char *str;
 
-	str = psensor_value_to_str(type, value, celcius);
+	str = psensor_value_to_str(type, value, celsius);
 	if (strcmp(ref, str)) {
 		fprintf(stderr, "returns: %s expected: %s\n", str, ref);
 		return 1;
@@ -49,13 +49,13 @@ int main(int argc, char **argv)
 	int errs;
 
 	errs = test_psensor_value_to_str(SENSOR_TYPE_TEMP, 13, 1,
-					 "13"CELCIUS);
+					 "13"CELSIUS);
 	errs += test_psensor_value_to_str(SENSOR_TYPE_TEMP, 13, 0,
 					  "55"FAHRENHEIT);
 	errs += test_psensor_value_to_str(SENSOR_TYPE_TEMP, 13.4, 1,
-					  "13"CELCIUS);
+					  "13"CELSIUS);
 	errs += test_psensor_value_to_str(SENSOR_TYPE_TEMP, 13.5, 1,
-					  "14"CELCIUS);
+					  "14"CELSIUS);
 
 	if (errs) 
 		exit(EXIT_FAILURE);

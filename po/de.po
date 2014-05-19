@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-05-19 08:15+0200\n"
+"POT-Creation-Date: 2014-05-19 08:55+0200\n"
 "PO-Revision-Date: 2014-04-30 16:48+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: German\n"
@@ -272,28 +272,28 @@ msgstr ""
 msgid "-1"
 msgstr ""
 
-#: src/lib/amd.c:170
+#: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: ADL-Bibliothek konnte nicht gefunden werden."
 
-#: src/lib/amd.c:197
+#: src/lib/amd.c:195
 msgid "AMD: missing ADL's API."
 msgstr "AMD: API der ADL-Bibliothek fehlt."
 
-#: src/lib/amd.c:207
+#: src/lib/amd.c:205
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: ADL-Bibliothek konnte nicht initialisiert werden."
 
-#: src/lib/amd.c:213
+#: src/lib/amd.c:211
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: Anzahl der Adapter konnte nicht ermittelt werden."
 
-#: src/lib/amd.c:252
+#: src/lib/amd.c:250
 #, c-format
 msgid "Number of AMD/ATI adapters: %d"
 msgstr "Anzahl der AMD/ATI-Adapter: %d"
 
-#: src/lib/amd.c:253
+#: src/lib/amd.c:251
 #, c-format
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr "Anzahl der aktiven AMD/ATI-Adapter: %d"
@@ -359,22 +359,22 @@ msgstr "lmsensor: Initialisierung gescheitert: %s."
 msgid "Cannot open log file: %s"
 msgstr "Protokolldatei kann nicht geöffnet werden: %s"
 
-#: src/lib/nvidia.c:54
+#: src/lib/nvidia.c:52
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr ""
 "Entweder wird kein proprietärer NVIDIA-Treiber verwendet oder die NVIDIA-GPU-"
 "Temperatur kann nicht ermittelt werden."
 
-#: src/lib/nvidia.c:75
+#: src/lib/nvidia.c:73
 msgid "NVidia GPU"
 msgstr ""
 
-#: src/lib/nvidia.c:97
+#: src/lib/nvidia.c:95
 msgid "Cannot open connection to X11 server."
 msgstr "Verbindung zum X11-Server konnte nicht hergestellt werden."
 
-#: src/lib/nvidia.c:105
+#: src/lib/nvidia.c:103
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Ermittlung der NVIDIA-Informationen gescheitert."
 

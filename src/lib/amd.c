@@ -69,9 +69,7 @@ static void *getprocaddress(void *plibrary, const char *name)
 	return dlsym(plibrary, name);
 }
 
-/*
-  Returns the temperature (Celcius) of an AMD/ATI GPU.
-*/
+/* Returns the temperature (Celsius) of an AMD/ATI GPU. */
 static double get_temp(struct psensor *sensor)
 {
 	ADLTemperature v;

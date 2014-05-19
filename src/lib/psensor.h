@@ -169,11 +169,11 @@ psensor_get_max_current_value(struct psensor **sensors, unsigned int type);
 */
 char *psensor_value_to_str(unsigned int type,
 			   double value,
-			   int use_celcius);
+			   int use_celsius);
 
 char *psensor_measure_to_str(const struct measure *m,
 			     unsigned int type,
-			     unsigned int use_celcius);
+			     unsigned int use_celsius);
 
 struct psensor **get_all_sensors(int use_libatasmart, int values_max_length);
 
@@ -195,7 +195,7 @@ struct measure *psensor_get_current_measure(struct psensor *sensor);
 */
 const char *psensor_type_to_str(unsigned int type);
 
-const char *psensor_type_to_unit_str(unsigned int type, int use_celcius);
+const char *psensor_type_to_unit_str(unsigned int type, int use_celsius);
 
 void psensor_list_update_measures(struct psensor **sensors);
 
@@ -205,8 +205,8 @@ void psensor_cleanup();
 
 double get_max_value(struct psensor **sensors, int type);
 
-double celcius_to_fahrenheit(double c);
-double fahrenheit_to_celcius(double c);
+double celsius_to_fahrenheit(double c);
+double fahrenheit_to_celsius(double c);
 
 char *psensor_current_value_to_str(const struct psensor *, unsigned int);
 

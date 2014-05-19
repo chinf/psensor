@@ -29,11 +29,11 @@
 #include "../src/lib/psensor.h"
 
 static int
-test_fct(unsigned int type, int use_celcius, const char *ref)
+test_fct(unsigned int type, int use_celsius, const char *ref)
 {
 	const char *u;
 
-	u = psensor_type_to_unit_str(type, use_celcius);
+	u = psensor_type_to_unit_str(type, use_celsius);
 	if (strcmp(ref, u)) {
 		fprintf(stderr, "returns: %s expected: %s\n", u, ref);
 		return 0;

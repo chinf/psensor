@@ -26,7 +26,7 @@ static unsigned int last_visible = -1;
 
 void ui_unity_launcher_entry_update(struct psensor **sensors,
 				    unsigned int show,
-				    int use_celcius)
+				    int use_celsius)
 {
 	double v;
 
@@ -51,8 +51,8 @@ void ui_unity_launcher_entry_update(struct psensor **sensors,
 	if (sensors && *sensors) {
 		v = psensor_get_max_current_value(sensors, SENSOR_TYPE_TEMP);
 
-		if (!use_celcius)
-			v = celcius_to_fahrenheit(v);
+		if (!use_celsius)
+			v = celsius_to_fahrenheit(v);
 
 		unity_launcher_entry_set_count(psensor_entry, v);
 	}
