@@ -1,408 +1,414 @@
 # Swedish translations for psensor package.
 # Copyright (C) 2014 Free Software Foundation, Inc.
 # This file is distributed under the same license as the psensor package.
-#  <jeanfi@gmail.com>, 2014.
+# Jean-Philippe Orsini <jeanfi@gmail.com>
+# Translators:
+# Josef Andersson <josef.andersson@fripost.org>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor 1.0.0.0\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2014-05-19 08:55+0200\n"
-"PO-Revision-Date: 2014-05-29 17:31+0200\n"
-"Last-Translator:  <jeanfi@gmail.com>\n"
+"PO-Revision-Date: 2014-05-29 22:41+0100\n"
+"Last-Translator: Josef Andersson <josef.andersson@fripost.org>\n"
 "Language-Team: Swedish\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-05-29 16:32+0000\n"
+"X-Generator: Poedit 1.5.4\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/glade/psensor.glade:6
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: src/glade/psensor.glade:10 src/glade/psensor.glade:11
 #: src/glade/psensor.glade:20 src/ui_sensorlist.c:209
 msgid "Preferences"
-msgstr ""
+msgstr "Inställningar"
 
 #: src/glade/psensor.glade:15 src/glade/psensor.glade:16
 #: src/glade/psensor.glade:28
 msgid "Sensor Preferences"
-msgstr ""
+msgstr "Sensorinställningar"
 
 #: src/glade/psensor.glade:24
 msgid "Quit"
-msgstr ""
+msgstr "Avsluta"
 
 #: src/glade/psensor.glade:84
 msgid "Show"
-msgstr ""
+msgstr "Visa"
 
 #: src/glade/psensor.glade:184
 msgid "Psensor - Temperature Monitor"
-msgstr ""
+msgstr "Psensor - Temperaturövervakare"
 
 #: src/glade/psensor.glade:199
 msgid "_Psensor"
-msgstr ""
+msgstr "_Psensor"
 
 #: src/glade/psensor.glade:246
 msgid "_Help"
-msgstr ""
+msgstr "_Hjälp"
 
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
-msgstr ""
+msgstr "Höger"
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "Vänster"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
-msgstr ""
+msgstr "Toppen"
 
 #: src/glade/psensor-pref.glade:33
 msgid "Bottom"
-msgstr ""
+msgstr "Botten"
 
 #: src/glade/psensor-pref.glade:60
 msgid "Edit Preferences"
-msgstr ""
+msgstr "Redigera inställningar"
 
 #: src/glade/psensor-pref.glade:121
 msgid "Hide window decoration"
-msgstr ""
+msgstr "Göm fönsterdekoration"
 
 #: src/glade/psensor-pref.glade:141
 msgid "Keep window below"
-msgstr ""
+msgstr "Håll fönster under"
 
 #: src/glade/psensor-pref.glade:161
 msgid "Enable menu"
-msgstr ""
+msgstr "Aktivera meny"
 
 #: src/glade/psensor-pref.glade:181
 msgid "Enable Unity Launcher counter"
-msgstr ""
+msgstr "Aktivera räknare för Unity-programstartare"
 
 #: src/glade/psensor-pref.glade:209
 msgid "Celsius"
-msgstr ""
+msgstr "Celsius"
 
 #: src/glade/psensor-pref.glade:210
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Fahrenheit"
 
 #: src/glade/psensor-pref.glade:254
 msgid "Temperature unit:"
-msgstr ""
+msgstr "Temperaturenheter:"
 
 #: src/glade/psensor-pref.glade:272
 msgid "Position of sensors table:"
-msgstr ""
+msgstr "Sensortabellens position:"
 
 #: src/glade/psensor-pref.glade:287
 msgid "Interface"
-msgstr ""
+msgstr "Gränssnitt"
 
 #: src/glade/psensor-pref.glade:299
 msgid "Launch on session startup"
-msgstr ""
+msgstr "Starta vid sessionsuppstart"
 
 #: src/glade/psensor-pref.glade:320
 msgid "Hide window on startup"
-msgstr ""
+msgstr "Göm fönster vid uppstart"
 
 #: src/glade/psensor-pref.glade:340
 msgid "Restore window position and size"
-msgstr ""
+msgstr "Återställ fönsterposition och storlek"
 
 #: src/glade/psensor-pref.glade:367
 msgid "Startup"
-msgstr ""
+msgstr "Uppstart"
 
 #: src/glade/psensor-pref.glade:405
 msgid "Foreground:"
-msgstr ""
+msgstr "Förgrund:"
 
 #: src/glade/psensor-pref.glade:420
 msgid "Background:"
-msgstr ""
+msgstr "Bakgrund:"
 
 #: src/glade/psensor-pref.glade:454
 msgid "Background opacity:"
-msgstr ""
+msgstr "Bakgrundsgenomskinlighet:"
 
 #: src/glade/psensor-pref.glade:477
 msgid "<i>Min</i>"
-msgstr ""
+msgstr "<i>Min</i>"
 
 #: src/glade/psensor-pref.glade:504
 msgid "<i>Max</i>"
-msgstr ""
+msgstr "<i>Min</i>"
 
 #: src/glade/psensor-pref.glade:530
 msgid "Colors"
-msgstr ""
+msgstr "Färger"
 
 #: src/glade/psensor-pref.glade:548
 msgid "Monitoring duration:"
-msgstr ""
+msgstr "Övervakningstid:"
 
 #: src/glade/psensor-pref.glade:585
 msgid "minute(s)"
-msgstr ""
+msgstr "minut(er)"
 
 #: src/glade/psensor-pref.glade:602 src/glade/psensor-pref.glade:752
 msgid "second(s)"
-msgstr ""
+msgstr "sekund(er)"
 
 #: src/glade/psensor-pref.glade:637
 msgid "Update interval:"
-msgstr ""
+msgstr "Uppdateringsintervall:"
 
 #: src/glade/psensor-pref.glade:655
 msgid "Measures"
-msgstr ""
+msgstr "Mätningar"
 
 #: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
 #: src/ui_sensorlist.c:334
 msgid "Graph"
-msgstr ""
+msgstr "Graf"
 
 #: src/glade/psensor-pref.glade:715
 msgid "Measure update interval:"
-msgstr ""
+msgstr "Uppdateringsintervall för mätning:"
 
 #: src/glade/psensor-pref.glade:763
 msgid "Enable sensors logging"
-msgstr ""
+msgstr "Aktivera sensorlogging"
 
 #: src/glade/psensor-pref.glade:810
 msgid "Sensors logging interval:"
-msgstr ""
+msgstr "Loggintervall för sensor:"
 
 #: src/glade/psensor-pref.glade:827
 msgid "seconds(s)"
-msgstr ""
+msgstr "sekund(er)"
 
 #: src/glade/psensor-pref.glade:844
 msgid "Script executed when an alarm is raised:"
-msgstr ""
+msgstr "Skript att köra vid alarm:"
 
 #: src/glade/psensor-pref.glade:877
 msgid "Sensors"
-msgstr ""
+msgstr "Sensorer"
 
 #: src/glade/sensor-edit.glade:28
 msgid "Edit Sensor Preferences"
-msgstr ""
+msgstr "Redigera sensorinställningar"
 
 #: src/glade/sensor-edit.glade:96
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #: src/glade/sensor-edit.glade:140
 msgid "Type:"
-msgstr ""
+msgstr "Typ:"
 
 #: src/glade/sensor-edit.glade:155 src/glade/sensor-edit.glade:202
 #: src/glade/sensor-edit.glade:249 src/glade/sensor-edit.glade:475
 #: src/glade/sensor-edit.glade:523 src/lib/psensor.c:486 src/ui_notify.c:81
 msgid "N/A"
-msgstr ""
+msgstr "Ej tillgänglig"
 
 #: src/glade/sensor-edit.glade:170
 msgid "Sensor Information"
-msgstr ""
+msgstr "Sensorinformation"
 
 #: src/glade/sensor-edit.glade:188
 msgid "Chip:"
-msgstr ""
+msgstr "Chip:"
 
 #: src/glade/sensor-edit.glade:217
 msgid "Name:"
-msgstr ""
+msgstr "Namn:"
 
 #: src/glade/sensor-edit.glade:232
 msgid "Id:"
-msgstr ""
+msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:278
 msgid "Draw sensor curve"
-msgstr ""
+msgstr "Rita sensorkurva"
 
 #: src/glade/sensor-edit.glade:300
 msgid "Color:"
-msgstr ""
+msgstr "Färg:"
 
 #: src/glade/sensor-edit.glade:331
 msgid "Alarm"
-msgstr ""
+msgstr "Alarm"
 
 #: src/glade/sensor-edit.glade:345
 msgid "Activate desktop notifications"
-msgstr ""
+msgstr "Aktivera skrivbordsnotifiering"
 
 #: src/glade/sensor-edit.glade:367
 msgid "High threshold:"
-msgstr ""
+msgstr "Högt tröskelvärde:"
 
 #: src/glade/sensor-edit.glade:382
 msgid "Low threshold:"
-msgstr ""
+msgstr "Lågt tröskelvärde:"
 
 #: src/glade/sensor-edit.glade:397
 msgid "Application Indicator"
-msgstr ""
+msgstr "Programindikator"
 
 #: src/glade/sensor-edit.glade:411
 msgid "Display sensor in the menu"
-msgstr ""
+msgstr "Visa sensor i meny"
 
 #: src/glade/sensor-edit.glade:429
 msgid "Display sensor in the label (experimental)"
-msgstr ""
+msgstr "Visa sensor i etiketten (exprimentiell)"
 
 #: src/glade/sensor-edit.glade:500
 msgid "-1"
-msgstr ""
+msgstr "-1"
 
 #: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
-msgstr ""
+msgstr "AMD: kan inte hitta ADL-bibliotek."
 
 #: src/lib/amd.c:195
 msgid "AMD: missing ADL's API."
-msgstr ""
+msgstr "AMD: saknar ADL API."
 
 #: src/lib/amd.c:205
 msgid "AMD: failed to initialize ADL."
-msgstr ""
+msgstr "AMD: misslyckades med att initialisera ADL."
 
 #: src/lib/amd.c:211
 msgid "AMD: cannot get the number of adapters."
-msgstr ""
+msgstr "AMD: kan inte hämta antal adaptrar."
 
 #: src/lib/amd.c:250
 #, c-format
 msgid "Number of AMD/ATI adapters: %d"
-msgstr ""
+msgstr "Antal AMD/ATI-adaptrar: %d"
 
 #: src/lib/amd.c:251
 #, c-format
 msgid "Number of active AMD/ATI adapters: %d"
-msgstr ""
+msgstr "Antal aktiva AMD/ATI-adaptrar: %d"
 
 #: src/lib/cpu.c:46
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/lib/hdd_atasmart.c:57 src/lib/hdd_hddtemp.c:122
 msgid "Disk"
-msgstr ""
+msgstr "Disk"
 
 #: src/lib/hdd_atasmart.c:152
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
-msgstr ""
+msgstr "atasmart: sk_disk_open() fel: %s."
 
 #: src/lib/hdd_hddtemp.c:59
 msgid "hddtemp: failed to open socket."
-msgstr ""
+msgstr "hddtemp: misslyckades med att öppna uttag."
 
 #: src/lib/hdd_hddtemp.c:72
 msgid "hddtemp: failed to open connection."
-msgstr ""
+msgstr "hddtemp: misslyckades med att öppna anslutning."
 
 #: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:256
 #, c-format
 msgid "hddtemp: wrong string: %s."
-msgstr ""
+msgstr "hddtemp: fel sträng: %s."
 
 #: src/lib/lmsensor.c:42
 #, c-format
 msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr ""
+msgstr "lmsensor: kan inte hämta värdet för underegenskap %s: %s."
 
 #: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr ""
+msgstr "lmsensor: lmsensor_psensor_create fel: fel egenskapstyp."
 
 #: src/lib/lmsensor.c:148
 msgid "Intel CPU"
-msgstr ""
+msgstr "Intel CPU"
 
 #: src/lib/lmsensor.c:152
 msgid "AMD CPU"
-msgstr ""
+msgstr "AMD CPU"
 
 #: src/lib/lmsensor.c:154
 msgid "Nvidia GPU"
-msgstr ""
+msgstr "Nvidia GPU"
 
 #: src/lib/lmsensor.c:156
 msgid "VIA CPU"
-msgstr ""
+msgstr "VIA CPU"
 
 #: src/lib/lmsensor.c:218
 #, c-format
 msgid "lmsensor: initialization failure: %s."
-msgstr ""
+msgstr "lmsensor: initialiseringsfel: %s."
 
 #: src/lib/plog.c:43
 #, c-format
 msgid "Cannot open log file: %s"
-msgstr ""
+msgstr "Kan inte öppna loggfil: %s"
 
 #: src/lib/nvidia.c:52
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr ""
+"Properitär NVIDIA-drivrutin ej använd, eller kan inte hämta NVIDIA GPU-"
+"temperatur."
 
 #: src/lib/nvidia.c:73
 msgid "NVidia GPU"
-msgstr ""
+msgstr "NVidia GPU"
 
 #: src/lib/nvidia.c:95
 msgid "Cannot open connection to X11 server."
-msgstr ""
+msgstr "Kan inte öppna anslutning till X11-server."
 
 #: src/lib/nvidia.c:103
 msgid "Failed to retrieve NVIDIA information."
-msgstr ""
+msgstr "Misslyckades med att hämta NVIDIA-information."
 
 #: src/lib/psensor.c:482 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
-msgstr ""
+msgstr "RPM"
 
 #: src/lib/psensor.c:484
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #: src/lib/slog.c:86
 msgid "HOME variable not set."
-msgstr ""
+msgstr "HOME-variabel inte inställd."
 
 #: src/lib/slog.c:96
 msgid "Sensor log file already open."
-msgstr ""
+msgstr "Sensorloggfil redan öppen."
 
 #: src/lib/slog.c:105
 #, c-format
 msgid "Cannot open sensor log file: %s."
-msgstr ""
+msgstr "Kan inte öppna sensorloggfil: %s"
 
 #: src/lib/slog.c:136
 msgid "Sensor log file not open."
-msgstr ""
+msgstr "Sensorloggfil ej öppen."
 
 #: src/lib/slog.c:192
 msgid "Sensor log not open, cannot close."
-msgstr ""
+msgstr "Sensorloggfil ej öppen, kan inte stänga."
 
 #: src/main.c:77
 #, c-format
@@ -417,94 +423,106 @@ msgstr ""
 #: src/main.c:88 src/server/server.c:94
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
-msgstr ""
+msgstr "Användning: %s [OPTION]...\n"
 
 #: src/main.c:90
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
+"Psensor är ett GTK+-program för att övervaka hårdvarusensorer, inklusive "
+"temperaturer och fläkthastigheter."
 
 #: src/main.c:94
 msgid "Options:"
-msgstr ""
+msgstr "Alternativ:"
 
 #: src/main.c:95
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
+"  -h, --help          visa denna hjälp och avsluta\n"
+"  -v, --version      visa versionsinformation och avsluta"
 
 #: src/main.c:101
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
 msgstr ""
+"  -u, --url=URL       URL för psensor-server,\n"
+"                      exempelvis: http://hostname:3131"
 
 #: src/main.c:104
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
 msgstr ""
+"  --use-libatasmart   använd atasmart library för diskövervakning istället "
+"för\n"
+"                      hddtemp-demon"
 
 #: src/main.c:107
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
-msgstr ""
+msgstr "  -n, --new-instance  tvinga fram att skapa ett nytt Psensor-program"
 
 #: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
+"  -d, --debug=LEVEL   ställ in felsökningsnivå, heltal mellan nivå 0 och 3"
 
 #: src/main.c:115 src/server/server.c:117
 #, c-format
 msgid "Report bugs to: %s\n"
-msgstr ""
+msgstr "Rapportera fel till: %s\n"
 
 #: src/main.c:117 src/server/server.c:119
 #, c-format
 msgid "%s home page: <%s>\n"
-msgstr ""
+msgstr "%s webbplats <%s>\n"
 
 #: src/main.c:454
 msgid "Psensor has not been compiled with remote sensor support."
-msgstr ""
+msgstr "Psensor har inte kompilerats med fjärrsensorstöd."
 
 #: src/main.c:517
 msgid "Enables debug mode."
-msgstr ""
+msgstr "Aktivera felsökningsläge."
 
 #: src/main.c:529 src/server/server.c:380
 #, c-format
 msgid "Try `%s --help' for more information.\n"
-msgstr ""
+msgstr "Prova`%s --help' för mer information.\n"
 
 #: src/main.c:542
 msgid "A Psensor instance already exists."
-msgstr ""
+msgstr "Det finns redan en Psensor-instans."
 
 #: src/rsensor.c:107
 #, c-format
 msgid "Fail to connect to: %s"
-msgstr ""
+msgstr "Misslyckades med att ansluta till: %s"
 
 #: src/rsensor.c:144
 #, c-format
 msgid "Invalid content: %s"
-msgstr ""
+msgstr "Ogiltigt innehåll: %s"
 
 #: src/rsensor.c:184
 #, c-format
 msgid "Invalid JSON: %s"
-msgstr ""
+msgstr "Ogiltig JSON: %s"
 
 #: src/server/server.c:54
 msgid "<html><body><p>Server stop requested</p></body></html>"
-msgstr ""
+msgstr "<html><body><p>Begärde serverstopp</p></body></html>"
 
 #: src/server/server.c:60
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
+"<html><body><p>Hittade inte sida - Gå till <a href='/'>Huvudsida</a></p></"
+"body>"
 
 #: src/server/server.c:84
 #, c-format
@@ -520,130 +538,138 @@ msgstr ""
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
+"psensor-server är en HTTP-server för att fjärrövervaka hårdvarusensorer."
 
 #: src/server/server.c:101
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
+"  -h, --help\t\tvisa denna hjälp och avsluta\n"
+"  -v, --version\t\tvisa versionsinformation och avsluta"
 
 #: src/server/server.c:105
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
+"  -p,--port=PORT\twebbserverport\n"
+"  -w,--wdir=DIR\t\tkatalog som innehåller webbserversidor"
 
 #: src/server/server.c:109
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
-msgstr ""
+msgstr "  -d, --debug=LEVEL     ställ in felsökningnivån mellan 0 and 3"
 
 #: src/server/server.c:111
 msgid "  -l, --log-file=PATH   set the log file to PATH"
-msgstr ""
+msgstr "  -l, --log-file=PATH   ställ in loggfilen till PATH"
 
 #: src/server/server.c:112
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
-msgstr ""
+msgstr "  --sensor-log-file=PATH ställ in loggintervall för sensor till PATH"
 
 #: src/server/server.c:113
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
+"  --sensor-log-interval=S ställ in loggintervall för sensor till S (sekunder)"
 
 #: src/server/server.c:297
 #, c-format
 msgid "HTTP Request: %s"
-msgstr ""
+msgstr "HTTP-begäran: %s"
 
 #: src/server/server.c:360
 #, c-format
 msgid "Enables debug mode: %d"
-msgstr ""
+msgstr "Aktivera felsökningsläge: %d"
 
 #: src/server/server.c:402
 msgid "No sensors detected."
-msgstr ""
+msgstr "Inga sensorer hittades."
 
 #: src/server/server.c:409
 msgid "Failed to create Web server."
-msgstr ""
+msgstr "Misslyckades med att skapa webbserver."
 
 #: src/server/server.c:413
 #, c-format
 msgid "Web server started on port: %d"
-msgstr ""
+msgstr "Webbserver startade på port: %d"
 
 #: src/server/server.c:414
 #, c-format
 msgid "WWW directory: %s"
-msgstr ""
+msgstr "WWW-katalog: %s"
 
 #: src/server/server.c:415
 #, c-format
 msgid "URL: http://localhost:%d"
-msgstr ""
+msgstr "URL: http://localhost:%d"
 
 #: src/server/server.c:425
 msgid "Failed to activate logging of sensors."
-msgstr ""
+msgstr "Misslyckades med att aktivera sensorloggning."
 
 #: src/ui.c:84
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr ""
+msgstr "Psensor är ett GTK+-program för att övervaka hårdvarusensorer"
 
 #: src/ui.c:87
 msgid ""
 "Copyright(c) 2010-2014\n"
 "jeanfi@gmail.com"
 msgstr ""
+"Copyright(c) 2010-2014\n"
+"jeanfi@gmail.com"
 
 #: src/ui.c:90
 msgid "About Psensor"
-msgstr ""
+msgstr "Om Psensor"
 
 #: src/ui.c:93
 msgid "Psensor Homepage"
-msgstr ""
+msgstr "Psensor-webbplats"
 
 #: src/ui.c:217
 msgid "Failed to load Psensor icon."
-msgstr ""
+msgstr "Misslyckades med att läsa in Psensor-ikon."
 
 #: src/ui_sensorlist.c:245
 msgid "Select foreground color"
-msgstr ""
+msgstr "Välj förgrundsfärg"
 
 #: src/ui_sensorlist.c:297
 msgid "Sensor"
-msgstr ""
+msgstr "Sensor"
 
 #: src/ui_sensorlist.c:303
 msgid "Value"
-msgstr ""
+msgstr "Värde"
 
 #: src/ui_sensorlist.c:309
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 #: src/ui_sensorlist.c:315
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 #: src/ui_sensorlist.c:322
 msgid "Color"
-msgstr ""
+msgstr "Färg"
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
-msgstr ""
+msgstr "gettimeofday misslyckades."
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
-msgstr ""
+msgstr "Temperaturlarm"
 
 #: src/ui_notify.c:79
 msgid "Fan alert"
-msgstr ""
+msgstr "Fläktlarm"
 
 #: src/ui_sensorpref.c:234
 msgid "Unknown"
-msgstr ""
+msgstr "Okänd"
