@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-05-19 08:55+0200\n"
+"POT-Creation-Date: 2014-05-31 23:19+0200\n"
 "PO-Revision-Date: 2013-06-29 15:14+0000\n"
 "Last-Translator: londumas <helion331990@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -343,9 +343,9 @@ msgstr "Processeur Intel"
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:154
-msgid "Nvidia GPU"
-msgstr "Processeur graphique NVidia"
+#: src/lib/lmsensor.c:154 src/lib/nvidia.c:73
+msgid "NVIDIA GPU"
+msgstr "Processeur graphique NVIDIA"
 
 #: src/lib/lmsensor.c:156
 msgid "VIA CPU"
@@ -365,10 +365,6 @@ msgstr "Impossible d'ouvrir le journal: %s"
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
 msgstr "Échec de la récupération des températures NVIDIA."
-
-#: src/lib/nvidia.c:73
-msgid "NVidia GPU"
-msgstr "Processeur graphique NVidia"
 
 #: src/lib/nvidia.c:95
 msgid "Cannot open connection to X11 server."

@@ -33,7 +33,7 @@
 
 Display *display;
 
-/* Returns the temperature (Celsius) of a NVidia GPU. */
+/* Returns the temperature (Celsius) of a NVIDIA GPU. */
 static int get_temp(struct psensor *sensor)
 {
 	int temp;
@@ -63,14 +63,14 @@ static struct psensor *create_sensor(int id, int values_len)
 
 	sprintf(name, "GPU%d", id);
 
-	sid = malloc(strlen("nvidia") + 1 + strlen(name) + 1);
-	sprintf(sid, "nvidia %s", name);
+	sid = malloc(strlen("NVIDIA") + 1 + strlen(name) + 1);
+	sprintf(sid, "NVIDIA %s", name);
 
 	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP;
 
 	s = psensor_create(sid,
 			   strdup(name),
-			   strdup(_("NVidia GPU")),
+			   strdup(_("NVIDIA GPU")),
 			   t,
 			   values_len);
 
@@ -81,9 +81,9 @@ static struct psensor *create_sensor(int id, int values_len)
 
 /*
   Opens connection to X server and returns the number
-  of NVidia GPUs.
+  of NVIDIA GPUs.
 
-  Return 0 if no NVidia gpus or cannot get information.
+  Return 0 if no NVIDIA gpus or cannot get information.
 */
 static int init()
 {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-05-19 08:55+0200\n"
+"POT-Creation-Date: 2014-05-31 23:19+0200\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -343,8 +343,8 @@ msgstr ""
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:154
-msgid "Nvidia GPU"
+#: src/lib/lmsensor.c:154 src/lib/nvidia.c:73
+msgid "NVIDIA GPU"
 msgstr ""
 
 #: src/lib/lmsensor.c:156
@@ -364,10 +364,6 @@ msgstr "A naplófájl megnyitása sikertelen: %s"
 #: src/lib/nvidia.c:52
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr ""
-
-#: src/lib/nvidia.c:73
-msgid "NVidia GPU"
 msgstr ""
 
 #: src/lib/nvidia.c:95

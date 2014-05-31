@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-05-19 08:55+0200\n"
+"POT-Creation-Date: 2014-05-31 23:19+0200\n"
 "PO-Revision-Date: 2014-04-30 16:48+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: German\n"
@@ -341,8 +341,8 @@ msgstr ""
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:154
-msgid "Nvidia GPU"
+#: src/lib/lmsensor.c:154 src/lib/nvidia.c:73
+msgid "NVIDIA GPU"
 msgstr ""
 
 #: src/lib/lmsensor.c:156
@@ -365,10 +365,6 @@ msgid ""
 msgstr ""
 "Entweder wird kein proprietärer NVIDIA-Treiber verwendet oder die NVIDIA-GPU-"
 "Temperatur kann nicht ermittelt werden."
-
-#: src/lib/nvidia.c:73
-msgid "NVidia GPU"
-msgstr ""
 
 #: src/lib/nvidia.c:95
 msgid "Cannot open connection to X11 server."

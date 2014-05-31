@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-05-19 08:55+0200\n"
+"POT-Creation-Date: 2014-05-31 23:19+0200\n"
 "PO-Revision-Date: 2013-09-01 18:54+0000\n"
 "Last-Translator: Celio Alves <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -341,8 +341,8 @@ msgstr ""
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:154
-msgid "Nvidia GPU"
+#: src/lib/lmsensor.c:154 src/lib/nvidia.c:73
+msgid "NVIDIA GPU"
 msgstr ""
 
 #: src/lib/lmsensor.c:156
@@ -362,10 +362,6 @@ msgstr "Não é possível abrir arquivo de log: %s"
 #: src/lib/nvidia.c:52
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr ""
-
-#: src/lib/nvidia.c:73
-msgid "NVidia GPU"
 msgstr ""
 
 #: src/lib/nvidia.c:95

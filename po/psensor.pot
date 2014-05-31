@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-05-19 08:55+0200\n"
+"POT-Creation-Date: 2014-05-31 23:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -340,8 +340,8 @@ msgstr ""
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:154
-msgid "Nvidia GPU"
+#: src/lib/lmsensor.c:154 src/lib/nvidia.c:73
+msgid "NVIDIA GPU"
 msgstr ""
 
 #: src/lib/lmsensor.c:156
@@ -361,10 +361,6 @@ msgstr ""
 #: src/lib/nvidia.c:52
 msgid ""
 "NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
-msgstr ""
-
-#: src/lib/nvidia.c:73
-msgid "NVidia GPU"
 msgstr ""
 
 #: src/lib/nvidia.c:95

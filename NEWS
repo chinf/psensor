@@ -21,6 +21,7 @@ v1.0.1
 * Merged turkish translation from LP (İbrahim Çelik).
 * Merged chinese translation from LP.
 * Added support of swedish translation (Josef Andersson).
+* Fixed NVIDIA strings.
 
 v0.8.0.6
 --------
