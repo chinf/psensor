@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:20+0200\n"
+"POT-Creation-Date: 2014-06-01 00:22+0200\n"
 "PO-Revision-Date: 2013-10-24 12:32+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -402,13 +402,13 @@ msgstr "Sensora žurnāla fails nav atvērts."
 msgid "Sensor log not open, cannot close."
 msgstr "Sensora žurnāls nav atvērts, nevar aizvērt."
 
-#: src/main.c:77
+#: src/main.c:77 src/server/server.c:84
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and  redistribute it.\n"
+"This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
@@ -513,16 +513,6 @@ msgid ""
 msgstr ""
 "<html><body><p>Lapa nav atrasta - dodieties uz <a href='/'>galveno lapu</a></"
 "p></body>"
-
-#: src/server/server.c:84
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
 
 #: src/server/server.c:96
 msgid ""

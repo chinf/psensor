@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:20+0200\n"
+"POT-Creation-Date: 2014-06-01 00:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -400,13 +400,13 @@ msgstr ""
 msgid "Sensor log not open, cannot close."
 msgstr ""
 
-#: src/main.c:77
+#: src/main.c:77 src/server/server.c:84
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and  redistribute it.\n"
+"This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
@@ -500,16 +500,6 @@ msgstr ""
 #: src/server/server.c:60
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
-msgstr ""
-
-#: src/server/server.c:84
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
 #: src/server/server.c:96

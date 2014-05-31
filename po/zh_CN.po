@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:20+0200\n"
+"POT-Creation-Date: 2014-06-01 00:22+0200\n"
 "PO-Revision-Date: 2013-01-15 12:24+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -401,19 +401,19 @@ msgstr "监测器日志文件未打开。"
 msgid "Sensor log not open, cannot close."
 msgstr "监测器日志未打开，故无法关闭。"
 
-#: src/main.c:77
+#: src/main.c:77 src/server/server.c:84
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and  redistribute it.\n"
+"This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 "版权所有(C) %s jeanfi@gmail.com\n"
-"协议 GPLv2：GNU GPL 第 2 版或以后的 <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"该软件为自由软件：您可以自由修改并分发。\n"
+"协议 GPLv2：GNU GPL 第 2 版或更新的<http://www.gnu.org/licenses/old-licenses/"
+"gpl-2.0.html>\n"
+"本软件为自由软件：您可以自由修改并分发。\n"
 "There is NO WARRANTY, to the extent permitted by law。\n"
 
 #: src/main.c:88 src/server/server.c:94
@@ -513,21 +513,6 @@ msgstr "<html><body><p>服务器停止请求</p></body></html>"
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr "<html><body><p>未找到页面 - 请访问<a href='/'>主页</a></p></body>"
-
-#: src/server/server.c:84
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"版权所有(C) %s jeanfi@gmail.com\n"
-"协议 GPLv2：GNU GPL 第 2 版或更新的<http://www.gnu.org/licenses/old-licenses/"
-"gpl-2.0.html>\n"
-"本软件为自由软件：您可以自由修改并分发。\n"
-"There is NO WARRANTY, to the extent permitted by law。\n"
 
 #: src/server/server.c:96
 msgid ""

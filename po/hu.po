@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:20+0200\n"
+"POT-Creation-Date: 2014-06-01 00:22+0200\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -403,13 +403,13 @@ msgstr "Az érzékelő naplófájlja nincs nyitva."
 msgid "Sensor log not open, cannot close."
 msgstr "Az érzékelő naplófájlja nincs nyitva, nem lehet bezárni."
 
-#: src/main.c:77
+#: src/main.c:77 src/server/server.c:84
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and  redistribute it.\n"
+"This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -521,21 +521,6 @@ msgid ""
 msgstr ""
 "<html><body><p>Az oldal nem található - Ugrás a <a href='/'>Főoldalra</a></"
 "p></body>"
-
-#: src/server/server.c:84
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"Licenc: GNU General Public License második (vagy bármely későbbi) változata\n"
-"<http://www.gnu.org/licenses/old-licenses/gpl-2.0.html>\n"
-"Ez egy szabad szoftver: szabadon terjesztheti és/vagy módosíthatja\n"
-"NINCS GARANCIA, a jogszabályok által megengedett mértékben.\n"
 
 #: src/server/server.c:96
 msgid ""

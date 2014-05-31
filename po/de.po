@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:20+0200\n"
+"POT-Creation-Date: 2014-06-01 00:22+0200\n"
 "PO-Revision-Date: 2014-04-30 16:48+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: German\n"
@@ -405,13 +405,13 @@ msgstr ""
 "Sensorprotokolldatei ist nicht geöffnet und kann deswegen nicht geschlossen "
 "werden."
 
-#: src/main.c:77
+#: src/main.c:77 src/server/server.c:84
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and  redistribute it.\n"
+"This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 "Copyright © %s jeanfi@gmail.com\n"
@@ -525,22 +525,6 @@ msgid ""
 msgstr ""
 "<html><body><p>Seite nicht gefunden – Gehen Sie zurück zur <a "
 "href='/'>Startseite</a></p></body>"
-
-#: src/server/server.c:84
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright © %s jeanfi@gmail.com\n"
-"Lizenz GPLv2: GNU GPL Version 2 oder neuer <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"Dies ist freie Software: Sie können Sie beliebig ändern und "
-"weiterverbreiten.\n"
-"Sie wird OHNE JEGLICHE GEWÄHRLEISTUNG zur Verfügung gestellt.\n"
 
 #: src/server/server.c:96
 msgid ""

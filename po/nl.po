@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:20+0200\n"
+"POT-Creation-Date: 2014-06-01 00:22+0200\n"
 "PO-Revision-Date: 2014-04-07 08:50+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -405,13 +405,13 @@ msgstr "Logboekbestand van sensor niet geopend."
 msgid "Sensor log not open, cannot close."
 msgstr "Logboekbestand van sensor niet geopend, kan niet sluiten."
 
-#: src/main.c:77
+#: src/main.c:77 src/server/server.c:84
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and  redistribute it.\n"
+"This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 "Auteursrecht (C) %s jeanfi@gmail.com\n"
@@ -525,21 +525,6 @@ msgid ""
 msgstr ""
 "<html><body><p>Pagina niet gevonden - ga naar <a href='/'>Hoofdpagina</a></"
 "p></body>"
-
-#: src/server/server.c:84
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Auteursrecht (C) %s jeanfi@gmail.com\n"
-"Licentie GPLv2: GNU GPL versie 2 of nieuwer <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"Dit is vrije programmatuur: u mag hem wijzigen en doorgeven.\n"
-"Er zit geen garantie op, voor zover de wet dat toestaat.\n"
 
 #: src/server/server.c:96
 msgid ""

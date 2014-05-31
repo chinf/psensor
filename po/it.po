@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:20+0200\n"
+"POT-Creation-Date: 2014-06-01 00:22+0200\n"
 "PO-Revision-Date: 2013-04-14 16:06+0000\n"
 "Last-Translator: Diego Pierotto <Unknown>\n"
 "Language-Team: Italian\n"
@@ -403,19 +403,19 @@ msgstr "File di registazione sensori non aperto."
 msgid "Sensor log not open, cannot close."
 msgstr "Registro sensori non aperto, impossibile chiuderlo."
 
-#: src/main.c:77
+#: src/main.c:77 src/server/server.c:84
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
 "licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and  redistribute it.\n"
+"This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 "Copyright (C) %s jeanfi@gmail.com\n"
 "Licenza GPLv2: GNU GPL versione 2 o successiva <http://www.gnu.org/licenses/"
 "old-licenses/gpl-2.0.html>\n"
-"Questo è software libero: sei libero di modificarlo e ridistribuirlo.\n"
+"Questo è software libero: sei libero di modificarlo e redistribuirlo.\n"
 "NON esiste GARANZIA, per gli scopi permessi dalla legge.\n"
 
 #: src/main.c:88 src/server/server.c:94
@@ -522,21 +522,6 @@ msgid ""
 msgstr ""
 "<html><body><p>Pagina non trovata - Vai a <a href='/'>Pagina principale</a></"
 "p></body>"
-
-#: src/server/server.c:84
-#, c-format
-msgid ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
-"licenses/gpl-2.0.html>\n"
-"This is free software: you are free to change and redistribute it.\n"
-"There is NO WARRANTY, to the extent permitted by law.\n"
-msgstr ""
-"Copyright (C) %s jeanfi@gmail.com\n"
-"Licenza GPLv2: GNU GPL versione 2 o successiva <http://www.gnu.org/licenses/"
-"old-licenses/gpl-2.0.html>\n"
-"Questo è software libero: sei libero di modificarlo e redistribuirlo.\n"
-"NON esiste GARANZIA, per gli scopi permessi dalla legge.\n"
 
 #: src/server/server.c:96
 msgid ""
