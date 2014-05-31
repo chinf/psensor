@@ -22,6 +22,7 @@ v1.0.1
 * Merged chinese translation from LP.
 * Added support of swedish translation (Josef Andersson).
 * Fixed NVIDIA strings.
+* Fixed default sensor color which was always black.
 
 v0.8.0.6
 --------

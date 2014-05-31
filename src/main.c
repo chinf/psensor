@@ -266,7 +266,7 @@ static void associate_colors(struct psensor **sensors)
 	int i;
 	struct color c;
 
-	for (cur = sensors, i = 0; *cur; cur++) {
+	for (cur = sensors, i = 0; *cur; cur++, i++) {
 		color_set(&c,
 			  colors[i % COLORS_COUNT][0],
 			  colors[i % COLORS_COUNT][1],
