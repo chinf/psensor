@@ -437,8 +437,12 @@ struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 
 const char *psensor_type_to_str(unsigned int type)
 {
-	if (type & SENSOR_TYPE_NVCTRL)
-		return "NVIDIA GPU";
+	if (type & SENSOR_TYPE_NVCTRL) {
+		if (type & SENSOR_TYPE_TEMP)
+			return "NVIDIA GPU Temperature";
+		else
+			return "NVIDIA GPU";
+	}
 
 	if (type & SENSOR_TYPE_ATIADL) {
 		if (type & SENSOR_TYPE_TEMP)
