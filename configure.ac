@@ -4,7 +4,7 @@
 AC_PREREQ([2.69])
 AC_INIT([psensor], [1.0.0.0],[jeanfi@gmail.com],[psensor],[http://wpitchoune.net/psensor])
 
-AM_INIT_AUTOMAKE([-Wall -Werror gnu])
+AM_INIT_AUTOMAKE([-Wall gnu])
 
 AC_CONFIG_SRCDIR([src/ui.c])
 AC_CONFIG_HEADERS([config.h])
