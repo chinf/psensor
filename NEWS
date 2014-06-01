@@ -4,25 +4,26 @@ Psensor NEWS
 v1.0.1
 ------
 
-* smaller and more consistent with ubuntu themes appindicator icons.
-* sensors displayed directly in the top bar (experimental).
-* improved status icon in hicolor theme to fit well with white
+* Smaller and more consistent with ubuntu themes appindicator icons.
+* Sensors displayed directly in the top bar (experimental).
+* Improved status icon in hicolor theme to fit well with white
   background. (LP: #1310323).
-* psensor not autostarted by default.
-* added a setting to launch psensor on session startup. (Closes:
-  #728754).
-* fixed minor GUI bugs (widget alignments, padding, layout policy,
+* Psensor not autostarted by default.
+* Added a setting to launch psensor on session startup. (Closes:
+  #728754)
+* Fixed minor GUI bugs (widget alignments, padding, layout policy,
   etc).
-* fixed missing translatable strings.
-* fixed FTBFS due to deprecation of json_object_object_get. (Closes:
-  #746145).
-* fixed typo (Celcius/Celsius).
+* Fixed missing translatable strings.
+* Fixed FTBFS due to deprecation of json_object_object_get. (Closes:
+  #746145)
+* Fixed typo (Celcius/Celsius).
 * Merged german translation from LP.
 * Merged turkish translation from LP (İbrahim Çelik).
 * Merged chinese translation from LP.
 * Added support of swedish translation (Josef Andersson).
 * Fixed NVIDIA strings.
 * Fixed default sensor color which was always black.
+* Fixed compilation on ppc64. (Closes: #749110)
 
 v0.8.0.6
 --------
