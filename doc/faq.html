@@ -680,10 +680,37 @@ column (named <code>Enabled</code> or <code>Graph</code> depending on the Psenso
 <div class="paragraph"><p>Since the version 1.0.1, Psensor is no more started automaticaly by default.</p></div>
 <div class="paragraph"><p>Open the <code>Preferences</code> window, select the <code>Startup</code> tab and switch on
 the option <code>Launch on session startup</code>.</p></div>
+<div class="paragraph"><p>This feature is requiring that the Desktop Environment supports the
+<a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG
+specification</a>.</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="S_SimilarSoft">16. Is there any other similar softwares?</h2>
+<h2 id="S_disk">16. How to monitor the temperature of a disk?</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>By default, Psensor is using <code>hddtemp</code> to retrieve the temperature of
+the disks.</p></div>
+<div class="paragraph"><p>If <code>hddtemp</code> is installed but no disk temperature is reported, check
+that the daemon is running by using for example the command <code>ps
+-eaf|grep hddtemp</code>.
+It should output something like:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>root      1433     1  0 May28 ?        00:00:21 /usr/sbin/hddtemp -d -l 127.0.0.1 -p 7634 -s | /dev/sdb</code></pre>
+</div></div>
+<div class="paragraph"><p>Since recent Ubuntu releases, installing the <code>hddtemp</code> package is not
+enough, it is required to manually allow the <code>hddtemp</code> daemon. Edit the
+file <code>/etc/default/hddtemp</code> and set <code>RUN_DAEMON</code> to <code>"true"</code>.</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code># hddtemp network daemon switch. If set to true, hddtemp will listen
+# for incoming connections.
+RUN_DAEMON="true"</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="S_SimilarSoft">17. Is there any other similar softwares?</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Here is a list of few well-known sensors monitoring softwares:</p></div>
 <div class="ulist"><ul>
@@ -715,7 +742,7 @@ more general, but can be configured to display sensors
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-06-02 08:44:54 CEST
+Last updated 2014-06-02 09:02:02 CEST
 </div>
 </div>
 </body>

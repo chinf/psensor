@@ -227,6 +227,37 @@ Since the version 1.0.1, Psensor is no more started automaticaly by default.
 Open the +Preferences+ window, select the +Startup+ tab and switch on
 the option +Launch on session startup+.
 
+This feature is requiring that the Desktop Environment supports the
+http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html[XDG
+specification].
+
+[[S_disk]]
+How to monitor the temperature of a disk?
+-----------------------------------------
+
+By default, Psensor is using +hddtemp+ to retrieve the temperature of
+the disks.
+
+If +hddtemp+ is installed but no disk temperature is reported, check
+that the daemon is running by using for example the command +ps
+-eaf|grep hddtemp+.
+It should output something like:
+
+---------------------
+root      1433     1  0 May28 ?        00:00:21 /usr/sbin/hddtemp -d -l 127.0.0.1 -p 7634 -s | /dev/sdb
+---------------------
+
+Since recent Ubuntu releases, installing the +hddtemp+ package is not
+enough, it is required to manually allow the +hddtemp+ daemon. Edit the
+file +/etc/default/hddtemp+ and set +RUN_DAEMON+ to +"true"+.
+
+------------------
+# hddtemp network daemon switch. If set to true, hddtemp will listen
+# for incoming connections.
+RUN_DAEMON="true"
+------------------
+
+
 [[S_SimilarSoft]]
 Is there any other similar softwares?
 -------------------------------------
