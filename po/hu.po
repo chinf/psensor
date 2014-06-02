@@ -60,15 +60,15 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "Balra"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
-msgstr ""
+msgstr "Tetejére"
 
 #: src/glade/psensor-pref.glade:33
 msgid "Bottom"
-msgstr ""
+msgstr "Aljára"
 
 #: src/glade/psensor-pref.glade:60
 msgid "Edit Preferences"

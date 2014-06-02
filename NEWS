@@ -20,6 +20,8 @@ v1.0.1
 * Merged german translation from LP.
 * Merged turkish translation from LP (İbrahim Çelik).
 * Merged chinese translation from LP.
+* Merged hungarian translation from LP.
+* Merged russian translation from LP (Dmitry Serov).
 * Added support of swedish translation (Josef Andersson).
 * Fixed NVIDIA strings.
 * Fixed default sensor color which was always black.
