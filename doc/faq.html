@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
 <title>Psensor Frequently Asked Questions</title>
 <style type="text/css">
 
@@ -177,6 +177,8 @@ table {
     -webkit-box-shadow: 0 2px 2px 0 #C2C2C2;
     box-shadow: 0 2px 2px 0 #C2C2C2;
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -382,6 +384,11 @@ asciidoc.install(2);
 </div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>The last version of this FAQ is available at <a href="http://wpitchoune.net/gitweb/?p=psensor.git;a=blob_plain;f=doc/faq.html;hb=HEAD">http://wpitchoune.net/gitweb/?p=psensor.git;a=blob_plain;f=doc/faq.html;hb=HEAD</a>.</p></div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="S_NoSensors">1. No sensors or only cpu usage is displayed</h2>
 <div class="sectionbody">
@@ -391,8 +398,8 @@ asciidoc.install(2);
 <p>
 motherboard and CPUs sensors: the information is retrieved
           from the lm-sensors library, it requires that
-          ‘sensors-detect’ has been run and the kernel module
-          correctly installed. ‘sensors’ can be used for checking.
+          <code>sensors-detect</code> has been run and the kernel module
+          correctly installed. <code>sensors</code> can be used for checking.
 </p>
 </li>
 <li>
@@ -410,13 +417,13 @@ Opensource drivers (nouveau for Nvidia GPUs or
 </li>
 <li>
 <p>
-proprietary driver Nvidia: run ‘nvidia-settings’ to
+proprietary driver Nvidia: run <code>nvidia-settings</code> to
                   check that it supports sensors monitoring.
 </p>
 </li>
 <li>
 <p>
-proprietary driver Catalyst/fglx: use ‘aticonfig’ to
+proprietary driver Catalyst/fglx: use <code>aticonfig</code> to
                   check that it supports sensors monitoring. Important
                   note: it requires that you are using a Psensor
                   binary compiled with the ATI support.
@@ -426,11 +433,11 @@ proprietary driver Catalyst/fglx: use ‘aticonfig’ to
 </li>
 <li>
 <p>
-HDDs: it uses the hddtemp daemon. Verifies that it is
-          correctly reporting temperature by using the ‘sudo hddtemp
-          /dev/sd?’ command. If hddtemp does not support your disk,
+HDDs: it uses the hddtemp daemon. Verify that it is
+          correctly reporting temperature by using the command: <code>sudo
+          hddtemp /dev/sda</code>. If hddtemp does not support your disk,
           you may want to try using the libatasmart support instead
-          (option –use-libatasmart option).
+          (option <code>--use-libatasmart</code>).
 </p>
 </li>
 </ul></div>
@@ -450,7 +457,7 @@ any Linux distribution.</p></div>
 <div class="paragraph"><p>Unfortunely, due to the license of this library, I cannot provide a
 compiled version of Psensor, even in a Ubuntu PPA or Ubuntu/Debian
 standard repositories. You have to compile Psensor sensor. You can
-find the instructions in the section “ATI/AMD GPU Support” of the
+find the instructions in the section <code>ATI/AMD GPU Support</code> of the
 README file available in the Psensor source archives.</p></div>
 <div class="paragraph"><p>If you are using the ATI OpenSource driver, it is not needed to
 compile Psensor with this proprietary library.</p></div>
@@ -491,8 +498,8 @@ the goal of the sensor is to allow the system to
 <p>
 It is only a bug in Psensor if the underlying libraries
           report a different information than Psensor (use the
-          appropriate command or software: ‘sensors’, ‘aticonfig’ or
-          ‘hddtemp’ to check). In this case, please report a bug.
+          appropriate command or software: <code>sensors</code>, <code>aticonfig</code> or
+          <code>hddtemp</code> to check). In this case, please report a bug.
 </p>
 </li>
 </ul></div>
@@ -509,32 +516,32 @@ starting with:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-‘lmsensor coretemp’: Intel CPU.
+<code>lmsensor coretemp</code>: Intel CPU.
 </p>
 </li>
 <li>
 <p>
-‘lmsensor k10temp’,'lmsensor k8temp’,'lmsensor fam15h_power’: AMD CPU.
+<code>lmsensor k10temp</code>, <code>lmsensor k8temp</code>, <code>lmsensor fam15h_power</code>: AMD CPU.
 </p>
 </li>
 <li>
 <p>
-‘nvidia’ or ‘lmsensor nouveau’: NVIDIA GPU.
+<code>nvidia</code> or <code>lmsensor nouveau</code>: NVIDIA GPU.
 </p>
 </li>
 <li>
 <p>
-‘hdd’: hard disk drive.
+<code>hdd</code>: hard disk drive.
 </p>
 </li>
 <li>
 <p>
-‘amd’: AMD GPU.
+<code>amd</code>: AMD GPU.
 </p>
 </li>
 <li>
 <p>
-‘lmsensor C B’: C is the name of the chip, B the name of the adapter.
+<code>lmsensor C B</code>: C is the name of the chip, B the name of the adapter.
 </p>
 </li>
 </ul></div>
@@ -568,10 +575,10 @@ or <a href="mailto:jeanfi@gmail.com">jeanfi@gmail.com</a>.
 </li>
 </ul></div>
 <div class="paragraph"><p>If the bug is concerning Debian or Ubuntu derivatives distribution,
-please add in its description the output of the command ‘apt-cache
-policy psensor’.</p></div>
+please add in its description the output of the command: <code>apt-cache
+policy psensor</code>.</p></div>
 <div class="paragraph"><p>If it is related to the Psensor source compilation, please add the
-full output of the ‘configure’ command.</p></div>
+full output of the <code>configure</code> command.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -593,13 +600,17 @@ or send an email directly to me: <a href="mailto:jeanfi@gmail.com">jeanfi@gmail.
 <div class="sect1">
 <h2 id="S_UbuntuInstall">8. How to install Psensor on Ubuntu?</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Psensor is in the official repository, search “psensor” in the software center and install it. More information at: <a href="http://wpitchoune.net/blog/psensor/ubuntu-integration/">http://wpitchoune.net/blog/psensor/ubuntu-integration/</a>.</p></div>
+<div class="paragraph"><p>Psensor is in the official repository, search <code>psensor</code> in the
+software center and install it. More information at:
+<a href="http://wpitchoune.net/blog/psensor/ubuntu-integration/">http://wpitchoune.net/blog/psensor/ubuntu-integration/</a>.</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="S_DebianInstall">9. How to install Psensor on Debian?</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Psensor will be in the official repository since Debian 7.0. You can get the last packaged version from the sid repository. More information at: <a href="http://packages.qa.debian.org/p/psensor.html">http://packages.qa.debian.org/p/psensor.html</a>.</p></div>
+<div class="paragraph"><p>Psensor is in the official repository since Debian 7.0. You can get
+the last packaged version from the sid repository. More information
+at: <a href="http://packages.qa.debian.org/p/psensor.html">http://packages.qa.debian.org/p/psensor.html</a>.</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -608,19 +619,19 @@ or send an email directly to me: <a href="mailto:jeanfi@gmail.com">jeanfi@gmail.
 <div class="ulist"><ul>
 <li>
 <p>
-ppa:jfi/ppa: last stable version.
+<code>ppa:jfi/ppa</code>: last stable version.
 </p>
 </li>
 <li>
 <p>
-ppa:jfi/psensor-unstable: last development version, no major
-          bug is expected.
+<code>ppa:jfi/psensor-unstable</code>: last development version, no
+          major bug is expected.
 </p>
 </li>
 <li>
 <p>
-ppa:jfi/psensor-daily-trunk: build each day directly from
-          the SVN source repository. It may contain major bugs or
+<code>ppa:jfi/psensor-daily-trunk</code>: build each day directly from
+          the GIT source repository. It may contain major bugs or
           incomplete features. Useful for contributors or testing
           whether a bug is fixed.
 </p>
@@ -640,8 +651,8 @@ ppa:jfi/psensor-daily-trunk: build each day directly from
 <div class="paragraph"><p>Psensor packages are available in the standard repositories of Ubuntu
 (since Oneiric) and Debian (since v7) distributions.</p></div>
 <div class="paragraph"><p>For other distributions, you will find the compilation and
-installation instructions in the section ‘Installation from source
-archive’ in the README file of the source archive. Psensor should
+installation instructions in the section <code>Installation from source
+archive</code> in the README file of the source archive. Psensor should
 compile in any modern distribution.</p></div>
 </div>
 </div>
@@ -649,22 +660,30 @@ compile in any modern distribution.</p></div>
 <h2 id="S_LOG">13. How to log sensors temperatures?</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>The best way is probably to use sensord or a custom script based on
-the output of the different commands like sensors.</p></div>
+the output of the different commands like <code>sensors</code>.</p></div>
 <div class="paragraph"><p>Anyway, as I received several requests about such feature, since the
 0.7.0.4 release it is implemented in both psensor ( menu preferences &gt;
-sensors &gt; enable log of measures) and psensor-server (–sensor-log-file
-option).</p></div>
+sensors &gt; enable log of measures) and psensor-server
+(<code>--sensor-log-file</code> option).</p></div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="S_NO_GRAPH_DISPLAYED">14. No graphs are displayed, but the table of the main window is displaying sensors</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>In the sensors table of the main window, switch on the checkbox of the last
-column (named "Enabled" or "Graph" depending on the Psensor version).</p></div>
+column (named <code>Enabled</code> or <code>Graph</code> depending on the Psensor version).</p></div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="S_SimilarSoft">15. Is there any other similar softwares?</h2>
+<h2 id="S_autostart">15. Launch Psensor automaticaly on session startup</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Since the version 1.0.1, Psensor is no more started automaticaly by default.</p></div>
+<div class="paragraph"><p>Open the <code>Preferences</code> window, select the <code>Startup</code> tab and switch on
+the option <code>Launch on session startup</code>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="S_SimilarSoft">16. Is there any other similar softwares?</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Here is a list of few well-known sensors monitoring softwares:</p></div>
 <div class="ulist"><ul>
@@ -696,7 +715,7 @@ more general, but can be configured to display sensors
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-04-10 01:57:33 CEST
+Last updated 2014-06-02 08:44:54 CEST
 </div>
 </div>
 </body>

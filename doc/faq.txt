@@ -1,6 +1,8 @@
 Psensor Frequently Asked Questions
 ==================================
 
+The last version of this FAQ is available at http://wpitchoune.net/gitweb/?p=psensor.git;a=blob_plain;f=doc/faq.html;hb=HEAD.
+
 [[S_NoSensors]]
 No sensors or only cpu usage is displayed
 -----------------------------------------
@@ -9,8 +11,8 @@ Psensor is relying on few libraries or softwares for retrieving the information 
 
 	- motherboard and CPUs sensors: the information is retrieved
           from the lm-sensors library, it requires that
-          ‘sensors-detect’ has been run and the kernel module
-          correctly installed. ‘sensors’ can be used for checking.
+          +sensors-detect+ has been run and the kernel module
+          correctly installed. +sensors+ can be used for checking.
 
 	- GPUs: it depends on which driver you are using:
 
@@ -19,19 +21,19 @@ Psensor is relying on few libraries or softwares for retrieving the information 
             	  monitoring for your GPU, the information is using
             	  lm-sensors, same steps than above.
 
-		* proprietary driver Nvidia: run ‘nvidia-settings’ to
+		* proprietary driver Nvidia: run +nvidia-settings+ to
 		  check that it supports sensors monitoring.
 
-		* proprietary driver Catalyst/fglx: use ‘aticonfig’ to
+		* proprietary driver Catalyst/fglx: use +aticonfig+ to
                   check that it supports sensors monitoring. Important
                   note: it requires that you are using a Psensor
                   binary compiled with the ATI support.
 
-	- HDDs: it uses the hddtemp daemon. Verifies that it is
-          correctly reporting temperature by using the ‘sudo hddtemp
-          /dev/sd?’ command. If hddtemp does not support your disk,
+	- HDDs: it uses the hddtemp daemon. Verify that it is
+          correctly reporting temperature by using the command: +sudo
+          hddtemp /dev/sda+. If hddtemp does not support your disk,
           you may want to try using the libatasmart support instead
-          (option –use-libatasmart option).
+          (option +--use-libatasmart+).
 
 If the underlying software is reporting sensors which are not
 displayed by Psensor, it is probably a bug in Psensor, so please
@@ -50,7 +52,7 @@ any Linux distribution.
 Unfortunely, due to the license of this library, I cannot provide a
 compiled version of Psensor, even in a Ubuntu PPA or Ubuntu/Debian
 standard repositories. You have to compile Psensor sensor. You can
-find the instructions in the section “ATI/AMD GPU Support” of the
+find the instructions in the section +ATI/AMD GPU Support+ of the
 README file available in the Psensor source archives.
 
 If you are using the ATI OpenSource driver, it is not needed to
@@ -79,8 +81,8 @@ temperature, etc):
 
 	- It is only a bug in Psensor if the underlying libraries
           report a different information than Psensor (use the
-          appropriate command or software: ‘sensors’, ‘aticonfig’ or
-          ‘hddtemp’ to check). In this case, please report a bug.
+          appropriate command or software: +sensors+, +aticonfig+ or
+          +hddtemp+ to check). In this case, please report a bug.
 
 [[S_WhatIsTheSensor]]
 What is the sensors XXXX?
@@ -93,12 +95,12 @@ look at the Chip field.
 For older Psensor releases, look at the Id field, if the string is
 starting with:
 
-	- ‘lmsensor coretemp’: Intel CPU.
-	- ‘lmsensor k10temp’,'lmsensor k8temp’,'lmsensor fam15h_power’: AMD CPU.
-	- ‘nvidia’ or ‘lmsensor nouveau’: NVIDIA GPU.
-	- ‘hdd’: hard disk drive.
-	- ‘amd’: AMD GPU.
-	- ‘lmsensor C B’: C is the name of the chip, B the name of the adapter.
+	- +lmsensor coretemp+: Intel CPU.
+	- +lmsensor k10temp+, +lmsensor k8temp+, +lmsensor fam15h_power+: AMD CPU.
+	- +nvidia+ or +lmsensor nouveau+: NVIDIA GPU.
+	- +hdd+: hard disk drive.
+	- +amd+: AMD GPU.
+	- +lmsensor C B+: C is the name of the chip, B the name of the adapter.
 
 For more information about lmsensor devices, see
 http://lm-sensors.org/wiki/Devices.
@@ -124,11 +126,11 @@ email to:
       - or jeanfi@gmail.com.
 
 If the bug is concerning Debian or Ubuntu derivatives distribution,
-please add in its description the output of the command ‘apt-cache
-policy psensor’.
+please add in its description the output of the command: +apt-cache
+policy psensor+.
 
 If it is related to the Psensor source compilation, please add the
-full output of the ‘configure’ command.
+full output of the +configure+ command.
 
 [[S_SubmitIdea]]
 How to send ideas, questions or comments?
@@ -152,25 +154,29 @@ See http://wpitchoune.net/blog/psensor/how-to-contribute/.
 How to install Psensor on Ubuntu?
 ---------------------------------
 
-Psensor is in the official repository, search “psensor” in the software center and install it. More information at: http://wpitchoune.net/blog/psensor/ubuntu-integration/.
+Psensor is in the official repository, search +psensor+ in the
+software center and install it. More information at:
+http://wpitchoune.net/blog/psensor/ubuntu-integration/.
 
 [[S_DebianInstall]]
 How to install Psensor on Debian?
 ---------------------------------
 
-Psensor will be in the official repository since Debian 7.0. You can get the last packaged version from the sid repository. More information at: http://packages.qa.debian.org/p/psensor.html.
+Psensor is in the official repository since Debian 7.0. You can get
+the last packaged version from the sid repository. More information
+at: http://packages.qa.debian.org/p/psensor.html.
 
 [[S_PPA]]
 What is the difference between the 3 Ubuntu PPAs?
 -------------------------------------------------
 
-	- ppa:jfi/ppa: last stable version.
+	- +ppa:jfi/ppa+: last stable version.
 
-	- ppa:jfi/psensor-unstable: last development version, no major
-          bug is expected.
+	- +ppa:jfi/psensor-unstable+: last development version, no
+          major bug is expected.
 
-	- ppa:jfi/psensor-daily-trunk: build each day directly from
-          the SVN source repository. It may contain major bugs or
+	- +ppa:jfi/psensor-daily-trunk+: build each day directly from
+          the GIT source repository. It may contain major bugs or
           incomplete features. Useful for contributors or testing
           whether a bug is fixed.
 
@@ -188,8 +194,8 @@ Psensor packages are available in the standard repositories of Ubuntu
 (since Oneiric) and Debian (since v7) distributions.
 
 For other distributions, you will find the compilation and
-installation instructions in the section ‘Installation from source
-archive’ in the README file of the source archive. Psensor should
+installation instructions in the section +Installation from source
+archive+ in the README file of the source archive. Psensor should
 compile in any modern distribution.
 
 [[S_LOG]]
@@ -197,12 +203,12 @@ How to log sensors temperatures?
 --------------------------------
 
 The best way is probably to use sensord or a custom script based on
-the output of the different commands like sensors.
+the output of the different commands like +sensors+.
 
 Anyway, as I received several requests about such feature, since the
 0.7.0.4 release it is implemented in both psensor ( menu preferences >
-sensors > enable log of measures) and psensor-server (–sensor-log-file
-option).  
+sensors > enable log of measures) and psensor-server
+(+--sensor-log-file+ option).
 
 [[S_NO_GRAPH_DISPLAYED]]
 
@@ -210,7 +216,16 @@ No graphs are displayed, but the table of the main window is displaying sensors
 -------------------------------------------------------------------------------
 
 In the sensors table of the main window, switch on the checkbox of the last
-column (named "Enabled" or "Graph" depending on the Psensor version).
+column (named +Enabled+ or +Graph+ depending on the Psensor version).
+
+[[S_autostart]]
+Launch Psensor automaticaly on session startup
+----------------------------------------------
+
+Since the version 1.0.1, Psensor is no more started automaticaly by default.
+
+Open the +Preferences+ window, select the +Startup+ tab and switch on
+the option +Launch on session startup+.
 
 [[S_SimilarSoft]]
 Is there any other similar softwares?
