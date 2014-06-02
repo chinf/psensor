@@ -2,21 +2,22 @@
 # Copyright (C) 2012 Free Software Foundation, Inc.
 # This file is distributed under the same license as the psensor package.
 # Maintained by Jean-Philippe Orsini <jeanfi@gmail.com>
-#
+# Translators:
+# Dmitry Serov, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2014-06-01 00:22+0200\n"
-"PO-Revision-Date: 2014-01-27 16:37+0000\n"
-"Last-Translator: Dmitry <dmitri.s93@gmail.com>\n"
+"PO-Revision-Date: 2014-05-20 05:14+0000\n"
+"Last-Translator: Dmitry Serov <dmitri.s93@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
-"X-Generator: Launchpad (build 16916)\n"
+"X-Launchpad-Export-Date: 2014-06-02 08:08+0000\n"
+"X-Generator: Launchpad (build 17031)\n"
 
 #: src/glade/psensor.glade:6
 msgid "About"
@@ -389,7 +390,7 @@ msgid "Sensor log file already open."
 msgstr "Файл журнала датчика уже открыт."
 
 #: src/lib/slog.c:105
-#, fuzzy, c-format
+#, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "Не удалось открыть файл журнала датчика: %s."
 
