@@ -168,10 +168,10 @@ char *file_get_content(const char *fpath)
 			page = malloc(size + 1);
 			if (!page || size != fread(page, 1, size, fp)) {
 				free(page);
-				return NULL;
+				page = NULL;
+			} else {
+				*(page + size) = '\0';
 			}
-
-			*(page + size) = '\0';
 
 			fclose(fp);
 		} else {
@@ -185,25 +185,24 @@ char *file_get_content(const char *fpath)
 long file_get_size(const char *path)
 {
 	FILE *fp;
+	long size;
 
 	if (!is_file(path))
 		return -1;
 
 	fp = fopen(path, "rb");
 	if (fp) {
-		long size;
-
 		if (fseek(fp, 0, SEEK_END) == -1)
-			return -1;
-
-		size = ftell(fp);
+			size = -1;
+		else
+			size = ftell(fp);
 
 		fclose(fp);
-
-		return size;
+	} else {
+		size = -1;
 	}
 
-	return -1;
+	return size;
 }
 
 #define FCOPY_BUF_SZ 4096
