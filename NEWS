@@ -1,6 +1,12 @@
 Psensor NEWS
 ============
 
+v1.0.2
+------
+
+* +psensor-server+:
+  - Fixed file descriptor leaks.
+
 v1.0.1
 ------
 
