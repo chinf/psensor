@@ -247,9 +247,11 @@ It should output something like:
 root      1433     1  0 May28 ?        00:00:21 /usr/sbin/hddtemp -d -l 127.0.0.1 -p 7634 -s | /dev/sdb
 ---------------------
 
-Since recent Ubuntu releases, installing the +hddtemp+ package is not
-enough, it is required to manually allow the +hddtemp+ daemon. Edit the
-file +/etc/default/hddtemp+ and set +RUN_DAEMON+ to +"true"+.
+Depending on the Linux distribution, the installation of the +hddtemp+
+package does not enable the hddtemp daemon automaticaly.
+
+In this case, edit the file +/etc/default/hddtemp+ and set
++RUN_DAEMON+ to +"true"+ like in the following example:
 
 ------------------
 # hddtemp network daemon switch. If set to true, hddtemp will listen
@@ -257,6 +259,13 @@ file +/etc/default/hddtemp+ and set +RUN_DAEMON+ to +"true"+.
 RUN_DAEMON="true"
 ------------------
 
+For Debian/Ubuntu, you can use
+------------------
+dpkg-reconfigure hddtemp
+------------------
+
+and reply +yes+ when asked whether hddtemp daemon must be
+run during the startup.
 
 [[S_SimilarSoft]]
 Is there any other similar softwares?
