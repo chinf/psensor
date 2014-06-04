@@ -20,7 +20,7 @@
 #ifndef _P_IO_H
 #define _P_IO_H
 
-#define P_IO_VER 3
+#define P_IO_VER 4
 
 /* Returns '1' if a given 'path' denotates a directory else returns
    0 */
