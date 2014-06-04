@@ -16,12 +16,21 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301 USA
  */
+
+#include <errno.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
-#include "cfg.h"
+#include <locale.h>
+#include <libintl.h>
+#define _(str) gettext(str)
+
+#include <cfg.h>
+#include <pio.h>
 #include <plog.h>
 
 static const char *KEY_SENSORS = "/apps/psensor/sensors";
@@ -100,6 +109,8 @@ static const char *KEY_SLOG_INTERVAL = "/apps/psensor/slog/interval";
 static const char *KEY_NOTIFICATION_SCRIPT = "/apps/psensor/notif_script";
 
 static GConfClient *client;
+
+static char *user_dir;
 
 static char *get_string(const char *key, const char *default_value)
 {
@@ -546,6 +557,11 @@ void config_cleanup()
 		g_object_unref(client);
 		client = NULL;
 	}
+
+	if (user_dir) {
+		free(user_dir);
+		user_dir = NULL;
+	}
 }
 
 struct config *config_load()
@@ -691,4 +707,33 @@ void config_save(const struct config *c)
 			     KEY_INTERFACE_TEMPERATURE_UNIT,
 			     c->temperature_unit,
 			     NULL);
+}
+
+const char *get_psensor_user_dir()
+{
+	const char *home;
+
+	log_fct_enter();
+
+	if (!user_dir) {
+		home = getenv("HOME");
+
+		if (!home)
+			return NULL;
+
+		user_dir = path_append(home, ".psensor");
+
+		if (mkdir(user_dir, 0700) == -1 && errno != EEXIST) {
+			log_err(_("Failed to create the directory %s: %s"),
+				user_dir,
+				strerror(errno));
+
+			free(user_dir);
+			user_dir = NULL;
+		}
+	}
+
+	log_fct_exit();
+
+	return user_dir;
 }

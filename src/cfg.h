@@ -122,4 +122,14 @@ void config_set_sensor_position(const char *, int);
 
 char *config_get_notif_script();
 void config_set_notif_script(const char *);
+
+/*
+ * Returns the user directory containing psensor data (configuration
+ * and log).
+ * Corresponds to $HOME/.psensor/
+ * Creates the directory if it does not exist;
+ * Returns NULL if it cannot be determined.
+ */
+const char *get_psensor_user_dir();
+
 #endif

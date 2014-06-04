@@ -327,23 +327,19 @@ static void associate_preferences(struct psensor **sensors)
 
 static void log_init()
 {
-	char *home, *path, *dir;
+	const char *dir;
+	char *path;
 
-	home = getenv("HOME");
+	dir = get_psensor_user_dir();
 
-	if (!home)
+	if (!dir)
 		return ;
-
-	dir = malloc(strlen(home)+1+strlen(".psensor")+1);
-	sprintf(dir, "%s/%s", home, ".psensor");
-	mkdir(dir, 0777);
 
 	path = malloc(strlen(dir)+1+strlen("log")+1);
 	sprintf(path, "%s/%s", dir, "log");
 
 	log_open(path);
 
-	free(dir);
 	free(path);
 }
 
