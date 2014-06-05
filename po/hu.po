@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-05 14:10+0200\n"
+"POT-Creation-Date: 2014-06-05 17:49+0200\n"
 "PO-Revision-Date: 2012-10-29 09:41+0000\n"
 "Last-Translator: Bence Lukács <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
 "X-Generator: Launchpad (build 16430)\n"
 
-#: src/cfg.c:514
+#: src/cfg.c:516
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Nem sikerült létrehozni a webkiszolgálót."
@@ -33,7 +33,7 @@ msgstr ""
 msgid "Failed to parse configuration file: %s"
 msgstr ""
 
-#: src/cfg.c:594
+#: src/cfg.c:592
 #, fuzzy, c-format
 msgid "Failed to save configuration file %s."
 msgstr "Érzékelők naplózásának aktiválása meghiúsult."
@@ -190,7 +190,7 @@ msgid "Measures"
 msgstr "Mérések"
 
 #: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
-#: src/ui_sensorlist.c:334
+#: src/ui_sensorlist.c:335
 msgid "Graph"
 msgstr "Grafikon"
 
@@ -649,23 +649,23 @@ msgstr "Nem sikerült betölteni a Psensor ikont."
 msgid "Select foreground color"
 msgstr "Előtérszín kiválasztása"
 
-#: src/ui_sensorlist.c:297
+#: src/ui_sensorlist.c:298
 msgid "Sensor"
 msgstr "Érzékelő"
 
-#: src/ui_sensorlist.c:303
+#: src/ui_sensorlist.c:304
 msgid "Value"
 msgstr "Érték"
 
-#: src/ui_sensorlist.c:309
+#: src/ui_sensorlist.c:310
 msgid "Min"
 msgstr "Minimum"
 
-#: src/ui_sensorlist.c:315
+#: src/ui_sensorlist.c:316
 msgid "Max"
 msgstr "Maximum"
 
-#: src/ui_sensorlist.c:322
+#: src/ui_sensorlist.c:323
 msgid "Color"
 msgstr "Szín"
 

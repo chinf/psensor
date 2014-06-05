@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-05 14:10+0200\n"
+"POT-Creation-Date: 2014-06-05 17:49+0200\n"
 "PO-Revision-Date: 2012-05-03 02:31+0000\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <sr@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-07-02 08:28+0000\n"
 "X-Generator: Launchpad (build 15520)\n"
 
-#: src/cfg.c:514
+#: src/cfg.c:516
 #, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr ""
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Failed to parse configuration file: %s"
 msgstr ""
 
-#: src/cfg.c:594
+#: src/cfg.c:592
 #, c-format
 msgid "Failed to save configuration file %s."
 msgstr ""
@@ -189,7 +189,7 @@ msgid "Measures"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
-#: src/ui_sensorlist.c:334
+#: src/ui_sensorlist.c:335
 msgid "Graph"
 msgstr ""
 
@@ -618,23 +618,23 @@ msgstr ""
 msgid "Select foreground color"
 msgstr "Одаберите боју текста"
 
-#: src/ui_sensorlist.c:297
+#: src/ui_sensorlist.c:298
 msgid "Sensor"
 msgstr "Сензор"
 
-#: src/ui_sensorlist.c:303
+#: src/ui_sensorlist.c:304
 msgid "Value"
 msgstr ""
 
-#: src/ui_sensorlist.c:309
+#: src/ui_sensorlist.c:310
 msgid "Min"
 msgstr "Најмање"
 
-#: src/ui_sensorlist.c:315
+#: src/ui_sensorlist.c:316
 msgid "Max"
 msgstr "Највише"
 
-#: src/ui_sensorlist.c:322
+#: src/ui_sensorlist.c:323
 msgid "Color"
 msgstr "У боји"
 

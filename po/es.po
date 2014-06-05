@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-05 14:10+0200\n"
+"POT-Creation-Date: 2014-06-05 17:49+0200\n"
 "PO-Revision-Date: 2013-05-12 22:16+0000\n"
 "Last-Translator: Javier <buik8roadmaster@hotmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-10-18 06:32+0000\n"
 "X-Generator: Launchpad (build 16799)\n"
 
-#: src/cfg.c:514
+#: src/cfg.c:516
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Fallo al crear el servidor Web"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Failed to parse configuration file: %s"
 msgstr ""
 
-#: src/cfg.c:594
+#: src/cfg.c:592
 #, fuzzy, c-format
 msgid "Failed to save configuration file %s."
 msgstr "Error al activar el registro de sensores"
@@ -189,7 +189,7 @@ msgid "Measures"
 msgstr "Medidas"
 
 #: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
-#: src/ui_sensorlist.c:334
+#: src/ui_sensorlist.c:335
 msgid "Graph"
 msgstr "Gráfica"
 
@@ -652,23 +652,23 @@ msgstr "Error al cargar el icono de Psensor"
 msgid "Select foreground color"
 msgstr "Seleccionar el color del primer plano"
 
-#: src/ui_sensorlist.c:297
+#: src/ui_sensorlist.c:298
 msgid "Sensor"
 msgstr "Sensor"
 
-#: src/ui_sensorlist.c:303
+#: src/ui_sensorlist.c:304
 msgid "Value"
 msgstr "Valor"
 
-#: src/ui_sensorlist.c:309
+#: src/ui_sensorlist.c:310
 msgid "Min"
 msgstr "Mín"
 
-#: src/ui_sensorlist.c:315
+#: src/ui_sensorlist.c:316
 msgid "Max"
 msgstr "Máx"
 
-#: src/ui_sensorlist.c:322
+#: src/ui_sensorlist.c:323
 msgid "Color"
 msgstr "Color"
 
