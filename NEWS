@@ -1,6 +1,12 @@
 Psensor NEWS
 ============
 
+v1.0.3
+------
+
+* sensor properties stored in +$HOME/.psensor/psensor.cfg+ instead of
+  GConf.
+
 v1.0.2
 ------
 

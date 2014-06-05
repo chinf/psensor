@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:22+0200\n"
+"POT-Creation-Date: 2014-06-05 14:10+0200\n"
 "PO-Revision-Date: 2014-05-20 05:14+0000\n"
 "Last-Translator: Dmitry Serov <dmitri.s93@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -18,6 +18,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-06-02 08:08+0000\n"
 "X-Generator: Launchpad (build 17031)\n"
+
+#: src/cfg.c:514
+#, fuzzy, c-format
+msgid "Failed to create the directory %s: %s"
+msgstr "Не удалось создать веб-сервер."
+
+#: src/cfg.c:564
+msgid "The configuration file does not exist."
+msgstr ""
+
+#: src/cfg.c:567
+#, c-format
+msgid "Failed to parse configuration file: %s"
+msgstr ""
+
+#: src/cfg.c:594
+#, fuzzy, c-format
+msgid "Failed to save configuration file %s."
+msgstr "Не удалось включить журналирование датчиков."
 
 #: src/glade/psensor.glade:6
 msgid "About"
@@ -471,20 +490,20 @@ msgstr "Сообщайте об ошибках на: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s домашняя страница: <%s>\n"
 
-#: src/main.c:454
+#: src/main.c:450
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor не был собран с поддержкой удалённых датчиков."
 
-#: src/main.c:517
+#: src/main.c:513
 msgid "Enables debug mode."
 msgstr "Включает режим отладки."
 
-#: src/main.c:529 src/server/server.c:380
+#: src/main.c:525 src/server/server.c:380
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Попробуйте `%s --help' для дополнительной информации.↵\n"
 
-#: src/main.c:542
+#: src/main.c:538
 msgid "A Psensor instance already exists."
 msgstr "Копия Psensor уже запущена."
 

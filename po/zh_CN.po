@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:22+0200\n"
+"POT-Creation-Date: 2014-06-05 14:10+0200\n"
 "PO-Revision-Date: 2014-05-01 13:23+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -17,6 +17,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-06-02 08:08+0000\n"
 "X-Generator: Launchpad (build 17031)\n"
+
+#: src/cfg.c:514
+#, fuzzy, c-format
+msgid "Failed to create the directory %s: %s"
+msgstr "无法创建网络服务器。"
+
+#: src/cfg.c:564
+msgid "The configuration file does not exist."
+msgstr ""
+
+#: src/cfg.c:567
+#, c-format
+msgid "Failed to parse configuration file: %s"
+msgstr ""
+
+#: src/cfg.c:594
+#, fuzzy, c-format
+msgid "Failed to save configuration file %s."
+msgstr "无法激活监测器日志。"
 
 #: src/glade/psensor.glade:6
 msgid "About"
@@ -473,20 +492,20 @@ msgstr "报告问题至：%s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
 
-#: src/main.c:454
+#: src/main.c:450
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor 不支持远程传感器。"
 
-#: src/main.c:517
+#: src/main.c:513
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:529 src/server/server.c:380
+#: src/main.c:525 src/server/server.c:380
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
 
-#: src/main.c:542
+#: src/main.c:538
 msgid "A Psensor instance already exists."
 msgstr "已存在一个 Psensor 例程。"
 

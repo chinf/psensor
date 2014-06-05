@@ -247,6 +247,7 @@ static int clicked_cbk(GtkWidget *widget, GdkEventButton *event, gpointer data)
 					    GTK_WINDOW(ui->main_window))) {
 				ui_sensorlist_update(ui, 1);
 				config_set_sensor_color(s->id, s->color);
+				config_sync();
 			}
 		} else if (coli >= 0 && coli != COL_ENABLED) {
 			menu = create_sensor_popup(ui, s);

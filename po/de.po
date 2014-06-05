@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:22+0200\n"
+"POT-Creation-Date: 2014-06-05 14:10+0200\n"
 "PO-Revision-Date: 2014-04-30 16:48+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: German\n"
@@ -17,6 +17,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-02-11 20:01+0000\n"
 "X-Generator: Poedit 1.5.4\n"
+
+#: src/cfg.c:514
+#, fuzzy, c-format
+msgid "Failed to create the directory %s: %s"
+msgstr "Erzeugen des Webservers ist gescheitert."
+
+#: src/cfg.c:564
+msgid "The configuration file does not exist."
+msgstr ""
+
+#: src/cfg.c:567
+#, c-format
+msgid "Failed to parse configuration file: %s"
+msgstr ""
+
+#: src/cfg.c:594
+#, fuzzy, c-format
+msgid "Failed to save configuration file %s."
+msgstr "Aktivieren der Sensorenprotokollierung ist gescheitert."
 
 #: src/glade/psensor.glade:6
 msgid "About"
@@ -483,20 +502,20 @@ msgstr "Programmfehler melden an: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s-Website: <%s>\n"
 
-#: src/main.c:454
+#: src/main.c:450
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
 
-#: src/main.c:517
+#: src/main.c:513
 msgid "Enables debug mode."
 msgstr "Fehlerdiagnosemodus wird aktiviert."
 
-#: src/main.c:529 src/server/server.c:380
+#: src/main.c:525 src/server/server.c:380
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Rufen Sie »%s --help« auf, um weitere Informationen zu erhalten.\n"
 
-#: src/main.c:542
+#: src/main.c:538
 msgid "A Psensor instance already exists."
 msgstr "Es existiert bereits eine Psensor-Instanz."
 

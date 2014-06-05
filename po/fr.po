@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-01 00:22+0200\n"
+"POT-Creation-Date: 2014-06-05 14:10+0200\n"
 "PO-Revision-Date: 2013-06-29 15:14+0000\n"
 "Last-Translator: londumas <helion331990@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -17,6 +17,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2013-10-18 06:32+0000\n"
 "X-Generator: Launchpad (build 16799)\n"
+
+#: src/cfg.c:514
+#, fuzzy, c-format
+msgid "Failed to create the directory %s: %s"
+msgstr "Échec de la création du serveur Web."
+
+#: src/cfg.c:564
+msgid "The configuration file does not exist."
+msgstr ""
+
+#: src/cfg.c:567
+#, c-format
+msgid "Failed to parse configuration file: %s"
+msgstr ""
+
+#: src/cfg.c:594
+#, fuzzy, c-format
+msgid "Failed to save configuration file %s."
+msgstr "Échec de l'activation de la journalisation des capteurs."
 
 #: src/glade/psensor.glade:6
 msgid "About"
@@ -482,21 +501,21 @@ msgstr "Signaler les bogues à: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s page d’accueil: <%s>\n"
 
-#: src/main.c:454
+#: src/main.c:450
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 "Psensor n'a pas été compilé avec le support de surveillance à distance."
 
-#: src/main.c:517
+#: src/main.c:513
 msgid "Enables debug mode."
 msgstr "Active le mode de débogage."
 
-#: src/main.c:529 src/server/server.c:380
+#: src/main.c:525 src/server/server.c:380
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez « %s --help » pour plus d'informations.\n"
 
-#: src/main.c:542
+#: src/main.c:538
 msgid "A Psensor instance already exists."
 msgstr "Une instance de Psensor existe déjà."
 

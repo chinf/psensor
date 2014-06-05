@@ -33,17 +33,16 @@
 #include <pio.h>
 #include <plog.h>
 
-static const char *KEY_SENSORS = "/apps/psensor/sensors";
-
-static const char *ATT_SENSOR_ALARM_ENABLED = "alarm/enabled";
-static const char *ATT_SENSOR_ALARM_HIGH_THRESHOLD = "alarm/high_threshold";
-static const char *ATT_SENSOR_ALARM_LOW_THRESHOLD = "alarm/low_threshold";
+static const char *ATT_SENSOR_ALARM_ENABLED = "alarm_enabled";
+static const char *ATT_SENSOR_ALARM_HIGH_THRESHOLD = "alarm_high_threshold";
+static const char *ATT_SENSOR_ALARM_LOW_THRESHOLD = "alarm_low_threshold";
 static const char *ATT_SENSOR_COLOR = "color";
-static const char *ATT_SENSOR_ENABLED = "enabled";
+static const char *ATT_SENSOR_GRAPH_ENABLED = "graph_enabled";
 static const char *ATT_SENSOR_NAME = "name";
-static const char *ATT_SENSOR_APPINDICATOR_DISABLED = "appindicator/disabled";
+static const char *ATT_SENSOR_APPINDICATOR_MENU_DISABLED
+= "appindicator_menu_disabled";
 static const char *ATT_SENSOR_APPINDICATOR_LABEL_ENABLED
-= "appindicator/menu/enabled";
+= "appindicator_label_enabled";
 
 static const char *ATT_SENSOR_POSITION = "position";
 
@@ -111,6 +110,10 @@ static const char *KEY_NOTIFICATION_SCRIPT = "/apps/psensor/notif_script";
 static GConfClient *client;
 
 static char *user_dir;
+
+static GKeyFile *key_file;
+
+static char *sensor_config_path;
 
 static char *get_string(const char *key, const char *default_value)
 {
@@ -243,232 +246,6 @@ static void set_foreground_color(const struct color *color)
 	free(str);
 }
 
-static char *get_sensor_att_key(const char *sid, const char *att)
-{
-	char *esc_sid, *key;
-
-	esc_sid = gconf_escape_key(sid, -1);
-	/* [KEY_SENSORS]/[esc_sid]/[att] */
-	key = malloc(strlen(KEY_SENSORS)
-		     + 1 + 2 * strlen(esc_sid)
-		     + 1 + strlen(att) + 1);
-
-	sprintf(key, "%s/%s/%s", KEY_SENSORS, esc_sid, att);
-
-	free(esc_sid);
-
-	return key;
-}
-
-struct color *
-config_get_sensor_color(const char *sid, const struct color *dft)
-{
-	char *key, *scolor;
-	struct color *color;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_COLOR);
-
-	scolor = gconf_client_get_string(client, key, NULL);
-
-	color = NULL;
-
-	if (scolor)
-		color = str_to_color(scolor);
-
-	if (!scolor || !color) {
-		color = color_new(dft->red, dft->green, dft->blue);
-		scolor = color_to_str(color);
-		gconf_client_set_string(client, key, scolor, NULL);
-	}
-
-	free(scolor);
-	free(key);
-
-	return color;
-}
-
-void config_set_sensor_color(const char *sid, const struct color *color)
-{
-	char *key, *scolor;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_COLOR);
-	scolor = color_to_str(color);
-
-	gconf_client_set_string(client, key, scolor, NULL);
-
-	free(scolor);
-	free(key);
-}
-
-int config_get_sensor_alarm_high_threshold(const char *sid)
-{
-	int res;
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD);
-	res = gconf_client_get_int(client, key, NULL);
-	free(key);
-
-	return res;
-}
-
-void
-config_set_sensor_alarm_high_threshold(const char *sid, int threshold)
-{
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD);
-	gconf_client_set_int(client, key, threshold, NULL);
-	free(key);
-}
-
-int config_get_sensor_alarm_low_threshold(const char *sid)
-{
-	int res;
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_LOW_THRESHOLD);
-	res = gconf_client_get_int(client, key, NULL);
-	free(key);
-
-	return res;
-}
-
-void
-config_set_sensor_alarm_low_threshold(const char *sid, int threshold)
-{
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_LOW_THRESHOLD);
-	gconf_client_set_int(client, key, threshold, NULL);
-	free(key);
-}
-
-bool config_get_sensor_alarm_enabled(const char *sid)
-{
-	gboolean b;
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_ENABLED);
-	b = gconf_client_get_bool(client, key, NULL);
-	free(key);
-
-	return b;
-}
-
-void config_set_sensor_alarm_enabled(const char *sid, bool enabled)
-{
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_ALARM_ENABLED);
-	gconf_client_set_bool(client, key, enabled, NULL);
-	free(key);
-}
-
-bool config_is_sensor_enabled(const char *sid)
-{
-	gboolean b;
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_ENABLED);
-	b = gconf_client_get_bool(client, key, NULL);
-	free(key);
-
-	return b;
-}
-
-void config_set_sensor_enabled(const char *sid, bool enabled)
-{
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_ENABLED);
-	gconf_client_set_bool(client, key, enabled, NULL);
-	free(key);
-}
-
-char *config_get_sensor_name(const char *sid)
-{
-	char *name, *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_NAME);
-	name = gconf_client_get_string(client, key, NULL);
-	free(key);
-
-	return name;
-}
-
-void config_set_sensor_name(const char *sid, const char *name)
-{
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_NAME);
-	gconf_client_set_string(client, key, name, NULL);
-	free(key);
-}
-
-int config_get_sensor_position(const char *sid)
-{
-	char *key;
-	int pos;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_POSITION);
-	pos = gconf_client_get_int(client, key, NULL);
-	free(key);
-
-	return pos;
-}
-
-void config_set_sensor_position(const char *sid, int pos)
-{
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_POSITION);
-	gconf_client_set_int(client, key, pos, NULL);
-	free(key);
-}
-
-bool config_is_appindicator_enabled(const char *sid)
-{
-	char *key;
-	gboolean b;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_DISABLED);
-	b = gconf_client_get_bool(client, key, NULL);
-	free(key);
-
-	return !b;
-}
-
-void config_set_appindicator_enabled(const char *sid, bool enabled)
-{
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_DISABLED);
-	gconf_client_set_bool(client, key, !enabled, NULL);
-	free(key);
-}
-
-bool config_is_appindicator_label_enabled(const char *sid)
-{
-	char *key;
-	gboolean b;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_LABEL_ENABLED);
-	b = gconf_client_get_bool(client, key, NULL);
-	free(key);
-
-	return b;
-}
-
-void config_set_appindicator_label_enabled(const char *sid, bool enabled)
-{
-	char *key;
-
-	key = get_sensor_att_key(sid, ATT_SENSOR_APPINDICATOR_LABEL_ENABLED);
-	gconf_client_set_bool(client, key, enabled, NULL);
-	free(key);
-}
-
 bool is_slog_enabled()
 {
 	return gconf_client_get_bool(client, KEY_SLOG_ENABLED, NULL);
@@ -558,9 +335,21 @@ void config_cleanup()
 		client = NULL;
 	}
 
+	config_sync();
+
 	if (user_dir) {
 		free(user_dir);
 		user_dir = NULL;
+	}
+
+	if (key_file) {
+		g_key_file_free(key_file);
+		key_file = NULL;
+	}
+
+	if (sensor_config_path) {
+		free(sensor_config_path);
+		sensor_config_path = NULL;
 	}
 }
 
@@ -737,3 +526,255 @@ const char *get_psensor_user_dir()
 
 	return user_dir;
 }
+
+static const char *get_sensor_config_path()
+{
+	const char *dir;
+
+	if (!sensor_config_path) {
+		dir = get_psensor_user_dir();
+
+		if (dir)
+			sensor_config_path = path_append(dir, "psensor.cfg");
+	}
+
+	return sensor_config_path;
+}
+
+static GKeyFile *get_sensor_key_file()
+{
+	int ret;
+	GError *err;
+	const char *path;
+
+	if (!key_file) {
+		path = get_sensor_config_path();
+
+		key_file = g_key_file_new();
+
+		err = NULL;
+		ret = g_key_file_load_from_file(key_file,
+						path,
+						G_KEY_FILE_KEEP_COMMENTS
+						| G_KEY_FILE_KEEP_TRANSLATIONS,
+						&err);
+
+		if (!ret) {
+			if (err->code == G_KEY_FILE_ERROR_NOT_FOUND) {
+				log_fct(_("The configuration file "
+					  "does not exist."));
+			} else {
+				log_err(_("Failed to parse configuration "
+					  "file: %s"),
+					path);
+			}
+		}
+	}
+
+	return key_file;
+}
+
+static void save_sensor_key_file()
+{
+	GKeyFile *kfile;
+	const char *path;
+	char *data;
+
+	log_fct_enter();
+
+	kfile = get_sensor_key_file();
+
+	data = g_key_file_to_data(kfile, NULL, NULL);
+
+	path = get_sensor_config_path();
+
+	if (!g_file_set_contents(path, data, -1, NULL))
+		log_err(_("Failed to save configuration file %s."), path);
+
+	free(data);
+
+	log_fct_exit();
+}
+
+void config_sync()
+{
+	log_fct_enter();
+	save_sensor_key_file();
+	log_fct_exit();
+}
+
+static void
+config_sensor_set_string(const char *sid, const char *att, const char *str)
+{
+	GKeyFile *kfile;
+
+	kfile = get_sensor_key_file();
+	g_key_file_set_string(kfile, sid, att, str);
+}
+
+static char *config_sensor_get_string(const char *sid, const char *att)
+{
+	GKeyFile *kfile;
+
+	kfile = get_sensor_key_file();
+	return g_key_file_get_string(kfile, sid, att, NULL);
+}
+
+static bool config_sensor_get_bool(const char *sid, const char *att)
+{
+
+	GKeyFile *kfile;
+
+	kfile = get_sensor_key_file();
+	return g_key_file_get_boolean(kfile, sid, att, NULL);
+}
+
+static void
+config_sensor_set_bool(const char *sid, const char *att, bool enabled)
+{
+	GKeyFile *kfile;
+
+	kfile = get_sensor_key_file();
+
+	g_key_file_set_boolean(kfile, sid, att, enabled);
+}
+
+static int config_sensor_get_int(const char *sid, const char *att)
+{
+
+	GKeyFile *kfile;
+
+	kfile = get_sensor_key_file();
+	return g_key_file_get_integer(kfile, sid, att, NULL);
+}
+
+static void
+config_sensor_set_int(const char *sid, const char *att, int i)
+{
+	GKeyFile *kfile;
+
+	kfile = get_sensor_key_file();
+
+	g_key_file_set_integer(kfile, sid, att, i);
+}
+
+char *config_get_sensor_name(const char *sid)
+{
+	return config_sensor_get_string(sid, ATT_SENSOR_NAME);
+}
+
+void config_set_sensor_name(const char *sid, const char *name)
+{
+	config_sensor_set_string(sid, ATT_SENSOR_NAME, name);
+}
+
+void config_set_sensor_color(const char *sid, const struct color *color)
+{
+	char *scolor;
+
+	scolor = color_to_str(color);
+
+	config_sensor_set_string(sid, ATT_SENSOR_COLOR, scolor);
+
+	free(scolor);
+}
+
+struct color *
+config_get_sensor_color(const char *sid, const struct color *dft)
+{
+	char *scolor;
+	struct color *color;
+
+	scolor = config_sensor_get_string(sid, ATT_SENSOR_COLOR);
+
+	if (scolor)
+		color = str_to_color(scolor);
+	else
+		color = NULL;
+
+	if (!color) {
+		color = color_new(dft->red, dft->green, dft->blue);
+		config_set_sensor_color(sid, color);
+	}
+
+	free(scolor);
+
+	return color;
+}
+
+bool config_is_sensor_enabled(const char *sid)
+{
+	return config_sensor_get_bool(sid, ATT_SENSOR_GRAPH_ENABLED);
+}
+
+void config_set_sensor_enabled(const char *sid, bool enabled)
+{
+	config_sensor_set_bool(sid, ATT_SENSOR_GRAPH_ENABLED, enabled);
+}
+
+int config_get_sensor_alarm_high_threshold(const char *sid)
+{
+	return config_sensor_get_int(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD);
+}
+
+void config_set_sensor_alarm_high_threshold(const char *sid, int threshold)
+{
+	config_sensor_set_int(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD, threshold);
+}
+
+int config_get_sensor_alarm_low_threshold(const char *sid)
+{
+	return config_sensor_get_int(sid, ATT_SENSOR_ALARM_LOW_THRESHOLD);
+}
+
+void config_set_sensor_alarm_low_threshold(const char *sid, int threshold)
+{
+	config_sensor_set_int(sid, ATT_SENSOR_ALARM_LOW_THRESHOLD, threshold);
+}
+
+bool config_is_appindicator_enabled(const char *sid)
+{
+	return !config_sensor_get_bool(sid,
+				       ATT_SENSOR_APPINDICATOR_MENU_DISABLED);
+}
+
+void config_set_appindicator_enabled(const char *sid, bool enabled)
+{
+	return config_sensor_set_bool(sid,
+				      ATT_SENSOR_APPINDICATOR_MENU_DISABLED,
+				      !enabled);
+}
+
+int config_get_sensor_position(const char *sid)
+{
+	return config_sensor_get_int(sid, ATT_SENSOR_POSITION);
+}
+
+void config_set_sensor_position(const char *sid, int pos)
+{
+	return config_sensor_set_int(sid, ATT_SENSOR_POSITION, pos);
+}
+
+bool config_get_sensor_alarm_enabled(const char *sid)
+{
+	return config_sensor_get_bool(sid, ATT_SENSOR_ALARM_ENABLED);
+}
+
+void config_set_sensor_alarm_enabled(const char *sid, bool enabled)
+{
+	config_sensor_set_bool(sid, ATT_SENSOR_ALARM_ENABLED, enabled);
+}
+
+bool config_is_appindicator_label_enabled(const char *sid)
+{
+	return config_sensor_get_bool(sid,
+				      ATT_SENSOR_APPINDICATOR_LABEL_ENABLED);
+}
+
+void config_set_appindicator_label_enabled(const char *sid, bool enabled)
+{
+	config_sensor_set_bool(sid,
+			       ATT_SENSOR_APPINDICATOR_LABEL_ENABLED,
+			       enabled);
+}
+

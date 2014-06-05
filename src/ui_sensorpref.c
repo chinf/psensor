@@ -396,6 +396,7 @@ static void apply_prefs(GtkTreeModel *model, struct config *cfg)
 		valid = gtk_tree_model_iter_next(model, &iter);
 		i++;
 	}
+	config_sync();
 }
 
 void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)

@@ -132,4 +132,6 @@ void config_set_notif_script(const char *);
  */
 const char *get_psensor_user_dir();
 
+void config_sync();
+
 #endif
