@@ -777,4 +777,3 @@ void config_set_appindicator_label_enabled(const char *sid, bool enabled)
 			       ATT_SENSOR_APPINDICATOR_LABEL_ENABLED,
 			       enabled);
 }
-
