@@ -6,6 +6,7 @@ v1.1.1
 
 * sensor properties stored in +$HOME/.psensor/psensor.cfg+ instead of
   GConf.
+* psensor settings stored with dconf.
 
 v1.0.2
 ------
