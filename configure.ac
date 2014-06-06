@@ -42,6 +42,9 @@ AM_GNU_GETTEXT([external])
 AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
 AM_GCONF_SOURCE_2
 
+# Gsettings
+GLIB_GSETTINGS
+
 ############### common 
 
 # Checks pthread

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-05 17:49+0200\n"
+"POT-Creation-Date: 2014-06-06 08:27+0200\n"
 "PO-Revision-Date: 2013-09-01 18:54+0000\n"
 "Last-Translator: Celio Alves <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -18,21 +18,21 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-10-18 06:32+0000\n"
 "X-Generator: Launchpad (build 16799)\n"
 
-#: src/cfg.c:516
+#: src/cfg.c:515
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Falhou ao criar servidor web."
 
-#: src/cfg.c:564
+#: src/cfg.c:563
 msgid "The configuration file does not exist."
 msgstr ""
 
-#: src/cfg.c:567
+#: src/cfg.c:566
 #, c-format
 msgid "Failed to parse configuration file: %s"
 msgstr ""
 
-#: src/cfg.c:592
+#: src/cfg.c:591
 #, c-format
 msgid "Failed to save configuration file %s."
 msgstr ""

@@ -43,7 +43,6 @@ static const char *ATT_SENSOR_APPINDICATOR_MENU_DISABLED
 = "appindicator_menu_disabled";
 static const char *ATT_SENSOR_APPINDICATOR_LABEL_ENABLED
 = "appindicator_label_enabled";
-
 static const char *ATT_SENSOR_POSITION = "position";
 
 static const char *KEY_SENSOR_UPDATE_INTERVAL

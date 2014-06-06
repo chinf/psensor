@@ -116,3 +116,7 @@ psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)
 	help2man --include=description.txt -N --name="Temperature monitoring application" --output=psensor.1 ./psensor$(EXEEXT)
 
+gsettings_SCHEMAS=psensor.gschema.xml
+EXTRA_DIST=$(gsettings_SCHEMAS)
+
+@GSETTINGS_RULES@

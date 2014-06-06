@@ -227,9 +227,11 @@ GCONF_LIBS = @GCONF_LIBS@
 GCONF_SCHEMA_CONFIG_SOURCE = @GCONF_SCHEMA_CONFIG_SOURCE@
 GCONF_SCHEMA_FILE_DIR = @GCONF_SCHEMA_FILE_DIR@
 GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
+GLIB_COMPILE_SCHEMAS = @GLIB_COMPILE_SCHEMAS@
 GMSGFMT = @GMSGFMT@
 GMSGFMT_015 = @GMSGFMT_015@
 GREP = @GREP@
+GSETTINGS_DISABLE_SCHEMAS_COMPILE = @GSETTINGS_DISABLE_SCHEMAS_COMPILE@
 GTK_CFLAGS = @GTK_CFLAGS@
 GTK_LIBS = @GTK_LIBS@
 GTOP_CFLAGS = @GTOP_CFLAGS@
@@ -324,6 +326,7 @@ datarootdir = @datarootdir@
 docdir = @docdir@
 dvidir = @dvidir@
 exec_prefix = @exec_prefix@
+gsettingsschemadir = @gsettingsschemadir@
 host = @host@
 host_alias = @host_alias@
 host_cpu = @host_cpu@
@@ -373,9 +376,10 @@ psensor_SOURCES = cfg.h cfg.c notify_cmd.c notify_cmd.h graph.h \
 	ui_sensorpref.c ui_status.h ui_status.c pxdg.h pxdg.c \
 	$(am__append_4) $(am__append_7) $(am__append_16) \
 	$(am__append_19)
-EXTRA_DIST = description.txt psensor.schemas
+EXTRA_DIST = $(gsettings_SCHEMAS)
 @GCONF_TRUE@schemadir = $(GCONF_SCHEMA_FILE_DIR)
 @GCONF_TRUE@schema_DATA = psensor.schemas
+gsettings_SCHEMAS = psensor.gschema.xml
 all: all-recursive
 
 .SUFFIXES:
@@ -895,6 +899,8 @@ uninstall-man: uninstall-man1
 psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)
 	help2man --include=description.txt -N --name="Temperature monitoring application" --output=psensor.1 ./psensor$(EXEEXT)
+
+@GSETTINGS_RULES@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
