@@ -55,8 +55,8 @@
       <summary>The displayed temperature unit</summary>
       <description>The displayed temperature unit, '0' for Celsius, '1' for Fahenrenheit.</description>
     </key>
-    <key name="interface-window-decoration-disabled" type="i">
-      <default>0</default>
+    <key name="interface-window-decoration-disabled" type="b">
+      <default>false</default>
       <summary>Whether the decoration of the window is disabled</summary>
       <description>Whether the decoration of the window is disabled.</description>
     </key>
