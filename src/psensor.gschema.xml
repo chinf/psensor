@@ -126,5 +126,12 @@
       <description>Vertical position of the graph
       window.</description>
     </key>
+    <key name="notif-script" type="s">
+      <default>''</default>
+      <summary>The script called when a notification is
+      raised.</summary>
+      <description>The script called when a notification is
+      raised.</description>
+    </key>
   </schema>
 </schemalist>

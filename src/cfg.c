@@ -57,15 +57,14 @@ static const char *KEY_GRAPH_UPDATE_INTERVAL = "graph-update-interval";
 
 static const char *KEY_GRAPH_MONITORING_DURATION = "graph-monitoring-duration";
 
-static const char *KEY_GRAPH_BACKGROUND_COLOR
-= "/apps/psensor/graph/background_color";
+static const char *KEY_GRAPH_BACKGROUND_COLOR = "graph-background-color";
 
 static const char *DEFAULT_GRAPH_BACKGROUND_COLOR = "#e8f4e8f4a8f5";
 
 static const char *KEY_GRAPH_BACKGROUND_ALPHA = "graph-background-alpha";
 
 static const char *KEY_GRAPH_FOREGROUND_COLOR
-= "/apps/psensor/graph/foreground_color";
+= "graph-foreground-color";
 
 static const char *DEFAULT_GRAPH_FOREGROUND_COLOR = "#000000000000";
 
@@ -109,7 +108,7 @@ static const char *KEY_SLOG_ENABLED = "/apps/psensor/slog/enabled";
 static const char *KEY_SLOG_INTERVAL = "/apps/psensor/slog/interval";
 
 /* Path to the script called when a notification is raised */
-static const char *KEY_NOTIFICATION_SCRIPT = "/apps/psensor/notif_script";
+static const char *KEY_NOTIFICATION_SCRIPT = "notif-script";
 
 static GConfClient *client;
 static GSettings *settings;
@@ -120,18 +119,14 @@ static GKeyFile *key_file;
 
 static char *sensor_config_path;
 
-static char *get_string(const char *key, const char *default_value)
+static char *get_string(const char *key)
 {
-	char *value;
+	return g_settings_get_string(settings, key);
+}
 
-	value = gconf_client_get_string(client, key, NULL);
-
-	if (!value) {
-		value = strdup(default_value);
-		gconf_client_set_string(client, key, default_value, NULL);
-	}
-
-	return value;
+static void set_string(const char *key, const char *str)
+{
+	g_settings_set_string(settings, key, str);
 }
 
 static void set_bool(const char *k, bool b)
@@ -168,7 +163,7 @@ char *config_get_notif_script()
 {
 	char *str;
 
-	str =  gconf_client_get_string(client, KEY_NOTIFICATION_SCRIPT, NULL);
+	str =  get_string(KEY_NOTIFICATION_SCRIPT);
 	if (str && !strlen(str)) {
 		free(str);
 		str = NULL;
@@ -180,11 +175,9 @@ char *config_get_notif_script()
 void config_set_notif_script(const char *str)
 {
 	if (str && strlen(str) > 0)
-		gconf_client_set_string(client,
-					KEY_NOTIFICATION_SCRIPT, str, NULL);
+		set_string(KEY_NOTIFICATION_SCRIPT, str);
 	else
-		gconf_client_set_string(client,
-					KEY_NOTIFICATION_SCRIPT, "", NULL);
+		set_string(KEY_NOTIFICATION_SCRIPT, "");
 }
 
 static struct color *get_background_color()
@@ -192,8 +185,7 @@ static struct color *get_background_color()
 	char *scolor;
 	struct color *c;
 
-	scolor = get_string(KEY_GRAPH_BACKGROUND_COLOR,
-			    DEFAULT_GRAPH_BACKGROUND_COLOR);
+	scolor = get_string(KEY_GRAPH_BACKGROUND_COLOR);
 
 	c = str_to_color(scolor);
 	free(scolor);
@@ -209,8 +201,7 @@ static struct color *get_foreground_color()
 	char *scolor;
 	struct color *c;
 
-	scolor = get_string(KEY_GRAPH_FOREGROUND_COLOR,
-			    DEFAULT_GRAPH_FOREGROUND_COLOR);
+	scolor = get_string(KEY_GRAPH_FOREGROUND_COLOR);
 
 	c = str_to_color(scolor);
 	free(scolor);
@@ -598,8 +589,7 @@ void config_sync()
 	log_fct_exit();
 }
 
-static void
-sensor_set_str(const char *sid, const char *att, const char *str)
+static void sensor_set_str(const char *sid, const char *att, const char *str)
 {
 	GKeyFile *kfile;
 
@@ -623,8 +613,7 @@ static bool sensor_get_bool(const char *sid, const char *att)
 	return g_key_file_get_boolean(kfile, sid, att, NULL);
 }
 
-static void
-sensor_set_bool(const char *sid, const char *att, bool enabled)
+static void sensor_set_bool(const char *sid, const char *att, bool enabled)
 {
 	GKeyFile *kfile;
 
