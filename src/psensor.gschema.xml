@@ -36,7 +36,7 @@
       must be greater than 1.</description>
     </key>
     <key name="graph-update-interval" type="i">
-      <default>1</default>
+      <default>2</default>
       <summary>The interval between refreshs of the graph</summary>
       <description>The interval between refreshs of the graph as
       seconds. It must be greater than 1.</description>
