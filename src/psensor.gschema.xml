@@ -3,77 +3,106 @@
     <key name="graph-alpha-channel-enabled" type="b">
       <default>false</default>
       <summary>Whether the alpha channel is enabled</summary>
-      <description>Whether the alpha channel is enabled. Must be enabled for changing the transparency of the background of the graph window.</description>
+      <description>Whether the alpha channel is enabled. Must be
+      enabled for changing the transparency of the background of the
+      graph window.</description>
     </key>
     <key name="graph-background-alpha" type="d">
       <default>1</default>
-      <summary>The alpha value of the background of the graph window</summary>
-      <description>The alpha value of the background of the graph window. It must be a positive float between 0 and 1. '1' is the maximum opacity.</description>
+      <summary>The alpha value of the background of the graph
+      window</summary>
+      <description>The alpha value of the background of the graph
+      window. It must be a positive float between 0 and 1. '1' is the
+      maximum opacity.</description>
     </key>
     <key name="graph-background-color" type="s">
       <default>'#e8f4e8f4a8f5'</default>
-      <summary>The color of the background of the graph canvas</summary>
-      <description>The color of the background of the graph canvas as a #rgb representation.</description>
+      <summary>The color of the background of the graph
+      canvas</summary>
+      <description>The color of the background of the graph canvas as
+      a #rgb representation.</description>
     </key>
     <key name="graph-foreground-color" type="s">
       <default>'#000000000000'</default>
-      <summary>The color of the foreground of the graph canvas</summary>
-      <description>The color of the foreground of the graph canvas as a #rgb representation.</description>
+      <summary>The color of the foreground of the graph
+      canvas</summary>
+      <description>The color of the foreground of the graph canvas as
+      a #rgb representation.</description>
     </key>
     <key name="graph-monitoring-duration" type="i">
       <default>10</default>
       <summary>The monitoring duration of the graph</summary>
-      <description>The monitoring duration of the graph as minutes. It must be greater than 1.</description>
+      <description>The monitoring duration of the graph as minutes. It
+      must be greater than 1.</description>
     </key>
     <key name="graph-update-interval" type="i">
       <default>1</default>
       <summary>The interval between refreshs of the graph</summary>
-      <description>The interval between refreshs of the graph as seconds. It must be greater than 1.</description>
+      <description>The interval between refreshs of the graph as
+      seconds. It must be greater than 1.</description>
     </key>
     <key name="interface-hide-on-startup" type="b">
       <default>false</default>
       <summary>Whether the graph window is hidden on startup</summary>
-      <description>Whether the graph window is hidden on startup. The graph will be hidden only if the Ubuntu Application Indicator or status icon support is available.</description>
+      <description>Whether the graph window is hidden on startup. The
+      graph will be hidden only if the Ubuntu Application Indicator or
+      status icon support is available.</description>
     </key>
     <key name="interface-menu-bar-disabled" type="b">
       <default>false</default>
-      <summary>Whether the menu of the graph window is disabled</summary>
-      <description>Whether the menu of the graph window is disabled</description>
+      <summary>Whether the menu of the graph window is
+      disabled</summary>
+      <description>Whether the menu of the graph window is
+      disabled</description>
     </key>
     <key name="interface-sensorlist-position" type="i">
       <default>0</default>
-      <summary>Position of the sensor list in the graph window</summary>
-      <description>Position of the sensor list in the graph window. Possible values are 0 (right), 1 (left), 2 (top), 3 (bottom).</description>
+      <summary>Position of the sensor list in the graph
+      window</summary>
+      <description>Position of the sensor list in the graph
+      window. Possible values are 0 (right), 1 (left), 2 (top), 3
+      (bottom).</description>
     </key>
     <key name="interface-unity-launcher-count-disabled" type="b">
       <default>false</default>
-      <summary>Whether the greatest temperature is displayed in Unity launcher</summary>
-      <description>If set to 'true' the greatest temperature will be displayed in the Unity launcher.</description>
+      <summary>Whether the greatest temperature is displayed in Unity
+      launcher</summary>
+      <description>If set to 'true' the greatest temperature will be
+      displayed in the Unity launcher.</description>
     </key>
     <key name="interface-temperature-unit" type="i">
       <default>0</default>
       <summary>The displayed temperature unit</summary>
-      <description>The displayed temperature unit, '0' for Celsius, '1' for Fahenrenheit.</description>
+      <description>The displayed temperature unit, '0' for Celsius,
+      '1' for Fahenrenheit.</description>
     </key>
     <key name="interface-window-decoration-disabled" type="b">
       <default>false</default>
-      <summary>Whether the decoration of the window is disabled</summary>
-      <description>Whether the decoration of the window is disabled.</description>
+      <summary>Whether the decoration of the window is
+      disabled</summary>
+      <description>Whether the decoration of the window is
+      disabled.</description>
     </key>
     <key name="interface-window-keep-below-enabled" type="b">
       <default>false</default>
-      <summary>Whether the graph window is kept below all other windows</summary>
-      <description>Whether the graph window is kept below all other windows.</description>
+      <summary>Whether the graph window is kept below all other
+      windows</summary>
+      <description>Whether the graph window is kept below all other
+      windows.</description>
     </key>
     <key name="interface-window-restore-enabled" type="b">
       <default>false</default>
-      <summary>Whether the position and size of the graph window are restored</summary>
-      <description>Whether the position and size of the graph window are restored</description>
+      <summary>Whether the position and size of the graph window are
+      restored</summary>
+      <description>Whether the position and size of the graph window
+      are restored</description>
     </key>
     <key name="interface-window-divider-pos" type="i">
       <default>0</default>
-      <summary>Position of the divider between the graph window and the list of sensors</summary>
-      <description>Position of the divider between the graph window and the list of sensors</description>
+      <summary>Position of the divider between the graph window and
+      the list of sensors</summary>
+      <description>Position of the divider between the graph window
+      and the list of sensors</description>
     </key>
     <key name="interface-window-w" type="i">
       <default>0</default>
