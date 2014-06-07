@@ -21,8 +21,8 @@
 
 #include <gconf/gconf-client.h>
 
-#include "bool.h"
-#include "color.h"
+#include <bool.h>
+#include <color.h>
 
 enum temperature_unit {
 	CELSIUS,
@@ -44,9 +44,7 @@ struct config {
 
 	bool alpha_channel_enabled;
 
-	/*
-	 * Position of the sensors list table
-	 */
+	/* Position of the sensors list table */
 	enum sensorlist_position sensorlist_position;
 
 	bool window_decoration_enabled;
@@ -79,9 +77,7 @@ struct config {
 	int slog_interval;
 };
 
-/*
-  Loads config from GConf
-*/
+/* Loads psensor configuration */
 struct config *config_load();
 
 void config_save(const struct config *);
