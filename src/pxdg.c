@@ -160,7 +160,7 @@ static void enable_gnome_autostart(const char *path)
 
 void pxdg_set_autostart(unsigned int enable)
 {
-	char *user_desktop;
+	char *user_desktop, *dir;
 
 	log_fct_enter();
 
@@ -171,8 +171,12 @@ void pxdg_set_autostart(unsigned int enable)
 	log_fct("desktop file: %s", get_desktop_file());
 
 	if (enable) {
-		if (!is_file_exists(user_desktop))
+		if (!is_file_exists(user_desktop)) {
+			dir = get_user_autostart_dir();
+			mkdirs(dir, 0700);
+			free(dir);
 			file_copy(get_desktop_file(), user_desktop);
+		}
 		enable_gnome_autostart(user_desktop);
 	} else {
 		/* because X-GNOME-Autostart-enabled does not turn off
