@@ -9,6 +9,8 @@ v1.1.1
 * psensor settings stored with dconf.
 * fixed bug: psensor not autostarted when $HOME/.config/autostart does
   not exist.
+* added menu separator for the application indicator menu between
+  sensor items and preferences.
 
 v1.0.2
 ------
