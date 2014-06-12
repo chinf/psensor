@@ -133,5 +133,17 @@
       <description>The script called when a notification is
       raised.</description>
     </key>
+    <key name="slog-enabled" type="b">
+      <default>false</default>
+      <summary>Whether the logging sensors is enabled.</summary>
+      <description>Whether the logging sensors is
+      enabled.</description>
+    </key>
+    <key name="slog-interval" type="i">
+      <default>300</default>
+      <summary>Interval of the logging of sensors.</summary>
+      <description>Interval of the logging of sensors in
+      seconds.</description>
+    </key>
   </schema>
 </schemalist>
