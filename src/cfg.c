@@ -104,8 +104,8 @@ static const char *KEY_INTERFACE_TEMPERATURE_UNIT
 = "interface-temperature-unit";
 
 /* Sensor logging settings */
-static const char *KEY_SLOG_ENABLED = "/apps/psensor/slog/enabled";
-static const char *KEY_SLOG_INTERVAL = "/apps/psensor/slog/interval";
+static const char *KEY_SLOG_ENABLED = "slog-enabled";
+static const char *KEY_SLOG_INTERVAL = "slog-interval";
 
 /* Path to the script called when a notification is raised */
 static const char *KEY_NOTIFICATION_SCRIPT = "notif-script";
@@ -271,12 +271,12 @@ static void set_foreground_color(const struct color *color)
 
 bool is_slog_enabled()
 {
-	return gconf_client_get_bool(client, KEY_SLOG_ENABLED, NULL);
+	return get_bool(KEY_SLOG_ENABLED);
 }
 
 static void set_slog_enabled(bool enabled)
 {
-	gconf_client_set_bool(client, KEY_SLOG_ENABLED, enabled, NULL);
+	set_bool(KEY_SLOG_ENABLED, enabled);
 }
 
 void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data)
@@ -296,14 +296,7 @@ void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data)
 
 int config_get_slog_interval()
 {
-	int res;
-
-	res = gconf_client_get_int(client, KEY_SLOG_INTERVAL, NULL);
-
-	if (res <= 0)
-		return 300;
-	else
-		return res;
+	return get_int(KEY_SLOG_INTERVAL);
 }
 
 static void set_slog_interval(int interval)
@@ -311,7 +304,7 @@ static void set_slog_interval(int interval)
 	if (interval <= 0)
 		interval = 300;
 
-	gconf_client_set_int(client, KEY_SLOG_INTERVAL, interval, NULL);
+	set_int(KEY_SLOG_INTERVAL, interval);
 }
 
 static bool is_window_decoration_enabled()
