@@ -250,8 +250,7 @@ static void set_background_color(const struct color *color)
 	if (!scolor)
 		scolor = strdup(DEFAULT_GRAPH_BACKGROUND_COLOR);
 
-	gconf_client_set_string(client,
-				KEY_GRAPH_BACKGROUND_COLOR, scolor, NULL);
+	set_string(KEY_GRAPH_BACKGROUND_COLOR, scolor);
 
 	free(scolor);
 }
@@ -264,7 +263,7 @@ static void set_foreground_color(const struct color *color)
 	if (!str)
 		str = strdup(DEFAULT_GRAPH_FOREGROUND_COLOR);
 
-	gconf_client_set_string(client, KEY_GRAPH_FOREGROUND_COLOR, str, NULL);
+	set_string(KEY_GRAPH_FOREGROUND_COLOR, str);
 
 	free(str);
 }
