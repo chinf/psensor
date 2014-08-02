@@ -96,8 +96,8 @@
 /* Remote monitoring enabled */
 #undef HAVE_REMOTE_SUPPORT
 
-/* Define to 1 if you have the <sensors/errors.h> header file. */
-#undef HAVE_SENSORS_ERRORS_H
+/* Define to 1 if you have the <sensors/error.h> header file. */
+#undef HAVE_SENSORS_ERROR_H
 
 /* Define to 1 if you have the <sensors/sensors.h> header file. */
 #undef HAVE_SENSORS_SENSORS_H

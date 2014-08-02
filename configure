@@ -629,6 +629,9 @@ LTLIBOBJS
 CPPCHECK_FALSE
 CPPCHECK_TRUE
 HAVE_CPPCHECK
+ASCIIDOC_FALSE
+ASCIIDOC_TRUE
+ASCIIDOC
 HELP2MAN
 GTOP_FALSE
 GTOP_TRUE
@@ -7889,7 +7892,7 @@ _ACEOF
 
 fi
 
-for ac_header in sensors/sensors.h sensors/errors.h
+for ac_header in sensors/sensors.h sensors/error.h
 do :
   as_ac_Header=`$as_echo "ac_cv_header_$ac_header" | $as_tr_sh`
 ac_fn_c_check_header_mongrel "$LINENO" "$ac_header" "$as_ac_Header" "$ac_includes_default"
@@ -9438,6 +9441,52 @@ fi
 done
 
 
+# Extract the first word of "asciidoc", so it can be a program name with args.
+set dummy asciidoc; ac_word=$2
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+$as_echo_n "checking for $ac_word... " >&6; }
+if ${ac_cv_prog_ASCIIDOC+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  if test -n "$ASCIIDOC"; then
+  ac_cv_prog_ASCIIDOC="$ASCIIDOC" # Let the user override the test.
+else
+as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
+for as_dir in $PATH
+do
+  IFS=$as_save_IFS
+  test -z "$as_dir" && as_dir=.
+    for ac_exec_ext in '' $ac_executable_extensions; do
+  if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
+    ac_cv_prog_ASCIIDOC="yes"
+    $as_echo "$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext" >&5
+    break 2
+  fi
+done
+  done
+IFS=$as_save_IFS
+
+fi
+fi
+ASCIIDOC=$ac_cv_prog_ASCIIDOC
+if test -n "$ASCIIDOC"; then
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ASCIIDOC" >&5
+$as_echo "$ASCIIDOC" >&6; }
+else
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+fi
+
+
+ if test -n "$ASCIIDOC"; then
+  ASCIIDOC_TRUE=
+  ASCIIDOC_FALSE='#'
+else
+  ASCIIDOC_TRUE='#'
+  ASCIIDOC_FALSE=
+fi
+
+
 # Extract the first word of "cppcheck", so it can be a program name with args.
 set dummy cppcheck; ac_word=$2
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
@@ -9667,6 +9716,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${GTOP_TRUE}" && test -z "${GTOP_FALSE}"; then
   as_fn_error $? "conditional \"GTOP\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${ASCIIDOC_TRUE}" && test -z "${ASCIIDOC_FALSE}"; then
+  as_fn_error $? "conditional \"ASCIIDOC\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${CPPCHECK_TRUE}" && test -z "${CPPCHECK_FALSE}"; then

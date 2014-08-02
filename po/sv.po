@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 1.0.0.0\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-06 08:27+0200\n"
+"POT-Creation-Date: 2014-08-02 18:30+0200\n"
 "PO-Revision-Date: 2014-06-01 13:09+0000\n"
 "Last-Translator: Josef Andersson <Unknown>\n"
 "Language-Team: Swedish\n"
@@ -21,21 +21,21 @@ msgstr ""
 "X-Generator: Launchpad (build 17031)\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/cfg.c:515
+#: src/cfg.c:490
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Misslyckades med att skapa webbserver."
 
-#: src/cfg.c:563
+#: src/cfg.c:538
 msgid "The configuration file does not exist."
 msgstr ""
 
-#: src/cfg.c:566
+#: src/cfg.c:541
 #, c-format
 msgid "Failed to parse configuration file: %s"
 msgstr ""
 
-#: src/cfg.c:591
+#: src/cfg.c:565
 #, fuzzy, c-format
 msgid "Failed to save configuration file %s."
 msgstr "Misslyckades med att aktivera sensorloggning."
@@ -62,15 +62,15 @@ msgstr "Avsluta"
 msgid "Show"
 msgstr "Visa"
 
-#: src/glade/psensor.glade:184
+#: src/glade/psensor.glade:190
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Temperaturövervakare"
 
-#: src/glade/psensor.glade:199
+#: src/glade/psensor.glade:205
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:246
+#: src/glade/psensor.glade:252
 msgid "_Help"
 msgstr "_Hjälp"
 

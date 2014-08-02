@@ -164,6 +164,7 @@ AMTAR = @AMTAR@
 APPINDICATOR_CFLAGS = @APPINDICATOR_CFLAGS@
 APPINDICATOR_LIBS = @APPINDICATOR_LIBS@
 AR = @AR@
+ASCIIDOC = @ASCIIDOC@
 ATASMART_CFLAGS = @ATASMART_CFLAGS@
 ATASMART_LIBS = @ATASMART_LIBS@
 AUTOCONF = @AUTOCONF@
@@ -890,11 +891,11 @@ uninstall-am: uninstall-desktopDATA uninstall-dist_docDATA
 	uninstall-desktopDATA uninstall-dist_docDATA
 
 
-README.html: README www/style.css
-	asciidoc --theme style -a themedir=`pwd`/www -n -a toc README
+@ASCIIDOC_TRUE@README.html: README www/style.css
+@ASCIIDOC_TRUE@	asciidoc --theme style -a themedir=`pwd`/www -n -a toc README
 
-NEWS.html: NEWS www/style.css
-	asciidoc --theme style -a themedir=`pwd`/www NEWS
+@ASCIIDOC_TRUE@NEWS.html: NEWS www/style.css
+@ASCIIDOC_TRUE@	asciidoc --theme style -a themedir=`pwd`/www NEWS
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

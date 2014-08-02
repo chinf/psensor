@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-06-06 08:27+0200\n"
+"POT-Creation-Date: 2014-08-02 18:30+0200\n"
 "PO-Revision-Date: 2013-04-14 16:06+0000\n"
 "Last-Translator: Diego Pierotto <Unknown>\n"
 "Language-Team: Italian\n"
@@ -18,21 +18,21 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-04-20 08:36+0000\n"
 "X-Generator: Launchpad (build 16567)\n"
 
-#: src/cfg.c:515
+#: src/cfg.c:490
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Impossibile creare il Web server."
 
-#: src/cfg.c:563
+#: src/cfg.c:538
 msgid "The configuration file does not exist."
 msgstr ""
 
-#: src/cfg.c:566
+#: src/cfg.c:541
 #, c-format
 msgid "Failed to parse configuration file: %s"
 msgstr ""
 
-#: src/cfg.c:591
+#: src/cfg.c:565
 #, fuzzy, c-format
 msgid "Failed to save configuration file %s."
 msgstr "Attivazione registro dei sensori fallita."
@@ -59,15 +59,15 @@ msgstr "Esci"
 msgid "Show"
 msgstr "Mostra"
 
-#: src/glade/psensor.glade:184
+#: src/glade/psensor.glade:190
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Monitor temperatura"
 
-#: src/glade/psensor.glade:199
+#: src/glade/psensor.glade:205
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:246
+#: src/glade/psensor.glade:252
 msgid "_Help"
 msgstr "_Aiuto"
 
