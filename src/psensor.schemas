@@ -269,6 +269,18 @@
 	<long>Vertical position of the graph window.</long>
       </locale>
     </schema>    
+
+    <schema>
+      <key>/schemas/apps/psensor/sensor/update_interval</key>
+      <applyto>/apps/psensor/sensor/update_interval</applyto>
+      <owner>psensor</owner>
+      <type>int</type>
+      <default>2</default>
+      <locale name="C">
+	<short>Update interface of the sensor values</short>
+	<long>Update interface of the sensor values.</long>
+      </locale>
+    </schema>    
     
   </schemalist>
 </gconfschemafile>

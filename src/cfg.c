@@ -50,7 +50,7 @@ static const char *ATT_SENSOR_POSITION = "position";
 
 /* Update interval of the measures of the sensors */
 static const char *KEY_SENSOR_UPDATE_INTERVAL
-= "/apps/psensor/sensor/update_interval";
+= "sensor-update-interval";
 
 /* Graph settings */
 static const char *KEY_GRAPH_UPDATE_INTERVAL = "graph-update-interval";
@@ -388,7 +388,7 @@ struct config *config_load()
 	c->slog_interval = config_get_slog_interval();
 
 	c->sensor_update_interval
-	    = gconf_client_get_int(client, KEY_SENSOR_UPDATE_INTERVAL, NULL);
+	    = get_int(KEY_SENSOR_UPDATE_INTERVAL);
 	if (c->sensor_update_interval < 1)
 		c->sensor_update_interval = 1;
 
@@ -450,9 +450,7 @@ void config_save(const struct config *c)
 
 	set_int(KEY_GRAPH_MONITORING_DURATION, c->graph_monitoring_duration);
 
-	gconf_client_set_int(client,
-			     KEY_SENSOR_UPDATE_INTERVAL,
-			     c->sensor_update_interval, NULL);
+	set_int(KEY_SENSOR_UPDATE_INTERVAL, c->sensor_update_interval);
 
 	set_bool(KEY_INTERFACE_MENU_BAR_DISABLED, c->menu_bar_disabled);
 
