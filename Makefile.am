@@ -28,8 +28,10 @@ desktop_DATA = psensor.desktop
 
 EXTRA_DIST = $(desktop_DATA) $(autostart_DATA)
 
+if ASCIIDOC
 README.html: README www/style.css
 	asciidoc --theme style -a themedir=`pwd`/www -n -a toc README
 
 NEWS.html: NEWS www/style.css
 	asciidoc --theme style -a themedir=`pwd`/www NEWS
+endif
