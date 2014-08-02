@@ -466,8 +466,8 @@ uninstall-am: uninstall-dist_docDATA
 	pdf-am ps ps-am uninstall uninstall-am uninstall-dist_docDATA
 
 
-faq.html: faq.txt ../www/style.css
-	asciidoc --theme style -a themedir=`pwd`/../www -n -a toc faq.txt 
+@ASCIIDOC_TRUE@faq.html: faq.txt ../www/style.css
+@ASCIIDOC_TRUE@	asciidoc --theme style -a themedir=`pwd`/../www -n -a toc faq.txt
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
