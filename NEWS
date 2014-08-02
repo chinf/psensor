@@ -11,6 +11,7 @@ v1.1.1
   not exist.
 * added menu separator for the application indicator menu between
   sensor items and preferences.
+* fixed check of sensors/error.h.
 
 v1.0.3
 ------

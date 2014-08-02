@@ -54,7 +54,7 @@ AC_SUBST(PTHREAD_LIBS)
 
 # Checks sensors, required by psensor and psensor-server
 AC_CHECK_LIB(sensors, sensors_init)
-AC_CHECK_HEADERS([sensors/sensors.h sensors/errors.h])
+AC_CHECK_HEADERS([sensors/sensors.h sensors/error.h])
 SENSORS_LIBS=-lsensors
 AC_SUBST(SENSORS_LIBS)
 
