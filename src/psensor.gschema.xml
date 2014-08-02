@@ -145,5 +145,11 @@
       <description>Interval of the logging of sensors in
       seconds.</description>
     </key>
+    <key name="sensor-update-interval" type="i">
+      <default>2</default>
+      <summary>Update interface of the sensor values</summary>
+      <description>Update interface of the sensor
+      values.</description>
+    </key>
   </schema>
 </schemalist>
