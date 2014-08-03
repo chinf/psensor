@@ -12,6 +12,8 @@ v1.1.1
 * added menu separator for the application indicator menu between
   sensor items and preferences.
 * fixed check of sensors/error.h.
+* fixed psensor does not start: Attempt to unlock mutex that was not
+  locked during startup with glib 2.41.2. (LP: #1346299).
 
 v1.0.3
 ------

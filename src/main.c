@@ -551,7 +551,16 @@ int main(int argc, char **argv)
 	g_thread_init(NULL);
 #endif
 
+#ifdef HAVE_APPINDICATOR_029
+	/* gdk_thread_enter/leave only used to workaround mutex bug
+	 * of appindicator < 0.2.9, so do not call gdk_threads_init
+	 * if useless. Calling this function leads to
+	 * crash "Attempt to unlock mutex that was not locked" with
+	 * GLib 2.41.2 (new checking) probably due to bugs in GTK
+	 * itself.
+	 */
 	gdk_threads_init();
+#endif
 
 	gtk_init(NULL, NULL);
 
