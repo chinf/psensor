@@ -1,19 +1,20 @@
 noinst_LIBRARIES = libpsensor.a
 
 libpsensor_a_SOURCES = \
-	amd.h \
-	bool.h \
-	color.h color.c \
-	cpu.h \
+	amd.h\
+	bool.h\
+	color.h color.c\
+	cpu.h\
 	hdd.h hdd_hddtemp.c\
-	lmsensor.h lmsensor.c \
-	plog.h plog.c \
+	lmsensor.h lmsensor.c\
 	measure.h measure.c \
-	ptime.h ptime.c \
-	nvidia.h \
+	nvidia.h\
+	plog.h plog.c\
+	pmutex.h pmutex.c\
 	psensor.h psensor.c\
-	pio.h pio.c \
-	slog.c slog.h \
+	ptime.h ptime.c\
+	pio.h pio.c\
+	slog.c slog.h\
 	url.c url.h
 
 AM_CPPFLAGS = -Wall -Werror

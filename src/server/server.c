@@ -44,6 +44,7 @@
 
 #include <plog.h>
 #include "psensor_json.h"
+#include <pmutex.h>
 #include "url.h"
 #include "server.h"
 #include "slog.h"
@@ -74,7 +75,7 @@ static struct option long_options[] = {
 
 static struct server_data server_data;
 
-static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+static pthread_mutex_t mutex;
 
 static int server_stop_requested;
 
@@ -298,9 +299,9 @@ static int cbk_http_request(void *cls,
 
 	nurl = url_normalize(url);
 
-	pthread_mutex_lock(&mutex);
+	pmutex_lock(&mutex);
 	response = create_response(nurl, method, &resp_code);
-	pthread_mutex_unlock(&mutex);
+	pmutex_unlock(&mutex);
 
 	ret = MHD_queue_response(connection, resp_code, response);
 	MHD_destroy_response(response);
@@ -388,6 +389,8 @@ int main(int argc, char *argv[])
 	if (!log_file)
 		log_file = strdup(DEFAULT_LOG_FILE);
 
+	pmutex_init(&mutex);
+
 	log_open(log_file);
 
 	psensor_init();
@@ -426,7 +429,7 @@ int main(int argc, char *argv[])
 	}
 
 	while (!server_stop_requested) {
-		pthread_mutex_lock(&mutex);
+		pmutex_lock(&mutex);
 
 #ifdef HAVE_GTOP
 		sysinfo_update(&server_data.psysinfo);
@@ -436,7 +439,7 @@ int main(int argc, char *argv[])
 
 		psensor_log_measures(server_data.sensors);
 
-		pthread_mutex_unlock(&mutex);
+		pmutex_unlock(&mutex);
 		sleep(5);
 	}
 

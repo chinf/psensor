@@ -38,6 +38,7 @@
 #include "ui_color.h"
 #include "lmsensor.h"
 #include "notify_cmd.h"
+#include <pmutex.h>
 #include "slog.h"
 #include "ui_pref.h"
 #include "ui_graph.h"
@@ -144,7 +145,7 @@ static void update_measures(struct ui_psensor *ui)
 	cfg = ui->config;
 
 	while (1) {
-		pthread_mutex_lock(&ui->sensors_mutex);
+		pmutex_lock(&ui->sensors_mutex);
 
 		sensors = ui->sensors;
 		if (!sensors)
@@ -167,7 +168,7 @@ static void update_measures(struct ui_psensor *ui)
 
 		period = cfg->sensor_update_interval;
 
-		pthread_mutex_unlock(&ui->sensors_mutex);
+		pmutex_unlock(&ui->sensors_mutex);
 
 		sleep(period);
 	}
@@ -207,7 +208,7 @@ gboolean ui_refresh_thread(gpointer data)
 	ret = TRUE;
 	cfg = ui->config;
 
-	pthread_mutex_lock(&ui->sensors_mutex);
+	pmutex_lock(&ui->sensors_mutex);
 
 	graph_update(ui->sensors, ui->w_graph, ui->config, ui->main_window);
 
@@ -227,7 +228,7 @@ gboolean ui_refresh_thread(gpointer data)
 		ret = FALSE;
 	}
 
-	pthread_mutex_unlock(&ui->sensors_mutex);
+	pmutex_unlock(&ui->sensors_mutex);
 
 	if (ret == FALSE)
 		g_timeout_add(1000 * ui->graph_update_interval,
@@ -399,7 +400,7 @@ static void cb_activate(GApplication *application,
  */
 static void cleanup(struct ui_psensor *ui)
 {
-	pthread_mutex_lock(&ui->sensors_mutex);
+	pmutex_lock(&ui->sensors_mutex);
 
 	log_debug("Cleanup...");
 
@@ -424,7 +425,7 @@ static void cleanup(struct ui_psensor *ui)
 
 	ui_status_cleanup();
 
-	pthread_mutex_unlock(&ui->sensors_mutex);
+	pmutex_unlock(&ui->sensors_mutex);
 
 	config_cleanup();
 
@@ -564,7 +565,7 @@ int main(int argc, char **argv)
 
 	gtk_init(NULL, NULL);
 
-	pthread_mutex_init(&ui.sensors_mutex, NULL);
+	pmutex_init(&ui.sensors_mutex);
 
 	ui.config = config_load();
 
