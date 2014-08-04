@@ -271,7 +271,6 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 	w_appindicator_label_enabled = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "indicator_label_checkbox"));
 
-
 	if (is_temp_type(s->type) || is_fan_type(s->type)) {
 		gtk_toggle_button_set_active(w_alarm, p->alarm_enabled);
 		gtk_spin_button_set_value(w_high_threshold,
