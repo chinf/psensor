@@ -4,22 +4,23 @@ Psensor NEWS
 v1.1.1
 ------
 
-* sensor properties stored in +$HOME/.psensor/psensor.cfg+ instead of
+* Sensor properties stored in +$HOME/.psensor/psensor.cfg+ instead of
   GConf.
 * psensor settings stored with dconf.
-* fixed bug: psensor not autostarted when $HOME/.config/autostart does
+* Fixed bug: psensor not autostarted when $HOME/.config/autostart does
   not exist.
-* added menu separator for the application indicator menu between
+* Added menu separator for the application indicator menu between
   sensor items and preferences.
-* fixed check of sensors/error.h.
-* fixed psensor does not start: Attempt to unlock mutex that was not
-  locked during startup with glib 2.41.2. (LP: #1346299).
+* Fixed check of sensors/error.h.
 
 v1.0.3
 ------
 
-* fixed bug: psensor not autostarted when $HOME/.config/autostart does
+* Fixed bug: psensor not autostarted when $HOME/.config/autostart does
   not exist.
+* Fixed few swedish translations (Josef Andersson).
+* Fixed psensor does not start: Attempt to unlock mutex that was not
+  locked during startup with glib 2.41.2. (LP: #1346299).
 
 v1.0.2
 ------

@@ -386,7 +386,7 @@ asciidoc.install();
 <div class="ulist"><ul>
 <li>
 <p>
-sensor properties stored in <code>$HOME/.psensor/psensor.cfg</code> instead of
+Sensor properties stored in <code>$HOME/.psensor/psensor.cfg</code> instead of
   GConf.
 </p>
 </li>
@@ -397,19 +397,19 @@ psensor settings stored with dconf.
 </li>
 <li>
 <p>
-fixed bug: psensor not autostarted when $HOME/.config/autostart does
+Fixed bug: psensor not autostarted when $HOME/.config/autostart does
   not exist.
 </p>
 </li>
 <li>
 <p>
-added menu separator for the application indicator menu between
+Added menu separator for the application indicator menu between
   sensor items and preferences.
 </p>
 </li>
 <li>
 <p>
-fixed check of sensors/error.h.
+Fixed check of sensors/error.h.
 </p>
 </li>
 </ul></div>
@@ -421,8 +421,19 @@ fixed check of sensors/error.h.
 <div class="ulist"><ul>
 <li>
 <p>
-fixed bug: psensor not autostarted when $HOME/.config/autostart does
+Fixed bug: psensor not autostarted when $HOME/.config/autostart does
   not exist.
+</p>
+</li>
+<li>
+<p>
+Fixed few swedish translations (Josef Andersson).
+</p>
+</li>
+<li>
+<p>
+Fixed psensor does not start: Attempt to unlock mutex that was not
+  locked during startup with glib 2.41.2. (LP: #1346299).
 </p>
 </li>
 </ul></div>
@@ -2668,7 +2679,7 @@ Fixed BR1: crash when no temperature sensor is available
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-08-02 12:42:12 CEST
+Last updated 2014-08-04 09:27:16 CEST
 </div>
 </div>
 </body>
