@@ -38,6 +38,7 @@ void notify_cmd(struct psensor *s)
 			     + 1
 			     + strlen(s->id)
 			     + 1
+			     + 1
 			     + strlen(v)
 			     + 1);
 

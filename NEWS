@@ -12,6 +12,7 @@ v1.1.1
 * Added menu separator for the application indicator menu between
   sensor items and preferences.
 * Fixed check of sensors/error.h.
+* Fixed notification script call (wrong allocation of command string).
 
 v1.0.3
 ------
