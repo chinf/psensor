@@ -123,8 +123,8 @@ int pxdg_is_autostarted()
 				ret = is_user_desktop_autostarted(kfile);
 			else
 				ret = -1;
+			g_key_file_free(kfile);
 		}
-		g_key_file_free(kfile);
 	}
 
 	free(user_desktop);
