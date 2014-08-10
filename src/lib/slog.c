@@ -34,6 +34,7 @@
 #include "bool.h"
 #include "config.h"
 #include <plog.h>
+#include <pmutex.h>
 #include "ptime.h"
 #include "slog.h"
 
@@ -169,9 +170,9 @@ static void *slog_routine(void *data)
 {
 	while (1) {
 		pthread_setcancelstate(PTHREAD_CANCEL_DISABLE, NULL);
-		pthread_mutex_lock(sensors_mutex);
+		pmutex_lock(sensors_mutex);
 		slog_write_sensors(sensors);
-		pthread_mutex_unlock(sensors_mutex);
+		pmutex_unlock(sensors_mutex);
 		pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 		sleep(period);
 	}
