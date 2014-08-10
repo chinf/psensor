@@ -7,10 +7,13 @@ v1.1.1
 * Sensor properties stored in +$HOME/.psensor/psensor.cfg+ instead of
   GConf.
 * psensor settings stored with dconf.
-* Added menu separator for the application indicator menu between
-  sensor items and preferences.
 * Fixed check of sensors/error.h.
 * Made asciidoc optional.
+
+v1.0.4
+------
+
+* Fixed menu separators of the appindicator. 
 
 v1.0.3
 ------
