@@ -152,8 +152,7 @@ void ui_enable_alpha_channel(struct ui_psensor *ui)
 	}
 }
 
-static void
-slog_enabled_cbk(GConfClient *client, guint id, GConfEntry *e, gpointer data)
+static void slog_enabled_cbk(void *data)
 {
 	struct ui_psensor *ui;
 	struct psensor **sensors;
@@ -203,7 +202,7 @@ void ui_window_create(struct ui_psensor *ui)
 				cfg->window_x,
 				cfg->window_y);
 
-	config_slog_enabled_notify_add(slog_enabled_cbk, ui);
+	config_set_slog_enabled_changed_cbk(slog_enabled_cbk, ui);
 
 	gtk_window_set_default_size(GTK_WINDOW(window),
 				    cfg->window_w,

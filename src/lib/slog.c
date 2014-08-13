@@ -134,7 +134,7 @@ static void slog_write_sensors(struct psensor **sensors)
 	bool first_call;
 
 	if (!file) {
-		log_err(_("Sensor log file not open."));
+		log_debug(_("Sensor log file not open."));
 		return ;
 	}
 

@@ -114,7 +114,6 @@ The compilation of +psensor+ requires:
  * lm-sensors
  * library sensors4
  * library gtk3 >=3.4
- * library gconf2
  * help2man 
  * asciidoc (optional, required to produce the html version of the
    faq)
@@ -135,7 +134,7 @@ The specific requirements for +psensor-server+:
 For Debian 7.0:
 -----------------------------------------------------------------
 sudo apt-get install asciidoc cppcheck gcc gettext libgtk-3-dev
-libgconf2-dev libnotify-dev libsensors4-dev help2man
+libnotify-dev libsensors4-dev help2man
 libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev libgtop2-dev
 libatasmart-dev make
 -----------------------------------------------------------------

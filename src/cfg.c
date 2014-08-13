@@ -110,7 +110,6 @@ static const char *KEY_SLOG_INTERVAL = "slog-interval";
 /* Path to the script called when a notification is raised */
 static const char *KEY_NOTIFICATION_SCRIPT = "notif-script";
 
-static GConfClient *client;
 static GSettings *settings;
 
 static char *user_dir;
@@ -118,6 +117,8 @@ static char *user_dir;
 static GKeyFile *key_file;
 
 static char *sensor_config_path;
+
+static void (*slog_enabled_cbk)(void *);
 
 static char *get_string(const char *key)
 {
@@ -278,19 +279,26 @@ static void set_slog_enabled(bool enabled)
 	set_bool(KEY_SLOG_ENABLED, enabled);
 }
 
-void config_slog_enabled_notify_add(GConfClientNotifyFunc cbk, void *data)
+static void slog_enabled_changed_cbk(GSettings *settings,
+				     gchar *key,
+				     gpointer data)
 {
-	log_debug("config_slog_enabled_notify_add");
-	gconf_client_add_dir(client,
-			     KEY_SLOG_ENABLED,
-			     GCONF_CLIENT_PRELOAD_NONE,
-			     NULL);
-	gconf_client_notify_add(client,
-				KEY_SLOG_ENABLED,
-				cbk,
-				data,
-				NULL,
-				NULL);
+	if (slog_enabled_cbk)
+		slog_enabled_cbk(data);
+}
+
+void config_set_slog_enabled_changed_cbk(void (*cbk)(void *), void *data)
+{
+	log_fct_enter();
+
+	slog_enabled_cbk = cbk;
+
+	g_signal_connect_after(settings,
+			       "changed::slog-enabled",
+			       G_CALLBACK(slog_enabled_changed_cbk),
+			       data);
+
+	log_fct_exit();
 }
 
 int config_get_slog_interval()
@@ -326,14 +334,8 @@ static void set_window_keep_below_enabled(bool enabled)
 	set_bool(KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED, enabled);
 }
 
-/*
- * Initializes the GConf client.
- */
 static void init()
 {
-	if (!client)
-		client = gconf_client_get_default();
-
 	if (!settings)
 		settings = g_settings_new("psensor");
 }
@@ -341,11 +343,6 @@ static void init()
 void config_cleanup()
 {
 	config_sync();
-
-	if (client) {
-		g_object_unref(client);
-		client = NULL;
-	}
 
 	if (settings) {
 		g_settings_sync();
@@ -367,6 +364,8 @@ void config_cleanup()
 		free(sensor_config_path);
 		sensor_config_path = NULL;
 	}
+
+	slog_enabled_cbk = NULL;
 }
 
 struct config *config_load()

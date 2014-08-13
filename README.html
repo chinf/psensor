@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.6.7" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
 <title>Psensor README</title>
 <style type="text/css">
 
@@ -177,6 +177,8 @@ table {
     -webkit-box-shadow: 0 2px 2px 0 #C2C2C2;
     box-shadow: 0 2px 2px 0 #C2C2C2;
 }
+
+
 </style>
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -427,26 +429,26 @@ red under alert and a menu for quickly check all sensors.</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
-start <tt>psensor-server</tt> on the remote computer.
+start <code>psensor-server</code> on the remote computer.
 </p>
 </li>
 <li>
 <p>
-start <tt>psensor</tt> using: <tt>psensor --url=http://hostname:3131</tt>.
+start <code>psensor</code> using: <code>psensor --url=http://hostname:3131</code>.
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p><tt>psensor-server</tt> is a minimal Web server, a Web browser can be used to
+<div class="paragraph"><p><code>psensor-server</code> is a minimal Web server, a Web browser can be used to
 monitor the remote computer by opening the URL:
-<tt>http://hostname:3131</tt>.</p></div>
+<code>http://hostname:3131</code>.</p></div>
 <div class="admonitionblock">
 <table><tr>
 <td class="icon">
 <div class="title">Warning</div>
 </td>
-<td class="content"><tt>psensor-server</tt> does not provide any way to restrict the connection
+<td class="content"><code>psensor-server</code> does not provide any way to restrict the connection
 to the HTTP server, worst, no effort has been made against malicious
-HTTP attacks.  You should make the <tt>psensor-server</tt> port available
+HTTP attacks.  You should make the <code>psensor-server</code> port available
 only to a network or computer you trust by using the usual network
 security tools of the system (for example:
 <a href="http://www.netfilter.org/projects/iptables/index.html">iptables</a>).</td>
@@ -466,18 +468,18 @@ Wheezy, unstable and testing repositories.</p></div>
 <div class="paragraph"><p>To do the installation:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>sudo apt-get install psensor psensor-server</tt></pre>
+<pre><code>sudo apt-get install psensor psensor-server</code></pre>
 </div></div>
 </div>
 <div class="sect2">
 <h3 id="_ubuntu">2.2. Ubuntu</h3>
 <div class="paragraph"><p>Since Ubuntu Oneiric (11.10), psensor is available in the universe
 repository of Ubuntu.</p></div>
-<div class="paragraph"><p>To install <tt>psensor</tt> or <tt>psensor-server</tt>:</p></div>
+<div class="paragraph"><p>To install <code>psensor</code> or <code>psensor-server</code>:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>sudo apt-get install psensor
-sudo apt-get install psensor-server</tt></pre>
+<pre><code>sudo apt-get install psensor
+sudo apt-get install psensor-server</code></pre>
 </div></div>
 <div class="paragraph"><p>Or search them in the Ubuntu Software Center.</p></div>
 <div class="paragraph"><p>For other Ubuntu releases or user the more recent release, the easiest
@@ -485,27 +487,27 @@ way is to use the dedicated PPA.</p></div>
 <div class="paragraph"><p>Last stable version:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>sudo apt-get apt-add-repository ppa:/jfi/psensor
+<pre><code>sudo apt-get apt-add-repository ppa:/jfi/psensor
 sudo apt-get update
 sudo apt-get install psensor
-sudo apt-get install psensor-server</tt></pre>
+sudo apt-get install psensor-server</code></pre>
 </div></div>
 <div class="paragraph"><p>Last development version which should not contain major bugs:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>sudo apt-get apt-add-repository ppa:/jfi/psensor-unstable
+<pre><code>sudo apt-get apt-add-repository ppa:/jfi/psensor-unstable
 sudo apt-get update
 sudo apt-get install psensor
-sudo apt-get install psensor-server</tt></pre>
+sudo apt-get install psensor-server</code></pre>
 </div></div>
 <div class="paragraph"><p>Daily trunk build which may contain major bugs and partialy
 implemented features:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>sudo apt-get apt-add-repository ppa:/jfi/psensor-daily-trunk
+<pre><code>sudo apt-get apt-add-repository ppa:/jfi/psensor-daily-trunk
 sudo apt-get update
 sudo apt-get install psensor
-sudo apt-get install psensor-server</tt></pre>
+sudo apt-get install psensor-server</code></pre>
 </div></div>
 </div>
 </div>
@@ -513,11 +515,11 @@ sudo apt-get install psensor-server</tt></pre>
 <div class="sect1">
 <h2 id="_installation_from_source_archive">3. Installation From Source Archive</h2>
 <div class="sectionbody">
-<div class="paragraph"><p><tt>psensor</tt> and <tt>psensor-server</tt> can be compiled and installed on any
+<div class="paragraph"><p><code>psensor</code> and <code>psensor-server</code> can be compiled and installed on any
 modern GNU/Linux distribution.</p></div>
 <div class="sect2">
 <h3 id="_compilation_prerequisites">3.1. Compilation Prerequisites</h3>
-<div class="paragraph"><p>The compilation of <tt>psensor</tt> requires:</p></div>
+<div class="paragraph"><p>The compilation of <code>psensor</code> requires:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -542,11 +544,6 @@ library sensors4
 <li>
 <p>
 library gtk3 &gt;=3.4
-</p>
-</li>
-<li>
-<p>
-library gconf2
 </p>
 </li>
 <li>
@@ -601,7 +598,7 @@ library atasmart (optional, for disk monitoring)
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p>The specific requirements for <tt>psensor-server</tt>:</p></div>
+<div class="paragraph"><p>The specific requirements for <code>psensor-server</code>:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -617,26 +614,26 @@ library json0
 <div class="paragraph"><p>For Debian 7.0:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>sudo apt-get install asciidoc cppcheck gcc gettext libgtk-3-dev
-libgconf2-dev libnotify-dev libsensors4-dev help2man
+<pre><code>sudo apt-get install asciidoc cppcheck gcc gettext libgtk-3-dev
+libnotify-dev libsensors4-dev help2man
 libcurl4-openssl-dev libjson0-dev libmicrohttpd-dev libgtop2-dev
-libatasmart-dev make</tt></pre>
+libatasmart-dev make</code></pre>
 </div></div>
 <div class="paragraph"><p>For Fedora 17:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>sudo yum install gcc gtk3-devel GConf2-devel lm_sensors-devel cppcheck
+<pre><code>sudo yum install gcc gtk3-devel GConf2-devel lm_sensors-devel cppcheck
 libatasmart-devel libcurl-devel json-c-devel libmicrohttpd-devel
-help2man libnotify-devel libgtop2-devel make</tt></pre>
+help2man libnotify-devel libgtop2-devel make</code></pre>
 </div></div>
 <div class="paragraph"><p>For Ubuntu 12.10:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><tt>sudo apt-get install asciidoc autoconf automake autopoint
+<pre><code>sudo apt-get install asciidoc autoconf automake autopoint
 debhelper (&gt;= 9) cppcheck gettext help2man libappindicator3-dev
 libatasmart-dev libcurl4-gnutls-dev libgconf2-dev libgtk-3-dev
 libgtop2-dev libjson0-dev libmicrohttpd-dev libnotify-dev
-libsensors4-dev libunity-dev nvidia-settings perl</tt></pre>
+libsensors4-dev libunity-dev nvidia-settings perl</code></pre>
 </div></div>
 </div>
 <div class="sect2">
@@ -654,29 +651,29 @@ Extract files from the source archive
 </li>
 <li>
 <p>
-Compilation: <tt>./configure;make clean all</tt>
+Compilation: <code>./configure;make clean all</code>
 </p>
 </li>
 <li>
 <p>
-Installation:  <tt>make install</tt> (require to have root permission)
+Installation:  <code>make install</code> (require to have root permission)
 </p>
 </li>
 <li>
 <p>
-Start the sensor detection script: <tt>sensors-detect</tt> and follows the
+Start the sensor detection script: <code>sensors-detect</code> and follows the
 instructions. Reboot or activate the kernel modules which have
 been found.
 </p>
 </li>
 <li>
 <p>
-To monitor HDDs, the <tt>hddtemp</tt> daemon must be installed and running.
+To monitor HDDs, the <code>hddtemp</code> daemon must be installed and running.
 </p>
 </li>
 <li>
 <p>
-Run: <tt>psensor</tt>
+Run: <code>psensor</code>
 </p>
 </li>
 </ol></div>
@@ -691,8 +688,8 @@ requiring an additional library.</p></div>
 <div class="paragraph"><p>Download the
 <a href="http://developer.amd.com/sdks/ADLSDK/Pages/default.aspx">ATI ADL SDK</a>
 and extracts the files of the archive into a directory [dir].</p></div>
-<div class="paragraph"><p>Replace the step 3. of the above section by <tt>./configure
---with-libatiadl=[dir]</tt> where <tt>[dir]</tt> must be the directory where you
+<div class="paragraph"><p>Replace the step 3. of the above section by <code>./configure
+--with-libatiadl=[dir]</code> where <code>[dir]</code> must be the directory where you
 have extracted the ATI ADL SDK. Other steps are indentical.</p></div>
 </div>
 </div>
@@ -708,7 +705,7 @@ have extracted the ATI ADL SDK. Other steps are indentical.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-04-10 01:57:33 CEST
+Last updated 2014-08-14 01:03:09 CEST
 </div>
 </div>
 </body>

@@ -16,7 +16,6 @@ AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \
 	-I$(top_srcdir)/src/lib \
 	-I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS)\
-	$(GCONF_CFLAGS)\
 	$(SENSORS_CFLAGS)
 
 DEFS = -DPACKAGE_DATA_DIR=\"$(pkgdatadir)\" -DLOCALEDIR=\"$(localedir)\" @DEFS@
@@ -24,17 +23,14 @@ DEFS = -DPACKAGE_DATA_DIR=\"$(pkgdatadir)\" -DLOCALEDIR=\"$(localedir)\" @DEFS@
 LIBS = \
 	lib/libpsensor.a \
 	$(GTK_LIBS)\
-	$(GCONF_LIBS)\
 	$(PTHREAD_LIBS)\
 	$(SENSORS_LIBS)
 
 if GTK
 if X11
 if XEXT
-if GCONF
 bin_PROGRAMS = psensor
 dist_man_MANS = psensor.1
-endif
 endif
 endif
 endif
@@ -103,14 +99,6 @@ endif
 endif
 
 EXTRA_DIST = description.txt psensor.schemas
-
-if GCONF
-schemadir = $(GCONF_SCHEMA_FILE_DIR)
-schema_DATA = psensor.schemas
-
-install-data-local:
-	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_srcdir)/src/$(schema_DATA)
-endif
 
 psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)

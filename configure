@@ -673,10 +673,6 @@ ATASMART_FALSE
 ATASMART_TRUE
 ATASMART_LIBS
 ATASMART_CFLAGS
-GCONF_FALSE
-GCONF_TRUE
-GCONF_LIBS
-GCONF_CFLAGS
 GTK_FALSE
 GTK_TRUE
 GTK_LIBS
@@ -698,11 +694,6 @@ PKG_CONFIG_LIBDIR
 PKG_CONFIG_PATH
 PKG_CONFIG
 GSETTINGS_DISABLE_SCHEMAS_COMPILE
-GCONF_SCHEMAS_INSTALL_FALSE
-GCONF_SCHEMAS_INSTALL_TRUE
-GCONF_SCHEMA_FILE_DIR
-GCONF_SCHEMA_CONFIG_SOURCE
-GCONFTOOL
 POSUB
 LTLIBINTL
 LIBINTL
@@ -826,9 +817,6 @@ with_gnu_ld
 enable_rpath
 with_libiconv_prefix
 with_libintl_prefix
-with_gconf_source
-with_gconf_schema_file_dir
-enable_schemas_install
 enable_schemas_compile
 with_libatiadl
 with_gtop
@@ -852,8 +840,6 @@ XEXT_CFLAGS
 XEXT_LIBS
 GTK_CFLAGS
 GTK_LIBS
-GCONF_CFLAGS
-GCONF_LIBS
 ATASMART_CFLAGS
 ATASMART_LIBS
 LIBNOTIFY_CFLAGS
@@ -1497,8 +1483,6 @@ Optional Features:
   --disable-largefile     omit support for large files
   --disable-nls           do not use Native Language Support
   --disable-rpath         do not hardcode runtime library paths
-  --disable-schemas-install
-                          Disable the schemas installation
   --disable-schemas-compile
                           Disable regeneration of gschemas.compiled on install
 
@@ -1511,10 +1495,6 @@ Optional Packages:
   --without-libiconv-prefix     don't search for libiconv in includedir and libdir
   --with-libintl-prefix[=DIR]  search for libintl in DIR/include and DIR/lib
   --without-libintl-prefix     don't search for libintl in includedir and libdir
-  --with-gconf-source=sourceaddress
-                          Config database for installing schema files.
-  --with-gconf-schema-file-dir=dir
-                          Directory for installing schema files.
   --with-libatiadl=DIR   use libatiadlxx in DIR
   --with-gtop=yes|no   use gtop
 
@@ -1539,9 +1519,6 @@ Some influential environment variables:
   XEXT_LIBS   linker flags for XEXT, overriding pkg-config
   GTK_CFLAGS  C compiler flags for GTK, overriding pkg-config
   GTK_LIBS    linker flags for GTK, overriding pkg-config
-  GCONF_CFLAGS
-              C compiler flags for GCONF, overriding pkg-config
-  GCONF_LIBS  linker flags for GCONF, overriding pkg-config
   ATASMART_CFLAGS
               C compiler flags for ATASMART, overriding pkg-config
   ATASMART_LIBS
@@ -7468,99 +7445,6 @@ $as_echo "#define HAVE_DCGETTEXT 1" >>confdefs.h
 
 
 
-# Gconf
-# Extract the first word of "gconftool-2", so it can be a program name with args.
-set dummy gconftool-2; ac_word=$2
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
-$as_echo_n "checking for $ac_word... " >&6; }
-if ${ac_cv_path_GCONFTOOL+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  case $GCONFTOOL in
-  [\\/]* | ?:[\\/]*)
-  ac_cv_path_GCONFTOOL="$GCONFTOOL" # Let the user override the test with a path.
-  ;;
-  *)
-  as_save_IFS=$IFS; IFS=$PATH_SEPARATOR
-for as_dir in $PATH
-do
-  IFS=$as_save_IFS
-  test -z "$as_dir" && as_dir=.
-    for ac_exec_ext in '' $ac_executable_extensions; do
-  if as_fn_executable_p "$as_dir/$ac_word$ac_exec_ext"; then
-    ac_cv_path_GCONFTOOL="$as_dir/$ac_word$ac_exec_ext"
-    $as_echo "$as_me:${as_lineno-$LINENO}: found $as_dir/$ac_word$ac_exec_ext" >&5
-    break 2
-  fi
-done
-  done
-IFS=$as_save_IFS
-
-  test -z "$ac_cv_path_GCONFTOOL" && ac_cv_path_GCONFTOOL="no"
-  ;;
-esac
-fi
-GCONFTOOL=$ac_cv_path_GCONFTOOL
-if test -n "$GCONFTOOL"; then
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: $GCONFTOOL" >&5
-$as_echo "$GCONFTOOL" >&6; }
-else
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-fi
-
-
-
-  if test "x$GCONF_SCHEMA_INSTALL_SOURCE" = "x"; then
-    GCONF_SCHEMA_CONFIG_SOURCE=`gconftool-2 --get-default-source`
-  else
-    GCONF_SCHEMA_CONFIG_SOURCE=$GCONF_SCHEMA_INSTALL_SOURCE
-  fi
-
-
-# Check whether --with-gconf-source was given.
-if test "${with_gconf_source+set}" = set; then :
-  withval=$with_gconf_source; GCONF_SCHEMA_CONFIG_SOURCE="$withval"
-fi
-
-
-
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: Using config source $GCONF_SCHEMA_CONFIG_SOURCE for schema installation" >&5
-$as_echo "Using config source $GCONF_SCHEMA_CONFIG_SOURCE for schema installation" >&6; }
-
-  if test "x$GCONF_SCHEMA_FILE_DIR" = "x"; then
-    GCONF_SCHEMA_FILE_DIR='$(sysconfdir)/gconf/schemas'
-  fi
-
-
-# Check whether --with-gconf-schema-file-dir was given.
-if test "${with_gconf_schema_file_dir+set}" = set; then :
-  withval=$with_gconf_schema_file_dir; GCONF_SCHEMA_FILE_DIR="$withval"
-fi
-
-
-
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: Using $GCONF_SCHEMA_FILE_DIR as install directory for schema files" >&5
-$as_echo "Using $GCONF_SCHEMA_FILE_DIR as install directory for schema files" >&6; }
-
-  # Check whether --enable-schemas-install was given.
-if test "${enable_schemas_install+set}" = set; then :
-  enableval=$enable_schemas_install; case ${enableval} in
-       yes|no) ;;
-       *) as_fn_error $? "bad value ${enableval} for --enable-schemas-install" "$LINENO" 5 ;;
-      esac
-fi
-
-   if test "$enable_schemas_install" != no; then
-  GCONF_SCHEMAS_INSTALL_TRUE=
-  GCONF_SCHEMAS_INSTALL_FALSE='#'
-else
-  GCONF_SCHEMAS_INSTALL_TRUE='#'
-  GCONF_SCHEMAS_INSTALL_FALSE=
-fi
-
-
-
 # Gsettings
 
 
@@ -8169,93 +8053,6 @@ GTK_CFLAGS+=" -DGDK_DISABLE_DEPRECATED "
 GTK_CFLAGS+=" -DGTK_DISABLE_DEPRECATED "
 # ensure use of accessors
 GTK_CFLAGS+=" -DGSEAL_ENABLE "
-
-
-
-# Check GCONF
-
-pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for GCONF" >&5
-$as_echo_n "checking for GCONF... " >&6; }
-
-if test -n "$GCONF_CFLAGS"; then
-    pkg_cv_GCONF_CFLAGS="$GCONF_CFLAGS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gconf-2.0\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gconf-2.0") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_GCONF_CFLAGS=`$PKG_CONFIG --cflags "gconf-2.0" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-if test -n "$GCONF_LIBS"; then
-    pkg_cv_GCONF_LIBS="$GCONF_LIBS"
- elif test -n "$PKG_CONFIG"; then
-    if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gconf-2.0\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gconf-2.0") 2>&5
-  ac_status=$?
-  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
-  test $ac_status = 0; }; then
-  pkg_cv_GCONF_LIBS=`$PKG_CONFIG --libs "gconf-2.0" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes
-else
-  pkg_failed=yes
-fi
- else
-    pkg_failed=untried
-fi
-
-
-
-if test $pkg_failed = yes; then
-   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-
-if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
-        _pkg_short_errors_supported=yes
-else
-        _pkg_short_errors_supported=no
-fi
-        if test $_pkg_short_errors_supported = yes; then
-	        GCONF_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gconf-2.0" 2>&1`
-        else
-	        GCONF_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gconf-2.0" 2>&1`
-        fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$GCONF_PKG_ERRORS" >&5
-
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"gconf2 missing psensor will not be built\"" >&5
-$as_echo "$as_me: WARNING: \"gconf2 missing psensor will not be built\"" >&2;}
-elif test $pkg_failed = untried; then
-     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
-$as_echo "no" >&6; }
-	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"gconf2 missing psensor will not be built\"" >&5
-$as_echo "$as_me: WARNING: \"gconf2 missing psensor will not be built\"" >&2;}
-else
-	GCONF_CFLAGS=$pkg_cv_GCONF_CFLAGS
-	GCONF_LIBS=$pkg_cv_GCONF_LIBS
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
-$as_echo "yes" >&6; }
-
-$as_echo "#define HAVE_GCONF2 1" >>confdefs.h
-
-fi
- if test -n "$GCONF_LIBS"; then
-  GCONF_TRUE=
-  GCONF_FALSE='#'
-else
-  GCONF_TRUE='#'
-  GCONF_FALSE=
-fi
-
 
 
 
@@ -9658,10 +9455,6 @@ if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCC\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
-if test -z "${GCONF_SCHEMAS_INSTALL_TRUE}" && test -z "${GCONF_SCHEMAS_INSTALL_FALSE}"; then
-  as_fn_error $? "conditional \"GCONF_SCHEMAS_INSTALL\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
 if test -z "${X11_TRUE}" && test -z "${X11_FALSE}"; then
   as_fn_error $? "conditional \"X11\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
@@ -9672,10 +9465,6 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${GTK_TRUE}" && test -z "${GTK_FALSE}"; then
   as_fn_error $? "conditional \"GTK\" was never defined.
-Usually this means the macro was only invoked conditionally." "$LINENO" 5
-fi
-if test -z "${GCONF_TRUE}" && test -z "${GCONF_FALSE}"; then
-  as_fn_error $? "conditional \"GCONF\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ATASMART_TRUE}" && test -z "${ATASMART_FALSE}"; then

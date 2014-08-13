@@ -38,10 +38,6 @@ AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol])
 AM_GNU_GETTEXT_VERSION([0.16])
 AM_GNU_GETTEXT([external])
 
-# Gconf
-AC_PATH_PROG(GCONFTOOL, gconftool-2, no)
-AM_GCONF_SOURCE_2
-
 # Gsettings
 GLIB_GSETTINGS
 
@@ -84,14 +80,6 @@ GTK_CFLAGS+=" -DGTK_DISABLE_DEPRECATED "
 GTK_CFLAGS+=" -DGSEAL_ENABLE "
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
-
-# Check GCONF
-PKG_CHECK_MODULES(GCONF, gconf-2.0,
-	          [AC_DEFINE([HAVE_GCONF2],[1],[Use gconf2])],
-	          [AC_MSG_WARN("gconf2 missing psensor will not be built")])
-AM_CONDITIONAL(GCONF, test -n "$GCONF_LIBS")
-AC_SUBST(GCONF_CFLAGS)
-AC_SUBST(GCONF_LIBS)
 
 ### Optional
 
