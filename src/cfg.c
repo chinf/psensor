@@ -47,6 +47,7 @@ static const char *ATT_SENSOR_APPINDICATOR_MENU_DISABLED
 static const char *ATT_SENSOR_APPINDICATOR_LABEL_ENABLED
 = "appindicator_label_enabled";
 static const char *ATT_SENSOR_POSITION = "position";
+static const char *ATT_SENSOR_HIDE = "hide";
 
 /* Update interval of the measures of the sensors */
 static const char *KEY_SENSOR_UPDATE_INTERVAL
@@ -671,12 +672,12 @@ config_get_sensor_color(const char *sid, const struct color *dft)
 	return color;
 }
 
-bool config_is_sensor_enabled(const char *sid)
+bool config_is_sensor_graph_enabled(const char *sid)
 {
 	return sensor_get_bool(sid, ATT_SENSOR_GRAPH_ENABLED);
 }
 
-void config_set_sensor_enabled(const char *sid, bool enabled)
+void config_set_sensor_graph_enabled(const char *sid, bool enabled)
 {
 	sensor_set_bool(sid, ATT_SENSOR_GRAPH_ENABLED, enabled);
 }
@@ -731,6 +732,16 @@ bool config_get_sensor_alarm_enabled(const char *sid)
 void config_set_sensor_alarm_enabled(const char *sid, bool enabled)
 {
 	sensor_set_bool(sid, ATT_SENSOR_ALARM_ENABLED, enabled);
+}
+
+bool config_is_sensor_enabled(const char *sid)
+{
+	return !sensor_get_bool(sid, ATT_SENSOR_HIDE);
+}
+
+void config_set_sensor_enabled(const char *sid, bool enabled)
+{
+	sensor_set_bool(sid, ATT_SENSOR_HIDE, !enabled);
 }
 
 bool config_is_appindicator_label_enabled(const char *sid)

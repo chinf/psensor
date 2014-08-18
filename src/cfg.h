@@ -94,8 +94,8 @@ void config_set_sensor_alarm_low_threshold(const char *, int);
 bool config_get_sensor_alarm_enabled(const char *);
 void config_set_sensor_alarm_enabled(const char *, bool);
 
-bool config_is_sensor_enabled(const char *);
-void config_set_sensor_enabled(const char *, bool);
+bool config_is_sensor_graph_enabled(const char *);
+void config_set_sensor_graph_enabled(const char *, bool);
 
 char *config_get_sensor_name(const char *);
 void config_set_sensor_name(const char *, const char *);
@@ -116,6 +116,9 @@ void config_set_sensor_position(const char *, int);
 
 char *config_get_notif_script();
 void config_set_notif_script(const char *);
+
+bool config_is_sensor_enabled(const char *sid);
+void config_set_sensor_enabled(const char *sid, bool enabled);
 
 /*
  * Returns the user directory containing psensor data (configuration

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-02 18:30+0200\n"
+"POT-Creation-Date: 2014-08-18 09:29+0200\n"
 "PO-Revision-Date: 2014-05-01 13:23+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -59,15 +59,15 @@ msgstr "退出"
 msgid "Show"
 msgstr "显示"
 
-#: src/glade/psensor.glade:190
+#: src/glade/psensor.glade:184
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - 温度监视器"
 
-#: src/glade/psensor.glade:205
+#: src/glade/psensor.glade:199
 msgid "_Psensor"
 msgstr ""
 
-#: src/glade/psensor.glade:252
+#: src/glade/psensor.glade:246
 msgid "_Help"
 msgstr "帮助(_H)"
 
@@ -291,6 +291,11 @@ msgstr ""
 msgid "-1"
 msgstr ""
 
+#: src/glade/sensor-edit.glade:541
+#, fuzzy
+msgid "Display sensor in the list of sensors"
+msgstr "在应用指示器菜单中显示监视器"
+
 #: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
 msgstr "AMD：未找到 ADL 库。"
@@ -399,28 +404,28 @@ msgstr "转速"
 msgid "%"
 msgstr "%"
 
-#: src/lib/slog.c:86
+#: src/lib/slog.c:87
 msgid "HOME variable not set."
 msgstr "未设置 HOME 变量。"
 
-#: src/lib/slog.c:96
+#: src/lib/slog.c:97
 msgid "Sensor log file already open."
 msgstr "已经打开监测器日志文件。"
 
-#: src/lib/slog.c:105
+#: src/lib/slog.c:106
 #, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "无法打开监测器日志文件：%s。"
 
-#: src/lib/slog.c:136
+#: src/lib/slog.c:137
 msgid "Sensor log file not open."
 msgstr "监测器日志文件未打开。"
 
-#: src/lib/slog.c:192
+#: src/lib/slog.c:193
 msgid "Sensor log not open, cannot close."
 msgstr "监测器日志未打开，故无法关闭。"
 
-#: src/main.c:77 src/server/server.c:84
+#: src/main.c:78 src/server/server.c:85
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -435,22 +440,22 @@ msgstr ""
 "本软件为自由软件：您可以自由修改并分发。\n"
 "There is NO WARRANTY, to the extent permitted by law。\n"
 
-#: src/main.c:88 src/server/server.c:94
+#: src/main.c:89 src/server/server.c:95
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "用法：%s [选项]...\n"
 
-#: src/main.c:90
+#: src/main.c:91
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr "Psensor 是一款 GTK+ 应用程序，可监测硬件传感器，包括温度与风扇转速。"
 
-#: src/main.c:94
+#: src/main.c:95
 msgid "Options:"
 msgstr "选项："
 
-#: src/main.c:95
+#: src/main.c:96
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -458,7 +463,7 @@ msgstr ""
 "  -h, --help 显示这个帮助并退出\n"
 "  -v, --version 显示版本信息并退出"
 
-#: src/main.c:101
+#: src/main.c:102
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -466,7 +471,7 @@ msgstr ""
 "  -u, --url=URL       psensor 服务器 URL\n"
 "                      例如：http://hostname:3131"
 
-#: src/main.c:104
+#: src/main.c:105
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
@@ -474,38 +479,38 @@ msgstr ""
 "  --use-libatasmart   使用 atasmart 库来监测硬盘，而不是\n"
 "                      hddtemp 进程"
 
-#: src/main.c:107
+#: src/main.c:108
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  强制创建一个新的 Psensor 例程"
 
-#: src/main.c:110
+#: src/main.c:111
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr "  -d，--debug=LEVEL 设置调试等级，等级为 0 到 3 之间的整数"
 
-#: src/main.c:115 src/server/server.c:117
+#: src/main.c:116 src/server/server.c:118
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "报告问题至：%s\n"
 
-#: src/main.c:117 src/server/server.c:119
+#: src/main.c:118 src/server/server.c:120
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s 主页：<%s>\n"
 
-#: src/main.c:450
+#: src/main.c:451
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor 不支持远程传感器。"
 
-#: src/main.c:513
+#: src/main.c:514
 msgid "Enables debug mode."
 msgstr "启用调试模式。"
 
-#: src/main.c:525 src/server/server.c:380
+#: src/main.c:526 src/server/server.c:381
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "试用‘%s --help’来获得更多信息。\n"
 
-#: src/main.c:538
+#: src/main.c:539
 msgid "A Psensor instance already exists."
 msgstr "已存在一个 Psensor 例程。"
 
@@ -524,21 +529,21 @@ msgstr "无效内容：%s"
 msgid "Invalid JSON: %s"
 msgstr "无效 JSON：%s"
 
-#: src/server/server.c:54
+#: src/server/server.c:55
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr "<html><body><p>服务器停止请求</p></body></html>"
 
-#: src/server/server.c:60
+#: src/server/server.c:61
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr "<html><body><p>未找到页面 - 请访问<a href='/'>主页</a></p></body>"
 
-#: src/server/server.c:96
+#: src/server/server.c:97
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr "psensor 服务器是用来远程监视硬件的 HTTP 服务器。"
 
-#: src/server/server.c:101
+#: src/server/server.c:102
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -546,7 +551,7 @@ msgstr ""
 "  -h, --help\t\t 显示本帮助并退出\n"
 "  -v, --version\t\t 显示版本信息并退出"
 
-#: src/server/server.c:105
+#: src/server/server.c:106
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -554,56 +559,56 @@ msgstr ""
 "  -p,--port=PORT\t 网络服务器端口\n"
 "  -w,--wdir=DIR\t\t 包括网络服务器页面的目录"
 
-#: src/server/server.c:109
+#: src/server/server.c:110
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr "  -d, --debug=LEVEL     设置调试级别，0～3 之间的整数"
 
-#: src/server/server.c:111
+#: src/server/server.c:112
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH   将日志文件设为 PATH"
 
-#: src/server/server.c:112
+#: src/server/server.c:113
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  --sensor-log-file=路径 设置监测器日志文件的路径"
 
-#: src/server/server.c:113
+#: src/server/server.c:114
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
 
-#: src/server/server.c:297
+#: src/server/server.c:298
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP 请求：%s"
 
-#: src/server/server.c:360
+#: src/server/server.c:361
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "启用调试模式：%d"
 
-#: src/server/server.c:402
+#: src/server/server.c:405
 msgid "No sensors detected."
 msgstr "未检测到传感器。"
 
-#: src/server/server.c:409
+#: src/server/server.c:412
 msgid "Failed to create Web server."
 msgstr "无法创建网络服务器。"
 
-#: src/server/server.c:413
+#: src/server/server.c:416
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "网络服务器启动端口：%d"
 
-#: src/server/server.c:414
+#: src/server/server.c:417
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW 目录：%s"
 
-#: src/server/server.c:415
+#: src/server/server.c:418
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:425
+#: src/server/server.c:428
 msgid "Failed to activate logging of sensors."
 msgstr "无法激活监测器日志。"
 
@@ -627,7 +632,7 @@ msgstr "关于 Psensor"
 msgid "Psensor Homepage"
 msgstr "Psensor 主页"
 
-#: src/ui.c:217
+#: src/ui.c:216
 msgid "Failed to load Psensor icon."
 msgstr "无法加载 Psensor 图标。"
 

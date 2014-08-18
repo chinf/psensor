@@ -311,7 +311,7 @@ static void associate_preferences(struct psensor **sensors)
 		char *n;
 		struct psensor *s = *sensor_cur;
 
-		s->graph_enabled = config_is_sensor_enabled(s->id);
+		s->graph_enabled = config_is_sensor_graph_enabled(s->id);
 
 		n = config_get_sensor_name(s->id);
 

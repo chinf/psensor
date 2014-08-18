@@ -38,7 +38,7 @@ enum {
 struct sensor_pref {
 	struct psensor *sensor;
 	char *name;
-	int enabled;
+	int graph_enabled;
 	struct color *color;
 	int alarm_enabled;
 	int alarm_high_threshold;
@@ -61,7 +61,7 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 
 	p->sensor = s;
 	p->name = strdup(s->name);
-	p->enabled = s->graph_enabled;
+	p->graph_enabled = s->graph_enabled;
 	p->alarm_enabled = s->alarm_enabled;
 	p->color = color_dup(s->color);
 
@@ -131,7 +131,7 @@ void ui_sensorpref_draw_toggled_cb(GtkToggleButton *btn, gpointer data)
 	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p)
-		p->enabled = gtk_toggle_button_get_active(btn);
+		p->graph_enabled = gtk_toggle_button_get_active(btn);
 }
 
 void ui_sensorpref_alarm_toggled_cb(GtkToggleButton *btn, gpointer data)
@@ -235,7 +235,7 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 
 	w_draw = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							  "sensor_draw"));
-	gtk_toggle_button_set_active(w_draw, p->enabled);
+	gtk_toggle_button_set_active(w_draw, p->graph_enabled);
 
 	color = color_to_gdkcolor(p->color);
 	w_color = GTK_COLOR_BUTTON(gtk_builder_get_object(builder,
@@ -343,9 +343,9 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 		config_set_sensor_name(s->id, s->name);
 	}
 
-	if (s->graph_enabled != p->enabled) {
-		s->graph_enabled = p->enabled;
-		config_set_sensor_enabled(s->id, s->graph_enabled);
+	if (s->graph_enabled != p->graph_enabled) {
+		s->graph_enabled = p->graph_enabled;
+		config_set_sensor_graph_enabled(s->id, s->graph_enabled);
 	}
 
 	if (is_temp_type(s->type) && cfg->temperature_unit == FAHRENHEIT) {

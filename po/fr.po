@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-02 18:30+0200\n"
+"POT-Creation-Date: 2014-08-18 09:29+0200\n"
 "PO-Revision-Date: 2013-06-29 15:14+0000\n"
 "Last-Translator: londumas <helion331990@gmail.com>\n"
 "Language-Team: French <>\n"
@@ -59,15 +59,15 @@ msgstr "Quitter"
 msgid "Show"
 msgstr "Afficher"
 
-#: src/glade/psensor.glade:190
+#: src/glade/psensor.glade:184
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Surveillance des températures"
 
-#: src/glade/psensor.glade:205
+#: src/glade/psensor.glade:199
 msgid "_Psensor"
 msgstr ""
 
-#: src/glade/psensor.glade:252
+#: src/glade/psensor.glade:246
 msgid "_Help"
 msgstr "_Aide"
 
@@ -291,6 +291,11 @@ msgstr ""
 msgid "-1"
 msgstr ""
 
+#: src/glade/sensor-edit.glade:541
+#, fuzzy
+msgid "Display sensor in the list of sensors"
+msgstr "Afficher le capteur dans le menu"
+
 #: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
 msgstr "AMD : impossible de trouver la bibliothèque ADL."
@@ -401,28 +406,28 @@ msgstr "Tr/mn"
 msgid "%"
 msgstr "%"
 
-#: src/lib/slog.c:86
+#: src/lib/slog.c:87
 msgid "HOME variable not set."
 msgstr "Variable home non définie."
 
-#: src/lib/slog.c:96
+#: src/lib/slog.c:97
 msgid "Sensor log file already open."
 msgstr "Le journal des capteurs est déjà ouvert."
 
-#: src/lib/slog.c:105
+#: src/lib/slog.c:106
 #, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "Ne peut ouvrir le journal : %s."
 
-#: src/lib/slog.c:136
+#: src/lib/slog.c:137
 msgid "Sensor log file not open."
 msgstr "Le journal des capteurs n'est pas ouvert."
 
-#: src/lib/slog.c:192
+#: src/lib/slog.c:193
 msgid "Sensor log not open, cannot close."
 msgstr "Le journal des capteurs n'est pas ouvert, il ne peut être fermé."
 
-#: src/main.c:77 src/server/server.c:84
+#: src/main.c:78 src/server/server.c:85
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -439,12 +444,12 @@ msgstr ""
 "Ce logiciel n'est accompagné d'ABSOLUMENT AUCUNE GARANTIE, dans les limites\n"
 "autorisées par la loi.\n"
 
-#: src/main.c:88 src/server/server.c:94
+#: src/main.c:89 src/server/server.c:95
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Utilisation : %s [OPTION]...\n"
 
-#: src/main.c:90
+#: src/main.c:91
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -452,11 +457,11 @@ msgstr ""
 "Psensor est une application GTK+ pour surveiller les capteurs thermiques et "
 "les vitesses de ventilateurs."
 
-#: src/main.c:94
+#: src/main.c:95
 msgid "Options:"
 msgstr "Options :"
 
-#: src/main.c:95
+#: src/main.c:96
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -464,14 +469,14 @@ msgstr ""
 "  -h, --help          afficher cette aide et quitter\n"
 "  -v, --version       afficher les informations de version et quitter"
 
-#: src/main.c:101
+#: src/main.c:102
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
 msgstr ""
 "  -u, --url=URL       l'URL de psensor-server, example: http://hostname:3131"
 
-#: src/main.c:104
+#: src/main.c:105
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
@@ -479,43 +484,43 @@ msgstr ""
 "  --use-libatasmart   utiliser la librairie atasmart pour la surveillance\n"
 "                      des disks a la place du serveur hddtemp"
 
-#: src/main.c:107
+#: src/main.c:108
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 "  -n, --new-instance  forcer la création d'une nouvelle occurrence de "
 "l'application Psensor"
 
-#: src/main.c:110
+#: src/main.c:111
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL   assigner le niveau de débogage, nombre entier entre 0 "
 "et 3"
 
-#: src/main.c:115 src/server/server.c:117
+#: src/main.c:116 src/server/server.c:118
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Signaler les bogues à: %s\n"
 
-#: src/main.c:117 src/server/server.c:119
+#: src/main.c:118 src/server/server.c:120
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s page d’accueil: <%s>\n"
 
-#: src/main.c:450
+#: src/main.c:451
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 "Psensor n'a pas été compilé avec le support de surveillance à distance."
 
-#: src/main.c:513
+#: src/main.c:514
 msgid "Enables debug mode."
 msgstr "Active le mode de débogage."
 
-#: src/main.c:525 src/server/server.c:380
+#: src/main.c:526 src/server/server.c:381
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Essayez « %s --help » pour plus d'informations.\n"
 
-#: src/main.c:538
+#: src/main.c:539
 msgid "A Psensor instance already exists."
 msgstr "Une instance de Psensor existe déjà."
 
@@ -534,25 +539,25 @@ msgstr "Contenu invalide : %s"
 msgid "Invalid JSON: %s"
 msgstr "JSON invalide : %s"
 
-#: src/server/server.c:54
+#: src/server/server.c:55
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr "<html><body><p>L’arrêt du serveur a été demandé</p></body></html>"
 
-#: src/server/server.c:60
+#: src/server/server.c:61
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 "<html><body><p>Page introuvable - Allez à <a href='/'>Main page</a></p></"
 "body>"
 
-#: src/server/server.c:96
+#: src/server/server.c:97
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 "psensor-server est un serveur HTTP pour surveiller à distance les capteurs "
 "matérielles."
 
-#: src/server/server.c:101
+#: src/server/server.c:102
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -560,7 +565,7 @@ msgstr ""
 "  -h, --help\t\tafficher cette aide et quitter\n"
 "  -v, --version\t\tafficher les informations de version et quitter"
 
-#: src/server/server.c:105
+#: src/server/server.c:106
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -568,60 +573,60 @@ msgstr ""
 "  -p,--port=PORT\tport du serveur Web\n"
 "  -w,--wdir=DIR\t\trépertoire contenant les pages du serveur Web"
 
-#: src/server/server.c:109
+#: src/server/server.c:110
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL   assigne le niveau de débogage, nombre entier entre 0 "
 "et 3"
 
-#: src/server/server.c:111
+#: src/server/server.c:112
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH assigner le chemin d’accès au journal"
 
-#: src/server/server.c:112
+#: src/server/server.c:113
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  --sensor-log-file=PATH assigne le journal du capteur vers PATH"
 
-#: src/server/server.c:113
+#: src/server/server.c:114
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
 "  --sensor-log-interval=S assigne l'intervalle de journalisation du capteur "
 "à S (secondes)"
 
-#: src/server/server.c:297
+#: src/server/server.c:298
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "Requête HTTP : %s"
 
-#: src/server/server.c:360
+#: src/server/server.c:361
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Activation du mode de déboguage: %d"
 
-#: src/server/server.c:402
+#: src/server/server.c:405
 msgid "No sensors detected."
 msgstr "Aucun capteur détecté."
 
-#: src/server/server.c:409
+#: src/server/server.c:412
 msgid "Failed to create Web server."
 msgstr "Échec de la création du serveur Web."
 
-#: src/server/server.c:413
+#: src/server/server.c:416
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Le serveur Web a été démarré sur le port: %d"
 
-#: src/server/server.c:414
+#: src/server/server.c:417
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW répertoire : %s"
 
-#: src/server/server.c:415
+#: src/server/server.c:418
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:425
+#: src/server/server.c:428
 msgid "Failed to activate logging of sensors."
 msgstr "Échec de l'activation de la journalisation des capteurs."
 
@@ -647,7 +652,7 @@ msgstr "À propos de Psensor"
 msgid "Psensor Homepage"
 msgstr "Site internet de Psensor"
 
-#: src/ui.c:217
+#: src/ui.c:216
 msgid "Failed to load Psensor icon."
 msgstr "Échec du chargement de l’icône de Psensor."
 
