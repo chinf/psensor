@@ -252,7 +252,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-dist_doc_DATA = faq.html faq.txt
+dist_doc_DATA = faq.html faq.txt TODO.txt TODO.html
 all: all-am
 
 .SUFFIXES:
@@ -463,6 +463,9 @@ uninstall-am: uninstall-dist_docDATA
 
 @ASCIIDOC_TRUE@faq.html: faq.txt ../www/style.css
 @ASCIIDOC_TRUE@	asciidoc --theme style -a themedir=`pwd`/../www -n -a toc faq.txt
+
+@ASCIIDOC_TRUE@TODO.html: faq.txt ../www/style.css
+@ASCIIDOC_TRUE@	asciidoc --theme style -a themedir=`pwd`/../www -n -a toc TODO.txt
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

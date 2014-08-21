@@ -1,0 +1,10 @@
+Psensor TODO
+============
+
+ * Play a sound when a sensor alert is raised. Note that
+   it can actually be done by using the script support.
+
+ * Use max/crit temperature information provided by
+   lm-sensor.
+
+ * Include help/faq directly in psensor UI.
