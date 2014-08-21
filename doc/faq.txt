@@ -279,3 +279,14 @@ Here is a list of few well-known sensors monitoring softwares:
 
 	- more general, but can be configured to display sensors
           information: http://conky.sourceforge.net/
+
+[[S_HideSensor]]
+Is it possible to hide sensors in the main window?
+--------------------------------------------------
+
+Before v1.1.1, the sensors retrieved from the lm-sensor library can be
+ignored directly in the lm-sensor configuration. See the manpage
+of sensors.conf(5).
+
+Since v1.1.1, it is possible to hide a sensor, uncheck the setting
+'Display sensor in the list of sensors' in the sensor preferences.
