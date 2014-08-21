@@ -19,12 +19,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "ui.h"
-#include "ui_pref.h"
-#include "ui_sensorlist.h"
-#include "ui_sensorpref.h"
-#include "cfg.h"
-#include "ui_color.h"
+#include <cfg.h>
+#include <ui.h>
+#include <ui_color.h>
+#include <ui_pref.h>
+#include <ui_sensorlist.h>
+#include <ui_sensorpref.h>
 
 enum {
 	COL_NAME = 0,
