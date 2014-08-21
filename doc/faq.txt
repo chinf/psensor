@@ -121,8 +121,7 @@ repositories.
 If you don’t want to use the launchpad, you can send the report by
 email to:
 
-      - psensor-users@googlegroups.com (require registration at:
-        https://groups.google.com/forum/?fromgroups&hl=en#!forum/psensor-users)
+      - psensor-users@googlegroups.com
       - or jeanfi@gmail.com.
 
 If the bug is concerning Debian or Ubuntu derivatives distribution,
@@ -139,9 +138,8 @@ How to send ideas, questions or comments?
 Check the FAQ or the TODO pages.
 
 If you don’t find the information, you can send an email to the public
-mailing-list psensor-users@googlegroups.com (require registration at:
-https://groups.google.com/forum/?fromgroups&hl=en#!forum/psensor-users) 
-or send an email directly to me: jeanfi@gmail.com.
+mailing-list psensor-users@googlegroups.com or directly to me:
+jeanfi@gmail.com.
 	
 
 [[S_Contribute]]
