@@ -33,9 +33,10 @@ enum {
 	COL_TEMP_MAX,
 	COL_COLOR,
 	COL_COLOR_STR,
-	COL_ENABLED,
+	COL_GRAPH_ENABLED,
 	COL_EMPTY,
 	COL_SENSOR,
+	COL_DISPLAY_ENABLED
 };
 
 struct cb_data {
@@ -46,7 +47,7 @@ struct cb_data {
 static int col_index_to_col(int idx)
 {
 	if (idx == 5)
-		return COL_ENABLED;
+		return COL_GRAPH_ENABLED;
 	else if (idx > 5)
 		return -1;
 
@@ -60,6 +61,7 @@ static void populate(struct ui_psensor *ui)
 	GdkColor color;
 	char *scolor;
 	struct psensor **ordered_sensors, **s_cur, *s;
+	unsigned int enabled;
 
 	ordered_sensors = ui_get_sensors_ordered_by_position(ui);
 	store = ui->sensors_store;
@@ -77,11 +79,14 @@ static void populate(struct ui_psensor *ui)
 
 		scolor = gdk_color_to_string(&color);
 
+		enabled = config_is_sensor_enabled(s->id);
+
 		gtk_list_store_set(store, &iter,
 				   COL_NAME, s->name,
 				   COL_COLOR_STR, scolor,
-				   COL_ENABLED, s->graph_enabled,
+				   COL_GRAPH_ENABLED, s->graph_enabled,
 				   COL_SENSOR, s,
+				   COL_DISPLAY_ENABLED, enabled,
 				   -1);
 		free(scolor);
 	}
@@ -102,6 +107,8 @@ void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
 		populate(ui);
 
 	model = gtk_tree_view_get_model(ui->sensors_tree);
+	model = gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(model));
+
 	store = ui->sensors_store;
 
 	use_celsius = ui->config->temperature_unit == CELSIUS;
@@ -249,7 +256,7 @@ static int clicked_cbk(GtkWidget *widget, GdkEventButton *event, gpointer data)
 				config_set_sensor_color(s->id, s->color);
 				config_sync();
 			}
-		} else if (coli >= 0 && coli != COL_ENABLED) {
+		} else if (coli >= 0 && coli != COL_GRAPH_ENABLED) {
 			menu = create_sensor_popup(ui, s);
 
 			gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
@@ -264,33 +271,54 @@ static void
 toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 {
 	struct ui_psensor *ui;
-	GtkTreeModel *model;
+	GtkTreeModel *model, *fmodel;
 	GtkTreeIter iter;
 	GtkTreePath *path;
-	struct psensor *s;
+	struct psensor *s, *s2;
+	gboolean valid;
 
 	ui = (struct ui_psensor *)data;
-	model = gtk_tree_view_get_model(ui->sensors_tree);
+	fmodel = gtk_tree_view_get_model(ui->sensors_tree);
+
 	path = gtk_tree_path_new_from_string(path_str);
 
-	gtk_tree_model_get_iter(model, &iter, path);
+	gtk_tree_model_get_iter(fmodel, &iter, path);
 
-	gtk_tree_model_get(model, &iter, COL_SENSOR, &s, -1);
+	gtk_tree_model_get(fmodel, &iter, COL_SENSOR, &s, -1);
 
 	s->graph_enabled ^= 1;
 	config_set_sensor_graph_enabled(s->id, s->graph_enabled);
 
-	gtk_list_store_set(GTK_LIST_STORE(model), &iter,
-			   COL_ENABLED, s->graph_enabled, -1);
-
 	gtk_tree_path_free(path);
+
+	model = gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(fmodel));
+	valid = gtk_tree_model_get_iter_first(model, &iter);
+	while (valid) {
+		gtk_tree_model_get(model, &iter, COL_SENSOR, &s2, -1);
+
+		if (s == s2)
+			gtk_list_store_set(ui->sensors_store,
+					   &iter,
+					   COL_GRAPH_ENABLED,
+					   s->graph_enabled,
+					   -1);
+		valid = gtk_tree_model_iter_next(model, &iter);
+	}
 }
 
 void ui_sensorlist_create(struct ui_psensor *ui)
 {
 	GtkCellRenderer *renderer;
+	GtkTreeModel *fmodel, *model;
 
 	log_debug("ui_sensorlist_create()");
+
+	model = gtk_tree_view_get_model(ui->sensors_tree);
+	fmodel = gtk_tree_model_filter_new(model, NULL);
+	gtk_tree_model_filter_set_visible_column(GTK_TREE_MODEL_FILTER(fmodel),
+						 COL_DISPLAY_ENABLED);
+
+	gtk_tree_view_set_model(ui->sensors_tree, fmodel);
 
 	renderer = gtk_cell_renderer_text_new();
 	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
@@ -334,7 +362,7 @@ void ui_sensorlist_create(struct ui_psensor *ui)
 						    -1,
 						    _("Graph"),
 						    renderer,
-						    "active", COL_ENABLED,
+						    "active", COL_GRAPH_ENABLED,
 						    NULL);
 	g_signal_connect(G_OBJECT(renderer),
 			 "toggled", (GCallback) toggled_cbk, ui);

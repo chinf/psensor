@@ -45,6 +45,7 @@ struct sensor_pref {
 	int alarm_low_threshold;
 	unsigned int appindicator_enabled;
 	unsigned int appindicator_label_enabled;
+	unsigned int display_enabled;
 };
 
 struct cb_data {
@@ -64,6 +65,7 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 	p->graph_enabled = s->graph_enabled;
 	p->alarm_enabled = s->alarm_enabled;
 	p->color = color_dup(s->color);
+	p->display_enabled = config_is_sensor_enabled(s->id);
 
 	if (cfg->temperature_unit == CELSIUS) {
 		p->alarm_high_threshold = s->alarm_high_threshold;
@@ -132,6 +134,16 @@ void ui_sensorpref_draw_toggled_cb(GtkToggleButton *btn, gpointer data)
 
 	if (p)
 		p->graph_enabled = gtk_toggle_button_get_active(btn);
+}
+
+void ui_sensorpref_display_toggled_cb(GtkToggleButton *btn, gpointer data)
+{
+	struct sensor_pref *p;
+
+	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
+
+	if (p)
+		p->display_enabled = gtk_toggle_button_get_active(btn);
 }
 
 void ui_sensorpref_alarm_toggled_cb(GtkToggleButton *btn, gpointer data)
@@ -209,7 +221,7 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 		*w_chipname;
 	GtkEntry *w_name;
 	GtkToggleButton *w_draw, *w_alarm, *w_appindicator_enabled,
-		*w_appindicator_label_enabled;
+		*w_appindicator_label_enabled, *w_display;
 	GtkColorButton *w_color;
 	GtkSpinButton *w_high_threshold, *w_low_threshold;
 	GdkColor *color;
@@ -236,6 +248,11 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 	w_draw = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							  "sensor_draw"));
 	gtk_toggle_button_set_active(w_draw, p->graph_enabled);
+
+	w_display = GTK_TOGGLE_BUTTON(gtk_builder_get_object
+				      (builder,
+				       "sensor_enable_checkbox"));
+	gtk_toggle_button_set_active(w_display, p->display_enabled);
 
 	color = color_to_gdkcolor(p->color);
 	w_color = GTK_COLOR_BUTTON(gtk_builder_get_object(builder,
@@ -378,6 +395,8 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 					      p->appindicator_label_enabled);
 
 	config_set_sensor_position(s->id, pos);
+
+	config_set_sensor_enabled(s->id, p->display_enabled);
 }
 
 static void apply_prefs(GtkTreeModel *model, struct config *cfg)

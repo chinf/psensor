@@ -177,6 +177,8 @@
       <column type="gchararray"/>
       <!-- column-name gpointer1 -->
       <column type="gpointer"/>
+      <!-- column-name gboolean2 -->
+      <column type="gboolean"/>
     </columns>
   </object>
   <object class="GtkWindow" id="window">
