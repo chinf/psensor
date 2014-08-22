@@ -23,9 +23,10 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
-#include "hdd.h"
-#include "psensor.h"
-#include "lmsensor.h"
+#include <hdd.h>
+#include <psensor.h>
+#include <lmsensor.h>
+#include <temperature.h>
 
 #ifdef HAVE_GTOP
 #include "cpu.h"
@@ -207,16 +208,6 @@ int is_temp_type(unsigned int type)
 int is_fan_type(unsigned int type)
 {
 	return type & SENSOR_TYPE_FAN;
-}
-
-double celsius_to_fahrenheit(double c)
-{
-	return c * (9.0/5.0) + 32;
-}
-
-double fahrenheit_to_celsius(double f)
-{
-	return (f - 32) * (5.0/9.0);
 }
 
 char *

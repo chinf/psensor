@@ -205,9 +205,6 @@ void psensor_cleanup();
 
 double get_max_value(struct psensor **sensors, int type);
 
-double celsius_to_fahrenheit(double c);
-double fahrenheit_to_celsius(double c);
-
 char *psensor_current_value_to_str(const struct psensor *, unsigned int);
 
 void psensor_log_measures(struct psensor **sensors);

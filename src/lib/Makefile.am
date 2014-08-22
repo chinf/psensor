@@ -15,6 +15,7 @@ libpsensor_a_SOURCES = \
 	ptime.h ptime.c\
 	pio.h pio.c\
 	slog.c slog.h\
+	temperature.c temperature.h\
 	url.c url.h
 
 AM_CPPFLAGS = -Wall -Werror

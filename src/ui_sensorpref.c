@@ -20,11 +20,13 @@
 
 #include <gtk/gtk.h>
 
-#include "cfg.h"
-#include "ui_pref.h"
-#include "ui_sensorlist.h"
-#include "ui_sensorpref.h"
-#include "ui_color.h"
+#include <cfg.h>
+#include <temperature.h>
+#include <ui_pref.h>
+#include <ui_sensorlist.h>
+#include <ui_sensorpref.h>
+#include <ui_color.h>
+
 
 #if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
 #include "ui_appindicator.h"

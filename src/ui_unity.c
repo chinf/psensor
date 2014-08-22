@@ -18,6 +18,7 @@
  */
 #include <unity.h>
 
+#include <temperature.h>
 #include <ui_unity.h>
 
 static int initialized;
