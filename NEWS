@@ -9,6 +9,8 @@ v1.1.1
 * psensor settings stored with dconf.
 * Fixed check of sensors/error.h.
 * Made asciidoc optional.
+* Hide/show sensors in the main window.
+* Added TODO in the source tarball.
 
 v1.0.4
 ------
