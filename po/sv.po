@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 1.0.0.0\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-18 09:29+0200\n"
+"POT-Creation-Date: 2014-08-23 01:16+0200\n"
 "PO-Revision-Date: 2014-06-01 13:09+0000\n"
 "Last-Translator: Josef Andersson <Unknown>\n"
 "Language-Team: Swedish\n"
@@ -45,7 +45,7 @@ msgid "About"
 msgstr "Om"
 
 #: src/glade/psensor.glade:10 src/glade/psensor.glade:11
-#: src/glade/psensor.glade:20 src/ui_sensorlist.c:209
+#: src/glade/psensor.glade:20 src/ui_sensorlist.c:216
 msgid "Preferences"
 msgstr "Inställningar"
 
@@ -62,15 +62,15 @@ msgstr "Avsluta"
 msgid "Show"
 msgstr "Visa"
 
-#: src/glade/psensor.glade:184
+#: src/glade/psensor.glade:186
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Temperaturövervakare"
 
-#: src/glade/psensor.glade:199
+#: src/glade/psensor.glade:201
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:246
+#: src/glade/psensor.glade:248
 msgid "_Help"
 msgstr "_Hjälp"
 
@@ -192,7 +192,7 @@ msgid "Measures"
 msgstr "Mätningar"
 
 #: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
-#: src/ui_sensorlist.c:335
+#: src/ui_sensorlist.c:363
 msgid "Graph"
 msgstr "Graf"
 
@@ -234,7 +234,7 @@ msgstr "Typ:"
 
 #: src/glade/sensor-edit.glade:155 src/glade/sensor-edit.glade:202
 #: src/glade/sensor-edit.glade:249 src/glade/sensor-edit.glade:475
-#: src/glade/sensor-edit.glade:523 src/lib/psensor.c:490 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:523 src/lib/psensor.c:481 src/ui_notify.c:81
 msgid "N/A"
 msgstr "Ej tillgänglig"
 
@@ -401,11 +401,11 @@ msgstr "Kan inte öppna anslutning till X11-server."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Misslyckades med att hämta NVIDIA-information."
 
-#: src/lib/psensor.c:486 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:477 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:488
+#: src/lib/psensor.c:479
 msgid "%"
 msgstr "%"
 
@@ -649,27 +649,27 @@ msgstr "Psensor-webbplats"
 msgid "Failed to load Psensor icon."
 msgstr "Misslyckades med att läsa in Psensor-ikon."
 
-#: src/ui_sensorlist.c:245
+#: src/ui_sensorlist.c:252
 msgid "Select foreground color"
 msgstr "Välj förgrundsfärg"
 
-#: src/ui_sensorlist.c:298
+#: src/ui_sensorlist.c:326
 msgid "Sensor"
 msgstr "Sensor"
 
-#: src/ui_sensorlist.c:304
+#: src/ui_sensorlist.c:332
 msgid "Value"
 msgstr "Värde"
 
-#: src/ui_sensorlist.c:310
+#: src/ui_sensorlist.c:338
 msgid "Min"
 msgstr "Min"
 
-#: src/ui_sensorlist.c:316
+#: src/ui_sensorlist.c:344
 msgid "Max"
 msgstr "Max"
 
-#: src/ui_sensorlist.c:323
+#: src/ui_sensorlist.c:351
 msgid "Color"
 msgstr "Färg"
 
@@ -685,6 +685,6 @@ msgstr "Temperaturlarm"
 msgid "Fan alert"
 msgstr "Fläktlarm"
 
-#: src/ui_sensorpref.c:234
+#: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Okänd"

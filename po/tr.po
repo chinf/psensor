@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-18 09:29+0200\n"
+"POT-Creation-Date: 2014-08-23 01:16+0200\n"
 "PO-Revision-Date: 2013-11-24 08:42+0000\n"
 "Last-Translator: İbrahim Çelik <ibrahimcelik89@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -42,7 +42,7 @@ msgid "About"
 msgstr "Hakkında"
 
 #: src/glade/psensor.glade:10 src/glade/psensor.glade:11
-#: src/glade/psensor.glade:20 src/ui_sensorlist.c:209
+#: src/glade/psensor.glade:20 src/ui_sensorlist.c:216
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -59,15 +59,15 @@ msgstr "Çıkış"
 msgid "Show"
 msgstr "Göster"
 
-#: src/glade/psensor.glade:184
+#: src/glade/psensor.glade:186
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Sıcaklık Gözlemleyici"
 
-#: src/glade/psensor.glade:199
+#: src/glade/psensor.glade:201
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:246
+#: src/glade/psensor.glade:248
 msgid "_Help"
 msgstr "_Yardım"
 
@@ -189,7 +189,7 @@ msgid "Measures"
 msgstr "Ölçümler"
 
 #: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
-#: src/ui_sensorlist.c:335
+#: src/ui_sensorlist.c:363
 msgid "Graph"
 msgstr "Grafik"
 
@@ -231,7 +231,7 @@ msgstr "Tür:"
 
 #: src/glade/sensor-edit.glade:155 src/glade/sensor-edit.glade:202
 #: src/glade/sensor-edit.glade:249 src/glade/sensor-edit.glade:475
-#: src/glade/sensor-edit.glade:523 src/lib/psensor.c:490 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:523 src/lib/psensor.c:481 src/ui_notify.c:81
 msgid "N/A"
 msgstr "Bilinmeyen"
 
@@ -399,11 +399,11 @@ msgstr "X11 sunucusu bağlantısı açılamıyor."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "NVIDIA bilgisi alınamıyor."
 
-#: src/lib/psensor.c:486 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:477 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:488
+#: src/lib/psensor.c:479
 msgid "%"
 msgstr "%"
 
@@ -653,27 +653,27 @@ msgstr "Psensor Anasayfası"
 msgid "Failed to load Psensor icon."
 msgstr "Psensor simgesi yüklenemedi."
 
-#: src/ui_sensorlist.c:245
+#: src/ui_sensorlist.c:252
 msgid "Select foreground color"
 msgstr "Önplan rengini seçin"
 
-#: src/ui_sensorlist.c:298
+#: src/ui_sensorlist.c:326
 msgid "Sensor"
 msgstr "Algılayıcı"
 
-#: src/ui_sensorlist.c:304
+#: src/ui_sensorlist.c:332
 msgid "Value"
 msgstr "Değer"
 
-#: src/ui_sensorlist.c:310
+#: src/ui_sensorlist.c:338
 msgid "Min"
 msgstr "Asgari"
 
-#: src/ui_sensorlist.c:316
+#: src/ui_sensorlist.c:344
 msgid "Max"
 msgstr "Azami"
 
-#: src/ui_sensorlist.c:323
+#: src/ui_sensorlist.c:351
 msgid "Color"
 msgstr "Renk"
 
@@ -689,6 +689,6 @@ msgstr "Sıcaklık uyarısı"
 msgid "Fan alert"
 msgstr "Fan uyarısı"
 
-#: src/ui_sensorpref.c:234
+#: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Bilinmeyen"

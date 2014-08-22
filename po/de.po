@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-18 09:29+0200\n"
+"POT-Creation-Date: 2014-08-23 01:16+0200\n"
 "PO-Revision-Date: 2014-04-30 16:48+0100\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: German\n"
@@ -42,7 +42,7 @@ msgid "About"
 msgstr "Info"
 
 #: src/glade/psensor.glade:10 src/glade/psensor.glade:11
-#: src/glade/psensor.glade:20 src/ui_sensorlist.c:209
+#: src/glade/psensor.glade:20 src/ui_sensorlist.c:216
 msgid "Preferences"
 msgstr "Einstellungen"
 
@@ -59,15 +59,15 @@ msgstr "Beenden"
 msgid "Show"
 msgstr "Anzeigen"
 
-#: src/glade/psensor.glade:184
+#: src/glade/psensor.glade:186
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor – Temperaturüberwachung"
 
-#: src/glade/psensor.glade:199
+#: src/glade/psensor.glade:201
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:246
+#: src/glade/psensor.glade:248
 msgid "_Help"
 msgstr "_Hilfe"
 
@@ -189,7 +189,7 @@ msgid "Measures"
 msgstr "Messungen"
 
 #: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
-#: src/ui_sensorlist.c:335
+#: src/ui_sensorlist.c:363
 msgid "Graph"
 msgstr "Graph"
 
@@ -231,7 +231,7 @@ msgstr "Typ:"
 
 #: src/glade/sensor-edit.glade:155 src/glade/sensor-edit.glade:202
 #: src/glade/sensor-edit.glade:249 src/glade/sensor-edit.glade:475
-#: src/glade/sensor-edit.glade:523 src/lib/psensor.c:490 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:523 src/lib/psensor.c:481 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/V"
 
@@ -397,11 +397,11 @@ msgstr "Verbindung zum X11-Server konnte nicht hergestellt werden."
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Ermittlung der NVIDIA-Informationen gescheitert."
 
-#: src/lib/psensor.c:486 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:477 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "U/min"
 
-#: src/lib/psensor.c:488
+#: src/lib/psensor.c:479
 msgid "%"
 msgstr "%"
 
@@ -652,27 +652,27 @@ msgstr "Psensor-Website"
 msgid "Failed to load Psensor icon."
 msgstr "Laden des Psensor-Symbols ist gescheitert."
 
-#: src/ui_sensorlist.c:245
+#: src/ui_sensorlist.c:252
 msgid "Select foreground color"
 msgstr "Wählen Sie eine Vordergrundfarbe"
 
-#: src/ui_sensorlist.c:298
+#: src/ui_sensorlist.c:326
 msgid "Sensor"
 msgstr "Sensor"
 
-#: src/ui_sensorlist.c:304
+#: src/ui_sensorlist.c:332
 msgid "Value"
 msgstr "Wert"
 
-#: src/ui_sensorlist.c:310
+#: src/ui_sensorlist.c:338
 msgid "Min"
 msgstr "Min."
 
-#: src/ui_sensorlist.c:316
+#: src/ui_sensorlist.c:344
 msgid "Max"
 msgstr "Max."
 
-#: src/ui_sensorlist.c:323
+#: src/ui_sensorlist.c:351
 msgid "Color"
 msgstr "Farbe"
 
@@ -688,6 +688,6 @@ msgstr "Temperaturalarm"
 msgid "Fan alert"
 msgstr "Lüfteralarm"
 
-#: src/ui_sensorpref.c:234
+#: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Unbekannt"
