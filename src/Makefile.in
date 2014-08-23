@@ -355,11 +355,13 @@ AM_LDFLAGS = -Wl,--as-needed -export-dynamic
 # -no-deprecated-declarations to avoid some glib deprecation warnings
 AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
-	-DDATADIR=\""$(datadir)"\" -I$(top_srcdir)/src/lib \
-	-I$(top_srcdir)/src/unity $(GTK_CFLAGS) $(SENSORS_CFLAGS) \
-	$(am__append_2) $(am__append_6) $(am__append_9) \
-	$(am__append_10) $(am__append_12) $(am__append_14) \
-	$(am__append_17) $(am__append_21)
+	-DDATADIR=\""$(datadir)"\" \
+	-DPSENSOR_DESKTOP_FILE=\""psensor.desktop"\" \
+	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/unity \
+	$(GTK_CFLAGS) $(SENSORS_CFLAGS) $(am__append_2) \
+	$(am__append_6) $(am__append_9) $(am__append_10) \
+	$(am__append_12) $(am__append_14) $(am__append_17) \
+	$(am__append_21)
 @GTK_TRUE@@X11_TRUE@@XEXT_TRUE@dist_man_MANS = psensor.1
 psensor_SOURCES = cfg.h cfg.c notify_cmd.c notify_cmd.h graph.h \
 	graph.c main.c ui.h ui.c ui_appindicator.h ui_color.h \

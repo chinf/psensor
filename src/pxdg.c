@@ -46,7 +46,7 @@ static char *get_user_desktop_file()
 	char *dir, *path;
 
 	dir = get_user_autostart_dir();
-	path = path_append(dir, "psensor.desktop");
+	path = path_append(dir, PSENSOR_DESKTOP_FILE);
 
 	free(dir);
 
@@ -55,7 +55,7 @@ static char *get_user_desktop_file()
 
 static const char *get_desktop_file()
 {
-	return DATADIR"/applications/psensor.desktop";
+	return DATADIR"/applications/"PSENSOR_DESKTOP_FILE;
 }
 
 static int is_file_exists(const char *path)

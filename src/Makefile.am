@@ -13,6 +13,7 @@ endif
 AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
 	-DDATADIR=\""$(datadir)"\"\
+	-DPSENSOR_DESKTOP_FILE=\""psensor.desktop"\"\
 	-I$(top_srcdir)/src/lib \
 	-I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS)\

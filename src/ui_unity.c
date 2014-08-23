@@ -33,7 +33,7 @@ void ui_unity_launcher_entry_update(struct psensor **sensors,
 
 	if (!initialized) {
 		psensor_entry = unity_launcher_entry_get_for_desktop_file
-			("psensor.desktop");
+			(PSENSOR_DESKTOP_FILE);
 
 		unity_launcher_entry_set_count(psensor_entry, 0);
 		initialized = 1;
