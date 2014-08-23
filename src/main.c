@@ -593,7 +593,7 @@ int main(int argc, char **argv)
 
 	ret = pthread_create(&thread, NULL, update_measures, &ui);
 
-	if (!ret)
+	if (ret)
 		log_err(_("Failed to create thread for monitoring sensors"));
 
 	ui.graph_update_interval = ui.config->graph_update_interval;
