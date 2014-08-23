@@ -163,14 +163,14 @@ void remote_psensor_update(struct psensor *s)
 	if (obj && !is_error(obj)) {
 		json_object *om;
 
-		om = json_object_object_get(obj, "last_measure");
+		json_object_object_get_ex(obj, "last_measure", &om);
 
 		if (!is_error(obj)) {
 			json_object *ov, *ot;
 			struct timeval tv;
 
-			ov = json_object_object_get(om, "value");
-			ot = json_object_object_get(om, "time");
+			json_object_object_get_ex(om, "value", &ov);
+			json_object_object_get_ex(om, "time", &ot);
 
 			tv.tv_sec = json_object_get_int(ot);
 			tv.tv_usec = 0;
