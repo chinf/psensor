@@ -141,13 +141,13 @@ AC_SUBST(CURL_LIBS)
 # Check JSON, needed for remote monitoring
 JSON_LIBS=
 PKG_CHECK_MODULES(JSON, 
-		  json-c, 
+		  json-c >= 0.11.99,
 		  [AC_DEFINE([HAVE_JSON],[1],[Use JSON])], 
 		  [AC_MSG_WARN("json-c missing")])
 
 if test "$JSON_LIBS" == ""; then
 PKG_CHECK_MODULES(JSON, 
-		  json, 
+		  json >= 0.11.99,
 		  [AC_DEFINE([HAVE_JSON],[1],[Use JSON])
 		   AC_DEFINE([HAVE_JSON_0],[1],[Use JSON0])], 
 		  [AC_MSG_WARN("json0 missing")])

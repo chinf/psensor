@@ -121,7 +121,7 @@ The compilation of +psensor+ requires:
  * library libnotify (optional)
  * library libappindicator (optional)
  * library libXNVCtrl (optional)
- * library json0 and curl (optional, required for remote monitoring)
+ * library json-c >= 0.11.99 and curl (optional, required for remote monitoring)
  * library unity (>=v3.4.2, optional)
  * library gtop2 (optional, required for CPU usage)
  * library atasmart (optional, for disk monitoring)
