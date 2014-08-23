@@ -19,19 +19,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "ui.h"
-#include "cfg.h"
-#include "ui_pref.h"
-#include "ui_color.h"
+#include <ui.h>
+#include <cfg.h>
+#include <ui_pref.h>
+#include <ui_color.h>
 #include <pxdg.h>
 
-GdkColor *color_to_gdkcolor(struct color *color)
+GdkRGBA color_to_GdkRGBA(struct color *color)
 {
-	GdkColor *c = malloc(sizeof(GdkColor));
+	GdkRGBA c;
 
-	c->red = color->red;
-	c->green = color->green;
-	c->blue = color->blue;
+	c.red = color->f_red;
+	c.green = color->f_green;
+	c.blue = color->f_blue;
+	c.alpha = 1.0;
 
 	return c;
 }
@@ -44,8 +45,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkBuilder *builder;
 	guint ok;
 	GError *error = NULL;
-	GdkColor *color_fg, *color_bg;
-	GtkColorButton *w_color_fg, *w_color_bg;
+	GdkRGBA color_fg, color_bg;
+	GtkColorChooser *w_color_fg, *w_color_bg;
 	GtkScale *w_bg_opacity;
 	GtkSpinButton *w_update_interval, *w_monitoring_duration,
 		*w_s_update_interval, *w_slog_interval;
@@ -82,15 +83,15 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		free(notif_script);
 	}
 
-	color_fg = color_to_gdkcolor(cfg->graph_fgcolor);
-	w_color_fg = GTK_COLOR_BUTTON(gtk_builder_get_object(builder,
-							     "color_fg"));
-	gtk_color_button_set_color(w_color_fg, color_fg);
+	color_fg = color_to_GdkRGBA(cfg->graph_fgcolor);
+	w_color_fg = GTK_COLOR_CHOOSER(gtk_builder_get_object(builder,
+							      "color_fg"));
+	gtk_color_chooser_set_rgba(w_color_fg, &color_fg);
 
-	color_bg = color_to_gdkcolor(cfg->graph_bgcolor);
-	w_color_bg = GTK_COLOR_BUTTON(gtk_builder_get_object(builder,
+	color_bg = color_to_GdkRGBA(cfg->graph_bgcolor);
+	w_color_bg = GTK_COLOR_CHOOSER(gtk_builder_get_object(builder,
 							     "color_bg"));
-	gtk_color_button_set_color(w_color_bg, color_bg);
+	gtk_color_chooser_set_rgba(w_color_bg, &color_bg);
 
 	w_bg_opacity = GTK_SCALE(gtk_builder_get_object(builder,
 							"bg_opacity"));
@@ -169,18 +170,18 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 	if (result == GTK_RESPONSE_ACCEPT) {
 		double value;
-		GdkColor color;
+		GdkRGBA color;
 
 		pthread_mutex_lock(&ui->sensors_mutex);
 
 		config_set_notif_script
 			(gtk_entry_get_text(GTK_ENTRY(w_notif_script)));
 
-		gtk_color_button_get_color(w_color_fg, &color);
+		gtk_color_chooser_get_rgba(w_color_fg, &color);
 		color_set(cfg->graph_fgcolor,
 			  color.red, color.green, color.blue);
 
-		gtk_color_button_get_color(w_color_bg, &color);
+		gtk_color_chooser_get_rgba(w_color_bg, &color);
 		color_set(cfg->graph_bgcolor,
 			  color.red, color.green, color.blue);
 

@@ -23,18 +23,26 @@
 
 #include "color.h"
 
-void color_set(struct color *color,
-	       unsigned int red,
-	       unsigned int green,
-	       unsigned int blue)
+void color_set(struct color *c, unsigned int r, unsigned int g, unsigned int b)
 {
-	color->red = red;
-	color->green = green;
-	color->blue = blue;
+	c->red = r;
+	c->green = g;
+	c->blue = b;
 
-	color->f_red = ((double)color->red) / 65535;
-	color->f_green = ((double)color->green) / 65535;
-	color->f_blue = ((double)color->blue) / 65535;
+	c->f_red = ((double)r) / 65535;
+	c->f_green = ((double)g) / 65535;
+	c->f_blue = ((double)b) / 65535;
+}
+
+void color_set_f(struct color *c, double r, double g, double b)
+{
+	c->f_red = r;
+	c->f_green = g;
+	c->f_blue = b;
+
+	c->red = 65535 * r;
+	c->green = 65535 * g;
+	c->blue = 65535 * b;
 }
 
 struct color *color_new(unsigned int red, unsigned int green, unsigned int blue)

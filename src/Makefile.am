@@ -9,8 +9,7 @@ SUBDIRS += server
 endif
 endif
 
-# -no-deprecated-declarations to avoid some glib deprecation warnings
-AM_CPPFLAGS = -Wno-deprecated-declarations -Wall -Werror \
+AM_CPPFLAGS =-Wall -Werror \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
 	-DDATADIR=\""$(datadir)"\"\
 	-DPSENSOR_DESKTOP_FILE=\""psensor.desktop"\"\

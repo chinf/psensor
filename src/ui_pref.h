@@ -22,6 +22,6 @@
 #include "ui.h"
 
 void ui_pref_dialog_run(struct ui_psensor *);
-GdkColor *color_to_gdkcolor(struct color *color);
+GdkRGBA color_to_GdkRGBA(struct color *color);
 
 #endif

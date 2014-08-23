@@ -184,13 +184,13 @@ ui_sensorpref_appindicator_label_toggled_cb(GtkToggleButton *btn, gpointer data)
 void ui_sensorpref_color_set_cb(GtkColorButton *widget, gpointer data)
 {
 	struct sensor_pref *p;
-	GdkColor color;
+	GdkRGBA color;
 
 	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
 	if (p) {
-		gtk_color_button_get_color(widget, &color);
-		color_set(p->color, color.red, color.green, color.blue);
+		gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(widget), &color);
+		color_set_f(p->color, color.red, color.green, color.blue);
 	}
 }
 
@@ -226,7 +226,7 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 		*w_appindicator_label_enabled, *w_display;
 	GtkColorButton *w_color;
 	GtkSpinButton *w_high_threshold, *w_low_threshold;
-	GdkColor *color;
+	GdkRGBA color;
 	struct psensor *s;
 	int use_celsius;
 
@@ -256,10 +256,10 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 				       "sensor_enable_checkbox"));
 	gtk_toggle_button_set_active(w_display, p->display_enabled);
 
-	color = color_to_gdkcolor(p->color);
+	color = color_to_GdkRGBA(p->color);
 	w_color = GTK_COLOR_BUTTON(gtk_builder_get_object(builder,
 							  "sensor_color"));
-	gtk_color_button_set_color(w_color, color);
+	gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(w_color), &color);
 
 	w_alarm = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "sensor_alarm"));
