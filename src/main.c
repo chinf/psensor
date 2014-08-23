@@ -136,12 +136,14 @@ update_psensor_values_size(struct psensor **sensors, struct config *cfg)
 	}
 }
 
-static void update_measures(struct ui_psensor *ui)
+static void *update_measures(void *data)
 {
 	struct psensor **sensors;
 	struct config *cfg;
 	int period;
+	struct ui_psensor *ui;
 
+	ui = (struct ui_psensor *)data;
 	cfg = ui->config;
 
 	while (1) {
@@ -149,7 +151,7 @@ static void update_measures(struct ui_psensor *ui)
 
 		sensors = ui->sensors;
 		if (!sensors)
-			return;
+			pthread_exit(NULL);
 
 		update_psensor_values_size(sensors, cfg);
 
@@ -474,9 +476,8 @@ static struct psensor **create_sensors_list(const char *url,
 int main(int argc, char **argv)
 {
 	struct ui_psensor ui;
-	GError *error;
-	GThread *thread;
-	int optc, cmdok, opti, use_libatasmart, new_instance;
+	pthread_t thread;
+	int optc, cmdok, opti, use_libatasmart, new_instance, ret;
 	char *url = NULL;
 	GApplication *app;
 
@@ -590,11 +591,10 @@ int main(int argc, char **argv)
 
 	ui_enable_alpha_channel(&ui);
 
-	thread = g_thread_create((GThreadFunc) update_measures,
-				 &ui, TRUE, &error);
+	ret = pthread_create(&thread, NULL, update_measures, &ui);
 
-	if (!thread)
-		g_error_free(error);
+	if (!ret)
+		log_err(_("Failed to create thread for monitoring sensors"));
 
 	ui.graph_update_interval = ui.config->graph_update_interval;
 
