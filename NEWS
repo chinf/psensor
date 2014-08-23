@@ -6,7 +6,7 @@ v1.1.1
 
 * Sensor properties stored in +$HOME/.psensor/psensor.cfg+ instead of
   GConf.
-* psensor settings stored with dconf.
+* psensor settings stored with dconf, removed dependency to gconf2.
 * Fixed check of sensors/error.h.
 * Made asciidoc optional.
 * Hide/show sensors in the main window.
