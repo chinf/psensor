@@ -111,15 +111,15 @@ draw_graph_background(cairo_t *cr,
 	cairo_fill(cr);
 	if (config->alpha_channel_enabled)
 		cairo_set_source_rgba(cr,
-				      bgcolor->f_red,
-				      bgcolor->f_green,
-				      bgcolor->f_blue,
+				      bgcolor->red,
+				      bgcolor->green,
+				      bgcolor->blue,
 				      config->graph_bg_alpha);
 	else
 		cairo_set_source_rgb(cr,
-				     bgcolor->f_red,
-				     bgcolor->f_green,
-				     bgcolor->f_blue);
+				     bgcolor->red,
+				     bgcolor->green,
+				     bgcolor->blue);
 
 	cairo_rectangle(cr, g_xoff, g_yoff, g_width, g_height);
 	cairo_fill(cr);
@@ -144,7 +144,7 @@ static void draw_background_lines(cairo_t *cr,
 	cairo_set_line_width(cr, 1);
 	cairo_set_dash(cr, dashes, ndash, 0);
 	cairo_set_source_rgb(cr,
-			     color->f_red, color->f_green, color->f_blue);
+			     color->red, color->green, color->blue);
 
 	/* vertical lines representing time steps */
 	for (i = 0; i <= 5; i++) {
@@ -184,9 +184,9 @@ static void draw_sensor_curve(struct psensor *s,
 	double v;
 
 	cairo_set_source_rgb(cr,
-			     s->color->f_red,
-			     s->color->f_green,
-			     s->color->f_blue);
+			     s->color->red,
+			     s->color->green,
+			     s->color->blue);
 
 	dt = et - bt;
 	first = 1;

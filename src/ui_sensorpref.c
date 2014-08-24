@@ -190,7 +190,7 @@ void ui_sensorpref_color_set_cb(GtkColorButton *widget, gpointer data)
 
 	if (p) {
 		gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(widget), &color);
-		color_set_f(p->color, color.red, color.green, color.blue);
+		color_set(p->color, color.red, color.green, color.blue);
 	}
 }
 
@@ -385,7 +385,10 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 		config_set_sensor_alarm_enabled(s->id, s->alarm_enabled);
 	}
 
-	color_set(s->color, p->color->red, p->color->green, p->color->blue);
+	color_set(s->color,
+		  p->color->red,
+		  p->color->green,
+		  p->color->blue);
 	config_set_sensor_color(s->id, s->color);
 
 	if (s->appindicator_enabled != p->appindicator_enabled) {

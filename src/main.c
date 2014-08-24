@@ -254,16 +254,16 @@ static void associate_colors(struct psensor **sensors)
 	/* number of uniq colors */
 #define COLORS_COUNT 8
 
-	unsigned int colors[COLORS_COUNT][3] = {
-		{0x0000, 0x0000, 0x0000},	/* black */
-		{0xffff, 0x0000, 0x0000},	/* red */
-		{0x0000, 0x0000, 0xffff},	/* blue */
-		{0x0000, 0xffff, 0x0000},	/* green */
+	double colors[COLORS_COUNT][3] = {
+		{0, 0, 0},	/* black */
+		{1, 0, 0},	/* red */
+		{0, 0, 1},	/* blue */
+		{0, 1, 0},	/* green */
 
-		{0x7fff, 0x7fff, 0x7fff},	/* grey */
-		{0x7fff, 0x0000, 0x0000},	/* dark red */
-		{0x0000, 0x0000, 0x7fff},	/* dark blue */
-		{0x0000, 0x7fff, 0x0000}	/* dark green */
+		{0.5, 0.5, 0.5},/* grey */
+		{0.5, 0, 0},	/* dark red */
+		{0, 0, 0.5},	/* dark blue */
+		{0, 0.5, 0}	/* dark green */
 	};
 	struct psensor **cur;
 	int i;

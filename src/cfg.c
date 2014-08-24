@@ -193,7 +193,7 @@ static struct color *get_background_color()
 	free(scolor);
 
 	if (!c)
-		return color_new(0xffff, 0xffff, 0xffff);
+		return color_new(1, 1, 1);
 
 	return c;
 }
@@ -209,7 +209,7 @@ static struct color *get_foreground_color()
 	free(scolor);
 
 	if (!c)
-		return color_new(0x0000, 0x0000, 0x0000);
+		return color_new(0, 0, 0);
 
 	return c;
 }

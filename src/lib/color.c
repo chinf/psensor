@@ -23,33 +23,20 @@
 
 #include "color.h"
 
-void color_set(struct color *c, unsigned int r, unsigned int g, unsigned int b)
+void color_set(struct color *c, double r, double g, double b)
 {
 	c->red = r;
 	c->green = g;
 	c->blue = b;
-
-	c->f_red = ((double)r) / 65535;
-	c->f_green = ((double)g) / 65535;
-	c->f_blue = ((double)b) / 65535;
 }
 
-void color_set_f(struct color *c, double r, double g, double b)
+struct color *color_new(double r, double g, double b)
 {
-	c->f_red = r;
-	c->f_green = g;
-	c->f_blue = b;
+	struct color *color;
 
-	c->red = 65535 * r;
-	c->green = 65535 * g;
-	c->blue = 65535 * b;
-}
+	color = malloc(sizeof(struct color));
 
-struct color *color_new(unsigned int red, unsigned int green, unsigned int blue)
-{
-	struct color *color = malloc(sizeof(struct color));
-
-	color_set(color, red, green, blue);
+	color_set(color, r, g, b);
 
 	return color;
 }
@@ -94,14 +81,19 @@ struct color *str_to_color(const char *str)
 	tmp[4] = '\0';
 	blue = strtol(tmp, NULL, 16);
 
-	return color_new(red, green, blue);
+	return color_new(((double)red)/65535,
+			 ((double)green)/65535,
+			 ((double)blue)/65535);
 }
 
 char *color_to_str(const struct color *color)
 {
 	char *str = malloc(1 + 12 + 1);
 
-	sprintf(str, "#%.4x%.4x%.4x", color->red, color->green, color->blue);
+	sprintf(str, "#%.4x%.4x%.4x",
+		(int)(65535 * color->red),
+		(int)(65535 * color->green),
+		(int)(65535 * color->blue));
 
 	return str;
 }

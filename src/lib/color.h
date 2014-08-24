@@ -29,30 +29,19 @@
  * representation.
  */
 struct color {
-	/* rgb 0..65535 */
-	unsigned int red;
-	unsigned int green;
-	unsigned int blue;
-
 	/* rgb floating 0..1 */
-	double f_red;
-	double f_green;
-	double f_blue;
+	double red;
+	double green;
+	double blue;
 };
 
-/** rgb 0..65535 */
-struct color *color_new(unsigned int r, unsigned int g, unsigned int b);
+/** rgb 0..1 */
+struct color *color_new(double r, double g, double b);
 
 struct color *color_dup(struct color *);
 
-/** rgb 0..65535 */
-void color_set(struct color *,
-	       unsigned int r,
-	       unsigned int g,
-	       unsigned int b);
-
 /** rgb 0..1 */
-void color_set_f(struct color *, double r, double g, double b);
+void color_set(struct color *, double r, double g, double b);
 
 int is_color(const char *str);
 

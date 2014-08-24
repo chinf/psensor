@@ -29,9 +29,9 @@ GdkRGBA color_to_GdkRGBA(struct color *color)
 {
 	GdkRGBA c;
 
-	c.red = color->f_red;
-	c.green = color->f_green;
-	c.blue = color->f_blue;
+	c.red = color->red;
+	c.green = color->green;
+	c.blue = color->blue;
 	c.alpha = 1.0;
 
 	return c;
@@ -179,11 +179,15 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		gtk_color_chooser_get_rgba(w_color_fg, &color);
 		color_set(cfg->graph_fgcolor,
-			  color.red, color.green, color.blue);
+			  color.red,
+			  color.green,
+			  color.blue);
 
 		gtk_color_chooser_get_rgba(w_color_bg, &color);
 		color_set(cfg->graph_bgcolor,
-			  color.red, color.green, color.blue);
+			  color.red,
+			  color.green,
+			  color.blue);
 
 		value = gtk_range_get_value(GTK_RANGE(w_bg_opacity));
 		cfg->graph_bg_alpha = value;

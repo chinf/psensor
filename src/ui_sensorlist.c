@@ -58,7 +58,7 @@ static void populate(struct ui_psensor *ui)
 {
 	GtkTreeIter iter;
 	GtkListStore *store;
-	GdkColor color;
+	GdkRGBA color;
 	char *scolor;
 	struct psensor **ordered_sensors, **s_cur, *s;
 	unsigned int enabled;
@@ -76,8 +76,9 @@ static void populate(struct ui_psensor *ui)
 		color.red = s->color->red;
 		color.green = s->color->green;
 		color.blue = s->color->blue;
+		color.alpha = 1.0;
 
-		scolor = gdk_color_to_string(&color);
+		scolor = gdk_rgba_to_string(&color);
 
 		enabled = config_is_sensor_enabled(s->id);
 

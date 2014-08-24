@@ -63,7 +63,7 @@ int ui_change_color(const char *title, struct color *col, GtkWindow *win)
 		else
 			b = color.blue;
 
-		color_set(col, 65535*r, 65535*g, 65535*b);
+		color_set(col, r, g, b);
 	}
 
 	gtk_widget_destroy(GTK_WIDGET(colordlg));
