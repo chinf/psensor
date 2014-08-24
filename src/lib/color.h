@@ -19,15 +19,7 @@
 #ifndef _PSENSOR_COLOR_H_
 #define _PSENSOR_COLOR_H_
 
-/*
- * Represents a RGB color.
- *
- * Contains integer and floating RGB representation to avoid useless
- * conversion.
- *
- * Uses color_set to maintain the coherence of the both
- * representation.
- */
+/* Represents a RGB color. */
 struct color {
 	/* rgb floating 0..1 */
 	double red;
