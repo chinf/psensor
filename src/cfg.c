@@ -337,8 +337,12 @@ static void set_window_keep_below_enabled(bool enabled)
 
 static void init()
 {
+	log_fct_enter();
+
 	if (!settings)
 		settings = g_settings_new("psensor");
+
+	log_fct_exit();
 }
 
 void config_cleanup()
