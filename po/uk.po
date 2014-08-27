@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-23 01:16+0200\n"
+"POT-Creation-Date: 2014-08-27 10:01+0200\n"
 "PO-Revision-Date: 2012-10-13 16:24+0000\n"
 "Last-Translator: Ilya Volchanetskiy <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -18,21 +18,21 @@ msgstr ""
 "X-Launchpad-Export-Date: 2013-01-21 09:32+0000\n"
 "X-Generator: Launchpad (build 16430)\n"
 
-#: src/cfg.c:490
+#: src/cfg.c:494
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Не вдалося створити веб-сервер."
 
-#: src/cfg.c:538
+#: src/cfg.c:542
 msgid "The configuration file does not exist."
 msgstr ""
 
-#: src/cfg.c:541
+#: src/cfg.c:545
 #, c-format
 msgid "Failed to parse configuration file: %s"
 msgstr ""
 
-#: src/cfg.c:565
+#: src/cfg.c:569
 #, c-format
 msgid "Failed to save configuration file %s."
 msgstr ""
@@ -42,7 +42,7 @@ msgid "About"
 msgstr "Про програму"
 
 #: src/glade/psensor.glade:10 src/glade/psensor.glade:11
-#: src/glade/psensor.glade:20 src/ui_sensorlist.c:216
+#: src/glade/psensor.glade:20 src/ui_sensorlist.c:217
 msgid "Preferences"
 msgstr "Налаштування"
 
@@ -189,7 +189,7 @@ msgid "Measures"
 msgstr "Заміри"
 
 #: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
-#: src/ui_sensorlist.c:363
+#: src/ui_sensorlist.c:364
 msgid "Graph"
 msgstr "Діаграма"
 
@@ -490,22 +490,27 @@ msgstr "Звітуйте про помилки до: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s домашня сторінка: <%s>\n"
 
-#: src/main.c:451
+#: src/main.c:453
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor не був зібраний з підтримкою віддалених датчиків."
 
-#: src/main.c:514
+#: src/main.c:515
 msgid "Enables debug mode."
 msgstr "Включає режим налагодження."
 
-#: src/main.c:526 src/server/server.c:381
+#: src/main.c:527 src/server/server.c:381
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Спробуйте `%s --help' щоб отримати більше інформації.\n"
 
-#: src/main.c:539
+#: src/main.c:540
 msgid "A Psensor instance already exists."
 msgstr ""
+
+#: src/main.c:597
+#, fuzzy
+msgid "Failed to create thread for monitoring sensors"
+msgstr "Не вдалося створити веб-сервер."
 
 #: src/rsensor.c:107
 #, c-format
@@ -631,27 +636,27 @@ msgstr "Домашня сторінка Psensor"
 msgid "Failed to load Psensor icon."
 msgstr "Не вдалося завантажити іконку Psensor."
 
-#: src/ui_sensorlist.c:252
+#: src/ui_sensorlist.c:253
 msgid "Select foreground color"
 msgstr "Оберіть колір переднього плану"
 
-#: src/ui_sensorlist.c:326
+#: src/ui_sensorlist.c:327
 msgid "Sensor"
 msgstr "Датчик"
 
-#: src/ui_sensorlist.c:332
+#: src/ui_sensorlist.c:333
 msgid "Value"
 msgstr "Значення"
 
-#: src/ui_sensorlist.c:338
+#: src/ui_sensorlist.c:339
 msgid "Min"
 msgstr "Мін."
 
-#: src/ui_sensorlist.c:344
+#: src/ui_sensorlist.c:345
 msgid "Max"
 msgstr "Макс."
 
-#: src/ui_sensorlist.c:351
+#: src/ui_sensorlist.c:352
 msgid "Color"
 msgstr "Колір"
 

@@ -11,6 +11,11 @@ v1.1.1
 * Made asciidoc optional.
 * Hide/show sensors in the main window.
 * Added TODO in the source tarball.
+* Merged Hungarian translation from LP (Richard Somlói).
+* Merged Italian translation from LP (Gabriele).
+* Merged Latvian translation from LP (tuxmaniack).
+* Merged Swedish translation from LP (Josef Andersson).
+* Meged Turkish translation from LP (İbrahim Çelik).
 
 v1.0.4
 ------
