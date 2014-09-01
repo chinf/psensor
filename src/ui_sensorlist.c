@@ -238,9 +238,6 @@ static int clicked_cbk(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	struct psensor *s;
 	int coli;
 
-	if (event->button != 3)
-		return FALSE;
-
 	ui = (struct ui_psensor *)data;
 	view = ui->sensors_tree;
 
@@ -250,26 +247,29 @@ static int clicked_cbk(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		coli = col_index_to_col(get_col_index_at_pos(view, event->x));
 
 		if (coli == COL_COLOR) {
-			if (ui_change_color(_("Select foreground color"),
+			if (ui_change_color(_("Select sensor color"),
 					    s->color,
 					    GTK_WINDOW(ui->main_window))) {
 				ui_sensorlist_update(ui, 1);
 				config_set_sensor_color(s->id, s->color);
 				config_sync();
 			}
+			return TRUE;
 		} else if (coli >= 0 && coli != COL_GRAPH_ENABLED) {
 			menu = create_sensor_popup(ui, s);
 
 			gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL,
 				       event->button, event->time);
+			return TRUE;
 		}
 
 	}
-	return TRUE;
+	return FALSE;
 }
 
-static void
-toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
+void ui_sensorlist_cb_graph_toggled(GtkCellRendererToggle *cell,
+				    gchar *path_str,
+				    gpointer data)
 {
 	struct ui_psensor *ui;
 	GtkTreeModel *model, *fmodel;
@@ -289,6 +289,7 @@ toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 
 	s->graph_enabled ^= 1;
 	config_set_sensor_graph_enabled(s->id, s->graph_enabled);
+	config_sync();
 
 	gtk_tree_path_free(path);
 
@@ -309,10 +310,9 @@ toggled_cbk(GtkCellRendererToggle *cell, gchar *path_str, gpointer data)
 
 void ui_sensorlist_create(struct ui_psensor *ui)
 {
-	GtkCellRenderer *renderer;
 	GtkTreeModel *fmodel, *model;
 
-	log_debug("ui_sensorlist_create()");
+	log_fct_enter();
 
 	model = gtk_tree_view_get_model(ui->sensors_tree);
 	fmodel = gtk_tree_model_filter_new(model, NULL);
@@ -321,59 +321,10 @@ void ui_sensorlist_create(struct ui_psensor *ui)
 
 	gtk_tree_view_set_model(ui->sensors_tree, fmodel);
 
-	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
-						    -1,
-						    _("Sensor"),
-						    renderer,
-						    "text", COL_NAME, NULL);
-
-	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
-						    -1,
-						    _("Value"),
-						    renderer,
-						    "text", COL_TEMP, NULL);
-
-	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
-						    -1,
-						    _("Min"),
-						    renderer,
-						    "text", COL_TEMP_MIN, NULL);
-
-	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
-						    -1,
-						    _("Max"),
-						    renderer,
-						    "text", COL_TEMP_MAX, NULL);
-
-	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
-						    -1,
-						    _("Color"),
-						    renderer,
-						    "text", COL_COLOR,
-						    "background", COL_COLOR_STR,
-						    NULL);
-
 	g_signal_connect(ui->sensors_tree,
 			 "button-press-event", (GCallback)clicked_cbk, ui);
 
-	renderer = gtk_cell_renderer_toggle_new();
-	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
-						    -1,
-						    _("Graph"),
-						    renderer,
-						    "active", COL_GRAPH_ENABLED,
-						    NULL);
-	g_signal_connect(G_OBJECT(renderer),
-			 "toggled", (GCallback) toggled_cbk, ui);
-
-	renderer = gtk_cell_renderer_text_new();
-	gtk_tree_view_insert_column_with_attributes(ui->sensors_tree,
-						    -1,
-						    "",
-						    renderer,
-						    "text", COL_EMPTY, NULL);
-
 	ui_sensorlist_update(ui, 1);
+
+	log_fct_exit();
 }

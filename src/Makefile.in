@@ -367,8 +367,8 @@ psensor_SOURCES = cfg.h cfg.c notify_cmd.c notify_cmd.h graph.h \
 	ui_sensorpref.c ui_status.h ui_status.c pxdg.h pxdg.c \
 	$(am__append_4) $(am__append_7) $(am__append_16) \
 	$(am__append_19)
-EXTRA_DIST = $(gsettings_SCHEMAS)
 gsettings_SCHEMAS = psensor.gschema.xml
+EXTRA_DIST = description.txt $(gsettings_SCHEMAS)
 all: all-recursive
 
 .SUFFIXES:

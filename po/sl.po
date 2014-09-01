@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-27 10:01+0200\n"
+"POT-Creation-Date: 2014-09-01 21:28+0200\n"
 "PO-Revision-Date: 2012-04-14 21:02+0000\n"
 "Last-Translator: Jean-Philippe Orsini <jeanfi@gmail.com>\n"
 "Language-Team: Slovenian <sl@li.org>\n"
@@ -69,6 +69,14 @@ msgstr ""
 
 #: src/glade/psensor.glade:248
 msgid "_Help"
+msgstr ""
+
+#: src/glade/psensor.glade:312
+msgid "Sensor"
+msgstr ""
+
+#: src/glade/psensor.glade:323
+msgid "Value"
 msgstr ""
 
 #: src/glade/psensor-pref.glade:24
@@ -372,7 +380,7 @@ msgstr ""
 msgid "VIA CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:218
+#: src/lib/lmsensor.c:221
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr ""
@@ -624,14 +632,6 @@ msgstr ""
 
 #: src/ui_sensorlist.c:253
 msgid "Select foreground color"
-msgstr ""
-
-#: src/ui_sensorlist.c:327
-msgid "Sensor"
-msgstr ""
-
-#: src/ui_sensorlist.c:333
-msgid "Value"
 msgstr ""
 
 #: src/ui_sensorlist.c:339

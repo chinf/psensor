@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-27 10:01+0200\n"
+"POT-Creation-Date: 2014-09-01 21:28+0200\n"
 "PO-Revision-Date: 2014-05-01 13:23+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -70,6 +70,14 @@ msgstr ""
 #: src/glade/psensor.glade:248
 msgid "_Help"
 msgstr "帮助(_H)"
+
+#: src/glade/psensor.glade:312
+msgid "Sensor"
+msgstr "监视设备"
+
+#: src/glade/psensor.glade:323
+msgid "Value"
+msgstr "值"
 
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
@@ -373,7 +381,7 @@ msgstr ""
 msgid "VIA CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:218
+#: src/lib/lmsensor.c:221
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor：初始化失败：%s。"
@@ -644,14 +652,6 @@ msgstr "无法加载 Psensor 图标。"
 #: src/ui_sensorlist.c:253
 msgid "Select foreground color"
 msgstr "选择前景色"
-
-#: src/ui_sensorlist.c:327
-msgid "Sensor"
-msgstr "监视设备"
-
-#: src/ui_sensorlist.c:333
-msgid "Value"
-msgstr "值"
 
 #: src/ui_sensorlist.c:339
 msgid "Min"

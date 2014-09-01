@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-27 10:01+0200\n"
+"POT-Creation-Date: 2014-09-01 21:28+0200\n"
 "PO-Revision-Date: 2014-06-04 22:47+0000\n"
 "Last-Translator: tuxmaniack <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -70,6 +70,14 @@ msgstr "_Psensor"
 #: src/glade/psensor.glade:248
 msgid "_Help"
 msgstr "_Palīdzība"
+
+#: src/glade/psensor.glade:312
+msgid "Sensor"
+msgstr "Sensors"
+
+#: src/glade/psensor.glade:323
+msgid "Value"
+msgstr "Vērtība"
 
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
@@ -374,7 +382,7 @@ msgstr "NVIDIA GPU"
 msgid "VIA CPU"
 msgstr "VIA CPU"
 
-#: src/lib/lmsensor.c:218
+#: src/lib/lmsensor.c:221
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: inicializācijas kļūda: %s."
@@ -650,14 +658,6 @@ msgstr "Neizdevās ielādēt Psensor ikonu."
 #: src/ui_sensorlist.c:253
 msgid "Select foreground color"
 msgstr "Izvēlieties priekšplāna krāsu"
-
-#: src/ui_sensorlist.c:327
-msgid "Sensor"
-msgstr "Sensors"
-
-#: src/ui_sensorlist.c:333
-msgid "Value"
-msgstr "Vērtība"
 
 #: src/ui_sensorlist.c:339
 msgid "Min"

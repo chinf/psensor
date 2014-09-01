@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-08-27 10:01+0200\n"
+"POT-Creation-Date: 2014-09-01 21:28+0200\n"
 "PO-Revision-Date: 2014-05-20 05:14+0000\n"
 "Last-Translator: Dmitry Serov <dmitri.s93@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -71,6 +71,14 @@ msgstr ""
 #: src/glade/psensor.glade:248
 msgid "_Help"
 msgstr "_Справка"
+
+#: src/glade/psensor.glade:312
+msgid "Sensor"
+msgstr "Датчик"
+
+#: src/glade/psensor.glade:323
+msgid "Value"
+msgstr "Значение"
 
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
@@ -374,7 +382,7 @@ msgstr ""
 msgid "VIA CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:218
+#: src/lib/lmsensor.c:221
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: ошибка инициализации: %s."
@@ -646,14 +654,6 @@ msgstr "Не удалось загрузить значок Psensor."
 #: src/ui_sensorlist.c:253
 msgid "Select foreground color"
 msgstr "Выберите цвет переднего плана"
-
-#: src/ui_sensorlist.c:327
-msgid "Sensor"
-msgstr "Датчик"
-
-#: src/ui_sensorlist.c:333
-msgid "Value"
-msgstr "Значение"
 
 #: src/ui_sensorlist.c:339
 msgid "Min"

@@ -5,6 +5,12 @@ v1.1.2
 ------
 
 * Fixed missing description in psensor manpage.
+* All mouse buttons can be used to raise color settings in the list of
+  sensors.
+* All mouse buttons can be used to popup menu in the list of sensors.
+* List of sensors UI defined in glade file instead of code.
+* Fixed graph enabled setting not saved when toggle in the list of
+  sensors.
 
 v1.1.1
 ------
