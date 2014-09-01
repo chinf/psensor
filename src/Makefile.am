@@ -98,13 +98,11 @@ AM_CPPFLAGS += $(CURL_CFLAGS) $(JSON_CFLAGS)
 endif
 endif
 
-EXTRA_DIST = description.txt psensor.schemas
-
 psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)
 	help2man --include=description.txt -N --name="Temperature monitoring application" --output=psensor.1 ./psensor$(EXEEXT)
 
 gsettings_SCHEMAS=psensor.gschema.xml
-EXTRA_DIST=$(gsettings_SCHEMAS)
+EXTRA_DIST = description.txt $(gsettings_SCHEMAS)
 
 @GSETTINGS_RULES@

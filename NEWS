@@ -1,6 +1,11 @@
 Psensor NEWS
 ============
 
+v1.1.2
+------
+
+* Fixed missing description in psensor manpage.
+
 v1.1.1
 ------
 
