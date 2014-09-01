@@ -189,7 +189,6 @@ struct psensor **lmsensor_psensor_list_add(struct psensor **sensors,
 
 		i = 0;
 		while ((feature = sensors_get_features(chip, &i))) {
-
 			if (feature->type == SENSORS_FEATURE_TEMP
 			    || feature->type == SENSORS_FEATURE_FAN) {
 
