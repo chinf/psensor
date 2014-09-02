@@ -11,6 +11,7 @@ v1.1.2
 * List of sensors UI defined in glade file instead of code.
 * Fixed graph enabled setting not saved when toggle in the list of
   sensors.
+* Added NVidia GPU usage.
 
 v1.1.1
 ------

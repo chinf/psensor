@@ -431,6 +431,8 @@ const char *psensor_type_to_str(unsigned int type)
 	if (type & SENSOR_TYPE_NVCTRL) {
 		if (type & SENSOR_TYPE_TEMP)
 			return "NVIDIA GPU Temperature";
+		else if (type & SENSOR_TYPE_USAGE)
+			return "NVIDIA GPU Usage";
 		else
 			return "NVIDIA GPU";
 	}

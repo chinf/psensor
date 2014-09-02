@@ -54,7 +54,77 @@ static int get_temp(struct psensor *sensor)
 	return 0;
 }
 
-static struct psensor *create_sensor(int id, int values_len)
+static double get_usage_att(char *atts, char *att)
+{
+	char *c, *key, *strv, *s;
+	size_t n;
+	double v;
+
+	c = atts;
+
+	v = UNKNOWN_DBL_VALUE;
+	while (*c) {
+		s = c;
+		n = 0;
+		while (*c) {
+			if (*c == '=')
+				break;
+			c++;
+			n++;
+		}
+
+		key = strndup(s, n);
+
+		if (*c)
+			c++;
+
+		n = 0;
+		s = c;
+		while (*c) {
+			if (*c == ',')
+				break;
+			c++;
+			n++;
+		}
+
+		strv = strndup(s, n);
+		if (!strcmp(key, att))
+			v = atoi(strv);
+
+		free(key);
+		free(strv);
+
+		if (v != UNKNOWN_DBL_VALUE)
+			break;
+
+		while (*c && (*c == ' ' || *c == ','))
+			c++;
+	}
+
+	return v;
+}
+
+static int get_usage(struct psensor *sensor)
+{
+	char *temp;
+	Bool res;
+
+	res = XNVCTRLQueryTargetStringAttribute(display,
+					  NV_CTRL_TARGET_TYPE_GPU,
+					  sensor->nvidia_id,
+					  0,
+					  NV_CTRL_STRING_GPU_UTILIZATION,
+					  &temp);
+
+	if (res == True)
+		return get_usage_att(temp, "graphics");
+
+	log_debug(_("NVIDIA proprietary driver not used or cannot "
+		    "retrieve NVIDIA GPU usage."));
+	return 0;
+}
+
+static struct psensor *create_temp_sensor(int id, int values_len)
 {
 	char name[200];
 	char *sid;
@@ -67,6 +137,31 @@ static struct psensor *create_sensor(int id, int values_len)
 	sprintf(sid, "NVIDIA %s", name);
 
 	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP;
+
+	s = psensor_create(sid,
+			   strdup(name),
+			   strdup(_("NVIDIA GPU")),
+			   t,
+			   values_len);
+
+	s->nvidia_id = id;
+
+	return s;
+}
+
+static struct psensor *create_usage_sensor(int id, int values_len)
+{
+	char name[200];
+	char *sid;
+	struct psensor *s;
+	int t;
+
+	sprintf(name, "GPU%d graphics", id);
+
+	sid = malloc(strlen("NVIDIA") + 1 + strlen(name) + 1);
+	sprintf(sid, "NVIDIA %s", name);
+
+	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE;
 
 	s = psensor_create(sid,
 			   strdup(name),
@@ -113,8 +208,12 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 	while (*ss) {
 		s = *ss;
 
-		if (s->type & SENSOR_TYPE_NVCTRL)
-			psensor_set_current_value(s, get_temp(s));
+		if (s->type & SENSOR_TYPE_NVCTRL) {
+			if (s->type & SENSOR_TYPE_TEMP)
+				psensor_set_current_value(s, get_temp(s));
+			else if (s->type & SENSOR_TYPE_USAGE)
+				psensor_set_current_value(s, get_usage(s));
+		}
 
 		ss++;
 	}
@@ -130,7 +229,16 @@ struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
 
 	ss = sensors;
 	for (i = 0; i < n; i++) {
-		s = create_sensor(i, values_len);
+		s = create_temp_sensor(i, values_len);
+
+		tmp = psensor_list_add(ss, s);
+
+		if (ss != tmp)
+			free(ss);
+
+		ss = tmp;
+
+		s = create_usage_sensor(i, values_len);
 
 		tmp = psensor_list_add(ss, s);
 
