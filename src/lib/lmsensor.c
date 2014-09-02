@@ -154,6 +154,8 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 		cname = strdup(_("NVIDIA GPU"));
 	else if (!strcmp(chip->prefix, "via-cputemp"))
 		cname = strdup(_("VIA CPU"));
+	else if (!strcmp(chip->prefix, "acpitz"))
+		cname = strdup(_("ACPI"));
 	else
 		cname = strdup(chip->prefix);
 
