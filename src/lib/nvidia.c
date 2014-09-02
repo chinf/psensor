@@ -116,8 +116,16 @@ static int get_usage(struct psensor *sensor)
 					  NV_CTRL_STRING_GPU_UTILIZATION,
 					  &temp);
 
-	if (res == True)
-		return get_usage_att(temp, "graphics");
+	if (res == True) {
+		if (sensor->type & SENSOR_TYPE_GRAPHICS)
+			return get_usage_att(temp, "graphics");
+		else if (sensor->type & SENSOR_TYPE_VIDEO)
+			return get_usage_att(temp, "video");
+		else if (sensor->type & SENSOR_TYPE_MEMORY)
+			return get_usage_att(temp, "memory");
+		else if (sensor->type & SENSOR_TYPE_PCIE)
+			return get_usage_att(temp, "PCIe");
+	}
 
 	log_debug(_("NVIDIA proprietary driver not used or cannot "
 		    "retrieve NVIDIA GPU usage."));
@@ -149,19 +157,29 @@ static struct psensor *create_temp_sensor(int id, int values_len)
 	return s;
 }
 
-static struct psensor *create_usage_sensor(int id, int values_len)
+static struct psensor *create_usage_sensor(int id,
+					   int subtype,
+					   int values_len)
 {
 	char name[200];
 	char *sid;
 	struct psensor *s;
 	int t;
 
-	sprintf(name, "GPU%d graphics", id);
+	if (subtype & SENSOR_TYPE_GRAPHICS)
+		sprintf(name, "GPU%d graphics", id);
+	else if (subtype & SENSOR_TYPE_MEMORY)
+		sprintf(name, "GPU%d memory", id);
+	else if (subtype & SENSOR_TYPE_VIDEO)
+		sprintf(name, "GPU%d video", id);
+	else /* if (subtype & SENSOR_TYPE_PCIE) */
+		sprintf(name, "GPU%d PCIe", id);
+
 
 	sid = malloc(strlen("NVIDIA") + 1 + strlen(name) + 1);
 	sprintf(sid, "NVIDIA %s", name);
 
-	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE;
+	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | subtype;
 
 	s = psensor_create(sid,
 			   strdup(name),
@@ -230,18 +248,31 @@ struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
 	ss = sensors;
 	for (i = 0; i < n; i++) {
 		s = create_temp_sensor(i, values_len);
-
 		tmp = psensor_list_add(ss, s);
-
 		if (ss != tmp)
 			free(ss);
 
 		ss = tmp;
-
-		s = create_usage_sensor(i, values_len);
-
+		s = create_usage_sensor(i, SENSOR_TYPE_GRAPHICS, values_len);
 		tmp = psensor_list_add(ss, s);
+		if (ss != tmp)
+			free(ss);
 
+		ss = tmp;
+		s = create_usage_sensor(i, SENSOR_TYPE_VIDEO, values_len);
+		tmp = psensor_list_add(ss, s);
+		if (ss != tmp)
+			free(ss);
+
+		ss = tmp;
+		s = create_usage_sensor(i, SENSOR_TYPE_MEMORY, values_len);
+		tmp = psensor_list_add(ss, s);
+		if (ss != tmp)
+			free(ss);
+
+		ss = tmp;
+		s = create_usage_sensor(i, SENSOR_TYPE_PCIE, values_len);
+		tmp = psensor_list_add(ss, s);
 		if (ss != tmp)
 			free(ss);
 
