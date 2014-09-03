@@ -60,7 +60,7 @@ static char *get_product_name(int id)
 	return strdup("NVIDIA");
 }
 
-static double nv_get_temp(int id)
+static double get_temp(int id)
 {
 	Bool res;
 	int temp;
@@ -94,14 +94,6 @@ static double get_ambient_temp(int id)
 		return temp;
 	else
 		return UNKNOWN_DBL_VALUE;
-}
-
-static double get_temp(int id, int type)
-{
-	if (type & SENSOR_TYPE_AMBIENT)
-		return get_ambient_temp(id);
-	else
-		return nv_get_temp(id);
 }
 
 static double get_usage_att(char *atts, char *att)
@@ -193,7 +185,10 @@ static void update(struct psensor *sensor)
 	double v;
 
 	if (sensor->type & SENSOR_TYPE_TEMP) {
-		v = get_temp(sensor->nvidia_id, sensor->type);
+		if (sensor->type & SENSOR_TYPE_AMBIENT)
+			v = get_ambient_temp(sensor->nvidia_id);
+		else
+			v = get_temp(sensor->nvidia_id);
 	} else { /* SENSOR_TYPE_USAGE */
 		v = get_usage(sensor->nvidia_id, sensor->type);
 	}
