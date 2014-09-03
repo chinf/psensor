@@ -29,29 +29,79 @@
 #include <NVCtrl/NVCtrl.h>
 #include <NVCtrl/NVCtrlLib.h>
 
-#include "psensor.h"
+#include <psensor.h>
 
 Display *display;
 
-/* Returns the temperature (Celsius) of a NVIDIA GPU. */
-static int get_temp(struct psensor *sensor)
+static char *get_product_name(int id)
 {
-	int temp;
+	char *name;
 	Bool res;
+
+	res = XNVCTRLQueryTargetStringAttribute(display,
+						NV_CTRL_TARGET_TYPE_GPU,
+						id,
+						0,
+						NV_CTRL_STRING_PRODUCT_NAME,
+						&name);
+	if (res == True) {
+		if (strcmp(name, "Unknown")) {
+			return name;
+		} else {
+			log_err(_("Unknown NVIDIA product name for GPU %d"),
+				id);
+			free(name);
+		}
+	} else {
+		log_err(_("Failed to retrieve NVIDIA product name for GPU %d"),
+			id);
+	}
+
+	return strdup("NVIDIA");
+}
+
+static double nv_get_temp(int id)
+{
+	Bool res;
+	int temp;
 
 	res = XNVCTRLQueryTargetAttribute(display,
 					  NV_CTRL_TARGET_TYPE_GPU,
-					  sensor->nvidia_id,
+					  id,
 					  0,
 					  NV_CTRL_GPU_CORE_TEMPERATURE,
 					  &temp);
 
 	if (res == True)
 		return temp;
+	else
+		return UNKNOWN_DBL_VALUE;
+}
 
-	log_debug(_("NVIDIA proprietary driver not used or cannot "
-		    "retrieve NVIDIA GPU temperature."));
-	return 0;
+static double get_ambient_temp(int id)
+{
+	Bool res;
+	int temp;
+
+	res = XNVCTRLQueryTargetAttribute(display,
+					  NV_CTRL_TARGET_TYPE_GPU,
+					  id,
+					  0,
+					  NV_CTRL_AMBIENT_TEMPERATURE,
+					  &temp);
+
+	if (res == True)
+		return temp;
+	else
+		return UNKNOWN_DBL_VALUE;
+}
+
+static double get_temp(int id, int type)
+{
+	if (type & SENSOR_TYPE_AMBIENT)
+		return get_ambient_temp(id);
+	else
+		return nv_get_temp(id);
 }
 
 static double get_usage_att(char *atts, char *att)
@@ -104,47 +154,77 @@ static double get_usage_att(char *atts, char *att)
 	return v;
 }
 
-static int get_usage(struct psensor *sensor)
+static double get_usage(int id, int type)
 {
-	char *temp;
+	char *stype, *atts;
+	double v;
 	Bool res;
 
+	if (type & SENSOR_TYPE_GRAPHICS)
+		stype = "graphics";
+	else if (type & SENSOR_TYPE_VIDEO)
+		stype = "video";
+	else if (type & SENSOR_TYPE_MEMORY)
+		stype = "memory";
+	else if (type & SENSOR_TYPE_PCIE)
+		stype = "PCIe";
+	else
+		return UNKNOWN_DBL_VALUE;
+
 	res = XNVCTRLQueryTargetStringAttribute(display,
-					  NV_CTRL_TARGET_TYPE_GPU,
-					  sensor->nvidia_id,
-					  0,
-					  NV_CTRL_STRING_GPU_UTILIZATION,
-					  &temp);
+						NV_CTRL_TARGET_TYPE_GPU,
+						id,
+						0,
+						NV_CTRL_STRING_GPU_UTILIZATION,
+						&atts);
 
-	if (res == True) {
-		if (sensor->type & SENSOR_TYPE_GRAPHICS)
-			return get_usage_att(temp, "graphics");
-		else if (sensor->type & SENSOR_TYPE_VIDEO)
-			return get_usage_att(temp, "video");
-		else if (sensor->type & SENSOR_TYPE_MEMORY)
-			return get_usage_att(temp, "memory");
-		else if (sensor->type & SENSOR_TYPE_PCIE)
-			return get_usage_att(temp, "PCIe");
-	}
+	if (res != True)
+		return UNKNOWN_DBL_VALUE;
 
-	log_debug(_("NVIDIA proprietary driver not used or cannot "
-		    "retrieve NVIDIA GPU usage."));
-	return 0;
+	v = get_usage_att(atts, stype);
+
+	free(atts);
+
+	return v;
 }
 
-static struct psensor *create_temp_sensor(int id, int values_len)
+static void update(struct psensor *sensor)
+{
+	double v;
+
+	if (sensor->type & SENSOR_TYPE_TEMP) {
+		v = get_temp(sensor->nvidia_id, sensor->type);
+	} else { /* SENSOR_TYPE_USAGE */
+		v = get_usage(sensor->nvidia_id, sensor->type);
+	}
+
+	if (v == UNKNOWN_DBL_VALUE)
+		log_err(_("Failed to retrieve measure of type %x "
+			  "for NVIDIA GPU %d"),
+			sensor->type,
+			sensor->nvidia_id);
+	psensor_set_current_value(sensor, v);
+}
+
+static struct psensor *create_temp_sensor(int id, int subtype, int values_len)
 {
 	char name[200];
-	char *sid;
+	char *sid, *pname;
 	struct psensor *s;
 	int t;
 
-	sprintf(name, "GPU%d", id);
+	pname = get_product_name(id);
+
+	if (subtype & SENSOR_TYPE_AMBIENT)
+		sprintf(name, "%s %d ambient", pname, id);
+	else
+		sprintf(name, "%s %d", pname, id);
+	free(pname);
 
 	sid = malloc(strlen("NVIDIA") + 1 + strlen(name) + 1);
 	sprintf(sid, "NVIDIA %s", name);
 
-	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP;
+	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP | subtype;
 
 	s = psensor_create(sid,
 			   strdup(name),
@@ -226,12 +306,8 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 	while (*ss) {
 		s = *ss;
 
-		if (s->type & SENSOR_TYPE_NVCTRL) {
-			if (s->type & SENSOR_TYPE_TEMP)
-				psensor_set_current_value(s, get_temp(s));
-			else if (s->type & SENSOR_TYPE_USAGE)
-				psensor_set_current_value(s, get_usage(s));
-		}
+		if (s->type & SENSOR_TYPE_NVCTRL)
+			update(s);
 
 		ss++;
 	}
@@ -247,7 +323,13 @@ struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
 
 	ss = sensors;
 	for (i = 0; i < n; i++) {
-		s = create_temp_sensor(i, values_len);
+		s = create_temp_sensor(i, 0, values_len);
+		tmp = psensor_list_add(ss, s);
+		if (ss != tmp)
+			free(ss);
+
+		ss = tmp;
+		s = create_temp_sensor(i, SENSOR_TYPE_AMBIENT, values_len);
 		tmp = psensor_list_add(ss, s);
 		if (ss != tmp)
 			free(ss);
