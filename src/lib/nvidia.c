@@ -20,6 +20,8 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
+#include <limits.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -96,7 +98,7 @@ static double get_ambient_temp(int id)
 		return UNKNOWN_DBL_VALUE;
 }
 
-static double get_usage_att(char *atts, char *att)
+static double get_usage_att(char *atts, const char *att)
 {
 	char *c, *key, *strv, *s;
 	size_t n;
@@ -146,21 +148,34 @@ static double get_usage_att(char *atts, char *att)
 	return v;
 }
 
+static const char *get_nvidia_type_str(int type)
+{
+	if (type & SENSOR_TYPE_GRAPHICS)
+		return "graphics";
+	else if (type & SENSOR_TYPE_VIDEO)
+		return "video";
+	else if (type & SENSOR_TYPE_MEMORY)
+		return "memory";
+	else if (type & SENSOR_TYPE_PCIE)
+		return "PCIe";
+	else if (type & SENSOR_TYPE_AMBIENT)
+		return "ambient";
+	else if (type & SENSOR_TYPE_TEMP)
+		return "temp";
+	else
+		return "unknown";
+}
+
 static double get_usage(int id, int type)
 {
-	char *stype, *atts;
+	const char *stype;
+	char *atts;
 	double v;
 	Bool res;
 
-	if (type & SENSOR_TYPE_GRAPHICS)
-		stype = "graphics";
-	else if (type & SENSOR_TYPE_VIDEO)
-		stype = "video";
-	else if (type & SENSOR_TYPE_MEMORY)
-		stype = "memory";
-	else if (type & SENSOR_TYPE_PCIE)
-		stype = "PCIe";
-	else
+	stype = get_nvidia_type_str(type);
+
+	if (!stype)
 		return UNKNOWN_DBL_VALUE;
 
 	res = XNVCTRLQueryTargetStringAttribute(display,
@@ -180,18 +195,23 @@ static double get_usage(int id, int type)
 	return v;
 }
 
+static double get_value(int id, int type)
+{
+	if (type & SENSOR_TYPE_TEMP) {
+		if (type & SENSOR_TYPE_AMBIENT)
+			return get_ambient_temp(id);
+		else
+			return get_temp(id);
+	} else { /* SENSOR_TYPE_USAGE */
+		return get_usage(id, type);
+	}
+}
+
 static void update(struct psensor *sensor)
 {
 	double v;
 
-	if (sensor->type & SENSOR_TYPE_TEMP) {
-		if (sensor->type & SENSOR_TYPE_AMBIENT)
-			v = get_ambient_temp(sensor->nvidia_id);
-		else
-			v = get_temp(sensor->nvidia_id);
-	} else { /* SENSOR_TYPE_USAGE */
-		v = get_usage(sensor->nvidia_id, sensor->type);
-	}
+	v = get_value(sensor->nvidia_id, sensor->type);
 
 	if (v == UNKNOWN_DBL_VALUE)
 		log_err(_("Failed to retrieve measure of type %x "
@@ -201,68 +221,55 @@ static void update(struct psensor *sensor)
 	psensor_set_current_value(sensor, v);
 }
 
-static struct psensor *create_temp_sensor(int id, int subtype, int values_len)
+static int check_sensor(int id, int type)
 {
-	char name[200];
-	char *sid, *pname;
-	struct psensor *s;
-	int t;
-
-	pname = get_product_name(id);
-
-	if (subtype & SENSOR_TYPE_AMBIENT)
-		sprintf(name, "%s %d ambient", pname, id);
-	else
-		sprintf(name, "%s %d", pname, id);
-	free(pname);
-
-	sid = malloc(strlen("NVIDIA") + 1 + strlen(name) + 1);
-	sprintf(sid, "NVIDIA %s", name);
-
-	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP | subtype;
-
-	s = psensor_create(sid,
-			   strdup(name),
-			   strdup(_("NVIDIA GPU")),
-			   t,
-			   values_len);
-
-	s->nvidia_id = id;
-
-	return s;
+	return get_value(id, type) != UNKNOWN_DBL_VALUE;
 }
 
-static struct psensor *create_usage_sensor(int id,
-					   int subtype,
-					   int values_len)
+static char *i2str(int i)
 {
-	char name[200];
-	char *sid;
+	char *str;
+	size_t n;
+
+	/* second +1 to avoid issue about the conversion of a double
+	 * to a lower int */
+	n = 1 + (ceil(log10(INT_MAX)) + 1) + 1;
+
+	str = malloc(n);
+	snprintf(str, n, "%d", i);
+
+	return str;
+}
+
+static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
+{
+	char *pname, *name, *strnid, *sid;
+	const char *stype;
+	int type;
+	size_t n;
 	struct psensor *s;
-	int t;
 
-	if (subtype & SENSOR_TYPE_GRAPHICS)
-		sprintf(name, "GPU%d graphics", id);
-	else if (subtype & SENSOR_TYPE_MEMORY)
-		sprintf(name, "GPU%d memory", id);
-	else if (subtype & SENSOR_TYPE_VIDEO)
-		sprintf(name, "GPU%d video", id);
-	else /* if (subtype & SENSOR_TYPE_PCIE) */
-		sprintf(name, "GPU%d PCIe", id);
+	type = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | subtype;
 
+	if (!check_sensor(id, type))
+		return NULL;
 
-	sid = malloc(strlen("NVIDIA") + 1 + strlen(name) + 1);
-	sprintf(sid, "NVIDIA %s", name);
+	pname = get_product_name(id);
+	strnid = i2str(id);
+	stype = get_nvidia_type_str(type);
 
-	t = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | subtype;
+	n = strlen(pname) + 1 + strlen(strnid) + 1 + strlen(stype) + 1;
 
-	s = psensor_create(sid,
-			   strdup(name),
-			   strdup(_("NVIDIA GPU")),
-			   t,
-			   values_len);
+	name = malloc(n);
+	sprintf(name, "%s %s %s", pname, strnid, stype);
 
+	sid = malloc(strlen("nvidia") + 1 + strlen(name) + 1);
+	sprintf(sid, "nvidia %s", name);
+
+	s = psensor_create(sid, name, pname, type, value_len);
 	s->nvidia_id = id;
+
+	free(strnid);
 
 	return s;
 }
@@ -308,6 +315,11 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 	}
 }
 
+/* static struct psensor ** */
+/* sensor_add(struct psensor **sensors, int subtype, int values_len) */
+/* { */
+/* } */
+
 struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
 					 int values_len)
 {
@@ -318,37 +330,52 @@ struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
 
 	ss = sensors;
 	for (i = 0; i < n; i++) {
-		s = create_temp_sensor(i, 0, values_len);
+		s = create_nvidia_sensor(i, SENSOR_TYPE_TEMP, values_len);
 		tmp = psensor_list_add(ss, s);
 		if (ss != tmp)
 			free(ss);
 
 		ss = tmp;
-		s = create_temp_sensor(i, SENSOR_TYPE_AMBIENT, values_len);
+		s = create_nvidia_sensor
+			(i,
+			 SENSOR_TYPE_USAGE | SENSOR_TYPE_AMBIENT,
+			 values_len);
 		tmp = psensor_list_add(ss, s);
 		if (ss != tmp)
 			free(ss);
 
 		ss = tmp;
-		s = create_usage_sensor(i, SENSOR_TYPE_GRAPHICS, values_len);
+		s = create_nvidia_sensor
+			(i,
+			 SENSOR_TYPE_USAGE | SENSOR_TYPE_GRAPHICS,
+			 values_len);
 		tmp = psensor_list_add(ss, s);
 		if (ss != tmp)
 			free(ss);
 
 		ss = tmp;
-		s = create_usage_sensor(i, SENSOR_TYPE_VIDEO, values_len);
+		s = create_nvidia_sensor
+			(i,
+			 SENSOR_TYPE_USAGE | SENSOR_TYPE_VIDEO,
+			 values_len);
 		tmp = psensor_list_add(ss, s);
 		if (ss != tmp)
 			free(ss);
 
 		ss = tmp;
-		s = create_usage_sensor(i, SENSOR_TYPE_MEMORY, values_len);
+		s = create_nvidia_sensor
+			(i,
+			 SENSOR_TYPE_USAGE | SENSOR_TYPE_MEMORY,
+			 values_len);
 		tmp = psensor_list_add(ss, s);
 		if (ss != tmp)
 			free(ss);
 
 		ss = tmp;
-		s = create_usage_sensor(i, SENSOR_TYPE_PCIE, values_len);
+		s = create_nvidia_sensor
+			(i,
+			 SENSOR_TYPE_USAGE | SENSOR_TYPE_PCIE,
+			 values_len);
 		tmp = psensor_list_add(ss, s);
 		if (ss != tmp)
 			free(ss);
