@@ -62,35 +62,12 @@ static char *get_product_name(int id)
 	return strdup("NVIDIA");
 }
 
-static double get_temp(int id)
+static double get_att(int target, int id, int att)
 {
 	Bool res;
 	int temp;
 
-	res = XNVCTRLQueryTargetAttribute(display,
-					  NV_CTRL_TARGET_TYPE_GPU,
-					  id,
-					  0,
-					  NV_CTRL_GPU_CORE_TEMPERATURE,
-					  &temp);
-
-	if (res == True)
-		return temp;
-	else
-		return UNKNOWN_DBL_VALUE;
-}
-
-static double get_ambient_temp(int id)
-{
-	Bool res;
-	int temp;
-
-	res = XNVCTRLQueryTargetAttribute(display,
-					  NV_CTRL_TARGET_TYPE_GPU,
-					  id,
-					  0,
-					  NV_CTRL_AMBIENT_TEMPERATURE,
-					  &temp);
+	res = XNVCTRLQueryTargetAttribute(display, target, id, 0, att, &temp);
 
 	if (res == True)
 		return temp;
@@ -197,11 +174,15 @@ static double get_usage(int id, int type)
 
 static double get_value(int id, int type)
 {
+	int att;
+
 	if (type & SENSOR_TYPE_TEMP) {
 		if (type & SENSOR_TYPE_AMBIENT)
-			return get_ambient_temp(id);
+			att = NV_CTRL_AMBIENT_TEMPERATURE;
 		else
-			return get_temp(id);
+			att = NV_CTRL_GPU_CORE_TEMPERATURE;
+
+		return get_att(NV_CTRL_TARGET_TYPE_GPU, id, att);
 	} else { /* SENSOR_TYPE_USAGE */
 		return get_usage(id, type);
 	}
@@ -249,7 +230,7 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	size_t n;
 	struct psensor *s;
 
-	type = SENSOR_TYPE_NVCTRL | SENSOR_TYPE_GPU | subtype;
+	type = SENSOR_TYPE_NVCTRL | subtype;
 
 	if (!check_sensor(id, type))
 		return NULL;
@@ -292,8 +273,9 @@ static int init()
 	}
 
 	if (XNVCTRLQueryExtension(display, &evt, &err) &&
-	    XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_GPU, &n))
+	    XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_GPU, &n)) {
 		return n;
+	}
 
 	log_err(_("Failed to retrieve NVIDIA information."));
 
@@ -315,72 +297,58 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 	}
 }
 
-/* static struct psensor ** */
-/* sensor_add(struct psensor **sensors, int subtype, int values_len) */
-/* { */
-/* } */
+static void add(struct psensor ***sensors, int id, int type, int values_len)
+{
+	struct psensor **tmp, *s;
 
-struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
-					 int values_len)
+	s = create_nvidia_sensor(id, type, values_len);
+
+	if (s) {
+		tmp = psensor_list_add(*sensors, s);
+		free(*sensors);
+		*sensors = tmp;
+	}
+}
+
+struct psensor **
+nvidia_psensor_list_add(struct psensor **sensors, int values_len)
 {
 	int i, n;
-	struct psensor **tmp, **ss, *s;
+	struct psensor **ss;
 
 	n = init();
 
 	ss = sensors;
 	for (i = 0; i < n; i++) {
-		s = create_nvidia_sensor(i, SENSOR_TYPE_TEMP, values_len);
-		tmp = psensor_list_add(ss, s);
-		if (ss != tmp)
-			free(ss);
+		add(&ss,
+		    i,
+		    SENSOR_TYPE_GPU | SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP,
+		    values_len);
 
-		ss = tmp;
-		s = create_nvidia_sensor
-			(i,
-			 SENSOR_TYPE_USAGE | SENSOR_TYPE_AMBIENT,
-			 values_len);
-		tmp = psensor_list_add(ss, s);
-		if (ss != tmp)
-			free(ss);
+		add(&ss,
+		    i,
+		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_AMBIENT,
+		    values_len);
 
-		ss = tmp;
-		s = create_nvidia_sensor
-			(i,
-			 SENSOR_TYPE_USAGE | SENSOR_TYPE_GRAPHICS,
-			 values_len);
-		tmp = psensor_list_add(ss, s);
-		if (ss != tmp)
-			free(ss);
+		add(&ss,
+		    i,
+		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_GRAPHICS,
+		    values_len);
 
-		ss = tmp;
-		s = create_nvidia_sensor
-			(i,
-			 SENSOR_TYPE_USAGE | SENSOR_TYPE_VIDEO,
-			 values_len);
-		tmp = psensor_list_add(ss, s);
-		if (ss != tmp)
-			free(ss);
+		add(&ss,
+		    i,
+		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_VIDEO,
+		    values_len);
 
-		ss = tmp;
-		s = create_nvidia_sensor
-			(i,
-			 SENSOR_TYPE_USAGE | SENSOR_TYPE_MEMORY,
-			 values_len);
-		tmp = psensor_list_add(ss, s);
-		if (ss != tmp)
-			free(ss);
+		add(&ss,
+		    i,
+		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_MEMORY,
+		    values_len);
 
-		ss = tmp;
-		s = create_nvidia_sensor
-			(i,
-			 SENSOR_TYPE_USAGE | SENSOR_TYPE_PCIE,
-			 values_len);
-		tmp = psensor_list_add(ss, s);
-		if (ss != tmp)
-			free(ss);
-
-		ss = tmp;
+		add(&ss,
+		    i,
+		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_PCIE,
+		    values_len);
 	}
 
 	return ss;
