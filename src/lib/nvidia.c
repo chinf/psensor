@@ -255,15 +255,9 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	return s;
 }
 
-/*
-  Opens connection to X server and returns the number
-  of NVIDIA GPUs.
-
-  Return 0 if no NVIDIA gpus or cannot get information.
-*/
 static int init()
 {
-	int evt, err, n;
+	int evt, err;
 
 	display = XOpenDisplay(NULL);
 
@@ -272,10 +266,8 @@ static int init()
 		return 0;
 	}
 
-	if (XNVCTRLQueryExtension(display, &evt, &err) &&
-	    XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_GPU, &n)) {
-		return n;
-	}
+	if (XNVCTRLQueryExtension(display, &evt, &err))
+		return 1;
 
 	log_err(_("Failed to retrieve NVIDIA information."));
 
@@ -311,44 +303,54 @@ static void add(struct psensor ***sensors, int id, int type, int values_len)
 }
 
 struct psensor **
-nvidia_psensor_list_add(struct psensor **sensors, int values_len)
+nvidia_psensor_list_add(struct psensor **ss, int values_len)
 {
-	int i, n;
-	struct psensor **ss;
+	int i, n, utype, rpm;
+	Bool ret;
 
-	n = init();
+	if (!init())
+		return ss;
 
-	ss = sensors;
-	for (i = 0; i < n; i++) {
-		add(&ss,
-		    i,
-		    SENSOR_TYPE_GPU | SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP,
-		    values_len);
+	ret = XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_GPU, &n);
+	if (ret == True) {
+		for (i = 0; i < n; i++) {
+			add(&ss,
+			    i,
+			    SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP,
+			    values_len);
 
-		add(&ss,
-		    i,
-		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_AMBIENT,
-		    values_len);
+			utype = SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE;
 
-		add(&ss,
-		    i,
-		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_GRAPHICS,
-		    values_len);
+			add(&ss, i, utype | SENSOR_TYPE_AMBIENT, values_len);
 
-		add(&ss,
-		    i,
-		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_VIDEO,
-		    values_len);
+			add(&ss, i, utype | SENSOR_TYPE_GRAPHICS, values_len);
 
-		add(&ss,
-		    i,
-		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_MEMORY,
-		    values_len);
+			add(&ss, i, utype | SENSOR_TYPE_VIDEO, values_len);
 
-		add(&ss,
-		    i,
-		    SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE | SENSOR_TYPE_PCIE,
-		    values_len);
+			add(&ss, i, utype | SENSOR_TYPE_MEMORY, values_len);
+
+			add(&ss, i, utype | SENSOR_TYPE_PCIE, values_len);
+		}
+	}
+
+	ret = XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_COOLER, &n);
+	if (ret == True) {
+		log_debug("NVIDIA: number of fans: %d", n);
+		for (i = 0; i < n; i++) {
+			ret = XNVCTRLQueryTargetAttribute
+				(display,
+				 NV_CTRL_TARGET_TYPE_COOLER,
+				 i,
+				 0,
+				 NV_CTRL_THERMAL_COOLER_SPEED, &rpm);
+			if (ret == True)
+				log_debug("NVIDIA: fan speed %d %d", i, rpm);
+			else
+				log_err("NVIDIA: fail to retrieve fan speed %d",
+					i);
+		}
+	} else {
+		log_err(_("Failed to retrieve number of NVIDIA fans."));
 	}
 
 	return ss;
