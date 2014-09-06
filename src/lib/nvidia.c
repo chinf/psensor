@@ -355,13 +355,28 @@ nvidia_psensor_list_add(struct psensor **ss, int values_len)
 			if (ret == True)
 				log_debug("NVIDIA: fan speed %d %d", i, rpm);
 			else
-				log_err("NVIDIA: fail to retrieve fan speed %d",
+				log_err(_("NVIDIA: "
+					  "failed to retrieve fan speed %d"),
 					i);
+
+			ret = XNVCTRLQueryTargetAttribute
+				(display,
+				 NV_CTRL_TARGET_TYPE_COOLER,
+				 i,
+				 0,
+				 NV_CTRL_THERMAL_COOLER_LEVEL, &rpm);
+			if (ret == True)
+				log_debug("NVIDIA: fan level %d %d", i, rpm);
+			else
+				log_err(_("NVIDIA: "
+					  "failed to retrieve fan level %d"),
+					i);
+
 
 			add(&ss, i, SENSOR_TYPE_FAN, values_len);
 		}
 	} else {
-		log_err(_("Failed to retrieve number of NVIDIA fans."));
+		log_err(_("NVIDIA: failed to retrieve number of fans."));
 	}
 
 	return ss;
