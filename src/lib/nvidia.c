@@ -35,10 +35,13 @@
 
 Display *display;
 
-static char *get_product_name(int id)
+static char *get_product_name(int id, int type)
 {
 	char *name;
 	Bool res;
+
+	if (type & SENSOR_TYPE_FAN)
+		return strdup("NVIDIA");
 
 	res = XNVCTRLQueryTargetStringAttribute(display,
 						NV_CTRL_TARGET_TYPE_GPU,
@@ -139,6 +142,8 @@ static const char *get_nvidia_type_str(int type)
 		return "ambient";
 	else if (type & SENSOR_TYPE_TEMP)
 		return "temp";
+	else if (type & SENSOR_TYPE_FAN)
+		return "fan";
 	else
 		return "unknown";
 }
@@ -183,6 +188,10 @@ static double get_value(int id, int type)
 			att = NV_CTRL_GPU_CORE_TEMPERATURE;
 
 		return get_att(NV_CTRL_TARGET_TYPE_GPU, id, att);
+	} else if (type & SENSOR_TYPE_FAN) {
+		return get_att(NV_CTRL_TARGET_TYPE_COOLER,
+			       id,
+			       NV_CTRL_THERMAL_COOLER_SPEED);
 	} else { /* SENSOR_TYPE_USAGE */
 		return get_usage(id, type);
 	}
@@ -235,7 +244,7 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	if (!check_sensor(id, type))
 		return NULL;
 
-	pname = get_product_name(id);
+	pname = get_product_name(id, type);
 	strnid = i2str(id);
 	stype = get_nvidia_type_str(type);
 
@@ -348,6 +357,8 @@ nvidia_psensor_list_add(struct psensor **ss, int values_len)
 			else
 				log_err("NVIDIA: fail to retrieve fan speed %d",
 					i);
+
+			add(&ss, i, SENSOR_TYPE_FAN, values_len);
 		}
 	} else {
 		log_err(_("Failed to retrieve number of NVIDIA fans."));
