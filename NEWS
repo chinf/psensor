@@ -13,6 +13,7 @@ v1.1.2
   sensors.
 * Added NVidia GPU graphics, memory, PCIe and video usage.
 * Fixed message when the configuration file is missing.
+* Added NVidia fan support.
 
 v1.1.1
 ------

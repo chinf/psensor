@@ -132,20 +132,30 @@ static const char *get_nvidia_type_str(int type)
 {
 	if (type & SENSOR_TYPE_GRAPHICS)
 		return "graphics";
-	else if (type & SENSOR_TYPE_VIDEO)
+
+	if (type & SENSOR_TYPE_VIDEO)
 		return "video";
-	else if (type & SENSOR_TYPE_MEMORY)
+
+	if (type & SENSOR_TYPE_MEMORY)
 		return "memory";
-	else if (type & SENSOR_TYPE_PCIE)
+
+	if (type & SENSOR_TYPE_PCIE)
 		return "PCIe";
-	else if (type & SENSOR_TYPE_AMBIENT)
+
+	if (type & SENSOR_TYPE_AMBIENT)
 		return "ambient";
-	else if (type & SENSOR_TYPE_TEMP)
+
+	if (type & SENSOR_TYPE_TEMP)
 		return "temp";
-	else if (type & SENSOR_TYPE_FAN)
-		return "fan";
-	else
-		return "unknown";
+
+	if (type & SENSOR_TYPE_FAN) {
+		if (type & SENSOR_TYPE_RPM)
+			return "fan rpm";
+		else
+			return "fan level";
+	}
+
+	return "unknown";
 }
 
 static double get_usage(int id, int type)
@@ -189,10 +199,15 @@ static double get_value(int id, int type)
 
 		return get_att(NV_CTRL_TARGET_TYPE_GPU, id, att);
 	} else if (type & SENSOR_TYPE_FAN) {
-		return get_att(NV_CTRL_TARGET_TYPE_COOLER,
-			       id,
-			       NV_CTRL_THERMAL_COOLER_SPEED);
-	} else { /* SENSOR_TYPE_USAGE */
+		if (type & SENSOR_TYPE_RPM)
+			return get_att(NV_CTRL_TARGET_TYPE_COOLER,
+				       id,
+				       NV_CTRL_THERMAL_COOLER_SPEED);
+		else /* SENSOR_TYPE_PERCENT */
+			return get_att(NV_CTRL_TARGET_TYPE_COOLER,
+				       id,
+				       NV_CTRL_THERMAL_COOLER_LEVEL);
+	} else { /* SENSOR_TYPE_PERCENT */
 		return get_usage(id, type);
 	}
 }
@@ -314,9 +329,8 @@ static void add(struct psensor ***sensors, int id, int type, int values_len)
 struct psensor **
 nvidia_psensor_list_add(struct psensor **ss, int values_len)
 {
-	int i, n, utype, rpm;
+	int i, n, utype;
 	Bool ret;
-	char *str;
 
 	if (!init())
 		return ss;
@@ -329,7 +343,7 @@ nvidia_psensor_list_add(struct psensor **ss, int values_len)
 			    SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP,
 			    values_len);
 
-			utype = SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE;
+			utype = SENSOR_TYPE_GPU | SENSOR_TYPE_PERCENT;
 			add(&ss, i, utype | SENSOR_TYPE_AMBIENT, values_len);
 			add(&ss, i, utype | SENSOR_TYPE_GRAPHICS, values_len);
 			add(&ss, i, utype | SENSOR_TYPE_VIDEO, values_len);
@@ -342,58 +356,16 @@ nvidia_psensor_list_add(struct psensor **ss, int values_len)
 	if (ret == True) {
 		log_debug("NVIDIA: number of fans: %d", n);
 		for (i = 0; i < n; i++) {
-			ret = XNVCTRLQueryTargetAttribute
-				(display,
-				 NV_CTRL_TARGET_TYPE_COOLER,
-				 i,
-				 0,
-				 NV_CTRL_THERMAL_COOLER_SPEED, &rpm);
-			if (ret == True)
-				log_debug("NVIDIA: fan speed %d %d", i, rpm);
-			else
-				log_err(_("NVIDIA: "
-					  "failed to retrieve fan speed %d"),
-					i);
+			utype = SENSOR_TYPE_FAN | SENSOR_TYPE_RPM;
+			if (check_sensor(i, utype))
+				add(&ss, i, utype, values_len);
 
-			ret = XNVCTRLQueryTargetAttribute
-				(display,
-				 NV_CTRL_TARGET_TYPE_COOLER,
-				 i,
-				 0,
-				 NV_CTRL_THERMAL_COOLER_LEVEL, &rpm);
-			if (ret == True)
-				log_debug("NVIDIA: fan level %d %d", i, rpm);
-			else
-				log_err(_("NVIDIA: "
-					  "failed to retrieve fan level %d"),
-					i);
-
-
-			add(&ss, i, SENSOR_TYPE_FAN, values_len);
+			utype = SENSOR_TYPE_FAN | SENSOR_TYPE_PERCENT;
+			if (check_sensor(i, utype))
+				add(&ss, i, utype, values_len);
 		}
 	} else {
 		log_err(_("NVIDIA: failed to retrieve number of fans."));
-	}
-
-	ret = XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_VCSC, &n);
-	if (ret == True) {
-		log_debug("NVIDIA: number of VCSC: %d", n);
-		for (i = 0; i < n; i++) {
-			ret = XNVCTRLQueryTargetStringAttribute
-				(display,
-				 NV_CTRL_TARGET_TYPE_VCSC,
-				 i,
-				 0,
-				 NV_CTRL_STRING_VCSC_FAN_STATUS, &str);
-			if (ret == True)
-				log_debug("NVIDIA: vcsc fan %d %s", i, str);
-			else
-				log_err(_("NVIDIA: "
-					  "failed to retrieve vcsc fan info %d"),
-					i);
-
-			add(&ss, i, SENSOR_TYPE_FAN, values_len);
-		}
 	}
 
 	return ss;

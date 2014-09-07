@@ -35,7 +35,7 @@ enum psensor_type {
 	/* type of sensor values */
 	SENSOR_TYPE_TEMP = 0x00001,
 	SENSOR_TYPE_RPM = 0x00002,
-	SENSOR_TYPE_USAGE = 0x00004,
+	SENSOR_TYPE_PERCENT = 0x00004,
 
 	/* Whether the sensor is remote */
 	SENSOR_TYPE_REMOTE = 0x00008,
@@ -62,7 +62,7 @@ enum psensor_type {
 
 	/* Combinations */
 	SENSOR_TYPE_HDD_TEMP = (SENSOR_TYPE_HDD | SENSOR_TYPE_TEMP),
-	SENSOR_TYPE_CPU_USAGE = (SENSOR_TYPE_CPU | SENSOR_TYPE_USAGE)
+	SENSOR_TYPE_CPU_USAGE = (SENSOR_TYPE_CPU | SENSOR_TYPE_PERCENT)
 };
 
 struct psensor {
