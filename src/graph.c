@@ -24,9 +24,9 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
-#include "cfg.h"
+#include <cfg.h>
 #include <plog.h>
-#include "psensor.h"
+#include <psensor.h>
 
 /* horizontal padding */
 #define GRAPH_H_PADDING 4
@@ -364,10 +364,10 @@ graph_update(struct psensor **sensors,
 			if (is_fan_type(s->type)) {
 				min = min_rpm;
 				max = max_rpm;
-			} else if (s->type & SENSOR_TYPE_CPU_USAGE) {
+			} else if (s->type & SENSOR_TYPE_PERCENT) {
 				min = 0;
 				max = get_max_value(enabled_sensors,
-						    SENSOR_TYPE_CPU_USAGE);
+						    SENSOR_TYPE_PERCENT);
 			} else {
 				min = mint;
 				max = maxt;
