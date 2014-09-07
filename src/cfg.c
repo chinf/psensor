@@ -537,15 +537,10 @@ static GKeyFile *get_sensor_key_file()
 						| G_KEY_FILE_KEEP_TRANSLATIONS,
 						&err);
 
-		if (!ret) {
-			if (err->code == G_KEY_FILE_ERROR_NOT_FOUND)
-				log_fct(_("The configuration file "
-					  "does not exist."));
-			else
-				log_err(_("Failed to parse configuration "
-					  "file: %s"),
-					path);
-		}
+		if (!ret)
+			log_warn(_("Failed to load configuration file %s: %s"),
+				 path,
+				 err->message);
 	}
 
 	return key_file;
