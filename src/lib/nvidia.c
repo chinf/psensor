@@ -316,6 +316,7 @@ nvidia_psensor_list_add(struct psensor **ss, int values_len)
 {
 	int i, n, utype, rpm;
 	Bool ret;
+	char *str;
 
 	if (!init())
 		return ss;
@@ -329,15 +330,10 @@ nvidia_psensor_list_add(struct psensor **ss, int values_len)
 			    values_len);
 
 			utype = SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE;
-
 			add(&ss, i, utype | SENSOR_TYPE_AMBIENT, values_len);
-
 			add(&ss, i, utype | SENSOR_TYPE_GRAPHICS, values_len);
-
 			add(&ss, i, utype | SENSOR_TYPE_VIDEO, values_len);
-
 			add(&ss, i, utype | SENSOR_TYPE_MEMORY, values_len);
-
 			add(&ss, i, utype | SENSOR_TYPE_PCIE, values_len);
 		}
 	}
@@ -377,6 +373,27 @@ nvidia_psensor_list_add(struct psensor **ss, int values_len)
 		}
 	} else {
 		log_err(_("NVIDIA: failed to retrieve number of fans."));
+	}
+
+	ret = XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_VCSC, &n);
+	if (ret == True) {
+		log_debug("NVIDIA: number of VCSC: %d", n);
+		for (i = 0; i < n; i++) {
+			ret = XNVCTRLQueryTargetStringAttribute
+				(display,
+				 NV_CTRL_TARGET_TYPE_VCSC,
+				 i,
+				 0,
+				 NV_CTRL_STRING_VCSC_FAN_STATUS, &str);
+			if (ret == True)
+				log_debug("NVIDIA: vcsc fan %d %s", i, str);
+			else
+				log_err(_("NVIDIA: "
+					  "failed to retrieve vcsc fan info %d"),
+					i);
+
+			add(&ss, i, SENSOR_TYPE_FAN, values_len);
+		}
 	}
 
 	return ss;
