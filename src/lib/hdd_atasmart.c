@@ -133,8 +133,8 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 		log_debug("hdd_psensor_list_add(hdd_atasmart) open %s", *tmp);
 
 		if (!sk_disk_open(*tmp, &disk)) {
-			id = malloc(strlen("hdd at") + strlen(*tmp) + 1);
-			strcpy(id, "hdd at");
+			id = malloc(strlen("atasmart ") + strlen(*tmp) + 1);
+			strcpy(id, "atasmart ");
 			strcat(id, *tmp);
 
 			sensor = create_sensor(id,

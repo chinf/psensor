@@ -198,8 +198,8 @@ struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
 		struct psensor *sensor;
 		struct psensor **tmp_sensors;
 
-		char *id = malloc(strlen("hdd ") + strlen(info.name) + 1);
-		strcpy(id, "hdd ");
+		char *id = malloc(strlen("hddtemp ") + strlen(info.name) + 1);
+		strcpy(id, "hddtemp ");
 		strcat(id, info.name);
 
 		sensor = create_sensor(id, info.name, values_max_length);
