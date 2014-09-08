@@ -29,7 +29,8 @@
 #include <temperature.h>
 
 #ifdef HAVE_GTOP
-#include "cpu.h"
+#include <cpu.h>
+#include <pmem.h>
 #endif
 
 struct psensor *psensor_create(char *id,
@@ -172,7 +173,9 @@ int psensor_list_contains_type(struct psensor **sensors, unsigned int type)
 struct psensor **psensor_list_add(struct psensor **sensors,
 				  struct psensor *sensor)
 {
-	int size = psensor_list_size(sensors);
+	int size;
+
+	size = psensor_list_size(sensors);
 
 	struct psensor **result
 	    = malloc((size + 1 + 1) * sizeof(struct psensor *));
@@ -185,6 +188,22 @@ struct psensor **psensor_list_add(struct psensor **sensors,
 
 	return result;
 }
+
+void psensor_list_append(struct psensor ***sensors, struct psensor *sensor)
+{
+	struct psensor **tmp;
+
+	if (!sensor)
+		return ;
+
+	tmp = psensor_list_add(*sensors, sensor);
+
+	if (tmp != *sensors) {
+		free(*sensors);
+		*sensors = tmp;
+	}
+}
+
 
 struct psensor *psensor_list_get_by_id(struct psensor **sensors, const char *id)
 {
@@ -418,6 +437,10 @@ struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 		}
 #endif
 
+#ifdef HAVE_GTOP
+	mem_psensor_list_add(&psensors, values_max_length);
+#endif
+
 	if (!psensors) {	/* there is no detected sensors */
 		psensors = malloc(sizeof(struct psensor *));
 		*psensors = NULL;
@@ -461,7 +484,7 @@ const char *psensor_type_to_str(unsigned int type)
 	if (type & SENSOR_TYPE_TEMP)
 		return "Temperature";
 
-	if (type & SENSOR_TYPE_FAN)
+	if (type & SENSOR_TYPE_RPM)
 		return "Fan";
 
 	if (type & SENSOR_TYPE_CPU)
@@ -469,6 +492,9 @@ const char *psensor_type_to_str(unsigned int type)
 
 	if (type & SENSOR_TYPE_REMOTE)
 		return "Remote";
+
+	if (type & SENSOR_TYPE_MEMORY)
+		return "Memory";
 
 	return "N/A";
 }
@@ -496,6 +522,7 @@ void psensor_list_update_measures(struct psensor **sensors)
 
 #ifdef HAVE_GTOP
 	cpu_psensor_list_update(sensors);
+	mem_psensor_list_update(sensors);
 #endif
 
 	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDDTEMP))

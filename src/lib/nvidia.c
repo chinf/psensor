@@ -315,15 +315,12 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 
 static void add(struct psensor ***sensors, int id, int type, int values_len)
 {
-	struct psensor **tmp, *s;
+	struct psensor *s;
 
 	s = create_nvidia_sensor(id, type, values_len);
 
-	if (s) {
-		tmp = psensor_list_add(*sensors, s);
-		free(*sensors);
-		*sensors = tmp;
-	}
+	if (s)
+		psensor_list_append(sensors, s);
 }
 
 struct psensor **

@@ -37,7 +37,7 @@ libpsensor_a_SOURCES += amd.c
 endif
 
 if GTOP
-libpsensor_a_SOURCES += cpu.c
+libpsensor_a_SOURCES += cpu.c pmem.c pmem.h
 LIBS += $(GTOP_LIBS)
 AM_CPPFLAGS += $(GTOP_CFLAGS)
 endif
@@ -51,4 +51,5 @@ endif
 EXTRA_DIST=$(libpsensor_a_SOURCES) \
 	amd.c \
 	cpu.c \
-	nvidia.c
+	nvidia.c \
+	pmem.c pmem.h

@@ -16,6 +16,7 @@ v1.1.2
 * Added NVidia fan support.
 * Added 'Hide' menu item in the contextual menu of the list of
   sensors.
+* Added free memory support.
 
 v1.1.1
 ------
