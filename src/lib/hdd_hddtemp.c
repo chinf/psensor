@@ -224,7 +224,7 @@ static void update(struct psensor **sensors, struct hdd_info *info)
 	while (*sensor_cur) {
 		if (!((*sensor_cur)->type & SENSOR_TYPE_REMOTE)
 		    && (*sensor_cur)->type & SENSOR_TYPE_HDDTEMP
-		    && !strcmp((*sensor_cur)->id + 4, info->name))
+		    && !strcmp((*sensor_cur)->id + 8, info->name))
 			psensor_set_current_value(*sensor_cur,
 						  (float)info->temp);
 
