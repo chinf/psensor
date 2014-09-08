@@ -195,9 +195,46 @@ static int get_col_index_at_pos(GtkTreeView *view, int x)
 
 static void preferences_activated_cbk(GtkWidget *menu_item, gpointer data)
 {
-	struct cb_data *cb_data = data;
+	struct cb_data *cb_data;
 
+	cb_data = data;
 	ui_sensorpref_dialog_run(cb_data->sensor, cb_data->ui);
+	free(cb_data);
+}
+
+static void hide_activated_cbk(GtkWidget *menu_item, gpointer data)
+{
+	struct psensor *s, *s2;
+	GtkTreeModel *model, *fmodel;
+	GtkTreeIter iter;
+	struct cb_data *cb_data;
+	gboolean valid;
+
+	log_fct_enter();
+
+	cb_data = data;
+	s = cb_data->sensor;
+	config_set_sensor_enabled(s->id, false);
+	config_sync();
+
+	fmodel = gtk_tree_view_get_model(cb_data->ui->sensors_tree);
+	model = gtk_tree_model_filter_get_model(GTK_TREE_MODEL_FILTER(fmodel));
+	valid = gtk_tree_model_get_iter_first(model, &iter);
+	while (valid) {
+		gtk_tree_model_get(model, &iter, COL_SENSOR, &s2, -1);
+
+		if (s == s2)
+			gtk_list_store_set(cb_data->ui->sensors_store,
+					   &iter,
+					   COL_DISPLAY_ENABLED,
+					   false,
+					   -1);
+		valid = gtk_tree_model_iter_next(model, &iter);
+	}
+
+	free(cb_data);
+
+	log_fct_exit();
 }
 
 static GtkWidget *
@@ -214,13 +251,22 @@ create_sensor_popup(struct ui_psensor *ui, struct psensor *sensor)
 	separator = gtk_separator_menu_item_new();
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), separator);
 
+	item = gtk_menu_item_new_with_label(_("Hide"));
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+
+	data = malloc(sizeof(struct cb_data));
+	data->ui = ui;
+	data->sensor = sensor;
+	g_signal_connect(item,
+			 "activate",
+			 G_CALLBACK(hide_activated_cbk), data);
+
 	item = gtk_menu_item_new_with_label(_("Preferences"));
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
 
 	data = malloc(sizeof(struct cb_data));
 	data->ui = ui;
 	data->sensor = sensor;
-
 	g_signal_connect(item,
 			 "activate",
 			 G_CALLBACK(preferences_activated_cbk), data);
