@@ -361,7 +361,7 @@ graph_update(struct psensor **sensors,
 			struct psensor *s = *sensor_cur;
 
 			no_graphs = 0;
-			if (is_fan_type(s->type)) {
+			if (s->type & SENSOR_TYPE_RPM) {
 				min = min_rpm;
 				max = max_rpm;
 			} else if (s->type & SENSOR_TYPE_PERCENT) {
@@ -391,7 +391,6 @@ graph_update(struct psensor **sensors,
 	cr_pixmap = gdk_cairo_create(gtk_widget_get_window(w_graph));
 
 	if (cr_pixmap) {
-
 		if (config->alpha_channel_enabled)
 			cairo_set_operator(cr_pixmap, CAIRO_OPERATOR_SOURCE);
 

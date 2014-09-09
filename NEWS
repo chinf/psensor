@@ -17,6 +17,7 @@ v1.1.2
 * Added 'Hide' menu item in the contextual menu of the list of
   sensors.
 * Added free memory support.
+* Added alarm support of sensors expressed as percent.
 
 v1.1.1
 ------

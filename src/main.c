@@ -294,13 +294,8 @@ associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 		s->alarm_low_threshold
 			= config_get_sensor_alarm_low_threshold(s->id);
 
-		if (is_temp_type(s->type) || is_fan_type(s->type)) {
-			s->alarm_enabled
+		s->alarm_enabled
 			    = config_get_sensor_alarm_enabled(s->id);
-		} else {
-			s->alarm_high_threshold = 0;
-			s->alarm_enabled = 0;
-		}
 
 		sensor_cur++;
 	}

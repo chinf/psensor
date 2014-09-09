@@ -199,9 +199,9 @@ static void update_label(struct ui_psensor *ui)
 
 			if (is_temp_type((*p)->type))
 				str = "999UUU";
-			else if (is_fan_type((*p)->type))
+			else if ((*p)->type & SENSOR_TYPE_RPM)
 				str = "999UUU";
-			else /* cpu load */
+			else /* percent */
 				str = "999%";
 
 			if (guide == NULL) {

@@ -153,7 +153,6 @@ struct psensor *psensor_list_get_by_id(struct psensor **sensors,
 int psensor_list_contains_type(struct psensor **sensors, unsigned int type);
 
 int is_temp_type(unsigned int type);
-int is_fan_type(unsigned int type);
 
 double get_min_temp(struct psensor **sensors);
 double get_max_temp(struct psensor **sensors);

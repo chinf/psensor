@@ -224,11 +224,6 @@ int is_temp_type(unsigned int type)
 	return type & SENSOR_TYPE_TEMP;
 }
 
-int is_fan_type(unsigned int type)
-{
-	return type & SENSOR_TYPE_FAN;
-}
-
 char *
 psensor_value_to_str(unsigned int type, double value, int use_celsius)
 {
@@ -507,9 +502,9 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celsius)
 			return "\302\260C";
 		else
 			return "\302\260F";
-	} else if (is_fan_type(type)) {
+	} else if (type & SENSOR_TYPE_RPM) {
 		return _("RPM");
-	} else if (type & SENSOR_TYPE_CPU_USAGE) {
+	} else if (type & SENSOR_TYPE_PERCENT) {
 		return _("%");
 	} else {
 		return _("N/A");

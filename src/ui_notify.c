@@ -75,8 +75,8 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 
 		if (is_temp_type(sensor->type))
 			summary = _("Temperature alert");
-		else if (is_fan_type(sensor->type))
-			summary = _("Fan alert");
+		else if (sensor->type & SENSOR_TYPE_RPM)
+			summary = _("Fan speed alert");
 		else
 			summary = _("N/A");
 
