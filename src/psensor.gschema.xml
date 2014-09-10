@@ -41,6 +41,12 @@
       <description>The interval between refreshs of the graph as
       seconds. It must be greater than 1.</description>
     </key>
+    <key name="graph-smooth-curves-enabled" type="b">
+      <default>false</default>
+      <summary>Whether smooth curves are enabled</summary>
+      <descriptor>Whether curves are drawn using Bezier algorithm
+      for a smoother visual rendering .</descriptor>
+    </key>
     <key name="interface-hide-on-startup" type="b">
       <default>false</default>
       <summary>Whether the graph window is hidden on startup</summary>
