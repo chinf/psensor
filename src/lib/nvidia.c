@@ -264,7 +264,6 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	stype = get_nvidia_type_str(type);
 
 	n = strlen(pname) + 1 + strlen(strnid) + 1 + strlen(stype) + 1;
-
 	name = malloc(n);
 	sprintf(name, "%s %s %s", pname, strnid, stype);
 
