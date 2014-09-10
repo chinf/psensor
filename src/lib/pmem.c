@@ -51,8 +51,8 @@ void mem_psensor_list_add(struct psensor ***sensors, int values_max_len)
 	struct psensor *s;
 
 	s = psensor_create(strdup(ID_MEM_FREE),
-			   _("free memory"),
-			   _("memory"),
+			   strdup(_("free memory")),
+			   strdup(_("memory")),
 			   SENSOR_TYPE_MEMORY | SENSOR_TYPE_PERCENT,
 			   values_max_len);
 
