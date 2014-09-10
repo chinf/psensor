@@ -44,8 +44,8 @@
     <key name="graph-smooth-curves-enabled" type="b">
       <default>false</default>
       <summary>Whether smooth curves are enabled</summary>
-      <descriptor>Whether curves are drawn using Bezier algorithm
-      for a smoother visual rendering .</descriptor>
+      <description>Whether curves are drawn using Bezier algorithm
+      for a smoother visual rendering .</description>
     </key>
     <key name="interface-hide-on-startup" type="b">
       <default>false</default>
