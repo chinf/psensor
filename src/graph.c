@@ -55,7 +55,8 @@ static time_t get_graph_begin_time_s(struct config *cfg)
 	return ct - cfg->graph_monitoring_duration * 60;
 }
 
-static int compute_y(double value, double min, double max, int height, int off)
+static double
+compute_y(double value, double min, double max, int height, int off)
 {
 	double t = value - min;
 	return height - ((double)height * (t / (max - min))) + off;
@@ -169,6 +170,108 @@ static void draw_background_lines(cairo_t *cr,
 	cairo_set_dash(cr, 0, 0, 0);
 }
 
+/* contains the time_t of the measures which have been draw ie not the
+ * bezier control points for each sensor. */
+static GHashTable *times;
+
+static void draw_sensor_smooth_curve(struct psensor *s,
+				     cairo_t *cr,
+				     double min,
+				     double max,
+				     int bt,
+				     int et,
+				     int g_width,
+				     int g_height,
+				     int g_xoff,
+				     int g_yoff)
+{
+	int i, dt, vdt, j, k, found;
+	double x[4], y[4], v;
+	time_t t, t0, *stimes;
+
+	if (!times)
+		times = g_hash_table_new_full(g_str_hash,
+					      g_str_equal,
+					      free,
+					      free);
+
+	stimes = g_hash_table_lookup(times, s->id);
+
+	cairo_set_source_rgb(cr,
+			     s->color->red,
+			     s->color->green,
+			     s->color->blue);
+
+	i = 0;
+	if (stimes) {
+		while (i < s->values_max_length) {
+			t = s->measures[i].time.tv_sec;
+			v = s->measures[i].value;
+
+			found = 0;
+			if (v != UNKNOWN_DBL_VALUE && t) {
+				k = 0;
+				while (stimes[k]) {
+					if (t == stimes[k]) {
+						found = 1;
+						break;
+					}
+					k++;
+				}
+			}
+
+			if (found)
+				break;
+
+			i++;
+		}
+	}
+
+	stimes = malloc((s->values_max_length + 1) * sizeof(time_t));
+	memset(stimes, 0, (s->values_max_length + 1) * sizeof(time_t));
+	g_hash_table_insert(times, strdup(s->id), stimes);
+
+	if (i == s->values_max_length)
+		i = 0;
+
+	k = 0;
+	dt = et - bt;
+	while (i < s->values_max_length) {
+		j = 0;
+		t = 0;
+		while (i < s->values_max_length && j < 4) {
+			t = s->measures[i].time.tv_sec;
+			v = s->measures[i].value;
+
+			if (v == UNKNOWN_DBL_VALUE || !t) {
+				i++;
+				continue;
+			}
+
+			vdt = t - bt;
+
+			x[0 + j] = ((double)vdt * g_width) / dt + g_xoff;
+			y[0 + j] = compute_y(v, min, max, g_height, g_yoff);
+
+
+			if (j == 0)
+				t0 = t;
+
+			i++;
+			j++;
+		}
+
+		if (j == 4) {
+			cairo_move_to(cr, x[0], y[0]);
+			cairo_curve_to(cr, x[1], y[1], x[2], y[3], x[3], y[3]);
+			stimes[k++] = t0;
+			i--;
+		}
+	}
+
+	cairo_stroke(cr);
+}
+
 static void draw_sensor_curve(struct psensor *s,
 			      cairo_t *cr,
 			      double min,
@@ -180,8 +283,8 @@ static void draw_sensor_curve(struct psensor *s,
 			      int g_xoff,
 			      int g_yoff)
 {
-	int first, i, x, y, t, dt, vdt;
-	double v;
+	int first, i, t, dt, vdt;
+	double v, x, y;
 
 	cairo_set_source_rgb(cr,
 			     s->color->red,
@@ -201,7 +304,7 @@ static void draw_sensor_curve(struct psensor *s,
 		if (vdt < 0)
 			continue;
 
-		x = vdt * g_width / dt + g_xoff;
+		x = ((double)vdt * g_width) / dt + g_xoff;
 
 		y = compute_y(v, min, max, g_height, g_yoff);
 
@@ -373,11 +476,18 @@ graph_update(struct psensor **sensors,
 				max = maxt;
 			}
 
-			draw_sensor_curve(s, cr,
-					  min, max,
-					  bt, et,
-					  g_width, g_height,
-					  g_xoff, g_yoff);
+			if (1)
+				draw_sensor_smooth_curve(s, cr,
+							 min, max,
+							 bt, et,
+							 g_width, g_height,
+							 g_xoff, g_yoff);
+			else
+				draw_sensor_curve(s, cr,
+						  min, max,
+						  bt, et,
+						  g_width, g_height,
+						  g_xoff, g_yoff);
 
 			sensor_cur++;
 		}
