@@ -170,8 +170,11 @@ static void draw_background_lines(cairo_t *cr,
 	cairo_set_dash(cr, 0, 0, 0);
 }
 
-/* contains the time_t of the measures which have been draw ie not the
- * bezier control points for each sensor. */
+/* Keys: sensor identifier.
+ *
+ * Values: array of time_t. Each time_t is corresponding to a sensor
+ * measure which has been used as the start point of a Bezier curve.
+ */
 static GHashTable *times;
 
 static void draw_sensor_smooth_curve(struct psensor *s,
@@ -202,6 +205,10 @@ static void draw_sensor_smooth_curve(struct psensor *s,
 			     s->color->green,
 			     s->color->blue);
 
+	/* search the index of the first measure used as a start point
+	 * of a Bezier curve. The start and end points of the Bezier
+	 * curves must be preserved to ensure the same overall shape
+	 * of the graph. */
 	i = 0;
 	if (stimes) {
 		while (i < s->values_max_length) {
@@ -252,7 +259,6 @@ static void draw_sensor_smooth_curve(struct psensor *s,
 
 			x[0 + j] = ((double)vdt * g_width) / dt + g_xoff;
 			y[0 + j] = compute_y(v, min, max, g_height, g_yoff);
-
 
 			if (j == 0)
 				t0 = t;
