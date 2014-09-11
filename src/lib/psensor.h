@@ -111,7 +111,7 @@ struct psensor {
 	/* Whether an alarm is raised for this sensor */
 	unsigned int alarm_raised;
 
-	void (*cb_alarm_raised) (struct psensor *, void *);
+	void (*cb_alarm_raised)(struct psensor *, void *);
 	void *cb_alarm_raised_data;
 
 #ifdef HAVE_NVIDIA
