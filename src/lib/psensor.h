@@ -77,6 +77,7 @@ struct psensor {
 
 	/* lm-sensor */
 	const sensors_chip_name *iname;
+
 	const sensors_feature *feature;
 
 	/* Maximum length of 'values' */
