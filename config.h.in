@@ -16,11 +16,11 @@
 /* Use libatasmart */
 #undef HAVE_ATASMART
 
-/* Define to 1 if you have the Mac OS X function CFLocaleCopyCurrent in the
+/* Define to 1 if you have the MacOS X function CFLocaleCopyCurrent in the
    CoreFoundation framework. */
 #undef HAVE_CFLOCALECOPYCURRENT
 
-/* Define to 1 if you have the Mac OS X function CFPreferencesCopyAppValue in
+/* Define to 1 if you have the MacOS X function CFPreferencesCopyAppValue in
    the CoreFoundation framework. */
 #undef HAVE_CFPREFERENCESCOPYAPPVALUE
 
@@ -40,7 +40,7 @@
 /* Use GTOP */
 #undef HAVE_GTOP
 
-/* Define if you have the iconv() function and it works. */
+/* Define if you have the iconv() function. */
 #undef HAVE_ICONV
 
 /* Define to 1 if you have the <inttypes.h> header file. */
@@ -134,9 +134,6 @@
 
 /* Use Unity */
 #undef HAVE_UNITY
-
-/* Define to 1 if your C compiler doesn't accept -c and -o together. */
-#undef NO_MINUS_C_MINUS_O
 
 /* Name of package */
 #undef PACKAGE
