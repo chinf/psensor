@@ -1,6 +1,5 @@
-Authors of psensor.
+Authors of psensor:
 
-jeanfi@gmail.com	 all files.
-linux.dabao@gmail.com,royclarck	 po/zh_CN.po
-thgreasi@gmail.com		 src/lib/amd.h src/lib/amd.h
-Christoph Buchner (bilderbuchi)	 icons/ubuntu-mono-light/status/22/*svg icons/ubuntu-mono-dark/status/22/*svg
+jeanfi@gmail.com	all files.
+thgreasi@gmail.com,jeanfi@gmail.com	src/lib/amd.h src/lib/amd.h
+Christoph Buchner(bilderbuchi)		icons/ubuntu-mono-light/status/22/*svg icons/ubuntu-mono-dark/status/22/*svg
