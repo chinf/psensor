@@ -77,14 +77,13 @@ static GKeyFile *get_key_file(const char *path)
 					| G_KEY_FILE_KEEP_TRANSLATIONS,
 					NULL);
 
-	if (ret) {
+	if (ret)
 		return kfile;
-	} else {
-		log_err("Failed to parse: %s", path);
 
-		g_key_file_free(kfile);
-		return NULL;
-	}
+	log_err("Failed to parse: %s", path);
+
+	g_key_file_free(kfile);
+	return NULL;
 }
 
 static int is_user_desktop_autostarted(GKeyFile *f)

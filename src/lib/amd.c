@@ -76,10 +76,11 @@ static double get_temp(struct psensor *sensor)
 
 	v.iSize = sizeof(ADLTemperature);
 	v.iTemperature = -273;
+
 	if (ADL_OK == adl_od5_temperature_get(sensor->amd_id, 0, &v))
 		return v.iTemperature/1000;
-	else
-		return UNKNOWN_DBL_VALUE;
+
+	return UNKNOWN_DBL_VALUE;
 }
 
 static double get_fanspeed(struct psensor *sensor)
@@ -89,10 +90,11 @@ static double get_fanspeed(struct psensor *sensor)
 	v.iSize = sizeof(ADLFanSpeedValue);
 	v.iSpeedType = ADL_DL_FANCTRL_SPEED_TYPE_RPM;
 	v.iFanSpeed = -1;
+
 	if (ADL_OK == adl_od5_fanspeed_get(sensor->amd_id, 0, &v))
 		return v.iFanSpeed;
-	else
-		return UNKNOWN_DBL_VALUE;
+
+	return UNKNOWN_DBL_VALUE;
 }
 
 static double get_usage(struct psensor *sensor)
@@ -100,10 +102,11 @@ static double get_usage(struct psensor *sensor)
 	ADLPMActivity v;
 
 	v.iSize = sizeof(ADLPMActivity);
+
 	if (ADL_OK == adl_od5_currentactivity_get(sensor->amd_id, &v))
 		return v.iActivityPercent;
-	else
-		return UNKNOWN_DBL_VALUE;
+
+	return UNKNOWN_DBL_VALUE;
 }
 
 static struct psensor *create_sensor(int id, int type, int values_len)

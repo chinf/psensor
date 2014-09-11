@@ -197,8 +197,8 @@ struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
 	while (c && (c = next_hdd_info(c, &info))) {
 		struct psensor *sensor;
 		struct psensor **tmp_sensors;
-
 		char *id = malloc(strlen("hddtemp ") + strlen(info.name) + 1);
+
 		strcpy(id, "hddtemp ");
 		strcat(id, info.name);
 
@@ -240,9 +240,9 @@ void hddtemp_psensor_list_update(struct psensor **sensors)
 		return;
 
 	if (hddtemp_output[0] == '|') {
-
 		char *c = hddtemp_output;
 		struct hdd_info info;
+
 		info.name = NULL;
 		info.temp = 0;
 

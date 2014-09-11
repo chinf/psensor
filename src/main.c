@@ -283,6 +283,7 @@ static void
 associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 {
 	struct psensor **sensor_cur = sensors;
+
 	while (*sensor_cur) {
 		struct psensor *s = *sensor_cur;
 
@@ -304,6 +305,7 @@ associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 static void associate_preferences(struct psensor **sensors)
 {
 	struct psensor **sensor_cur = sensors;
+
 	while (*sensor_cur) {
 		char *n;
 		struct psensor *s = *sensor_cur;
@@ -331,7 +333,7 @@ static void log_init()
 	dir = get_psensor_user_dir();
 
 	if (!dir)
-		return ;
+		return;
 
 	path = malloc(strlen(dir)+1+strlen("log")+1);
 	sprintf(path, "%s/%s", dir, "log");

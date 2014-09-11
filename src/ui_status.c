@@ -43,7 +43,7 @@ static void cb_popup_menu(GtkStatusIcon *icon,
 void ui_status_init(struct ui_psensor *ui)
 {
 	if (status)
-		return ;
+		return;
 
 	log_debug("ui_status_create()");
 

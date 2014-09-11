@@ -198,7 +198,7 @@ void ui_window_create(struct ui_psensor *ui)
 	if (!ok) {
 		log_printf(LOG_ERR, error->message);
 		g_error_free(error);
-		return ;
+		return;
 	}
 
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));

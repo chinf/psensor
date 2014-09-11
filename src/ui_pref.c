@@ -70,7 +70,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	if (!ok) {
 		log_printf(LOG_ERR, error->message);
 		g_error_free(error);
-		return ;
+		return;
 	}
 
 	diag = GTK_DIALOG(gtk_builder_get_object(builder, "dialog1"));

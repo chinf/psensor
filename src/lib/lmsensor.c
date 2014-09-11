@@ -48,17 +48,18 @@ static double get_value(const sensors_chip_name *name,
 
 static double get_temp_input(struct psensor *sensor)
 {
-	const sensors_chip_name *chip = sensor->iname;
-	const sensors_feature *feature = sensor->feature;
-
 	const sensors_subfeature *sf;
+
+	const sensors_chip_name *chip = sensor->iname;
+
+	const sensors_feature *feature = sensor->feature;
 
 	sf = sensors_get_subfeature(chip,
 				    feature, SENSORS_SUBFEATURE_TEMP_INPUT);
 	if (sf)
 		return get_value(chip, sf);
-	else
-		return UNKNOWN_DBL_VALUE;
+
+	return UNKNOWN_DBL_VALUE;
 }
 
 static double get_fan_input(struct psensor *sensor)
@@ -72,8 +73,8 @@ static double get_fan_input(struct psensor *sensor)
 				    feature, SENSORS_SUBFEATURE_FAN_INPUT);
 	if (sf)
 		return get_value(chip, sf);
-	else
-		return UNKNOWN_DBL_VALUE;
+
+	return UNKNOWN_DBL_VALUE;
 }
 
 void lmsensor_psensor_list_update(struct psensor **sensors)
@@ -81,7 +82,7 @@ void lmsensor_psensor_list_update(struct psensor **sensors)
 	struct psensor **s_ptr = sensors;
 
 	if (!init_done)
-		return ;
+		return;
 
 	while (*s_ptr) {
 		struct psensor *s = *s_ptr;

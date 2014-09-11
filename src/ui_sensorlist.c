@@ -184,8 +184,8 @@ static int get_col_index_at_pos(GtkTreeView *view, int x)
 		if (x >= colx
 		    && x < (colx + gtk_tree_view_column_get_width(checkcol)))
 			return coli;
-		else
-			colx += gtk_tree_view_column_get_width(checkcol);
+
+		colx += gtk_tree_view_column_get_width(checkcol);
 
 		coli++;
 	}

@@ -41,8 +41,8 @@ static time_t get_graph_end_time_s()
 
 	if (gettimeofday(&tv, NULL) == 0)
 		return tv.tv_sec;
-	else
-		return 0;
+
+	return 0;
 }
 
 static time_t get_graph_begin_time_s(struct config *cfg)
@@ -61,6 +61,7 @@ static double
 compute_y(double value, double min, double max, int height, int off)
 {
 	double t = value - min;
+
 	return height - ((double)height * (t / (max - min))) + off;
 }
 
@@ -152,6 +153,7 @@ static void draw_background_lines(cairo_t *cr,
 	/* vertical lines representing time steps */
 	for (i = 0; i <= 5; i++) {
 		int x = i * (g_width / 5) + g_xoff;
+
 		cairo_move_to(cr, x, g_yoff);
 		cairo_line_to(cr, x, g_yoff + g_height);
 		cairo_stroke(cr);
@@ -367,7 +369,7 @@ graph_update(struct psensor **sensors,
 	GdkRGBA rgba;
 
 	if (!gtk_widget_is_drawable(w_graph))
-		return ;
+		return;
 
 	enabled_sensors = psensor_list_filter_graph_enabled(sensors);
 

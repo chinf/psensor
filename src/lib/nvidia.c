@@ -50,13 +50,11 @@ static char *get_product_name(int id, int type)
 						NV_CTRL_STRING_PRODUCT_NAME,
 						&name);
 	if (res == True) {
-		if (strcmp(name, "Unknown")) {
+		if (strcmp(name, "Unknown"))
 			return name;
-		} else {
-			log_err(_("Unknown NVIDIA product name for GPU %d"),
-				id);
-			free(name);
-		}
+
+		log_err(_("Unknown NVIDIA product name for GPU %d"), id);
+		free(name);
 	} else {
 		log_err(_("Failed to retrieve NVIDIA product name for GPU %d"),
 			id);
@@ -74,8 +72,8 @@ static double get_att(int target, int id, int att)
 
 	if (res == True)
 		return temp;
-	else
-		return UNKNOWN_DBL_VALUE;
+
+	return UNKNOWN_DBL_VALUE;
 }
 
 static double get_usage_att(char *atts, const char *att)
@@ -151,8 +149,8 @@ static const char *get_nvidia_type_str(int type)
 	if (type & SENSOR_TYPE_FAN) {
 		if (type & SENSOR_TYPE_RPM)
 			return "fan rpm";
-		else
-			return "fan level";
+
+		return "fan level";
 	}
 
 	return "unknown";

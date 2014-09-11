@@ -58,12 +58,11 @@ static char *time_to_str(time_t *t)
 
 	str = malloc(64);
 
-	if (strftime(str, 64, "%s", &lt)) {
+	if (strftime(str, 64, "%s", &lt))
 		return str;
-	} else {
-		free(str);
-		return NULL;
-	}
+
+	free(str);
+	return NULL;
 }
 
 static char *get_default_path()
@@ -83,10 +82,10 @@ static char *get_default_path()
 		free(dir);
 
 		return path;
-	} else {
-		log_warn(_("HOME variable not set."));
-		return strdup(DEFAULT_FILENAME);
 	}
+
+	log_warn(_("HOME variable not set."));
+	return strdup(DEFAULT_FILENAME);
 }
 
 static bool slog_open(const char *path, struct psensor **sensors)
@@ -135,7 +134,7 @@ static void slog_write_sensors(struct psensor **sensors)
 
 	if (!file) {
 		log_debug(_("Sensor log file not open."));
-		return ;
+		return;
 	}
 
 	gettimeofday(&tv, NULL);

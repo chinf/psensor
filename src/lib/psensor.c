@@ -83,6 +83,7 @@ void psensor_values_resize(struct psensor *s, int new_size)
 
 	if (cur_ms) {
 		int i;
+
 		for (i = 0; i < new_size - 1 && i < cur_size - 1; i++)
 			measure_copy(&cur_ms[cur_size - i - 1],
 				     &new_ms[new_size - i - 1]);
@@ -194,7 +195,7 @@ void psensor_list_append(struct psensor ***sensors, struct psensor *sensor)
 	struct psensor **tmp;
 
 	if (!sensor)
-		return ;
+		return;
 
 	tmp = psensor_list_add(*sensors, sensor);
 
@@ -348,6 +349,7 @@ double get_max_value(struct psensor **sensors, int type)
 		if (sensor->type & type) {
 			int i;
 			double t;
+
 			for (i = 0; i < sensor->values_max_length; i++) {
 				t = sensor->measures[i].value;
 
@@ -457,8 +459,8 @@ const char *psensor_type_to_str(unsigned int type)
 			return "Memory usage";
 		else if (type & SENSOR_TYPE_PCIE)
 			return "PCIe usage";
-		else
-			return "NVIDIA GPU";
+
+		return "NVIDIA GPU";
 	}
 
 	if (type & SENSOR_TYPE_ATIADL) {
@@ -466,8 +468,8 @@ const char *psensor_type_to_str(unsigned int type)
 			return "AMD GPU Temperature";
 		else if (type & SENSOR_TYPE_RPM)
 			return "AMD GPU Fan Speed";
-		else /* type & SENSOR_TYPE_USAGE */
-			return "AMD GPU Usage";
+		/*else type & SENSOR_TYPE_USAGE */
+		return "AMD GPU Usage";
 	}
 
 	if ((type & SENSOR_TYPE_HDD_TEMP) == SENSOR_TYPE_HDD_TEMP)
@@ -500,15 +502,13 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celsius)
 	if (is_temp_type(type)) {
 		if (use_celsius)
 			return "\302\260C";
-		else
-			return "\302\260F";
+		return "\302\260F";
 	} else if (type & SENSOR_TYPE_RPM) {
 		return _("RPM");
 	} else if (type & SENSOR_TYPE_PERCENT) {
 		return _("%");
-	} else {
-		return _("N/A");
 	}
+	return _("N/A");
 }
 
 void psensor_list_update_measures(struct psensor **sensors)

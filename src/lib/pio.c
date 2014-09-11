@@ -164,6 +164,7 @@ char *file_get_content(const char *fpath)
 
 	} else {
 		FILE *fp = fopen(fpath, "rb");
+
 		if (fp) {
 			page = malloc(size + 1);
 			if (!page || size != fread(page, 1, size, fp)) {

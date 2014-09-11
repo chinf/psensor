@@ -96,7 +96,7 @@ static void update_menu_items(int use_celsius)
 	GtkMenuItem **m;
 
 	if (!sensors)
-		return ;
+		return;
 
 	for (s = sensors, m = menu_items; *s; s++, m++)
 		update_menu_item(*m, *s, use_celsius);

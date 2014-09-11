@@ -255,15 +255,16 @@ create_response(const char *nurl, const char *method, unsigned int *rp_code)
 		free(fpath);
 	}
 
-	if (resp) {
+	if (resp)
 		return resp;
-	} else {
-		char *page = strdup(PAGE_NOT_FOUND);
-		*rp_code = MHD_HTTP_NOT_FOUND;
 
-		return MHD_create_response_from_data
-			(strlen(page), page, MHD_YES, MHD_NO);
-	}
+	char *page = strdup(PAGE_NOT_FOUND);
+	*rp_code = MHD_HTTP_NOT_FOUND;
+
+	return MHD_create_response_from_data(strlen(page),
+					     page,
+					     MHD_YES,
+					     MHD_NO);
 }
 
 static int cbk_http_request(void *cls,

@@ -53,7 +53,7 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 	    || t.tv_sec - last_notification_tv.tv_sec >= 60)
 		last_notification_tv = t;
 	else
-		return ;
+		return;
 
 	if (notify_is_initted() == FALSE)
 		notify_init("psensor");

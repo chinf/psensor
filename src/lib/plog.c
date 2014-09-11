@@ -46,7 +46,7 @@ void log_open(const char *path)
 void log_close()
 {
 	if (!file)
-		return ;
+		return;
 
 	fclose(file);
 
@@ -62,7 +62,7 @@ static void vlogf(int lvl, const char *fct, const char *fmt, va_list ap)
 	FILE *stdf;
 
 	if (lvl > LOG_INFO && (!file || lvl > log_level))
-		return ;
+		return;
 
 	vsnprintf(buffer, LOG_BUFFER, fmt, ap);
 	buffer[LOG_BUFFER] = '\0';
@@ -86,7 +86,7 @@ static void vlogf(int lvl, const char *fct, const char *fmt, va_list ap)
 
 	t = get_current_ISO8601_time();
 	if (!t)
-		return ;
+		return;
 
 	if (file && lvl <= log_level) {
 		if (fct)
@@ -129,7 +129,7 @@ void log_debug(const char *fmt, ...)
 	va_list ap;
 
 	if (log_level < LOG_DEBUG)
-		return ;
+		return;
 
 	va_start(ap, fmt);
 	vlogf(LOG_DEBUG, NULL, fmt, ap);

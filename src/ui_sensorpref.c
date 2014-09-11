@@ -89,7 +89,7 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 static void sensor_pref_free(struct sensor_pref *p)
 {
 	if (!p)
-		return ;
+		return;
 
 	free(p->name);
 	free(p->color);
@@ -442,7 +442,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	if (!ok) {
 		log_printf(LOG_ERR, error->message);
 		g_error_free(error);
-		return ;
+		return;
 	}
 
 	w_sensors_list

@@ -54,12 +54,11 @@ char *tm_to_ISO8601_date(struct tm *tm)
 
 	str = malloc(ISO8601_DATE_LENGTH + 1);
 
-	if (strftime(str, ISO8601_DATE_LENGTH + 1, "%F", tm)) {
+	if (strftime(str, ISO8601_DATE_LENGTH + 1, "%F", tm))
 		return str;
-	} else {
-		free(str);
-		return NULL;
-	}
+
+	free(str);
+	return NULL;
 }
 
 char *tm_to_ISO8601_time(struct tm *tm)
@@ -68,12 +67,11 @@ char *tm_to_ISO8601_time(struct tm *tm)
 
 	str = malloc(ISO8601_TIME_LENGTH + 1);
 
-	if (strftime(str, ISO8601_TIME_LENGTH + 1, "%FT%T", tm)) {
+	if (strftime(str, ISO8601_TIME_LENGTH + 1, "%FT%T", tm))
 		return str;
-	} else {
-		free(str);
-		return NULL;
-	}
+
+	free(str);
+	return NULL;
 }
 
 char *get_current_ISO8601_time()
