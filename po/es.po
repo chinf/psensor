@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-11 14:57+0200\n"
-"PO-Revision-Date: 2013-05-12 22:16+0000\n"
-"Last-Translator: Javier <buik8roadmaster@hotmail.com>\n"
+"POT-Creation-Date: 2014-09-11 19:14+0200\n"
+"PO-Revision-Date: 2014-09-11 13:00+0000\n"
+"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-18 06:32+0000\n"
-"X-Generator: Launchpad (build 16799)\n"
+"X-Launchpad-Export-Date: 2014-09-11 13:04+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: src/cfg.c:500
 #, fuzzy, c-format
@@ -571,9 +571,13 @@ msgstr "Ya existe un Psensor en ejecución."
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Fallo al crear el servidor Web"
 
-#: src/main.c:615
+#: src/main.c:615 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Adolfo Jayme https://launchpad.net/~fitojb\n"
+"  Eduardo Alberto Calvo https://launchpad.net/~edu5800\n"
+"  Javier https://launchpad.net/~buik8roadmaster"
 
 #: src/rsensor.c:107
 #, c-format
@@ -697,11 +701,11 @@ msgstr ""
 msgid "About Psensor"
 msgstr "Sobre Psensor"
 
-#: src/ui.c:99
+#: src/ui.c:100
 msgid "Psensor Homepage"
 msgstr "Web de Psensor"
 
-#: src/ui.c:222
+#: src/ui.c:223
 msgid "Failed to load Psensor icon."
 msgstr "Error al cargar el icono de Psensor"
 

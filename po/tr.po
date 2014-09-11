@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-11 14:57+0200\n"
-"PO-Revision-Date: 2014-07-19 20:17+0000\n"
-"Last-Translator: İbrahim Çelik <ibrahimcelik89@gmail.com>\n"
+"POT-Creation-Date: 2014-09-11 19:14+0200\n"
+"PO-Revision-Date: 2014-09-11 13:00+0000\n"
+"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-27 08:00+0000\n"
-"X-Generator: Launchpad (build 17174)\n"
+"X-Launchpad-Export-Date: 2014-09-11 13:04+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: src/cfg.c:500
 #, fuzzy, c-format
@@ -302,7 +302,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:536
 msgid "-1"
-msgstr ""
+msgstr "-1"
 
 #: src/glade/sensor-edit.glade:588
 msgid "Low threshold:"
@@ -570,9 +570,13 @@ msgstr "Bir Psensor örneği zaten mevcut."
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Web sunucusu oluşturulamadı."
 
-#: src/main.c:615
+#: src/main.c:615 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
+"Launchpad Contributions:\n"
+"  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
+"  zeugma https://launchpad.net/~sunder67\n"
+"  İbrahim Çelik https://launchpad.net/~ibrahimcelik89"
 
 #: src/rsensor.c:107
 #, c-format
@@ -697,11 +701,11 @@ msgstr ""
 msgid "About Psensor"
 msgstr "Psensor Hakkında"
 
-#: src/ui.c:99
+#: src/ui.c:100
 msgid "Psensor Homepage"
 msgstr "Psensor Anasayfası"
 
-#: src/ui.c:222
+#: src/ui.c:223
 msgid "Failed to load Psensor icon."
 msgstr "Psensor simgesi yüklenemedi."
 

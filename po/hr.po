@@ -1,7 +1,7 @@
-# Slovenian translation for psensor
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Croatian translation for psensor
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the psensor package.
-# Maintained by Jean-Philippe Orsini <jeanfi@gmail.com>
+# Jean-Philippe Orsini <jeanfi@gmail.com>, 2014.
 #
 msgid ""
 msgstr ""
@@ -10,8 +10,8 @@ msgstr ""
 "POT-Creation-Date: 2014-09-11 19:14+0200\n"
 "PO-Revision-Date: 2014-09-11 13:00+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
-"Language-Team: Slovenian <sl@li.org>\n"
-"Language: sl\n"
+"Language-Team: Croatian <hr@li.org>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: src/cfg.c:500
 #, c-format
 msgid "Failed to create the directory %s: %s"
-msgstr ""
+msgstr "Neuspjelo stvaranje direktorija %s: %s"
 
 #: src/cfg.c:547
 #, c-format
@@ -31,183 +31,183 @@ msgstr ""
 #: src/cfg.c:570
 #, c-format
 msgid "Failed to save configuration file %s."
-msgstr ""
+msgstr "Neuspjelo spremanje datoteke podešavanja %s."
 
 #: src/glade/psensor.glade:6
 msgid "About"
-msgstr ""
+msgstr "O programu"
 
 #: src/glade/psensor.glade:10 src/glade/psensor.glade:11
 #: src/glade/psensor.glade:20 src/ui_sensorlist.c:264
 msgid "Preferences"
-msgstr ""
+msgstr "Osobitosti"
 
 #: src/glade/psensor.glade:15 src/glade/psensor.glade:16
 #: src/glade/psensor.glade:28
 msgid "Sensor Preferences"
-msgstr ""
+msgstr "Osobitosti senzora"
 
 #: src/glade/psensor.glade:24
 msgid "Quit"
-msgstr ""
+msgstr "Zatvori"
 
 #: src/glade/psensor.glade:84
 msgid "Show"
-msgstr ""
+msgstr "Prikaži"
 
 #: src/glade/psensor.glade:186
 msgid "Psensor - Temperature Monitor"
-msgstr ""
+msgstr "Psensor - Nadziratelj temperature"
 
 #: src/glade/psensor.glade:201
 msgid "_Psensor"
-msgstr ""
+msgstr "_Psensor"
 
 #: src/glade/psensor.glade:248
 msgid "_Help"
-msgstr ""
+msgstr "_Pomoć"
 
 #: src/glade/psensor.glade:312
 msgid "Sensor"
-msgstr ""
+msgstr "Senzor"
 
 #: src/glade/psensor.glade:323
 msgid "Value"
-msgstr ""
+msgstr "Vrijednost"
 
 #: src/glade/psensor.glade:334
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 #: src/glade/psensor.glade:345
 msgid "Max"
-msgstr ""
+msgstr "Maks"
 
 #: src/glade/psensor.glade:356
 msgid "Color"
-msgstr ""
+msgstr "Boja"
 
 #: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:787
 #: src/glade/sensor-edit.glade:412
 msgid "Graph"
-msgstr ""
+msgstr "Grafikon"
 
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
-msgstr ""
+msgstr "Desno"
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "Lijevo"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
-msgstr ""
+msgstr "Vrh"
 
 #: src/glade/psensor-pref.glade:33
 msgid "Bottom"
-msgstr ""
+msgstr "Dno"
 
 #: src/glade/psensor-pref.glade:60
 msgid "Edit Preferences"
-msgstr ""
+msgstr "Uredi osobitosti"
 
 #: src/glade/psensor-pref.glade:126
 msgid "Hide window decoration"
-msgstr ""
+msgstr "Sakrij ukras prozora"
 
 #: src/glade/psensor-pref.glade:146
 msgid "Keep window below"
-msgstr ""
+msgstr "Drži prozor ispod"
 
 #: src/glade/psensor-pref.glade:166
 msgid "Enable menu"
-msgstr ""
+msgstr "Omogući izbornik"
 
 #: src/glade/psensor-pref.glade:186
 msgid "Enable Unity Launcher counter"
-msgstr ""
+msgstr "Omogući brojač Unity pokretača"
 
 #: src/glade/psensor-pref.glade:214
 msgid "Celsius"
-msgstr ""
+msgstr "Celzijus"
 
 #: src/glade/psensor-pref.glade:215
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Farenhajt"
 
 #: src/glade/psensor-pref.glade:259
 msgid "Temperature unit:"
-msgstr ""
+msgstr "Jedinica temperature:"
 
 #: src/glade/psensor-pref.glade:277
 msgid "Position of sensors table:"
-msgstr ""
+msgstr "Položaj okvira senzora:"
 
 #: src/glade/psensor-pref.glade:296
 msgid "Interface"
-msgstr ""
+msgstr "Sučelje"
 
 #: src/glade/psensor-pref.glade:312
 msgid "Launch on session startup"
-msgstr ""
+msgstr "Pokreni pri pokretanju sesije"
 
 #: src/glade/psensor-pref.glade:333
 msgid "Hide window on startup"
-msgstr ""
+msgstr "Sakrij prozor pri pokretanju"
 
 #: src/glade/psensor-pref.glade:353
 msgid "Restore window position and size"
-msgstr ""
+msgstr "Vrati položaj i veličinu prozora"
 
 #: src/glade/psensor-pref.glade:384
 msgid "Startup"
-msgstr ""
+msgstr "Pokretanje"
 
 #: src/glade/psensor-pref.glade:428
 msgid "Foreground:"
-msgstr ""
+msgstr "Prednji plan:"
 
 #: src/glade/psensor-pref.glade:446
 msgid "Background:"
-msgstr ""
+msgstr "Pozadina:"
 
 #: src/glade/psensor-pref.glade:482
 msgid "Background opacity:"
-msgstr ""
+msgstr "Prozirnost pozadine:"
 
 #: src/glade/psensor-pref.glade:500
 msgid "Colors"
-msgstr ""
+msgstr "Boje"
 
 #: src/glade/psensor-pref.glade:521
 msgid "Monitoring duration:"
-msgstr ""
+msgstr "Trajanje nadziranja:"
 
 #: src/glade/psensor-pref.glade:539
 msgid "Update interval:"
-msgstr ""
+msgstr "Razdoblje ažuriranja:"
 
 #: src/glade/psensor-pref.glade:557
 msgid "Measures"
-msgstr ""
+msgstr "Mjere"
 
 #: src/glade/psensor-pref.glade:584
 msgid "<i>Min</i>"
-msgstr ""
+msgstr "<i>Min</i>"
 
 #: src/glade/psensor-pref.glade:611
 msgid "<i>Max</i>"
-msgstr ""
+msgstr "<i>Maks</i>"
 
 #: src/glade/psensor-pref.glade:664 src/glade/psensor-pref.glade:851
 msgid "second(s)"
-msgstr ""
+msgstr "sekunda(i)"
 
 #: src/glade/psensor-pref.glade:716
 msgid "minute(s)"
-msgstr ""
+msgstr "minuta(e)"
 
 #: src/glade/psensor-pref.glade:734
 msgid "Smooth curves"
@@ -219,57 +219,57 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:814
 msgid "Measure update interval:"
-msgstr ""
+msgstr "Razdoblje ažuriranja mjera:"
 
 #: src/glade/psensor-pref.glade:862
 msgid "Enable sensors logging"
-msgstr ""
+msgstr "Omogući zapisivanje sensora"
 
 #: src/glade/psensor-pref.glade:909
 msgid "Sensors logging interval:"
-msgstr ""
+msgstr "Razdoblje zapisivanja senzora:"
 
 #: src/glade/psensor-pref.glade:926
 msgid "seconds(s)"
-msgstr ""
+msgstr "sekunda(i)"
 
 #: src/glade/psensor-pref.glade:943
 msgid "Script executed when an alarm is raised:"
-msgstr ""
+msgstr "Skripta za izvršavanje kada se alarm upali"
 
 #: src/glade/psensor-pref.glade:984
 msgid "Sensors"
-msgstr ""
+msgstr "Senzori"
 
 #: src/glade/sensor-edit.glade:29
 msgid "Edit Sensor Preferences"
-msgstr ""
+msgstr "Uredi osobitosti senzora"
 
 #: src/glade/sensor-edit.glade:107
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #: src/glade/sensor-edit.glade:174
 msgid "Type:"
-msgstr ""
+msgstr "Vrsta:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
 #: src/glade/sensor-edit.glade:562 src/lib/psensor.c:510 src/ui_notify.c:81
 msgid "N/A"
-msgstr ""
+msgstr "Nedostupno"
 
 #: src/glade/sensor-edit.glade:212
 msgid "Chip:"
-msgstr ""
+msgstr "Čip:"
 
 #: src/glade/sensor-edit.glade:245
 msgid "Name:"
-msgstr ""
+msgstr "Naziv:"
 
 #: src/glade/sensor-edit.glade:264
 msgid "Id:"
-msgstr ""
+msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:302
 msgid "Details"
@@ -277,23 +277,23 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:320
 msgid "Draw sensor curve"
-msgstr ""
+msgstr "Iscrtavaj krivulju senzora"
 
 #: src/glade/sensor-edit.glade:349
 msgid "Color:"
-msgstr ""
+msgstr "Boja:"
 
 #: src/glade/sensor-edit.glade:380
 msgid "Display sensor in the list of sensors"
-msgstr ""
+msgstr "Prikaži senzor u popisu senzora"
 
 #: src/glade/sensor-edit.glade:431
 msgid "Activate desktop notifications"
-msgstr ""
+msgstr "Uključi obavijesti radne površine"
 
 #: src/glade/sensor-edit.glade:460
 msgid "High threshold:"
-msgstr ""
+msgstr "Gornja granica:"
 
 #: src/glade/sensor-edit.glade:482
 msgid "0"
@@ -301,104 +301,104 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:536
 msgid "-1"
-msgstr ""
+msgstr "-1"
 
 #: src/glade/sensor-edit.glade:588
 msgid "Low threshold:"
-msgstr ""
+msgstr "Donja granica:"
 
 #: src/glade/sensor-edit.glade:610
 msgid "Alarm"
-msgstr ""
+msgstr "Alarm"
 
 #: src/glade/sensor-edit.glade:629
 msgid "Display sensor in the menu"
-msgstr ""
+msgstr "Prikaži senzor u izbrniku"
 
 #: src/glade/sensor-edit.glade:650
 msgid "Display sensor in the label (experimental)"
-msgstr ""
+msgstr "Prikaži senzor u oznaci (eksperimentalno)"
 
 #: src/glade/sensor-edit.glade:682
 msgid "Application Indicator"
-msgstr ""
+msgstr "Programičić pokazivača"
 
 #: src/lib/amd.c:168
 msgid "AMD: cannot found ADL library."
-msgstr ""
+msgstr "AMD: nemogu pronaći ADL biblioteku."
 
 #: src/lib/amd.c:195
 msgid "AMD: missing ADL's API."
-msgstr ""
+msgstr "AMD: nedostaje ADL API."
 
 #: src/lib/amd.c:205
 msgid "AMD: failed to initialize ADL."
-msgstr ""
+msgstr "AMD: neuspjelo pokretanje ADL-a."
 
 #: src/lib/amd.c:211
 msgid "AMD: cannot get the number of adapters."
-msgstr ""
+msgstr "AMD: nemoguće je dobiti broj adaptera."
 
 #: src/lib/amd.c:250
 #, c-format
 msgid "Number of AMD/ATI adapters: %d"
-msgstr ""
+msgstr "Broj AMD/ATI adaptera: %d"
 
 #: src/lib/amd.c:251
 #, c-format
 msgid "Number of active AMD/ATI adapters: %d"
-msgstr ""
+msgstr "Broj aktivnih AMD/ATI adaptera: %d"
 
 #: src/lib/cpu.c:46
 msgid "CPU"
-msgstr ""
+msgstr "CPU"
 
 #: src/lib/hdd_atasmart.c:57 src/lib/hdd_hddtemp.c:122
 msgid "Disk"
-msgstr ""
+msgstr "Disk"
 
 #: src/lib/hdd_atasmart.c:152
 #, c-format
 msgid "atasmart: sk_disk_open() failure: %s."
-msgstr ""
+msgstr "atasmart: sk_disk_open() neuspjeh: %s."
 
 #: src/lib/hdd_hddtemp.c:59
 msgid "hddtemp: failed to open socket."
-msgstr ""
+msgstr "hddtemp: neuspjelo otvaranje socketa."
 
 #: src/lib/hdd_hddtemp.c:72
 msgid "hddtemp: failed to open connection."
-msgstr ""
+msgstr "hddtemp: neuspjelo otvaranje povezivanja."
 
 #: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:256
 #, c-format
 msgid "hddtemp: wrong string: %s."
-msgstr ""
+msgstr "hddtemp: pogrešan string: %s."
 
 #: src/lib/lmsensor.c:42
 #, c-format
 msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr ""
+msgstr "lmsensor: nemoguće dobivanje vrijednosti podznačajki %s: %s."
 
 #: src/lib/lmsensor.c:123
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr ""
+msgstr "lmsensor: lmsensor_psensor_create neuspjeh: pogrešna vrsta značajki."
 
 #: src/lib/lmsensor.c:148
 msgid "Intel CPU"
-msgstr ""
+msgstr "Intel CPU"
 
 #: src/lib/lmsensor.c:152
 msgid "AMD CPU"
-msgstr ""
+msgstr "AMD CPU"
 
 #: src/lib/lmsensor.c:154
 msgid "NVIDIA GPU"
-msgstr ""
+msgstr "NVIDIA GPU"
 
 #: src/lib/lmsensor.c:156
 msgid "VIA CPU"
-msgstr ""
+msgstr "VIA CPU"
 
 #: src/lib/lmsensor.c:158
 msgid "ACPI"
@@ -407,12 +407,12 @@ msgstr ""
 #: src/lib/lmsensor.c:219
 #, c-format
 msgid "lmsensor: initialization failure: %s."
-msgstr ""
+msgstr "lmsensor: neuspjeh pokretanja: %s."
 
 #: src/lib/plog.c:43
 #, c-format
 msgid "Cannot open log file: %s"
-msgstr ""
+msgstr "Nemoguće otvaranje datoteke: %s"
 
 #: src/lib/nvidia.c:56
 #, c-format
@@ -431,11 +431,11 @@ msgstr ""
 
 #: src/lib/nvidia.c:288
 msgid "Cannot open connection to X11 server."
-msgstr ""
+msgstr "Nemoguće povezivanje s X11 poslužiteljem."
 
 #: src/lib/nvidia.c:295
 msgid "Failed to retrieve NVIDIA information."
-msgstr ""
+msgstr "Neuspjelo primanje NVIDIA informacija."
 
 #: src/lib/nvidia.c:364
 msgid "NVIDIA: failed to retrieve number of fans."
@@ -443,32 +443,32 @@ msgstr ""
 
 #: src/lib/psensor.c:506 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
-msgstr ""
+msgstr "Okr/min"
 
 #: src/lib/psensor.c:508
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #: src/lib/slog.c:87
 msgid "HOME variable not set."
-msgstr ""
+msgstr "HOME varijabla nije postavljena."
 
 #: src/lib/slog.c:97
 msgid "Sensor log file already open."
-msgstr ""
+msgstr "Datoteka zapisa senzora je već otvorena."
 
 #: src/lib/slog.c:106
 #, c-format
 msgid "Cannot open sensor log file: %s."
-msgstr ""
+msgstr "Nemoguće otvaranje datoteke zapisa senzora: %s."
 
 #: src/lib/slog.c:137
 msgid "Sensor log file not open."
-msgstr ""
+msgstr "Datoteka zapisa senzora nije otvorena."
 
 #: src/lib/slog.c:193
 msgid "Sensor log not open, cannot close."
-msgstr ""
+msgstr "Datoteka zapisa senzora nije otvorena, nemoguće zatvaranje."
 
 #: src/main.c:78 src/server/server.c:85
 #, c-format
@@ -479,182 +479,209 @@ msgid ""
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
+"Autorsko pravo (C) %s jeanfi@gmail.com\n"
+"Licenca GPLv2: GNU GPL inačica 2 ili novija <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"Ovo je slobodan softver: slobodno ga možete mijenjati i redistribuirati.\n"
+"Ne postoji nikakvo JAMSTVO, propisano zakonom.\n"
 
 #: src/main.c:89 src/server/server.c:95
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
-msgstr ""
+msgstr "Upotreba: %s [MOGUĆNOST]...\n"
 
 #: src/main.c:91
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
 msgstr ""
+"Psensor je GTK+ aplikacija za nadziranje hardverskih senzora, koja uključuje "
+"temperature i brzinu okretaja ventilatora."
 
 #: src/main.c:95
 msgid "Options:"
-msgstr ""
+msgstr "Mogućnosti:"
 
 #: src/main.c:96
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
 msgstr ""
+"  -h, --help          prikaz pomoći\n"
+"  -v, --version       prikaz informacije inačice"
 
 #: src/main.c:102
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
 msgstr ""
+"  -u, --url=URL       URL psensor-poslužitelja,\n"
+"                      npr: http://hostname:3131"
 
 #: src/main.c:105
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
 msgstr ""
+"  --use-libatasmart   koristi atasmart biblioteku za nadziranje diska "
+"umjesto\n"
+"                      hddtemp daemona"
 
 #: src/main.c:108
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
-msgstr ""
+msgstr "  -n, --new-instance  prisili stvaranje nove Psensor aplikacije"
 
 #: src/main.c:111
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
+"  -d, --debug=LEVEL   postavi razinu otklanjanja greške, cijeli broj između "
+"0 i 3"
 
 #: src/main.c:116 src/server/server.c:118
 #, c-format
 msgid "Report bugs to: %s\n"
-msgstr ""
+msgstr "Prijavi grešku na: %s\n"
 
 #: src/main.c:118 src/server/server.c:120
 #, c-format
 msgid "%s home page: <%s>\n"
-msgstr ""
+msgstr "%s početna stranica: <%s>\n"
 
 #: src/main.c:448
 msgid "Psensor has not been compiled with remote sensor support."
-msgstr ""
+msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
 
 #: src/main.c:510
 msgid "Enables debug mode."
-msgstr ""
+msgstr "Omogućava način otklanjanja greške."
 
 #: src/main.c:522 src/server/server.c:381
 #, c-format
 msgid "Try `%s --help' for more information.\n"
-msgstr ""
+msgstr "Pokušajte `%s --help` za više informacija.\n"
 
 #: src/main.c:535
 msgid "A Psensor instance already exists."
-msgstr ""
+msgstr "Psensor primjerak je već pokrenut."
 
 #: src/main.c:592
 msgid "Failed to create thread for monitoring sensors"
-msgstr ""
+msgstr "Neuspjelo stvaranje niza za nadziranje senzora"
 
 #: src/main.c:615 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
-"  Sasa Batistic https://launchpad.net/~sasa-batistic"
+"  gogo https://launchpad.net/~trebelnik-stefina"
 
 #: src/rsensor.c:107
 #, c-format
 msgid "Fail to connect to: %s"
-msgstr ""
+msgstr "Neuspjelo povezivanje s: %s"
 
 #: src/rsensor.c:144
 #, c-format
 msgid "Invalid content: %s"
-msgstr ""
+msgstr "Nevaljan sadržaj: %s"
 
 #: src/rsensor.c:184
 #, c-format
 msgid "Invalid JSON: %s"
-msgstr ""
+msgstr "Nevaljan JSON: %s"
 
 #: src/server/server.c:55
 msgid "<html><body><p>Server stop requested</p></body></html>"
-msgstr ""
+msgstr "<html><body><p>Poslužitelj je prestao reagirat</p></body></html>"
 
 #: src/server/server.c:61
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
+"<html><body><p>Stranica nije pronađena - Idite na <a href='/'>Glavna "
+"stranica</a></p></body>"
 
 #: src/server/server.c:97
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
+"psensor-poslužitelj je HTTP poslužitelj za udaljeno nadziranje senzora "
+"hardvera."
 
 #: src/server/server.c:102
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
 msgstr ""
+"  -h, --help\t\tprikazuje pomoć\n"
+"  -v, --version\t\tprikazuje informacije o inačici"
 
 #: src/server/server.c:106
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
 msgstr ""
+"  -p,--port=PORT\tulaz web poslužitelja\n"
+"  -w,--wdir=DIR\t\tdirektorij sadrži stranice web poslužitelja"
 
 #: src/server/server.c:110
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
+"  -d, --debug=LEVEL     postavi razinu otklanjanja greške, cijeli broj "
+"između 0 i 3"
 
 #: src/server/server.c:112
 msgid "  -l, --log-file=PATH   set the log file to PATH"
-msgstr ""
+msgstr "  -l, --log-file=PUTANJA   postavite PUTANJU datoteke zapisa"
 
 #: src/server/server.c:113
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
-msgstr ""
+msgstr "  --sensor-log-file=PUTANJA postavite PUTANJU datoteke zapisa senzora"
 
 #: src/server/server.c:114
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
+"  --sensor-log-interval=S postavite trajanje zapisa senzora u S (sekunde)"
 
 #: src/server/server.c:298
 #, c-format
 msgid "HTTP Request: %s"
-msgstr ""
+msgstr "HTTP Zahtjev: %s"
 
 #: src/server/server.c:361
 #, c-format
 msgid "Enables debug mode: %d"
-msgstr ""
+msgstr "Omogućuje način otklanjanja greške: %d"
 
 #: src/server/server.c:405
 msgid "No sensors detected."
-msgstr ""
+msgstr "Nema otkrivenih senzora."
 
 #: src/server/server.c:412
 msgid "Failed to create Web server."
-msgstr ""
+msgstr "Neuspjelo stvaranje Web poslužitelja."
 
 #: src/server/server.c:416
 #, c-format
 msgid "Web server started on port: %d"
-msgstr ""
+msgstr "Web poslužitelj pokrenut na ulazu: %d"
 
 #: src/server/server.c:417
 #, c-format
 msgid "WWW directory: %s"
-msgstr ""
+msgstr "WWW direktorij: %s"
 
 #: src/server/server.c:418
 #, c-format
 msgid "URL: http://localhost:%d"
-msgstr ""
+msgstr "URL: http://localhost:%d"
 
 #: src/server/server.c:428
 msgid "Failed to activate logging of sensors."
-msgstr ""
+msgstr "Neuspjelo aktiviranje zapisivanja senzora."
 
 #: src/ui.c:87
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr ""
+msgstr "Psensor je GTK+ aplikacija za nadziranje senzora hardvera."
 
 #: src/ui.c:90
 msgid "Copyright(c) 2010-2014 jeanfi@gmail.com"
@@ -662,15 +689,15 @@ msgstr ""
 
 #: src/ui.c:96
 msgid "About Psensor"
-msgstr ""
+msgstr "O Psensoru"
 
 #: src/ui.c:100
 msgid "Psensor Homepage"
-msgstr ""
+msgstr "Psensor web stranica"
 
 #: src/ui.c:223
 msgid "Failed to load Psensor icon."
-msgstr ""
+msgstr "Neuspjelo učitavanje ikone Psensora."
 
 #: src/ui_sensorlist.c:254
 msgid "Hide"
@@ -682,11 +709,11 @@ msgstr ""
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
-msgstr ""
+msgstr "dobivanje-vremena-dana neuspjelo."
 
 #: src/ui_notify.c:77
 msgid "Temperature alert"
-msgstr ""
+msgstr "Upozorenje temperature"
 
 #: src/ui_notify.c:79
 msgid "Fan speed alert"
@@ -694,4 +721,4 @@ msgstr ""
 
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
