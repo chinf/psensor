@@ -21,7 +21,7 @@ v1.1.2
 * Smoother curves (using Bezier algo).
 * Added translator credits in the about dialog.
 * Added Crotian translation from LP (gogo).
-* Merged all translation from LP.
+* Merged all translations from LP.
 * Included the full list of contributors from LP, available throw the
   about dialog.
 
