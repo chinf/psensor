@@ -1,6 +1,6 @@
 check-local: checkpatch.pl
-	find $(top_srcdir)/src -name \*.c -exec $(srcdir)/checkpatch.pl --ignore SPLIT_STRING --show-types -q --no-tree  -emacs -f {} \;
-	find $(top_srcdir)/src -name \*.h -exec $(srcdir)/checkpatch.pl --ignore SPLIT_STRING --show-types -q --no-tree  -emacs -f {} \;
+	find $(top_srcdir)/src -name \*.c -exec $(srcdir)/checkpatch.pl --ignore FUNCTION_WITHOUT_ARGS,SPLIT_STRING --show-types -q --no-tree  -emacs -f {} \;
+	find $(top_srcdir)/src -name \*.h -exec $(srcdir)/checkpatch.pl --ignore FUNCTION_WITHOUT_ARGS,SPLIT_STRING --show-types -q --no-tree  -emacs -f {} \;
 
 DEFS = -DPACKAGE_DATA_DIR=\"$(pkgdatadir)\" -DLOCALEDIR=\"$(localedir)\" @DEFS@
 
