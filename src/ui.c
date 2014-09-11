@@ -78,8 +78,11 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 
 void ui_show_about_dialog()
 {
+	static const char *const authors[] = { "jeanfi@gmail.com", NULL };
+
 	gtk_show_about_dialog
 		(NULL,
+		 "authors", authors,
 		 "comments",
 		 _("Psensor is a GTK+ application for monitoring hardware "
 		   "sensors"),
@@ -91,6 +94,7 @@ void ui_show_about_dialog()
 		 "logo-icon-name", "psensor",
 		 "program-name", "Psensor",
 		 "title", _("About Psensor"),
+		 "translator-credits", _("translator-credits"),
 		 "version", VERSION,
 		 "website", PACKAGE_URL,
 		 "website-label", _("Psensor Homepage"),
