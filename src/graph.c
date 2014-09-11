@@ -33,6 +33,8 @@
 /* vertical padding */
 #define GRAPH_V_PADDING 4
 
+bool is_smooth_curves_enabled;
+
 static time_t get_graph_end_time_s()
 {
 	struct timeval tv;
@@ -351,10 +353,10 @@ graph_update(struct psensor **sensors,
 {
 	struct color *fgcolor = config->graph_fgcolor;
 	int et, bt, width, height, g_width, g_height;
-	double min_rpm, max_rpm, mint, maxt;
+	double min_rpm, max_rpm, mint, maxt, min, max;
 	char *strmin, *strmax;
 	/* horizontal and vertical offset of the graph */
-	int g_xoff, g_yoff, no_graphs, min, max;
+	int g_xoff, g_yoff, no_graphs;
 	cairo_surface_t *cst;
 	cairo_t *cr, *cr_pixmap;
 	char *str_btime, *str_etime;
@@ -482,7 +484,7 @@ graph_update(struct psensor **sensors,
 				max = maxt;
 			}
 
-			if (1)
+			if (is_smooth_curves_enabled)
 				draw_sensor_smooth_curve(s, cr,
 							 min, max,
 							 bt, et,
