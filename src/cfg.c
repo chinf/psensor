@@ -29,8 +29,6 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
-#include <gio/gio.h>
-
 #include <cfg.h>
 #include <pio.h>
 #include <plog.h>
@@ -55,17 +53,14 @@ static const char *KEY_SENSOR_UPDATE_INTERVAL
 
 /* Graph settings */
 static const char *KEY_GRAPH_UPDATE_INTERVAL = "graph-update-interval";
-
 static const char *KEY_GRAPH_MONITORING_DURATION = "graph-monitoring-duration";
-
 static const char *KEY_GRAPH_BACKGROUND_COLOR = "graph-background-color";
-
 static const char *DEFAULT_GRAPH_BACKGROUND_COLOR = "#e8f4e8f4a8f5";
-
 static const char *KEY_GRAPH_BACKGROUND_ALPHA = "graph-background-alpha";
-
 static const char *KEY_GRAPH_FOREGROUND_COLOR
 = "graph-foreground-color";
+static const char *KEY_GRAPH_SMOOTH_CURVES_ENABLED
+= "graph-smooth-curves-enabled";
 
 static const char *DEFAULT_GRAPH_FOREGROUND_COLOR = "#000000000000";
 
@@ -334,6 +329,17 @@ static void set_window_keep_below_enabled(bool enabled)
 {
 	set_bool(KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED, enabled);
 }
+
+bool config_is_smooth_curves_enabled()
+{
+	return get_bool(KEY_GRAPH_SMOOTH_CURVES_ENABLED);
+}
+
+void config_set_smooth_curves_enabled(bool b)
+{
+	set_bool(KEY_GRAPH_SMOOTH_CURVES_ENABLED, b);
+}
+
 
 static void init()
 {
@@ -751,4 +757,9 @@ bool config_is_appindicator_label_enabled(const char *sid)
 void config_set_appindicator_label_enabled(const char *sid, bool enabled)
 {
 	sensor_set_bool(sid, ATT_SENSOR_APPINDICATOR_LABEL_ENABLED, enabled);
+}
+
+GSettings *config_get_GSettings()
+{
+	return settings;
 }
