@@ -45,6 +45,11 @@ on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 	return FALSE;
 }
 
+void smooth_curves_enabled_changed_cbk(void *data)
+{
+	is_smooth_curves_enabled = config_is_smooth_curves_enabled();
+}
+
 void ui_graph_create(struct ui_psensor *ui)
 {
 	GtkWidget *w_graph;
@@ -52,6 +57,12 @@ void ui_graph_create(struct ui_psensor *ui)
 	log_debug("ui_graph_create()");
 
 	w_graph = ui->w_graph;
+
+	is_smooth_curves_enabled = config_is_smooth_curves_enabled();
+	g_signal_connect_after(config_get_GSettings(),
+			       "changed::graph-smooth-curves-enabled",
+			       G_CALLBACK(smooth_curves_enabled_changed_cbk),
+			       NULL);
 
 	g_signal_connect(GTK_WIDGET(w_graph),
 			 "draw",
