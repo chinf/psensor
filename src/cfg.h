@@ -19,6 +19,8 @@
 #ifndef _PSENSOR_CONFIG_H_
 #define _PSENSOR_CONFIG_H_
 
+#include <gio/gio.h>
+
 #include <bool.h>
 #include <color.h>
 
@@ -111,6 +113,9 @@ void config_set_slog_enabled_changed_cbk(void (*)(void *), void *);
 
 int config_get_slog_interval();
 
+bool config_is_smooth_curves_enabled();
+void config_set_smooth_curves_enabled(bool);
+
 int config_get_sensor_position(const char *);
 void config_set_sensor_position(const char *, int);
 
@@ -130,5 +135,7 @@ void config_set_sensor_enabled(const char *sid, bool enabled);
 const char *get_psensor_user_dir();
 
 void config_sync();
+
+GSettings *config_get_GSettings();
 
 #endif

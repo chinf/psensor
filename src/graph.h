@@ -21,12 +21,14 @@
 
 #include <gtk/gtk.h>
 
-#include "psensor.h"
-#include "cfg.h"
+#include <cfg.h>
+#include <psensor.h>
+
+extern bool is_smooth_curves_enabled;
 
 void graph_update(struct psensor **sensors,
-		  GtkWidget * w_graph,
+		  GtkWidget *w_graph,
 		  struct config *config,
-		  GtkWidget * window);
+		  GtkWidget *window);
 
 #endif
