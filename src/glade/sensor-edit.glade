@@ -91,6 +91,10 @@
                   <object class="GtkTreeView" id="sensors_list">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
                     <property name="model">sensors_liststore</property>
                     <property name="headers_clickable">False</property>
                     <property name="reorderable">True</property>
@@ -122,6 +126,10 @@
               <object class="GtkNotebook" id="notebook2">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="margin_left">4</property>
+                <property name="margin_right">4</property>
+                <property name="margin_top">4</property>
+                <property name="margin_bottom">4</property>
                 <child>
                   <object class="GtkGrid" id="table1">
                     <property name="visible">True</property>
@@ -136,6 +144,10 @@
                       <object class="GtkEntry" id="sensor_name">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <property name="margin_left">4</property>
+                        <property name="margin_right">4</property>
+                        <property name="margin_top">4</property>
+                        <property name="margin_bottom">4</property>
                         <property name="invisible_char">•</property>
                         <property name="primary_icon_activatable">False</property>
                         <property name="secondary_icon_activatable">False</property>
@@ -283,6 +295,10 @@
                   <object class="GtkLabel" id="label11">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
                     <property name="label" translatable="yes">Details</property>
                   </object>
                   <packing>
@@ -389,6 +405,10 @@
                   <object class="GtkLabel" id="label12">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
                     <property name="label" translatable="yes">Graph</property>
                   </object>
                   <packing>
@@ -583,6 +603,10 @@
                   <object class="GtkLabel" id="label13">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
                     <property name="label" translatable="yes">Alarm</property>
                   </object>
                   <packing>
@@ -651,6 +675,10 @@
                   <object class="GtkLabel" id="label1">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
                     <property name="label" translatable="yes">Application Indicator</property>
                   </object>
                   <packing>
