@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 1.0.0.0\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-11 19:14+0200\n"
+"POT-Creation-Date: 2014-09-12 01:25+0200\n"
 "PO-Revision-Date: 2014-09-11 13:00+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Swedish\n"
@@ -258,7 +258,7 @@ msgstr "Typ:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
-#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:510 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:511 src/ui_notify.c:81
 msgid "N/A"
 msgstr "Ej tillgänglig"
 
@@ -327,28 +327,28 @@ msgstr "Visa sensor i etiketten (experimentell)"
 msgid "Application Indicator"
 msgstr "Programindikator"
 
-#: src/lib/amd.c:168
+#: src/lib/amd.c:171
 msgid "AMD: cannot found ADL library."
 msgstr "AMD: kan inte hitta ADL-bibliotek."
 
-#: src/lib/amd.c:195
+#: src/lib/amd.c:198
 msgid "AMD: missing ADL's API."
 msgstr "AMD: saknar ADL API."
 
-#: src/lib/amd.c:205
+#: src/lib/amd.c:208
 msgid "AMD: failed to initialize ADL."
 msgstr "AMD: misslyckades med att initialisera ADL."
 
-#: src/lib/amd.c:211
+#: src/lib/amd.c:214
 msgid "AMD: cannot get the number of adapters."
 msgstr "AMD: kan inte hämta antal adaptrar."
 
-#: src/lib/amd.c:250
+#: src/lib/amd.c:253
 #, c-format
 msgid "Number of AMD/ATI adapters: %d"
 msgstr "Antal AMD/ATI-adaptrar: %d"
 
-#: src/lib/amd.c:251
+#: src/lib/amd.c:254
 #, c-format
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr "Antal aktiva AMD/ATI-adaptrar: %d"
@@ -384,31 +384,31 @@ msgstr "hddtemp: fel sträng: %s."
 msgid "lmsensor: cannot get value of subfeature %s: %s."
 msgstr "lmsensor: kan inte hämta värdet för underegenskap %s: %s."
 
-#: src/lib/lmsensor.c:123
+#: src/lib/lmsensor.c:124
 msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 msgstr "lmsensor: lmsensor_psensor_create fel: fel egenskapstyp."
 
-#: src/lib/lmsensor.c:148
+#: src/lib/lmsensor.c:149
 msgid "Intel CPU"
 msgstr "Intel CPU"
 
-#: src/lib/lmsensor.c:152
+#: src/lib/lmsensor.c:153
 msgid "AMD CPU"
 msgstr "AMD CPU"
 
-#: src/lib/lmsensor.c:154
+#: src/lib/lmsensor.c:155
 msgid "NVIDIA GPU"
 msgstr "NVIDIA GPU"
 
-#: src/lib/lmsensor.c:156
+#: src/lib/lmsensor.c:157
 msgid "VIA CPU"
 msgstr "VIA CPU"
 
-#: src/lib/lmsensor.c:158
+#: src/lib/lmsensor.c:159
 msgid "ACPI"
 msgstr ""
 
-#: src/lib/lmsensor.c:219
+#: src/lib/lmsensor.c:220
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: initialiseringsfel: %s."
@@ -423,33 +423,33 @@ msgstr "Kan inte öppna loggfil: %s"
 msgid "Unknown NVIDIA product name for GPU %d"
 msgstr ""
 
-#: src/lib/nvidia.c:61
+#: src/lib/nvidia.c:59
 #, fuzzy, c-format
 msgid "Failed to retrieve NVIDIA product name for GPU %d"
 msgstr "Misslyckades med att hämta NVIDIA-information."
 
-#: src/lib/nvidia.c:222
+#: src/lib/nvidia.c:220
 #, c-format
 msgid "Failed to retrieve measure of type %x for NVIDIA GPU %d"
 msgstr ""
 
-#: src/lib/nvidia.c:288
+#: src/lib/nvidia.c:286
 msgid "Cannot open connection to X11 server."
 msgstr "Kan inte öppna anslutning till X11-server."
 
-#: src/lib/nvidia.c:295
+#: src/lib/nvidia.c:293
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Misslyckades med att hämta NVIDIA-information."
 
-#: src/lib/nvidia.c:364
+#: src/lib/nvidia.c:362
 msgid "NVIDIA: failed to retrieve number of fans."
 msgstr ""
 
-#: src/lib/psensor.c:506 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:507 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:508
+#: src/lib/psensor.c:509
 msgid "%"
 msgstr "%"
 
@@ -457,20 +457,20 @@ msgstr "%"
 msgid "HOME variable not set."
 msgstr "HOME-variabel inte inställd."
 
-#: src/lib/slog.c:97
+#: src/lib/slog.c:96
 msgid "Sensor log file already open."
 msgstr "Sensorloggfil redan öppen."
 
-#: src/lib/slog.c:106
+#: src/lib/slog.c:105
 #, c-format
 msgid "Cannot open sensor log file: %s."
 msgstr "Kan inte öppna sensorloggfil: %s"
 
-#: src/lib/slog.c:137
+#: src/lib/slog.c:136
 msgid "Sensor log file not open."
 msgstr "Sensorloggfil ej öppen."
 
-#: src/lib/slog.c:193
+#: src/lib/slog.c:192
 msgid "Sensor log not open, cannot close."
 msgstr "Sensorloggfil ej öppen, kan inte stänga."
 
@@ -550,29 +550,29 @@ msgstr "Rapportera fel till: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s webbplats <%s>\n"
 
-#: src/main.c:448
+#: src/main.c:450
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor har inte kompilerats med fjärrsensorstöd."
 
-#: src/main.c:510
+#: src/main.c:512
 msgid "Enables debug mode."
 msgstr "Aktivera felsökningsläge."
 
-#: src/main.c:522 src/server/server.c:381
+#: src/main.c:524 src/server/server.c:382
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Prova`%s --help' för mer information.\n"
 
-#: src/main.c:535
+#: src/main.c:537
 msgid "A Psensor instance already exists."
 msgstr "Det finns redan en Psensor-instans."
 
-#: src/main.c:592
+#: src/main.c:594
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Misslyckades med att skapa katalogen %s: %s"
 
-#: src/main.c:615 src/ui.c:97
+#: src/main.c:617 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -643,40 +643,40 @@ msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
 "  --sensor-log-interval=S ställ in loggintervall för sensor till S (sekunder)"
 
-#: src/server/server.c:298
+#: src/server/server.c:299
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP-begäran: %s"
 
-#: src/server/server.c:361
+#: src/server/server.c:362
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Aktiverar felsökningsläge: %d"
 
-#: src/server/server.c:405
+#: src/server/server.c:406
 msgid "No sensors detected."
 msgstr "Inga sensorer hittades."
 
-#: src/server/server.c:412
+#: src/server/server.c:413
 msgid "Failed to create Web server."
 msgstr "Misslyckades med att skapa webbserver."
 
-#: src/server/server.c:416
+#: src/server/server.c:417
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Webbserver startade på port: %d"
 
-#: src/server/server.c:417
+#: src/server/server.c:418
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW-katalog: %s"
 
-#: src/server/server.c:418
+#: src/server/server.c:419
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:428
+#: src/server/server.c:429
 msgid "Failed to activate logging of sensors."
 msgstr "Misslyckades med att aktivera sensorloggning."
 
