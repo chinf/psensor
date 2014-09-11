@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-01 21:28+0200\n"
+"POT-Creation-Date: 2014-09-11 14:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,21 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/cfg.c:494
+#: src/cfg.c:500
 #, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr ""
 
-#: src/cfg.c:542
-msgid "The configuration file does not exist."
-msgstr ""
-
-#: src/cfg.c:545
+#: src/cfg.c:547
 #, c-format
-msgid "Failed to parse configuration file: %s"
+msgid "Failed to load configuration file %s: %s"
 msgstr ""
 
-#: src/cfg.c:569
+#: src/cfg.c:570
 #, c-format
 msgid "Failed to save configuration file %s."
 msgstr ""
@@ -41,7 +37,7 @@ msgid "About"
 msgstr ""
 
 #: src/glade/psensor.glade:10 src/glade/psensor.glade:11
-#: src/glade/psensor.glade:20 src/ui_sensorlist.c:217
+#: src/glade/psensor.glade:20 src/ui_sensorlist.c:264
 msgid "Preferences"
 msgstr ""
 
@@ -78,6 +74,23 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
+#: src/glade/psensor.glade:334
+msgid "Min"
+msgstr ""
+
+#: src/glade/psensor.glade:345
+msgid "Max"
+msgstr ""
+
+#: src/glade/psensor.glade:356
+msgid "Color"
+msgstr ""
+
+#: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:787
+#: src/glade/sensor-edit.glade:412
+msgid "Graph"
+msgstr ""
+
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
@@ -99,207 +112,214 @@ msgstr ""
 msgid "Edit Preferences"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:121
+#: src/glade/psensor-pref.glade:126
 msgid "Hide window decoration"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:141
+#: src/glade/psensor-pref.glade:146
 msgid "Keep window below"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:161
+#: src/glade/psensor-pref.glade:166
 msgid "Enable menu"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:181
+#: src/glade/psensor-pref.glade:186
 msgid "Enable Unity Launcher counter"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:209
+#: src/glade/psensor-pref.glade:214
 msgid "Celsius"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:210
+#: src/glade/psensor-pref.glade:215
 msgid "Fahrenheit"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:254
+#: src/glade/psensor-pref.glade:259
 msgid "Temperature unit:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:272
+#: src/glade/psensor-pref.glade:277
 msgid "Position of sensors table:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:287
+#: src/glade/psensor-pref.glade:296
 msgid "Interface"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:299
+#: src/glade/psensor-pref.glade:312
 msgid "Launch on session startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:320
+#: src/glade/psensor-pref.glade:333
 msgid "Hide window on startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:340
+#: src/glade/psensor-pref.glade:353
 msgid "Restore window position and size"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:367
+#: src/glade/psensor-pref.glade:384
 msgid "Startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:405
+#: src/glade/psensor-pref.glade:428
 msgid "Foreground:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:420
+#: src/glade/psensor-pref.glade:446
 msgid "Background:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:454
+#: src/glade/psensor-pref.glade:482
 msgid "Background opacity:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:477
-msgid "<i>Min</i>"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:504
-msgid "<i>Max</i>"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:530
+#: src/glade/psensor-pref.glade:500
 msgid "Colors"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:548
+#: src/glade/psensor-pref.glade:521
 msgid "Monitoring duration:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:585
-msgid "minute(s)"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:602 src/glade/psensor-pref.glade:752
-msgid "second(s)"
-msgstr ""
-
-#: src/glade/psensor-pref.glade:637
+#: src/glade/psensor-pref.glade:539
 msgid "Update interval:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:655
+#: src/glade/psensor-pref.glade:557
 msgid "Measures"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:691 src/glade/sensor-edit.glade:264
-#: src/ui_sensorlist.c:364
-msgid "Graph"
+#: src/glade/psensor-pref.glade:584
+msgid "<i>Min</i>"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:715
+#: src/glade/psensor-pref.glade:611
+msgid "<i>Max</i>"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:664 src/glade/psensor-pref.glade:851
+msgid "second(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:716
+msgid "minute(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:734
+msgid "Smooth curves"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:761
+msgid "Curves"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:814
 msgid "Measure update interval:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:763
+#: src/glade/psensor-pref.glade:862
 msgid "Enable sensors logging"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:810
+#: src/glade/psensor-pref.glade:909
 msgid "Sensors logging interval:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:827
+#: src/glade/psensor-pref.glade:926
 msgid "seconds(s)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:844
+#: src/glade/psensor-pref.glade:943
 msgid "Script executed when an alarm is raised:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:877
+#: src/glade/psensor-pref.glade:984
 msgid "Sensors"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:28
+#: src/glade/sensor-edit.glade:29
 msgid "Edit Sensor Preferences"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:96
+#: src/glade/sensor-edit.glade:107
 msgid "Name"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:140
+#: src/glade/sensor-edit.glade:174
 msgid "Type:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:155 src/glade/sensor-edit.glade:202
-#: src/glade/sensor-edit.glade:249 src/glade/sensor-edit.glade:475
-#: src/glade/sensor-edit.glade:523 src/lib/psensor.c:481 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
+#: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:510 src/ui_notify.c:81
 msgid "N/A"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:170
-msgid "Sensor Information"
-msgstr ""
-
-#: src/glade/sensor-edit.glade:188
+#: src/glade/sensor-edit.glade:212
 msgid "Chip:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:217
+#: src/glade/sensor-edit.glade:245
 msgid "Name:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:232
+#: src/glade/sensor-edit.glade:264
 msgid "Id:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:278
+#: src/glade/sensor-edit.glade:302
+msgid "Details"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:320
 msgid "Draw sensor curve"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:300
+#: src/glade/sensor-edit.glade:349
 msgid "Color:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:331
-msgid "Alarm"
+#: src/glade/sensor-edit.glade:380
+msgid "Display sensor in the list of sensors"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:345
+#: src/glade/sensor-edit.glade:431
 msgid "Activate desktop notifications"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:367
+#: src/glade/sensor-edit.glade:460
 msgid "High threshold:"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:382
-msgid "Low threshold:"
+#: src/glade/sensor-edit.glade:482
+msgid "0"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:397
-msgid "Application Indicator"
-msgstr ""
-
-#: src/glade/sensor-edit.glade:411
-msgid "Display sensor in the menu"
-msgstr ""
-
-#: src/glade/sensor-edit.glade:429
-msgid "Display sensor in the label (experimental)"
-msgstr ""
-
-#: src/glade/sensor-edit.glade:500
+#: src/glade/sensor-edit.glade:536
 msgid "-1"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:541
-msgid "Display sensor in the list of sensors"
+#: src/glade/sensor-edit.glade:588
+msgid "Low threshold:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:610
+msgid "Alarm"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:629
+msgid "Display sensor in the menu"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:650
+msgid "Display sensor in the label (experimental)"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:682
+msgid "Application Indicator"
 msgstr ""
 
 #: src/lib/amd.c:168
@@ -371,7 +391,7 @@ msgstr ""
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:154 src/lib/nvidia.c:73
+#: src/lib/lmsensor.c:154
 msgid "NVIDIA GPU"
 msgstr ""
 
@@ -379,7 +399,11 @@ msgstr ""
 msgid "VIA CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:221
+#: src/lib/lmsensor.c:158
+msgid "ACPI"
+msgstr ""
+
+#: src/lib/lmsensor.c:219
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr ""
@@ -389,24 +413,38 @@ msgstr ""
 msgid "Cannot open log file: %s"
 msgstr ""
 
-#: src/lib/nvidia.c:52
-msgid ""
-"NVIDIA proprietary driver not used or cannot retrieve NVIDIA GPU temperature."
+#: src/lib/nvidia.c:56
+#, c-format
+msgid "Unknown NVIDIA product name for GPU %d"
 msgstr ""
 
-#: src/lib/nvidia.c:95
+#: src/lib/nvidia.c:61
+#, c-format
+msgid "Failed to retrieve NVIDIA product name for GPU %d"
+msgstr ""
+
+#: src/lib/nvidia.c:222
+#, c-format
+msgid "Failed to retrieve measure of type %x for NVIDIA GPU %d"
+msgstr ""
+
+#: src/lib/nvidia.c:288
 msgid "Cannot open connection to X11 server."
 msgstr ""
 
-#: src/lib/nvidia.c:103
+#: src/lib/nvidia.c:295
 msgid "Failed to retrieve NVIDIA information."
 msgstr ""
 
-#: src/lib/psensor.c:477 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/nvidia.c:364
+msgid "NVIDIA: failed to retrieve number of fans."
+msgstr ""
+
+#: src/lib/psensor.c:506 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr ""
 
-#: src/lib/psensor.c:479
+#: src/lib/psensor.c:508
 msgid "%"
 msgstr ""
 
@@ -492,25 +530,29 @@ msgstr ""
 msgid "%s home page: <%s>\n"
 msgstr ""
 
-#: src/main.c:453
+#: src/main.c:448
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:515
+#: src/main.c:510
 msgid "Enables debug mode."
 msgstr ""
 
-#: src/main.c:527 src/server/server.c:381
+#: src/main.c:522 src/server/server.c:381
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr ""
 
-#: src/main.c:540
+#: src/main.c:535
 msgid "A Psensor instance already exists."
 msgstr ""
 
-#: src/main.c:597
+#: src/main.c:592
 msgid "Failed to create thread for monitoring sensors"
+msgstr ""
+
+#: src/main.c:615
+msgid "translator-credits"
 msgstr ""
 
 #: src/rsensor.c:107
@@ -607,42 +649,32 @@ msgstr ""
 msgid "Failed to activate logging of sensors."
 msgstr ""
 
-#: src/ui.c:84
+#: src/ui.c:87
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
 
-#: src/ui.c:87
-msgid ""
-"Copyright(c) 2010-2014\n"
-"jeanfi@gmail.com"
+#: src/ui.c:90
+msgid "Copyright(c) 2010-2014 jeanfi@gmail.com"
 msgstr ""
 
-#: src/ui.c:90
+#: src/ui.c:96
 msgid "About Psensor"
 msgstr ""
 
-#: src/ui.c:93
+#: src/ui.c:99
 msgid "Psensor Homepage"
 msgstr ""
 
-#: src/ui.c:216
+#: src/ui.c:222
 msgid "Failed to load Psensor icon."
 msgstr ""
 
-#: src/ui_sensorlist.c:253
-msgid "Select foreground color"
+#: src/ui_sensorlist.c:254
+msgid "Hide"
 msgstr ""
 
-#: src/ui_sensorlist.c:339
-msgid "Min"
-msgstr ""
-
-#: src/ui_sensorlist.c:345
-msgid "Max"
-msgstr ""
-
-#: src/ui_sensorlist.c:352
-msgid "Color"
+#: src/ui_sensorlist.c:296
+msgid "Select sensor color"
 msgstr ""
 
 #: src/ui_notify.c:48
@@ -654,7 +686,7 @@ msgid "Temperature alert"
 msgstr ""
 
 #: src/ui_notify.c:79
-msgid "Fan alert"
+msgid "Fan speed alert"
 msgstr ""
 
 #: src/ui_sensorpref.c:248
