@@ -48,7 +48,6 @@ struct graph_info {
 
 	/* Background color of the current desktop theme */
 	GdkRGBA theme_bg_color;
-
 	/* Foreground color of the current desktop theme */
 	GdkRGBA theme_fg_color;
 };
@@ -131,7 +130,7 @@ static void
 draw_graph_background(cairo_t *cr,
 		      int g_xoff, int g_yoff,
 		      int g_width, int g_height,
-		      int width, int height, struct config *config,
+		      int width, struct config *config,
 		      struct graph_info *info)
 {
 	struct color *bgcolor;
@@ -150,7 +149,7 @@ draw_graph_background(cairo_t *cr,
 				     info->theme_bg_color.green,
 				     info->theme_bg_color.blue);
 
-	cairo_rectangle(cr, g_xoff, 0, g_width, height);
+	cairo_rectangle(cr, g_xoff, 0, g_width, info->height);
 	cairo_fill(cr);
 
 	if (config->alpha_channel_enabled)
@@ -478,7 +477,7 @@ graph_update(struct psensor **sensors,
 
 	draw_graph_background(cr,
 			      g_xoff, g_yoff, g_width, g_height,
-			      width, height, config,
+			      width, config,
 			      &info);
 
 	/* Set the color for text drawing */
