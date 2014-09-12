@@ -24,6 +24,8 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
+#include <math.h>
+
 #include <cfg.h>
 #include <plog.h>
 #include <psensor.h>
@@ -35,26 +37,60 @@
 
 bool is_smooth_curves_enabled;
 
-static time_t get_graph_end_time_s()
+struct graph_info {
+	/* Horizontal position of the central region (curves) */
+	int g_xoff;
+	/* Vertical position of the central region (curves) */
+	int g_yoff;
+
+	/* Height of the drawing canvas */
+	int height;
+
+	/* Background color of the current desktop theme */
+	GdkRGBA theme_bg_color;
+
+	/* Foreground color of the current desktop theme */
+	GdkRGBA theme_fg_color;
+};
+
+
+/* Return the end time of the graph i.e. the more recent measure.  If
+ * no measure are available, return 0.
+ */
+static time_t get_graph_end_time_s(struct psensor **sensors)
 {
-	struct timeval tv;
+	time_t ret, t;
+	struct psensor *s;
+	struct measure *measures;
+	int i;
 
-	if (gettimeofday(&tv, NULL) == 0)
-		return tv.tv_sec;
+	ret = 0;
+	while (*sensors) {
+		s = *sensors;
+		measures = s->measures;
 
-	return 0;
+		for (i = s->values_max_length - 1; i >= 0; i--) {
+			if (measures[i].value != UNKNOWN_DBL_VALUE) {
+				t = measures[i].time.tv_sec;
+
+				if (t > ret)
+					ret = t;
+			}
+			i--;
+		}
+
+		sensors++;
+	}
+
+	return ret;
 }
 
-static time_t get_graph_begin_time_s(struct config *cfg)
+static time_t get_graph_begin_time_s(struct config *cfg, time_t etime)
 {
-	int ct;
-
-	ct = get_graph_end_time_s();
-
-	if (!ct)
+	if (!etime)
 		return 0;
 
-	return ct - cfg->graph_monitoring_duration * 60;
+	return etime - cfg->graph_monitoring_duration * 60;
 }
 
 static double
@@ -78,6 +114,17 @@ static char *time_to_str(time_t s)
 	strftime(str, 6, "%H:%M", tm);
 
 	return str;
+}
+
+static void draw_left_region(cairo_t *cr, struct graph_info *info)
+{
+	cairo_set_source_rgb(cr,
+			     info->theme_bg_color.red,
+			     info->theme_bg_color.green,
+			     info->theme_bg_color.blue);
+
+	cairo_rectangle(cr, 0, 0, info->g_xoff, info->height);
+	cairo_fill(cr);
 }
 
 static void
@@ -111,8 +158,9 @@ draw_graph_background(cairo_t *cr,
 				     rgba.green,
 				     rgba.blue);
 
-	cairo_rectangle(cr, 0, 0, width, height);
+	cairo_rectangle(cr, g_xoff, 0, g_width, height);
 	cairo_fill(cr);
+
 	if (config->alpha_channel_enabled)
 		cairo_set_source_rgba(cr,
 				      bgcolor->red,
@@ -311,8 +359,6 @@ static void draw_sensor_curve(struct psensor *s,
 			continue;
 
 		vdt = t - bt;
-		if (vdt < 0)
-			continue;
 
 		x = ((double)vdt * g_width) / dt + g_xoff;
 
@@ -366,7 +412,7 @@ graph_update(struct psensor **sensors,
 	struct psensor **sensor_cur, **enabled_sensors;
 	GtkAllocation galloc;
 	GtkStyleContext *style_ctx;
-	GdkRGBA rgba;
+	struct graph_info info;
 
 	if (!gtk_widget_is_drawable(w_graph))
 		return;
@@ -386,8 +432,11 @@ graph_update(struct psensor **sensors,
 				      maxt,
 				      config->temperature_unit == CELSIUS);
 
-	str_btime = time_to_str(get_graph_begin_time_s(config));
-	str_etime = time_to_str(get_graph_end_time_s());
+	et = get_graph_end_time_s(enabled_sensors);
+	bt = get_graph_begin_time_s(config, et);
+
+	str_btime = time_to_str(bt);
+	str_etime = time_to_str(et);
 
 	gtk_widget_get_allocation(w_graph, &galloc);
 	width = galloc.width;
@@ -420,6 +469,19 @@ graph_update(struct psensor **sensors,
 	else
 		g_xoff = (2 * GRAPH_H_PADDING) + te_min.width;
 
+	info.g_xoff = g_xoff;
+	info.g_yoff = g_yoff;
+	info.height = height;
+
+	style_ctx = gtk_widget_get_style_context(window);
+	gtk_style_context_get_background_color(style_ctx,
+					       GTK_STATE_FLAG_NORMAL,
+					       &info.theme_bg_color);
+	gtk_style_context_get_color(style_ctx,
+				    GTK_STATE_FLAG_NORMAL,
+				    &info.theme_fg_color);
+
+
 	g_width = width - g_xoff - GRAPH_H_PADDING;
 
 	draw_graph_background(cr,
@@ -428,10 +490,11 @@ graph_update(struct psensor **sensors,
 			      w_graph,
 			      window);
 
-	/** Set the color for text drawing */
-	style_ctx = gtk_widget_get_style_context(window);
-	gtk_style_context_get_color(style_ctx, GTK_STATE_FLAG_NORMAL, &rgba);
-	cairo_set_source_rgb(cr, rgba.red, rgba.green, rgba.blue);
+	/* Set the color for text drawing */
+	cairo_set_source_rgb(cr,
+			     info.theme_fg_color.red,
+			     info.theme_fg_color.green,
+			     info.theme_fg_color.blue);
 
 	/* draw graph begin time */
 	cairo_move_to(cr, g_xoff, height - GRAPH_V_PADDING);
@@ -445,25 +508,12 @@ graph_update(struct psensor **sensors,
 	cairo_show_text(cr, str_etime);
 	free(str_etime);
 
-	/* draw min and max temp */
-	cairo_move_to(cr, GRAPH_H_PADDING, te_max.height + GRAPH_V_PADDING);
-	cairo_show_text(cr, strmax);
-	free(strmax);
-
-	cairo_move_to(cr,
-		      GRAPH_H_PADDING, height - (te_min.height / 2) - g_yoff);
-	cairo_show_text(cr, strmin);
-	free(strmin);
-
 	draw_background_lines(cr, fgcolor,
 			      g_width, g_height,
 			      g_xoff, g_yoff,
 			      mint, maxt);
 
 	/* .. and finaly draws the temperature graphs */
-	bt = get_graph_begin_time_s(config);
-	et = get_graph_end_time_s();
-
 	if (bt && et) {
 		sensor_cur = enabled_sensors;
 
@@ -508,6 +558,23 @@ graph_update(struct psensor **sensors,
 						  g_height / 2);
 	}
 
+	draw_left_region(cr, &info);
+
+	/* draw min and max temp */
+	cairo_set_source_rgb(cr,
+			     info.theme_fg_color.red,
+			     info.theme_fg_color.green,
+			     info.theme_fg_color.blue);
+
+	cairo_move_to(cr, GRAPH_H_PADDING, te_max.height + GRAPH_V_PADDING);
+	cairo_show_text(cr, strmax);
+	free(strmax);
+
+	cairo_move_to(cr,
+		      GRAPH_H_PADDING, height - (te_min.height / 2) - g_yoff);
+	cairo_show_text(cr, strmin);
+	free(strmin);
+
 	cr_pixmap = gdk_cairo_create(gtk_widget_get_window(w_graph));
 
 	if (cr_pixmap) {
@@ -523,4 +590,16 @@ graph_update(struct psensor **sensors,
 	cairo_destroy(cr_pixmap);
 	cairo_surface_destroy(cst);
 	cairo_destroy(cr);
+}
+
+int compute_values_max_length(struct config *c)
+{
+	int n, duration, interval;
+
+	duration = c->graph_monitoring_duration * 60;
+	interval = c->sensor_update_interval;
+
+	n = 3 + ceil((((double)duration) / interval) + 0.5) + 3;
+
+	return n;
 }

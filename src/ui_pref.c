@@ -21,6 +21,7 @@
 
 #include <ui.h>
 #include <cfg.h>
+#include <graph.h>
 #include <ui_pref.h>
 #include <ui_color.h>
 #include <pxdg.h>
@@ -229,10 +230,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		    = gtk_spin_button_get_value_as_int
 			(w_monitoring_duration);
 
-		cfg->sensor_values_max_length
-		    = (cfg->graph_monitoring_duration * 60) /
-		    cfg->sensor_update_interval;
-
 		cfg->hide_on_startup
 			= gtk_toggle_button_get_active(w_hide_on_startup);
 
@@ -247,6 +244,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		cfg->temperature_unit
 			= gtk_combo_box_get_active(GTK_COMBO_BOX(w_temp_unit));
+
+		cfg->sensor_values_max_length = compute_values_max_length(cfg);
 
 		config_save(cfg);
 

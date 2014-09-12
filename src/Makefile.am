@@ -24,7 +24,7 @@ LIBS = \
 	lib/libpsensor.a \
 	$(GTK_LIBS)\
 	$(PTHREAD_LIBS)\
-	$(SENSORS_LIBS)
+	$(SENSORS_LIBS) -lm
 
 if GTK
 if X11

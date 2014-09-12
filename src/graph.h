@@ -31,4 +31,7 @@ void graph_update(struct psensor **sensors,
 		  struct config *config,
 		  GtkWidget *window);
 
+/* Compute the number of measures which must be kept. */
+int compute_values_max_length(struct config *);
+
 #endif

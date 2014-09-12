@@ -30,6 +30,7 @@
 #define _(str) gettext(str)
 
 #include <cfg.h>
+#include <graph.h>
 #include <pio.h>
 #include <plog.h>
 
@@ -411,12 +412,6 @@ struct config *config_load()
 	if (c->graph_monitoring_duration < 1)
 		c->graph_monitoring_duration = 10;
 
-	c->sensor_values_max_length
-	    = (c->graph_monitoring_duration * 60) / c->sensor_update_interval;
-
-	if (c->sensor_values_max_length < 3)
-		c->sensor_values_max_length = 3;
-
 	c->menu_bar_disabled = get_bool(KEY_INTERFACE_MENU_BAR_DISABLED);
 
 	c->unity_launcher_count_disabled
@@ -440,6 +435,8 @@ struct config *config_load()
 	}
 
 	c->temperature_unit = get_int(KEY_INTERFACE_TEMPERATURE_UNIT);
+
+	c->sensor_values_max_length = compute_values_max_length(c);
 
 	return c;
 }

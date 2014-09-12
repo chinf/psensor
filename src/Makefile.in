@@ -322,7 +322,7 @@ LIBNOTIFY_CFLAGS = @LIBNOTIFY_CFLAGS@
 LIBNOTIFY_LIBS = @LIBNOTIFY_LIBS@
 LIBOBJS = @LIBOBJS@
 LIBS = lib/libpsensor.a $(GTK_LIBS) $(PTHREAD_LIBS) $(SENSORS_LIBS) \
-	$(am__append_3) $(am__append_5) $(am__append_8) \
+	-lm $(am__append_3) $(am__append_5) $(am__append_8) \
 	$(am__append_11) $(am__append_13) $(am__append_15) \
 	$(am__append_18) $(am__append_20)
 LTLIBICONV = @LTLIBICONV@
