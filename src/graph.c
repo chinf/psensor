@@ -132,7 +132,6 @@ draw_graph_background(cairo_t *cr,
 		      int g_xoff, int g_yoff,
 		      int g_width, int g_height,
 		      int width, int height, struct config *config,
-		      GtkWidget *widget,
 		      GtkWidget *window)
 {
 	GtkStyleContext *style_ctx;
@@ -487,7 +486,6 @@ graph_update(struct psensor **sensors,
 	draw_graph_background(cr,
 			      g_xoff, g_yoff, g_width, g_height,
 			      width, height, config,
-			      w_graph,
 			      window);
 
 	/* Set the color for text drawing */
