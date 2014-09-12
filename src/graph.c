@@ -132,30 +132,23 @@ draw_graph_background(cairo_t *cr,
 		      int g_xoff, int g_yoff,
 		      int g_width, int g_height,
 		      int width, int height, struct config *config,
-		      GtkWidget *window)
+		      struct graph_info *info)
 {
-	GtkStyleContext *style_ctx;
 	struct color *bgcolor;
-	GdkRGBA rgba;
 
 	bgcolor = config->graph_bgcolor;
 
-	style_ctx = gtk_widget_get_style_context(window);
-	gtk_style_context_get_background_color(style_ctx,
-					       GTK_STATE_FLAG_NORMAL,
-					       &rgba);
-
 	if (config->alpha_channel_enabled)
 		cairo_set_source_rgba(cr,
-				      rgba.red,
-				      rgba.green,
-				      rgba.blue,
+				      info->theme_bg_color.red,
+				      info->theme_bg_color.green,
+				      info->theme_bg_color.blue,
 				      config->graph_bg_alpha);
 	else
 		cairo_set_source_rgb(cr,
-				     rgba.red,
-				     rgba.green,
-				     rgba.blue);
+				     info->theme_bg_color.red,
+				     info->theme_bg_color.green,
+				     info->theme_bg_color.blue);
 
 	cairo_rectangle(cr, g_xoff, 0, g_width, height);
 	cairo_fill(cr);
@@ -486,7 +479,7 @@ graph_update(struct psensor **sensors,
 	draw_graph_background(cr,
 			      g_xoff, g_yoff, g_width, g_height,
 			      width, height, config,
-			      window);
+			      &info);
 
 	/* Set the color for text drawing */
 	cairo_set_source_rgb(cr,
