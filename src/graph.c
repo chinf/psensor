@@ -128,7 +128,6 @@ static void draw_left_region(cairo_t *cr, struct graph_info *info)
 
 static void
 draw_graph_background(cairo_t *cr,
-		      int g_xoff, int g_yoff,
 		      int g_width, int g_height,
 		      int width, struct config *config,
 		      struct graph_info *info)
@@ -149,7 +148,7 @@ draw_graph_background(cairo_t *cr,
 				     info->theme_bg_color.green,
 				     info->theme_bg_color.blue);
 
-	cairo_rectangle(cr, g_xoff, 0, g_width, info->height);
+	cairo_rectangle(cr, info->g_xoff, 0, g_width, info->height);
 	cairo_fill(cr);
 
 	if (config->alpha_channel_enabled)
@@ -164,7 +163,7 @@ draw_graph_background(cairo_t *cr,
 				     bgcolor->green,
 				     bgcolor->blue);
 
-	cairo_rectangle(cr, g_xoff, g_yoff, g_width, g_height);
+	cairo_rectangle(cr, info->g_xoff, info->g_yoff, g_width, g_height);
 	cairo_fill(cr);
 }
 
@@ -476,7 +475,7 @@ graph_update(struct psensor **sensors,
 	g_width = width - g_xoff - GRAPH_H_PADDING;
 
 	draw_graph_background(cr,
-			      g_xoff, g_yoff, g_width, g_height,
+			      g_width, g_height,
 			      width, config,
 			      &info);
 
