@@ -31,9 +31,9 @@
 #include <psensor.h>
 
 /* horizontal padding */
-#define GRAPH_H_PADDING 4
+const int GRAPH_H_PADDING = 4;
 /* vertical padding */
-#define GRAPH_V_PADDING 4
+const int GRAPH_V_PADDING = 4;
 
 bool is_smooth_curves_enabled;
 
@@ -45,6 +45,8 @@ struct graph_info {
 
 	/* Height of the drawing canvas */
 	int height;
+	/* Width of the drawing canvas */
+	int width;
 
 	/* Background color of the current desktop theme */
 	GdkRGBA theme_bg_color;
@@ -129,7 +131,7 @@ static void draw_left_region(cairo_t *cr, struct graph_info *info)
 static void
 draw_graph_background(cairo_t *cr,
 		      int g_width, int g_height,
-		      int width, struct config *config,
+		      struct config *config,
 		      struct graph_info *info)
 {
 	struct color *bgcolor;
@@ -177,8 +179,8 @@ static int ndash = sizeof(dashes) / sizeof(dashes[0]);
 static void draw_background_lines(cairo_t *cr,
 				  struct color *color,
 				  int g_width, int g_height,
-				  int g_xoff, int g_yoff,
-				  int min, int max)
+				  int min, int max,
+				  struct graph_info *info)
 {
 	int i;
 
@@ -190,20 +192,20 @@ static void draw_background_lines(cairo_t *cr,
 
 	/* vertical lines representing time steps */
 	for (i = 0; i <= 5; i++) {
-		int x = i * (g_width / 5) + g_xoff;
+		int x = i * (g_width / 5) + info->g_xoff;
 
-		cairo_move_to(cr, x, g_yoff);
-		cairo_line_to(cr, x, g_yoff + g_height);
+		cairo_move_to(cr, x, info->g_yoff);
+		cairo_line_to(cr, x, info->g_yoff + g_height);
 		cairo_stroke(cr);
 	}
 
 	/* horizontal lines draws a line for each 10C step */
 	for (i = min; i < max; i++) {
 		if (i % 10 == 0) {
-			int y = compute_y(i, min, max, g_height, g_yoff);
+			int y = compute_y(i, min, max, g_height, info->g_yoff);
 
-			cairo_move_to(cr, g_xoff, y);
-			cairo_line_to(cr, g_xoff + g_width, y);
+			cairo_move_to(cr, info->g_xoff, y);
+			cairo_line_to(cr, info->g_xoff + g_width, y);
 			cairo_stroke(cr);
 		}
 	}
@@ -227,8 +229,7 @@ static void draw_sensor_smooth_curve(struct psensor *s,
 				     int et,
 				     int g_width,
 				     int g_height,
-				     int g_xoff,
-				     int g_yoff)
+				     struct graph_info *info)
 {
 	int i, dt, vdt, j, k, found;
 	double x[4], y[4], v;
@@ -299,8 +300,12 @@ static void draw_sensor_smooth_curve(struct psensor *s,
 
 			vdt = t - bt;
 
-			x[0 + j] = ((double)vdt * g_width) / dt + g_xoff;
-			y[0 + j] = compute_y(v, min, max, g_height, g_yoff);
+			x[0 + j] = ((double)vdt * g_width) / dt + info->g_xoff;
+			y[0 + j] = compute_y(v,
+					     min,
+					     max,
+					     g_height,
+					     info->g_yoff);
 
 			if (j == 0)
 				t0 = t;
@@ -328,8 +333,7 @@ static void draw_sensor_curve(struct psensor *s,
 			      int et,
 			      int g_width,
 			      int g_height,
-			      int g_xoff,
-			      int g_yoff)
+			      struct graph_info *info)
 {
 	int first, i, t, dt, vdt;
 	double v, x, y;
@@ -350,9 +354,9 @@ static void draw_sensor_curve(struct psensor *s,
 
 		vdt = t - bt;
 
-		x = ((double)vdt * g_width) / dt + g_xoff;
+		x = ((double)vdt * g_width) / dt + info->g_xoff;
 
-		y = compute_y(v, min, max, g_height, g_yoff);
+		y = compute_y(v, min, max, g_height, info->g_yoff);
 
 		if (first) {
 			cairo_move_to(cr, x, y);
@@ -430,7 +434,10 @@ graph_update(struct psensor **sensors,
 
 	gtk_widget_get_allocation(w_graph, &galloc);
 	width = galloc.width;
+	info.width = galloc.width;
 	height = galloc.height;
+	info.height = height;
+
 
 	cst = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
 	cr = cairo_create(cst);
@@ -461,7 +468,6 @@ graph_update(struct psensor **sensors,
 
 	info.g_xoff = g_xoff;
 	info.g_yoff = g_yoff;
-	info.height = height;
 
 	style_ctx = gtk_widget_get_style_context(window);
 	gtk_style_context_get_background_color(style_ctx,
@@ -474,10 +480,7 @@ graph_update(struct psensor **sensors,
 
 	g_width = width - g_xoff - GRAPH_H_PADDING;
 
-	draw_graph_background(cr,
-			      g_width, g_height,
-			      width, config,
-			      &info);
+	draw_graph_background(cr, g_width, g_height, config, &info);
 
 	/* Set the color for text drawing */
 	cairo_set_source_rgb(cr,
@@ -499,8 +502,8 @@ graph_update(struct psensor **sensors,
 
 	draw_background_lines(cr, fgcolor,
 			      g_width, g_height,
-			      g_xoff, g_yoff,
-			      mint, maxt);
+			      mint, maxt,
+			      &info);
 
 	/* .. and finaly draws the temperature graphs */
 	if (bt && et) {
@@ -530,13 +533,13 @@ graph_update(struct psensor **sensors,
 							 min, max,
 							 bt, et,
 							 g_width, g_height,
-							 g_xoff, g_yoff);
+							 &info);
 			else
 				draw_sensor_curve(s, cr,
 						  min, max,
 						  bt, et,
 						  g_width, g_height,
-						  g_xoff, g_yoff);
+						  &info);
 
 			sensor_cur++;
 		}
