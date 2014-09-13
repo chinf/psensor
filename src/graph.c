@@ -185,41 +185,43 @@ static double dashes[] = {
 static int ndash = sizeof(dashes) / sizeof(dashes[0]);
 
 static void draw_background_lines(cairo_t *cr,
-				  struct color *color,
 				  int min, int max,
+				  struct config *config,
 				  struct graph_info *info)
 {
 	int i;
+	double x, y;
+	struct color *color;
+
+	color = config->graph_fgcolor;
 
 	/* draw background lines */
 	cairo_set_line_width(cr, 1);
 	cairo_set_dash(cr, dashes, ndash, 0);
-	cairo_set_source_rgb(cr,
-			     color->red, color->green, color->blue);
+	cairo_set_source_rgb(cr, color->red, color->green, color->blue);
 
 	/* vertical lines representing time steps */
 	for (i = 0; i <= 5; i++) {
-		int x = i * (info->g_width / 5) + info->g_xoff;
-
+		x = i * ((double)info->g_width / 5) + info->g_xoff;
 		cairo_move_to(cr, x, info->g_yoff);
 		cairo_line_to(cr, x, info->g_yoff + info->g_height);
-		cairo_stroke(cr);
 	}
 
 	/* horizontal lines draws a line for each 10C step */
 	for (i = min; i < max; i++) {
 		if (i % 10 == 0) {
-			int y = compute_y(i,
-					  min,
-					  max,
-					  info->g_height,
-					  info->g_yoff);
+			y = compute_y(i,
+				      min,
+				      max,
+				      info->g_height,
+				      info->g_yoff);
 
 			cairo_move_to(cr, info->g_xoff, y);
 			cairo_line_to(cr, info->g_xoff + info->g_width, y);
-			cairo_stroke(cr);
 		}
 	}
+
+	cairo_stroke(cr);
 
 	/* back to normal line style */
 	cairo_set_dash(cr, 0, 0, 0);
@@ -401,7 +403,6 @@ graph_update(struct psensor **sensors,
 	     struct config *config,
 	     GtkWidget *window)
 {
-	struct color *fgcolor = config->graph_fgcolor;
 	int et, bt, width, height, g_width, g_height;
 	double min_rpm, max_rpm, mint, maxt, min, max;
 	char *strmin, *strmax;
@@ -511,7 +512,7 @@ graph_update(struct psensor **sensors,
 	cairo_show_text(cr, str_etime);
 	free(str_etime);
 
-	draw_background_lines(cr, fgcolor, mint, maxt, &info);
+	draw_background_lines(cr, mint, maxt, config, &info);
 
 	/* .. and finaly draws the temperature graphs */
 	if (bt && et) {
