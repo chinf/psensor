@@ -488,7 +488,6 @@ graph_update(struct psensor **sensors,
 				    GTK_STATE_FLAG_NORMAL,
 				    &info.theme_fg_color);
 
-
 	g_width = width - g_xoff - GRAPH_H_PADDING;
 	info.g_width = g_width;
 
