@@ -42,7 +42,7 @@
       seconds. It must be greater than 1.</description>
     </key>
     <key name="graph-smooth-curves-enabled" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Whether smooth curves are enabled</summary>
       <description>Whether curves are drawn using Bezier algorithm
       for a smoother visual rendering .</description>
