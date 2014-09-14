@@ -54,7 +54,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkComboBox *w_sensorlist_pos;
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
 		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
-		*w_win_restore, *w_slog_enabled, *w_autostart;
+		*w_win_restore, *w_slog_enabled, *w_autostart, *w_smooth_curves;
 	GtkComboBoxText *w_temp_unit;
 	GtkEntry *w_notif_script;
 	char *notif_script;
@@ -141,6 +141,11 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		(gtk_builder_get_object(builder, "enable_launcher_counter"));
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
 				     !cfg->unity_launcher_count_disabled);
+
+	w_smooth_curves = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder, "graph_smooth_curves"));
+	gtk_toggle_button_set_active(w_smooth_curves,
+				     config_is_smooth_curves_enabled());
 
 	w_slog_enabled = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "enable_slog"));
@@ -248,6 +253,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		cfg->sensor_values_max_length = compute_values_max_length(cfg);
 
 		config_save(cfg);
+
+		config_set_smooth_curves_enabled
+			(gtk_toggle_button_get_active(w_smooth_curves));
 
 		pxdg_set_autostart(gtk_toggle_button_get_active(w_autostart));
 
