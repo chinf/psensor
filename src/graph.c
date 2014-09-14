@@ -68,19 +68,28 @@ static time_t get_graph_end_time_s(struct psensor **sensors)
 	time_t ret, t;
 	struct psensor *s;
 	struct measure *measures;
-	int i;
+	int i, n;
 
 	ret = 0;
 	while (*sensors) {
 		s = *sensors;
 		measures = s->measures;
 
+		if (is_smooth_curves_enabled)
+			n = 2;
+		else
+			n = 0;
+
 		for (i = s->values_max_length - 1; i >= 0; i--) {
 			if (measures[i].value != UNKNOWN_DBL_VALUE) {
-				t = measures[i].time.tv_sec;
+				if (!n) {
+					t = measures[i].time.tv_sec;
 
-				if (t > ret)
-					ret = t;
+					if (t > ret)
+						ret = t;
+				} else {
+					n--;
+				}
 			}
 			i--;
 		}
@@ -130,6 +139,22 @@ static void draw_left_region(cairo_t *cr, struct graph_info *info)
 			     info->theme_bg_color.blue);
 
 	cairo_rectangle(cr, 0, 0, info->g_xoff, info->height);
+	cairo_fill(cr);
+}
+
+static void draw_right_region(cairo_t *cr, struct graph_info *info)
+{
+	cairo_set_source_rgb(cr,
+			     info->theme_bg_color.red,
+			     info->theme_bg_color.green,
+			     info->theme_bg_color.blue);
+
+
+	cairo_rectangle(cr,
+			info->g_xoff + info->g_width,
+			0,
+			info->g_xoff + info->g_width + GRAPH_H_PADDING,
+			info->height);
 	cairo_fill(cr);
 }
 
@@ -557,6 +582,7 @@ graph_update(struct psensor **sensors,
 	}
 
 	draw_left_region(cr, &info);
+	draw_right_region(cr, &info);
 
 	/* draw min and max temp */
 	cairo_set_source_rgb(cr,
