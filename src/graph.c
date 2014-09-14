@@ -61,6 +61,8 @@ struct graph_info {
 
 /* Return the end time of the graph i.e. the more recent measure.  If
  * no measure are available, return 0.
+ * If Bezier curves are used return the measure n-3 to avoid to
+ * display a part of the curve outside the graph area.
  */
 static time_t get_graph_end_time_s(struct psensor **sensors)
 {
@@ -84,8 +86,10 @@ static time_t get_graph_end_time_s(struct psensor **sensors)
 				if (!n) {
 					t = measures[i].time.tv_sec;
 
-					if (t > ret)
+					if (t > ret) {
 						ret = t;
+						break;
+					}
 				} else {
 					n--;
 				}
