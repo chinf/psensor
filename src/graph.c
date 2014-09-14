@@ -59,7 +59,6 @@ struct graph_info {
 	GdkRGBA theme_fg_color;
 };
 
-
 /* Return the end time of the graph i.e. the more recent measure.  If
  * no measure are available, return 0.
  */
