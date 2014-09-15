@@ -166,6 +166,9 @@ static void *update_measures(void *data)
 #ifdef HAVE_LIBATIADL
 		amd_psensor_list_update(sensors);
 #endif
+#ifdef HAVE_LIBUDISKS2
+		udisks2_psensor_list_update(sensors);
+#endif
 
 		psensor_log_measures(sensors);
 
