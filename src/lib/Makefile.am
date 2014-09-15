@@ -48,8 +48,15 @@ LIBS += $(JSON_LIBS)
 AM_CPPFLAGS += $(JSON_CFLAGS)
 endif
 
+if LIBUDISKS2
+libpsensor_a_SOURCES += pudisks2.c pudisks2.h
+LIBS += $(LIBUDISKS2_LIBS)
+AM_CPPFLAGS += $(LIBUDISKS2_CFLAGS)
+endif
+
 EXTRA_DIST=$(libpsensor_a_SOURCES) \
 	amd.c \
 	cpu.c \
 	nvidia.c \
-	pmem.c pmem.h
+	pmem.c pmem.h \
+	pudisks2.c pudisks2.h

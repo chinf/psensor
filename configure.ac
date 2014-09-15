@@ -83,7 +83,15 @@ GTK_CFLAGS+=" -DGSEAL_ENABLE "
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
-### Optional
+# udisks2
+
+PKG_CHECK_MODULES(LIBUDISKS2,
+		  udisks2,
+		  [AC_DEFINE([HAVE_LIBUDISKS2],[1],[Use libudisks])],
+		  [AC_MSG_WARN("Library udisks2 not present")])
+AM_CONDITIONAL(LIBUDISKS2, test -n "$LIBUDISKS2_LIBS")
+AC_SUBST(LIBUDISKS2_CFLAGS)
+AC_SUBST(LIBUDISKS2_LIBS)
 
 # check libatasmart
 PKG_CHECK_MODULES(ATASMART, libatasmart,

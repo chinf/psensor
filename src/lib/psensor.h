@@ -47,6 +47,7 @@ enum psensor_type {
 	SENSOR_TYPE_ATIADL = 0x00800,
 	SENSOR_TYPE_ATASMART = 0x01000,
 	SENSOR_TYPE_HDDTEMP = 0x02000,
+	SENSOR_TYPE_UDISKS2 = 0x800000,
 
 	/* Type of HW component */
 	SENSOR_TYPE_HDD = 0x04000,
@@ -124,6 +125,9 @@ struct psensor {
 #endif
 #ifdef HAVE_ATASMART
 	SkDisk *disk;
+#endif
+#ifdef HAVE_LIBUDISKS2
+	char *udisks2_path;
 #endif
 	char *url;
 

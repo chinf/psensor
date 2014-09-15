@@ -21,5 +21,6 @@
 
 double celsius_to_fahrenheit(double c);
 double fahrenheit_to_celsius(double c);
+double kelvin_to_celsius(double k);
 
 #endif

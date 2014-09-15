@@ -673,6 +673,10 @@ ATASMART_FALSE
 ATASMART_TRUE
 ATASMART_LIBS
 ATASMART_CFLAGS
+LIBUDISKS2_FALSE
+LIBUDISKS2_TRUE
+LIBUDISKS2_LIBS
+LIBUDISKS2_CFLAGS
 GTK_FALSE
 GTK_TRUE
 GTK_LIBS
@@ -842,6 +846,8 @@ XEXT_CFLAGS
 XEXT_LIBS
 GTK_CFLAGS
 GTK_LIBS
+LIBUDISKS2_CFLAGS
+LIBUDISKS2_LIBS
 ATASMART_CFLAGS
 ATASMART_LIBS
 LIBNOTIFY_CFLAGS
@@ -1525,6 +1531,10 @@ Some influential environment variables:
   XEXT_LIBS   linker flags for XEXT, overriding pkg-config
   GTK_CFLAGS  C compiler flags for GTK, overriding pkg-config
   GTK_LIBS    linker flags for GTK, overriding pkg-config
+  LIBUDISKS2_CFLAGS
+              C compiler flags for LIBUDISKS2, overriding pkg-config
+  LIBUDISKS2_LIBS
+              linker flags for LIBUDISKS2, overriding pkg-config
   ATASMART_CFLAGS
               C compiler flags for ATASMART, overriding pkg-config
   ATASMART_LIBS
@@ -7695,7 +7705,93 @@ GTK_CFLAGS+=" -DGSEAL_ENABLE "
 
 
 
-### Optional
+# udisks2
+
+
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for LIBUDISKS2" >&5
+$as_echo_n "checking for LIBUDISKS2... " >&6; }
+
+if test -n "$LIBUDISKS2_CFLAGS"; then
+    pkg_cv_LIBUDISKS2_CFLAGS="$LIBUDISKS2_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"udisks2\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "udisks2") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_LIBUDISKS2_CFLAGS=`$PKG_CONFIG --cflags "udisks2" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$LIBUDISKS2_LIBS"; then
+    pkg_cv_LIBUDISKS2_LIBS="$LIBUDISKS2_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"udisks2\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "udisks2") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_LIBUDISKS2_LIBS=`$PKG_CONFIG --libs "udisks2" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+   	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        LIBUDISKS2_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "udisks2" 2>&1`
+        else
+	        LIBUDISKS2_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "udisks2" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$LIBUDISKS2_PKG_ERRORS" >&5
+
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"Library udisks2 not present\"" >&5
+$as_echo "$as_me: WARNING: \"Library udisks2 not present\"" >&2;}
+elif test $pkg_failed = untried; then
+     	{ $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	{ $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: \"Library udisks2 not present\"" >&5
+$as_echo "$as_me: WARNING: \"Library udisks2 not present\"" >&2;}
+else
+	LIBUDISKS2_CFLAGS=$pkg_cv_LIBUDISKS2_CFLAGS
+	LIBUDISKS2_LIBS=$pkg_cv_LIBUDISKS2_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+
+$as_echo "#define HAVE_LIBUDISKS2 1" >>confdefs.h
+
+fi
+ if test -n "$LIBUDISKS2_LIBS"; then
+  LIBUDISKS2_TRUE=
+  LIBUDISKS2_FALSE='#'
+else
+  LIBUDISKS2_TRUE='#'
+  LIBUDISKS2_FALSE=
+fi
+
+
+
 
 # check libatasmart
 
@@ -9112,6 +9208,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${GTK_TRUE}" && test -z "${GTK_FALSE}"; then
   as_fn_error $? "conditional \"GTK\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${LIBUDISKS2_TRUE}" && test -z "${LIBUDISKS2_FALSE}"; then
+  as_fn_error $? "conditional \"LIBUDISKS2\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${ATASMART_TRUE}" && test -z "${ATASMART_FALSE}"; then

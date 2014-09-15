@@ -28,3 +28,7 @@ double fahrenheit_to_celsius(double f)
 	return (f - 32) * (5.0/9.0);
 }
 
+double kelvin_to_celsius(double k)
+{
+	return k - 273.5;
+}

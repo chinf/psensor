@@ -69,6 +69,10 @@ struct psensor *psensor_create(char *id,
 	psensor->graph_enabled = 1;
 	psensor->appindicator_enabled = 0;
 
+#ifdef HAVE_LIBUDISKS2
+	psensor->udisks2_path = NULL;
+#endif
+
 	return psensor;
 }
 
@@ -112,6 +116,10 @@ void psensor_free(struct psensor *sensor)
 		measures_free(sensor->measures);
 
 		free(sensor->url);
+
+#ifdef HAVE_LIBUDISKS2
+		free(sensor->udisks2_path);
+#endif
 
 		free(sensor);
 	}

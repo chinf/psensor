@@ -20,10 +20,11 @@ v1.1.2
 * Added alarm support of sensors expressed as percent.
 * Smoother curves (using Bezier algo).
 * Added translator credits in the about dialog.
-* Added Crotian translation from LP (gogo).
+* Added Croatian translation from LP (gogo).
 * Merged all translations from LP.
 * Included the full list of contributors from LP, available throw the
   about dialog.
+* Support of disk temperature using udisks2.
 
 v1.1.1
 ------

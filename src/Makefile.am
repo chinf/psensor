@@ -84,6 +84,10 @@ AM_CPPFLAGS += $(ATASMART_CFLAGS)
 LIBS += $(ATASMART_LIBS)
 endif
 
+if LIBUDISKS2
+LIBS += $(LIBUDISKS2_LIBS)
+endif
+
 if UNITY
 psensor_SOURCES += ui_unity.h ui_unity.c
 AM_CPPFLAGS += $(UNITY_CFLAGS)

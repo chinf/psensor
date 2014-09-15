@@ -67,6 +67,9 @@
 /* Define to 1 if you have the `sensors' library (-lsensors). */
 #undef HAVE_LIBSENSORS
 
+/* Use libudisks */
+#undef HAVE_LIBUDISKS2
+
 /* Define to 1 if your system has a GNU libc compatible `malloc' function, and
    to 0 otherwise. */
 #undef HAVE_MALLOC

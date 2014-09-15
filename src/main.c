@@ -39,6 +39,7 @@
 #include "lmsensor.h"
 #include "notify_cmd.h"
 #include <pmutex.h>
+#include <pudisks2.h>
 #include "slog.h"
 #include "ui_pref.h"
 #include "ui_graph.h"
@@ -462,6 +463,7 @@ static struct psensor **create_sensors_list(const char *url,
 #ifdef HAVE_GTOP
 		sensors = cpu_psensor_list_add(sensors, 600);
 #endif
+		udisks2_psensor_list_add(&sensors, 600);
 	}
 
 	associate_preferences(sensors);

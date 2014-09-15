@@ -94,12 +94,13 @@ host_triplet = @host@
 @LIBATIADL_TRUE@am__append_13 = $(LIBATIADL_LIBS)
 @ATASMART_TRUE@am__append_14 = $(ATASMART_CFLAGS)
 @ATASMART_TRUE@am__append_15 = $(ATASMART_LIBS)
-@UNITY_TRUE@am__append_16 = ui_unity.h ui_unity.c
-@UNITY_TRUE@am__append_17 = $(UNITY_CFLAGS)
-@UNITY_TRUE@am__append_18 = $(UNITY_LIBS) 
-@CURL_TRUE@@JSON_TRUE@am__append_19 = rsensor.h rsensor.c
-@CURL_TRUE@@JSON_TRUE@am__append_20 = $(CURL_LIBS) $(JSON_LIBS)
-@CURL_TRUE@@JSON_TRUE@am__append_21 = $(CURL_CFLAGS) $(JSON_CFLAGS)
+@LIBUDISKS2_TRUE@am__append_16 = $(LIBUDISKS2_LIBS)
+@UNITY_TRUE@am__append_17 = ui_unity.h ui_unity.c
+@UNITY_TRUE@am__append_18 = $(UNITY_CFLAGS)
+@UNITY_TRUE@am__append_19 = $(UNITY_LIBS) 
+@CURL_TRUE@@JSON_TRUE@am__append_20 = rsensor.h rsensor.c
+@CURL_TRUE@@JSON_TRUE@am__append_21 = $(CURL_LIBS) $(JSON_LIBS)
+@CURL_TRUE@@JSON_TRUE@am__append_22 = $(CURL_CFLAGS) $(JSON_CFLAGS)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/depcomp $(dist_man_MANS)
@@ -324,7 +325,9 @@ LIBOBJS = @LIBOBJS@
 LIBS = lib/libpsensor.a $(GTK_LIBS) $(PTHREAD_LIBS) $(SENSORS_LIBS) \
 	-lm $(am__append_3) $(am__append_5) $(am__append_8) \
 	$(am__append_11) $(am__append_13) $(am__append_15) \
-	$(am__append_18) $(am__append_20)
+	$(am__append_16) $(am__append_19) $(am__append_21)
+LIBUDISKS2_CFLAGS = @LIBUDISKS2_CFLAGS@
+LIBUDISKS2_LIBS = @LIBUDISKS2_LIBS@
 LTLIBICONV = @LTLIBICONV@
 LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
@@ -427,16 +430,16 @@ AM_CPPFLAGS = -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
 	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/unity \
 	$(GTK_CFLAGS) $(SENSORS_CFLAGS) $(am__append_2) \
 	$(am__append_6) $(am__append_9) $(am__append_10) \
-	$(am__append_12) $(am__append_14) $(am__append_17) \
-	$(am__append_21)
+	$(am__append_12) $(am__append_14) $(am__append_18) \
+	$(am__append_22)
 @GTK_TRUE@@X11_TRUE@@XEXT_TRUE@dist_man_MANS = psensor.1
 psensor_SOURCES = cfg.h cfg.c notify_cmd.c notify_cmd.h graph.h \
 	graph.c main.c ui.h ui.c ui_appindicator.h ui_color.h \
 	ui_color.c ui_graph.h ui_graph.c ui_pref.h ui_pref.c \
 	ui_sensorlist.h ui_sensorlist.c ui_sensorpref.h \
 	ui_sensorpref.c ui_status.h ui_status.c pxdg.h pxdg.c \
-	$(am__append_4) $(am__append_7) $(am__append_16) \
-	$(am__append_19)
+	$(am__append_4) $(am__append_7) $(am__append_17) \
+	$(am__append_20)
 gsettings_SCHEMAS = psensor.gschema.xml
 EXTRA_DIST = description.txt $(gsettings_SCHEMAS)
 all: all-recursive
