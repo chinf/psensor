@@ -11,10 +11,12 @@ It draws realtime charts and raises alerts about:
  * the temperature of the motherboard and CPU sensors (using
    lm-sensors).
  * the temperature of the NVidia GPUs (using XNVCtrl).
- * the temperature of the Hard Disk Drives (using hddtemp or libatasmart).
- * the rotation speed of the fans (using lm-sensors).
+ * the temperature of ATI GPUs (using ATI ADL SDK).
+ * the temperature of the Hard Disk Drives (using hddtemp, libatasmart
+   or udisks2).
+ * the rotation speed of the fans.
  * the temperature of a remote computer.
- * the cpu load.
+ * the CPU load.
 
 Alerts are using Desktop Notification and a specific GTK+ status icon.
 
@@ -125,6 +127,7 @@ The compilation of +psensor+ requires:
  * library unity (>=v3.4.2, optional)
  * library gtop2 (optional, required for CPU usage)
  * library atasmart (optional, for disk monitoring)
+ * library udisk2 (optional, for disk monitoring)
 
 The specific requirements for +psensor-server+:
 
@@ -141,8 +144,7 @@ Compilation and Installation Steps
 5. Start the sensor detection script: +sensors-detect+ and follows the
 instructions. Reboot or activate the kernel modules which have
 been found.
-6. To monitor HDDs, the +hddtemp+ daemon must be installed and running.
-7. Run: +psensor+
+6. Run: +psensor+
 
 ATI/AMD GPU Support
 ~~~~~~~~~~~~~~~~~~~
