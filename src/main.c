@@ -466,7 +466,9 @@ static struct psensor **create_sensors_list(const char *url,
 #ifdef HAVE_GTOP
 		sensors = cpu_psensor_list_add(sensors, 600);
 #endif
+#ifdef HAVE_LIBUDISKS2
 		udisks2_psensor_list_add(&sensors, 600);
+#endif
 	}
 
 	associate_preferences(sensors);
