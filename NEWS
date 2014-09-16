@@ -25,6 +25,8 @@ v1.1.2
 * Included the full list of contributors from LP, available throw the
   about dialog.
 * Support of disk temperature using udisks2.
+* Fixed small UI layout/padding issues.
+* Splitted sensor preferences using a tab panel.
 
 v1.1.1
 ------
