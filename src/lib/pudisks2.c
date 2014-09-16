@@ -31,19 +31,15 @@ const char *PROVIDER_NAME = "udisks2";
 
 static GDBusObjectManager *manager;
 
-static void udisks2_err(const char *msg)
-{
-	log_err("%s: %s", PROVIDER_NAME, msg);
-}
-
 void udisks2_psensor_list_update(struct psensor **sensors)
 {
 	struct psensor *s;
 	GDBusObject *o;
 	UDisksDriveAta *drive_ata;
 	double v;
+	GVariant *variant;
 
-	while (*sensors) {
+	for (; *sensors; sensors++) {
 		s = *sensors;
 
 		if (s->type & SENSOR_TYPE_UDISKS2) {
@@ -55,14 +51,21 @@ void udisks2_psensor_list_update(struct psensor **sensors)
 
 			g_object_get(o, "drive-ata", &drive_ata, NULL);
 
+			variant = g_variant_new_parsed
+				("{'nowakeup': %v}",
+				 g_variant_new_boolean(TRUE));
+
+			udisks_drive_ata_call_smart_update_sync(drive_ata,
+								variant,
+								NULL,
+								NULL);
+
 			v = udisks_drive_ata_get_smart_temperature(drive_ata);
 
 			psensor_set_current_value(s, kelvin_to_celsius(v));
 
 			g_object_unref(G_OBJECT(o));
 		}
-
-		sensors++;
 	}
 }
 
@@ -82,7 +85,7 @@ void udisks2_psensor_list_add(struct psensor ***sensors, int values_length)
 	client = udisks_client_new_sync(NULL, NULL);
 
 	if (!client) {
-		udisks2_err(_("Cannot get the udisks2 client"));
+		log_err(_("%s: cannot get the udisks2 client"), PROVIDER_NAME);
 		log_fct_exit();
 		return;
 	}
