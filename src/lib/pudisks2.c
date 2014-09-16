@@ -20,7 +20,9 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
+#include <stdlib.h>
 #include <string.h>
+#include <sys/time.h>
 
 #include <udisks/udisks.h>
 
@@ -31,34 +33,82 @@ const char *PROVIDER_NAME = "udisks2";
 
 static GDBusObjectManager *manager;
 
+const time_t SMART_UPDATE_INTERVAL = 30;
+
+struct udisks_data {
+	char *path;
+	struct timeval last_smart_update;
+};
+
+void udisks_data_free(void *data)
+{
+	struct udisks_data *u;
+
+	u = (struct udisks_data *)data;
+	free(u->path);
+	free(u);
+}
+
+static void smart_update(struct psensor *s, UDisksDriveAta *ata)
+{
+	GVariant *variant;
+	gboolean ret;
+	struct timeval t;
+	struct udisks_data *data;
+
+	data = s->provider_data;
+
+	if (gettimeofday(&t, NULL) != 0) {
+		log_err("%s: %s", PROVIDER_NAME, _("gettimeofday failed."));
+		return;
+	}
+
+	if (data->last_smart_update.tv_sec
+	    &&
+	    (t.tv_sec - data->last_smart_update.tv_sec < SMART_UPDATE_INTERVAL))
+		return;
+
+	log_fct("%s: update SMART data for %s", PROVIDER_NAME, data->path);
+
+	variant = g_variant_new_parsed("{'nowakeup': %v}",
+				       g_variant_new_boolean(TRUE));
+
+	ret = udisks_drive_ata_call_smart_update_sync(ata,
+						      variant,
+						      NULL,
+						      NULL);
+
+	if (!ret)
+		log_fct("%s: SMART update failed for %s",
+			PROVIDER_NAME,
+			data->path);
+
+		data->last_smart_update = t;
+}
+
 void udisks2_psensor_list_update(struct psensor **sensors)
 {
 	struct psensor *s;
 	GDBusObject *o;
 	UDisksDriveAta *drive_ata;
 	double v;
-	GVariant *variant;
+	struct udisks_data *data;
 
 	for (; *sensors; sensors++) {
 		s = *sensors;
 
 		if (s->type & SENSOR_TYPE_UDISKS2) {
+			data = (struct udisks_data *)s->provider_data;
+
 			o = g_dbus_object_manager_get_object(manager,
-							     s->udisks2_path);
+							     data->path);
 
 			if (!o)
 				continue;
 
 			g_object_get(o, "drive-ata", &drive_ata, NULL);
 
-			variant = g_variant_new_parsed
-				("{'nowakeup': %v}",
-				 g_variant_new_boolean(TRUE));
-
-			udisks_drive_ata_call_smart_update_sync(drive_ata,
-								variant,
-								NULL,
-								NULL);
+			smart_update(s, drive_ata);
 
 			v = udisks_drive_ata_get_smart_temperature(drive_ata);
 
@@ -79,6 +129,7 @@ void udisks2_psensor_list_add(struct psensor ***sensors, int values_length)
 	char *id, *name, *chip;
 	const char *path, *drive_id, *drive_model;
 	struct psensor *s;
+	struct udisks_data *data;
 
 	log_fct_enter();
 
@@ -143,7 +194,13 @@ void udisks2_psensor_list_add(struct psensor ***sensors, int values_length)
 		type = SENSOR_TYPE_TEMP | SENSOR_TYPE_UDISKS2 | SENSOR_TYPE_HDD;
 
 		s = psensor_create(id, name, chip, type, values_length);
-		s->udisks2_path = strdup(path);
+
+		data = malloc(sizeof(struct udisks_data));
+		data->path = strdup(path);
+		memset(&data->last_smart_update, 0, sizeof(struct timeval));
+
+		s->provider_data = data;
+		s->provider_data_free_fct = &udisks_data_free;
 
 		psensor_list_append(sensors, s);
 

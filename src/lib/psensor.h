@@ -126,9 +126,10 @@ struct psensor {
 #ifdef HAVE_ATASMART
 	SkDisk *disk;
 #endif
-#ifdef HAVE_LIBUDISKS2
-	char *udisks2_path;
-#endif
+
+	void *provider_data;
+	void (*provider_data_free_fct)(void *);
+
 	char *url;
 
 	bool appindicator_enabled;

@@ -69,9 +69,8 @@ struct psensor *psensor_create(char *id,
 	psensor->graph_enabled = 1;
 	psensor->appindicator_enabled = 0;
 
-#ifdef HAVE_LIBUDISKS2
-	psensor->udisks2_path = NULL;
-#endif
+	psensor->provider_data = NULL;
+	psensor->provider_data_free_fct = &free;
 
 	return psensor;
 }
@@ -99,30 +98,30 @@ void psensor_values_resize(struct psensor *s, int new_size)
 	s->measures = new_ms;
 }
 
-void psensor_free(struct psensor *sensor)
+void psensor_free(struct psensor *s)
 {
-	if (sensor) {
-		log_debug("Cleanup %s", sensor->id);
+	if (!s)
+		return;
 
-		free(sensor->name);
-		free(sensor->id);
+	log_debug("Cleanup %s", s->id);
 
-		if (sensor->chip)
-			free(sensor->chip);
+	free(s->name);
+	free(s->id);
 
-		if (sensor->color)
-			free(sensor->color);
+	if (s->chip)
+		free(s->chip);
 
-		measures_free(sensor->measures);
+	if (s->color)
+		free(s->color);
 
-		free(sensor->url);
+	measures_free(s->measures);
 
-#ifdef HAVE_LIBUDISKS2
-		free(sensor->udisks2_path);
-#endif
+	free(s->url);
 
-		free(sensor);
-	}
+	if (s->provider_data && s->provider_data_free_fct)
+		s->provider_data_free_fct(s->provider_data);
+
+	free(s);
 }
 
 void psensor_list_free(struct psensor **sensors)
