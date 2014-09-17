@@ -38,7 +38,7 @@ struct psensor *create_cpu_usage_sensor(int measures_len)
 
 	id = strdup("cpu usage");
 	label = strdup("cpu usage");
-	type = SENSOR_TYPE_CPU_USAGE;
+	type = SENSOR_TYPE_GTOP | SENSOR_TYPE_CPU_USAGE;
 
 	psensor = psensor_create(id,
 				 label,
@@ -94,8 +94,8 @@ void cpu_psensor_list_update(struct psensor **sensors)
 	while (*ss) {
 		s = *ss;
 
-		if (!(s->type & SENSOR_TYPE_REMOTE)
-		    && s->type == SENSOR_TYPE_CPU_USAGE)
+		if (s->type & SENSOR_TYPE_GTOP
+		    && s->type & SENSOR_TYPE_CPU_USAGE)
 			cpu_usage_sensor_update(s);
 
 		ss++;
