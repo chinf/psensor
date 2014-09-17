@@ -458,7 +458,6 @@ int main(int argc, char *argv[])
 
 #ifdef HAVE_GTOP
 	sysinfo_cleanup();
-	cpu_cleanup();
 #endif
 
 	if (log_file != DEFAULT_LOG_FILE)

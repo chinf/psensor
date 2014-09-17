@@ -26,7 +26,6 @@
 
 #include "cpu.h"
 
-static glibtop_cpu *cpu;
 static float last_used;
 static float last_total;
 
@@ -62,24 +61,22 @@ cpu_psensor_list_add(struct psensor **sensors, int measures_len)
 
 static double get_usage()
 {
+	glibtop_cpu cpu;
 	unsigned long int used = 0;
 	unsigned long int dt;
 	double cpu_rate = UNKNOWN_DBL_VALUE;
 
-	if (!cpu)
-		cpu = malloc(sizeof(glibtop_cpu));
+	glibtop_get_cpu(&cpu);
 
-	glibtop_get_cpu(cpu);
+	used = cpu.user + cpu.nice + cpu.sys;
 
-	used = cpu->user + cpu->nice + cpu->sys;
-
-	dt = cpu->total - last_total;
+	dt = cpu.total - last_total;
 
 	if (dt)
 		cpu_rate = 100 * (used - last_used) / dt;
 
 	last_used = used;
-	last_total = cpu->total;
+	last_total = cpu.total;
 
 	return cpu_rate;
 }
@@ -103,10 +100,4 @@ void cpu_psensor_list_update(struct psensor **sensors)
 
 		ss++;
 	}
-}
-
-void cpu_cleanup()
-{
-	if (cpu)
-		free(cpu);
 }

@@ -29,6 +29,4 @@ void cpu_psensor_list_update(struct psensor **);
 struct psensor **cpu_psensor_list_add(struct psensor **,
 				      int values_max_len);
 
-void cpu_cleanup();
-
 #endif
