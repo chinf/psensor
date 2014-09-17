@@ -62,7 +62,7 @@ cpu_psensor_list_add(struct psensor **sensors, int measures_len)
 static double get_usage()
 {
 	glibtop_cpu cpu;
-	unsigned long int used = 0;
+	unsigned long int used;
 	unsigned long int dt;
 	double cpu_rate = UNKNOWN_DBL_VALUE;
 
