@@ -31,9 +31,8 @@ static float last_total;
 
 struct psensor *create_cpu_usage_sensor(int measures_len)
 {
-	char *label;
+	char *label, *id;
 	int type;
-	char *id;
 	struct psensor *psensor;
 
 	id = strdup("cpu usage");
