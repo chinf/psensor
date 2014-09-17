@@ -50,14 +50,13 @@ struct psensor *create_cpu_usage_sensor(int measures_len)
 	return psensor;
 }
 
-struct psensor * *
-cpu_psensor_list_add(struct psensor **sensors, int measures_len)
+void cpu_psensor_list_append(struct psensor ***sensors, int measures_len)
 {
 	struct psensor *s;
 
 	s = create_cpu_usage_sensor(measures_len);
 
-	return psensor_list_add(sensors, s);
+	psensor_list_append(sensors, s);
 }
 
 static double get_usage()
