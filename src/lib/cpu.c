@@ -64,7 +64,7 @@ static double get_usage()
 	glibtop_cpu cpu;
 	unsigned long int used;
 	unsigned long int dt;
-	double cpu_rate = UNKNOWN_DBL_VALUE;
+	double cpu_rate;
 
 	glibtop_get_cpu(&cpu);
 
@@ -74,6 +74,8 @@ static double get_usage()
 
 	if (dt)
 		cpu_rate = 100 * (used - last_used) / dt;
+	else
+		cpu_rate = UNKNOWN_DBL_VALUE;
 
 	last_used = used;
 	last_total = cpu.total;
