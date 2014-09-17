@@ -119,7 +119,7 @@ void udisks2_psensor_list_update(struct psensor **sensors)
 	}
 }
 
-void udisks2_psensor_list_add(struct psensor ***sensors, int values_length)
+void udisks2_psensor_list_append(struct psensor ***sensors, int values_length)
 {
 	UDisksClient *client;
 	GList *objects, *cur;

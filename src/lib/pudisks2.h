@@ -21,7 +21,7 @@
 
 #include <psensor.h>
 
-void udisks2_psensor_list_add(struct psensor ***sensors, int values_length);
+void udisks2_psensor_list_append(struct psensor ***sensors, int values_length);
 void udisks2_psensor_list_update(struct psensor **sensors);
 
 #endif

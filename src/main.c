@@ -467,7 +467,7 @@ static struct psensor **create_sensors_list(const char *url,
 		sensors = cpu_psensor_list_add(sensors, 600);
 #endif
 #ifdef HAVE_LIBUDISKS2
-		udisks2_psensor_list_add(&sensors, 600);
+		udisks2_psensor_list_append(&sensors, 600);
 #endif
 	}
 
