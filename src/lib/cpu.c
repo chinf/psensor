@@ -88,16 +88,15 @@ void cpu_usage_sensor_update(struct psensor *s)
 
 void cpu_psensor_list_update(struct psensor **sensors)
 {
-	struct psensor **ss, *s;
+	struct psensor *s;
 
-	ss = sensors;
-	while (*ss) {
-		s = *ss;
+	while (*sensors) {
+		s = *sensors;
 
 		if (s->type & SENSOR_TYPE_GTOP
 		    && s->type & SENSOR_TYPE_CPU_USAGE)
 			cpu_usage_sensor_update(s);
 
-		ss++;
+		sensors++;
 	}
 }
