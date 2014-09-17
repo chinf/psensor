@@ -86,7 +86,12 @@ static double get_usage()
 
 void cpu_usage_sensor_update(struct psensor *s)
 {
-	psensor_set_current_value(s, get_usage());
+	double v;
+
+	v = get_usage();
+
+	if (v != UNKNOWN_DBL_VALUE)
+		psensor_set_current_value(s, v);
 }
 
 void cpu_psensor_list_update(struct psensor **sensors)
