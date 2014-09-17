@@ -157,5 +157,55 @@
       <description>Update interface of the sensor
       values.</description>
     </key>
+    <!-- sensors information providers -->
+    <key name="provider-lmsensors-enabled" type="b">
+      <default>true</default>
+      <summary>Whether the lm-sensors librairy is used to retrieve
+      sensors information.</summary>
+      <description>Whether the lm-sensors librairy is used to
+      retrieved sensors information.</description>
+    </key>
+    <key name="provider-nvctrl-enabled" type="b">
+      <default>true</default>
+      <summary>Whether the NVCtrl library is used to retrieve
+      sensors information.</summary>
+      <description>Whether the NVCtrl library is used to
+      retrieved sensors information.</description>
+    </key>
+    <key name="provider-atiadlsdk-enabled" type="b">
+      <default>true</default>
+      <summary>Whether the ATI ADL SDK library is used to retrieve
+      sensors information.</summary>
+      <description>Whether the ATI ADL SDK library is used to
+      retrieved sensors information.</description>
+    </key>
+    <key name="provider-gtop2-enabled" type="b">
+      <default>true</default>
+      <summary>Whether the gtop2 library is used to retrieve
+      system information.</summary>
+      <description>Whether the gtop2 library is used to
+      system information.</description>
+    </key>
+    <key name="provider-hddtemp-enabled" type="b">
+      <default>false</default>
+      <summary>Whether the hddtemp daemon is used to retrieve
+      hard disks information.</summary>
+      <description>Whether the hddtemp daemon is used to
+      retrieved hard disks information.</description>
+    </key>
+    <key name="provider-libatasmart-enabled" type="b">
+      <default>false</default>
+      <summary>Whether the atasmart library is used to retrieve
+      hard disks information.</summary>
+      <description>Whether the atasmart library is used to
+      retrieved hard disks information.</description>
+    </key>
+    <key name="provider-udisks2-enabled" type="b">
+      <default>true</default>
+      <summary>Whether the udisks2 library is used to retrieve
+      hard disks information.</summary>
+      <description>Whether the lm-sensors library is used to
+      retrieved hard disks information.</description>
+    </key>
   </schema>
 </schemalist>
