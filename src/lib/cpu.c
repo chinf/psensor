@@ -73,7 +73,7 @@ static double get_usage()
 	dt = cpu.total - last_total;
 
 	if (dt)
-		cpu_rate = 100 * (used - last_used) / dt;
+		cpu_rate = 100.0 * (used - last_used) / dt;
 	else
 		cpu_rate = UNKNOWN_DBL_VALUE;
 
