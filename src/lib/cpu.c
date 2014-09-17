@@ -36,7 +36,7 @@ struct psensor *create_cpu_usage_sensor(int measures_len)
 	struct psensor *psensor;
 
 	id = strdup("cpu usage");
-	label = strdup("cpu usage");
+	label = strdup(_("CPU usage"));
 	type = SENSOR_TYPE_GTOP | SENSOR_TYPE_CPU_USAGE;
 
 	psensor = psensor_create(id,
