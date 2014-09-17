@@ -54,7 +54,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkComboBox *w_sensorlist_pos;
 	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
 		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
-		*w_win_restore, *w_slog_enabled, *w_autostart, *w_smooth_curves;
+		*w_win_restore, *w_slog_enabled, *w_autostart, *w_smooth_curves,
+		*w_atiadlsdk, *w_lmsensors, *w_nvctrl, *w_gtop2, *w_hddtemp,
+		*w_libatasmart, *w_udisks2;
 	GtkComboBoxText *w_temp_unit;
 	GtkEntry *w_notif_script;
 	char *notif_script;
@@ -172,6 +174,60 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_combo_box_set_active(GTK_COMBO_BOX(w_temp_unit),
 				 cfg->temperature_unit);
 
+	/* providers */
+	w_lmsensors
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "lmsensors"));
+	gtk_toggle_button_set_active(w_lmsensors, config_is_lmsensor_enabled());
+
+	w_nvctrl
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "nvctrl"));
+#if !HAVE_NVIDIA
+	gtk_widget_set_sensitive(GTK_WIDGET(w_nvctrl), 0);
+#endif
+	gtk_toggle_button_set_active(w_nvctrl, config_is_nvctrl_enabled());
+
+	w_atiadlsdk
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "atiadlsdk"));
+#if !HAVE_LIBATIADL
+	gtk_widget_set_sensitive(GTK_WIDGET(w_atiadlsdk), 0);
+#endif
+	gtk_toggle_button_set_active(w_atiadlsdk,
+				     config_is_atiadlsdk_enabled());
+
+	w_gtop2
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "gtop2"));
+#if !HAVE_GTOP
+	gtk_widget_set_sensitive(GTK_WIDGET(w_gtop2), 0);
+#endif
+	gtk_toggle_button_set_active(w_gtop2, config_is_gtop2_enabled());
+
+	w_hddtemp
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "hddtemp"));
+	gtk_toggle_button_set_active(w_hddtemp, config_is_hddtemp_enabled());
+
+
+	w_libatasmart
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "libatasmart"));
+#if !HAVE_ATASMART
+	gtk_widget_set_sensitive(GTK_WIDGET(w_libatasmart), 0);
+#endif
+	gtk_toggle_button_set_active(w_libatasmart,
+				     config_is_libatasmart_enabled());
+
+	w_udisks2
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "udisks2"));
+#if !HAVE_LIBUDISKS2
+	gtk_widget_set_sensitive(GTK_WIDGET(w_udisks2), 0);
+#endif
+	gtk_toggle_button_set_active(w_udisks2, config_is_udisks2_enabled());
+
 	result = gtk_dialog_run(diag);
 
 	if (result == GTK_RESPONSE_ACCEPT) {
@@ -256,6 +312,27 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		config_set_smooth_curves_enabled
 			(gtk_toggle_button_get_active(w_smooth_curves));
+
+		config_set_lmsensor_enable
+			(gtk_toggle_button_get_active(w_lmsensors));
+
+		config_set_nvctrl_enable
+			(gtk_toggle_button_get_active(w_nvctrl));
+
+		config_set_atiadlsdk_enable
+			(gtk_toggle_button_get_active(w_atiadlsdk));
+
+		config_set_gtop2_enable
+			(gtk_toggle_button_get_active(w_gtop2));
+
+		config_set_hddtemp_enable
+			(gtk_toggle_button_get_active(w_hddtemp));
+
+		config_set_libatasmart_enable
+			(gtk_toggle_button_get_active(w_libatasmart));
+
+		config_set_udisks2_enable
+			(gtk_toggle_button_get_active(w_udisks2));
 
 		pxdg_set_autostart(gtk_toggle_button_get_active(w_autostart));
 

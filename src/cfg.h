@@ -125,6 +125,27 @@ void config_set_notif_script(const char *);
 bool config_is_sensor_enabled(const char *sid);
 void config_set_sensor_enabled(const char *sid, bool enabled);
 
+bool config_is_lmsensor_enabled();
+void config_set_lmsensor_enable(bool);
+
+bool config_is_gtop2_enabled();
+void config_set_gtop2_enable(bool);
+
+bool config_is_udisks2_enabled();
+void config_set_udisks2_enable(bool);
+
+bool config_is_hddtemp_enabled();
+void config_set_hddtemp_enable(bool);
+
+bool config_is_libatasmart_enabled();
+void config_set_libatasmart_enable(bool);
+
+bool config_is_nvctrl_enabled();
+void config_set_nvctrl_enable(bool);
+
+bool config_is_atiadlsdk_enabled();
+void config_set_atiadlsdk_enable(bool);
+
 /*
  * Returns the user directory containing psensor data (configuration
  * and log).

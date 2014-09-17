@@ -107,6 +107,19 @@ static const char *KEY_SLOG_INTERVAL = "slog-interval";
 /* Path to the script called when a notification is raised */
 static const char *KEY_NOTIFICATION_SCRIPT = "notif-script";
 
+/* Provider settings */
+static const char *KEY_PROVIDER_LMSENSORS_ENABLED
+= "provider-lmsensors-enabled";
+static const char *KEY_PROVIDER_ATIADLSDK_ENABLED
+= "provider-atiadlsdk-enabled";
+static const char *KEY_PROVIDER_GTOP2_ENABLED = "provider-gtop2-enabled";
+static const char *KEY_PROVIDER_HDDTEMP_ENABLED = "provider-hddtemp-enabled";
+static const char *KEY_PROVIDER_LIBATASMART_ENABLED
+= "provider-libatasmart-enabled";
+static const char *KEY_PROVIDER_NVCTRL_ENABLED = "provider-nvctrl-enabled";
+static const char *KEY_PROVIDER_UDISKS2_ENABLED = "provider-udisks2-enabled";
+
+
 static GSettings *settings;
 
 static char *user_dir;
@@ -759,4 +772,74 @@ void config_set_appindicator_label_enabled(const char *sid, bool enabled)
 GSettings *config_get_GSettings()
 {
 	return settings;
+}
+
+bool config_is_lmsensor_enabled()
+{
+	return get_bool(KEY_PROVIDER_LMSENSORS_ENABLED);
+}
+
+bool config_is_gtop2_enabled()
+{
+	return get_bool(KEY_PROVIDER_GTOP2_ENABLED);
+}
+
+bool config_is_udisks2_enabled()
+{
+	return get_bool(KEY_PROVIDER_UDISKS2_ENABLED);
+}
+
+bool config_is_hddtemp_enabled()
+{
+	return get_bool(KEY_PROVIDER_HDDTEMP_ENABLED);
+}
+
+bool config_is_libatasmart_enabled()
+{
+	return get_bool(KEY_PROVIDER_LIBATASMART_ENABLED);
+}
+
+bool config_is_nvctrl_enabled()
+{
+	return get_bool(KEY_PROVIDER_NVCTRL_ENABLED);
+}
+
+bool config_is_atiadlsdk_enabled()
+{
+	return get_bool(KEY_PROVIDER_ATIADLSDK_ENABLED);
+}
+
+void config_set_lmsensor_enable(bool b)
+{
+	set_bool(KEY_PROVIDER_LMSENSORS_ENABLED, b);
+}
+
+void config_set_nvctrl_enable(bool b)
+{
+	set_bool(KEY_PROVIDER_NVCTRL_ENABLED, b);
+}
+
+void config_set_atiadlsdk_enable(bool b)
+{
+	set_bool(KEY_PROVIDER_ATIADLSDK_ENABLED, b);
+}
+
+void config_set_gtop2_enable(bool b)
+{
+	set_bool(KEY_PROVIDER_GTOP2_ENABLED, b);
+}
+
+void config_set_hddtemp_enable(bool b)
+{
+	set_bool(KEY_PROVIDER_HDDTEMP_ENABLED, b);
+}
+
+void config_set_libatasmart_enable(bool b)
+{
+	set_bool(KEY_PROVIDER_LIBATASMART_ENABLED, b);
+}
+
+void config_set_udisks2_enable(bool b)
+{
+	set_bool(KEY_PROVIDER_UDISKS2_ENABLED, b);
 }
