@@ -27,6 +27,7 @@ v1.1.2
 * Support of disk temperature using udisks2.
 * Fixed small UI layout/padding issues.
 * Splitted sensor preferences using a tab panel.
+* New preferences to enable/disable each sensor provider.
 
 v1.1.1
 ------
