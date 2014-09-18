@@ -457,17 +457,22 @@ static struct psensor **create_sensors_list(const char *url,
 #endif
 	} else {
 		sensors = get_all_sensors(use_libatasmart, 600);
+
 #ifdef HAVE_NVIDIA
-		sensors = nvidia_psensor_list_add(sensors, 600);
+		if (config_is_nvctrl_enabled())
+			sensors = nvidia_psensor_list_add(sensors, 600);
 #endif
 #ifdef HAVE_LIBATIADL
-		sensors = amd_psensor_list_add(sensors, 600);
+		if (config_is_atiadlsdk_enabled())
+			sensors = amd_psensor_list_add(sensors, 600);
 #endif
 #ifdef HAVE_GTOP
-		cpu_psensor_list_append(&sensors, 600);
+		if (config_is_gtop2_enabled())
+			cpu_psensor_list_append(&sensors, 600);
 #endif
 #ifdef HAVE_LIBUDISKS2
-		udisks2_psensor_list_append(&sensors, 600);
+		if (config_is_udisks2_enabled())
+			udisks2_psensor_list_append(&sensors, 600);
 #endif
 	}
 
