@@ -19,8 +19,6 @@
 #ifndef _PSENSOR_LMSENSOR_H_
 #define _PSENSOR_LMSENSOR_H_
 
-#include <sensors/sensors.h>
-
 void lmsensor_psensor_list_update(struct psensor **sensors);
 
 /*
