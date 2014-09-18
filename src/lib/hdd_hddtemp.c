@@ -234,7 +234,9 @@ static void update(struct psensor **sensors, struct hdd_info *info)
 
 void hddtemp_psensor_list_update(struct psensor **sensors)
 {
-	char *hddtemp_output = fetch();
+	char *hddtemp_output;
+
+	hddtemp_output = fetch();
 
 	if (!hddtemp_output)
 		return;
