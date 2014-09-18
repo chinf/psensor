@@ -19,21 +19,11 @@
 #ifndef _PSENSOR_NVIDIA_H_
 #define _PSENSOR_NVIDIA_H_
 
-#include "psensor.h"
+#include <psensor.h>
 
-/*
-  Updates temperatures of NVidia sensors.
-*/
 void nvidia_psensor_list_update(struct psensor **sensors);
 
-/*
-  Adds NVIDIA sensors to a given list of sensors.
-
-  Returns the new allocated list of sensors if sensors have been added
-  otherwise returns 'sensors'. The list is 'NULL' terminated.
- */
-struct psensor **nvidia_psensor_list_add(struct psensor **sensors,
-					 int values_max_length);
+void nvidia_psensor_list_append(struct psensor ***sensors, int values_length);
 
 void nvidia_cleanup();
 

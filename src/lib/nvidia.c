@@ -35,6 +35,8 @@
 
 Display *display;
 
+static const char *PROVIDER_NAME = "nvctrl";
+
 static char *get_product_name(int id, int type)
 {
 	char *name;
@@ -265,8 +267,8 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	name = malloc(n);
 	sprintf(name, "%s %s %s", pname, strnid, stype);
 
-	sid = malloc(strlen("nvidia") + 1 + strlen(name) + 1);
-	sprintf(sid, "nvidia %s", name);
+	sid = malloc(strlen(PROVIDER_NAME) + 1 + strlen(name) + 1);
+	sprintf(sid, "%s %s", PROVIDER_NAME, name);
 
 	s = psensor_create(sid, name, pname, type, value_len);
 	s->nvidia_id = id;
@@ -321,29 +323,28 @@ static void add(struct psensor ***sensors, int id, int type, int values_len)
 		psensor_list_append(sensors, s);
 }
 
-struct psensor **
-nvidia_psensor_list_add(struct psensor **ss, int values_len)
+void nvidia_psensor_list_append(struct psensor ***ss, int values_len)
 {
 	int i, n, utype;
 	Bool ret;
 
 	if (!init())
-		return ss;
+		return;
 
 	ret = XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_GPU, &n);
 	if (ret == True) {
 		for (i = 0; i < n; i++) {
-			add(&ss,
+			add(ss,
 			    i,
 			    SENSOR_TYPE_GPU | SENSOR_TYPE_TEMP,
 			    values_len);
 
 			utype = SENSOR_TYPE_GPU | SENSOR_TYPE_PERCENT;
-			add(&ss, i, utype | SENSOR_TYPE_AMBIENT, values_len);
-			add(&ss, i, utype | SENSOR_TYPE_GRAPHICS, values_len);
-			add(&ss, i, utype | SENSOR_TYPE_VIDEO, values_len);
-			add(&ss, i, utype | SENSOR_TYPE_MEMORY, values_len);
-			add(&ss, i, utype | SENSOR_TYPE_PCIE, values_len);
+			add(ss, i, utype | SENSOR_TYPE_AMBIENT, values_len);
+			add(ss, i, utype | SENSOR_TYPE_GRAPHICS, values_len);
+			add(ss, i, utype | SENSOR_TYPE_VIDEO, values_len);
+			add(ss, i, utype | SENSOR_TYPE_MEMORY, values_len);
+			add(ss, i, utype | SENSOR_TYPE_PCIE, values_len);
 		}
 	}
 
@@ -353,17 +354,15 @@ nvidia_psensor_list_add(struct psensor **ss, int values_len)
 		for (i = 0; i < n; i++) {
 			utype = SENSOR_TYPE_FAN | SENSOR_TYPE_RPM;
 			if (check_sensor(i, utype))
-				add(&ss, i, utype, values_len);
+				add(ss, i, utype, values_len);
 
 			utype = SENSOR_TYPE_FAN | SENSOR_TYPE_PERCENT;
 			if (check_sensor(i, utype))
-				add(&ss, i, utype, values_len);
+				add(ss, i, utype, values_len);
 		}
 	} else {
 		log_err(_("NVIDIA: failed to retrieve number of fans."));
 	}
-
-	return ss;
 }
 
 void nvidia_cleanup()

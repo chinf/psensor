@@ -157,6 +157,8 @@ static void *update_measures(void *data)
 		update_psensor_values_size(sensors, cfg);
 
 		psensor_list_update_measures(sensors);
+
+		lmsensor_psensor_list_update(sensors);
 #ifdef HAVE_REMOTE_SUPPORT
 		remote_psensor_list_update(sensors);
 #endif
@@ -461,9 +463,12 @@ static struct psensor **create_sensors_list(const char *url,
 	} else {
 		sensors = get_all_sensors(use_libatasmart, 600);
 
+		if (config_is_lmsensor_enabled())
+			lmsensor_psensor_list_append(&sensors, 600);
+
 #ifdef HAVE_NVIDIA
 		if (config_is_nvctrl_enabled())
-			sensors = nvidia_psensor_list_add(sensors, 600);
+			nvidia_psensor_list_append(&sensors, 600);
 #endif
 #ifdef HAVE_LIBATIADL
 		if (config_is_atiadlsdk_enabled())

@@ -174,44 +174,6 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	return psensor;
 }
 
-struct psensor **lmsensor_psensor_list_add(struct psensor **sensors,
-					   int vn)
-{
-	const sensors_chip_name *chip;
-	int chip_nr = 0;
-	struct psensor **tmp, **result;
-	const sensors_feature *feature;
-	struct psensor *s;
-	int i;
-
-	if (!init_done)
-		return NULL;
-
-	result = sensors;
-	while ((chip = sensors_get_detected_chips(NULL, &chip_nr))) {
-
-		i = 0;
-		while ((feature = sensors_get_features(chip, &i))) {
-			if (feature->type == SENSORS_FEATURE_TEMP
-			    || feature->type == SENSORS_FEATURE_FAN) {
-
-				s = lmsensor_psensor_create(chip, feature, vn);
-
-				if (s) {
-					tmp = psensor_list_add(result, s);
-
-					if (tmp != sensors)
-						free(result);
-
-					result = tmp;
-				}
-			}
-		}
-	}
-
-	return result;
-}
-
 void lmsensor_init()
 {
 	int err = sensors_init(NULL);
@@ -222,6 +184,36 @@ void lmsensor_init()
 		init_done = 0;
 	} else {
 		init_done = 1;
+	}
+}
+
+void lmsensor_psensor_list_append(struct psensor ***sensors, int vn)
+{
+	const sensors_chip_name *chip;
+	int chip_nr = 0;
+	const sensors_feature *feature;
+	struct psensor *s;
+	int i;
+
+	if (!init_done)
+		lmsensor_init();
+
+	if (!init_done)
+		return;
+
+	while ((chip = sensors_get_detected_chips(NULL, &chip_nr))) {
+
+		i = 0;
+		while ((feature = sensors_get_features(chip, &i))) {
+			if (feature->type == SENSORS_FEATURE_TEMP
+			    || feature->type == SENSORS_FEATURE_FAN) {
+
+				s = lmsensor_psensor_create(chip, feature, vn);
+
+				if (s)
+					psensor_list_append(sensors, s);
+			}
+		}
 	}
 }
 

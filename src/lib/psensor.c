@@ -25,7 +25,6 @@
 
 #include <hdd.h>
 #include <psensor.h>
-#include <lmsensor.h>
 #include <temperature.h>
 
 struct psensor *psensor_create(char *id,
@@ -415,7 +414,7 @@ struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 	struct psensor **psensors;
 	struct psensor **tmp_psensors;
 
-	psensors = lmsensor_psensor_list_add(NULL, values_max_length);
+	psensors = NULL;
 
 	if (!use_libatasmart) {
 		tmp_psensors = hddtemp_psensor_list_add(psensors,
@@ -511,8 +510,6 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celsius)
 
 void psensor_list_update_measures(struct psensor **sensors)
 {
-	lmsensor_psensor_list_update(sensors);
-
 	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDDTEMP))
 		hddtemp_psensor_list_update(sensors);
 
@@ -536,12 +533,10 @@ void psensor_log_measures(struct psensor **sensors)
 
 void psensor_init()
 {
-	lmsensor_init();
 }
 
 void psensor_cleanup()
 {
-	lmsensor_cleanup();
 }
 
 struct psensor **psensor_list_copy(struct psensor **sensors)
