@@ -97,7 +97,7 @@
       windows.</description>
     </key>
     <key name="interface-window-restore-enabled" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Whether the position and size of the graph window are
       restored</summary>
       <description>Whether the position and size of the graph window
