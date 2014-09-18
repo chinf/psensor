@@ -23,8 +23,9 @@
 #include <string.h>
 
 #include <glibtop/cpu.h>
+#include <glibtop/mem.h>
 
-#include "cpu.h"
+#include <pgtop2.h>
 
 static float last_used;
 static float last_total;
@@ -50,13 +51,19 @@ struct psensor *create_cpu_usage_sensor(int measures_len)
 	return psensor;
 }
 
-void cpu_psensor_list_append(struct psensor ***sensors, int measures_len)
+static struct psensor *create_mem_free_sensor(int measures_len)
 {
-	struct psensor *s;
+	char *id;
+	int type;
 
-	s = create_cpu_usage_sensor(measures_len);
+	id = g_strdup_printf("%s mem free", PROVIDER_NAME);
+	type = SENSOR_TYPE_GTOP | SENSOR_TYPE_MEMORY | SENSOR_TYPE_PERCENT;
 
-	psensor_list_append(sensors, s);
+	return psensor_create(id,
+			      strdup(_("free memory")),
+			      strdup(_("memory")),
+			      type,
+			      measures_len);
 }
 
 static double get_usage()
@@ -82,6 +89,23 @@ static double get_usage()
 	return cpu_rate;
 }
 
+static double get_mem_free()
+{
+	glibtop_mem mem;
+	double v;
+
+	glibtop_get_mem(&mem);
+	v = ((double)mem.free) * 100.0 / mem.total;
+
+	return v;
+}
+
+void gtop2_psensor_list_append(struct psensor ***sensors, int measures_len)
+{
+	psensor_list_append(sensors, create_cpu_usage_sensor(measures_len));
+	psensor_list_append(sensors, create_mem_free_sensor(measures_len));
+}
+
 void cpu_usage_sensor_update(struct psensor *s)
 {
 	double v;
@@ -92,16 +116,29 @@ void cpu_usage_sensor_update(struct psensor *s)
 		psensor_set_current_value(s, v);
 }
 
-void cpu_psensor_list_update(struct psensor **sensors)
+void mem_free_sensor_update(struct psensor *s)
+{
+	double v;
+
+	v = get_mem_free();
+
+	if (v != UNKNOWN_DBL_VALUE)
+		psensor_set_current_value(s, v);
+}
+
+void gtop2_psensor_list_update(struct psensor **sensors)
 {
 	struct psensor *s;
 
 	while (*sensors) {
 		s = *sensors;
 
-		if (s->type & SENSOR_TYPE_GTOP
-		    && s->type & SENSOR_TYPE_CPU_USAGE)
-			cpu_usage_sensor_update(s);
+		if (s->type & SENSOR_TYPE_GTOP) {
+			if (s->type & SENSOR_TYPE_CPU)
+				cpu_usage_sensor_update(s);
+			else if (s->type & SENSOR_TYPE_MEMORY)
+				mem_free_sensor_update(s);
+		}
 
 		sensors++;
 	}

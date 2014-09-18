@@ -16,16 +16,16 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301 USA
  */
-#ifndef _PSENSOR_CPU_H_
-#define _PSENSOR_CPU_H_
+#ifndef _PSENSOR_PGTOP2_H_
+#define _PSENSOR_PGTOP2_H_
 
-#include "psensor.h"
+#include <psensor.h>
 
 struct psensor *create_cpu_usage_sensor(int measures_len);
-
 void cpu_usage_sensor_update(struct psensor *);
-void cpu_psensor_list_update(struct psensor **);
 
-void cpu_psensor_list_append(struct psensor ***sensors, int values_max_len);
+void gtop2_psensor_list_update(struct psensor **);
+
+void gtop2_psensor_list_append(struct psensor ***sensors, int values_max_len);
 
 #endif

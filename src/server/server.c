@@ -39,7 +39,7 @@
 
 #ifdef HAVE_GTOP
 #include "sysinfo.h"
-#include "cpu.h"
+#include <pgtop2.h>
 #endif
 
 #include <plog.h>

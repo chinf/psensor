@@ -28,11 +28,6 @@
 #include <lmsensor.h>
 #include <temperature.h>
 
-#ifdef HAVE_GTOP
-#include <cpu.h>
-#include <pmem.h>
-#endif
-
 struct psensor *psensor_create(char *id,
 			       char *name,
 			       char *chip,
@@ -441,10 +436,6 @@ struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 		}
 #endif
 
-#ifdef HAVE_GTOP
-	mem_psensor_list_add(&psensors, values_max_length);
-#endif
-
 	if (!psensors) {	/* there is no detected sensors */
 		psensors = malloc(sizeof(struct psensor *));
 		*psensors = NULL;
@@ -521,11 +512,6 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celsius)
 void psensor_list_update_measures(struct psensor **sensors)
 {
 	lmsensor_psensor_list_update(sensors);
-
-#ifdef HAVE_GTOP
-	cpu_psensor_list_update(sensors);
-	mem_psensor_list_update(sensors);
-#endif
 
 	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDDTEMP))
 		hddtemp_psensor_list_update(sensors);

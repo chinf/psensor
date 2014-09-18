@@ -68,7 +68,7 @@
 #endif
 
 #ifdef HAVE_GTOP
-#include "cpu.h"
+#include <pgtop2.h>
 #endif
 
 static const char *program_name;
@@ -168,6 +168,9 @@ static void *update_measures(void *data)
 #endif
 #ifdef HAVE_LIBUDISKS2
 		udisks2_psensor_list_update(sensors);
+#endif
+#ifdef HAVE_GTOP
+		gtop2_psensor_list_update(sensors);
 #endif
 
 		psensor_log_measures(sensors);
@@ -468,7 +471,7 @@ static struct psensor **create_sensors_list(const char *url,
 #endif
 #ifdef HAVE_GTOP
 		if (config_is_gtop2_enabled())
-			cpu_psensor_list_append(&sensors, 600);
+			gtop2_psensor_list_append(&sensors, 600);
 #endif
 #ifdef HAVE_LIBUDISKS2
 		if (config_is_udisks2_enabled())

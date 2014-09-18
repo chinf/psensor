@@ -4,7 +4,6 @@ libpsensor_a_SOURCES = \
 	amd.h\
 	bool.h\
 	color.h color.c\
-	cpu.h\
 	hdd.h hdd_hddtemp.c\
 	lmsensor.h lmsensor.c\
 	measure.h measure.c \
@@ -37,7 +36,7 @@ libpsensor_a_SOURCES += amd.c
 endif
 
 if GTOP
-libpsensor_a_SOURCES += cpu.c pmem.c pmem.h
+libpsensor_a_SOURCES += pgtop2.c pgtop2.h
 LIBS += $(GTOP_LIBS)
 AM_CPPFLAGS += $(GTOP_CFLAGS)
 endif
@@ -56,7 +55,6 @@ endif
 
 EXTRA_DIST=$(libpsensor_a_SOURCES) \
 	amd.c \
-	cpu.c \
+	pgtop2.c pgtop2.h \
 	nvidia.c \
-	pmem.c pmem.h \
 	pudisks2.c pudisks2.h
