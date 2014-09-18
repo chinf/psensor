@@ -42,6 +42,7 @@
 #include <pgtop2.h>
 #endif
 
+#include <lmsensor.h>
 #include <plog.h>
 #include "psensor_json.h"
 #include <pmutex.h>
@@ -397,6 +398,7 @@ int main(int argc, char *argv[])
 	psensor_init();
 
 	server_data.sensors = get_all_sensors(0, 600);
+	lmsensor_psensor_list_append(&server_data.sensors, 600);
 
 #ifdef HAVE_GTOP
 	server_data.cpu_usage = create_cpu_usage_sensor(600);
