@@ -27,8 +27,8 @@ void lmsensor_psensor_list_update(struct psensor **sensors);
   Returns the new allocated list of sensors if sensors have been added
   otherwise returns 'sensors'. The list is 'NULL' terminated.
  */
-struct psensor **lmsensor_psensor_list_add(struct psensor **sensors,
-					   int values_max_length);
+struct psensor **
+lmsensor_psensor_list_add(struct psensor **sensors, int values_max_length);
 
 void lmsensor_init();
 void lmsensor_cleanup();
