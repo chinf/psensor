@@ -30,7 +30,7 @@
       a #rgb representation.</description>
     </key>
     <key name="graph-monitoring-duration" type="i">
-      <default>10</default>
+      <default>20</default>
       <summary>The monitoring duration of the graph</summary>
       <description>The monitoring duration of the graph as minutes. It
       must be greater than 1.</description>
