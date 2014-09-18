@@ -133,7 +133,8 @@ void gtop2_psensor_list_update(struct psensor **sensors)
 	while (*sensors) {
 		s = *sensors;
 
-		if (s->type & SENSOR_TYPE_GTOP) {
+		if (!(s->type & SENSOR_TYPE_REMOTE)
+		    && s->type & SENSOR_TYPE_GTOP) {
 			if (s->type & SENSOR_TYPE_CPU)
 				cpu_usage_sensor_update(s);
 			else if (s->type & SENSOR_TYPE_MEMORY)

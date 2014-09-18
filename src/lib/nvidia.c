@@ -303,7 +303,8 @@ void nvidia_psensor_list_update(struct psensor **sensors)
 	while (*ss) {
 		s = *ss;
 
-		if (s->type & SENSOR_TYPE_NVCTRL)
+		if (!(s->type & SENSOR_TYPE_REMOTE)
+		    && s->type & SENSOR_TYPE_NVCTRL)
 			update(s);
 
 		ss++;

@@ -97,6 +97,9 @@ void udisks2_psensor_list_update(struct psensor **sensors)
 	for (; *sensors; sensors++) {
 		s = *sensors;
 
+		if (s->type & SENSOR_TYPE_REMOTE)
+			continue;
+
 		if (s->type & SENSOR_TYPE_UDISKS2) {
 			data = (struct udisks_data *)s->provider_data;
 
