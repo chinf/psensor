@@ -176,10 +176,11 @@ static char *next_hdd_info(char *string, struct hdd_info *info)
 struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
 					  int values_max_length)
 {
-	char *hddtemp_output = fetch();
-	char *c;
+	char *hddtemp_output, *c;
 	struct hdd_info info;
 	struct psensor **result;
+
+	hddtemp_output = fetch();
 
 	if (!hddtemp_output)
 		return sensors;
