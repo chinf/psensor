@@ -230,7 +230,7 @@ static void update(struct psensor **sensors, struct hdd_info *info)
 		    && (*sensor_cur)->type & SENSOR_TYPE_HDDTEMP
 		    && !strcmp((*sensor_cur)->id + 8, info->name))
 			psensor_set_current_value(*sensor_cur,
-						  (float)info->temp);
+						  (double)info->temp);
 
 		sensor_cur++;
 	}
