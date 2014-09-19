@@ -39,6 +39,8 @@
 #include <hdd.h>
 #include <plog.h>
 
+static const char *PROVIDER_NAME = "atasmart";
+
 static int filter_sd(const char *p)
 {
 	return strlen(p) == 8 && !strncmp(p, "/dev/sd", 7);
@@ -133,9 +135,11 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 		log_debug("hdd_psensor_list_add(hdd_atasmart) open %s", *tmp);
 
 		if (!sk_disk_open(*tmp, &disk)) {
-			id = malloc(strlen("atasmart ") + strlen(*tmp) + 1);
-			strcpy(id, "atasmart ");
-			strcat(id, *tmp);
+			id = malloc(strlen(PROVIDER_NAME)
+				    + 1
+				    + strlen(*tmp)
+				    + 1);
+			sprintf(id, "%s %s", PROVIDER_NAME, *tmp);
 
 			sensor = create_sensor(id,
 					       *tmp,
