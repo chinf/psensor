@@ -3,10 +3,10 @@ src/glade/psensor.glade
 src/glade/psensor-pref.glade
 src/glade/sensor-edit.glade
 src/lib/amd.c
-src/lib/cpu.c
 src/lib/hdd_atasmart.c
 src/lib/hdd_hddtemp.c
 src/lib/lmsensor.c
+src/lib/pgtop2.c
 src/lib/plog.c
 src/lib/nvidia.c
 src/lib/psensor.c
