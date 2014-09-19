@@ -33,8 +33,8 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
-#include "hdd.h"
-#include "psensor.h"
+#include <hdd.h>
+#include <psensor.h>
 
 #define HDDTEMP_SERVER_IP_ADDRESS "127.0.0.1"
 #define HDDTEMP_PORT_NUMBER 7634
