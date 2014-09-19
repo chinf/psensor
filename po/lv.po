@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-12 01:25+0200\n"
+"POT-Creation-Date: 2014-09-19 11:46+0200\n"
 "PO-Revision-Date: 2014-09-11 13:00+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-09-11 13:04+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
-#: src/cfg.c:500
+#: src/cfg.c:510
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Neizdevās izveidot tīmekļa serveri."
 
-#: src/cfg.c:547
+#: src/cfg.c:557
 #, fuzzy, c-format
 msgid "Failed to load configuration file %s: %s"
 msgstr "Neizdevās aktivizēt sensoru žurnalēšanu."
 
-#: src/cfg.c:570
+#: src/cfg.c:580
 #, fuzzy, c-format
 msgid "Failed to save configuration file %s."
 msgstr "Neizdevās aktivizēt sensoru žurnalēšanu."
@@ -241,6 +241,58 @@ msgstr "Skrips izpildīts, kad trauksme ir aktivizēta:"
 msgid "Sensors"
 msgstr "Sensori"
 
+#: src/glade/psensor-pref.glade:1002
+msgid "Enable support of lm-sensors"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1022
+msgid "Enable support of NVCtrl (NVidia)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1042
+msgid "Enable support of ATI ADL"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1062
+msgid "Enable support of gtop2"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1082
+msgid "Enable support of hddtemp daemon"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1102
+msgid "Enable support of libatasmart"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1122
+msgid "Enable support of udisks2"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1149
+msgid "The changes are applied after the restart of psensor."
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1171
+msgid "Hard disk drive"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1194
+msgid "CPU and memory usage"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1217
+msgid "GPU with proprietary driver"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1240
+msgid "Motherboard, CPU and GPU"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1263
+msgid "Providers"
+msgstr ""
+
 #: src/glade/sensor-edit.glade:29
 msgid "Edit Sensor Preferences"
 msgstr "Rediģēt sensoru iestatījumus"
@@ -255,7 +307,7 @@ msgstr "Tips:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
-#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:511 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:474 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/P"
 
@@ -351,28 +403,24 @@ msgstr "AMD/ATI adapteru skaits: %d"
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr "Aktīvo AMD/ATI adapteru skaits: %d"
 
-#: src/lib/cpu.c:46
-msgid "CPU"
-msgstr "CPU"
-
-#: src/lib/hdd_atasmart.c:57 src/lib/hdd_hddtemp.c:122
+#: src/lib/hdd_atasmart.c:59 src/lib/hdd_hddtemp.c:125
 msgid "Disk"
 msgstr "Disks"
 
-#: src/lib/hdd_atasmart.c:152
-#, c-format
-msgid "atasmart: sk_disk_open() failure: %s."
+#: src/lib/hdd_atasmart.c:141
+#, fuzzy, c-format
+msgid "%s: sk_disk_open() failure: %s."
 msgstr "atasmart: sk_disk_open() atteice: %s."
 
-#: src/lib/hdd_hddtemp.c:59
+#: src/lib/hdd_hddtemp.c:62
 msgid "hddtemp: failed to open socket."
 msgstr "hddtemp: neizdevās atvērt ligzdu."
 
-#: src/lib/hdd_hddtemp.c:72
+#: src/lib/hdd_hddtemp.c:75
 msgid "hddtemp: failed to open connection."
 msgstr "hddtemp: neizdevās atvērt savienojumu."
 
-#: src/lib/hdd_hddtemp.c:186 src/lib/hdd_hddtemp.c:256
+#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:251
 #, c-format
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: nepareiza virkne: %s."
@@ -406,48 +454,64 @@ msgstr "VIA CPU"
 msgid "ACPI"
 msgstr ""
 
-#: src/lib/lmsensor.c:220
+#: src/lib/lmsensor.c:182
 #, c-format
 msgid "lmsensor: initialization failure: %s."
 msgstr "lmsensor: inicializācijas kļūda: %s."
+
+#: src/lib/pgtop2.c:42
+msgid "CPU usage"
+msgstr ""
+
+#: src/lib/pgtop2.c:47
+msgid "CPU"
+msgstr "CPU"
+
+#: src/lib/pgtop2.c:63
+msgid "free memory"
+msgstr ""
+
+#: src/lib/pgtop2.c:64
+msgid "memory"
+msgstr ""
 
 #: src/lib/plog.c:43
 #, c-format
 msgid "Cannot open log file: %s"
 msgstr "Nevar atvērt žurnāla failu: %s"
 
-#: src/lib/nvidia.c:56
+#: src/lib/nvidia.c:58
 #, c-format
 msgid "Unknown NVIDIA product name for GPU %d"
 msgstr ""
 
-#: src/lib/nvidia.c:59
+#: src/lib/nvidia.c:61
 #, fuzzy, c-format
 msgid "Failed to retrieve NVIDIA product name for GPU %d"
 msgstr "Neizdevās saņemt NVIDIA informāciju."
 
-#: src/lib/nvidia.c:220
+#: src/lib/nvidia.c:222
 #, c-format
 msgid "Failed to retrieve measure of type %x for NVIDIA GPU %d"
 msgstr ""
 
-#: src/lib/nvidia.c:286
+#: src/lib/nvidia.c:288
 msgid "Cannot open connection to X11 server."
 msgstr "Nevar atvērt savienojumu ar X11 server."
 
-#: src/lib/nvidia.c:293
+#: src/lib/nvidia.c:295
 msgid "Failed to retrieve NVIDIA information."
 msgstr "Neizdevās saņemt NVIDIA informāciju."
 
-#: src/lib/nvidia.c:362
+#: src/lib/nvidia.c:364
 msgid "NVIDIA: failed to retrieve number of fans."
 msgstr ""
 
-#: src/lib/psensor.c:507 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:470 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:509
+#: src/lib/psensor.c:472
 msgid "%"
 msgstr "%"
 
@@ -472,7 +536,7 @@ msgstr "Sensora žurnāla fails nav atvērts."
 msgid "Sensor log not open, cannot close."
 msgstr "Sensora žurnāls nav atvērts, nevar aizvērt."
 
-#: src/main.c:78 src/server/server.c:85
+#: src/main.c:80 src/server/server.c:87
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -482,12 +546,12 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:89 src/server/server.c:95
+#: src/main.c:91 src/server/server.c:97
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Lietošana: %s [OPCIJAS]...\n"
 
-#: src/main.c:91
+#: src/main.c:93
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -495,11 +559,11 @@ msgstr ""
 "Psensor ir GTK+ lietotne aparatūras sensoru pārraudzībai, ieskaitot "
 "temperatūras un ventilatoru ātrumus."
 
-#: src/main.c:95
+#: src/main.c:97
 msgid "Options:"
 msgstr "Opcijas:"
 
-#: src/main.c:96
+#: src/main.c:98
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -507,7 +571,7 @@ msgstr ""
 "  -h, --help          rādīt šo palīdzību un iziet\n"
 "  -v, --version       rādīt versijas informāciju un iziet"
 
-#: src/main.c:102
+#: src/main.c:104
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -515,7 +579,7 @@ msgstr ""
 "  -u, --url=SAITE       psensor-server adrese,\n"
 "                      piemērs: http://saimniekdatoravārds:3131"
 
-#: src/main.c:105
+#: src/main.c:107
 msgid ""
 "  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
 "                      hddtemp daemon"
@@ -523,47 +587,47 @@ msgstr ""
 "  --use-libatasmart   izmantot atasmart bibliotēku disku pārraudzībai\n"
 "                      hddtemp dēmona vietā"
 
-#: src/main.c:108
+#: src/main.c:110
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  piespiest izveidot jaunu Psensor lietotni"
 
-#: src/main.c:111
+#: src/main.c:113
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr "  -d, --debug=LĪMENIS   iestatīt atkļūdošanas līmeni, starp 0 un 3"
 
-#: src/main.c:116 src/server/server.c:118
+#: src/main.c:118 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Ziņojiet kļūdas uz: %s.\n"
 
-#: src/main.c:118 src/server/server.c:120
+#: src/main.c:120 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s mājas lapa: <%s>\n"
 
-#: src/main.c:450
+#: src/main.c:463
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor nav kompilēts ar attālināto sensoru atbalstu."
 
-#: src/main.c:512
+#: src/main.c:541
 msgid "Enables debug mode."
 msgstr "Aktivizēt atkļūdošanas režīmu."
 
-#: src/main.c:524 src/server/server.c:382
+#: src/main.c:553 src/server/server.c:384
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Mēģiniet `%s --help', lai iegūtu vairāk informācijas.\n"
 
-#: src/main.c:537
+#: src/main.c:566
 msgid "A Psensor instance already exists."
 msgstr "Psensor instance jau eksistē."
 
-#: src/main.c:594
+#: src/main.c:623
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Neizdevās izveidot tīmekļa serveri."
 
-#: src/main.c:617 src/ui.c:97
+#: src/main.c:646 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -585,24 +649,24 @@ msgstr "Nederīgs saturs: %s"
 msgid "Invalid JSON: %s"
 msgstr "Nederīgs JSON: %s"
 
-#: src/server/server.c:55
+#: src/server/server.c:57
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr "<html><body><p>Servera apturēšana pieprasīta</p></body></html>"
 
-#: src/server/server.c:61
+#: src/server/server.c:63
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 "<html><body><p>Lapa nav atrasta - dodieties uz <a href='/'>galveno lapu</a></"
 "p></body>"
 
-#: src/server/server.c:97
+#: src/server/server.c:99
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 "psensor-server ir HTTP serveris aparatūras sensoru attālinātai pārraudzībai."
 
-#: src/server/server.c:102
+#: src/server/server.c:104
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -610,7 +674,7 @@ msgstr ""
 "  -h, --help\t\trādīt šo palīdzību un iziet\n"
 "  -v, --version\t\trādīt versijas informāciju un iziet"
 
-#: src/server/server.c:106
+#: src/server/server.c:108
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -618,59 +682,59 @@ msgstr ""
 "  -p,--port=PORTS\ttīmekļa servera ports\n"
 "  -w,--wdir=DIR\t\tmape ar tīmekļa servera lapām"
 
-#: src/server/server.c:110
+#: src/server/server.c:112
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LĪMENIS     iestatīt atkļūdošanas līmeni, vesels skaitlis "
 "starp 0 un 3"
 
-#: src/server/server.c:112
+#: src/server/server.c:114
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=CEĻŠ   žurnalēšanas faila ceļš"
 
-#: src/server/server.c:113
+#: src/server/server.c:115
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  --sensor-log-file=CEĻŠ sensora žurnāla faila ceļš"
 
-#: src/server/server.c:114
+#: src/server/server.c:116
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
 "  --sensor-log-interval=S iestata sensora žurnāla intervālu uz S (sekundēm)"
 
-#: src/server/server.c:299
+#: src/server/server.c:301
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP pieprasījums: %s"
 
-#: src/server/server.c:362
+#: src/server/server.c:364
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Aktivizē atkļūdošanas režīmu: %d"
 
-#: src/server/server.c:406
+#: src/server/server.c:410
 msgid "No sensors detected."
 msgstr "Sensori nav atklāti."
 
-#: src/server/server.c:413
+#: src/server/server.c:417
 msgid "Failed to create Web server."
 msgstr "Neizdevās izveidot tīmekļa serveri."
 
-#: src/server/server.c:417
+#: src/server/server.c:421
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Tīmekļa serveris sākts uz porta: %d"
 
-#: src/server/server.c:418
+#: src/server/server.c:422
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW mape: %s"
 
-#: src/server/server.c:419
+#: src/server/server.c:423
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "Saite: http://localhost:%d"
 
-#: src/server/server.c:429
+#: src/server/server.c:433
 msgid "Failed to activate logging of sensors."
 msgstr "Neizdevās aktivizēt sensoru žurnalēšanu."
 
