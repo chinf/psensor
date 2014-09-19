@@ -419,10 +419,8 @@ struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 		hddtemp_psensor_list_append(&psensors, values_max_length);
 
 #ifdef HAVE_ATASMART
-		else {
-			atasmart_psensor_list_append(&psensors,
-						     values_max_length);
-		}
+	else
+		atasmart_psensor_list_append(&psensors, values_max_length);
 #endif
 
 	if (!psensors) {	/* there is no detected sensors */
