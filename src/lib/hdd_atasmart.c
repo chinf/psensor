@@ -109,18 +109,17 @@ static void analyze_disk(const char *dname)
 	close(f);
 }
 
-struct psensor **hdd_psensor_list_add(struct psensor **sensors,
-				      int values_max_length)
+void
+atasmart_psensor_list_append(struct psensor ***sensors, int values_max_length)
 {
 	char **paths, **tmp, *id;
 	SkDisk *disk;
-	struct psensor *sensor, **tmp_sensors, **result;
+	struct psensor *sensor;
 
 	log_fct_enter();
 
 	paths = dir_list("/dev", filter_sd);
 
-	result = sensors;
 	tmp = paths;
 	while (*tmp) {
 		log_fct("Open %s", *tmp);
@@ -137,12 +136,7 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 					       disk,
 					       values_max_length);
 
-			tmp_sensors = psensor_list_add(result, sensor);
-
-			if (result != sensors)
-				free(result);
-
-			result = tmp_sensors;
+			psensor_list_append(sensors, sensor);
 		} else {
 			log_err(_("%s: sk_disk_open() failure: %s."),
 				PROVIDER_NAME,
@@ -156,11 +150,9 @@ struct psensor **hdd_psensor_list_add(struct psensor **sensors,
 	paths_free(paths);
 
 	log_fct_exit();
-
-	return result;
 }
 
-void hdd_psensor_list_update(struct psensor **sensors)
+void atasmart_psensor_list_update(struct psensor **sensors)
 {
 	struct psensor **cur, *s;
 	uint64_t kelvin;

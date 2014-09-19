@@ -426,12 +426,8 @@ struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 	}
 #ifdef HAVE_ATASMART
 		else {
-			tmp_psensors = hdd_psensor_list_add(psensors,
-							    values_max_length);
-			if (tmp_psensors != psensors) {
-				free(psensors);
-				psensors = tmp_psensors;
-			}
+			atasmart_psensor_list_append(&psensors,
+						     values_max_length);
 		}
 #endif
 
@@ -515,7 +511,7 @@ void psensor_list_update_measures(struct psensor **sensors)
 
 #ifdef HAVE_ATASMART
 	if (psensor_list_contains_type(sensors, SENSOR_TYPE_ATASMART))
-		hdd_psensor_list_update(sensors);
+		atasmart_psensor_list_update(sensors);
 #endif
 }
 
