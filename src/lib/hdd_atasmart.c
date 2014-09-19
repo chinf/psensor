@@ -35,8 +35,8 @@
 #include <atasmart.h>
 #include <linux/fs.h>
 
-#include "pio.h"
-#include "hdd.h"
+#include <pio.h>
+#include <hdd.h>
 #include <plog.h>
 
 static int filter_sd(const char *p)
