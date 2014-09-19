@@ -440,6 +440,8 @@ int main(int argc, char *argv[])
 #endif
 		psensor_list_update_measures(server_data.sensors);
 
+		lmsensor_psensor_list_update(server_data.sensors);
+
 		psensor_log_measures(server_data.sensors);
 
 		pmutex_unlock(&mutex);
