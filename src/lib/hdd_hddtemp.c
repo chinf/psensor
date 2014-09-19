@@ -38,9 +38,9 @@
 
 static const char *PROVIDER_NAME = "hddtemp";
 
-#define HDDTEMP_SERVER_IP_ADDRESS "127.0.0.1"
-#define HDDTEMP_PORT_NUMBER 7634
-#define HDDTEMP_OUTPUT_BUFFER_LENGTH 4048
+static const char *HDDTEMP_SERVER_IP_ADDRESS = "127.0.0.1";
+static const int HDDTEMP_PORT_NUMBER = 7634;
+static const int HDDTEMP_OUTPUT_BUFFER_LENGTH = 4048;
 
 struct hdd_info {
 	char *name;
