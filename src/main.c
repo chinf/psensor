@@ -104,9 +104,6 @@ static void print_help()
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"));
 	puts(_(
-"  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
-"                      hddtemp daemon"));
-	puts(_(
 "  -n, --new-instance  force the creation of a new Psensor application"));
 	puts("");
 
@@ -359,7 +356,6 @@ static void log_init()
 }
 
 static struct option long_options[] = {
-	{"use-libatasmart", no_argument, 0, 0},
 	{"version", no_argument, 0, 'v'},
 	{"help", no_argument, 0, 'h'},
 	{"url", required_argument, 0, 'u'},
