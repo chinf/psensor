@@ -280,28 +280,19 @@ void amd_psensor_list_update(struct psensor **sensors)
 }
 
 /* Entry point for AMD sensors */
-struct psensor * *
-amd_psensor_list_add(struct psensor **sensors, int values_len)
+void amd_psensor_list_append(struct psensor ***sensors, int values_len)
 {
 	int i, j, n;
-	struct psensor **tmp, **ss, *s;
+	struct psensor *s;
 
 	n = init();
 
-	ss = sensors;
 	for (i = 0; i < n; i++)
 		/* Each GPU Adapter has 3 sensors: temp, fan speed and usage */
 		for (j = 0; j < 3; j++) {
 			s = create_sensor(i, j, values_len);
-			tmp = psensor_list_add(ss, s);
-
-			if (ss != tmp)
-				free(ss);
-
-			ss = tmp;
+			psensor_list_append(sensors, s);
 		}
-
-	return ss;
 }
 
 void amd_cleanup()

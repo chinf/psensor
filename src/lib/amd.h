@@ -22,19 +22,9 @@
 
 #include "psensor.h"
 
-/*
-  Updates temperatures of AMD sensors.
-*/
 void amd_psensor_list_update(struct psensor **sensors);
 
-/*
-  Adds AMD sensors to a given list of sensors.
-
-  Returns the new allocated list of sensors if sensors have been added
-  otherwise returns 'sensors'. The list is 'NULL' terminated.
- */
-struct psensor **amd_psensor_list_add(struct psensor **sensors,
-					 int values_max_length);
+void amd_psensor_list_append(struct psensor ***sensors, int values_max_length);
 
 void amd_cleanup();
 

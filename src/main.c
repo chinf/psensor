@@ -472,7 +472,7 @@ static struct psensor **create_sensors_list(const char *url,
 #endif
 #ifdef HAVE_LIBATIADL
 		if (config_is_atiadlsdk_enabled())
-			sensors = amd_psensor_list_add(sensors, 600);
+			amd_psensor_list_append(&sensors, 600);
 #endif
 #ifdef HAVE_GTOP
 		if (config_is_gtop2_enabled())
