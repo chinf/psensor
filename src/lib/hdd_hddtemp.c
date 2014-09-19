@@ -174,33 +174,29 @@ static char *next_hdd_info(char *string, struct hdd_info *info)
 	return c;
 }
 
-struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
-					  int values_max_length)
+void
+hddtemp_psensor_list_append(struct psensor ***sensors, int values_max_length)
 {
 	char *hddtemp_output, *c;
 	struct hdd_info info;
-	struct psensor **result;
 
 	hddtemp_output = fetch();
 
 	if (!hddtemp_output)
-		return sensors;
+		return;
 
 	if (hddtemp_output[0] != '|') {
 		log_err(_("hddtemp: wrong string: %s."), hddtemp_output);
 
 		free(hddtemp_output);
 
-		return sensors;
+		return;
 	}
 
 	c = hddtemp_output;
 
-	result = sensors;
-
 	while (c && (c = next_hdd_info(c, &info))) {
 		struct psensor *sensor;
-		struct psensor **tmp_sensors;
 		char *id;
 
 		id = malloc(strlen(PROVIDER_NAME) + 1 + strlen(info.name) + 1);
@@ -208,17 +204,10 @@ struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
 
 		sensor = create_sensor(id, info.name, values_max_length);
 
-		tmp_sensors = psensor_list_add(result, sensor);
-
-		if (result != sensors)
-			free(result);
-
-		result = tmp_sensors;
+		psensor_list_append(sensors, sensor);
 	}
 
 	free(hddtemp_output);
-
-	return result;
 }
 
 static void update(struct psensor **sensors, struct hdd_info *info)

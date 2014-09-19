@@ -27,9 +27,7 @@ void atasmart_psensor_list_append(struct psensor ***sensors, int values_length);
 void atasmart_psensor_list_update(struct psensor **sensors);
 #endif
 
-struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
-				      int values_max_length);
-
+void hddtemp_psensor_list_append(struct psensor ***sensors, int values_length);
 void hddtemp_psensor_list_update(struct psensor **sensors);
 
 #endif

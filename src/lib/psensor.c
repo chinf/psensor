@@ -412,18 +412,12 @@ double get_max_temp(struct psensor **sensors)
 struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
 {
 	struct psensor **psensors;
-	struct psensor **tmp_psensors;
 
 	psensors = NULL;
 
-	if (!use_libatasmart) {
-		tmp_psensors = hddtemp_psensor_list_add(psensors,
-							values_max_length);
-		if (tmp_psensors != psensors) {
-			free(psensors);
-			psensors = tmp_psensors;
-		}
-	}
+	if (!use_libatasmart)
+		hddtemp_psensor_list_append(&psensors, values_max_length);
+
 #ifdef HAVE_ATASMART
 		else {
 			atasmart_psensor_list_append(&psensors,
