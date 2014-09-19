@@ -133,7 +133,7 @@ static struct psensor *create_sensor(int id, int type, int values_len)
 	/* GPU Usage (Activity/Load %) */
 	case 2:
 		sprintf(name, "AMD GPU%d Usage", id);
-		sensor_type |= SENSOR_TYPE_GPU | SENSOR_TYPE_USAGE;
+		sensor_type |= SENSOR_TYPE_GPU | SENSOR_TYPE_PERCENT;
 		break;
 	}
 
@@ -271,7 +271,7 @@ void amd_psensor_list_update(struct psensor **sensors)
 				psensor_set_current_value(s, get_temp(s));
 			else if (s->type & SENSOR_TYPE_RPM)
 				psensor_set_current_value(s, get_fanspeed(s));
-			else if (s->type & SENSOR_TYPE_USAGE)
+			else if (s->type & SENSOR_TYPE_PERCENT)
 				psensor_set_current_value(s, get_usage(s));
 		}
 
