@@ -36,6 +36,8 @@
 #include <hdd.h>
 #include <psensor.h>
 
+static const char *PROVIDER_NAME = "hddtemp";
+
 #define HDDTEMP_SERVER_IP_ADDRESS "127.0.0.1"
 #define HDDTEMP_PORT_NUMBER 7634
 #define HDDTEMP_OUTPUT_BUFFER_LENGTH 4048
@@ -197,10 +199,10 @@ struct psensor **hddtemp_psensor_list_add(struct psensor **sensors,
 	while (c && (c = next_hdd_info(c, &info))) {
 		struct psensor *sensor;
 		struct psensor **tmp_sensors;
-		char *id = malloc(strlen("hddtemp ") + strlen(info.name) + 1);
+		char *id;
 
-		strcpy(id, "hddtemp ");
-		strcat(id, info.name);
+		id = malloc(strlen(PROVIDER_NAME) + 1 + strlen(info.name) + 1);
+		sprintf(id, "%s %s", PROVIDER_NAME, info.name);
 
 		sensor = create_sensor(id, info.name, values_max_length);
 
