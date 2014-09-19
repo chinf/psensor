@@ -16,14 +16,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301 USA
  */
+
+/* Part of the code in this file is based on GNOME sensors applet code
+ * hddtemp-plugin.c see http://sensors-applet.sourceforge.net/
+ */
+
 #include <locale.h>
 #include <libintl.h>
 #define _(str) gettext(str)
 
-/*
- * Following code is based on GNOME sensors applet code
- * hddtemp-plugin.c see http://sensors-applet.sourceforge.net/
- */
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
