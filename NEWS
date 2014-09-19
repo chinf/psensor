@@ -28,6 +28,7 @@ v1.1.2
 * Fixed small UI layout/padding issues.
 * Splitted sensor preferences using a tab panel.
 * New preferences to enable/disable each sensor provider.
+* psensor: removed option +--use-libatasmart+.
 
 v1.1.1
 ------

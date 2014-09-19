@@ -409,28 +409,6 @@ double get_max_temp(struct psensor **sensors)
 	return get_max_value(sensors, SENSOR_TYPE_TEMP);
 }
 
-struct psensor **get_all_sensors(int use_libatasmart, int values_max_length)
-{
-	struct psensor **psensors;
-
-	psensors = NULL;
-
-	if (!use_libatasmart)
-		hddtemp_psensor_list_append(&psensors, values_max_length);
-
-#ifdef HAVE_ATASMART
-	else
-		atasmart_psensor_list_append(&psensors, values_max_length);
-#endif
-
-	if (!psensors) {	/* there is no detected sensors */
-		psensors = malloc(sizeof(struct psensor *));
-		*psensors = NULL;
-	}
-
-	return psensors;
-}
-
 const char *psensor_type_to_str(unsigned int type)
 {
 	if (type & SENSOR_TYPE_NVCTRL) {

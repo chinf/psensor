@@ -31,6 +31,7 @@
 #include "config.h"
 
 #include "cfg.h"
+#include <hdd.h>
 #include "psensor.h"
 #include "graph.h"
 #include "ui.h"
@@ -174,6 +175,11 @@ static void *update_measures(void *data)
 #ifdef HAVE_GTOP
 		gtop2_psensor_list_update(sensors);
 #endif
+#ifdef HAVE_ATASMART
+		atasmart_psensor_list_update(sensors);
+#endif
+
+		hddtemp_psensor_list_update(sensors);
 
 		psensor_log_measures(sensors);
 
@@ -444,10 +450,8 @@ static void cleanup(struct ui_psensor *ui)
  * Creates the list of sensors.
  *
  * 'url': remote psensor server url, null for local monitoring.
- * 'use_libatasmart': whether the libatasmart must be used.
  */
-static struct psensor **create_sensors_list(const char *url,
-					    unsigned int use_libatasmart)
+static struct psensor **create_sensors_list(const char *url)
 {
 	struct psensor **sensors;
 
@@ -461,10 +465,19 @@ static struct psensor **create_sensors_list(const char *url,
 		exit(EXIT_FAILURE);
 #endif
 	} else {
-		sensors = get_all_sensors(use_libatasmart, 600);
+		sensors = malloc(sizeof(struct psensor *));
+		*sensors = NULL;
 
 		if (config_is_lmsensor_enabled())
 			lmsensor_psensor_list_append(&sensors, 600);
+
+		if (config_is_hddtemp_enabled())
+			hddtemp_psensor_list_append(&sensors, 600);
+
+#ifdef HAVE_ATASMART
+		if (config_is_libatasmart_enabled())
+			atasmart_psensor_list_append(&sensors, 600);
+#endif
 
 #ifdef HAVE_NVIDIA
 		if (config_is_nvctrl_enabled())
@@ -494,7 +507,7 @@ int main(int argc, char **argv)
 {
 	struct ui_psensor ui;
 	pthread_t thread;
-	int optc, cmdok, opti, use_libatasmart, new_instance, ret;
+	int optc, cmdok, opti, new_instance, ret;
 	char *url = NULL;
 	GApplication *app;
 
@@ -507,16 +520,12 @@ int main(int argc, char **argv)
 	textdomain(PACKAGE);
 #endif
 
-	use_libatasmart = new_instance = 0;
+	new_instance = 0;
 
 	cmdok = 1;
 	while ((optc = getopt_long(argc, argv, "vhd:u:n", long_options,
 				   &opti)) != -1) {
 		switch (optc) {
-		case 0:
-			if (!strcmp(long_options[opti].name, "use-libatasmart"))
-				use_libatasmart = 1;
-			break;
 		case 'u':
 			if (optarg)
 				url = strdup(optarg);
@@ -589,7 +598,7 @@ int main(int argc, char **argv)
 
 	psensor_init();
 
-	ui.sensors = create_sensors_list(url, use_libatasmart);
+	ui.sensors = create_sensors_list(url);
 	associate_cb_alarm_raised(ui.sensors, &ui);
 
 	if (ui.config->slog_enabled)
