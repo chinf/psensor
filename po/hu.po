@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-19 11:46+0200\n"
+"POT-Creation-Date: 2014-09-20 09:03+0200\n"
 "PO-Revision-Date: 2014-09-11 13:00+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -586,56 +586,47 @@ msgstr ""
 "                      például: http://gepnev:3131"
 
 #: src/main.c:107
-msgid ""
-"  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
-"                      hddtemp daemon"
-msgstr ""
-"  --use-libatasmart   atasmart függvénykönyvtár használata a lemezek "
-"figyelésére a\n"
-"                      hddtemp démon helyett"
-
-#: src/main.c:110
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  új Psensor alkalmazás indításának kényszerítése"
 
-#: src/main.c:113
+#: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL   hibakeresési szint beállítása, egész 0 és 3 között"
 
-#: src/main.c:118 src/server/server.c:120
+#: src/main.c:115 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "A talált hibákat itt jelentse be: %s\n"
 
-#: src/main.c:120 src/server/server.c:122
+#: src/main.c:117 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s honlap: <%s>\n"
 
-#: src/main.c:463
+#: src/main.c:477
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "A Psensor távoli érzékelők támogatása nélkül lett lefordítva."
 
-#: src/main.c:541
+#: src/main.c:555
 msgid "Enables debug mode."
 msgstr "Hibakeresési mód engedélyezése."
 
-#: src/main.c:553 src/server/server.c:384
+#: src/main.c:567 src/server/server.c:384
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "További információkért adja ki a „%s --help” parancsot.\n"
 
-#: src/main.c:566
+#: src/main.c:580
 msgid "A Psensor instance already exists."
 msgstr "A Psensors egy példánya már létezik."
 
-#: src/main.c:623
+#: src/main.c:637
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Nem sikerült a mappa létrehozása: %s - %s"
 
-#: src/main.c:646 src/ui.c:97
+#: src/main.c:660 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 
@@ -793,6 +784,15 @@ msgstr "Ventilátor riasztás"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Ismeretlen"
+
+#~ msgid ""
+#~ "  --use-libatasmart   use atasmart library for disk monitoring instead "
+#~ "of\n"
+#~ "                      hddtemp daemon"
+#~ msgstr ""
+#~ "  --use-libatasmart   atasmart függvénykönyvtár használata a lemezek "
+#~ "figyelésére a\n"
+#~ "                      hddtemp démon helyett"
 
 #~ msgid "The configuration file does not exist."
 #~ msgstr "A konfigurációs fájl nem létezik."

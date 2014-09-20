@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-19 11:46+0200\n"
+"POT-Creation-Date: 2014-09-20 09:03+0200\n"
 "PO-Revision-Date: 2014-09-11 13:00+0000\n"
 "Last-Translator: Launchpad Translations Administrators <Unknown>\n"
 "Language-Team: Italian\n"
@@ -584,57 +584,48 @@ msgstr ""
 "                      esempio: http://hostname:3131"
 
 #: src/main.c:107
-msgid ""
-"  --use-libatasmart   use atasmart library for disk monitoring instead of\n"
-"                      hddtemp daemon"
-msgstr ""
-"  --use-libatasmart usa la libreria atasmart library per il monitoraggio "
-"dell'hard disk invece del \n"
-"                      servizio hddtemp"
-
-#: src/main.c:110
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 "  -n, --new-instance forza la creazione di una nuova applicazione Psensor"
 
-#: src/main.c:113
+#: src/main.c:110
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL imposta il livello di debug, un intero compreso tra 0 e 3"
 
-#: src/main.c:118 src/server/server.c:120
+#: src/main.c:115 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Segnalare i bug a: %s\n"
 
-#: src/main.c:120 src/server/server.c:122
+#: src/main.c:117 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s home page: <%s>\n"
 
-#: src/main.c:463
+#: src/main.c:477
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor è stato compilato senza il supporto per sensori remoti."
 
-#: src/main.c:541
+#: src/main.c:555
 msgid "Enables debug mode."
 msgstr "Abilita la modalità debug."
 
-#: src/main.c:553 src/server/server.c:384
+#: src/main.c:567 src/server/server.c:384
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Usare '%s --help' per maggiori informazioni.\n"
 
-#: src/main.c:566
+#: src/main.c:580
 msgid "A Psensor instance already exists."
 msgstr "Esiste già un'istanza di Psensor"
 
-#: src/main.c:623
+#: src/main.c:637
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Impossibile creare il Web server."
 
-#: src/main.c:646 src/ui.c:97
+#: src/main.c:660 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -797,6 +788,15 @@ msgstr "Allarme ventola"
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Sconosciuto"
+
+#~ msgid ""
+#~ "  --use-libatasmart   use atasmart library for disk monitoring instead "
+#~ "of\n"
+#~ "                      hddtemp daemon"
+#~ msgstr ""
+#~ "  --use-libatasmart usa la libreria atasmart library per il monitoraggio "
+#~ "dell'hard disk invece del \n"
+#~ "                      servizio hddtemp"
 
 #~ msgid "Sensor Information"
 #~ msgstr "Informazioni sul Sensore"
