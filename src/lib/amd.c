@@ -34,7 +34,7 @@
 
 #include <adl_sdk.h>
 
-#include "psensor.h"
+#include <psensor.h>
 
 typedef int (*ADL_MAIN_CONTROL_CREATE)(ADL_MAIN_MALLOC_CALLBACK, int);
 typedef int (*ADL_MAIN_CONTROL_DESTROY)();
