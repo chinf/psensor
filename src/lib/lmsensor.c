@@ -27,9 +27,11 @@
 #include <sensors/sensors.h>
 #include <sensors/error.h>
 
-#include "psensor.h"
+#include <psensor.h>
 
 static int init_done;
+
+static const char *PROVIDER_NAME = "lmsensor";
 
 static double get_value(const sensors_chip_name *name,
 			const sensors_subfeature *sub)
@@ -39,8 +41,10 @@ static double get_value(const sensors_chip_name *name,
 
 	err = sensors_get_value(name, sub->number, &val);
 	if (err) {
-		log_err(_("lmsensor: cannot get value of subfeature %s: %s."),
-			sub->name, sensors_strerror(err));
+		log_err(_("%s: Cannot get value of subfeature %s: %s."),
+			PROVIDER_NAME,
+			sub->name,
+			sensors_strerror(err));
 		val = UNKNOWN_DBL_VALUE;
 	}
 	return val;
@@ -50,12 +54,16 @@ static double get_temp_input(struct psensor *sensor)
 {
 	const sensors_subfeature *sf;
 
-	const sensors_chip_name *chip = sensor->iname;
+	const sensors_chip_name *chip;
 
-	const sensors_feature *feature = sensor->feature;
+	const sensors_feature *feature;
 
-	sf = sensors_get_subfeature(chip,
-				    feature, SENSORS_SUBFEATURE_TEMP_INPUT);
+	chip = sensor->iname;
+	feature = sensor->feature;
+
+	sf = sensors_get_subfeature(sensor->iname,
+				    feature,
+				    SENSORS_SUBFEATURE_TEMP_INPUT);
 	if (sf)
 		return get_value(chip, sf);
 
@@ -70,7 +78,9 @@ static double get_fan_input(struct psensor *sensor)
 	const sensors_subfeature *sf;
 
 	sf = sensors_get_subfeature(chip,
-				    feature, SENSORS_SUBFEATURE_FAN_INPUT);
+				    feature,
+				    SENSORS_SUBFEATURE_FAN_INPUT);
+
 	if (sf)
 		return get_value(chip, sf);
 
@@ -79,24 +89,28 @@ static double get_fan_input(struct psensor *sensor)
 
 void lmsensor_psensor_list_update(struct psensor **sensors)
 {
-	struct psensor **s_ptr = sensors;
+	struct psensor *s;
+	double v;
 
 	if (!init_done)
 		return;
 
-	while (*s_ptr) {
-		struct psensor *s = *s_ptr;
+	while (*sensors) {
+		s = *sensors;
 
 		if (!(s->type & SENSOR_TYPE_REMOTE)
 		    && s->type & SENSOR_TYPE_LMSENSOR) {
+
 			if (s->type & SENSOR_TYPE_TEMP)
-				psensor_set_current_value(s,
-							  get_temp_input(s));
-			else if (s->type & SENSOR_TYPE_RPM)
-				psensor_set_current_value(s, get_fan_input(s));
+				v = get_temp_input(s);
+			else /* s->type & SENSOR_TYPE_RPM */
+				v = get_fan_input(s);
+
+			if (v != UNKNOWN_DBL_VALUE)
+				psensor_set_current_value(s, v);
 		}
 
-		s_ptr++;
+		sensors++;
 	}
 }
 
@@ -120,8 +134,7 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	} else if (feature->type == SENSORS_FEATURE_FAN) {
 		fault_subfeature = SENSORS_SUBFEATURE_FAN_FAULT;
 	} else {
-		log_err(_(
-"lmsensor: lmsensor_psensor_create failure: wrong feature type."));
+		log_err(_("%s: Wrong feature type."), PROVIDER_NAME);
 		return NULL;
 	}
 
@@ -176,10 +189,13 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 
 void lmsensor_init()
 {
-	int err = sensors_init(NULL);
+	int err;
+
+	err = sensors_init(NULL);
 
 	if (err) {
-		log_err(_("lmsensor: initialization failure: %s."),
+		log_err(_("%s: initialization failure: %s."),
+			PROVIDER_NAME,
 			sensors_strerror(err));
 		init_done = 0;
 	} else {
@@ -190,10 +206,9 @@ void lmsensor_init()
 void lmsensor_psensor_list_append(struct psensor ***sensors, int vn)
 {
 	const sensors_chip_name *chip;
-	int chip_nr = 0;
+	int chip_nr, i;
 	const sensors_feature *feature;
 	struct psensor *s;
-	int i;
 
 	if (!init_done)
 		lmsensor_init();
