@@ -7,7 +7,8 @@ The last version of this FAQ is available at http://wpitchoune.net/gitweb/?p=pse
 No sensors or only cpu usage is displayed
 -----------------------------------------
 
-Psensor is relying on few libraries or softwares for retrieving the information about the computer:
+Psensor is relying on few libraries or softwares for retrieving the
+information about the computer:
 
 	- motherboard and CPUs sensors: the information is retrieved
           from the lm-sensors library, it requires that
@@ -29,17 +30,26 @@ Psensor is relying on few libraries or softwares for retrieving the information 
                   note: it requires that you are using a Psensor
                   binary compiled with the ATI support.
 
-	- HDDs: it uses the hddtemp daemon. Verify that it is
-          correctly reporting temperature by using the command: +sudo
-          hddtemp /dev/sda+. If hddtemp does not support your disk,
-          you may want to try using the libatasmart support instead
-          (option +--use-libatasmart+).
+For hard disk drives, psensor can use:
+
+    - udisks2: added since 1.1.2 release. It is the default and
+      recommended provider.
+   
+    - hddtemp: verify that it is correctly reporting temperature by
+      using the command: +sudo hddtemp /dev/sda+. It is the default
+      provider until 1.1.2 release.
+
+    - atasmart library: before the 1.1.2 release it can be enabled
+      by using the command line option +--use-libatasmart+.
 
 If the underlying software is reporting sensors which are not
 displayed by Psensor, it is probably a bug in Psensor, so please
 report it. Otherwise, the issue is on the underlying software itself
 and you should contact the corresponding development team or refer to
 its documentation.
+
+Since the release 1.1.2, the providers can be enabled or disabled directly
+from the user interface (+Preferences>Provider+).
 
 [[S_ATIMonitoring]]
 How to monitor an ATI card using the Catalyst driver?
@@ -230,11 +240,11 @@ http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html[XDG
 specification].
 
 [[S_disk]]
-How to monitor the temperature of a disk?
+How to monitor the temperature of a disk with +hddtemp+?
 -----------------------------------------
 
-By default, Psensor is using +hddtemp+ to retrieve the temperature of
-the disks.
+Until the release 1.1.2, Psensor is using +hddtemp+ by default to
+retrieve the temperature of the disks.
 
 If +hddtemp+ is installed but no disk temperature is reported, check
 that the daemon is running by using for example the command +ps

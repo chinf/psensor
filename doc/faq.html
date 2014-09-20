@@ -392,7 +392,8 @@ asciidoc.install(2);
 <div class="sect1">
 <h2 id="S_NoSensors">1. No sensors or only cpu usage is displayed</h2>
 <div class="sectionbody">
-<div class="paragraph"><p>Psensor is relying on few libraries or softwares for retrieving the information about the computer:</p></div>
+<div class="paragraph"><p>Psensor is relying on few libraries or softwares for retrieving the
+information about the computer:</p></div>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -431,13 +432,26 @@ proprietary driver Catalyst/fglx: use <code>aticonfig</code> to
 </li>
 </ul></div>
 </li>
+</ul></div>
+<div class="paragraph"><p>For hard disk drives, psensor can use:</p></div>
+<div class="ulist"><ul>
 <li>
 <p>
-HDDs: it uses the hddtemp daemon. Verify that it is
-          correctly reporting temperature by using the command: <code>sudo
-          hddtemp /dev/sda</code>. If hddtemp does not support your disk,
-          you may want to try using the libatasmart support instead
-          (option <code>--use-libatasmart</code>).
+udisks2: added since 1.1.2 release. It is the default and
+      recommended provider.
+</p>
+</li>
+<li>
+<p>
+hddtemp: verify that it is correctly reporting temperature by
+      using the command: <code>sudo hddtemp /dev/sda</code>. It is the default
+      provider until 1.1.2 release.
+</p>
+</li>
+<li>
+<p>
+atasmart library: before the 1.1.2 release it can be enabled
+      by using the command line option <code>--use-libatasmart</code>.
 </p>
 </li>
 </ul></div>
@@ -446,6 +460,8 @@ displayed by Psensor, it is probably a bug in Psensor, so please
 report it. Otherwise, the issue is on the underlying software itself
 and you should contact the corresponding development team or refer to
 its documentation.</p></div>
+<div class="paragraph"><p>Since the release 1.1.2, the providers can be enabled or disabled directly
+from the user interface (<code>Preferences&gt;Provider</code>).</p></div>
 </div>
 </div>
 <div class="sect1">
@@ -681,43 +697,42 @@ the option <code>Launch on session startup</code>.</p></div>
 <div class="paragraph"><p>This feature is requiring that the Desktop Environment supports the
 <a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html">XDG
 specification</a>.</p></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="S_disk">16. How to monitor the temperature of a disk?</h2>
-<div class="sectionbody">
-<div class="paragraph"><p>By default, Psensor is using <code>hddtemp</code> to retrieve the temperature of
-the disks.</p></div>
-<div class="paragraph"><p>If <code>hddtemp</code> is installed but no disk temperature is reported, check
-that the daemon is running by using for example the command <code>ps
--eaf|grep hddtemp</code>.
-It should output something like:</p></div>
+<div class="paragraph" id="S_disk"><p>How to monitor the temperature of a disk with <code>hddtemp</code>?</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>root      1433     1  0 May28 ?        00:00:21 /usr/sbin/hddtemp -d -l 127.0.0.1 -p 7634 -s | /dev/sdb</code></pre>
+<pre><code>Until the release 1.1.2, Psensor is using +hddtemp+ by default to
+retrieve the temperature of the disks.
+
+If +hddtemp+ is installed but no disk temperature is reported, check
+that the daemon is running by using for example the command +ps
+-eaf|grep hddtemp+.
+It should output something like:</code></pre>
 </div></div>
-<div class="paragraph"><p>Depending on the Linux distribution, the installation of the <code>hddtemp</code>
-package does not enable the hddtemp daemon automaticaly.</p></div>
-<div class="paragraph"><p>In this case, edit the file <code>/etc/default/hddtemp</code> and set
-<code>RUN_DAEMON</code> to <code>"true"</code> like in the following example:</p></div>
+<div class="paragraph"><p>root      1433     1  0 May28 ?        00:00:21 /usr/sbin/hddtemp -d -l 127.0.0.1 -p 7634 -s | /dev/sdb</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code># hddtemp network daemon switch. If set to true, hddtemp will listen
+<pre><code>Depending on the Linux distribution, the installation of the +hddtemp+
+package does not enable the hddtemp daemon automaticaly.
+
+In this case, edit the file +/etc/default/hddtemp+ and set
++RUN_DAEMON+ to +"true"+ like in the following example:</code></pre>
+</div></div>
+<div class="paragraph"><p># hddtemp network daemon switch. If set to true, hddtemp will listen
 # for incoming connections.
-RUN_DAEMON="true"</code></pre>
-</div></div>
-<div class="paragraph"><p>For Debian/Ubuntu, you can use</p></div>
+RUN_DAEMON="true"</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code>dpkg-reconfigure hddtemp</code></pre>
+<pre><code>For Debian/Ubuntu, you can use</code></pre>
 </div></div>
-<div class="paragraph"><p>and reply <code>yes</code> when asked whether hddtemp daemon must be
-run during the startup.</p></div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="S_SimilarSoft">17. Is there any other similar softwares?</h2>
-<div class="sectionbody">
+<div class="paragraph"><p>dpkg-reconfigure hddtemp</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>and reply +yes+ when asked whether hddtemp daemon must be
+run during the startup.
+
+[[S_SimilarSoft]]
+Is there any other similar softwares?</code></pre>
+</div></div>
 <div class="paragraph"><p>Here is a list of few well-known sensors monitoring softwares:</p></div>
 <div class="ulist"><ul>
 <li>
@@ -745,7 +760,7 @@ more general, but can be configured to display sensors
 </div>
 </div>
 <div class="sect1">
-<h2 id="S_HideSensor">18. Is it possible to hide sensors in the main window?</h2>
+<h2 id="S_HideSensor">16. Is it possible to hide sensors in the main window?</h2>
 <div class="sectionbody">
 <div class="paragraph"><p>Before v1.1.1, the sensors retrieved from the lm-sensor library can be
 ignored directly in the lm-sensor configuration. See the manpage
@@ -758,7 +773,7 @@ of sensors.conf(5).</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-08-22 01:10:27 CEST
+Last updated 2014-09-20 09:13:33 CEST
 </div>
 </div>
 </body>
