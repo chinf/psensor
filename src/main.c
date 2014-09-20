@@ -263,29 +263,47 @@ static void cb_alarm_raised(struct psensor *sensor, void *data)
 
 static void associate_colors(struct psensor **sensors)
 {
-	/* number of uniq colors */
-#define COLORS_COUNT 8
-
-	double colors[COLORS_COUNT][3] = {
-		{0, 0, 0},	/* black */
-		{1, 0, 0},	/* red */
-		{0, 0, 1},	/* blue */
-		{0, 1, 0},	/* green */
-
-		{0.5, 0.5, 0.5},/* grey */
-		{0.5, 0, 0},	/* dark red */
-		{0, 0, 0.5},	/* dark blue */
-		{0, 0.5, 0}	/* dark green */
+	GdkRGBA rgba;
+	/* copied from the default colors of the gtk color color
+	 * chooser. */
+	const char *default_colors[27] = {
+		"#ef2929",  /* Scarlet Red */
+		"#fcaf3e",  /* Orange */
+		"#fce94f",  /* Butter */
+		"#8ae234",  /* Chameleon */
+		"#729fcf",  /* Sky Blue */
+		"#ad7fa8",  /* Plum */
+		"#e9b96e",  /* Chocolate */
+		"#888a85",  /* Aluminum 1 */
+		"#eeeeec",  /* Aluminum 2 */
+		"#cc0000",
+		"#f57900",
+		"#edd400",
+		"#73d216",
+		"#3465a4",
+		"#75507b",
+		"#c17d11",
+		"#555753",
+		"#d3d7cf",
+		"#a40000",
+		"#ce5c00",
+		"#c4a000",
+		"#4e9a06",
+		"#204a87",
+		"#5c3566",
+		"#8f5902",
+		"#2e3436",
+		"#babdb6"
 	};
-	struct psensor **cur;
 	int i;
+	struct psensor **cur;
 	struct color c;
 
 	for (cur = sensors, i = 0; *cur; cur++, i++) {
-		color_set(&c,
-			  colors[i % COLORS_COUNT][0],
-			  colors[i % COLORS_COUNT][1],
-			  colors[i % COLORS_COUNT][2]);
+		gdk_rgba_parse(&rgba, default_colors[i % 27]);
+		c.red = rgba.red;
+		c.green = rgba.green;
+		c.blue = rgba.blue;
 
 		(*cur)->color = config_get_sensor_color((*cur)->id, &c);
 	}

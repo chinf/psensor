@@ -29,6 +29,8 @@ v1.1.2
 * Splitted sensor preferences using a tab panel.
 * New preferences to enable/disable each sensor provider.
 * psensor: removed option +--use-libatasmart+.
+* Changed default color for the curves (copied from the default
+  colors of the gtk color chooser widget).
 
 v1.1.1
 ------
