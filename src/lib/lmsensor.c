@@ -154,9 +154,13 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	else
 		return NULL;
 
-	id = malloc(strlen("lmsensor ") + 1 + strlen(name) + 1 + strlen(label) +
-		    1);
-	sprintf(id, "lmsensor %s %s", name, label);
+	id = malloc(strlen(PROVIDER_NAME)
+		    + 1
+		    + strlen(name)
+		    + 1
+		    + strlen(label)
+		    + 1);
+	sprintf(id, "%s %s %s", PROVIDER_NAME, name, label);
 
 	if (!strcmp(chip->prefix, "coretemp"))
 		cname = strdup(_("Intel CPU"));
@@ -216,6 +220,7 @@ void lmsensor_psensor_list_append(struct psensor ***sensors, int vn)
 	if (!init_done)
 		return;
 
+	chip_nr = 0;
 	while ((chip = sensors_get_detected_chips(NULL, &chip_nr))) {
 
 		i = 0;
