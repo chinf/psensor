@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 15:34+0200\n"
+"POT-Creation-Date: 2014-09-21 17:09+0200\n"
 "PO-Revision-Date: 2014-09-11 21:23+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Russian\n"
@@ -422,7 +422,7 @@ msgstr "%s: не удалось открыть сокет."
 msgid "%s: failed to open connection."
 msgstr "%s: не удалось открыть соединение."
 
-#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:253
+#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:251
 #, c-format
 msgid "%s: wrong string: %s."
 msgstr "%s: неправильная строка: %s."

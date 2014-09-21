@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 15:34+0200\n"
+"POT-Creation-Date: 2014-09-21 17:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -419,7 +419,7 @@ msgstr ""
 msgid "%s: failed to open connection."
 msgstr ""
 
-#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:253
+#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:251
 #, c-format
 msgid "%s: wrong string: %s."
 msgstr ""
