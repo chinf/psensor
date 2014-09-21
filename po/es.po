@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-20 09:03+0200\n"
-"PO-Revision-Date: 2014-09-11 13:00+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"POT-Creation-Date: 2014-09-21 00:49+0200\n"
+"PO-Revision-Date: 2014-09-20 11:26+0000\n"
+"Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-11 13:04+0000\n"
+"X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: src/cfg.c:510
@@ -408,9 +408,9 @@ msgid "Disk"
 msgstr ""
 
 #: src/lib/hdd_atasmart.c:141
-#, fuzzy, c-format
+#, c-format
 msgid "%s: sk_disk_open() failure: %s."
-msgstr "atasmart: sk_disk_open() Error: %s"
+msgstr "%s: sk_disk_open() Error: %s"
 
 #: src/lib/hdd_hddtemp.c:62
 msgid "hddtemp: failed to open socket."
@@ -425,39 +425,40 @@ msgstr "hddtemp: fallo al establecer conexión"
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: argumento erróneo:%s."
 
-#: src/lib/lmsensor.c:42
+#: src/lib/lmsensor.c:44
 #, c-format
-msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr "lmsensor: imposible obtener el valor de subcaracterística %s:%s"
+msgid "%s: Cannot get value of subfeature %s: %s."
+msgstr "%s: imposible obtener el valor de subcaracterística %s:%s"
 
-#: src/lib/lmsensor.c:124
-msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr "lmsensor: lmsensor_psensor_create Fallo: tipo de funcion equivocada."
+#: src/lib/lmsensor.c:137
+#, c-format
+msgid "%s: Wrong feature type."
+msgstr ""
 
-#: src/lib/lmsensor.c:149
+#: src/lib/lmsensor.c:166
 msgid "Intel CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:153
+#: src/lib/lmsensor.c:170
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:155
+#: src/lib/lmsensor.c:172
 msgid "NVIDIA GPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:157
+#: src/lib/lmsensor.c:174
 msgid "VIA CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:159
+#: src/lib/lmsensor.c:176
 msgid "ACPI"
 msgstr ""
 
-#: src/lib/lmsensor.c:182
+#: src/lib/lmsensor.c:201
 #, c-format
-msgid "lmsensor: initialization failure: %s."
-msgstr "lmsensor: Fallo de inicialización:%s."
+msgid "%s: initialization failure: %s."
+msgstr "%s: Fallo de inicialización:%s."
 
 #: src/lib/pgtop2.c:42
 msgid "CPU usage"
@@ -633,7 +634,8 @@ msgstr ""
 "Launchpad Contributions:\n"
 "  Adolfo Jayme https://launchpad.net/~fitojb\n"
 "  Eduardo Alberto Calvo https://launchpad.net/~edu5800\n"
-"  Javier https://launchpad.net/~buik8roadmaster"
+"  Javier https://launchpad.net/~buik8roadmaster\n"
+"  Jean-Philippe Orsini https://launchpad.net/~jfi"
 
 #: src/rsensor.c:107
 #, c-format
@@ -699,7 +701,6 @@ msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr "  --sensor-log-file=PATH establecer el archivo de registro en PATH"
 
 #: src/server/server.c:116
-#, fuzzy
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr "  --sensor-log-interval=S registrar sensores cada S (seconds)"
 
@@ -747,11 +748,8 @@ msgstr ""
 "sensores del hardware."
 
 #: src/ui.c:90
-#, fuzzy
 msgid "Copyright(c) 2010-2014 jeanfi@gmail.com"
-msgstr ""
-"Copyright(c) 2010-2014\n"
-"jeanfi@gmail.com"
+msgstr "Copyright(c) 2010-2014 jeanfi@gmail.com"
 
 #: src/ui.c:96
 msgid "About Psensor"
@@ -791,14 +789,9 @@ msgstr "Alarma por parada de ventilador."
 msgid "Unknown"
 msgstr "Desconocido"
 
-#~ msgid ""
-#~ "  --use-libatasmart   use atasmart library for disk monitoring instead "
-#~ "of\n"
-#~ "                      hddtemp daemon"
+#~ msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
 #~ msgstr ""
-#~ "  --usar-libatasmart   usar librería atasmart para leer el sensor del "
-#~ "disco\n"
-#~ "                        duro en lugar de hddtemp daemon"
+#~ "lmsensor: lmsensor_psensor_create Fallo: tipo de funcion equivocada."
 
 #~ msgid "Sensor Information"
 #~ msgstr "Información del sensor"

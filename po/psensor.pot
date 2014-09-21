@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-20 09:03+0200\n"
+"POT-Creation-Date: 2014-09-21 00:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -422,38 +422,39 @@ msgstr ""
 msgid "hddtemp: wrong string: %s."
 msgstr ""
 
-#: src/lib/lmsensor.c:42
+#: src/lib/lmsensor.c:44
 #, c-format
-msgid "lmsensor: cannot get value of subfeature %s: %s."
+msgid "%s: Cannot get value of subfeature %s: %s."
 msgstr ""
 
-#: src/lib/lmsensor.c:124
-msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
+#: src/lib/lmsensor.c:137
+#, c-format
+msgid "%s: Wrong feature type."
 msgstr ""
 
-#: src/lib/lmsensor.c:149
+#: src/lib/lmsensor.c:166
 msgid "Intel CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:153
+#: src/lib/lmsensor.c:170
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:155
+#: src/lib/lmsensor.c:172
 msgid "NVIDIA GPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:157
+#: src/lib/lmsensor.c:174
 msgid "VIA CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:159
+#: src/lib/lmsensor.c:176
 msgid "ACPI"
 msgstr ""
 
-#: src/lib/lmsensor.c:182
+#: src/lib/lmsensor.c:201
 #, c-format
-msgid "lmsensor: initialization failure: %s."
+msgid "%s: initialization failure: %s."
 msgstr ""
 
 #: src/lib/pgtop2.c:42

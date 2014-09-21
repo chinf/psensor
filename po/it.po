@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-20 09:03+0200\n"
-"PO-Revision-Date: 2014-09-11 13:00+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"POT-Creation-Date: 2014-09-21 00:49+0200\n"
+"PO-Revision-Date: 2014-09-20 11:24+0000\n"
+"Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-11 13:04+0000\n"
+"X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: src/cfg.c:510
@@ -407,9 +407,9 @@ msgid "Disk"
 msgstr "Disco"
 
 #: src/lib/hdd_atasmart.c:141
-#, fuzzy, c-format
+#, c-format
 msgid "%s: sk_disk_open() failure: %s."
-msgstr "atasmart: errore sk_disk_open(): %s."
+msgstr "%s: errore sk_disk_open(): %s."
 
 #: src/lib/hdd_hddtemp.c:62
 msgid "hddtemp: failed to open socket."
@@ -424,38 +424,39 @@ msgstr "hddtemp: impossibile aprire la connessione."
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: errore di stringa: %s"
 
-#: src/lib/lmsensor.c:42
+#: src/lib/lmsensor.c:44
 #, c-format
-msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr "lmsensor: impossibile rilevare il valore della sotto funzione %s: %s."
+msgid "%s: Cannot get value of subfeature %s: %s."
+msgstr "%s: impossibile rilevare il valore della sotto funzione %s: %s."
 
-#: src/lib/lmsensor.c:124
-msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr "lmsensor: lmsensor_psensor_create fallito: tipo di funzione errata."
+#: src/lib/lmsensor.c:137
+#, c-format
+msgid "%s: Wrong feature type."
+msgstr "%s: tipo di funzione errata."
 
-#: src/lib/lmsensor.c:149
+#: src/lib/lmsensor.c:166
 msgid "Intel CPU"
 msgstr "CPU Intel"
 
-#: src/lib/lmsensor.c:153
+#: src/lib/lmsensor.c:170
 msgid "AMD CPU"
 msgstr "CPU AMD"
 
-#: src/lib/lmsensor.c:155
+#: src/lib/lmsensor.c:172
 msgid "NVIDIA GPU"
 msgstr "CPU NVIDIA"
 
-#: src/lib/lmsensor.c:157
+#: src/lib/lmsensor.c:174
 msgid "VIA CPU"
 msgstr "CPU VIA"
 
-#: src/lib/lmsensor.c:159
+#: src/lib/lmsensor.c:176
 msgid "ACPI"
 msgstr ""
 
-#: src/lib/lmsensor.c:182
-#, c-format
-msgid "lmsensor: initialization failure: %s."
+#: src/lib/lmsensor.c:201
+#, fuzzy, c-format
+msgid "%s: initialization failure: %s."
 msgstr "lmsensor: inizializzazione fallita: %s"
 
 #: src/lib/pgtop2.c:42
@@ -745,11 +746,8 @@ msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr "Psensor è un'applicazione GTK+ per monitorare i sensori hardware"
 
 #: src/ui.c:90
-#, fuzzy
 msgid "Copyright(c) 2010-2014 jeanfi@gmail.com"
-msgstr ""
-"Copyright(c) 2010-2014\n"
-"jeanfi@gmail.com"
+msgstr "Copyright(c) 2010-2014 jeanfi@gmail.com"
 
 #: src/ui.c:96
 msgid "About Psensor"
@@ -789,14 +787,8 @@ msgstr "Allarme ventola"
 msgid "Unknown"
 msgstr "Sconosciuto"
 
-#~ msgid ""
-#~ "  --use-libatasmart   use atasmart library for disk monitoring instead "
-#~ "of\n"
-#~ "                      hddtemp daemon"
-#~ msgstr ""
-#~ "  --use-libatasmart usa la libreria atasmart library per il monitoraggio "
-#~ "dell'hard disk invece del \n"
-#~ "                      servizio hddtemp"
+#~ msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
+#~ msgstr "lmsensor: lmsensor_psensor_create fallito: tipo di funzione errata."
 
 #~ msgid "Sensor Information"
 #~ msgstr "Informazioni sul Sensore"

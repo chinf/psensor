@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-20 09:03+0200\n"
-"PO-Revision-Date: 2014-09-11 13:00+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"POT-Creation-Date: 2014-09-21 00:49+0200\n"
+"PO-Revision-Date: 2014-09-11 21:24+0000\n"
+"Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-11 13:04+0000\n"
+"X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: src/cfg.c:510
@@ -407,9 +407,9 @@ msgid "Disk"
 msgstr ""
 
 #: src/lib/hdd_atasmart.c:141
-#, fuzzy, c-format
+#, c-format
 msgid "%s: sk_disk_open() failure: %s."
-msgstr "atasmart：sk_disk_open() 失败：%s。"
+msgstr "%s：sk_disk_open() 失败：%s。"
 
 #: src/lib/hdd_hddtemp.c:62
 msgid "hddtemp: failed to open socket."
@@ -424,39 +424,40 @@ msgstr "硬盘温度：无法打开连接。"
 msgid "hddtemp: wrong string: %s."
 msgstr "硬盘温度：错误字符：%s。"
 
-#: src/lib/lmsensor.c:42
+#: src/lib/lmsensor.c:44
 #, c-format
-msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr "lmsensor：无法获取子功能%s的值：%s。"
+msgid "%s: Cannot get value of subfeature %s: %s."
+msgstr "%s：无法获取子功能%s的值：%s。"
 
-#: src/lib/lmsensor.c:124
-msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr "lmsensor：lmsensor_psensor_create 失败：错误的功能类型。"
+#: src/lib/lmsensor.c:137
+#, c-format
+msgid "%s: Wrong feature type."
+msgstr ""
 
-#: src/lib/lmsensor.c:149
+#: src/lib/lmsensor.c:166
 msgid "Intel CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:153
+#: src/lib/lmsensor.c:170
 msgid "AMD CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:155
+#: src/lib/lmsensor.c:172
 msgid "NVIDIA GPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:157
+#: src/lib/lmsensor.c:174
 msgid "VIA CPU"
 msgstr ""
 
-#: src/lib/lmsensor.c:159
+#: src/lib/lmsensor.c:176
 msgid "ACPI"
 msgstr ""
 
-#: src/lib/lmsensor.c:182
+#: src/lib/lmsensor.c:201
 #, c-format
-msgid "lmsensor: initialization failure: %s."
-msgstr "lmsensor：初始化失败：%s。"
+msgid "%s: initialization failure: %s."
+msgstr "%s：初始化失败：%s。"
 
 #: src/lib/pgtop2.c:42
 msgid "CPU usage"
@@ -777,13 +778,8 @@ msgstr "风扇警报"
 msgid "Unknown"
 msgstr "未知"
 
-#~ msgid ""
-#~ "  --use-libatasmart   use atasmart library for disk monitoring instead "
-#~ "of\n"
-#~ "                      hddtemp daemon"
-#~ msgstr ""
-#~ "  --use-libatasmart   使用 atasmart 库来监测硬盘，而不是\n"
-#~ "                      hddtemp 进程"
+#~ msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
+#~ msgstr "lmsensor：lmsensor_psensor_create 失败：错误的功能类型。"
 
 #~ msgid "Sensor Information"
 #~ msgstr "传感器信息"

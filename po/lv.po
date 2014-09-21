@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-20 09:03+0200\n"
-"PO-Revision-Date: 2014-09-11 13:00+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"POT-Creation-Date: 2014-09-21 00:49+0200\n"
+"PO-Revision-Date: 2014-09-20 11:26+0000\n"
+"Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-11 13:04+0000\n"
+"X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: src/cfg.c:510
@@ -425,39 +425,40 @@ msgstr "hddtemp: neizdevās atvērt savienojumu."
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: nepareiza virkne: %s."
 
-#: src/lib/lmsensor.c:42
+#: src/lib/lmsensor.c:44
 #, c-format
-msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr "lmsensor: nevar iegūt vērtību no apakšīpašības %s: %s."
+msgid "%s: Cannot get value of subfeature %s: %s."
+msgstr "%s: nevar iegūt vērtību no apakšīpašības %s: %s."
 
-#: src/lib/lmsensor.c:124
-msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr "lmsensor: lmsensor_psensor_create atteice: nepareis īpašības tips."
+#: src/lib/lmsensor.c:137
+#, c-format
+msgid "%s: Wrong feature type."
+msgstr "%s: nepareis īpašības tips."
 
-#: src/lib/lmsensor.c:149
+#: src/lib/lmsensor.c:166
 msgid "Intel CPU"
 msgstr "Intel CPU"
 
-#: src/lib/lmsensor.c:153
+#: src/lib/lmsensor.c:170
 msgid "AMD CPU"
 msgstr "AMD CPU"
 
-#: src/lib/lmsensor.c:155
+#: src/lib/lmsensor.c:172
 msgid "NVIDIA GPU"
 msgstr "NVIDIA GPU"
 
-#: src/lib/lmsensor.c:157
+#: src/lib/lmsensor.c:174
 msgid "VIA CPU"
 msgstr "VIA CPU"
 
-#: src/lib/lmsensor.c:159
+#: src/lib/lmsensor.c:176
 msgid "ACPI"
 msgstr ""
 
-#: src/lib/lmsensor.c:182
+#: src/lib/lmsensor.c:201
 #, c-format
-msgid "lmsensor: initialization failure: %s."
-msgstr "lmsensor: inicializācijas kļūda: %s."
+msgid "%s: initialization failure: %s."
+msgstr "%s: inicializācijas kļūda: %s."
 
 #: src/lib/pgtop2.c:42
 msgid "CPU usage"
@@ -779,13 +780,8 @@ msgstr "Ventilatora trauksme"
 msgid "Unknown"
 msgstr "Nezināms"
 
-#~ msgid ""
-#~ "  --use-libatasmart   use atasmart library for disk monitoring instead "
-#~ "of\n"
-#~ "                      hddtemp daemon"
-#~ msgstr ""
-#~ "  --use-libatasmart   izmantot atasmart bibliotēku disku pārraudzībai\n"
-#~ "                      hddtemp dēmona vietā"
+#~ msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
+#~ msgstr "lmsensor: lmsensor_psensor_create atteice: nepareis īpašības tips."
 
 #~ msgid "Sensor Information"
 #~ msgstr "Sensora informācija"

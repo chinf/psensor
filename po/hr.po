@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-20 09:03+0200\n"
-"PO-Revision-Date: 2014-09-11 13:00+0000\n"
-"Last-Translator: Launchpad Translations Administrators <Unknown>\n"
+"POT-Creation-Date: 2014-09-21 00:49+0200\n"
+"PO-Revision-Date: 2014-09-21 06:25+0000\n"
+"Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-11 13:04+0000\n"
+"X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: src/cfg.c:510
@@ -26,7 +26,7 @@ msgstr "Neuspjelo stvaranje direktorija %s: %s"
 #: src/cfg.c:557
 #, c-format
 msgid "Failed to load configuration file %s: %s"
-msgstr ""
+msgstr "Neuspjelo učitavanje datoteke podešavanja %s: %s"
 
 #: src/cfg.c:580
 #, c-format
@@ -211,11 +211,11 @@ msgstr "minuta(e)"
 
 #: src/glade/psensor-pref.glade:734
 msgid "Smooth curves"
-msgstr ""
+msgstr "Zaglađene krivulje"
 
 #: src/glade/psensor-pref.glade:761
 msgid "Curves"
-msgstr ""
+msgstr "Krivulje"
 
 #: src/glade/psensor-pref.glade:814
 msgid "Measure update interval:"
@@ -243,51 +243,51 @@ msgstr "Senzori"
 
 #: src/glade/psensor-pref.glade:1002
 msgid "Enable support of lm-sensors"
-msgstr ""
+msgstr "Omogući podršku za lm-sensors"
 
 #: src/glade/psensor-pref.glade:1022
 msgid "Enable support of NVCtrl (NVidia)"
-msgstr ""
+msgstr "Omogući podršku za NVCtrl (NVidia)"
 
 #: src/glade/psensor-pref.glade:1042
 msgid "Enable support of ATI ADL"
-msgstr ""
+msgstr "Omogući podršku za ATI ADL"
 
 #: src/glade/psensor-pref.glade:1062
 msgid "Enable support of gtop2"
-msgstr ""
+msgstr "Omogući podršku za gtop2"
 
 #: src/glade/psensor-pref.glade:1082
 msgid "Enable support of hddtemp daemon"
-msgstr ""
+msgstr "Omogući podršku za hddtemp daemon"
 
 #: src/glade/psensor-pref.glade:1102
 msgid "Enable support of libatasmart"
-msgstr ""
+msgstr "Omogući podršku za libatasmart"
 
 #: src/glade/psensor-pref.glade:1122
 msgid "Enable support of udisks2"
-msgstr ""
+msgstr "Omogući podršku za udisks2"
 
 #: src/glade/psensor-pref.glade:1149
 msgid "The changes are applied after the restart of psensor."
-msgstr ""
+msgstr "Promjene će biti primjenjene nakon ponovnog pokretanja psensora."
 
 #: src/glade/psensor-pref.glade:1171
 msgid "Hard disk drive"
-msgstr ""
+msgstr "Čvrsti disk"
 
 #: src/glade/psensor-pref.glade:1194
 msgid "CPU and memory usage"
-msgstr ""
+msgstr "Korištenje CPU-a i memorije"
 
 #: src/glade/psensor-pref.glade:1217
 msgid "GPU with proprietary driver"
-msgstr ""
+msgstr "GPU s vlasničkim upravljačkim programima"
 
 #: src/glade/psensor-pref.glade:1240
 msgid "Motherboard, CPU and GPU"
-msgstr ""
+msgstr "Matična ploča, CPU i GPU"
 
 #: src/glade/psensor-pref.glade:1263
 msgid "Providers"
@@ -325,7 +325,7 @@ msgstr "Id:"
 
 #: src/glade/sensor-edit.glade:302
 msgid "Details"
-msgstr ""
+msgstr "Pojedinosti"
 
 #: src/glade/sensor-edit.glade:320
 msgid "Draw sensor curve"
@@ -349,7 +349,7 @@ msgstr "Gornja granica:"
 
 #: src/glade/sensor-edit.glade:482
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: src/glade/sensor-edit.glade:536
 msgid "-1"
@@ -406,9 +406,9 @@ msgid "Disk"
 msgstr "Disk"
 
 #: src/lib/hdd_atasmart.c:141
-#, fuzzy, c-format
+#, c-format
 msgid "%s: sk_disk_open() failure: %s."
-msgstr "atasmart: sk_disk_open() neuspjeh: %s."
+msgstr "%s: sk_disk_open() neuspjelo: %s."
 
 #: src/lib/hdd_hddtemp.c:62
 msgid "hddtemp: failed to open socket."
@@ -423,39 +423,40 @@ msgstr "hddtemp: neuspjelo otvaranje povezivanja."
 msgid "hddtemp: wrong string: %s."
 msgstr "hddtemp: pogrešan string: %s."
 
-#: src/lib/lmsensor.c:42
+#: src/lib/lmsensor.c:44
+#, fuzzy, c-format
+msgid "%s: Cannot get value of subfeature %s: %s."
+msgstr "%s: nemoguće dobivanje vrijednosti podznačajki %s: %s."
+
+#: src/lib/lmsensor.c:137
 #, c-format
-msgid "lmsensor: cannot get value of subfeature %s: %s."
-msgstr "lmsensor: nemoguće dobivanje vrijednosti podznačajki %s: %s."
+msgid "%s: Wrong feature type."
+msgstr "%s: pogrešna vrsta značajki."
 
-#: src/lib/lmsensor.c:124
-msgid "lmsensor: lmsensor_psensor_create failure: wrong feature type."
-msgstr "lmsensor: lmsensor_psensor_create neuspjeh: pogrešna vrsta značajki."
-
-#: src/lib/lmsensor.c:149
+#: src/lib/lmsensor.c:166
 msgid "Intel CPU"
 msgstr "Intel CPU"
 
-#: src/lib/lmsensor.c:153
+#: src/lib/lmsensor.c:170
 msgid "AMD CPU"
 msgstr "AMD CPU"
 
-#: src/lib/lmsensor.c:155
+#: src/lib/lmsensor.c:172
 msgid "NVIDIA GPU"
 msgstr "NVIDIA GPU"
 
-#: src/lib/lmsensor.c:157
+#: src/lib/lmsensor.c:174
 msgid "VIA CPU"
 msgstr "VIA CPU"
 
-#: src/lib/lmsensor.c:159
+#: src/lib/lmsensor.c:176
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
-#: src/lib/lmsensor.c:182
+#: src/lib/lmsensor.c:201
 #, c-format
-msgid "lmsensor: initialization failure: %s."
-msgstr "lmsensor: neuspjeh pokretanja: %s."
+msgid "%s: initialization failure: %s."
+msgstr "%s: neuspjeh pokretanja: %s."
 
 #: src/lib/pgtop2.c:42
 msgid "CPU usage"
@@ -467,11 +468,11 @@ msgstr "CPU"
 
 #: src/lib/pgtop2.c:63
 msgid "free memory"
-msgstr ""
+msgstr "slobodna memorija"
 
 #: src/lib/pgtop2.c:64
 msgid "memory"
-msgstr ""
+msgstr "memorija"
 
 #: src/lib/plog.c:43
 #, c-format
@@ -481,17 +482,17 @@ msgstr "Nemoguće otvaranje datoteke: %s"
 #: src/lib/nvidia.c:58
 #, c-format
 msgid "Unknown NVIDIA product name for GPU %d"
-msgstr ""
+msgstr "Nepoznat naziv NVIDIA proizvoda za GPU %d"
 
 #: src/lib/nvidia.c:61
 #, c-format
 msgid "Failed to retrieve NVIDIA product name for GPU %d"
-msgstr ""
+msgstr "Neuspjelo čitanje naziva NVIDIA proizvoda za GPU %d"
 
 #: src/lib/nvidia.c:222
 #, c-format
 msgid "Failed to retrieve measure of type %x for NVIDIA GPU %d"
-msgstr ""
+msgstr "Neuspjelo čitanje mjernih jedinica %x za NVIDIA GPU %d"
 
 #: src/lib/nvidia.c:288
 msgid "Cannot open connection to X11 server."
@@ -503,7 +504,7 @@ msgstr "Neuspjelo primanje NVIDIA informacija."
 
 #: src/lib/nvidia.c:364
 msgid "NVIDIA: failed to retrieve number of fans."
-msgstr ""
+msgstr "NVIDIA: nuespjelo očitavanje broja ventilatora."
 
 #: src/lib/psensor.c:470 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
@@ -627,6 +628,7 @@ msgstr "Neuspjelo stvaranje niza za nadziranje senzora"
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
+"  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
 "  gogo https://launchpad.net/~trebelnik-stefina"
 
 #: src/rsensor.c:107
@@ -740,7 +742,7 @@ msgstr "Psensor je GTK+ aplikacija za nadziranje senzora hardvera."
 
 #: src/ui.c:90
 msgid "Copyright(c) 2010-2014 jeanfi@gmail.com"
-msgstr ""
+msgstr "Autorsko pravo(c) 2010-2014 jeanfi@gmail.com"
 
 #: src/ui.c:96
 msgid "About Psensor"
@@ -756,11 +758,11 @@ msgstr "Neuspjelo učitavanje ikone Psensora."
 
 #: src/ui_sensorlist.c:254
 msgid "Hide"
-msgstr ""
+msgstr "Sakrij"
 
 #: src/ui_sensorlist.c:296
 msgid "Select sensor color"
-msgstr ""
+msgstr "Odaberi boju senzora"
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
@@ -772,17 +774,8 @@ msgstr "Upozorenje temperature"
 
 #: src/ui_notify.c:79
 msgid "Fan speed alert"
-msgstr ""
+msgstr "Upozorenje brzine ventilatora"
 
 #: src/ui_sensorpref.c:248
 msgid "Unknown"
 msgstr "Nepoznato"
-
-#~ msgid ""
-#~ "  --use-libatasmart   use atasmart library for disk monitoring instead "
-#~ "of\n"
-#~ "                      hddtemp daemon"
-#~ msgstr ""
-#~ "  --use-libatasmart   koristi atasmart biblioteku za nadziranje diska "
-#~ "umjesto\n"
-#~ "                      hddtemp daemona"
