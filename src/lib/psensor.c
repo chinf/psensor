@@ -161,7 +161,7 @@ bool psensor_list_contains_type(struct psensor **sensors, unsigned int type)
 		return false;
 
 	while (*sensors) {
-		if ((*sensors)->type & type)
+		if (((*sensors)->type & type) == type)
 			return true;
 		sensors++;
 	}
