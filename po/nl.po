@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 15:17+0200\n"
+"POT-Creation-Date: 2014-09-21 15:34+0200\n"
 "PO-Revision-Date: 2014-09-20 11:25+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -414,17 +414,19 @@ msgid "%s: sk_disk_open() failure: %s."
 msgstr "atasmart: sk_disk_open() mislukking: %s."
 
 #: src/lib/hdd_hddtemp.c:62
-msgid "hddtemp: failed to open socket."
-msgstr "hddtemp: kon contactpunt niet openen."
+#, c-format
+msgid "%s: failed to open socket."
+msgstr "%s: kon contactpunt niet openen."
 
 #: src/lib/hdd_hddtemp.c:75
-msgid "hddtemp: failed to open connection."
-msgstr "hddtemp: kon verbinding niet openen."
-
-#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:251
 #, c-format
-msgid "hddtemp: wrong string: %s."
-msgstr "hddtemp: verkeerde tekenreeks: %s."
+msgid "%s: failed to open connection."
+msgstr "%s: kon verbinding niet openen."
+
+#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:253
+#, c-format
+msgid "%s: wrong string: %s."
+msgstr "%s: verkeerde tekenreeks: %s."
 
 #: src/lib/lmsensor.c:44
 #, c-format

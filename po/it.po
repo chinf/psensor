@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 15:17+0200\n"
+"POT-Creation-Date: 2014-09-21 15:34+0200\n"
 "PO-Revision-Date: 2014-09-20 11:24+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Italian\n"
@@ -412,17 +412,19 @@ msgid "%s: sk_disk_open() failure: %s."
 msgstr "%s: errore sk_disk_open(): %s."
 
 #: src/lib/hdd_hddtemp.c:62
-msgid "hddtemp: failed to open socket."
-msgstr "hddtemp: impossibile aprire il socket."
+#, c-format
+msgid "%s: failed to open socket."
+msgstr "%s: impossibile aprire il socket."
 
 #: src/lib/hdd_hddtemp.c:75
-msgid "hddtemp: failed to open connection."
-msgstr "hddtemp: impossibile aprire la connessione."
-
-#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:251
 #, c-format
-msgid "hddtemp: wrong string: %s."
-msgstr "hddtemp: errore di stringa: %s"
+msgid "%s: failed to open connection."
+msgstr "%s: impossibile aprire la connessione."
+
+#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:253
+#, c-format
+msgid "%s: wrong string: %s."
+msgstr "%s: errore di stringa: %s"
 
 #: src/lib/lmsensor.c:44
 #, c-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 15:17+0200\n"
+"POT-Creation-Date: 2014-09-21 15:34+0200\n"
 "PO-Revision-Date: 2014-09-21 06:25+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -411,17 +411,19 @@ msgid "%s: sk_disk_open() failure: %s."
 msgstr "%s: sk_disk_open() neuspjelo: %s."
 
 #: src/lib/hdd_hddtemp.c:62
-msgid "hddtemp: failed to open socket."
-msgstr "hddtemp: neuspjelo otvaranje socketa."
+#, c-format
+msgid "%s: failed to open socket."
+msgstr "%s: neuspjelo otvaranje socketa."
 
 #: src/lib/hdd_hddtemp.c:75
-msgid "hddtemp: failed to open connection."
-msgstr "hddtemp: neuspjelo otvaranje povezivanja."
-
-#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:251
 #, c-format
-msgid "hddtemp: wrong string: %s."
-msgstr "hddtemp: pogrešan string: %s."
+msgid "%s: failed to open connection."
+msgstr "%s: neuspjelo otvaranje povezivanja."
+
+#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:253
+#, c-format
+msgid "%s: wrong string: %s."
+msgstr "%s: pogrešan string: %s."
 
 #: src/lib/lmsensor.c:44
 #, fuzzy, c-format

@@ -59,7 +59,7 @@ static char *fetch()
 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd == -1) {
-		log_err(_("hddtemp: failed to open socket."));
+		log_err(_("%s: failed to open socket."), PROVIDER_NAME);
 		return NULL;
 	}
 
@@ -72,7 +72,7 @@ static char *fetch()
 	if (connect(sockfd,
 		    (struct sockaddr *)&address,
 		    (socklen_t) sizeof(address)) == -1) {
-		log_err(_("hddtemp: failed to open connection."));
+		log_err(_("%s: failed to open connection."), PROVIDER_NAME);
 	} else {
 		buffer = malloc(HDDTEMP_OUTPUT_BUFFER_LENGTH);
 
@@ -186,7 +186,9 @@ hddtemp_psensor_list_append(struct psensor ***sensors, int values_max_length)
 		return;
 
 	if (hddtemp_output[0] != '|') {
-		log_err(_("hddtemp: wrong string: %s."), hddtemp_output);
+		log_err(_("%s: wrong string: %s."),
+			PROVIDER_NAME,
+			hddtemp_output);
 
 		free(hddtemp_output);
 
@@ -248,7 +250,9 @@ void hddtemp_psensor_list_update(struct psensor **sensors)
 			free(info.name);
 		}
 	} else {
-		log_err(_("hddtemp: wrong string: %s."), hddtemp_output);
+		log_err(_("%s: wrong string: %s."),
+			PROVIDER_NAME,
+			hddtemp_output);
 	}
 
 	free(hddtemp_output);
