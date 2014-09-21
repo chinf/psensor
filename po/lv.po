@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 17:09+0200\n"
+"POT-Creation-Date: 2014-09-21 17:11+0200\n"
 "PO-Revision-Date: 2014-09-20 11:26+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Latvian <lv@li.org>\n"
@@ -307,7 +307,7 @@ msgstr "Tips:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
-#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:471 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:457 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/P"
 
@@ -422,7 +422,7 @@ msgstr "%s: neizdevās atvērt ligzdu."
 msgid "%s: failed to open connection."
 msgstr "%s: neizdevās atvērt savienojumu."
 
-#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:251
+#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:272
 #, c-format
 msgid "%s: wrong string: %s."
 msgstr "%s: nepareiza virkne: %s."
@@ -513,11 +513,11 @@ msgstr "%s: Neizdevās saņemt NVIDIA informāciju."
 msgid "%s: Failed to retrieve number of fans."
 msgstr "Neizdevās saņemt NVIDIA informāciju."
 
-#: src/lib/psensor.c:467 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:453 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:469
+#: src/lib/psensor.c:455
 msgid "%"
 msgstr "%"
 

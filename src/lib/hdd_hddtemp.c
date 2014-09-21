@@ -225,9 +225,30 @@ static void update(struct psensor **sensors, struct hdd_info *info)
 	}
 }
 
+static bool contains_hddtemp_sensor(struct psensor **sensors)
+{
+	struct psensor *s;
+
+	if (!sensors)
+		return false;
+
+	while (*sensors) {
+		s = *sensors;
+		if (!(s->type & SENSOR_TYPE_REMOTE)
+		     && (s->type & SENSOR_TYPE_HDDTEMP))
+			return true;
+		sensors++;
+	}
+
+	return false;
+}
+
 void hddtemp_psensor_list_update(struct psensor **sensors)
 {
 	char *hddtemp_output;
+
+	if (!contains_hddtemp_sensor(sensors))
+		return;
 
 	hddtemp_output = fetch();
 
