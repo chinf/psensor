@@ -210,10 +210,6 @@ const char *psensor_type_to_str(unsigned int type);
 
 const char *psensor_type_to_unit_str(unsigned int type, int use_celsius);
 
-void psensor_init();
-
-void psensor_cleanup();
-
 double get_max_value(struct psensor **sensors, int type);
 
 char *psensor_current_value_to_str(const struct psensor *, unsigned int);

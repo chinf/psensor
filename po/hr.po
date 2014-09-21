@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 12:14+0200\n"
+"POT-Creation-Date: 2014-09-21 15:16+0200\n"
 "PO-Revision-Date: 2014-09-21 06:25+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -606,28 +606,28 @@ msgstr "Prijavi grešku na: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s početna stranica: <%s>\n"
 
-#: src/main.c:477
+#: src/main.c:473
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
 
-#: src/main.c:555
+#: src/main.c:551
 msgid "Enables debug mode."
 msgstr "Omogućava način otklanjanja greške."
 
-#: src/main.c:567 src/server/server.c:384
+#: src/main.c:563 src/server/server.c:384
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Pokušajte `%s --help` za više informacija.\n"
 
-#: src/main.c:580
+#: src/main.c:576
 msgid "A Psensor instance already exists."
 msgstr "Psensor primjerak je već pokrenut."
 
-#: src/main.c:637
+#: src/main.c:631
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Neuspjelo stvaranje niza za nadziranje senzora"
 
-#: src/main.c:660 src/ui.c:97
+#: src/main.c:654 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -712,30 +712,30 @@ msgstr "HTTP Zahtjev: %s"
 msgid "Enables debug mode: %d"
 msgstr "Omogućuje način otklanjanja greške: %d"
 
-#: src/server/server.c:410
+#: src/server/server.c:408
 msgid "No sensors detected."
 msgstr "Nema otkrivenih senzora."
 
-#: src/server/server.c:417
+#: src/server/server.c:415
 msgid "Failed to create Web server."
 msgstr "Neuspjelo stvaranje Web poslužitelja."
 
-#: src/server/server.c:421
+#: src/server/server.c:419
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Web poslužitelj pokrenut na ulazu: %d"
 
-#: src/server/server.c:422
+#: src/server/server.c:420
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW direktorij: %s"
 
-#: src/server/server.c:423
+#: src/server/server.c:421
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:433
+#: src/server/server.c:431
 msgid "Failed to activate logging of sensors."
 msgstr "Neuspjelo aktiviranje zapisivanja senzora."
 

@@ -430,8 +430,6 @@ static void cleanup(struct ui_psensor *ui)
 
 	log_debug("Cleanup...");
 
-	psensor_cleanup();
-
 #ifdef HAVE_NVIDIA
 	nvidia_cleanup();
 #endif
@@ -607,8 +605,6 @@ int main(int argc, char **argv)
 	pmutex_init(&ui.sensors_mutex);
 
 	ui.config = config_load();
-
-	psensor_init();
 
 	ui.sensors = create_sensors_list(url);
 	associate_cb_alarm_raised(ui.sensors, &ui);

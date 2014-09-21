@@ -396,8 +396,6 @@ int main(int argc, char *argv[])
 
 	log_open(log_file);
 
-	psensor_init();
-
 	hddtemp_psensor_list_append(&server_data.sensors, 600);
 
 	lmsensor_psensor_list_append(&server_data.sensors, 600);

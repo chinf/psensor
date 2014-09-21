@@ -486,14 +486,6 @@ void psensor_log_measures(struct psensor **sensors)
 		}
 }
 
-void psensor_init()
-{
-}
-
-void psensor_cleanup()
-{
-}
-
 struct psensor **psensor_list_copy(struct psensor **sensors)
 {
 	struct psensor **result;
