@@ -154,8 +154,6 @@ static void *update_measures(void *data)
 
 		update_psensor_values_size(sensors, cfg);
 
-		psensor_list_update_measures(sensors);
-
 		lmsensor_psensor_list_update(sensors);
 #ifdef HAVE_REMOTE_SUPPORT
 		remote_psensor_list_update(sensors);

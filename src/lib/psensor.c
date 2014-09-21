@@ -474,17 +474,6 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celsius)
 	return _("N/A");
 }
 
-void psensor_list_update_measures(struct psensor **sensors)
-{
-	if (psensor_list_contains_type(sensors, SENSOR_TYPE_HDDTEMP))
-		hddtemp_psensor_list_update(sensors);
-
-#ifdef HAVE_ATASMART
-	if (psensor_list_contains_type(sensors, SENSOR_TYPE_ATASMART))
-		atasmart_psensor_list_update(sensors);
-#endif
-}
-
 void psensor_log_measures(struct psensor **sensors)
 {
 	if (log_level == LOG_DEBUG)

@@ -440,7 +440,12 @@ int main(int argc, char *argv[])
 		sysinfo_update(&server_data.psysinfo);
 		cpu_usage_sensor_update(server_data.cpu_usage);
 #endif
-		psensor_list_update_measures(server_data.sensors);
+
+#ifdef HAVE_ATASMART
+		atasmart_psensor_list_update(server_data.sensors);
+#endif
+
+		hddtemp_psensor_list_update(server_data.sensors);
 
 		lmsensor_psensor_list_update(server_data.sensors);
 

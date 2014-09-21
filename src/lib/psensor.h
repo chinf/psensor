@@ -210,8 +210,6 @@ const char *psensor_type_to_str(unsigned int type);
 
 const char *psensor_type_to_unit_str(unsigned int type, int use_celsius);
 
-void psensor_list_update_measures(struct psensor **sensors);
-
 void psensor_init();
 
 void psensor_cleanup();
