@@ -55,10 +55,14 @@ static char *get_product_name(int id, int type)
 		if (strcmp(name, "Unknown"))
 			return name;
 
-		log_err(_("Unknown NVIDIA product name for GPU %d"), id);
+		log_err(_("%s: Unknown NVIDIA product name for GPU %d"),
+			PROVIDER_NAME,
+			id);
 		free(name);
 	} else {
-		log_err(_("Failed to retrieve NVIDIA product name for GPU %d"),
+		log_err(_("%s: "
+			  "Failed to retrieve NVIDIA product name for GPU %d"),
+			PROVIDER_NAME,
 			id);
 	}
 
@@ -219,8 +223,9 @@ static void update(struct psensor *sensor)
 	v = get_value(sensor->nvidia_id, sensor->type);
 
 	if (v == UNKNOWN_DBL_VALUE)
-		log_err(_("Failed to retrieve measure of type %x "
+		log_err(_("%s: Failed to retrieve measure of type %x "
 			  "for NVIDIA GPU %d"),
+			PROVIDER_NAME,
 			sensor->type,
 			sensor->nvidia_id);
 	psensor_set_current_value(sensor, v);
@@ -285,14 +290,16 @@ static int init()
 	display = XOpenDisplay(NULL);
 
 	if (!display) {
-		log_err(_("Cannot open connection to X11 server."));
+		log_err(_("%s: Cannot open connection to X11 server."),
+			PROVIDER_NAME);
 		return 0;
 	}
 
 	if (XNVCTRLQueryExtension(display, &evt, &err))
 		return 1;
 
-	log_err(_("Failed to retrieve NVIDIA information."));
+	log_err(_("%s: Failed to retrieve NVIDIA information."),
+		PROVIDER_NAME);
 
 	return 0;
 }
@@ -349,7 +356,7 @@ void nvidia_psensor_list_append(struct psensor ***ss, int values_len)
 
 	ret = XNVCTRLQueryTargetCount(display, NV_CTRL_TARGET_TYPE_COOLER, &n);
 	if (ret == True) {
-		log_debug("NVIDIA: number of fans: %d", n);
+		log_fct("%s: Number of fans: %d", PROVIDER_NAME, n);
 		for (i = 0; i < n; i++) {
 			utype = SENSOR_TYPE_FAN | SENSOR_TYPE_RPM;
 			if (check_sensor(i, utype))
@@ -360,7 +367,8 @@ void nvidia_psensor_list_append(struct psensor ***ss, int values_len)
 				add(ss, i, utype, values_len);
 		}
 	} else {
-		log_err(_("NVIDIA: failed to retrieve number of fans."));
+		log_err(_("%s: Failed to retrieve number of fans."),
+			PROVIDER_NAME);
 	}
 }
 

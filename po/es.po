@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 00:49+0200\n"
+"POT-Creation-Date: 2014-09-21 12:14+0200\n"
 "PO-Revision-Date: 2014-09-20 11:26+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -482,31 +482,34 @@ msgid "Cannot open log file: %s"
 msgstr "Imposible abrir el archivo de registro: %s"
 
 #: src/lib/nvidia.c:58
-#, c-format
-msgid "Unknown NVIDIA product name for GPU %d"
-msgstr ""
-
-#: src/lib/nvidia.c:61
 #, fuzzy, c-format
-msgid "Failed to retrieve NVIDIA product name for GPU %d"
+msgid "%s: Unknown NVIDIA product name for GPU %d"
 msgstr "Error al obtener la información de NVIDIA"
 
-#: src/lib/nvidia.c:222
+#: src/lib/nvidia.c:63
+#, fuzzy, c-format
+msgid "%s: Failed to retrieve NVIDIA product name for GPU %d"
+msgstr "Error al obtener la información de NVIDIA"
+
+#: src/lib/nvidia.c:226
+#, fuzzy, c-format
+msgid "%s: Failed to retrieve measure of type %x for NVIDIA GPU %d"
+msgstr "Error al obtener la información de NVIDIA"
+
+#: src/lib/nvidia.c:293
 #, c-format
-msgid "Failed to retrieve measure of type %x for NVIDIA GPU %d"
-msgstr ""
+msgid "%s: Cannot open connection to X11 server."
+msgstr "%s: Imposible establecer conexión con el servidor X11."
 
-#: src/lib/nvidia.c:288
-msgid "Cannot open connection to X11 server."
-msgstr "Imposible establecer conexión con el servidor X11."
+#: src/lib/nvidia.c:301
+#, c-format
+msgid "%s: Failed to retrieve NVIDIA information."
+msgstr "%s: Error al obtener la información de NVIDIA"
 
-#: src/lib/nvidia.c:295
-msgid "Failed to retrieve NVIDIA information."
+#: src/lib/nvidia.c:370
+#, fuzzy, c-format
+msgid "%s: Failed to retrieve number of fans."
 msgstr "Error al obtener la información de NVIDIA"
-
-#: src/lib/nvidia.c:364
-msgid "NVIDIA: failed to retrieve number of fans."
-msgstr ""
 
 #: src/lib/psensor.c:470 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
