@@ -85,7 +85,7 @@ struct psensor {
 	int values_max_length;
 
 	/* Last registered measures of the sensor.  Index 0 for the
-	   oldest measure.  */
+	 * oldest measure.  */
 	struct measure *measures;
 
 	/* Color of the sensor used for the graph */
@@ -165,18 +165,16 @@ double get_max_temp(struct psensor **sensors);
 double get_min_rpm(struct psensor **sensors);
 double get_max_rpm(struct psensor **sensors);
 
-/*
-  Get the maximal current value of all sensors of a given type.
-*/
+/* Get the maximal current value of all sensors of a given type. */
 double
 psensor_get_max_current_value(struct psensor **sensors, unsigned int type);
 
 /*
-  Converts the value of a sensor to a string.
-
-  parameter 'type' is SENSOR_TYPE_LMSENSOR_TEMP, SENSOR_TYPE_NVIDIA,
-  or SENSOR_TYPE_LMSENSOR_FAN
-*/
+ * Converts the value of a sensor to a string.
+ *
+ * parameter 'type' is SENSOR_TYPE_LMSENSOR_TEMP, SENSOR_TYPE_NVIDIA,
+ * or SENSOR_TYPE_LMSENSOR_FAN
+ */
 char *psensor_value_to_str(unsigned int type,
 			   double value,
 			   int use_celsius);
@@ -202,9 +200,7 @@ double psensor_get_current_value(const struct psensor *);
 
 struct measure *psensor_get_current_measure(struct psensor *sensor);
 
-/*
-  Returns a string representation of a psensor type.
-*/
+/* Returns a string representation of a psensor type. */
 const char *psensor_type_to_str(unsigned int type);
 
 const char *psensor_type_to_unit_str(unsigned int type, int use_celsius);
