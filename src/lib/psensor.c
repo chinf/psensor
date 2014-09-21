@@ -158,15 +158,15 @@ int psensor_list_size(struct psensor **sensors)
 bool psensor_list_contains_type(struct psensor **sensors, unsigned int type)
 {
 	if (!sensors)
-		return 0;
+		return false;
 
 	while (*sensors) {
 		if ((*sensors)->type & type)
-			return 1;
+			return true;
 		sensors++;
 	}
 
-	return 0;
+	return false;
 }
 
 struct psensor **psensor_list_add(struct psensor **sensors,
