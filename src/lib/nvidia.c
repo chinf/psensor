@@ -299,17 +299,16 @@ static int init()
 
 void nvidia_psensor_list_update(struct psensor **sensors)
 {
-	struct psensor **ss, *s;
+	struct psensor *s;
 
-	ss = sensors;
-	while (*ss) {
-		s = *ss;
+	while (*sensors) {
+		s = *sensors;
 
 		if (!(s->type & SENSOR_TYPE_REMOTE)
 		    && s->type & SENSOR_TYPE_NVCTRL)
 			update(s);
 
-		ss++;
+		sensors++;
 	}
 }
 
