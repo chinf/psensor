@@ -3,3 +3,15 @@ Authors of psensor:
 jeanfi@gmail.com	all files.
 MestreLion,thgreasi@gmail.com,jeanfi@gmail.com	src/lib/amd.h src/lib/amd.h
 Christoph Buchner(bilderbuchi)		icons/ubuntu-mono-light/status/22/*svg icons/ubuntu-mono-dark/status/22/*svg
+
+Include files from other open source softwares:
+
+jqPlot:
+Chris Leonello www/jqplot.dateAxisRenderer.js
+Chris Leonello,Ash Searle www/jqplot.js
+
+jQuery:
+jQuery Foundation www/jquery.js
+
+Linux Kernel:
+Dave Jones,Joel Schopp,Andy Whitcroft tests/checkpatch.pl
