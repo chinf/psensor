@@ -153,10 +153,9 @@ struct psensor **psensor_list_filter_graph_enabled(struct psensor **);
 struct psensor *psensor_list_get_by_id(struct psensor **sensors,
 				       const char *id);
 
-/*
-  Return 1 if there is at least one sensor of a given type, else
-  returns 0 */
-int psensor_list_contains_type(struct psensor **sensors, unsigned int type);
+/* Return true if there is at least one sensor of a given type, else
+ * returns false */
+bool psensor_list_contains_type(struct psensor **sensors, unsigned int type);
 
 int is_temp_type(unsigned int type);
 

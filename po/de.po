@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 15:16+0200\n"
+"POT-Creation-Date: 2014-09-21 15:17+0200\n"
 "PO-Revision-Date: 2014-09-20 11:25+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: German\n"
@@ -307,7 +307,7 @@ msgstr "Typ:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
-#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:474 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:471 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N/V"
 
@@ -509,11 +509,11 @@ msgstr "%s: Ermittlung der NVIDIA-Informationen gescheitert."
 msgid "%s: Failed to retrieve number of fans."
 msgstr "Ermittlung der NVIDIA-Informationen gescheitert."
 
-#: src/lib/psensor.c:470 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:467 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "U/min"
 
-#: src/lib/psensor.c:472
+#: src/lib/psensor.c:469
 msgid "%"
 msgstr "%"
 
