@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([psensor], [1.1.2],[jeanfi@gmail.com],[psensor],[http://wpitchoune.net/psensor])
+AC_INIT([psensor], [1.1.0.x],[jeanfi@gmail.com],[psensor],[http://wpitchoune.net/psensor])
 
 AM_INIT_AUTOMAKE([-Wall gnu])
 
