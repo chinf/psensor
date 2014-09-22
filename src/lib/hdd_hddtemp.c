@@ -50,12 +50,12 @@ struct hdd_info {
 
 static char *fetch()
 {
-	int sockfd;
+	int sockfd, output_length;
 	ssize_t n = 1;
-	int output_length = 0;
-	char *pc;
-	char *buffer;
+	char *pc, *buffer;
 	struct sockaddr_in address;
+
+	output_length = 0;
 
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd == -1) {
@@ -177,8 +177,9 @@ static char *next_hdd_info(char *string, struct hdd_info *info)
 void
 hddtemp_psensor_list_append(struct psensor ***sensors, int values_max_length)
 {
-	char *hddtemp_output, *c;
+	char *hddtemp_output, *c, *id;
 	struct hdd_info info;
+	struct psensor *sensor;
 
 	hddtemp_output = fetch();
 
@@ -198,9 +199,6 @@ hddtemp_psensor_list_append(struct psensor ***sensors, int values_max_length)
 	c = hddtemp_output;
 
 	while (c && (c = next_hdd_info(c, &info))) {
-		struct psensor *sensor;
-		char *id;
-
 		id = malloc(strlen(PROVIDER_NAME) + 1 + strlen(info.name) + 1);
 		sprintf(id, "%s %s", PROVIDER_NAME, info.name);
 
