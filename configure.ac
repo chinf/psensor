@@ -26,15 +26,6 @@ AM_PROG_AR
 AC_PATH_X
 AC_CHECK_HEADERS([stdbool.h])
 
-# Checks for typedefs, structures, and compiler characteristics.
-AC_TYPE_SIZE_T
-AC_TYPE_SSIZE_T
-
-# Checks for library functions.
-AC_FUNC_MALLOC
-AC_FUNC_REALLOC
-AC_CHECK_FUNCS([gettimeofday memmove socket strdup strtol])
-
 AM_GNU_GETTEXT_VERSION([0.16])
 AM_GNU_GETTEXT([external])
 
@@ -68,7 +59,7 @@ AM_CONDITIONAL(XEXT, test -n "$XEXT_LIBS")
 AC_SUBST(XEXT_CFLAGS)
 AC_SUBST(XEXT_LIBS)
 
-# Checks GTK+ 3.0
+# Check GTK+ 3.0
 PKG_CHECK_MODULES(GTK,
 		  [gtk+-3.0 >= 3.4],,
 		  [AC_MSG_WARN("gtk missing psensor will not be built")])
@@ -83,8 +74,7 @@ GTK_CFLAGS+=" -DGSEAL_ENABLE "
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
-# udisks2
-
+# Check udisks2
 PKG_CHECK_MODULES(LIBUDISKS2,
 		  udisks2,
 		  [AC_DEFINE([HAVE_LIBUDISKS2],[1],[Use libudisks])],
@@ -93,7 +83,7 @@ AM_CONDITIONAL(LIBUDISKS2, test -n "$LIBUDISKS2_LIBS")
 AC_SUBST(LIBUDISKS2_CFLAGS)
 AC_SUBST(LIBUDISKS2_LIBS)
 
-# check libatasmart
+# Check libatasmart
 PKG_CHECK_MODULES(ATASMART, libatasmart,
 	          [AC_DEFINE([HAVE_ATASMART],[1],[Use libatasmart])],
                	  [AC_MSG_WARN("Library atasmart not present")])
@@ -205,7 +195,7 @@ AC_SUBST(UNITY_CFLAGS)
 AC_SUBST(UNITY_LIBS)
 AM_CONDITIONAL(UNITY, test -n "$UNITY_LIBS")
 
-# libatiadl
+# Check libatiadl
 AC_ARG_WITH(libatiadl,
 [  --with-libatiadl[=DIR]   use libatiadlxx in DIR],[
 		   ATIADL_DIR=${withval}
@@ -228,7 +218,7 @@ AC_SUBST(LIBATIADL_LIBS)
 
 ############### psensor-server
 
-# libmicrohttpd, mandatory for psensor-server
+# Check libmicrohttpd, mandatory for psensor-server
 LIBMICROHTTPD_LIBS=
 PKG_CHECK_MODULES(LIBMICROHTTPD, 
   libmicrohttpd, 
@@ -238,8 +228,7 @@ AM_CONDITIONAL(LIBMICROHTTPD, test -n "$LIBMICROHTTPD_LIBS")
 AC_SUBST(LIBMICROHTTPD_CFLAGS)
 AC_SUBST(LIBMICROHTTPD_LIBS)
 
-# GTop, optional
-
+# Check gtop2, optional
 AC_ARG_WITH(gtop,
 [  --with-gtop[=yes|no]   use gtop],[
 	with_gtop=$withval],[
