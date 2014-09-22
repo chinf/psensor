@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 17:11+0200\n"
+"POT-Creation-Date: 2014-09-21 18:26+0200\n"
 "PO-Revision-Date: 2014-09-21 06:25+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -420,7 +420,7 @@ msgstr "%s: neuspjelo otvaranje socketa."
 msgid "%s: failed to open connection."
 msgstr "%s: neuspjelo otvaranje povezivanja."
 
-#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:272
+#: src/lib/hdd_hddtemp.c:190 src/lib/hdd_hddtemp.c:270
 #, c-format
 msgid "%s: wrong string: %s."
 msgstr "%s: pogrešan string: %s."

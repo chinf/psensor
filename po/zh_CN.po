@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 17:11+0200\n"
+"POT-Creation-Date: 2014-09-21 18:26+0200\n"
 "PO-Revision-Date: 2014-09-11 21:24+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Chinese (simplified)\n"
@@ -421,7 +421,7 @@ msgstr "硬盘温度：无法打开套接字。"
 msgid "%s: failed to open connection."
 msgstr "硬盘温度：无法打开连接。"
 
-#: src/lib/hdd_hddtemp.c:189 src/lib/hdd_hddtemp.c:272
+#: src/lib/hdd_hddtemp.c:190 src/lib/hdd_hddtemp.c:270
 #, fuzzy, c-format
 msgid "%s: wrong string: %s."
 msgstr "硬盘温度：错误字符：%s。"
