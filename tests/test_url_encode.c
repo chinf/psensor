@@ -45,7 +45,7 @@ int test_url_encode(char *url, char *ref_url)
 	return ret;
 }
 
-int tests_url_encode()
+int tests_url_encode(void)
 {
 	int failures;
 

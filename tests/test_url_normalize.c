@@ -46,7 +46,7 @@ static int test_url_normalize(const char *url, const char *ref_url)
 	return ret;
 }
 
-static int tests_url_normalize()
+static int tests_url_normalize(void)
 {
 	int failures;
 
