@@ -23,7 +23,7 @@
 
 #include "../src/lib/pio.h"
 
-static int test_empty_dir()
+static int test_empty_dir(void)
 {
 	int ret;
 	char **paths;
@@ -43,7 +43,7 @@ static int test_empty_dir()
 	return ret;
 }
 
-static int test_2files_dir()
+static int test_2files_dir(void)
 {
 	int ret, one, two;
 	char **paths, **cur;
@@ -82,7 +82,7 @@ static int test_2files_dir()
 	return ret;
 }
 
-static int tests_dir_list() {
+static int tests_dir_list(void) {
 	int failures;
 
 	failures = test_empty_dir();
