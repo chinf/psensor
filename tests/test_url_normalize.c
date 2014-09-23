@@ -24,7 +24,7 @@
 
 #include "../src/lib/url.h"
 
-int test_url_normalize(const char *url, const char *ref_url)
+static int test_url_normalize(const char *url, const char *ref_url)
 {
 	int ret;
 	char *tmp = url_normalize(url);
@@ -46,7 +46,7 @@ int test_url_normalize(const char *url, const char *ref_url)
 	return ret;
 }
 
-int tests_url_normalize()
+static int tests_url_normalize()
 {
 	int failures;
 
