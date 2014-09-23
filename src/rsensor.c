@@ -72,12 +72,12 @@ static char *create_api_1_1_sensors_url(const char *base_url)
 	return ret;
 }
 
-void rsensor_init()
+void rsensor_init(void)
 {
 	curl = curl_easy_init();
 }
 
-void rsensor_cleanup()
+void rsensor_cleanup(void)
 {
 	curl_easy_cleanup(curl);
 }
