@@ -42,7 +42,7 @@ test_fct(unsigned int type, int use_celsius, const char *ref)
 	return 1;
 }
 
-static int test() {
+static int test(void) {
 	int failures;
 
 	failures = 0;
