@@ -24,7 +24,7 @@
 
 #include "../src/lib/url.h"
 
-int test_url_encode(char *url, char *ref_url)
+static int test_url_encode(char *url, char *ref_url)
 {
 	char *res_url;
 	int ret;
@@ -45,7 +45,7 @@ int test_url_encode(char *url, char *ref_url)
 	return ret;
 }
 
-int tests_url_encode(void)
+static int tests_url_encode(void)
 {
 	int failures;
 
