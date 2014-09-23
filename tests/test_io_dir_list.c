@@ -38,7 +38,7 @@ static int test_empty_dir(void)
 		}
 
 		paths_free(paths);
-	} 
+	}
 
 	return ret;
 }
@@ -68,15 +68,15 @@ static int test_2files_dir(void)
 
 			ret = 1;
 		}
-		
+
 		cur++;
 	}
-	
+
 	if (!ret && one == 1 && two == 1)
 		ret = 0;
 	else
 		ret = 1;
-	
+
 	paths_free(paths);
 
 	return ret;
@@ -98,7 +98,7 @@ int main(int argc, char **argv)
 
 	failures = tests_dir_list();
 
-	if (failures) 
+	if (failures)
 		exit(EXIT_FAILURE);
 	else
 		exit(EXIT_SUCCESS);
