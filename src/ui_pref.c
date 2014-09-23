@@ -144,7 +144,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
 				     !cfg->unity_launcher_count_disabled);
 
-#if !HAVE_APPINDICATOR && !HAVE_APPINDICATOR_029
+#if !HAVE_UNITY
 	gtk_widget_set_sensitive(GTK_WIDGET(w_enable_launcher_counter), FALSE);
 	gtk_widget_set_has_tooltip(GTK_WIDGET(w_enable_launcher_counter), TRUE);
 #else

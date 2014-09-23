@@ -22,7 +22,7 @@
 #include "config.h"
 #include "ui.h"
 
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+#if defined(HAVE_APPINDICATOR)
 void ui_appindicator_init(struct ui_psensor *ui);
 void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention);
 void ui_appindicator_update_menu(struct ui_psensor *ui);

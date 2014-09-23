@@ -1,6 +1,11 @@
 Psensor NEWS
 ============
 
+v1.1.3
+
+* Added tooltip explaining why a setting is not available.
+* Removed support of old AppIndicator library < 3.0.
+
 v1.1.2
 ------
 

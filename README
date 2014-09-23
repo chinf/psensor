@@ -121,7 +121,7 @@ The compilation of +psensor+ requires:
    faq)
  * cppcheck (optional, static source checker)
  * library libnotify (optional)
- * library libappindicator (optional)
+ * library libappindicator >= 3.0 (optional)
  * library libXNVCtrl (optional)
  * library json-c >= 0.11.99 and curl (optional, required for remote monitoring)
  * library unity (>=v3.4.2, optional)

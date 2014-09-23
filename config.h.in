@@ -7,11 +7,8 @@
 /* Define to 1 if you have the <adl_defines.h> header file. */
 #undef HAVE_ADL_DEFINES_H
 
-/* Use AppIndicator > 0.2.9 */
+/* Use AppIndicator3-0.1 */
 #undef HAVE_APPINDICATOR
-
-/* Use AppIndicator 0.2.9 */
-#undef HAVE_APPINDICATOR_029
 
 /* Use libatasmart */
 #undef HAVE_ATASMART

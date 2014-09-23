@@ -27,9 +27,8 @@
 #include <ui_sensorpref.h>
 #include <ui_color.h>
 
-
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
-#include "ui_appindicator.h"
+#if defined(HAVE_APPINDICATOR)
+#include <ui_appindicator.h>
 #endif
 
 enum {
@@ -291,7 +290,7 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 		(gtk_builder_get_object(builder, "indicator_label_checkbox"));
 
 
-#if !HAVE_APPINDICATOR && !HAVE_APPINDICATOR_029
+#if !HAVE_APPINDICATOR
 	gtk_widget_set_sensitive(GTK_WIDGET(w_appindicator_label_enabled),
 				 FALSE);
 	gtk_widget_set_sensitive(GTK_WIDGET(w_appindicator_enabled), FALSE);
@@ -496,7 +495,7 @@ void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui)
 	if (result == GTK_RESPONSE_ACCEPT) {
 		apply_prefs(model, ui->config);
 		ui_sensorlist_update(ui, 1);
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+#if defined(HAVE_APPINDICATOR)
 		ui_appindicator_update_menu(ui);
 #endif
 	}

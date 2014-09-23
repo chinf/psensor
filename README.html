@@ -403,12 +403,18 @@ the temperature of the NVidia GPUs (using XNVCtrl).
 </li>
 <li>
 <p>
-the temperature of the Hard Disk Drives (using hddtemp or libatasmart).
+the temperature of ATI GPUs (using ATI ADL SDK).
 </p>
 </li>
 <li>
 <p>
-the rotation speed of the fans (using lm-sensors).
+the temperature of the Hard Disk Drives (using hddtemp, libatasmart
+   or udisks2).
+</p>
+</li>
+<li>
+<p>
+the rotation speed of the fans.
 </p>
 </li>
 <li>
@@ -418,7 +424,7 @@ the temperature of a remote computer.
 </li>
 <li>
 <p>
-the cpu load.
+the CPU load.
 </p>
 </li>
 </ul></div>
@@ -569,7 +575,7 @@ library libnotify (optional)
 </li>
 <li>
 <p>
-library libappindicator (optional)
+library libappindicator &gt;= 3.0 (optional)
 </p>
 </li>
 <li>
@@ -595,6 +601,11 @@ library gtop2 (optional, required for CPU usage)
 <li>
 <p>
 library atasmart (optional, for disk monitoring)
+</p>
+</li>
+<li>
+<p>
+library udisk2 (optional, for disk monitoring)
 </p>
 </li>
 </ul></div>
@@ -644,11 +655,6 @@ been found.
 </li>
 <li>
 <p>
-To monitor HDDs, the <code>hddtemp</code> daemon must be installed and running.
-</p>
-</li>
-<li>
-<p>
 Run: <code>psensor</code>
 </p>
 </li>
@@ -681,7 +687,7 @@ have extracted the ATI ADL SDK. Other steps are indentical.</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-08-23 13:50:12 CEST
+Last updated 2014-09-23 11:04:49 CEST
 </div>
 </div>
 </body>

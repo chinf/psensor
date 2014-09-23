@@ -202,7 +202,7 @@ static void indicators_update(struct ui_psensor *ui)
 		sensor_cur++;
 	}
 
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+#if defined(HAVE_APPINDICATOR)
 	if (is_appindicator_supported())
 		ui_appindicator_update(ui, attention);
 #endif
@@ -443,7 +443,7 @@ static void cleanup(struct ui_psensor *ui)
 	psensor_list_free(ui->sensors);
 	ui->sensors = NULL;
 
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+#if defined(HAVE_APPINDICATOR)
 	ui_appindicator_cleanup();
 #endif
 
@@ -519,7 +519,7 @@ int main(int argc, char **argv)
 	pthread_t thread;
 	int optc, cmdok, opti, new_instance, ret;
 	char *url = NULL;
-	GtkApplication *app;
+	GApplication *app;
 
 	program_name = argv[0];
 
@@ -567,12 +567,12 @@ int main(int argc, char **argv)
 
 	log_init();
 
-	app = gtk_application_new("wpitchoune.psensor", G_APPLICATION_IS_SERVICE);
+	app = g_application_new("wpitchoune.psensor", 0);
 
-	printf("%d\n",g_application_register(G_APPLICATION(app), NULL, NULL));
+	g_application_register(app, NULL, NULL);
 
-	if (!new_instance && g_application_get_is_remote(G_APPLICATION(app))) {
-		g_application_activate(G_APPLICATION(app));
+	if (!new_instance && g_application_get_is_remote(app)) {
+		g_application_activate(app);
 		log_warn(_("A Psensor instance already exists."));
 		exit(EXIT_SUCCESS);
 	}
@@ -587,17 +587,6 @@ int main(int argc, char **argv)
 	 */
 	log_debug("Calling g_thread_init(NULL)");
 	g_thread_init(NULL);
-#endif
-
-#ifdef HAVE_APPINDICATOR_029
-	/* gdk_thread_enter/leave only used to workaround mutex bug
-	 * of appindicator < 0.2.9, so do not call gdk_threads_init
-	 * if useless. Calling this function leads to
-	 * crash "Attempt to unlock mutex that was not locked" with
-	 * GLib 2.41.2 (new checking) probably due to bugs in GTK
-	 * itself.
-	 */
-	gdk_threads_init();
 #endif
 
 	gtk_init(NULL, NULL);
@@ -615,7 +604,7 @@ int main(int argc, char **argv)
 			      &ui.sensors_mutex,
 			      config_get_slog_interval());
 
-#if !defined(HAVE_APPINDICATOR) && !defined(HAVE_APPINDICATOR_029)
+#if !defined(HAVE_APPINDICATOR)
 	ui_status_init(&ui);
 	ui_status_set_visible(1);
 #endif
@@ -634,7 +623,7 @@ int main(int argc, char **argv)
 
 	g_timeout_add(1000 * ui.graph_update_interval, ui_refresh_thread, &ui);
 
-#if defined(HAVE_APPINDICATOR) || defined(HAVE_APPINDICATOR_029)
+#if defined(HAVE_APPINDICATOR)
 	ui_appindicator_init(&ui);
 #endif
 
