@@ -75,7 +75,7 @@ int main(int argc, char **argv)
 
 	failures = test();
 
-	if (failures) 
+	if (failures)
 		exit(EXIT_FAILURE);
 	else
 		exit(EXIT_SUCCESS);
