@@ -19,7 +19,7 @@
 #ifndef _PSENSOR_UI_SENSORPREF_H_
 #define _PSENSOR_UI_SENSORPREF_H_
 
-#include "ui.h"
+#include <ui.h>
 
 void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui);
 
