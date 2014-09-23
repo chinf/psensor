@@ -519,7 +519,7 @@ int main(int argc, char **argv)
 	pthread_t thread;
 	int optc, cmdok, opti, new_instance, ret;
 	char *url = NULL;
-	GApplication *app;
+	GtkApplication *app;
 
 	program_name = argv[0];
 
@@ -567,12 +567,12 @@ int main(int argc, char **argv)
 
 	log_init();
 
-	app = g_application_new("wpitchoune.psensor", 0);
+	app = gtk_application_new("wpitchoune.psensor", G_APPLICATION_IS_SERVICE);
 
-	g_application_register(app, NULL, NULL);
+	printf("%d\n",g_application_register(G_APPLICATION(app), NULL, NULL));
 
-	if (!new_instance && g_application_get_is_remote(app)) {
-		g_application_activate(app);
+	if (!new_instance && g_application_get_is_remote(G_APPLICATION(app))) {
+		g_application_activate(G_APPLICATION(app));
 		log_warn(_("A Psensor instance already exists."));
 		exit(EXIT_SUCCESS);
 	}

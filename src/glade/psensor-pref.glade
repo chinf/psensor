@@ -187,6 +187,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Psensor has not been build with Unity Launcher support</property>
                     <property name="margin_left">4</property>
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
@@ -1023,6 +1024,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Psensor has not been build with NVCtrl support</property>
                     <property name="margin_left">14</property>
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
@@ -1043,6 +1045,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Psensor has not been build with ATI ADL support</property>
                     <property name="margin_left">14</property>
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
@@ -1063,6 +1066,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Psensor has not been build with gtop2 support</property>
                     <property name="margin_left">14</property>
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
@@ -1103,6 +1107,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Psensor has not been build with libatasmart support</property>
                     <property name="margin_left">14</property>
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
@@ -1123,6 +1128,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Psensor has not been build with udisks2 support</property>
                     <property name="margin_left">14</property>
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>

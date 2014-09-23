@@ -144,6 +144,14 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
 				     !cfg->unity_launcher_count_disabled);
 
+#if !HAVE_APPINDICATOR && !HAVE_APPINDICATOR_029
+	gtk_widget_set_sensitive(GTK_WIDGET(w_enable_launcher_counter), FALSE);
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_enable_launcher_counter), TRUE);
+#else
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_enable_launcher_counter),
+				   FALSE);
+#endif
+
 	w_smooth_curves = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "graph_smooth_curves"));
 	gtk_toggle_button_set_active(w_smooth_curves,
@@ -185,6 +193,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 							   "nvctrl"));
 #if !HAVE_NVIDIA
 	gtk_widget_set_sensitive(GTK_WIDGET(w_nvctrl), 0);
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_nvctrl), TRUE);
+#else
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_nvctrl), FALSE);
 #endif
 	gtk_toggle_button_set_active(w_nvctrl, config_is_nvctrl_enabled());
 
@@ -193,6 +204,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 							   "atiadlsdk"));
 #if !HAVE_LIBATIADL
 	gtk_widget_set_sensitive(GTK_WIDGET(w_atiadlsdk), 0);
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_atiadlsdk), TRUE);
+#else
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_atiadlsdk), FALSE);
 #endif
 	gtk_toggle_button_set_active(w_atiadlsdk,
 				     config_is_atiadlsdk_enabled());
@@ -202,6 +216,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 							   "gtop2"));
 #if !HAVE_GTOP
 	gtk_widget_set_sensitive(GTK_WIDGET(w_gtop2), 0);
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_gtop2), TRUE);
+#else
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_gtop2), FALSE);
 #endif
 	gtk_toggle_button_set_active(w_gtop2, config_is_gtop2_enabled());
 
@@ -216,6 +233,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 							   "libatasmart"));
 #if !HAVE_ATASMART
 	gtk_widget_set_sensitive(GTK_WIDGET(w_libatasmart), 0);
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_libatasmart), TRUE);
+#else
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_libatasmart), FALSE);
 #endif
 	gtk_toggle_button_set_active(w_libatasmart,
 				     config_is_libatasmart_enabled());
@@ -225,6 +245,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 							   "udisks2"));
 #if !HAVE_LIBUDISKS2
 	gtk_widget_set_sensitive(GTK_WIDGET(w_udisks2), 0);
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_udisks2), TRUE);
+#else
+	gtk_widget_set_has_tooltip(GTK_WIDGET(w_udisks2), FALSE);
 #endif
 	gtk_toggle_button_set_active(w_udisks2, config_is_udisks2_enabled());
 
