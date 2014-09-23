@@ -154,7 +154,7 @@ struct psensor **get_remote_sensors(const char *server_url,
 	return sensors;
 }
 
-void remote_psensor_update(struct psensor *s)
+static void remote_psensor_update(struct psensor *s)
 {
 	json_object *obj;
 
