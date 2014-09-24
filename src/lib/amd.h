@@ -20,7 +20,7 @@
 #ifndef _PSENSOR_AMD_H_
 #define _PSENSOR_AMD_H_
 
-#include "psensor.h"
+#include <psensor.h>
 
 void amd_psensor_list_update(struct psensor **sensors);
 
