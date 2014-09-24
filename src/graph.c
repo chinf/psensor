@@ -27,6 +27,7 @@
 #include <math.h>
 
 #include <cfg.h>
+#include <graph.h>
 #include <plog.h>
 #include <psensor.h>
 
