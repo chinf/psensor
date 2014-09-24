@@ -27,7 +27,7 @@
 #include <sensors/sensors.h>
 #include <sensors/error.h>
 
-#include <psensor.h>
+#include <lmsensor.h>
 
 static int init_done;
 
