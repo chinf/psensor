@@ -19,8 +19,8 @@
 #ifndef _PSENSOR_UI_APPINDICATOR_H_
 #define _PSENSOR_UI_APPINDICATOR_H_
 
-#include "config.h"
-#include "ui.h"
+#include <config.h>
+#include <ui.h>
 
 #if defined(HAVE_APPINDICATOR)
 void ui_appindicator_init(struct ui_psensor *ui);
