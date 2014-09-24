@@ -24,10 +24,10 @@
 #include <ui.h>
 
 void ui_status_init(struct ui_psensor *ui);
-void ui_status_cleanup();
+void ui_status_cleanup(void);
 void ui_status_update(struct ui_psensor *ui, unsigned int attention);
 /* Whether status icon is supported i.e. visible. */
-int is_status_supported();
+int is_status_supported(void);
 GtkStatusIcon *ui_status_get_icon(struct ui_psensor *ui);
 /* Whether the statuc icon should be visible.*/
 void ui_status_set_visible(unsigned int visible);

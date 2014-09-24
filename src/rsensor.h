@@ -26,7 +26,7 @@ struct psensor **get_remote_sensors(const char *server_url,
 
 void remote_psensor_list_update(struct psensor **sensors);
 
-void rsensor_init();
-void rsensor_cleanup();
+void rsensor_init(void);
+void rsensor_cleanup(void);
 
 #endif

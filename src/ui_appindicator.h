@@ -26,10 +26,10 @@
 void ui_appindicator_init(struct ui_psensor *ui);
 void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention);
 void ui_appindicator_update_menu(struct ui_psensor *ui);
-int is_appindicator_supported();
-void ui_appindicator_cleanup();
+int is_appindicator_supported(void);
+void ui_appindicator_cleanup(void);
 #else
-#define is_appindicator_supported() 0
+#define is_appindicator_supported(void) 0
 #endif
 
 #endif

@@ -25,7 +25,7 @@
  *  - 0 if psensor is not currently launch during session startup.
  *  - -1 if it cannot be determined.
  */
-int pxdg_is_autostarted();
+int pxdg_is_autostarted(void);
 void pxdg_set_autostart(unsigned int);
 
 #endif
