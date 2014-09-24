@@ -116,7 +116,7 @@ void cpu_usage_sensor_update(struct psensor *s)
 		psensor_set_current_value(s, v);
 }
 
-void mem_free_sensor_update(struct psensor *s)
+static void mem_free_sensor_update(struct psensor *s)
 {
 	double v;
 
