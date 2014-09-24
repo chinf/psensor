@@ -29,11 +29,11 @@
 #include <pudisks2.h>
 #include <temperature.h>
 
-const char *PROVIDER_NAME = "udisks2";
+static const char *PROVIDER_NAME = "udisks2";
 
 static GDBusObjectManager *manager;
 
-const time_t SMART_UPDATE_INTERVAL = 30;
+static const time_t SMART_UPDATE_INTERVAL = 30;
 
 struct udisks_data {
 	char *path;
