@@ -170,7 +170,7 @@ static int get_int(const char *k)
 	return g_settings_get_int(settings, k);
 }
 
-char *config_get_notif_script()
+char *config_get_notif_script(void)
 {
 	char *str;
 
@@ -191,7 +191,7 @@ void config_set_notif_script(const char *str)
 		set_string(KEY_NOTIFICATION_SCRIPT, "");
 }
 
-static struct color *get_background_color()
+static struct color *get_background_color(void)
 {
 	char *scolor;
 	struct color *c;
@@ -207,7 +207,7 @@ static struct color *get_background_color()
 	return c;
 }
 
-static struct color *get_foreground_color()
+static struct color *get_foreground_color(void)
 {
 	char *scolor;
 	struct color *c;
@@ -223,7 +223,7 @@ static struct color *get_foreground_color()
 	return c;
 }
 
-static bool is_alpha_channel_enabled()
+static bool is_alpha_channel_enabled(void)
 {
 	return get_bool(KEY_ALPHA_CHANNEL_ENABLED);
 }
@@ -233,7 +233,7 @@ static void set_alpha_channeld_enabled(bool b)
 	set_bool(KEY_ALPHA_CHANNEL_ENABLED, b);
 }
 
-static enum sensorlist_position get_sensorlist_position()
+static enum sensorlist_position get_sensorlist_position(void)
 {
 	return get_int(KEY_INTERFACE_SENSORLIST_POSITION);
 }
@@ -243,7 +243,7 @@ static void set_sensorlist_position(enum sensorlist_position pos)
 	set_int(KEY_INTERFACE_SENSORLIST_POSITION, pos);
 }
 
-static double get_graph_background_alpha()
+static double get_graph_background_alpha(void)
 {
 	return get_double(KEY_GRAPH_BACKGROUND_ALPHA);
 }
@@ -279,7 +279,7 @@ static void set_foreground_color(const struct color *color)
 	free(str);
 }
 
-bool is_slog_enabled()
+bool is_slog_enabled(void)
 {
 	return get_bool(KEY_SLOG_ENABLED);
 }
@@ -311,7 +311,7 @@ void config_set_slog_enabled_changed_cbk(void (*cbk)(void *), void *data)
 	log_fct_exit();
 }
 
-int config_get_slog_interval()
+int config_get_slog_interval(void)
 {
 	return get_int(KEY_SLOG_INTERVAL);
 }
@@ -324,12 +324,12 @@ static void set_slog_interval(int interval)
 	set_int(KEY_SLOG_INTERVAL, interval);
 }
 
-static bool is_window_decoration_enabled()
+static bool is_window_decoration_enabled(void)
 {
 	return !get_bool(KEY_INTERFACE_WINDOW_DECORATION_DISABLED);
 }
 
-static bool is_window_keep_below_enabled()
+static bool is_window_keep_below_enabled(void)
 {
 	return get_bool(KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED);
 }
@@ -344,7 +344,7 @@ static void set_window_keep_below_enabled(bool enabled)
 	set_bool(KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED, enabled);
 }
 
-bool config_is_smooth_curves_enabled()
+bool config_is_smooth_curves_enabled(void)
 {
 	return get_bool(KEY_GRAPH_SMOOTH_CURVES_ENABLED);
 }
@@ -355,7 +355,7 @@ void config_set_smooth_curves_enabled(bool b)
 }
 
 
-static void init()
+static void init(void)
 {
 	log_fct_enter();
 
@@ -365,7 +365,7 @@ static void init()
 	log_fct_exit();
 }
 
-void config_cleanup()
+void config_cleanup(void)
 {
 	config_sync();
 
@@ -393,7 +393,7 @@ void config_cleanup()
 	slog_enabled_cbk = NULL;
 }
 
-struct config *config_load()
+struct config *config_load(void)
 {
 	struct config *c;
 
@@ -492,7 +492,7 @@ void config_save(const struct config *c)
 	set_int(KEY_INTERFACE_TEMPERATURE_UNIT, c->temperature_unit);
 }
 
-const char *get_psensor_user_dir()
+const char *get_psensor_user_dir(void)
 {
 	const char *home;
 
@@ -521,7 +521,7 @@ const char *get_psensor_user_dir()
 	return user_dir;
 }
 
-static const char *get_sensor_config_path()
+static const char *get_sensor_config_path(void)
 {
 	const char *dir;
 
@@ -535,7 +535,7 @@ static const char *get_sensor_config_path()
 	return sensor_config_path;
 }
 
-static GKeyFile *get_sensor_key_file()
+static GKeyFile *get_sensor_key_file(void)
 {
 	int ret;
 	GError *err;
@@ -562,7 +562,7 @@ static GKeyFile *get_sensor_key_file()
 	return key_file;
 }
 
-static void save_sensor_key_file()
+static void save_sensor_key_file(void)
 {
 	GKeyFile *kfile;
 	const char *path;
@@ -584,7 +584,7 @@ static void save_sensor_key_file()
 	log_fct_exit();
 }
 
-void config_sync()
+void config_sync(void)
 {
 	log_fct_enter();
 	if (settings)
@@ -769,7 +769,7 @@ void config_set_appindicator_label_enabled(const char *sid, bool enabled)
 	sensor_set_bool(sid, ATT_SENSOR_APPINDICATOR_LABEL_ENABLED, enabled);
 }
 
-GSettings *config_get_GSettings()
+GSettings *config_get_GSettings(void)
 {
 	return settings;
 }
@@ -779,32 +779,32 @@ bool config_is_lmsensor_enabled()
 	return get_bool(KEY_PROVIDER_LMSENSORS_ENABLED);
 }
 
-bool config_is_gtop2_enabled()
+bool config_is_gtop2_enabled(void)
 {
 	return get_bool(KEY_PROVIDER_GTOP2_ENABLED);
 }
 
-bool config_is_udisks2_enabled()
+bool config_is_udisks2_enabled(void)
 {
 	return get_bool(KEY_PROVIDER_UDISKS2_ENABLED);
 }
 
-bool config_is_hddtemp_enabled()
+bool config_is_hddtemp_enabled(void)
 {
 	return get_bool(KEY_PROVIDER_HDDTEMP_ENABLED);
 }
 
-bool config_is_libatasmart_enabled()
+bool config_is_libatasmart_enabled(void)
 {
 	return get_bool(KEY_PROVIDER_LIBATASMART_ENABLED);
 }
 
-bool config_is_nvctrl_enabled()
+bool config_is_nvctrl_enabled(void)
 {
 	return get_bool(KEY_PROVIDER_NVCTRL_ENABLED);
 }
 
-bool config_is_atiadlsdk_enabled()
+bool config_is_atiadlsdk_enabled(void)
 {
 	return get_bool(KEY_PROVIDER_ATIADLSDK_ENABLED);
 }
