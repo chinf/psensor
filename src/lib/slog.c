@@ -176,7 +176,7 @@ static void *slog_routine(void *data)
 		sleep(period);
 	}
 
-	pthread_exit(0);
+	pthread_exit(NULL);
 }
 
 void slog_close(void)
