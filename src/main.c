@@ -372,12 +372,12 @@ static void log_init()
 }
 
 static struct option long_options[] = {
-	{"version", no_argument, 0, 'v'},
-	{"help", no_argument, 0, 'h'},
-	{"url", required_argument, 0, 'u'},
-	{"debug", required_argument, 0, 'd'},
-	{"new-instance", no_argument, 0, 'n'},
-	{0, 0, 0, 0}
+	{"version", no_argument, NULL, 'v'},
+	{"help", no_argument, NULL, 'h'},
+	{"url", required_argument, NULL, 'u'},
+	{"debug", required_argument, NULL, 'd'},
+	{"new-instance", no_argument, NULL, 'n'},
+	{NULL, 0, NULL, 0}
 };
 
 static gboolean initial_window_show(gpointer data)
