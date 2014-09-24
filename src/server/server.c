@@ -275,7 +275,8 @@ static int cbk_http_request(void *cls,
 			    const char *method,
 			    const char *version,
 			    const char *upload_data,
-			    size_t *upload_data_size, void **ptr)
+			    size_t *upload_data_size,
+			    void **ptr)
 {
 	static int dummy;
 	struct MHD_Response *response;
