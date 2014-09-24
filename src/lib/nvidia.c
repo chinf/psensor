@@ -31,6 +31,7 @@
 #include <NVCtrl/NVCtrl.h>
 #include <NVCtrl/NVCtrlLib.h>
 
+#include <nvidia.h>
 #include <psensor.h>
 
 Display *display;
