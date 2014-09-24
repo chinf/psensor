@@ -34,7 +34,7 @@
 #include <nvidia.h>
 #include <psensor.h>
 
-Display *display;
+static Display *display;
 
 static const char *PROVIDER_NAME = "nvctrl";
 
