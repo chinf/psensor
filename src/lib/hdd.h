@@ -19,8 +19,8 @@
 #ifndef _PSENSOR_HDD_H_
 #define _PSENSOR_HDD_H_
 
-#include "config.h"
-#include "psensor.h"
+#include <config.h>
+#include <psensor.h>
 
 #ifdef HAVE_ATASMART
 void atasmart_psensor_list_append(struct psensor ***sensors, int values_length);
