@@ -724,9 +724,9 @@ bool config_is_appindicator_enabled(const char *sid)
 
 void config_set_appindicator_enabled(const char *sid, bool enabled)
 {
-	return sensor_set_bool(sid,
-			       ATT_SENSOR_APPINDICATOR_MENU_DISABLED,
-			       !enabled);
+	sensor_set_bool(sid,
+			ATT_SENSOR_APPINDICATOR_MENU_DISABLED,
+			!enabled);
 }
 
 int config_get_sensor_position(const char *sid)
@@ -736,7 +736,7 @@ int config_get_sensor_position(const char *sid)
 
 void config_set_sensor_position(const char *sid, int pos)
 {
-	return sensor_set_int(sid, ATT_SENSOR_POSITION, pos);
+	sensor_set_int(sid, ATT_SENSOR_POSITION, pos);
 }
 
 bool config_get_sensor_alarm_enabled(const char *sid)
