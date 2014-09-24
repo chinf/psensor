@@ -252,7 +252,7 @@ static void draw_background_lines(cairo_t *cr,
 	cairo_stroke(cr);
 
 	/* back to normal line style */
-	cairo_set_dash(cr, 0, 0, 0);
+	cairo_set_dash(cr, NULL, 0, 0);
 }
 
 /* Keys: sensor identifier.
