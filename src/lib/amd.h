@@ -20,12 +20,25 @@
 #ifndef _PSENSOR_AMD_H_
 #define _PSENSOR_AMD_H_
 
+#include <bool.h>
 #include <psensor.h>
 
-void amd_psensor_list_update(struct psensor **sensors);
+#if defined(HAVE_LIBATIADL) && HAVE_LIBATIADL
 
-void amd_psensor_list_append(struct psensor ***sensors, int values_max_length);
+static inline bool amd_is_supported(void) { return true; }
 
+void amd_psensor_list_update(struct psensor **s);
+void amd_psensor_list_append(struct psensor ***s, int n);
 void amd_cleanup(void);
+
+#else
+
+static inline bool amd_is_supported(void) { return false; }
+
+static inline void amd_psensor_list_update(struct psensor **s) {}
+static inline void amd_psensor_list_append(struct psensor ***s, int n) {}
+static inline void amd_cleanup(void) {}
+
+#endif
 
 #endif
