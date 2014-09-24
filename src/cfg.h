@@ -78,11 +78,11 @@ struct config {
 };
 
 /* Loads psensor configuration */
-struct config *config_load();
+struct config *config_load(void);
 
 void config_save(const struct config *);
 
-void config_cleanup();
+void config_cleanup(void);
 
 struct color *config_get_sensor_color(const char *sid, const struct color *);
 void config_set_sensor_color(const char *sid, const struct color *);
@@ -108,42 +108,42 @@ void config_set_appindicator_enabled(const char *, bool);
 bool config_is_appindicator_label_enabled(const char *);
 void config_set_appindicator_label_enabled(const char *, bool);
 
-bool is_slog_enabled();
+bool is_slog_enabled(void);
 void config_set_slog_enabled_changed_cbk(void (*)(void *), void *);
 
-int config_get_slog_interval();
+int config_get_slog_interval(void);
 
-bool config_is_smooth_curves_enabled();
+bool config_is_smooth_curves_enabled(void);
 void config_set_smooth_curves_enabled(bool);
 
 int config_get_sensor_position(const char *);
 void config_set_sensor_position(const char *, int);
 
-char *config_get_notif_script();
+char *config_get_notif_script(void);
 void config_set_notif_script(const char *);
 
 bool config_is_sensor_enabled(const char *sid);
 void config_set_sensor_enabled(const char *sid, bool enabled);
 
-bool config_is_lmsensor_enabled();
+bool config_is_lmsensor_enabled(void);
 void config_set_lmsensor_enable(bool);
 
-bool config_is_gtop2_enabled();
+bool config_is_gtop2_enabled(void);
 void config_set_gtop2_enable(bool);
 
-bool config_is_udisks2_enabled();
+bool config_is_udisks2_enabled(void);
 void config_set_udisks2_enable(bool);
 
-bool config_is_hddtemp_enabled();
+bool config_is_hddtemp_enabled(void);
 void config_set_hddtemp_enable(bool);
 
-bool config_is_libatasmart_enabled();
+bool config_is_libatasmart_enabled(void);
 void config_set_libatasmart_enable(bool);
 
-bool config_is_nvctrl_enabled();
+bool config_is_nvctrl_enabled(void);
 void config_set_nvctrl_enable(bool);
 
-bool config_is_atiadlsdk_enabled();
+bool config_is_atiadlsdk_enabled(void);
 void config_set_atiadlsdk_enable(bool);
 
 /*
@@ -153,10 +153,10 @@ void config_set_atiadlsdk_enable(bool);
  * Creates the directory if it does not exist;
  * Returns NULL if it cannot be determined.
  */
-const char *get_psensor_user_dir();
+const char *get_psensor_user_dir(void);
 
-void config_sync();
+void config_sync(void);
 
-GSettings *config_get_GSettings();
+GSettings *config_get_GSettings(void);
 
 #endif
