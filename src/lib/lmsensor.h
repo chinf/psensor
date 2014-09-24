@@ -23,6 +23,6 @@ void lmsensor_psensor_list_update(struct psensor **sensors);
 
 void lmsensor_psensor_list_append(struct psensor ***sensors, int values_length);
 
-void lmsensor_cleanup();
+void lmsensor_cleanup(void);
 
 #endif

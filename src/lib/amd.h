@@ -26,6 +26,6 @@ void amd_psensor_list_update(struct psensor **sensors);
 
 void amd_psensor_list_append(struct psensor ***sensors, int values_max_length);
 
-void amd_cleanup();
+void amd_cleanup(void);
 
 #endif

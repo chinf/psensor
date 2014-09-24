@@ -25,6 +25,6 @@ void nvidia_psensor_list_update(struct psensor **sensors);
 
 void nvidia_psensor_list_append(struct psensor ***sensors, int values_length);
 
-void nvidia_cleanup();
+void nvidia_cleanup(void);
 
 #endif

@@ -37,7 +37,7 @@ struct psysinfo {
 };
 
 void sysinfo_update(struct psysinfo *sysinfo);
-void sysinfo_cleanup();
+void sysinfo_cleanup(void);
 
 char *sysinfo_to_json_string(const struct psysinfo *sysinfo);
 

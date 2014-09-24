@@ -76,7 +76,7 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 	return TRUE;
 }
 
-void ui_show_about_dialog()
+void ui_show_about_dialog(void)
 {
 	static const char *const authors[] = { "jeanfi@gmail.com", NULL };
 

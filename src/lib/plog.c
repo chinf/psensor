@@ -43,7 +43,7 @@ void log_open(const char *path)
 		log_printf(LOG_ERR, _("Cannot open log file: %s"), path);
 }
 
-void log_close()
+void log_close(void)
 {
 	if (!file)
 		return;

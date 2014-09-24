@@ -24,6 +24,6 @@
 #include "psensor.h"
 
 bool slog_activate(const char *, struct psensor **, pthread_mutex_t *, int s);
-void slog_close();
+void slog_close(void);
 
 #endif

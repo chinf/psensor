@@ -66,7 +66,7 @@ static struct psensor *create_mem_free_sensor(int measures_len)
 			      measures_len);
 }
 
-static double get_usage()
+static double get_usage(void)
 {
 	glibtop_cpu cpu;
 	unsigned long int used, dt;
@@ -89,7 +89,7 @@ static double get_usage()
 	return cpu_rate;
 }
 
-static double get_mem_free()
+static double get_mem_free(void)
 {
 	glibtop_mem mem;
 	double v;

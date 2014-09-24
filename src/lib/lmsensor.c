@@ -191,7 +191,7 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	return psensor;
 }
 
-void lmsensor_init()
+void lmsensor_init(void)
 {
 	int err;
 
@@ -237,7 +237,7 @@ void lmsensor_psensor_list_append(struct psensor ***sensors, int vn)
 	}
 }
 
-void lmsensor_cleanup()
+void lmsensor_cleanup(void)
 {
 	if (init_done)
 		sensors_cleanup();

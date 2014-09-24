@@ -156,7 +156,7 @@ static struct psensor *create_sensor(int id, int type, int values_len)
 
   Return 0 if no AMD/ATI GPUs or cannot get information.
 */
-static int init()
+static int init(void)
 {
 	LPAdapterInfo lpadapterinfo;
 	int i, inumberadapters, inumberadaptersactive, lpstatus, iadapterindex;
@@ -295,7 +295,7 @@ void amd_psensor_list_append(struct psensor ***sensors, int values_len)
 		}
 }
 
-void amd_cleanup()
+void amd_cleanup(void)
 {
 	if (hdll) {
 		if (adl_main_control_done)

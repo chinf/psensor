@@ -67,7 +67,7 @@ void sysinfo_update(struct psysinfo *info)
 		info->interfaces = glibtop_get_netlist(&buf);
 }
 
-void sysinfo_cleanup()
+void sysinfo_cleanup(void)
 {
 	if (cpu)
 		g_free(cpu);

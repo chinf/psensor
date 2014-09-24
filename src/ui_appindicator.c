@@ -282,12 +282,12 @@ void ui_appindicator_init(struct ui_psensor *ui)
 	ui_appindicator_update_menu(ui);
 }
 
-int is_appindicator_supported()
+int is_appindicator_supported(void)
 {
 	return appindicator_supported;
 }
 
-void ui_appindicator_cleanup()
+void ui_appindicator_cleanup(void)
 {
 	free(sensors);
 }

@@ -179,7 +179,7 @@ static void *slog_routine(void *data)
 	pthread_exit(0);
 }
 
-void slog_close()
+void slog_close(void)
 {
 	if (file) {
 		pthread_cancel(thread);

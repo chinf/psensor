@@ -284,7 +284,7 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	return s;
 }
 
-static int init()
+static int init(void)
 {
 	int evt, err;
 
@@ -373,7 +373,7 @@ void nvidia_psensor_list_append(struct psensor ***ss, int values_len)
 	}
 }
 
-void nvidia_cleanup()
+void nvidia_cleanup(void)
 {
 	if (display) {
 		XCloseDisplay(display);
