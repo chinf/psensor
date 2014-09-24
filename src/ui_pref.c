@@ -24,6 +24,7 @@
 #include <cfg.h>
 #include <graph.h>
 #include <nvidia.h>
+#include <pgtop2.h>
 #include <pxdg.h>
 #include <ui_pref.h>
 #include <ui_color.h>
@@ -219,12 +220,14 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_gtop2
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "gtop2"));
-#if !HAVE_GTOP
-	gtk_widget_set_sensitive(GTK_WIDGET(w_gtop2), 0);
-	gtk_widget_set_has_tooltip(GTK_WIDGET(w_gtop2), TRUE);
-#else
-	gtk_widget_set_has_tooltip(GTK_WIDGET(w_gtop2), FALSE);
-#endif
+
+	if (gtop2_is_supported()) {
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_gtop2), FALSE);
+	} else {
+		gtk_widget_set_sensitive(GTK_WIDGET(w_gtop2), 0);
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_gtop2), TRUE);
+	}
+
 	gtk_toggle_button_set_active(w_gtop2, config_is_gtop2_enabled());
 
 	w_hddtemp

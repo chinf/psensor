@@ -19,13 +19,29 @@
 #ifndef _PSENSOR_PGTOP2_H_
 #define _PSENSOR_PGTOP2_H_
 
+#include <bool.h>
 #include <psensor.h>
 
-struct psensor *create_cpu_usage_sensor(int measures_len);
+#if defined(HAVE_GTOP) && HAVE_GTOP
+
+static inline bool gtop2_is_supported(void) { return true; }
+
+struct psensor *create_cpu_usage_sensor(int);
 void cpu_usage_sensor_update(struct psensor *);
 
 void gtop2_psensor_list_update(struct psensor **);
+void gtop2_psensor_list_append(struct psensor ***, int);
 
-void gtop2_psensor_list_append(struct psensor ***sensors, int values_max_len);
+#else
+
+static inline bool gtop2_is_supported(void) { return false; }
+
+static inline struct psensor *create_cpu_usage_sensor(int n) { return NULL; }
+static inline void cpu_usage_sensor_update(struct psensor *s) {}
+
+static inline void gtop2_psensor_list_update(struct psensor **s) {}
+static inline void gtop2_psensor_list_append(struct psensor ***s, int n) {}
+
+#endif
 
 #endif
