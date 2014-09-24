@@ -336,6 +336,7 @@ select_sensor(struct psensor *s, struct psensor **sensors, GtkTreeView *tree)
 	struct psensor **s_cur;
 	int i;
 	GtkTreePath *p;
+	GtkTreeSelection *sel;
 
 	p = NULL;
 	for (s_cur = sensors, i = 0; *s_cur; s_cur++, i++)
@@ -345,9 +346,9 @@ select_sensor(struct psensor *s, struct psensor **sensors, GtkTreeView *tree)
 		}
 
 	if (p) {
-		GtkTreeSelection *s = gtk_tree_view_get_selection(tree);
+		sel = gtk_tree_view_get_selection(tree);
 
-		gtk_tree_selection_select_path(s, p);
+		gtk_tree_selection_select_path(sel, p);
 		gtk_tree_path_free(p);
 	}
 }
