@@ -203,7 +203,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_atiadlsdk
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "atiadlsdk"));
-	if (!amd_is_supported()) {
+	if (amd_is_supported()) {
 		gtk_widget_set_has_tooltip(GTK_WIDGET(w_atiadlsdk), FALSE);
 	} else {
 		gtk_widget_set_sensitive(GTK_WIDGET(w_atiadlsdk), 0);
