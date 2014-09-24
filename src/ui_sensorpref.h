@@ -23,4 +23,14 @@
 
 void ui_sensorpref_dialog_run(struct psensor *sensor, struct ui_psensor *ui);
 
+void ui_sensorpref_name_changed_cb(GtkEntry *, gpointer);
+void ui_sensorpref_draw_toggled_cb(GtkToggleButton *, gpointer);
+void ui_sensorpref_display_toggled_cb(GtkToggleButton *, gpointer);
+void ui_sensorpref_alarm_toggled_cb(GtkToggleButton *, gpointer);
+void ui_sensorpref_appindicator_menu_toggled_cb(GtkToggleButton *, gpointer);
+void ui_sensorpref_appindicator_label_toggled_cb(GtkToggleButton *, gpointer);
+void ui_sensorpref_color_set_cb(GtkColorButton *, gpointer);
+void ui_sensorpref_alarm_high_threshold_changed_cb(GtkSpinButton *, gpointer);
+void ui_sensorpref_alarm_low_threshold_changed_cb(GtkSpinButton *, gpointer);
+
 #endif
