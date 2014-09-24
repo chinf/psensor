@@ -36,7 +36,7 @@ static const char *ATTENTION_ICON = "psensor_hot";
 
 static struct psensor **sensors;
 static GtkMenuItem **menu_items;
-static int appindicator_supported = 1;
+static bool appindicator_supported = true;
 static AppIndicator *indicator;
 static struct ui_psensor *ui_psensor;
 
@@ -235,7 +235,7 @@ static GtkStatusIcon *unity_fallback(AppIndicator *indicator)
 
 	log_debug("ui_appindicator.unity_fallback()");
 
-	appindicator_supported = 0;
+	appindicator_supported = false;
 
 	ico = ui_status_get_icon(ui_psensor);
 
@@ -251,7 +251,7 @@ unity_unfallback(AppIndicator *indicator, GtkStatusIcon *status_icon)
 
 	ui_status_set_visible(0);
 
-	appindicator_supported = 1;
+	appindicator_supported = true;
 }
 
 void ui_appindicator_update_menu(struct ui_psensor *ui)
@@ -282,7 +282,7 @@ void ui_appindicator_init(struct ui_psensor *ui)
 	ui_appindicator_update_menu(ui);
 }
 
-int is_appindicator_supported(void)
+bool is_appindicator_supported(void)
 {
 	return appindicator_supported;
 }

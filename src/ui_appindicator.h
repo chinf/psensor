@@ -20,16 +20,22 @@
 #define _PSENSOR_UI_APPINDICATOR_H_
 
 #include <config.h>
+
+#include <bool.h>
 #include <ui.h>
 
-#if defined(HAVE_APPINDICATOR)
+#if defined(HAVE_APPINDICATOR) && HAVE_APPINDICATOR
+
 void ui_appindicator_init(struct ui_psensor *ui);
 void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention);
 void ui_appindicator_update_menu(struct ui_psensor *ui);
-int is_appindicator_supported(void);
+bool is_appindicator_supported(void);
 void ui_appindicator_cleanup(void);
+
 #else
-#define is_appindicator_supported(void) 0
+
+static inline bool is_appindicator_supported(void) { return false; }
+
 #endif
 
 #endif
