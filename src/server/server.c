@@ -81,7 +81,7 @@ static pthread_mutex_t mutex;
 
 static int server_stop_requested;
 
-static void print_version()
+static void print_version(void)
 {
 	printf("psensor-server %s\n", VERSION);
 	printf(_("Copyright (C) %s jeanfi@gmail.com\n"
@@ -92,7 +92,7 @@ static void print_version()
 	       "2010-2012");
 }
 
-static void print_help()
+static void print_help(void)
 {
 	printf(_("Usage: %s [OPTION]...\n"), program_name);
 
