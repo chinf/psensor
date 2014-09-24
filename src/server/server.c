@@ -245,12 +245,13 @@ static struct MHD_Response *create_response_file(const char *nurl,
 static struct MHD_Response *
 create_response(const char *nurl, const char *method, unsigned int *rp_code)
 {
+	char *page, *fpath;
 	struct MHD_Response *resp = NULL;
 
 	if (!strncmp(nurl, URL_BASE_API_1_1, strlen(URL_BASE_API_1_1))) {
 		resp = create_response_api(nurl, method, rp_code);
 	} else {
-		char *fpath = get_path(nurl, server_data.www_dir);
+		fpath = get_path(nurl, server_data.www_dir);
 
 		resp = create_response_file(nurl, method, rp_code, fpath);
 
@@ -260,7 +261,7 @@ create_response(const char *nurl, const char *method, unsigned int *rp_code)
 	if (resp)
 		return resp;
 
-	char *page = strdup(PAGE_NOT_FOUND);
+	page = strdup(PAGE_NOT_FOUND);
 	*rp_code = MHD_HTTP_NOT_FOUND;
 
 	return MHD_create_response_from_data(strlen(page),
