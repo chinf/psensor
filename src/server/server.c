@@ -64,15 +64,15 @@ static const int DEFAULT_PORT = 3131;
 "Page not found - Go to <a href='/'>Main page</a></p></body>"))
 
 static struct option long_options[] = {
-	{"version", no_argument, 0, 'v'},
-	{"help", no_argument, 0, 'h'},
-	{"port", required_argument, 0, 'p'},
-	{"wdir", required_argument, 0, 'w'},
-	{"debug", required_argument, 0, 'd'},
-	{"log-file", required_argument, 0, 'l'},
-	{"sensor-log-file", required_argument, 0, 0},
-	{"sensor-log-interval", required_argument, 0, 0},
-	{0, 0, 0, 0}
+	{"version", no_argument, NULL, 'v'},
+	{"help", no_argument, NULL, 'h'},
+	{"port", required_argument, NULL, 'p'},
+	{"wdir", required_argument, NULL, 'w'},
+	{"debug", required_argument, NULL, 'd'},
+	{"log-file", required_argument, NULL, 'l'},
+	{"sensor-log-file", required_argument, NULL, 0},
+	{"sensor-log-interval", required_argument, NULL, 0},
+	{NULL, 0, NULL, 0}
 };
 
 static struct server_data server_data;
