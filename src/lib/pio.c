@@ -63,7 +63,7 @@ int is_file(const char *path)
 	return 0;
 }
 
-char *dir_normalize(const char *dpath)
+static char *dir_normalize(const char *dpath)
 {
 	char *npath;
 	int n;
