@@ -62,12 +62,12 @@ void ui_status_init(struct ui_psensor *ui)
 			 ui);
 }
 
-int is_status_supported()
+int is_status_supported(void)
 {
 	return status && gtk_status_icon_is_embedded(status);
 }
 
-void ui_status_cleanup()
+void ui_status_cleanup(void)
 {
 	log_debug("ui_status_cleanup()");
 
