@@ -191,7 +191,7 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	return psensor;
 }
 
-void lmsensor_init(void)
+static void lmsensor_init(void)
 {
 	int err;
 
