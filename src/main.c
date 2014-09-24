@@ -211,7 +211,7 @@ static void indicators_update(struct ui_psensor *ui)
 		ui_status_update(ui, attention);
 }
 
-gboolean ui_refresh_thread(gpointer data)
+static gboolean ui_refresh_thread(gpointer data)
 {
 	struct config *cfg;
 	gboolean ret;
