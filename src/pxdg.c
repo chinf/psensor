@@ -27,10 +27,11 @@
 
 #include <pio.h>
 #include <plog.h>
+#include <pxdg.h>
 
 static const char *KEY_GNOME_AUTOSTART = "X-GNOME-Autostart-enabled";
 
-static char *get_user_autostart_dir()
+static char *get_user_autostart_dir(void)
 {
 	const char *xdg_cfg_dir;
 
@@ -41,7 +42,7 @@ static char *get_user_autostart_dir()
 	return path_append(xdg_cfg_dir, "autostart");
 }
 
-static char *get_user_desktop_file()
+static char *get_user_desktop_file(void)
 {
 	char *dir, *path;
 
@@ -53,7 +54,7 @@ static char *get_user_desktop_file()
 	return path;
 }
 
-static const char *get_desktop_file()
+static const char *get_desktop_file(void)
 {
 	return DATADIR"/applications/"PSENSOR_DESKTOP_FILE;
 }
@@ -98,7 +99,7 @@ static int is_user_desktop_autostarted(GKeyFile *f)
 					  NULL);
 }
 
-int pxdg_is_autostarted()
+int pxdg_is_autostarted(void)
 {
 	char *user_desktop;
 	unsigned int ret;
