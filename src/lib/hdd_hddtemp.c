@@ -48,7 +48,7 @@ struct hdd_info {
 	int temp;
 };
 
-static char *fetch()
+static char *fetch(void)
 {
 	int sockfd, output_length;
 	ssize_t n = 1;
