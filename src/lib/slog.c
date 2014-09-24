@@ -65,7 +65,7 @@ static char *time_to_str(time_t *t)
 	return NULL;
 }
 
-static char *get_default_path()
+static char *get_default_path(void)
 {
 	char *home, *path, *dir;
 

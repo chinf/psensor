@@ -74,7 +74,7 @@ char *tm_to_ISO8601_time(struct tm *tm)
 	return NULL;
 }
 
-char *get_current_ISO8601_time()
+char *get_current_ISO8601_time(void)
 {
 	time_t t;
 
