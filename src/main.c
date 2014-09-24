@@ -74,7 +74,7 @@
 
 static const char *program_name;
 
-static void print_version()
+static void print_version(void)
 {
 	printf("psensor %s\n", VERSION);
 	printf(_("Copyright (C) %s jeanfi@gmail.com\n"
@@ -86,7 +86,7 @@ static void print_version()
 	       "2010-2014");
 }
 
-static void print_help()
+static void print_help(void)
 {
 	printf(_("Usage: %s [OPTION]...\n"), program_name);
 
@@ -353,7 +353,7 @@ static void associate_preferences(struct psensor **sensors)
 	}
 }
 
-static void log_init()
+static void log_init(void)
 {
 	const char *dir;
 	char *path;
@@ -402,7 +402,7 @@ static gboolean initial_window_show(gpointer data)
 	return FALSE;
 }
 
-static void log_glib_info()
+static void log_glib_info(void)
 {
 	log_debug("Compiled with GLib %d.%d.%d",
 		  GLIB_MAJOR_VERSION,
