@@ -45,7 +45,7 @@ on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 	return FALSE;
 }
 
-void smooth_curves_enabled_changed_cbk(void *data)
+static void smooth_curves_enabled_changed_cbk(void *data)
 {
 	is_smooth_curves_enabled = config_is_smooth_curves_enabled();
 }
