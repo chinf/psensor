@@ -44,6 +44,7 @@ psensor_SOURCES = \
 	ui_appindicator.h \
 	ui_color.h ui_color.c \
 	ui_graph.h ui_graph.c \
+	ui_notify.h \
 	ui_pref.h ui_pref.c \
 	ui_sensorlist.h ui_sensorlist.c \
 	ui_sensorpref.h ui_sensorpref.c \
@@ -56,7 +57,7 @@ LIBS += $(GTOP_LIBS)
 endif
 
 if LIBNOTIFY
-psensor_SOURCES += ui_notify.h ui_notify.c
+psensor_SOURCES += ui_notify.c
 LIBS += $(LIBNOTIFY_LIBS)
 AM_CPPFLAGS += $(LIBNOTIFY_CFLAGS)
 endif

@@ -19,9 +19,16 @@
 #ifndef _PSENSOR_UI_NOTIFY_H_
 #define _PSENSOR_UI_NOTIFY_H_
 
-#include "psensor.h"
-#include "ui.h"
+#include <ui.h>
 
-void ui_notify(struct psensor *sensor, struct ui_psensor *ui);
+#if defined(HAVE_LIBNOTIFY) && HAVE_LIBNOTIFY
+
+void ui_notify(struct psensor *, struct ui_psensor *);
+
+#else
+
+static inline void ui_notify(struct psensor *s, struct ui_psensor *u) {}
+
+#endif
 
 #endif

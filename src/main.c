@@ -44,6 +44,7 @@
 #include "slog.h"
 #include "ui_pref.h"
 #include "ui_graph.h"
+#include <ui_notify.h>
 #include "ui_status.h"
 
 #ifdef HAVE_UNITY
@@ -63,10 +64,6 @@
 #endif
 
 #include "ui_appindicator.h"
-
-#ifdef HAVE_LIBNOTIFY
-#include "ui_notify.h"
-#endif
 
 #ifdef HAVE_GTOP
 #include <pgtop2.h>
@@ -251,10 +248,8 @@ static gboolean ui_refresh_thread(gpointer data)
 
 static void cb_alarm_raised(struct psensor *sensor, void *data)
 {
-#ifdef HAVE_LIBNOTIFY
 	if (sensor->alarm_enabled)
 		ui_notify(sensor, (struct ui_psensor *)data);
-#endif
 
 	notify_cmd(sensor);
 }
