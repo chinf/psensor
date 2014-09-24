@@ -774,7 +774,7 @@ GSettings *config_get_GSettings(void)
 	return settings;
 }
 
-bool config_is_lmsensor_enabled()
+bool config_is_lmsensor_enabled(void)
 {
 	return get_bool(KEY_PROVIDER_LMSENSORS_ENABLED);
 }
