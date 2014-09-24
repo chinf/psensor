@@ -159,11 +159,11 @@ struct psensor **psensor_list_add(struct psensor **sensors,
 				  struct psensor *sensor)
 {
 	int size;
+	struct psensor **result;
 
 	size = psensor_list_size(sensors);
 
-	struct psensor **result
-	    = malloc((size + 1 + 1) * sizeof(struct psensor *));
+	result = malloc((size + 1 + 1) * sizeof(struct psensor *));
 
 	if (sensors)
 		memcpy(result, sensors, size * sizeof(struct psensor *));
