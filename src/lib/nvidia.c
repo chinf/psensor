@@ -38,6 +38,16 @@ static Display *display;
 
 static const char *PROVIDER_NAME = "nvctrl";
 
+static void set_nvidia_id(struct psensor *s, int id)
+{
+	*(int *)s->provider_data = id;
+}
+
+static int get_nvidia_id(struct psensor *s)
+{
+	return *(int *)s->provider_data;
+}
+
 static char *get_product_name(int id, int type)
 {
 	char *name;
@@ -220,15 +230,18 @@ static double get_value(int id, int type)
 static void update(struct psensor *sensor)
 {
 	double v;
+	int id;
 
-	v = get_value(sensor->nvidia_id, sensor->type);
+	id = get_nvidia_id(sensor);
+
+	v = get_value(id, sensor->type);
 
 	if (v == UNKNOWN_DBL_VALUE)
 		log_err(_("%s: Failed to retrieve measure of type %x "
 			  "for NVIDIA GPU %d"),
 			PROVIDER_NAME,
 			sensor->type,
-			sensor->nvidia_id);
+			id);
 	psensor_set_current_value(sensor, v);
 }
 
@@ -277,7 +290,8 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	sprintf(sid, "%s %s", PROVIDER_NAME, name);
 
 	s = psensor_create(sid, name, pname, type, value_len);
-	s->nvidia_id = id;
+	s->provider_data = malloc(sizeof(int));
+	set_nvidia_id(s, id);
 
 	free(strnid);
 

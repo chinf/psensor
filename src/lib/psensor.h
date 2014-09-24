@@ -115,10 +115,6 @@ struct psensor {
 	void (*cb_alarm_raised)(struct psensor *, void *);
 	void *cb_alarm_raised_data;
 
-#ifdef HAVE_NVIDIA
-	/* Nvidia id for the nvctrl */
-	int nvidia_id;
-#endif
 #ifdef HAVE_LIBATIADL
 	/* AMD id for the aticonfig */
 	int amd_id;
