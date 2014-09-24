@@ -23,9 +23,10 @@
 #include <ui.h>
 #include <cfg.h>
 #include <graph.h>
+#include <nvidia.h>
+#include <pxdg.h>
 #include <ui_pref.h>
 #include <ui_color.h>
-#include <pxdg.h>
 
 GdkRGBA color_to_GdkRGBA(struct color *color)
 {
@@ -192,12 +193,14 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_nvctrl
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "nvctrl"));
-#if !HAVE_NVIDIA
-	gtk_widget_set_sensitive(GTK_WIDGET(w_nvctrl), 0);
-	gtk_widget_set_has_tooltip(GTK_WIDGET(w_nvctrl), TRUE);
-#else
-	gtk_widget_set_has_tooltip(GTK_WIDGET(w_nvctrl), FALSE);
-#endif
+
+	if (nvidia_is_supported()) {
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_nvctrl), FALSE);
+	} else {
+		gtk_widget_set_sensitive(GTK_WIDGET(w_nvctrl), 0);
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_nvctrl), TRUE);
+	}
+
 	gtk_toggle_button_set_active(w_nvctrl, config_is_nvctrl_enabled());
 
 	w_atiadlsdk
