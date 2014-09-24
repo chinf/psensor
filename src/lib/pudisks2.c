@@ -40,7 +40,7 @@ struct udisks_data {
 	struct timeval last_smart_update;
 };
 
-void udisks_data_free(void *data)
+static void udisks_data_free(void *data)
 {
 	struct udisks_data *u;
 
