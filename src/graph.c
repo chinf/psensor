@@ -31,9 +31,9 @@
 #include <psensor.h>
 
 /* horizontal padding */
-const int GRAPH_H_PADDING = 4;
+static const int GRAPH_H_PADDING = 4;
 /* vertical padding */
-const int GRAPH_V_PADDING = 4;
+static const int GRAPH_V_PADDING = 4;
 
 bool is_smooth_curves_enabled;
 
