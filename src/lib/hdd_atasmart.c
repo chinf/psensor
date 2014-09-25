@@ -47,6 +47,16 @@ static int filter_sd(const char *p)
 	return strlen(p) == 8 && !strncmp(p, "/dev/sd", 7);
 }
 
+static void provider_data_free(void *data)
+{
+	sk_disk_free((SkDisk *)data);
+}
+
+static SkDisk *get_disk(struct psensor *s)
+{
+	return (SkDisk *)s->provider_data;
+}
+
 static struct psensor *
 create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 {
@@ -61,7 +71,8 @@ create_sensor(char *id, char *name, SkDisk *disk, int values_max_length)
 			   t,
 			   values_max_length);
 
-	s->disk = disk;
+	s->provider_data = disk;
+	s->provider_data_free_fct = &provider_data_free;
 
 	return s;
 }
@@ -159,16 +170,19 @@ void atasmart_psensor_list_update(struct psensor **sensors)
 	uint64_t kelvin;
 	int ret;
 	double c;
+	SkDisk *disk;
 
 	cur = sensors;
 	while (*cur) {
 		s = *cur;
 		if (!(s->type & SENSOR_TYPE_REMOTE)
 		    && s->type & SENSOR_TYPE_ATASMART) {
-			ret = sk_disk_smart_read_data(s->disk);
+			disk = get_disk(s);
+
+			ret = sk_disk_smart_read_data(disk);
 
 			if (!ret) {
-				ret = sk_disk_smart_get_temperature(s->disk,
+				ret = sk_disk_smart_get_temperature(disk,
 								    &kelvin);
 
 				if (!ret) {

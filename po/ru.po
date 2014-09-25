@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-25 12:21+0200\n"
+"POT-Creation-Date: 2014-09-25 17:58+0200\n"
 "PO-Revision-Date: 2014-09-11 21:23+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Russian\n"
@@ -440,11 +440,11 @@ msgstr ""
 msgid "Number of active AMD/ATI adapters: %d"
 msgstr ""
 
-#: src/lib/hdd_atasmart.c:60 src/lib/hdd_hddtemp.c:125
+#: src/lib/hdd_atasmart.c:70 src/lib/hdd_hddtemp.c:125
 msgid "Disk"
 msgstr ""
 
-#: src/lib/hdd_atasmart.c:142
+#: src/lib/hdd_atasmart.c:153
 #, fuzzy, c-format
 msgid "%s: sk_disk_open() failure: %s."
 msgstr "atasmart: ошибка sk_disk_open(): %s."
