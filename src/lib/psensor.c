@@ -23,6 +23,8 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
+#include <stdio.h>
+
 #include <hdd.h>
 #include <psensor.h>
 #include <temperature.h>

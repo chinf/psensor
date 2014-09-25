@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 18:26+0200\n"
+"POT-Creation-Date: 2014-09-23 21:45+0200\n"
 "PO-Revision-Date: 2014-09-21 06:25+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -87,7 +87,7 @@ msgstr "Maks"
 msgid "Color"
 msgstr "Boja"
 
-#: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:787
+#: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:788
 #: src/glade/sensor-edit.glade:412
 msgid "Graph"
 msgstr "Grafikon"
@@ -129,167 +129,197 @@ msgstr "Omogući izbornik"
 msgid "Enable Unity Launcher counter"
 msgstr "Omogući brojač Unity pokretača"
 
-#: src/glade/psensor-pref.glade:214
+#: src/glade/psensor-pref.glade:190
+#, fuzzy
+msgid "Psensor has not been build with Unity Launcher support"
+msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
+
+#: src/glade/psensor-pref.glade:215
 msgid "Celsius"
 msgstr "Celzijus"
 
-#: src/glade/psensor-pref.glade:215
+#: src/glade/psensor-pref.glade:216
 msgid "Fahrenheit"
 msgstr "Farenhajt"
 
-#: src/glade/psensor-pref.glade:259
+#: src/glade/psensor-pref.glade:260
 msgid "Temperature unit:"
 msgstr "Jedinica temperature:"
 
-#: src/glade/psensor-pref.glade:277
+#: src/glade/psensor-pref.glade:278
 msgid "Position of sensors table:"
 msgstr "Položaj okvira senzora:"
 
-#: src/glade/psensor-pref.glade:296
+#: src/glade/psensor-pref.glade:297
 msgid "Interface"
 msgstr "Sučelje"
 
-#: src/glade/psensor-pref.glade:312
+#: src/glade/psensor-pref.glade:313
 msgid "Launch on session startup"
 msgstr "Pokreni pri pokretanju sesije"
 
-#: src/glade/psensor-pref.glade:333
+#: src/glade/psensor-pref.glade:334
 msgid "Hide window on startup"
 msgstr "Sakrij prozor pri pokretanju"
 
-#: src/glade/psensor-pref.glade:353
+#: src/glade/psensor-pref.glade:354
 msgid "Restore window position and size"
 msgstr "Vrati položaj i veličinu prozora"
 
-#: src/glade/psensor-pref.glade:384
+#: src/glade/psensor-pref.glade:385
 msgid "Startup"
 msgstr "Pokretanje"
 
-#: src/glade/psensor-pref.glade:428
+#: src/glade/psensor-pref.glade:429
 msgid "Foreground:"
 msgstr "Prednji plan:"
 
-#: src/glade/psensor-pref.glade:446
+#: src/glade/psensor-pref.glade:447
 msgid "Background:"
 msgstr "Pozadina:"
 
-#: src/glade/psensor-pref.glade:482
+#: src/glade/psensor-pref.glade:483
 msgid "Background opacity:"
 msgstr "Prozirnost pozadine:"
 
-#: src/glade/psensor-pref.glade:500
+#: src/glade/psensor-pref.glade:501
 msgid "Colors"
 msgstr "Boje"
 
-#: src/glade/psensor-pref.glade:521
+#: src/glade/psensor-pref.glade:522
 msgid "Monitoring duration:"
 msgstr "Trajanje nadziranja:"
 
-#: src/glade/psensor-pref.glade:539
+#: src/glade/psensor-pref.glade:540
 msgid "Update interval:"
 msgstr "Razdoblje ažuriranja:"
 
-#: src/glade/psensor-pref.glade:557
+#: src/glade/psensor-pref.glade:558
 msgid "Measures"
 msgstr "Mjere"
 
-#: src/glade/psensor-pref.glade:584
+#: src/glade/psensor-pref.glade:585
 msgid "<i>Min</i>"
 msgstr "<i>Min</i>"
 
-#: src/glade/psensor-pref.glade:611
+#: src/glade/psensor-pref.glade:612
 msgid "<i>Max</i>"
 msgstr "<i>Maks</i>"
 
-#: src/glade/psensor-pref.glade:664 src/glade/psensor-pref.glade:851
+#: src/glade/psensor-pref.glade:665 src/glade/psensor-pref.glade:852
 msgid "second(s)"
 msgstr "sekunda(i)"
 
-#: src/glade/psensor-pref.glade:716
+#: src/glade/psensor-pref.glade:717
 msgid "minute(s)"
 msgstr "minuta(e)"
 
-#: src/glade/psensor-pref.glade:734
+#: src/glade/psensor-pref.glade:735
 msgid "Smooth curves"
 msgstr "Zaglađene krivulje"
 
-#: src/glade/psensor-pref.glade:761
+#: src/glade/psensor-pref.glade:762
 msgid "Curves"
 msgstr "Krivulje"
 
-#: src/glade/psensor-pref.glade:814
+#: src/glade/psensor-pref.glade:815
 msgid "Measure update interval:"
 msgstr "Razdoblje ažuriranja mjera:"
 
-#: src/glade/psensor-pref.glade:862
+#: src/glade/psensor-pref.glade:863
 msgid "Enable sensors logging"
 msgstr "Omogući zapisivanje sensora"
 
-#: src/glade/psensor-pref.glade:909
+#: src/glade/psensor-pref.glade:910
 msgid "Sensors logging interval:"
 msgstr "Razdoblje zapisivanja senzora:"
 
-#: src/glade/psensor-pref.glade:926
+#: src/glade/psensor-pref.glade:927
 msgid "seconds(s)"
 msgstr "sekunda(i)"
 
-#: src/glade/psensor-pref.glade:943
+#: src/glade/psensor-pref.glade:944
 msgid "Script executed when an alarm is raised:"
 msgstr "Skripta za izvršavanje kada se alarm upali"
 
-#: src/glade/psensor-pref.glade:984
+#: src/glade/psensor-pref.glade:985
 msgid "Sensors"
 msgstr "Senzori"
 
-#: src/glade/psensor-pref.glade:1002
+#: src/glade/psensor-pref.glade:1003
 msgid "Enable support of lm-sensors"
 msgstr "Omogući podršku za lm-sensors"
 
-#: src/glade/psensor-pref.glade:1022
+#: src/glade/psensor-pref.glade:1023
 msgid "Enable support of NVCtrl (NVidia)"
 msgstr "Omogući podršku za NVCtrl (NVidia)"
 
-#: src/glade/psensor-pref.glade:1042
+#: src/glade/psensor-pref.glade:1027
+#, fuzzy
+msgid "Psensor has not been build with NVCtrl support"
+msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
+
+#: src/glade/psensor-pref.glade:1044
 msgid "Enable support of ATI ADL"
 msgstr "Omogući podršku za ATI ADL"
 
-#: src/glade/psensor-pref.glade:1062
+#: src/glade/psensor-pref.glade:1048
+#, fuzzy
+msgid "Psensor has not been build with ATI ADL support"
+msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
+
+#: src/glade/psensor-pref.glade:1065
 msgid "Enable support of gtop2"
 msgstr "Omogući podršku za gtop2"
 
-#: src/glade/psensor-pref.glade:1082
+#: src/glade/psensor-pref.glade:1069
+#, fuzzy
+msgid "Psensor has not been build with gtop2 support"
+msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
+
+#: src/glade/psensor-pref.glade:1086
 msgid "Enable support of hddtemp daemon"
 msgstr "Omogući podršku za hddtemp daemon"
 
-#: src/glade/psensor-pref.glade:1102
+#: src/glade/psensor-pref.glade:1106
 msgid "Enable support of libatasmart"
 msgstr "Omogući podršku za libatasmart"
 
-#: src/glade/psensor-pref.glade:1122
+#: src/glade/psensor-pref.glade:1110
+#, fuzzy
+msgid "Psensor has not been build with libatasmart support"
+msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
+
+#: src/glade/psensor-pref.glade:1127
 msgid "Enable support of udisks2"
 msgstr "Omogući podršku za udisks2"
 
-#: src/glade/psensor-pref.glade:1149
+#: src/glade/psensor-pref.glade:1131
+#, fuzzy
+msgid "Psensor has not been build with udisks2 support"
+msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
+
+#: src/glade/psensor-pref.glade:1155
 msgid "The changes are applied after the restart of psensor."
 msgstr "Promjene će biti primjenjene nakon ponovnog pokretanja psensora."
 
-#: src/glade/psensor-pref.glade:1171
+#: src/glade/psensor-pref.glade:1177
 msgid "Hard disk drive"
 msgstr "Čvrsti disk"
 
-#: src/glade/psensor-pref.glade:1194
+#: src/glade/psensor-pref.glade:1200
 msgid "CPU and memory usage"
 msgstr "Korištenje CPU-a i memorije"
 
-#: src/glade/psensor-pref.glade:1217
+#: src/glade/psensor-pref.glade:1223
 msgid "GPU with proprietary driver"
 msgstr "GPU s vlasničkim upravljačkim programima"
 
-#: src/glade/psensor-pref.glade:1240
+#: src/glade/psensor-pref.glade:1246
 msgid "Motherboard, CPU and GPU"
 msgstr "Matična ploča, CPU i GPU"
 
-#: src/glade/psensor-pref.glade:1263
+#: src/glade/psensor-pref.glade:1269
 msgid "Providers"
 msgstr ""
 
@@ -367,11 +397,16 @@ msgstr "Alarm"
 msgid "Display sensor in the menu"
 msgstr "Prikaži senzor u izbrniku"
 
-#: src/glade/sensor-edit.glade:650
+#: src/glade/sensor-edit.glade:633 src/glade/sensor-edit.glade:655
+#, fuzzy
+msgid "Psensor has not been build with AppIndicator support"
+msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
+
+#: src/glade/sensor-edit.glade:651
 msgid "Display sensor in the label (experimental)"
 msgstr "Prikaži senzor u oznaci (eksperimentalno)"
 
-#: src/glade/sensor-edit.glade:682
+#: src/glade/sensor-edit.glade:684
 msgid "Application Indicator"
 msgstr "Programičić pokazivača"
 
@@ -625,11 +660,11 @@ msgstr "Pokušajte `%s --help` za više informacija.\n"
 msgid "A Psensor instance already exists."
 msgstr "Psensor primjerak je već pokrenut."
 
-#: src/main.c:631
+#: src/main.c:620
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Neuspjelo stvaranje niza za nadziranje senzora"
 
-#: src/main.c:654 src/ui.c:97
+#: src/main.c:643 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -781,6 +816,6 @@ msgstr "Upozorenje temperature"
 msgid "Fan speed alert"
 msgstr "Upozorenje brzine ventilatora"
 
-#: src/ui_sensorpref.c:248
+#: src/ui_sensorpref.c:247
 msgid "Unknown"
 msgstr "Nepoznato"

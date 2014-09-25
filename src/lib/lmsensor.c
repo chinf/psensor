@@ -33,6 +33,35 @@ static int init_done;
 
 static const char *PROVIDER_NAME = "lmsensor";
 
+struct lmsensor_data {
+	const sensors_chip_name *chip;
+
+	const sensors_feature *feature;
+};
+
+static const sensors_chip_name *get_chip_name(struct psensor *s)
+{
+	return ((struct lmsensor_data *)s->provider_data)->chip;
+}
+
+static const sensors_feature *get_feature(struct psensor *s)
+{
+	return ((struct lmsensor_data *)s->provider_data)->feature;
+}
+
+static void lmsensor_data_set(struct psensor *s,
+			      const struct sensors_chip_name *chip,
+			      const struct sensors_feature *feature)
+{
+	struct lmsensor_data *data;
+
+	data = malloc(sizeof(struct lmsensor_data));
+	data->chip = chip;
+	data->feature = feature;
+
+	s->provider_data = data;
+}
+
 static double get_value(const sensors_chip_name *name,
 			const sensors_subfeature *sub)
 {
@@ -58,10 +87,10 @@ static double get_temp_input(struct psensor *sensor)
 
 	const sensors_feature *feature;
 
-	chip = sensor->iname;
-	feature = sensor->feature;
+	chip = get_chip_name(sensor);
+	feature = get_feature(sensor);
 
-	sf = sensors_get_subfeature(sensor->iname,
+	sf = sensors_get_subfeature(chip,
 				    feature,
 				    SENSORS_SUBFEATURE_TEMP_INPUT);
 	if (sf)
@@ -72,10 +101,13 @@ static double get_temp_input(struct psensor *sensor)
 
 static double get_fan_input(struct psensor *sensor)
 {
-	const sensors_chip_name *chip = sensor->iname;
-	const sensors_feature *feature = sensor->feature;
+	const sensors_chip_name *chip;
+	const sensors_feature *feature;
 
 	const sensors_subfeature *sf;
+
+	chip = get_chip_name(sensor);
+	feature = get_feature(sensor);
 
 	sf = sensors_get_subfeature(chip,
 				    feature,
@@ -179,8 +211,7 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 
 	psensor = psensor_create(id, label, cname, type, values_max_length);
 
-	psensor->iname = chip;
-	psensor->feature = feature;
+	lmsensor_data_set(psensor, chip, feature);
 
 	if (feature->type == SENSORS_FEATURE_TEMP
 	    && (get_temp_input(psensor) == UNKNOWN_DBL_VALUE)) {

@@ -691,6 +691,8 @@ X11_TRUE
 X11_LIBS
 X11_CFLAGS
 SENSORS_LIBS
+SENSORS_FALSE
+SENSORS_TRUE
 PTHREAD_LIBS
 GSETTINGS_RULES
 GLIB_COMPILE_SCHEMAS
@@ -7124,11 +7126,9 @@ fi
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_sensors_sensors_init" >&5
 $as_echo "$ac_cv_lib_sensors_sensors_init" >&6; }
 if test "x$ac_cv_lib_sensors_sensors_init" = xyes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_LIBSENSORS 1
-_ACEOF
+  SENSORS_LIBS=-lsensors
 
-  LIBS="-lsensors $LIBS"
+$as_echo "#define HAVE_LIBSENSORS 1" >>confdefs.h
 
 fi
 
@@ -7145,7 +7145,14 @@ fi
 
 done
 
-SENSORS_LIBS=-lsensors
+ if test -n "$SENSORS_LIBS"; then
+  SENSORS_TRUE=
+  SENSORS_FALSE='#'
+else
+  SENSORS_TRUE='#'
+  SENSORS_FALSE=
+fi
+
 
 
 ############### psensor
@@ -8740,6 +8747,10 @@ Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${am__fastdepCC_TRUE}" && test -z "${am__fastdepCC_FALSE}"; then
   as_fn_error $? "conditional \"am__fastdepCC\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${SENSORS_TRUE}" && test -z "${SENSORS_FALSE}"; then
+  as_fn_error $? "conditional \"SENSORS\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 if test -z "${X11_TRUE}" && test -z "${X11_FALSE}"; then

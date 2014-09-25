@@ -19,8 +19,6 @@
 #ifndef _PSENSOR_PSENSOR_H_
 #define _PSENSOR_PSENSOR_H_
 
-#include <sensors/sensors.h>
-
 #include <config.h>
 
 #ifdef HAVE_ATASMART
@@ -77,11 +75,6 @@ struct psensor {
 
 	/* Name of the chip. */
 	char *chip;
-
-	/* lm-sensor */
-	const sensors_chip_name *iname;
-
-	const sensors_feature *feature;
 
 	/* Maximum length of 'values' */
 	int values_max_length;

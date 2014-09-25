@@ -40,9 +40,11 @@ PTHREAD_LIBS=-pthread
 AC_SUBST(PTHREAD_LIBS)
 
 # Checks sensors, required by psensor and psensor-server
-AC_CHECK_LIB(sensors, sensors_init)
+AC_CHECK_LIB(sensors, sensors_init,
+             [SENSORS_LIBS=-lsensors
+	      AC_DEFINE([HAVE_LIBSENSORS],[1],[Use libsensors])])
 AC_CHECK_HEADERS([sensors/sensors.h sensors/error.h])
-SENSORS_LIBS=-lsensors
+AM_CONDITIONAL(SENSORS, test -n "$SENSORS_LIBS")
 AC_SUBST(SENSORS_LIBS)
 
 ############### psensor 

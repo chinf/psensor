@@ -58,7 +58,7 @@
 /* Define to 1 if you have the `pthread' library (-lpthread). */
 #undef HAVE_LIBPTHREAD
 
-/* Define to 1 if you have the `sensors' library (-lsensors). */
+/* Use libsensors */
 #undef HAVE_LIBSENSORS
 
 /* Use libudisks */

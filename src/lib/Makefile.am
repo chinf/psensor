@@ -5,8 +5,8 @@ libpsensor_a_SOURCES = \
 	bool.h\
 	color.h color.c\
 	hdd.h hdd_hddtemp.c\
-	lmsensor.h lmsensor.c\
-	measure.h measure.c \
+	lmsensor.h\
+	measure.h measure.c\
 	nvidia.h\
 	plog.h plog.c\
 	pmutex.h pmutex.c\
@@ -18,6 +18,11 @@ libpsensor_a_SOURCES = \
 	url.c url.h
 
 AM_CPPFLAGS = -Wall -Werror
+
+if SENSORS
+libpsensor_a_SOURCES += lmsensor.c
+LIBS += $(SENSORS_LIBS)
+endif
 
 if ATASMART
 libpsensor_a_SOURCES += hdd_atasmart.c
@@ -56,5 +61,6 @@ endif
 EXTRA_DIST=$(libpsensor_a_SOURCES) \
 	amd.c \
 	pgtop2.c pgtop2.h \
+	lmsensors.c \
 	nvidia.c \
 	pudisks2.c pudisks2.h

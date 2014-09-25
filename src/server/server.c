@@ -465,7 +465,7 @@ int main(int argc, char *argv[])
 	psensor_free(server_data.cpu_usage);
 #endif
 	free(server_data.www_dir);
-	sensors_cleanup();
+	lmsensor_cleanup();
 
 #ifdef HAVE_GTOP
 	sysinfo_cleanup();

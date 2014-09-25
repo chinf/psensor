@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 18:26+0200\n"
+"POT-Creation-Date: 2014-09-23 21:45+0200\n"
 "PO-Revision-Date: 2014-09-20 11:27+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -87,7 +87,7 @@ msgstr "Azami"
 msgid "Color"
 msgstr "Renk"
 
-#: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:787
+#: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:788
 #: src/glade/sensor-edit.glade:412
 msgid "Graph"
 msgstr "Grafik"
@@ -129,167 +129,197 @@ msgstr "Menüyü etkinleştir"
 msgid "Enable Unity Launcher counter"
 msgstr "Unity Başlatıcı sayacını etkinleştir"
 
-#: src/glade/psensor-pref.glade:214
+#: src/glade/psensor-pref.glade:190
+#, fuzzy
+msgid "Psensor has not been build with Unity Launcher support"
+msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
+
+#: src/glade/psensor-pref.glade:215
 msgid "Celsius"
 msgstr "Celsius"
 
-#: src/glade/psensor-pref.glade:215
+#: src/glade/psensor-pref.glade:216
 msgid "Fahrenheit"
 msgstr "Fahrenhayt"
 
-#: src/glade/psensor-pref.glade:259
+#: src/glade/psensor-pref.glade:260
 msgid "Temperature unit:"
 msgstr "Sıcaklık birimi:"
 
-#: src/glade/psensor-pref.glade:277
+#: src/glade/psensor-pref.glade:278
 msgid "Position of sensors table:"
 msgstr "Gözlemleyici tablosunun konumu:"
 
-#: src/glade/psensor-pref.glade:296
+#: src/glade/psensor-pref.glade:297
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/glade/psensor-pref.glade:312
+#: src/glade/psensor-pref.glade:313
 msgid "Launch on session startup"
 msgstr "Oturum başlangıcında başlat"
 
-#: src/glade/psensor-pref.glade:333
+#: src/glade/psensor-pref.glade:334
 msgid "Hide window on startup"
 msgstr "Başlangıçta pencereyi gizle"
 
-#: src/glade/psensor-pref.glade:353
+#: src/glade/psensor-pref.glade:354
 msgid "Restore window position and size"
 msgstr "Pencere konumunu ve boyutunu yeniden yükle"
 
-#: src/glade/psensor-pref.glade:384
+#: src/glade/psensor-pref.glade:385
 msgid "Startup"
 msgstr "Başlangıç"
 
-#: src/glade/psensor-pref.glade:428
+#: src/glade/psensor-pref.glade:429
 msgid "Foreground:"
 msgstr "Önplan:"
 
-#: src/glade/psensor-pref.glade:446
+#: src/glade/psensor-pref.glade:447
 msgid "Background:"
 msgstr "Arkaplan:"
 
-#: src/glade/psensor-pref.glade:482
+#: src/glade/psensor-pref.glade:483
 msgid "Background opacity:"
 msgstr "Arkaplan saydamlığı:"
 
-#: src/glade/psensor-pref.glade:500
+#: src/glade/psensor-pref.glade:501
 msgid "Colors"
 msgstr "Renk"
 
-#: src/glade/psensor-pref.glade:521
+#: src/glade/psensor-pref.glade:522
 msgid "Monitoring duration:"
 msgstr "Gözlemleme süresi:"
 
-#: src/glade/psensor-pref.glade:539
+#: src/glade/psensor-pref.glade:540
 msgid "Update interval:"
 msgstr "Güncelleme aralığı:"
 
-#: src/glade/psensor-pref.glade:557
+#: src/glade/psensor-pref.glade:558
 msgid "Measures"
 msgstr "Ölçümler"
 
-#: src/glade/psensor-pref.glade:584
+#: src/glade/psensor-pref.glade:585
 msgid "<i>Min</i>"
 msgstr "<i>Asgari</i>"
 
-#: src/glade/psensor-pref.glade:611
+#: src/glade/psensor-pref.glade:612
 msgid "<i>Max</i>"
 msgstr "<i>Azami</i>"
 
-#: src/glade/psensor-pref.glade:664 src/glade/psensor-pref.glade:851
+#: src/glade/psensor-pref.glade:665 src/glade/psensor-pref.glade:852
 msgid "second(s)"
 msgstr "saniye"
 
-#: src/glade/psensor-pref.glade:716
+#: src/glade/psensor-pref.glade:717
 msgid "minute(s)"
 msgstr "dakika"
 
-#: src/glade/psensor-pref.glade:734
+#: src/glade/psensor-pref.glade:735
 msgid "Smooth curves"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:761
+#: src/glade/psensor-pref.glade:762
 msgid "Curves"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:814
+#: src/glade/psensor-pref.glade:815
 msgid "Measure update interval:"
 msgstr "Ölçüm güncelleştirme aralığı:"
 
-#: src/glade/psensor-pref.glade:862
+#: src/glade/psensor-pref.glade:863
 msgid "Enable sensors logging"
 msgstr "Algılayıcı günlük kaydını etkinleştir"
 
-#: src/glade/psensor-pref.glade:909
+#: src/glade/psensor-pref.glade:910
 msgid "Sensors logging interval:"
 msgstr "Algılayıcı günlük kaydı aralığı:"
 
-#: src/glade/psensor-pref.glade:926
+#: src/glade/psensor-pref.glade:927
 msgid "seconds(s)"
 msgstr "saniye"
 
-#: src/glade/psensor-pref.glade:943
+#: src/glade/psensor-pref.glade:944
 msgid "Script executed when an alarm is raised:"
 msgstr "Alarm çaldığında betik çalıştırılır:"
 
-#: src/glade/psensor-pref.glade:984
+#: src/glade/psensor-pref.glade:985
 msgid "Sensors"
 msgstr "Algılayıcılar"
 
-#: src/glade/psensor-pref.glade:1002
+#: src/glade/psensor-pref.glade:1003
 msgid "Enable support of lm-sensors"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1022
+#: src/glade/psensor-pref.glade:1023
 msgid "Enable support of NVCtrl (NVidia)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1042
+#: src/glade/psensor-pref.glade:1027
+#, fuzzy
+msgid "Psensor has not been build with NVCtrl support"
+msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
+
+#: src/glade/psensor-pref.glade:1044
 msgid "Enable support of ATI ADL"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1062
+#: src/glade/psensor-pref.glade:1048
+#, fuzzy
+msgid "Psensor has not been build with ATI ADL support"
+msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
+
+#: src/glade/psensor-pref.glade:1065
 msgid "Enable support of gtop2"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1082
+#: src/glade/psensor-pref.glade:1069
+#, fuzzy
+msgid "Psensor has not been build with gtop2 support"
+msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
+
+#: src/glade/psensor-pref.glade:1086
 msgid "Enable support of hddtemp daemon"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1102
+#: src/glade/psensor-pref.glade:1106
 msgid "Enable support of libatasmart"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1122
+#: src/glade/psensor-pref.glade:1110
+#, fuzzy
+msgid "Psensor has not been build with libatasmart support"
+msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
+
+#: src/glade/psensor-pref.glade:1127
 msgid "Enable support of udisks2"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1149
+#: src/glade/psensor-pref.glade:1131
+#, fuzzy
+msgid "Psensor has not been build with udisks2 support"
+msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
+
+#: src/glade/psensor-pref.glade:1155
 msgid "The changes are applied after the restart of psensor."
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1171
+#: src/glade/psensor-pref.glade:1177
 msgid "Hard disk drive"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1194
+#: src/glade/psensor-pref.glade:1200
 msgid "CPU and memory usage"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1217
+#: src/glade/psensor-pref.glade:1223
 msgid "GPU with proprietary driver"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1240
+#: src/glade/psensor-pref.glade:1246
 msgid "Motherboard, CPU and GPU"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1263
+#: src/glade/psensor-pref.glade:1269
 msgid "Providers"
 msgstr ""
 
@@ -368,12 +398,17 @@ msgstr "Alarm"
 msgid "Display sensor in the menu"
 msgstr "Algılayıcıları menüde göster"
 
-#: src/glade/sensor-edit.glade:650
+#: src/glade/sensor-edit.glade:633 src/glade/sensor-edit.glade:655
+#, fuzzy
+msgid "Psensor has not been build with AppIndicator support"
+msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
+
+#: src/glade/sensor-edit.glade:651
 #, fuzzy
 msgid "Display sensor in the label (experimental)"
 msgstr "Etikette algılayıcı göster (deneysel)"
 
-#: src/glade/sensor-edit.glade:682
+#: src/glade/sensor-edit.glade:684
 msgid "Application Indicator"
 msgstr "Uygulama Göstergesi"
 
@@ -627,12 +662,12 @@ msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
 msgid "A Psensor instance already exists."
 msgstr "Bir Psensor örneği zaten mevcut."
 
-#: src/main.c:631
+#: src/main.c:620
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Web sunucusu oluşturulamadı."
 
-#: src/main.c:654 src/ui.c:97
+#: src/main.c:643 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -790,7 +825,7 @@ msgstr "Sıcaklık uyarısı"
 msgid "Fan speed alert"
 msgstr "Fan uyarısı"
 
-#: src/ui_sensorpref.c:248
+#: src/ui_sensorpref.c:247
 msgid "Unknown"
 msgstr "Bilinmeyen"
 

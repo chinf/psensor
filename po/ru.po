@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-21 18:26+0200\n"
+"POT-Creation-Date: 2014-09-23 21:45+0200\n"
 "PO-Revision-Date: 2014-09-11 21:23+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Russian\n"
@@ -88,7 +88,7 @@ msgstr "Макс."
 msgid "Color"
 msgstr "Цвет"
 
-#: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:787
+#: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:788
 #: src/glade/sensor-edit.glade:412
 msgid "Graph"
 msgstr "Диаграмма"
@@ -130,167 +130,197 @@ msgstr "Включить меню"
 msgid "Enable Unity Launcher counter"
 msgstr "Включить счётчик в панеле запуска Unity"
 
-#: src/glade/psensor-pref.glade:214
+#: src/glade/psensor-pref.glade:190
+#, fuzzy
+msgid "Psensor has not been build with Unity Launcher support"
+msgstr "Psensor не был собран с поддержкой удалённых датчиков."
+
+#: src/glade/psensor-pref.glade:215
 msgid "Celsius"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:215
+#: src/glade/psensor-pref.glade:216
 msgid "Fahrenheit"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:259
+#: src/glade/psensor-pref.glade:260
 msgid "Temperature unit:"
 msgstr "Единица измерения температуры:"
 
-#: src/glade/psensor-pref.glade:277
+#: src/glade/psensor-pref.glade:278
 msgid "Position of sensors table:"
 msgstr "Положение таблицы датчиков:"
 
-#: src/glade/psensor-pref.glade:296
+#: src/glade/psensor-pref.glade:297
 msgid "Interface"
 msgstr "Внешний вид"
 
-#: src/glade/psensor-pref.glade:312
+#: src/glade/psensor-pref.glade:313
 msgid "Launch on session startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:333
+#: src/glade/psensor-pref.glade:334
 msgid "Hide window on startup"
 msgstr "Скрыть окно при запуске"
 
-#: src/glade/psensor-pref.glade:353
+#: src/glade/psensor-pref.glade:354
 msgid "Restore window position and size"
 msgstr "Восстанавливать положение и размер окна"
 
-#: src/glade/psensor-pref.glade:384
+#: src/glade/psensor-pref.glade:385
 msgid "Startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:428
+#: src/glade/psensor-pref.glade:429
 msgid "Foreground:"
 msgstr "Передний план:"
 
-#: src/glade/psensor-pref.glade:446
+#: src/glade/psensor-pref.glade:447
 msgid "Background:"
 msgstr "Фон:"
 
-#: src/glade/psensor-pref.glade:482
+#: src/glade/psensor-pref.glade:483
 msgid "Background opacity:"
 msgstr "Непрозрачность фона:"
 
-#: src/glade/psensor-pref.glade:500
+#: src/glade/psensor-pref.glade:501
 msgid "Colors"
 msgstr "Цвета"
 
-#: src/glade/psensor-pref.glade:521
+#: src/glade/psensor-pref.glade:522
 msgid "Monitoring duration:"
 msgstr "Время мониторинга:"
 
-#: src/glade/psensor-pref.glade:539
+#: src/glade/psensor-pref.glade:540
 msgid "Update interval:"
 msgstr "Интервал обновления:"
 
-#: src/glade/psensor-pref.glade:557
+#: src/glade/psensor-pref.glade:558
 msgid "Measures"
 msgstr "Замеры"
 
-#: src/glade/psensor-pref.glade:584
+#: src/glade/psensor-pref.glade:585
 msgid "<i>Min</i>"
 msgstr "<i>Мин.</i>"
 
-#: src/glade/psensor-pref.glade:611
+#: src/glade/psensor-pref.glade:612
 msgid "<i>Max</i>"
 msgstr "<i>Макс.</i>"
 
-#: src/glade/psensor-pref.glade:664 src/glade/psensor-pref.glade:851
+#: src/glade/psensor-pref.glade:665 src/glade/psensor-pref.glade:852
 msgid "second(s)"
 msgstr "сек."
 
-#: src/glade/psensor-pref.glade:716
+#: src/glade/psensor-pref.glade:717
 msgid "minute(s)"
 msgstr "мин."
 
-#: src/glade/psensor-pref.glade:734
+#: src/glade/psensor-pref.glade:735
 msgid "Smooth curves"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:761
+#: src/glade/psensor-pref.glade:762
 msgid "Curves"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:814
+#: src/glade/psensor-pref.glade:815
 msgid "Measure update interval:"
 msgstr "Интервал обновления замеров:"
 
-#: src/glade/psensor-pref.glade:862
+#: src/glade/psensor-pref.glade:863
 msgid "Enable sensors logging"
 msgstr "Вести журнал событий датчиков"
 
-#: src/glade/psensor-pref.glade:909
+#: src/glade/psensor-pref.glade:910
 msgid "Sensors logging interval:"
 msgstr "Интервал ведения журнала событий датчиков:"
 
-#: src/glade/psensor-pref.glade:926
+#: src/glade/psensor-pref.glade:927
 msgid "seconds(s)"
 msgstr "секунд(с)"
 
-#: src/glade/psensor-pref.glade:943
+#: src/glade/psensor-pref.glade:944
 msgid "Script executed when an alarm is raised:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:984
+#: src/glade/psensor-pref.glade:985
 msgid "Sensors"
 msgstr "Датчики"
 
-#: src/glade/psensor-pref.glade:1002
+#: src/glade/psensor-pref.glade:1003
 msgid "Enable support of lm-sensors"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1022
+#: src/glade/psensor-pref.glade:1023
 msgid "Enable support of NVCtrl (NVidia)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1042
+#: src/glade/psensor-pref.glade:1027
+#, fuzzy
+msgid "Psensor has not been build with NVCtrl support"
+msgstr "Psensor не был собран с поддержкой удалённых датчиков."
+
+#: src/glade/psensor-pref.glade:1044
 msgid "Enable support of ATI ADL"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1062
+#: src/glade/psensor-pref.glade:1048
+#, fuzzy
+msgid "Psensor has not been build with ATI ADL support"
+msgstr "Psensor не был собран с поддержкой удалённых датчиков."
+
+#: src/glade/psensor-pref.glade:1065
 msgid "Enable support of gtop2"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1082
+#: src/glade/psensor-pref.glade:1069
+#, fuzzy
+msgid "Psensor has not been build with gtop2 support"
+msgstr "Psensor не был собран с поддержкой удалённых датчиков."
+
+#: src/glade/psensor-pref.glade:1086
 msgid "Enable support of hddtemp daemon"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1102
+#: src/glade/psensor-pref.glade:1106
 msgid "Enable support of libatasmart"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1122
+#: src/glade/psensor-pref.glade:1110
+#, fuzzy
+msgid "Psensor has not been build with libatasmart support"
+msgstr "Psensor не был собран с поддержкой удалённых датчиков."
+
+#: src/glade/psensor-pref.glade:1127
 msgid "Enable support of udisks2"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1149
+#: src/glade/psensor-pref.glade:1131
+#, fuzzy
+msgid "Psensor has not been build with udisks2 support"
+msgstr "Psensor не был собран с поддержкой удалённых датчиков."
+
+#: src/glade/psensor-pref.glade:1155
 msgid "The changes are applied after the restart of psensor."
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1171
+#: src/glade/psensor-pref.glade:1177
 msgid "Hard disk drive"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1194
+#: src/glade/psensor-pref.glade:1200
 msgid "CPU and memory usage"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1217
+#: src/glade/psensor-pref.glade:1223
 msgid "GPU with proprietary driver"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1240
+#: src/glade/psensor-pref.glade:1246
 msgid "Motherboard, CPU and GPU"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1263
+#: src/glade/psensor-pref.glade:1269
 msgid "Providers"
 msgstr ""
 
@@ -369,11 +399,16 @@ msgstr "Уведомление"
 msgid "Display sensor in the menu"
 msgstr "Показать датчик в индикаторе меню приложений"
 
-#: src/glade/sensor-edit.glade:650
+#: src/glade/sensor-edit.glade:633 src/glade/sensor-edit.glade:655
+#, fuzzy
+msgid "Psensor has not been build with AppIndicator support"
+msgstr "Psensor не был собран с поддержкой удалённых датчиков."
+
+#: src/glade/sensor-edit.glade:651
 msgid "Display sensor in the label (experimental)"
 msgstr ""
 
-#: src/glade/sensor-edit.glade:682
+#: src/glade/sensor-edit.glade:684
 msgid "Application Indicator"
 msgstr "Индикатор приложения"
 
@@ -620,12 +655,12 @@ msgstr "Попробуйте `%s --help' для дополнительной и�
 msgid "A Psensor instance already exists."
 msgstr "Копия Psensor уже запущена."
 
-#: src/main.c:631
+#: src/main.c:620
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Не удалось создать веб-сервер."
 
-#: src/main.c:654 src/ui.c:97
+#: src/main.c:643 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -780,7 +815,7 @@ msgstr "Уведомление температуры"
 msgid "Fan speed alert"
 msgstr "Уведомление вентилятора"
 
-#: src/ui_sensorpref.c:248
+#: src/ui_sensorpref.c:247
 msgid "Unknown"
 msgstr ""
 

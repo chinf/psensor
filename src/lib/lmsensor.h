@@ -21,10 +21,18 @@
 
 #include <psensor.h>
 
-void lmsensor_psensor_list_update(struct psensor **sensors);
+#if defined(HAVE_LIBSENSORS) && HAVE_LIBSENSORS
 
-void lmsensor_psensor_list_append(struct psensor ***sensors, int values_length);
-
+void lmsensor_psensor_list_update(struct psensor **);
+void lmsensor_psensor_list_append(struct psensor ***, int);
 void lmsensor_cleanup(void);
+
+#else
+
+static inline void lmsensor_psensor_list_update(struct psensor **s) {}
+static inline void lmsensor_psensor_list_append(struct psensor ***s, int n) {}
+static inline void lmsensor_cleanup(void) {}
+
+#endif
 
 #endif
