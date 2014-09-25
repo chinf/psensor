@@ -21,15 +21,17 @@
 
 #include <sensors/sensors.h>
 
-#include "config.h"
+#include <config.h>
+
 #ifdef HAVE_ATASMART
 #include <atasmart.h>
 #endif
 
-#include "bool.h"
-#include "color.h"
+#include <bool.h>
+#include <color.h>
+#include <measure.h>
 #include <plog.h>
-#include "measure.h"
+
 
 enum psensor_type {
 	/* type of sensor values */
