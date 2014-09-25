@@ -19,15 +19,20 @@
 #ifndef _PSENSOR_LMSENSOR_H_
 #define _PSENSOR_LMSENSOR_H_
 
+#include <bool.h>
 #include <psensor.h>
 
 #if defined(HAVE_LIBSENSORS) && HAVE_LIBSENSORS
+
+static inline bool lmsensor_is_supported(void) { return true; }
 
 void lmsensor_psensor_list_update(struct psensor **);
 void lmsensor_psensor_list_append(struct psensor ***, int);
 void lmsensor_cleanup(void);
 
 #else
+
+static inline bool lmsensor_is_supported(void) { return false; }
 
 static inline void lmsensor_psensor_list_update(struct psensor **s) {}
 static inline void lmsensor_psensor_list_append(struct psensor ***s, int n) {}

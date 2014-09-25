@@ -23,6 +23,7 @@
 #include <ui.h>
 #include <cfg.h>
 #include <graph.h>
+#include <lmsensor.h>
 #include <nvidia.h>
 #include <pgtop2.h>
 #include <pudisks2.h>
@@ -191,6 +192,13 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "lmsensors"));
 	gtk_toggle_button_set_active(w_lmsensors, config_is_lmsensor_enabled());
+
+	if (lmsensor_is_supported()) {
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_lmsensors), FALSE);
+	} else {
+		gtk_widget_set_sensitive(GTK_WIDGET(w_lmsensors), 0);
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_lmsensors), TRUE);
+	}
 
 	w_nvctrl
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
