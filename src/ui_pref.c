@@ -19,9 +19,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <amd.h>
 #include <hdd.h>
-#include <ui.h>
+#include <amd.h>
 #include <cfg.h>
 #include <graph.h>
 #include <lmsensor.h>
@@ -29,8 +28,10 @@
 #include <pgtop2.h>
 #include <pudisks2.h>
 #include <pxdg.h>
-#include <ui_pref.h>
+#include <ui.h>
 #include <ui_color.h>
+#include <ui_pref.h>
+#include <ui_unity.h>
 
 GdkRGBA color_to_GdkRGBA(struct color *color)
 {
@@ -150,13 +151,15 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
 				     !cfg->unity_launcher_count_disabled);
 
-#if !HAVE_UNITY
-	gtk_widget_set_sensitive(GTK_WIDGET(w_enable_launcher_counter), FALSE);
-	gtk_widget_set_has_tooltip(GTK_WIDGET(w_enable_launcher_counter), TRUE);
-#else
-	gtk_widget_set_has_tooltip(GTK_WIDGET(w_enable_launcher_counter),
-				   FALSE);
-#endif
+	if (ui_unity_is_supported()) {
+		gtk_widget_set_has_tooltip
+			(GTK_WIDGET(w_enable_launcher_counter), FALSE);
+	} else {
+		gtk_widget_set_sensitive
+			(GTK_WIDGET(w_enable_launcher_counter), FALSE);
+		gtk_widget_set_has_tooltip
+			(GTK_WIDGET(w_enable_launcher_counter), TRUE);
+	}
 
 	w_smooth_curves = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "graph_smooth_curves"));

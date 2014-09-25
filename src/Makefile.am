@@ -5,6 +5,7 @@ psensor_SOURCES = \
 	notify_cmd.c notify_cmd.h \
 	graph.h graph.c \
 	main.c \
+	pxdg.h pxdg.c \
 	ui.h ui.c \
 	ui_appindicator.h \
 	ui_color.h ui_color.c \
@@ -14,7 +15,7 @@ psensor_SOURCES = \
 	ui_sensorlist.h ui_sensorlist.c \
 	ui_sensorpref.h ui_sensorpref.c \
 	ui_status.h ui_status.c \
-	pxdg.h pxdg.c
+	ui_unity.h
 
 # -export-dynamic is need for defining handlers in the glade file.
 AM_LDFLAGS = -Wl,--as-needed -export-dynamic
@@ -90,7 +91,7 @@ LIBS += $(LIBUDISKS2_LIBS)
 endif
 
 if UNITY
-psensor_SOURCES += ui_unity.h ui_unity.c
+psensor_SOURCES += ui_unity.c
 AM_CPPFLAGS += $(UNITY_CFLAGS)
 LIBS += $(UNITY_LIBS) 
 endif

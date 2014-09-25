@@ -19,10 +19,24 @@
 #ifndef _PSENSOR_UI_UNITY_H_
 #define _PSENSOR_UI_UNITY_H_
 
+#include <bool.h>
 #include <psensor.h>
 
-void ui_unity_launcher_entry_update(struct psensor **sensors,
-				    unsigned int show,
-				    int use_celsius);
+#if defined(HAVE_UNITY) && HAVE_UNITY
+
+static inline bool ui_unity_is_supported(void) { return true; }
+
+void ui_unity_launcher_entry_update(struct psensor **, unsigned int, int);
+
+#else
+
+static inline bool ui_unity_is_supported(void) { return false; }
+
+static inline void
+ui_unity_launcher_entry_update(struct psensor **s,
+			       unsigned int show,
+			       int use_celsius) {}
+
+#endif
 
 #endif

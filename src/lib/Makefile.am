@@ -61,6 +61,6 @@ endif
 EXTRA_DIST=$(libpsensor_a_SOURCES) \
 	amd.c \
 	pgtop2.c pgtop2.h \
-	lmsensors.c \
+	lmsensor.c \
 	nvidia.c \
 	pudisks2.c pudisks2.h
