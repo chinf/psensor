@@ -1,5 +1,21 @@
 SUBDIRS = lib glade
 
+psensor_SOURCES = \
+	cfg.h cfg.c \
+	notify_cmd.c notify_cmd.h \
+	graph.h graph.c \
+	main.c \
+	ui.h ui.c \
+	ui_appindicator.h \
+	ui_color.h ui_color.c \
+	ui_graph.h ui_graph.c \
+	ui_notify.h \
+	ui_pref.h ui_pref.c \
+	ui_sensorlist.h ui_sensorlist.c \
+	ui_sensorpref.h ui_sensorpref.c \
+	ui_status.h ui_status.c \
+	pxdg.h pxdg.c
+
 # -export-dynamic is need for defining handlers in the glade file.
 AM_LDFLAGS = -Wl,--as-needed -export-dynamic
 
@@ -34,22 +50,6 @@ dist_man_MANS = psensor.1
 endif
 endif
 endif
-
-psensor_SOURCES = \
-	cfg.h cfg.c \
-	notify_cmd.c notify_cmd.h \
-	graph.h graph.c \
-	main.c \
-	ui.h ui.c \
-	ui_appindicator.h \
-	ui_color.h ui_color.c \
-	ui_graph.h ui_graph.c \
-	ui_notify.h \
-	ui_pref.h ui_pref.c \
-	ui_sensorlist.h ui_sensorlist.c \
-	ui_sensorpref.h ui_sensorpref.c \
-	ui_status.h ui_status.c \
-	pxdg.h pxdg.c
 
 if GTOP
 AM_CPPFLAGS += $(GTOP_CFLAGS)
@@ -108,6 +108,12 @@ psensor.1: main.c $(top_srcdir)/configure.ac
 	help2man --include=description.txt -N --name="Temperature monitoring application" --output=psensor.1 ./psensor$(EXEEXT)
 
 gsettings_SCHEMAS=psensor.gschema.xml
-EXTRA_DIST = description.txt $(gsettings_SCHEMAS)
+
+EXTRA_DIST = description.txt\
+	$(gsettings_SCHEMAS)\
+	rsensor.h rsensor.c\
+	ui_appindicator.c\
+	ui_notify.c\
+	ui_unity.c
 
 @GSETTINGS_RULES@
