@@ -21,7 +21,23 @@
 
 #include <psensor.h>
 
-void udisks2_psensor_list_append(struct psensor ***sensors, int values_length);
-void udisks2_psensor_list_update(struct psensor **sensors);
+#if defined(HAVE_LIBUDISKS2) && HAVE_LIBUDISKS2
+
+static inline bool udisks2_is_supported(void) { return true; }
+
+void udisks2_psensor_list_append(struct psensor ***, int);
+void udisks2_psensor_list_update(struct psensor **);
+
+#else
+
+static inline bool udisks2_is_supported(void) { return false; }
+
+static inline void
+udisks2_psensor_list_append(struct psensor ***s, int n) {}
+
+static inline void
+udisks2_psensor_list_update(struct psensor **s) {}
+
+#endif
 
 #endif
