@@ -87,13 +87,13 @@ host_triplet = @host@
 @LIBATIADL_TRUE@am__append_7 = $(LIBATIADL_LIBS)
 @LIBATIADL_TRUE@am__append_8 = $(LIBATIADL_CFLAGS)
 @LIBATIADL_TRUE@am__append_9 = amd.c
-@GTOP_TRUE@am__append_10 = pgtop2.c pgtop2.h
+@GTOP_TRUE@am__append_10 = pgtop2.c
 @GTOP_TRUE@am__append_11 = $(GTOP_LIBS)
 @GTOP_TRUE@am__append_12 = $(GTOP_CFLAGS)
 @JSON_TRUE@am__append_13 = psensor_json.h psensor_json.c
 @JSON_TRUE@am__append_14 = $(JSON_LIBS)
 @JSON_TRUE@am__append_15 = $(JSON_CFLAGS)
-@LIBUDISKS2_TRUE@am__append_16 = pudisks2.c pudisks2.h
+@LIBUDISKS2_TRUE@am__append_16 = pudisks2.c
 @LIBUDISKS2_TRUE@am__append_17 = $(LIBUDISKS2_LIBS)
 @LIBUDISKS2_TRUE@am__append_18 = $(LIBUDISKS2_CFLAGS)
 subdir = src/lib
@@ -120,11 +120,11 @@ am__v_AR_1 =
 libpsensor_a_AR = $(AR) $(ARFLAGS)
 libpsensor_a_LIBADD =
 am__libpsensor_a_SOURCES_DIST = amd.h bool.h color.h color.c hdd.h \
-	hdd_hddtemp.c lmsensor.h measure.h measure.c nvidia.h plog.h \
-	plog.c pmutex.h pmutex.c psensor.h psensor.c ptime.h ptime.c \
-	pio.h pio.c slog.c slog.h temperature.c temperature.h url.c \
-	url.h lmsensor.c hdd_atasmart.c nvidia.c amd.c pgtop2.c \
-	pgtop2.h psensor_json.h psensor_json.c pudisks2.c pudisks2.h
+	hdd_hddtemp.c lmsensor.h measure.h measure.c nvidia.h pgtop2.h \
+	plog.h plog.c pmutex.h pmutex.c psensor.h psensor.c ptime.h \
+	ptime.c pio.h pio.c pudisks2.h slog.c slog.h temperature.c \
+	temperature.h url.c url.h lmsensor.c hdd_atasmart.c nvidia.c \
+	amd.c pgtop2.c psensor_json.h psensor_json.c pudisks2.c
 @SENSORS_TRUE@am__objects_1 = lmsensor.$(OBJEXT)
 @ATASMART_TRUE@am__objects_2 = hdd_atasmart.$(OBJEXT)
 @NVIDIA_TRUE@am__objects_3 = nvidia.$(OBJEXT)
@@ -350,20 +350,21 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libpsensor.a
 libpsensor_a_SOURCES = amd.h bool.h color.h color.c hdd.h \
-	hdd_hddtemp.c lmsensor.h measure.h measure.c nvidia.h plog.h \
-	plog.c pmutex.h pmutex.c psensor.h psensor.c ptime.h ptime.c \
-	pio.h pio.c slog.c slog.h temperature.c temperature.h url.c \
-	url.h $(am__append_1) $(am__append_3) $(am__append_6) \
-	$(am__append_9) $(am__append_10) $(am__append_13) \
-	$(am__append_16)
+	hdd_hddtemp.c lmsensor.h measure.h measure.c nvidia.h pgtop2.h \
+	plog.h plog.c pmutex.h pmutex.c psensor.h psensor.c ptime.h \
+	ptime.c pio.h pio.c pudisks2.h slog.c slog.h temperature.c \
+	temperature.h url.c url.h $(am__append_1) $(am__append_3) \
+	$(am__append_6) $(am__append_9) $(am__append_10) \
+	$(am__append_13) $(am__append_16)
 AM_CPPFLAGS = -Wall -Werror $(am__append_5) $(am__append_8) \
 	$(am__append_12) $(am__append_15) $(am__append_18)
 EXTRA_DIST = $(libpsensor_a_SOURCES) \
 	amd.c \
-	pgtop2.c pgtop2.h \
+	pgtop2.c \
 	lmsensor.c \
 	nvidia.c \
-	pudisks2.c pudisks2.h
+	psensor_json.h psensor_json.c \
+	pudisks2.c
 
 all: all-am
 

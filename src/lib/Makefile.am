@@ -8,11 +8,13 @@ libpsensor_a_SOURCES = \
 	lmsensor.h\
 	measure.h measure.c\
 	nvidia.h\
+	pgtop2.h\
 	plog.h plog.c\
 	pmutex.h pmutex.c\
 	psensor.h psensor.c\
 	ptime.h ptime.c\
 	pio.h pio.c\
+	pudisks2.h\
 	slog.c slog.h\
 	temperature.c temperature.h\
 	url.c url.h
@@ -41,7 +43,7 @@ libpsensor_a_SOURCES += amd.c
 endif
 
 if GTOP
-libpsensor_a_SOURCES += pgtop2.c pgtop2.h
+libpsensor_a_SOURCES += pgtop2.c
 LIBS += $(GTOP_LIBS)
 AM_CPPFLAGS += $(GTOP_CFLAGS)
 endif
@@ -53,14 +55,15 @@ AM_CPPFLAGS += $(JSON_CFLAGS)
 endif
 
 if LIBUDISKS2
-libpsensor_a_SOURCES += pudisks2.c pudisks2.h
+libpsensor_a_SOURCES += pudisks2.c
 LIBS += $(LIBUDISKS2_LIBS)
 AM_CPPFLAGS += $(LIBUDISKS2_CFLAGS)
 endif
 
 EXTRA_DIST=$(libpsensor_a_SOURCES) \
 	amd.c \
-	pgtop2.c pgtop2.h \
+	pgtop2.c \
 	lmsensor.c \
 	nvidia.c \
-	pudisks2.c pudisks2.h
+	psensor_json.h psensor_json.c \
+	pudisks2.c
