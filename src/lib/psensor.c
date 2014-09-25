@@ -63,7 +63,6 @@ struct psensor *psensor_create(char *id,
 	psensor->color = NULL;
 
 	psensor->graph_enabled = 1;
-	psensor->appindicator_enabled = 0;
 
 	psensor->provider_data = NULL;
 	psensor->provider_data_free_fct = &free;

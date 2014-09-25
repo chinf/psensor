@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-25 17:58+0200\n"
+"POT-Creation-Date: 2014-09-25 20:31+0200\n"
 "PO-Revision-Date: 2014-09-21 06:25+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -806,7 +806,7 @@ msgstr "Sakrij"
 msgid "Select sensor color"
 msgstr "Odaberi boju senzora"
 
-#: src/ui_appindicator.c:145
+#: src/ui_appindicator.c:148
 #, fuzzy, c-format
 msgid "Failed to load glade file %s: %s"
 msgstr "Neuspjelo učitavanje datoteke podešavanja %s: %s"

@@ -114,8 +114,6 @@ struct psensor {
 	void (*provider_data_free_fct)(void *);
 
 	char *url;
-
-	bool appindicator_enabled;
 };
 
 struct psensor *psensor_create(char *id,

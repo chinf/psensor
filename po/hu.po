@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-25 17:58+0200\n"
+"POT-Creation-Date: 2014-09-25 20:31+0200\n"
 "PO-Revision-Date: 2014-09-20 11:26+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -811,7 +811,7 @@ msgstr ""
 msgid "Select sensor color"
 msgstr "Előtérszín kiválasztása"
 
-#: src/ui_appindicator.c:145
+#: src/ui_appindicator.c:148
 #, fuzzy, c-format
 msgid "Failed to load glade file %s: %s"
 msgstr "Nem sikerült a konfigurációs fájlt beolvasni: %s"

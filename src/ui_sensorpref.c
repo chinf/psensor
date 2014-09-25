@@ -42,7 +42,7 @@ struct sensor_pref {
 	int alarm_enabled;
 	int alarm_high_threshold;
 	int alarm_low_threshold;
-	unsigned int appindicator_enabled;
+	bool appindicator_enabled;
 	unsigned int appindicator_label_enabled;
 	unsigned int display_enabled;
 };
@@ -76,7 +76,7 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 			= celsius_to_fahrenheit(s->alarm_low_threshold);
 	}
 
-	p->appindicator_enabled = s->appindicator_enabled;
+	p->appindicator_enabled = config_is_appindicator_enabled(s->id);
 	p->appindicator_label_enabled
 		= config_is_appindicator_label_enabled(s->id);
 
@@ -395,10 +395,7 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 		  p->color->blue);
 	config_set_sensor_color(s->id, s->color);
 
-	if (s->appindicator_enabled != p->appindicator_enabled) {
-		s->appindicator_enabled = p->appindicator_enabled;
-		config_set_appindicator_enabled(s->id, s->appindicator_enabled);
-	}
+	config_set_appindicator_enabled(s->id, p->appindicator_enabled);
 
 	config_set_appindicator_label_enabled(s->id,
 					      p->appindicator_label_enabled);
