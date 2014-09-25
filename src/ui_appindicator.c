@@ -40,7 +40,7 @@ static bool appindicator_supported = true;
 static AppIndicator *indicator;
 static struct ui_psensor *ui_psensor;
 
-void cb_menu_show(GtkMenuItem *mi, gpointer data)
+void ui_appindicator_menu_show_cb(GtkMenuItem *mi, gpointer data)
 {
 	ui_window_show((struct ui_psensor *)data);
 }
@@ -131,16 +131,20 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	guint ok;
 	GtkBuilder *builder;
 
+	log_fct_enter();
+
 	builder = gtk_builder_new();
 
 	error = NULL;
 	ok = gtk_builder_add_from_file
-		(builder,
-		 PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "psensor.glade",
-		 &error);
+	(builder,
+	 PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "psensor-appindicator.glade",
+	 &error);
 
 	if (!ok) {
-		log_printf(LOG_ERR, error->message);
+		log_err(_("Failed to load glade file %s: %s"),
+			PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "psensor-appindicator.glade",
+			error->message);
 		g_error_free(error);
 		return NULL;
 	}
@@ -151,6 +155,8 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 
 	g_object_ref(G_OBJECT(menu));
 	g_object_unref(G_OBJECT(builder));
+
+	log_fct_exit();
 
 	return GTK_WIDGET(menu);
 }

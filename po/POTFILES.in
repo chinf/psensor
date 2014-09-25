@@ -1,5 +1,6 @@
 src/cfg.c
 src/glade/psensor.glade
+src/glade/psensor-appindicator.glade
 src/glade/psensor-pref.glade
 src/glade/sensor-edit.glade
 src/lib/amd.c

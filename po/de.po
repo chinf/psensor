@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-25 10:04+0200\n"
+"POT-Creation-Date: 2014-09-25 12:21+0200\n"
 "PO-Revision-Date: 2014-09-20 11:25+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: German\n"
@@ -33,64 +33,66 @@ msgstr "Aktivieren der Sensorenprotokollierung ist gescheitert."
 msgid "Failed to save configuration file %s."
 msgstr "Aktivieren der Sensorenprotokollierung ist gescheitert."
 
-#: src/glade/psensor.glade:6
+#: src/glade/psensor.glade:6 src/glade/psensor-appindicator.glade:6
 msgid "About"
 msgstr "Info"
 
-#: src/glade/psensor.glade:10 src/glade/psensor.glade:11
-#: src/glade/psensor.glade:20 src/ui_sensorlist.c:264
+#: src/glade/psensor.glade:10 src/glade/psensor-appindicator.glade:10
+#: src/glade/psensor-appindicator.glade:11
+#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:264
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: src/glade/psensor.glade:15 src/glade/psensor.glade:16
-#: src/glade/psensor.glade:28
-msgid "Sensor Preferences"
-msgstr "Sensoreinstellungen"
-
-#: src/glade/psensor.glade:24
+#: src/glade/psensor.glade:14 src/glade/psensor-appindicator.glade:24
 msgid "Quit"
 msgstr "Beenden"
 
-#: src/glade/psensor.glade:84
-msgid "Show"
-msgstr "Anzeigen"
+#: src/glade/psensor.glade:18 src/glade/psensor-appindicator.glade:15
+#: src/glade/psensor-appindicator.glade:16
+#: src/glade/psensor-appindicator.glade:28
+msgid "Sensor Preferences"
+msgstr "Sensoreinstellungen"
 
-#: src/glade/psensor.glade:186
+#: src/glade/psensor.glade:99 src/glade/psensor-appindicator.glade:186
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor – Temperaturüberwachung"
 
-#: src/glade/psensor.glade:201
+#: src/glade/psensor.glade:114 src/glade/psensor-appindicator.glade:201
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:248
+#: src/glade/psensor.glade:161 src/glade/psensor-appindicator.glade:248
 msgid "_Help"
 msgstr "_Hilfe"
 
-#: src/glade/psensor.glade:312
+#: src/glade/psensor.glade:225 src/glade/psensor-appindicator.glade:312
 msgid "Sensor"
 msgstr "Sensor"
 
-#: src/glade/psensor.glade:323
+#: src/glade/psensor.glade:236 src/glade/psensor-appindicator.glade:323
 msgid "Value"
 msgstr "Wert"
 
-#: src/glade/psensor.glade:334
+#: src/glade/psensor.glade:247 src/glade/psensor-appindicator.glade:334
 msgid "Min"
 msgstr "Min."
 
-#: src/glade/psensor.glade:345
+#: src/glade/psensor.glade:258 src/glade/psensor-appindicator.glade:345
 msgid "Max"
 msgstr "Max."
 
-#: src/glade/psensor.glade:356
+#: src/glade/psensor.glade:269 src/glade/psensor-appindicator.glade:356
 msgid "Color"
 msgstr "Farbe"
 
-#: src/glade/psensor.glade:367 src/glade/psensor-pref.glade:788
-#: src/glade/sensor-edit.glade:412
+#: src/glade/psensor.glade:280 src/glade/psensor-appindicator.glade:367
+#: src/glade/psensor-pref.glade:788 src/glade/sensor-edit.glade:412
 msgid "Graph"
 msgstr "Graph"
+
+#: src/glade/psensor-appindicator.glade:84
+msgid "Show"
+msgstr "Anzeigen"
 
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
@@ -812,6 +814,11 @@ msgstr ""
 #, fuzzy
 msgid "Select sensor color"
 msgstr "Wählen Sie eine Vordergrundfarbe"
+
+#: src/ui_appindicator.c:145
+#, fuzzy, c-format
+msgid "Failed to load glade file %s: %s"
+msgstr "Aktivieren der Sensorenprotokollierung ist gescheitert."
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."

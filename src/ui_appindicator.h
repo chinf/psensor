@@ -31,6 +31,7 @@ void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention);
 void ui_appindicator_update_menu(struct ui_psensor *ui);
 bool is_appindicator_supported(void);
 void ui_appindicator_cleanup(void);
+void ui_appindicator_menu_show_cb(GtkMenuItem *, gpointer);
 
 #else
 
