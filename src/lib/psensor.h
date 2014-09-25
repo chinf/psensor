@@ -30,7 +30,6 @@
 #include <measure.h>
 #include <plog.h>
 
-
 enum psensor_type {
 	/* type of sensor values */
 	SENSOR_TYPE_TEMP = 0x00001,
