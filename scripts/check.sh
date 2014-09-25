@@ -9,3 +9,7 @@ make clean all check install distcheck 3>&1 1>&2 2>&3 | grep -v "^/usr/include" 
 cat /tmp/err
 
 echo Number of warnings: `cat /tmp/err|wc -l`
+
+export G_DEBUG=fatal_warnings
+
+$SCRIPT_DIR/../src/psensor
