@@ -19,12 +19,24 @@
 #ifndef _PSENSOR_HDD_H_
 #define _PSENSOR_HDD_H_
 
+#include <bool.h>
 #include <config.h>
 #include <psensor.h>
 
-#ifdef HAVE_ATASMART
-void atasmart_psensor_list_append(struct psensor ***sensors, int values_length);
-void atasmart_psensor_list_update(struct psensor **sensors);
+#if defined(HAVE_ATASMART) && HAVE_ATASMART
+
+static inline bool atasmart_is_supported(void) { return true; }
+
+void atasmart_psensor_list_append(struct psensor ***, int);
+void atasmart_psensor_list_update(struct psensor **);
+
+#else
+
+static inline bool atasmart_is_supported(void) { return false; }
+
+static inline void atasmart_psensor_list_append(struct psensor ***s, int n) {}
+static inline void atasmart_psensor_list_update(struct psensor **s) {}
+
 #endif
 
 void hddtemp_psensor_list_append(struct psensor ***sensors, int values_length);

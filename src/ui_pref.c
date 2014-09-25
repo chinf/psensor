@@ -20,6 +20,7 @@
 #include <string.h>
 
 #include <amd.h>
+#include <hdd.h>
 #include <ui.h>
 #include <cfg.h>
 #include <graph.h>
@@ -248,12 +249,14 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_libatasmart
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "libatasmart"));
-#if !HAVE_ATASMART
-	gtk_widget_set_sensitive(GTK_WIDGET(w_libatasmart), 0);
-	gtk_widget_set_has_tooltip(GTK_WIDGET(w_libatasmart), TRUE);
-#else
-	gtk_widget_set_has_tooltip(GTK_WIDGET(w_libatasmart), FALSE);
-#endif
+
+	if (atasmart_is_supported()) {
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_libatasmart), FALSE);
+	} else {
+		gtk_widget_set_sensitive(GTK_WIDGET(w_libatasmart), 0);
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_libatasmart), TRUE);
+	}
+
 	gtk_toggle_button_set_active(w_libatasmart,
 				     config_is_libatasmart_enabled());
 
