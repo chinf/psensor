@@ -34,6 +34,9 @@
 static const char *ICON = "psensor_normal";
 static const char *ATTENTION_ICON = "psensor_hot";
 
+static const char *GLADE_FILE
+= PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "psensor-appindicator.glade";
+
 static struct psensor **sensors;
 static GtkMenuItem **menu_items;
 static bool appindicator_supported = true;
@@ -138,12 +141,12 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	error = NULL;
 	ok = gtk_builder_add_from_file
 	(builder,
-	 PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "psensor-appindicator.glade",
+	 GLADE_FILE,
 	 &error);
 
 	if (!ok) {
 		log_err(_("Failed to load glade file %s: %s"),
-			PACKAGE_DATA_DIR G_DIR_SEPARATOR_S "psensor-appindicator.glade",
+			GLADE_FILE,
 			error->message);
 		g_error_free(error);
 		return NULL;
