@@ -50,7 +50,6 @@ struct psensor *psensor_create(char *id,
 	psensor->values_max_length = values_max_length;
 	psensor->measures = measures_dbl_create(values_max_length);
 
-	psensor->alarm_enabled = 0;
 	psensor->alarm_high_threshold = 0;
 	psensor->alarm_low_threshold = 0;
 
@@ -265,15 +264,13 @@ void psensor_set_current_measure(struct psensor *s, double v, struct timeval tv)
 	if (s->max == UNKNOWN_DBL_VALUE || v > s->max)
 		s->max = v;
 
-	if (s->alarm_enabled) {
-		if (v > s->alarm_high_threshold || v < s->alarm_low_threshold) {
-			if (!s->alarm_raised && s->cb_alarm_raised)
-				s->cb_alarm_raised(s, s->cb_alarm_raised_data);
-
-			s->alarm_raised = 1;
-		} else {
-			s->alarm_raised = 0;
+	if (v > s->alarm_high_threshold || v < s->alarm_low_threshold) {
+		if (!s->alarm_raised && s->cb_alarm_raised) {
+			s->alarm_raised = true;
+			s->cb_alarm_raised(s, s->cb_alarm_raised_data);
 		}
+	} else {
+		s->alarm_raised = false;
 	}
 }
 

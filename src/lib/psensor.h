@@ -93,9 +93,6 @@ struct psensor {
 	/* The minimum detected value of the sensor */
 	double min;
 
-	/* Whether alarm alert is enabled for this sensor */
-	bool alarm_enabled;
-
 	int alarm_high_threshold;
 	int alarm_low_threshold;
 

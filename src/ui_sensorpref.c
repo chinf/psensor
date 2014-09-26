@@ -62,7 +62,7 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 	p->sensor = s;
 	p->name = strdup(s->name);
 	p->graph_enabled = s->graph_enabled;
-	p->alarm_enabled = s->alarm_enabled;
+	p->alarm_enabled = config_get_sensor_alarm_enabled(s->id);
 	p->color = color_dup(s->color);
 	p->display_enabled = config_is_sensor_enabled(s->id);
 
@@ -384,10 +384,7 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 	config_set_sensor_alarm_high_threshold(s->id, s->alarm_high_threshold);
 	config_set_sensor_alarm_low_threshold(s->id, s->alarm_low_threshold);
 
-	if (s->alarm_enabled != p->alarm_enabled) {
-		s->alarm_enabled = p->alarm_enabled;
-		config_set_sensor_alarm_enabled(s->id, s->alarm_enabled);
-	}
+	config_set_sensor_alarm_enabled(s->id, p->alarm_enabled);
 
 	color_set(s->color,
 		  p->color->red,

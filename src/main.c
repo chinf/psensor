@@ -185,18 +185,20 @@ static void *update_measures(void *data)
 
 static void indicators_update(struct ui_psensor *ui)
 {
-	struct psensor **sensor_cur = ui->sensors;
-	unsigned int attention = 0;
+	struct psensor **ss, *s;
+	bool attention;
 
-	while (*sensor_cur) {
-		struct psensor *s = *sensor_cur;
+	attention = false;
+	ss = ui->sensors;
+	while (*ss) {
+		s = *ss;
 
-		if (s->alarm_enabled && s->alarm_raised) {
-			attention = 1;
+		if (s->alarm_raised && config_get_sensor_alarm_enabled(s->id)) {
+			attention = true;
 			break;
 		}
 
-		sensor_cur++;
+		ss++;
 	}
 
 #if defined(HAVE_APPINDICATOR)
@@ -248,10 +250,10 @@ static gboolean ui_refresh_thread(gpointer data)
 
 static void cb_alarm_raised(struct psensor *sensor, void *data)
 {
-	if (sensor->alarm_enabled)
+	if (config_get_sensor_alarm_enabled(sensor->id)) {
 		ui_notify(sensor, (struct ui_psensor *)data);
-
-	notify_cmd(sensor);
+		notify_cmd(sensor);
+	}
 }
 
 static void associate_colors(struct psensor **sensors)
@@ -317,9 +319,6 @@ associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 			= config_get_sensor_alarm_high_threshold(s->id);
 		s->alarm_low_threshold
 			= config_get_sensor_alarm_low_threshold(s->id);
-
-		s->alarm_enabled
-			    = config_get_sensor_alarm_enabled(s->id);
 
 		sensor_cur++;
 	}
