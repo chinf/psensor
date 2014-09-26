@@ -81,9 +81,6 @@ struct psensor {
 	/* Color of the sensor used for the graph */
 	struct color *color;
 
-	/* Whether the graph sensor is displayed. */
-	bool graph_enabled;
-
 	/* see psensor_type */
 	unsigned int type;
 
@@ -97,7 +94,7 @@ struct psensor {
 	int alarm_low_threshold;
 
 	/* Whether an alarm is raised for this sensor */
-	unsigned int alarm_raised;
+	bool alarm_raised;
 
 	void (*cb_alarm_raised)(struct psensor *, void *);
 	void *cb_alarm_raised_data;
@@ -126,8 +123,6 @@ void psensor_free(struct psensor *sensor);
 void psensor_list_free(struct psensor **sensors);
 int psensor_list_size(struct psensor **sensors);
 
-struct psensor **psensor_list_filter_graph_enabled(struct psensor **);
-
 struct psensor *psensor_list_get_by_id(struct psensor **sensors,
 				       const char *id);
 
@@ -138,10 +133,6 @@ double get_max_temp(struct psensor **sensors);
 
 double get_min_rpm(struct psensor **sensors);
 double get_max_rpm(struct psensor **sensors);
-
-/* Get the maximal current value of all sensors of a given type. */
-double
-psensor_get_max_current_value(struct psensor **sensors, unsigned int type);
 
 /*
  * Converts the value of a sensor to a string.

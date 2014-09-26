@@ -18,12 +18,35 @@
  */
 #include <unity.h>
 
+#include <cfg.h>
 #include <temperature.h>
 #include <ui_unity.h>
 
 static int initialized;
 static UnityLauncherEntry *psensor_entry;
 static unsigned int last_visible = -1;
+
+static double get_max_current_value(struct psensor **sensors, unsigned int type)
+{
+	double m, v;
+	struct psensor *s;
+
+	m = UNKNOWN_DBL_VALUE;
+	while (*sensors) {
+		s = *sensors;
+
+		if ((s->type & type) && config_is_sensor_graph_enabled(s->id)) {
+			v = psensor_get_current_value(s);
+
+			if (m == UNKNOWN_DBL_VALUE || v > m)
+				m = v;
+		}
+
+		sensors++;
+	}
+
+	return m;
+}
 
 void ui_unity_launcher_entry_update(struct psensor **sensors,
 				    unsigned int show,
@@ -50,7 +73,7 @@ void ui_unity_launcher_entry_update(struct psensor **sensors,
 	}
 
 	if (sensors && *sensors) {
-		v = psensor_get_max_current_value(sensors, SENSOR_TYPE_TEMP);
+		v = get_max_current_value(sensors, SENSOR_TYPE_TEMP);
 
 		if (!use_celsius)
 			v = celsius_to_fahrenheit(v);

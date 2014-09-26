@@ -85,7 +85,8 @@ static void populate(struct ui_psensor *ui)
 		gtk_list_store_set(store, &iter,
 				   COL_NAME, s->name,
 				   COL_COLOR_STR, scolor,
-				   COL_GRAPH_ENABLED, s->graph_enabled,
+				   COL_GRAPH_ENABLED,
+				   config_is_sensor_graph_enabled(s->id),
 				   COL_SENSOR, s,
 				   COL_DISPLAY_ENABLED, enabled,
 				   -1);
@@ -323,6 +324,7 @@ void ui_sensorlist_cb_graph_toggled(GtkCellRendererToggle *cell,
 	GtkTreePath *path;
 	struct psensor *s, *s2;
 	gboolean valid;
+	bool b;
 
 	ui = (struct ui_psensor *)data;
 	fmodel = gtk_tree_view_get_model(ui->sensors_tree);
@@ -333,8 +335,9 @@ void ui_sensorlist_cb_graph_toggled(GtkCellRendererToggle *cell,
 
 	gtk_tree_model_get(fmodel, &iter, COL_SENSOR, &s, -1);
 
-	s->graph_enabled ^= 1;
-	config_set_sensor_graph_enabled(s->id, s->graph_enabled);
+	b = config_is_sensor_graph_enabled(s->id) ^ 1;
+	config_set_sensor_graph_enabled(s->id, b);
+
 	config_sync();
 
 	gtk_tree_path_free(path);
@@ -348,7 +351,7 @@ void ui_sensorlist_cb_graph_toggled(GtkCellRendererToggle *cell,
 			gtk_list_store_set(ui->sensors_store,
 					   &iter,
 					   COL_GRAPH_ENABLED,
-					   s->graph_enabled,
+					   b,
 					   -1);
 		valid = gtk_tree_model_iter_next(model, &iter);
 	}

@@ -60,6 +60,29 @@ struct graph_info {
 	GdkRGBA theme_fg_color;
 };
 
+static struct psensor **list_filter_graph_enabled(struct psensor **sensors)
+{
+	int n, i;
+	struct psensor **result, **cur, *s;
+
+	if (!sensors)
+		return NULL;
+
+	n = psensor_list_size(sensors);
+	result = malloc((n+1) * sizeof(struct psensor *));
+
+	for (cur = sensors, i = 0; *cur; cur++) {
+		s = *cur;
+
+		if (config_is_sensor_graph_enabled(s->id))
+			result[i++] = s;
+	}
+
+	result[i] = NULL;
+
+	return result;
+}
+
 /* Return the end time of the graph i.e. the more recent measure.  If
  * no measure are available, return 0.
  * If Bezier curves are used return the measure n-3 to avoid to
@@ -449,7 +472,7 @@ graph_update(struct psensor **sensors,
 	if (!gtk_widget_is_drawable(w_graph))
 		return;
 
-	enabled_sensors = psensor_list_filter_graph_enabled(sensors);
+	enabled_sensors = list_filter_graph_enabled(sensors);
 
 	min_rpm = get_min_rpm(enabled_sensors);
 	max_rpm = get_max_rpm(enabled_sensors);

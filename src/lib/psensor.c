@@ -61,8 +61,6 @@ struct psensor *psensor_create(char *id,
 
 	psensor->color = NULL;
 
-	psensor->graph_enabled = 1;
-
 	psensor->provider_data = NULL;
 	psensor->provider_data_free_fct = &free;
 
@@ -348,28 +346,6 @@ double get_max_value(struct psensor **sensors, int type)
 	return m;
 }
 
-double
-psensor_get_max_current_value(struct psensor **sensors, unsigned int type)
-{
-	double m = UNKNOWN_DBL_VALUE;
-	struct psensor **s_cur = sensors;
-
-	while (*s_cur) {
-		struct psensor *s = *s_cur;
-
-		if (s->graph_enabled && (s->type & type)) {
-			double v = psensor_get_current_value(s);
-
-			if (m == UNKNOWN_DBL_VALUE || v > m)
-				m = v;
-		}
-
-		s_cur++;
-	}
-
-	return m;
-}
-
 double get_min_temp(struct psensor **sensors)
 {
 	return get_min_value(sensors, SENSOR_TYPE_TEMP);
@@ -487,27 +463,4 @@ psensor_current_value_to_str(const struct psensor *s, unsigned int use_celsius)
 	return psensor_value_to_str(s->type,
 				    psensor_get_current_value(s),
 				    use_celsius);
-}
-
-struct psensor **psensor_list_filter_graph_enabled(struct psensor **sensors)
-{
-	int n, i;
-	struct psensor **result, **cur, *s;
-
-	if (!sensors)
-		return NULL;
-
-	n = psensor_list_size(sensors);
-	result = malloc((n+1) * sizeof(struct psensor *));
-
-	for (cur = sensors, i = 0; *cur; cur++) {
-		s = *cur;
-
-		if (s->graph_enabled)
-			result[i++] = s;
-	}
-
-	result[i] = NULL;
-
-	return result;
 }
