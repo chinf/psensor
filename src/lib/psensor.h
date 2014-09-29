@@ -146,8 +146,6 @@ char *psensor_measure_to_str(const struct measure *m,
 			     unsigned int type,
 			     unsigned int use_celsius);
 
-struct psensor **get_all_sensors(int use_libatasmart, int values_max_length);
-
 struct psensor **psensor_list_add(struct psensor **sensors,
 				  struct psensor *sensor);
 

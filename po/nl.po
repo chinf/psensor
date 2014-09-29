@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-29 18:27+0200\n"
+"POT-Creation-Date: 2014-09-29 19:02+0200\n"
 "PO-Revision-Date: 2014-09-20 11:25+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -345,7 +345,7 @@ msgstr "Soort:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
-#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:431 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:427 src/ui_notify.c:81
 msgid "N/A"
 msgstr "N.v.t."
 
@@ -558,11 +558,11 @@ msgstr "%s: Kon Nvidia-informatie niet ophalen."
 msgid "%s: Failed to retrieve number of fans."
 msgstr "Kon Nvidia-informatie niet ophalen."
 
-#: src/lib/psensor.c:427 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:423 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:429
+#: src/lib/psensor.c:425
 msgid "%"
 msgstr "%"
 
@@ -685,17 +685,17 @@ msgstr ""
 "  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
 "  Pjotr12345 https://launchpad.net/~computertip"
 
-#: src/rsensor.c:107
+#: src/rsensor.c:112
 #, c-format
 msgid "Fail to connect to: %s"
 msgstr "Kon niet verbinden met: %s"
 
-#: src/rsensor.c:144
+#: src/rsensor.c:149
 #, c-format
 msgid "Invalid content: %s"
 msgstr "Ongeldige inhoud: %s"
 
-#: src/rsensor.c:184
+#: src/rsensor.c:189
 #, c-format
 msgid "Invalid JSON: %s"
 msgstr "Ongeldige JSON: %s"
