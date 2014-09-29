@@ -155,7 +155,7 @@ struct psensor *psensor_new_from_json(json_object *o,
 			   NULL,
 			   json_object_get_int(otype) | SENSOR_TYPE_REMOTE,
 			   values_max_length);
-	s->url = url;
+	s->provider_data = url;
 
 	free(eid);
 

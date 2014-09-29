@@ -38,6 +38,11 @@ struct ucontent {
 
 static CURL *curl;
 
+static const char *get_url(struct psensor *s)
+{
+	return (char *)s->provider_data;
+}
+
 static size_t cbk_curl(void *buffer, size_t size, size_t nmemb, void *userp)
 {
 	size_t realsize;
@@ -158,7 +163,7 @@ static void remote_psensor_update(struct psensor *s)
 {
 	json_object *obj;
 
-	obj = get_json_object(s->url);
+	obj = get_json_object(get_url(s));
 
 	if (obj && !is_error(obj)) {
 		json_object *om;
@@ -181,7 +186,7 @@ static void remote_psensor_update(struct psensor *s)
 
 		json_object_put(obj);
 	} else {
-		log_printf(LOG_ERR, _("Invalid JSON: %s"), s->url);
+		log_printf(LOG_ERR, _("Invalid JSON: %s"), get_url(s));
 	}
 
 }

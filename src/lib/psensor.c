@@ -57,8 +57,6 @@ struct psensor *psensor_create(char *id,
 	psensor->cb_alarm_raised_data = NULL;
 	psensor->alarm_raised = 0;
 
-	psensor->url = NULL;
-
 	psensor->color = NULL;
 
 	psensor->provider_data = NULL;
@@ -107,8 +105,6 @@ void psensor_free(struct psensor *s)
 		free(s->color);
 
 	measures_free(s->measures);
-
-	free(s->url);
 
 	if (s->provider_data && s->provider_data_free_fct)
 		s->provider_data_free_fct(s->provider_data);

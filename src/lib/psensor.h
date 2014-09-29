@@ -106,8 +106,6 @@ struct psensor {
 
 	void *provider_data;
 	void (*provider_data_free_fct)(void *);
-
-	char *url;
 };
 
 struct psensor *psensor_create(char *id,
