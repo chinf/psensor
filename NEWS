@@ -1,6 +1,12 @@
 Psensor NEWS
 ============
 
+v1.1.3
+------
+
+* Fixed compilation issue with gtk+3.14 due to deprecation
+  of GtkStatusIcon. (Closes: #763257).
+
 v1.1.2
 ------
 
