@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-26 18:04+0200\n"
+"POT-Creation-Date: 2014-09-29 14:35+0200\n"
 "PO-Revision-Date: 2014-09-20 11:24+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Italian\n"
@@ -646,29 +646,29 @@ msgstr "Segnalare i bug a: %s\n"
 msgid "%s home page: <%s>\n"
 msgstr "%s home page: <%s>\n"
 
-#: src/main.c:440
+#: src/main.c:431
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor è stato compilato senza il supporto per sensori remoti."
 
-#: src/main.c:518
+#: src/main.c:502
 msgid "Enables debug mode."
 msgstr "Abilita la modalità debug."
 
-#: src/main.c:530 src/server/server.c:386
+#: src/main.c:514 src/server/server.c:386
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Usare '%s --help' per maggiori informazioni.\n"
 
-#: src/main.c:543
+#: src/main.c:527
 msgid "A Psensor instance already exists."
 msgstr "Esiste già un'istanza di Psensor"
 
-#: src/main.c:587
+#: src/main.c:569
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Impossibile creare il Web server."
 
-#: src/main.c:610 src/ui.c:97
+#: src/main.c:590 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"

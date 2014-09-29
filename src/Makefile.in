@@ -431,7 +431,7 @@ psensor_SOURCES = cfg.h cfg.c notify_cmd.c notify_cmd.h graph.h \
 
 # -export-dynamic is need for defining handlers in the glade file.
 AM_LDFLAGS = -Wl,--as-needed -export-dynamic
-AM_CPPFLAGS = -Wall -Werror -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
+AM_CPPFLAGS = -Wall -DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\" \
 	-DDATADIR=\""$(datadir)"\" \
 	-DPSENSOR_DESKTOP_FILE=\""psensor.desktop"\" \
 	-I$(top_srcdir)/src/lib -I$(top_srcdir)/src/unity \
