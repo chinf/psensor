@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-29 19:02+0200\n"
+"POT-Creation-Date: 2014-09-29 19:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -649,19 +649,19 @@ msgstr ""
 msgid "translator-credits"
 msgstr ""
 
-#: src/rsensor.c:112
+#: src/rsensor.c:115
 #, c-format
-msgid "Fail to connect to: %s"
+msgid "%s: Fail to connect to: %s"
 msgstr ""
 
-#: src/rsensor.c:149
+#: src/rsensor.c:152
 #, c-format
-msgid "Invalid content: %s"
+msgid "%s: Invalid content: %s"
 msgstr ""
 
-#: src/rsensor.c:189
+#: src/rsensor.c:192
 #, c-format
-msgid "Invalid JSON: %s"
+msgid "%s: Invalid JSON: %s"
 msgstr ""
 
 #: src/server/server.c:57

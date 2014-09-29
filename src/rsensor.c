@@ -38,6 +38,8 @@ struct ucontent {
 
 static CURL *curl;
 
+static const char *PROVIDER_NAME = "rsensor";
+
 static const char *get_url(struct psensor *s)
 {
 	return (char *)s->provider_data;
@@ -105,11 +107,12 @@ static json_object *get_json_object(const char *url)
 	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, cbk_curl);
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
 
-	log_debug("HTTP request %s", url);
+	log_fct("%s: HTTP request %s", PROVIDER_NAME, url);
+
 	if (curl_easy_perform(curl) == CURLE_OK)
 		obj = json_tokener_parse(chunk.data);
 	else
-		log_printf(LOG_ERR, _("Fail to connect to: %s"), url);
+		log_err(_("%s: Fail to connect to: %s"), PROVIDER_NAME, url);
 
 	free(chunk.data);
 
@@ -146,7 +149,7 @@ struct psensor **get_remote_sensors(const char *server_url,
 
 		json_object_put(obj);
 	} else {
-		log_printf(LOG_ERR, _("Invalid content: %s"), url);
+		log_err(_("%s: Invalid content: %s"), PROVIDER_NAME, url);
 	}
 
 	free(url);
@@ -186,7 +189,7 @@ static void remote_psensor_update(struct psensor *s)
 
 		json_object_put(obj);
 	} else {
-		log_printf(LOG_ERR, _("Invalid JSON: %s"), get_url(s));
+		log_err(_("%s: Invalid JSON: %s"), PROVIDER_NAME, get_url(s));
 	}
 
 }

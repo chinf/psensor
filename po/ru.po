@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-29 19:02+0200\n"
+"POT-Creation-Date: 2014-09-29 19:05+0200\n"
 "PO-Revision-Date: 2014-09-11 21:23+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Russian\n"
@@ -671,19 +671,19 @@ msgstr ""
 "  Ilya Volchanetskiy https://launchpad.net/~volchanetskiy\n"
 "  Jean-Philippe Orsini https://launchpad.net/~jfi"
 
-#: src/rsensor.c:112
-#, c-format
-msgid "Fail to connect to: %s"
+#: src/rsensor.c:115
+#, fuzzy, c-format
+msgid "%s: Fail to connect to: %s"
 msgstr "Ошибка подключения к: %s"
 
-#: src/rsensor.c:149
-#, c-format
-msgid "Invalid content: %s"
+#: src/rsensor.c:152
+#, fuzzy, c-format
+msgid "%s: Invalid content: %s"
 msgstr "Неправильное содержимое: %s"
 
-#: src/rsensor.c:189
-#, c-format
-msgid "Invalid JSON: %s"
+#: src/rsensor.c:192
+#, fuzzy, c-format
+msgid "%s: Invalid JSON: %s"
 msgstr "Неправильный JSON: %s"
 
 #: src/server/server.c:57
