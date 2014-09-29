@@ -581,8 +581,6 @@ int main(int argc, char **argv)
 	else
 		initial_window_show(&ui);
 
-	log_debug("translators: %s\n", _("translator-credits"));
-
 	/* main loop */
 	gtk_main();
 
