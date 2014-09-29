@@ -66,9 +66,10 @@ PKG_CHECK_MODULES(GTK,
 AM_CONDITIONAL(GTK, test -n "$GTK_LIBS")
 # ensure that only allowed headers are included
 GTK_CFLAGS+=" -DGTK_DISABLE_SINGLE_INCLUDES "
-# ensure that no gtk deprecated symbols are used
+# ensure that no gtk/dk deprecated symbols are used
 GTK_CFLAGS+=" -DGDK_DISABLE_DEPRECATED "
-GTK_CFLAGS+=" -DGTK_DISABLE_DEPRECATED "
+# do not enable flag because GtkStatusIcon is deprecated
+#GTK_CFLAGS+=" -DGTK_DISABLE_DEPRECATED "
 # ensure use of accessors
 GTK_CFLAGS+=" -DGSEAL_ENABLE "
 AC_SUBST(GTK_CFLAGS)
