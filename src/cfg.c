@@ -119,7 +119,6 @@ static const char *KEY_PROVIDER_LIBATASMART_ENABLED
 static const char *KEY_PROVIDER_NVCTRL_ENABLED = "provider-nvctrl-enabled";
 static const char *KEY_PROVIDER_UDISKS2_ENABLED = "provider-udisks2-enabled";
 
-
 static GSettings *settings;
 
 static char *user_dir;
