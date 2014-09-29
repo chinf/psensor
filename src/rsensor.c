@@ -26,10 +26,10 @@
 
 #include <curl/curl.h>
 
-#include "psensor_json.h"
-#include "rsensor.h"
-#include "server/server.h"
-#include "url.h"
+#include <psensor_json.h>
+#include <rsensor.h>
+#include <server/server.h>
+#include <url.h>
 
 struct ucontent {
 	char *data;

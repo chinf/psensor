@@ -19,7 +19,7 @@
 #ifndef _PSENSOR_RSENSOR_H_
 #define _PSENSOR_RSENSOR_H_
 
-#include "psensor.h"
+#include <psensor.h>
 
 struct psensor **get_remote_sensors(const char *server_url,
 				    int values_max_length);
