@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-25 20:31+0200\n"
+"POT-Creation-Date: 2014-09-26 18:04+0200\n"
 "PO-Revision-Date: 2014-09-20 11:26+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -39,7 +39,7 @@ msgstr "Acerca de"
 
 #: src/glade/psensor.glade:10 src/glade/psensor-appindicator.glade:10
 #: src/glade/psensor-appindicator.glade:11
-#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:264
+#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:265
 msgid "Preferences"
 msgstr "Ajustes"
 
@@ -339,7 +339,7 @@ msgstr "Tipo:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
-#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:459 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:431 src/ui_notify.c:81
 msgid "N/A"
 msgstr "No disponible"
 
@@ -550,11 +550,11 @@ msgstr "%s: Error al obtener la información de NVIDIA"
 msgid "%s: Failed to retrieve number of fans."
 msgstr "Error al obtener la información de NVIDIA"
 
-#: src/lib/psensor.c:455 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:427 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:457
+#: src/lib/psensor.c:429
 msgid "%"
 msgstr "%"
 
@@ -579,7 +579,7 @@ msgstr "No se abrió el archivo de registro."
 msgid "Sensor log not open, cannot close."
 msgstr "¡No existe archivo que cerrar!"
 
-#: src/main.c:77 src/server/server.c:87
+#: src/main.c:64 src/server/server.c:87
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -595,12 +595,12 @@ msgstr ""
 "apoyada por el autor. \n"
 "No existe NINGUNA GARANTÍA hasta donde la ley lo permita.\n"
 
-#: src/main.c:88 src/server/server.c:97
+#: src/main.c:75 src/server/server.c:97
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Uso: %s [OPTION]...\n"
 
-#: src/main.c:90
+#: src/main.c:77
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -608,11 +608,11 @@ msgstr ""
 "Psensor es un programa GTK+ que muestra datos de temperatura y ventiladores "
 "a través de los sensores de su hardware."
 
-#: src/main.c:94
+#: src/main.c:81
 msgid "Options:"
 msgstr "Opciones"
 
-#: src/main.c:95
+#: src/main.c:82
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -620,7 +620,7 @@ msgstr ""
 "  -h, --help         Muestra esta ayuda. \n"
 "  -v, --versión       Muestra información sobre la versión."
 
-#: src/main.c:101
+#: src/main.c:88
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -628,49 +628,49 @@ msgstr ""
 "  -u, --url=URL       La URL del servidor psensor,\n"
 "                      ejemplo: http://hostname:3131"
 
-#: src/main.c:104
+#: src/main.c:91
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  Fuerza el inicio de otro Psensor paralelo"
 
-#: src/main.c:107
+#: src/main.c:94
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=NIVEL   Establece el nivel de depuración con un valor entre 0 "
 "y 3"
 
-#: src/main.c:112 src/server/server.c:120
+#: src/main.c:99 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Comunicar fallos: %s\n"
 
-#: src/main.c:114 src/server/server.c:122
+#: src/main.c:101 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s Página Oficial: <%s>\n"
 
-#: src/main.c:468
+#: src/main.c:440
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor no ha sido compilado con soporte para sensores remotos."
 
-#: src/main.c:546
+#: src/main.c:518
 msgid "Enables debug mode."
 msgstr "Activa el modo de depuración"
 
-#: src/main.c:558 src/server/server.c:386
+#: src/main.c:530 src/server/server.c:386
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Introducir `%s --ayuda' para obtener más información\n"
 
-#: src/main.c:571
+#: src/main.c:543
 msgid "A Psensor instance already exists."
 msgstr "Ya existe un Psensor en ejecución."
 
-#: src/main.c:615
+#: src/main.c:587
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Fallo al crear el servidor Web"
 
-#: src/main.c:638 src/ui.c:97
+#: src/main.c:610 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -805,11 +805,11 @@ msgstr "Web de Psensor"
 msgid "Failed to load Psensor icon."
 msgstr "Error al cargar el icono de Psensor"
 
-#: src/ui_sensorlist.c:254
+#: src/ui_sensorlist.c:255
 msgid "Hide"
 msgstr ""
 
-#: src/ui_sensorlist.c:296
+#: src/ui_sensorlist.c:297
 #, fuzzy
 msgid "Select sensor color"
 msgstr "Seleccionar el color del primer plano"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-25 20:31+0200\n"
+"POT-Creation-Date: 2014-09-26 18:04+0200\n"
 "PO-Revision-Date: 2014-09-20 11:26+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Hungarian <gnome-hu-list-request@gnome.org>\n"
@@ -40,7 +40,7 @@ msgstr "Névjegy"
 
 #: src/glade/psensor.glade:10 src/glade/psensor-appindicator.glade:10
 #: src/glade/psensor-appindicator.glade:11
-#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:264
+#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:265
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -340,7 +340,7 @@ msgstr "Típus:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
-#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:459 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:431 src/ui_notify.c:81
 msgid "N/A"
 msgstr "---"
 
@@ -549,11 +549,11 @@ msgstr "%s: NVIDIA információinak lekérése meghiúsult."
 msgid "%s: Failed to retrieve number of fans."
 msgstr "NVIDIA információinak lekérése meghiúsult."
 
-#: src/lib/psensor.c:455 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:427 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "RPM"
 
-#: src/lib/psensor.c:457
+#: src/lib/psensor.c:429
 msgid "%"
 msgstr "%"
 
@@ -578,7 +578,7 @@ msgstr "Az érzékelő naplófájlja nincs nyitva."
 msgid "Sensor log not open, cannot close."
 msgstr "Az érzékelő naplófájlja nincs nyitva, nem lehet bezárni."
 
-#: src/main.c:77 src/server/server.c:87
+#: src/main.c:64 src/server/server.c:87
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -593,12 +593,12 @@ msgstr ""
 "Ez egy szabad szoftver: szabadon terjesztheti és/vagy módosíthatja\n"
 "NINCS GARANCIA, a jogszabályok által megengedett mértékben.\n"
 
-#: src/main.c:88 src/server/server.c:97
+#: src/main.c:75 src/server/server.c:97
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Használat: %s [KAPCSOLÓK]...\n"
 
-#: src/main.c:90
+#: src/main.c:77
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -606,11 +606,11 @@ msgstr ""
 "A Psensor egy GTK+ alkalmazás a hardver érzékelőinek figyelésére, beleértve "
 "a hőmérsékleteket és a ventilátor sebességét."
 
-#: src/main.c:94
+#: src/main.c:81
 msgid "Options:"
 msgstr "Kapcsolók:"
 
-#: src/main.c:95
+#: src/main.c:82
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -618,7 +618,7 @@ msgstr ""
 "  -h, --help          ezen súgó megjelenítése, majd kilépés\n"
 "  -v, --version         verzióinformációk megjelenítése, majd kilépés"
 
-#: src/main.c:101
+#: src/main.c:88
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -626,48 +626,48 @@ msgstr ""
 "  -u, --url=URL       a psensor-server URL-címe,\n"
 "                      például: http://gepnev:3131"
 
-#: src/main.c:104
+#: src/main.c:91
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  új Psensor alkalmazás indításának kényszerítése"
 
-#: src/main.c:107
+#: src/main.c:94
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL   hibakeresési szint beállítása, egész 0 és 3 között"
 
-#: src/main.c:112 src/server/server.c:120
+#: src/main.c:99 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "A talált hibákat itt jelentse be: %s\n"
 
-#: src/main.c:114 src/server/server.c:122
+#: src/main.c:101 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s honlap: <%s>\n"
 
-#: src/main.c:468
+#: src/main.c:440
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "A Psensor távoli érzékelők támogatása nélkül lett lefordítva."
 
-#: src/main.c:546
+#: src/main.c:518
 msgid "Enables debug mode."
 msgstr "Hibakeresési mód engedélyezése."
 
-#: src/main.c:558 src/server/server.c:386
+#: src/main.c:530 src/server/server.c:386
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "További információkért adja ki a „%s --help” parancsot.\n"
 
-#: src/main.c:571
+#: src/main.c:543
 msgid "A Psensor instance already exists."
 msgstr "A Psensors egy példánya már létezik."
 
-#: src/main.c:615
+#: src/main.c:587
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Nem sikerült a mappa létrehozása: %s - %s"
 
-#: src/main.c:638 src/ui.c:97
+#: src/main.c:610 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -802,11 +802,11 @@ msgstr "A Psensor honlapja"
 msgid "Failed to load Psensor icon."
 msgstr "Nem sikerült betölteni a Psensor ikonját."
 
-#: src/ui_sensorlist.c:254
+#: src/ui_sensorlist.c:255
 msgid "Hide"
 msgstr ""
 
-#: src/ui_sensorlist.c:296
+#: src/ui_sensorlist.c:297
 #, fuzzy
 msgid "Select sensor color"
 msgstr "Előtérszín kiválasztása"

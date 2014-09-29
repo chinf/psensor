@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-25 20:31+0200\n"
+"POT-Creation-Date: 2014-09-26 18:04+0200\n"
 "PO-Revision-Date: 2014-09-21 06:25+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -39,7 +39,7 @@ msgstr "O programu"
 
 #: src/glade/psensor.glade:10 src/glade/psensor-appindicator.glade:10
 #: src/glade/psensor-appindicator.glade:11
-#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:264
+#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:265
 msgid "Preferences"
 msgstr "Osobitosti"
 
@@ -339,7 +339,7 @@ msgstr "Vrsta:"
 
 #: src/glade/sensor-edit.glade:193 src/glade/sensor-edit.glade:230
 #: src/glade/sensor-edit.glade:282 src/glade/sensor-edit.glade:507
-#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:459 src/ui_notify.c:81
+#: src/glade/sensor-edit.glade:562 src/lib/psensor.c:431 src/ui_notify.c:81
 msgid "N/A"
 msgstr "Nedostupno"
 
@@ -548,11 +548,11 @@ msgstr "%s: Neuspjelo primanje NVIDIA informacija."
 msgid "%s: Failed to retrieve number of fans."
 msgstr "%s: NVIDIA: nuespjelo očitavanje broja ventilatora."
 
-#: src/lib/psensor.c:455 tests/test_psensor_type_to_unit_str.c:62
+#: src/lib/psensor.c:427 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
 msgstr "Okr/min"
 
-#: src/lib/psensor.c:457
+#: src/lib/psensor.c:429
 msgid "%"
 msgstr "%"
 
@@ -577,7 +577,7 @@ msgstr "Datoteka zapisa senzora nije otvorena."
 msgid "Sensor log not open, cannot close."
 msgstr "Datoteka zapisa senzora nije otvorena, nemoguće zatvaranje."
 
-#: src/main.c:77 src/server/server.c:87
+#: src/main.c:64 src/server/server.c:87
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -592,12 +592,12 @@ msgstr ""
 "Ovo je slobodan softver: slobodno ga možete mijenjati i redistribuirati.\n"
 "Ne postoji nikakvo JAMSTVO, propisano zakonom.\n"
 
-#: src/main.c:88 src/server/server.c:97
+#: src/main.c:75 src/server/server.c:97
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Upotreba: %s [MOGUĆNOST]...\n"
 
-#: src/main.c:90
+#: src/main.c:77
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -605,11 +605,11 @@ msgstr ""
 "Psensor je GTK+ aplikacija za nadziranje hardverskih senzora, koja uključuje "
 "temperature i brzinu okretaja ventilatora."
 
-#: src/main.c:94
+#: src/main.c:81
 msgid "Options:"
 msgstr "Mogućnosti:"
 
-#: src/main.c:95
+#: src/main.c:82
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -617,7 +617,7 @@ msgstr ""
 "  -h, --help          prikaz pomoći\n"
 "  -v, --version       prikaz informacije inačice"
 
-#: src/main.c:101
+#: src/main.c:88
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -625,48 +625,48 @@ msgstr ""
 "  -u, --url=URL       URL psensor-poslužitelja,\n"
 "                      npr: http://hostname:3131"
 
-#: src/main.c:104
+#: src/main.c:91
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  prisili stvaranje nove Psensor aplikacije"
 
-#: src/main.c:107
+#: src/main.c:94
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL   postavi razinu otklanjanja greške, cijeli broj između "
 "0 i 3"
 
-#: src/main.c:112 src/server/server.c:120
+#: src/main.c:99 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Prijavi grešku na: %s\n"
 
-#: src/main.c:114 src/server/server.c:122
+#: src/main.c:101 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s početna stranica: <%s>\n"
 
-#: src/main.c:468
+#: src/main.c:440
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
 
-#: src/main.c:546
+#: src/main.c:518
 msgid "Enables debug mode."
 msgstr "Omogućava način otklanjanja greške."
 
-#: src/main.c:558 src/server/server.c:386
+#: src/main.c:530 src/server/server.c:386
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Pokušajte `%s --help` za više informacija.\n"
 
-#: src/main.c:571
+#: src/main.c:543
 msgid "A Psensor instance already exists."
 msgstr "Psensor primjerak je već pokrenut."
 
-#: src/main.c:615
+#: src/main.c:587
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Neuspjelo stvaranje niza za nadziranje senzora"
 
-#: src/main.c:638 src/ui.c:97
+#: src/main.c:610 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -798,11 +798,11 @@ msgstr "Psensor web stranica"
 msgid "Failed to load Psensor icon."
 msgstr "Neuspjelo učitavanje ikone Psensora."
 
-#: src/ui_sensorlist.c:254
+#: src/ui_sensorlist.c:255
 msgid "Hide"
 msgstr "Sakrij"
 
-#: src/ui_sensorlist.c:296
+#: src/ui_sensorlist.c:297
 msgid "Select sensor color"
 msgstr "Odaberi boju senzora"
 
