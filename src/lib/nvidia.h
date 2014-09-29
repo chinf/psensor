@@ -36,7 +36,7 @@ void nvidia_cleanup(void);
 static inline bool nvidia_is_supported(void) { return false; }
 
 static inline void nvidia_psensor_list_update(struct psensor **s) {}
-static inline void nvidia_psensor_list_append(struct psensor ***, int) {}
+static inline void nvidia_psensor_list_append(struct psensor ***s, int n) {}
 static inline void nvidia_cleanup(void) {}
 
 #endif
