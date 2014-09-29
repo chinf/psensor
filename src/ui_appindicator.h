@@ -26,16 +26,23 @@
 
 #if defined(HAVE_APPINDICATOR) && HAVE_APPINDICATOR
 
-void ui_appindicator_init(struct ui_psensor *ui);
-void ui_appindicator_update(struct ui_psensor *ui, unsigned int attention);
-void ui_appindicator_update_menu(struct ui_psensor *ui);
 bool is_appindicator_supported(void);
+
+void ui_appindicator_init(struct ui_psensor *ui);
+void ui_appindicator_update(struct ui_psensor *ui, bool alert);
+void ui_appindicator_update_menu(struct ui_psensor *ui);
 void ui_appindicator_cleanup(void);
 void ui_appindicator_menu_show_cb(GtkMenuItem *, gpointer);
 
 #else
 
 static inline bool is_appindicator_supported(void) { return false; }
+
+static inline void ui_appindicator_init(struct ui_psensor *ui) {}
+static inline void ui_appindicator_update(struct ui_psensor *ui, bool alert) {}
+static inline void ui_appindicator_update_menu(struct ui_psensor *ui) {}
+static inline void ui_appindicator_cleanup(void) {}
+static inline void ui_appindicator_menu_show_cb(GtkMenuItem *m, gpointer d) {}
 
 #endif
 

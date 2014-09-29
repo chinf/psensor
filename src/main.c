@@ -28,45 +28,32 @@
 
 #include <gtk/gtk.h>
 
-#include "config.h"
+#include <config.h>
 
-#include "cfg.h"
+#include <amd.h>
+#include <cfg.h>
+#include <graph.h>
 #include <hdd.h>
-#include "psensor.h"
-#include "graph.h"
-#include "ui.h"
-#include "ui_sensorlist.h"
-#include "ui_color.h"
-#include "lmsensor.h"
-#include "notify_cmd.h"
+#include <lmsensor.h>
+#include <notify_cmd.h>
+#include <nvidia.h>
+#include <pgtop2.h>
 #include <pmutex.h>
+#include <psensor.h>
 #include <pudisks2.h>
-#include "slog.h"
-#include "ui_pref.h"
-#include "ui_graph.h"
+#include <slog.h>
+#include <ui.h>
+#include <ui_appindicator.h>
+#include <ui_color.h>
+#include <ui_graph.h>
 #include <ui_notify.h>
-#include "ui_status.h"
-
-#ifdef HAVE_UNITY
-#include "ui_unity.h"
-#endif
-
-#ifdef HAVE_NVIDIA
-#include "nvidia.h"
-#endif
-
-#ifdef HAVE_LIBATIADL
-#include "amd.h"
-#endif
+#include <ui_pref.h>
+#include <ui_sensorlist.h>
+#include <ui_status.h>
+#include <ui_unity.h>
 
 #ifdef HAVE_REMOTE_SUPPORT
 #include "rsensor.h"
-#endif
-
-#include "ui_appindicator.h"
-
-#ifdef HAVE_GTOP
-#include <pgtop2.h>
 #endif
 
 static const char *program_name;
@@ -152,25 +139,15 @@ static void *update_measures(void *data)
 		update_psensor_values_size(sensors, cfg);
 
 		lmsensor_psensor_list_update(sensors);
+
 #ifdef HAVE_REMOTE_SUPPORT
 		remote_psensor_list_update(sensors);
 #endif
-#ifdef HAVE_NVIDIA
 		nvidia_psensor_list_update(sensors);
-#endif
-#ifdef HAVE_LIBATIADL
 		amd_psensor_list_update(sensors);
-#endif
-#ifdef HAVE_LIBUDISKS2
 		udisks2_psensor_list_update(sensors);
-#endif
-#ifdef HAVE_GTOP
 		gtop2_psensor_list_update(sensors);
-#endif
-#ifdef HAVE_ATASMART
 		atasmart_psensor_list_update(sensors);
-#endif
-
 		hddtemp_psensor_list_update(sensors);
 
 		psensor_log_measures(sensors);
@@ -201,10 +178,8 @@ static void indicators_update(struct ui_psensor *ui)
 		ss++;
 	}
 
-#if defined(HAVE_APPINDICATOR)
 	if (is_appindicator_supported())
 		ui_appindicator_update(ui, attention);
-#endif
 
 	if (is_status_supported())
 		ui_status_update(ui, attention);
@@ -228,11 +203,9 @@ static gboolean ui_refresh_thread(gpointer data)
 	if (is_appindicator_supported() || is_status_supported())
 		indicators_update(ui);
 
-#ifdef HAVE_UNITY
 	ui_unity_launcher_entry_update(ui->sensors,
 				       !cfg->unity_launcher_count_disabled,
 				       cfg->temperature_unit == CELSIUS);
-#endif
 
 	if (ui->graph_update_interval != cfg->graph_update_interval) {
 		ui->graph_update_interval = cfg->graph_update_interval;
@@ -420,12 +393,9 @@ static void cleanup(struct ui_psensor *ui)
 
 	log_debug("Cleanup...");
 
-#ifdef HAVE_NVIDIA
 	nvidia_cleanup();
-#endif
-#ifdef HAVE_LIBATIADL
 	amd_cleanup();
-#endif
+
 #ifdef HAVE_REMOTE_SUPPORT
 	rsensor_cleanup();
 #endif
@@ -433,9 +403,7 @@ static void cleanup(struct ui_psensor *ui)
 	psensor_list_free(ui->sensors);
 	ui->sensors = NULL;
 
-#if defined(HAVE_APPINDICATOR)
 	ui_appindicator_cleanup();
-#endif
 
 	ui_status_cleanup();
 
@@ -474,27 +442,20 @@ static struct psensor **create_sensors_list(const char *url)
 		if (config_is_hddtemp_enabled())
 			hddtemp_psensor_list_append(&sensors, 600);
 
-#ifdef HAVE_ATASMART
 		if (config_is_libatasmart_enabled())
 			atasmart_psensor_list_append(&sensors, 600);
-#endif
 
-#ifdef HAVE_NVIDIA
 		if (config_is_nvctrl_enabled())
 			nvidia_psensor_list_append(&sensors, 600);
-#endif
-#ifdef HAVE_LIBATIADL
+
 		if (config_is_atiadlsdk_enabled())
 			amd_psensor_list_append(&sensors, 600);
-#endif
-#ifdef HAVE_GTOP
+
 		if (config_is_gtop2_enabled())
 			gtop2_psensor_list_append(&sensors, 600);
-#endif
-#ifdef HAVE_LIBUDISKS2
+
 		if (config_is_udisks2_enabled())
 			udisks2_psensor_list_append(&sensors, 600);
-#endif
 	}
 
 	associate_preferences(sensors);
@@ -594,10 +555,8 @@ int main(int argc, char **argv)
 			      &ui.sensors_mutex,
 			      config_get_slog_interval());
 
-#if !defined(HAVE_APPINDICATOR)
 	ui_status_init(&ui);
 	ui_status_set_visible(1);
-#endif
 
 	/* main window */
 	ui_window_create(&ui);
@@ -613,9 +572,7 @@ int main(int argc, char **argv)
 
 	g_timeout_add(1000 * ui.graph_update_interval, ui_refresh_thread, &ui);
 
-#if defined(HAVE_APPINDICATOR)
 	ui_appindicator_init(&ui);
-#endif
 
 	gdk_notify_startup_complete();
 
