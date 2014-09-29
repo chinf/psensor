@@ -53,8 +53,6 @@
 #include <ui_status.h>
 #include <ui_unity.h>
 
-
-
 static const char *program_name;
 
 static void print_version(void)
