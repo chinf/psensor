@@ -9,7 +9,7 @@ SUBDIRS += server
 endif
 endif
 
-AM_CPPFLAGS =-Wall -Werror \
+AM_CPPFLAGS =-Wall \
 	-DDEFAULT_WWW_DIR=\""$(pkgdatadir)/www"\"\
 	-DDATADIR=\""$(datadir)"\"\
 	-DPSENSOR_DESKTOP_FILE=\""psensor.desktop"\"\
