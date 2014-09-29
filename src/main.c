@@ -41,6 +41,7 @@
 #include <pmutex.h>
 #include <psensor.h>
 #include <pudisks2.h>
+#include <rsensor.h>
 #include <slog.h>
 #include <ui.h>
 #include <ui_appindicator.h>
@@ -52,9 +53,7 @@
 #include <ui_status.h>
 #include <ui_unity.h>
 
-#ifdef HAVE_REMOTE_SUPPORT
-#include "rsensor.h"
-#endif
+
 
 static const char *program_name;
 
@@ -140,9 +139,7 @@ static void *update_measures(void *data)
 
 		lmsensor_psensor_list_update(sensors);
 
-#ifdef HAVE_REMOTE_SUPPORT
 		remote_psensor_list_update(sensors);
-#endif
 		nvidia_psensor_list_update(sensors);
 		amd_psensor_list_update(sensors);
 		udisks2_psensor_list_update(sensors);
@@ -395,10 +392,7 @@ static void cleanup(struct ui_psensor *ui)
 
 	nvidia_cleanup();
 	amd_cleanup();
-
-#ifdef HAVE_REMOTE_SUPPORT
 	rsensor_cleanup();
-#endif
 
 	psensor_list_free(ui->sensors);
 	ui->sensors = NULL;
@@ -424,14 +418,14 @@ static struct psensor **create_sensors_list(const char *url)
 	struct psensor **sensors;
 
 	if (url) {
-#ifdef HAVE_REMOTE_SUPPORT
-		rsensor_init();
-		sensors = get_remote_sensors(url, 600);
-#else
-		log_err(_("Psensor has not been compiled with remote "
-			  "sensor support."));
-		exit(EXIT_FAILURE);
-#endif
+		if (rsensor_is_supported()) {
+			rsensor_init();
+			sensors = get_remote_sensors(url, 600);
+		} else {
+			log_err(_("Psensor has not been compiled with remote "
+				  "sensor support."));
+			exit(EXIT_FAILURE);
+		}
 	} else {
 		sensors = malloc(sizeof(struct psensor *));
 		*sensors = NULL;

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-29 14:35+0200\n"
+"POT-Creation-Date: 2014-09-29 18:27+0200\n"
 "PO-Revision-Date: 2014-09-20 11:25+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: German\n"
@@ -579,7 +579,7 @@ msgstr ""
 "Sensorprotokolldatei ist nicht geöffnet und kann deswegen nicht geschlossen "
 "werden."
 
-#: src/main.c:64 src/server/server.c:87
+#: src/main.c:63 src/server/server.c:87
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -595,12 +595,12 @@ msgstr ""
 "weiterverbreiten.\n"
 "Sie wird OHNE JEGLICHE GEWÄHRLEISTUNG zur Verfügung gestellt.\n"
 
-#: src/main.c:75 src/server/server.c:97
+#: src/main.c:74 src/server/server.c:97
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Aufruf: %s [OPTION] …\n"
 
-#: src/main.c:77
+#: src/main.c:76
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -608,11 +608,11 @@ msgstr ""
 "Psensor ist eine GTK+-Anwendung zur Überwachung von Hardware-Sensoren, "
 "inklusive Temperaturen und Lüftergeschwindigkeiten."
 
-#: src/main.c:81
+#: src/main.c:80
 msgid "Options:"
 msgstr "Optionen:"
 
-#: src/main.c:82
+#: src/main.c:81
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -620,7 +620,7 @@ msgstr ""
 "  -h, --help          Diese Hilfe anzeigen und beenden\n"
 "  -v, --version       Versionsinformationen anzeigen und beenden"
 
-#: src/main.c:88
+#: src/main.c:87
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -628,50 +628,50 @@ msgstr ""
 "  -u, --url=URL       Die Adresse (URL) von psensor-server,\n"
 "                      Beispiel: http://hostname:3131"
 
-#: src/main.c:91
+#: src/main.c:90
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 "  -n, --new-instance  Erzeugung einer neuen Psensor-Anwendung erzwingen"
 
-#: src/main.c:94
+#: src/main.c:93
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=STUFE   Fehlerdiagnosestufe festlegen, Ganzzahl zwischen 0 und "
 "3"
 
-#: src/main.c:99 src/server/server.c:120
+#: src/main.c:98 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Programmfehler melden an: %s\n"
 
-#: src/main.c:101 src/server/server.c:122
+#: src/main.c:100 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s-Website: <%s>\n"
 
-#: src/main.c:431
+#: src/main.c:425
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
 
-#: src/main.c:502
+#: src/main.c:496
 msgid "Enables debug mode."
 msgstr "Fehlerdiagnosemodus wird aktiviert."
 
-#: src/main.c:514 src/server/server.c:386
+#: src/main.c:508 src/server/server.c:386
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Rufen Sie »%s --help« auf, um weitere Informationen zu erhalten.\n"
 
-#: src/main.c:527
+#: src/main.c:521
 msgid "A Psensor instance already exists."
 msgstr "Es existiert bereits eine Psensor-Instanz."
 
-#: src/main.c:569
+#: src/main.c:563
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Erzeugen des Webservers ist gescheitert."
 
-#: src/main.c:590 src/ui.c:97
+#: src/main.c:584 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"

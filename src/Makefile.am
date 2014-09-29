@@ -6,6 +6,7 @@ psensor_SOURCES = \
 	graph.h graph.c \
 	main.c \
 	pxdg.h pxdg.c \
+	rsensor.h \
 	ui.h ui.c \
 	ui_appindicator.h \
 	ui_color.h ui_color.c \
@@ -98,7 +99,7 @@ endif
 
 if CURL
 if JSON
-psensor_SOURCES += rsensor.h rsensor.c
+psensor_SOURCES += rsensor.c
 LIBS += $(CURL_LIBS) $(JSON_LIBS)
 AM_CPPFLAGS += $(CURL_CFLAGS) $(JSON_CFLAGS)
 endif
@@ -112,7 +113,7 @@ gsettings_SCHEMAS=psensor.gschema.xml
 
 EXTRA_DIST = description.txt\
 	$(gsettings_SCHEMAS)\
-	rsensor.h rsensor.c\
+	rsensor.c\
 	ui_appindicator.c\
 	ui_notify.c\
 	ui_unity.c

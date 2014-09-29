@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-29 14:35+0200\n"
+"POT-Creation-Date: 2014-09-29 18:27+0200\n"
 "PO-Revision-Date: 2014-09-21 06:25+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -577,7 +577,7 @@ msgstr "Datoteka zapisa senzora nije otvorena."
 msgid "Sensor log not open, cannot close."
 msgstr "Datoteka zapisa senzora nije otvorena, nemoguće zatvaranje."
 
-#: src/main.c:64 src/server/server.c:87
+#: src/main.c:63 src/server/server.c:87
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -592,12 +592,12 @@ msgstr ""
 "Ovo je slobodan softver: slobodno ga možete mijenjati i redistribuirati.\n"
 "Ne postoji nikakvo JAMSTVO, propisano zakonom.\n"
 
-#: src/main.c:75 src/server/server.c:97
+#: src/main.c:74 src/server/server.c:97
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Upotreba: %s [MOGUĆNOST]...\n"
 
-#: src/main.c:77
+#: src/main.c:76
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -605,11 +605,11 @@ msgstr ""
 "Psensor je GTK+ aplikacija za nadziranje hardverskih senzora, koja uključuje "
 "temperature i brzinu okretaja ventilatora."
 
-#: src/main.c:81
+#: src/main.c:80
 msgid "Options:"
 msgstr "Mogućnosti:"
 
-#: src/main.c:82
+#: src/main.c:81
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -617,7 +617,7 @@ msgstr ""
 "  -h, --help          prikaz pomoći\n"
 "  -v, --version       prikaz informacije inačice"
 
-#: src/main.c:88
+#: src/main.c:87
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -625,48 +625,48 @@ msgstr ""
 "  -u, --url=URL       URL psensor-poslužitelja,\n"
 "                      npr: http://hostname:3131"
 
-#: src/main.c:91
+#: src/main.c:90
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr "  -n, --new-instance  prisili stvaranje nove Psensor aplikacije"
 
-#: src/main.c:94
+#: src/main.c:93
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL   postavi razinu otklanjanja greške, cijeli broj između "
 "0 i 3"
 
-#: src/main.c:99 src/server/server.c:120
+#: src/main.c:98 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Prijavi grešku na: %s\n"
 
-#: src/main.c:101 src/server/server.c:122
+#: src/main.c:100 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s početna stranica: <%s>\n"
 
-#: src/main.c:431
+#: src/main.c:425
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor nije kompajliran s udaljenom podrškom senzora."
 
-#: src/main.c:502
+#: src/main.c:496
 msgid "Enables debug mode."
 msgstr "Omogućava način otklanjanja greške."
 
-#: src/main.c:514 src/server/server.c:386
+#: src/main.c:508 src/server/server.c:386
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Pokušajte `%s --help` za više informacija.\n"
 
-#: src/main.c:527
+#: src/main.c:521
 msgid "A Psensor instance already exists."
 msgstr "Psensor primjerak je već pokrenut."
 
-#: src/main.c:569
+#: src/main.c:563
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Neuspjelo stvaranje niza za nadziranje senzora"
 
-#: src/main.c:590 src/ui.c:97
+#: src/main.c:584 src/ui.c:97
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
