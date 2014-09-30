@@ -224,54 +224,6 @@ static void cb_alarm_raised(struct psensor *sensor, void *data)
 	}
 }
 
-static void associate_colors(struct psensor **sensors)
-{
-	GdkRGBA rgba;
-	/* copied from the default colors of the gtk color color
-	 * chooser. */
-	const char *default_colors[27] = {
-		"#ef2929",  /* Scarlet Red */
-		"#fcaf3e",  /* Orange */
-		"#fce94f",  /* Butter */
-		"#8ae234",  /* Chameleon */
-		"#729fcf",  /* Sky Blue */
-		"#ad7fa8",  /* Plum */
-		"#e9b96e",  /* Chocolate */
-		"#888a85",  /* Aluminum 1 */
-		"#eeeeec",  /* Aluminum 2 */
-		"#cc0000",
-		"#f57900",
-		"#edd400",
-		"#73d216",
-		"#3465a4",
-		"#75507b",
-		"#c17d11",
-		"#555753",
-		"#d3d7cf",
-		"#a40000",
-		"#ce5c00",
-		"#c4a000",
-		"#4e9a06",
-		"#204a87",
-		"#5c3566",
-		"#8f5902",
-		"#2e3436",
-		"#babdb6"
-	};
-	int i;
-	struct psensor **cur;
-	struct color c;
-
-	for (cur = sensors, i = 0; *cur; cur++, i++) {
-		gdk_rgba_parse(&rgba, default_colors[i % 27]);
-		c.red = rgba.red;
-		c.green = rgba.green;
-		c.blue = rgba.blue;
-
-		(*cur)->color = config_get_sensor_color((*cur)->id, &c);
-	}
-}
-
 static void
 associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 {
@@ -451,7 +403,6 @@ static struct psensor **create_sensors_list(const char *url)
 	}
 
 	associate_preferences(sensors);
-	associate_colors(sensors);
 
 	return sensors;
 }

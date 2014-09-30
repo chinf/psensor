@@ -297,6 +297,7 @@ static void draw_sensor_smooth_curve(struct psensor *s,
 	int i, dt, vdt, j, k, found;
 	double x[4], y[4], v;
 	time_t t, t0, *stimes;
+	GdkRGBA *color;
 
 	if (!times)
 		times = g_hash_table_new_full(g_str_hash,
@@ -306,10 +307,13 @@ static void draw_sensor_smooth_curve(struct psensor *s,
 
 	stimes = g_hash_table_lookup(times, s->id);
 
+	color = config_get_sensor_color(s->id);
+
 	cairo_set_source_rgb(cr,
-			     s->color->red,
-			     s->color->green,
-			     s->color->blue);
+			     color->red,
+			     color->green,
+			     color->blue);
+	gdk_rgba_free(color);
 
 	/* search the index of the first measure used as a start point
 	 * of a Bezier curve. The start and end points of the Bezier
@@ -399,11 +403,14 @@ static void draw_sensor_curve(struct psensor *s,
 {
 	int first, i, t, dt, vdt;
 	double v, x, y;
+	GdkRGBA *color;
 
+	color = config_get_sensor_color(s->id);
 	cairo_set_source_rgb(cr,
-			     s->color->red,
-			     s->color->green,
-			     s->color->blue);
+			     color->red,
+			     color->green,
+			     color->blue);
+	gdk_rgba_free(color);
 
 	dt = et - bt;
 	first = 1;

@@ -19,13 +19,8 @@
 #ifndef _PSENSOR_UI_COLOR_H_
 #define _PSENSOR_UI_COLOR_H_
 
-#include "color.h"
+#include <bool.h>
 
-/*
- * UI to change a given color.
- *
- * Returns 1 if the color has been modified.
- */
-int ui_change_color(const char *title, struct color *col, GtkWindow *win);
+bool ui_change_color(const char *, GdkRGBA *, GtkWindow *);
 
 #endif

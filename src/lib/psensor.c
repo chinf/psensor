@@ -57,8 +57,6 @@ struct psensor *psensor_create(char *id,
 	psensor->cb_alarm_raised_data = NULL;
 	psensor->alarm_raised = 0;
 
-	psensor->color = NULL;
-
 	psensor->provider_data = NULL;
 	psensor->provider_data_free_fct = &free;
 
@@ -100,9 +98,6 @@ void psensor_free(struct psensor *s)
 
 	if (s->chip)
 		free(s->chip);
-
-	if (s->color)
-		free(s->color);
 
 	measures_free(s->measures);
 

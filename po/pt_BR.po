@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-29 19:05+0200\n"
+"POT-Creation-Date: 2014-10-01 00:43+0200\n"
 "PO-Revision-Date: 2014-09-11 21:22+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -18,17 +18,17 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
-#: src/cfg.c:510
+#: src/cfg.c:509
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Falhou ao criar servidor web."
 
-#: src/cfg.c:557
+#: src/cfg.c:556
 #, fuzzy, c-format
 msgid "Failed to load configuration file %s: %s"
 msgstr "Falhou ao criar servidor web."
 
-#: src/cfg.c:580
+#: src/cfg.c:579
 #, c-format
 msgid "Failed to save configuration file %s."
 msgstr ""
@@ -570,7 +570,7 @@ msgstr "Arquivo de registros do sensor não foi aberto."
 msgid "Sensor log not open, cannot close."
 msgstr ""
 
-#: src/main.c:63 src/server/server.c:87
+#: src/main.c:61 src/server/server.c:87
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -580,12 +580,12 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:74 src/server/server.c:97
+#: src/main.c:72 src/server/server.c:97
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Uso: %s [OPÇÃO]...\n"
 
-#: src/main.c:76
+#: src/main.c:74
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -593,11 +593,11 @@ msgstr ""
 "Psensor é um aplicativo GTK+ para monitoramento de sensores de hardware, "
 "incluindo temperatura e velocidade de ventoinhas."
 
-#: src/main.c:80
+#: src/main.c:78
 msgid "Options:"
 msgstr "Opções:"
 
-#: src/main.c:81
+#: src/main.c:79
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -605,7 +605,7 @@ msgstr ""
 "  -h, --help          exibir esta ajuda e sair\n"
 "  -v, --version       exibir informação de versão e sair"
 
-#: src/main.c:87
+#: src/main.c:85
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -613,55 +613,45 @@ msgstr ""
 "  -u, --url=URL       a URL  do psensor-server,\n"
 "                      exemplo: http://hostname:3131"
 
-#: src/main.c:90
+#: src/main.c:88
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 
-#: src/main.c:93
+#: src/main.c:91
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/main.c:98 src/server/server.c:120
+#: src/main.c:96 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Relatar falhas para: %s\n"
 
-#: src/main.c:100 src/server/server.c:122
+#: src/main.c:98 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "Página inicial de %s: <%s>\n"
 
-#: src/main.c:425
+#: src/main.c:423
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 
-#: src/main.c:496
+#: src/main.c:494
 msgid "Enables debug mode."
 msgstr "Ativar o modo de depuração"
 
-#: src/main.c:508 src/server/server.c:386
+#: src/main.c:506 src/server/server.c:386
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Utilize `%s --help' para mais informações.\n"
 
-#: src/main.c:521
+#: src/main.c:519
 msgid "A Psensor instance already exists."
 msgstr "Uma instancia de Psensor já existe."
 
-#: src/main.c:563
+#: src/main.c:561
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Falhou ao criar servidor web."
-
-#: src/main.c:584 src/ui.c:97
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Celio Alves https://launchpad.net/~celio.alves\n"
-"  Daniel Serafim https://launchpad.net/~daniel-serafim\n"
-"  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
-"  MestreLion https://launchpad.net/~mestrelion\n"
-"  Rafael Neri https://launchpad.net/~rafepel"
 
 #: src/rsensor.c:115
 #, fuzzy, c-format
@@ -772,6 +762,16 @@ msgstr "Copyright(c) 2010-2014 jeanfi@gmail.com"
 #: src/ui.c:96
 msgid "About Psensor"
 msgstr "Sobre o Psensor"
+
+#: src/ui.c:97
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Celio Alves https://launchpad.net/~celio.alves\n"
+"  Daniel Serafim https://launchpad.net/~daniel-serafim\n"
+"  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
+"  MestreLion https://launchpad.net/~mestrelion\n"
+"  Rafael Neri https://launchpad.net/~rafepel"
 
 #: src/ui.c:100
 msgid "Psensor Homepage"

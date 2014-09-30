@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-09-29 19:05+0200\n"
+"POT-Creation-Date: 2014-10-01 00:43+0200\n"
 "PO-Revision-Date: 2014-09-20 11:25+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
-#: src/cfg.c:510
+#: src/cfg.c:509
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Kon geen webserver maken."
 
-#: src/cfg.c:557
+#: src/cfg.c:556
 #, fuzzy, c-format
 msgid "Failed to load configuration file %s: %s"
 msgstr "Kon logboeken bijhouden niet inschakelen voor sensoren."
 
-#: src/cfg.c:580
+#: src/cfg.c:579
 #, fuzzy, c-format
 msgid "Failed to save configuration file %s."
 msgstr "Kon logboeken bijhouden niet inschakelen voor sensoren."
@@ -587,7 +587,7 @@ msgstr "Logboekbestand van sensor niet geopend."
 msgid "Sensor log not open, cannot close."
 msgstr "Logboekbestand van sensor niet geopend, kan niet sluiten."
 
-#: src/main.c:63 src/server/server.c:87
+#: src/main.c:61 src/server/server.c:87
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -602,12 +602,12 @@ msgstr ""
 "Dit is vrije programmatuur: u mag hem wijzigen en doorgeven.\n"
 "Er zit geen garantie op, voor zover de wet dat toestaat.\n"
 
-#: src/main.c:74 src/server/server.c:97
+#: src/main.c:72 src/server/server.c:97
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Gebruik: %s [OPTIE]...\n"
 
-#: src/main.c:76
+#: src/main.c:74
 msgid ""
 "Psensor is a GTK+ application for monitoring hardware sensors, including "
 "temperatures and fan speeds."
@@ -615,11 +615,11 @@ msgstr ""
 "Psensor is een GTK+ toepassing voor het bewaken van apparatuursensoren, "
 "inclusief temperaturen en ventilatorsnelheden."
 
-#: src/main.c:80
+#: src/main.c:78
 msgid "Options:"
 msgstr "Opties:"
 
-#: src/main.c:81
+#: src/main.c:79
 msgid ""
 "  -h, --help          display this help and exit\n"
 "  -v, --version       display version information and exit"
@@ -627,7 +627,7 @@ msgstr ""
 "  -h, --help          toon deze hulpinformatie en sluit af\n"
 "  -v, --version       toon versie-informatie en sluit af"
 
-#: src/main.c:87
+#: src/main.c:85
 msgid ""
 "  -u, --url=URL       the URL of the psensor-server,\n"
 "                      example: http://hostname:3131"
@@ -635,55 +635,48 @@ msgstr ""
 "  -u, --url=URL       het webadres van de psensor-server,\n"
 "                      voorbeeld: http://hostname:3131"
 
-#: src/main.c:90
+#: src/main.c:88
 msgid "  -n, --new-instance  force the creation of a new Psensor application"
 msgstr ""
 "  -n, --new-instance  forceer het aanmaken van een nieuwe Psensor-toepassing"
 
-#: src/main.c:93
+#: src/main.c:91
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL   stel het foutopsporingsniveau in, integer tussen 0 en 3"
 
-#: src/main.c:98 src/server/server.c:120
+#: src/main.c:96 src/server/server.c:120
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Meld fouten aan: %s\n"
 
-#: src/main.c:100 src/server/server.c:122
+#: src/main.c:98 src/server/server.c:122
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "Webpagina van %s: <%s>\n"
 
-#: src/main.c:425
+#: src/main.c:423
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr ""
 "Psensor os niet gecompileerd met ondersteuning voor sensoren op afstand."
 
-#: src/main.c:496
+#: src/main.c:494
 msgid "Enables debug mode."
 msgstr "Schakelt foutopsporingsmodus in."
 
-#: src/main.c:508 src/server/server.c:386
+#: src/main.c:506 src/server/server.c:386
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Probeer '%s --help' voor meer informatie.\n"
 
-#: src/main.c:521
+#: src/main.c:519
 msgid "A Psensor instance already exists."
 msgstr "Er bestaat reeds een instantie van Psensor."
 
-#: src/main.c:563
+#: src/main.c:561
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Kon geen webserver maken."
-
-#: src/main.c:584 src/ui.c:97
-msgid "translator-credits"
-msgstr ""
-"Launchpad Contributions:\n"
-"  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
-"  Pjotr12345 https://launchpad.net/~computertip"
 
 #: src/rsensor.c:115
 #, fuzzy, c-format
@@ -802,6 +795,13 @@ msgstr "Auteursrecht(c) 2010-2014 jeanfi@gmail.com"
 #: src/ui.c:96
 msgid "About Psensor"
 msgstr "Over Psensor"
+
+#: src/ui.c:97
+msgid "translator-credits"
+msgstr ""
+"Launchpad Contributions:\n"
+"  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
+"  Pjotr12345 https://launchpad.net/~computertip"
 
 #: src/ui.c:100
 msgid "Psensor Homepage"

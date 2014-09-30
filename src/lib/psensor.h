@@ -22,7 +22,6 @@
 #include <config.h>
 
 #include <bool.h>
-#include <color.h>
 #include <measure.h>
 #include <plog.h>
 
@@ -77,9 +76,6 @@ struct psensor {
 	/* Last registered measures of the sensor.  Index 0 for the
 	 * oldest measure.  */
 	struct measure *measures;
-
-	/* Color of the sensor used for the graph */
-	struct color *color;
 
 	/* see psensor_type */
 	unsigned int type;

@@ -19,7 +19,7 @@
 #ifndef _PSENSOR_CONFIG_H_
 #define _PSENSOR_CONFIG_H_
 
-#include <gio/gio.h>
+#include <gdk/gdk.h>
 
 #include <bool.h>
 #include <color.h>
@@ -84,8 +84,8 @@ void config_save(const struct config *);
 
 void config_cleanup(void);
 
-struct color *config_get_sensor_color(const char *sid, const struct color *);
-void config_set_sensor_color(const char *sid, const struct color *);
+GdkRGBA *config_get_sensor_color(const char *);
+void config_set_sensor_color(const char *, const GdkRGBA *);
 
 int config_get_sensor_alarm_high_threshold(const char *);
 void config_set_sensor_alarm_high_threshold(const char *, int);

@@ -28,7 +28,6 @@
 #include <ui_sensorpref.h>
 #include <ui_color.h>
 
-
 enum {
 	COL_NAME = 0,
 	COL_SENSOR_PREF
@@ -38,7 +37,7 @@ struct sensor_pref {
 	struct psensor *sensor;
 	char *name;
 	int graph_enabled;
-	struct color *color;
+	GdkRGBA *color;
 	int alarm_enabled;
 	int alarm_high_threshold;
 	int alarm_low_threshold;
@@ -63,7 +62,7 @@ sensor_pref_new(struct psensor *s, struct config *cfg)
 	p->name = strdup(s->name);
 	p->graph_enabled = config_is_sensor_graph_enabled(s->id);
 	p->alarm_enabled = config_get_sensor_alarm_enabled(s->id);
-	p->color = color_dup(s->color);
+	p->color = config_get_sensor_color(s->id);
 	p->display_enabled = config_is_sensor_enabled(s->id);
 
 	if (cfg->temperature_unit == CELSIUS) {
@@ -89,7 +88,7 @@ static void sensor_pref_free(struct sensor_pref *p)
 		return;
 
 	free(p->name);
-	free(p->color);
+	gdk_rgba_free(p->color);
 
 	free(p);
 }
@@ -181,14 +180,11 @@ ui_sensorpref_appindicator_label_toggled_cb(GtkToggleButton *btn, gpointer data)
 void ui_sensorpref_color_set_cb(GtkColorButton *widget, gpointer data)
 {
 	struct sensor_pref *p;
-	GdkRGBA color;
 
 	p = get_selected_sensor_pref(GTK_TREE_VIEW(data));
 
-	if (p) {
-		gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(widget), &color);
-		color_set(p->color, color.red, color.green, color.blue);
-	}
+	if (p)
+		gtk_color_chooser_get_rgba(GTK_COLOR_CHOOSER(widget), p->color);
 }
 
 void
@@ -223,7 +219,6 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 		*w_appindicator_label_enabled, *w_display;
 	GtkColorButton *w_color;
 	GtkSpinButton *w_high_threshold, *w_low_threshold;
-	GdkRGBA color;
 	struct psensor *s;
 	int use_celsius;
 
@@ -253,10 +248,9 @@ update_pref(struct sensor_pref *p, struct config *cfg, GtkBuilder *builder)
 				       "sensor_enable_checkbox"));
 	gtk_toggle_button_set_active(w_display, p->display_enabled);
 
-	color = color_to_GdkRGBA(p->color);
 	w_color = GTK_COLOR_BUTTON(gtk_builder_get_object(builder,
 							  "sensor_color"));
-	gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(w_color), &color);
+	gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(w_color), p->color);
 
 	w_alarm = GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "sensor_alarm"));
@@ -383,11 +377,7 @@ static void apply_pref(struct sensor_pref *p, int pos, struct config *cfg)
 
 	config_set_sensor_alarm_enabled(s->id, p->alarm_enabled);
 
-	color_set(s->color,
-		  p->color->red,
-		  p->color->green,
-		  p->color->blue);
-	config_set_sensor_color(s->id, s->color);
+	config_set_sensor_color(s->id, p->color);
 
 	config_set_appindicator_enabled(s->id, p->appindicator_enabled);
 

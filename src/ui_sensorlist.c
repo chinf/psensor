@@ -58,7 +58,7 @@ static void populate(struct ui_psensor *ui)
 {
 	GtkTreeIter iter;
 	GtkListStore *store;
-	GdkRGBA color;
+	GdkRGBA *color;
 	char *scolor;
 	struct psensor **ordered_sensors, **s_cur, *s;
 	unsigned int enabled;
@@ -73,15 +73,11 @@ static void populate(struct ui_psensor *ui)
 
 		gtk_list_store_append(store, &iter);
 
-		color.red = s->color->red;
-		color.green = s->color->green;
-		color.blue = s->color->blue;
-		color.alpha = 1.0;
+		color = config_get_sensor_color(s->id);
 
-		scolor = gdk_rgba_to_string(&color);
+		scolor = gdk_rgba_to_string(color);
 
 		enabled = config_is_sensor_enabled(s->id);
-
 		gtk_list_store_set(store, &iter,
 				   COL_NAME, s->name,
 				   COL_COLOR_STR, scolor,
@@ -91,6 +87,7 @@ static void populate(struct ui_psensor *ui)
 				   COL_DISPLAY_ENABLED, enabled,
 				   -1);
 		free(scolor);
+		gdk_rgba_free(color);
 	}
 	free(ordered_sensors);
 }
@@ -284,6 +281,7 @@ static int clicked_cbk(GtkWidget *widget, GdkEventButton *event, gpointer data)
 	GtkTreeView *view;
 	struct psensor *s;
 	int coli;
+	GdkRGBA *color;
 
 	ui = (struct ui_psensor *)data;
 	view = ui->sensors_tree;
@@ -294,13 +292,15 @@ static int clicked_cbk(GtkWidget *widget, GdkEventButton *event, gpointer data)
 		coli = col_index_to_col(get_col_index_at_pos(view, event->x));
 
 		if (coli == COL_COLOR) {
+			color = config_get_sensor_color(s->id);
 			if (ui_change_color(_("Select sensor color"),
-					    s->color,
+					    color,
 					    GTK_WINDOW(ui->main_window))) {
+				config_set_sensor_color(s->id, color);
 				ui_sensorlist_update(ui, 1);
-				config_set_sensor_color(s->id, s->color);
 				config_sync();
 			}
+			gdk_rgba_free(color);
 			return TRUE;
 		} else if (coli >= 0 && coli != COL_GRAPH_ENABLED) {
 			menu = create_sensor_popup(ui, s);

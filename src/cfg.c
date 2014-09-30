@@ -652,38 +652,79 @@ void config_set_sensor_name(const char *sid, const char *name)
 	sensor_set_str(sid, ATT_SENSOR_NAME, name);
 }
 
-void config_set_sensor_color(const char *sid, const struct color *color)
+void config_set_sensor_color(const char *sid, const GdkRGBA *color)
 {
-	char *scolor;
+	gchar *str;
 
-	scolor = color_to_str(color);
+	str = gdk_rgba_to_string(color);
 
-	sensor_set_str(sid, ATT_SENSOR_COLOR, scolor);
+	sensor_set_str(sid, ATT_SENSOR_COLOR, str);
 
-	free(scolor);
+	g_free(str);
 }
 
-struct color *
-config_get_sensor_color(const char *sid, const struct color *dft)
+static char *next_default_color(void)
 {
-	char *scolor;
-	struct color *color;
+	/* copied from the default colors of the gtk color color
+	 * chooser. */
+	const char *default_colors[27] = {
+		"#ef2929",  /* Scarlet Red */
+		"#fcaf3e",  /* Orange */
+		"#fce94f",  /* Butter */
+		"#8ae234",  /* Chameleon */
+		"#729fcf",  /* Sky Blue */
+		"#ad7fa8",  /* Plum */
+		"#e9b96e",  /* Chocolate */
+		"#888a85",  /* Aluminum 1 */
+		"#eeeeec",  /* Aluminum 2 */
+		"#cc0000",
+		"#f57900",
+		"#edd400",
+		"#73d216",
+		"#3465a4",
+		"#75507b",
+		"#c17d11",
+		"#555753",
+		"#d3d7cf",
+		"#a40000",
+		"#ce5c00",
+		"#c4a000",
+		"#4e9a06",
+		"#204a87",
+		"#5c3566",
+		"#8f5902",
+		"#2e3436",
+		"#babdb6"
+	};
+	static int next_idx;
+	char *c;
 
-	scolor = sensor_get_str(sid, ATT_SENSOR_COLOR);
+	c = default_colors[next_idx % 27];
 
-	if (scolor)
-		color = str_to_color(scolor);
-	else
-		color = NULL;
+	next_idx++;
 
-	if (!color) {
-		color = color_new(dft->red, dft->green, dft->blue);
-		config_set_sensor_color(sid, color);
+	return c;
+}
+
+GdkRGBA *config_get_sensor_color(const char *sid)
+{
+	GdkRGBA rgba;
+	char *str;
+	gboolean ret;
+
+	str = sensor_get_str(sid, ATT_SENSOR_COLOR);
+
+	if (str) {
+		ret = gdk_rgba_parse(&rgba, str);
+		free(str);
 	}
 
-	free(scolor);
+	if (!str || !ret) {
+		gdk_rgba_parse(&rgba, next_default_color());
+		config_set_sensor_color(sid, &rgba);
+	}
 
-	return color;
+	return gdk_rgba_copy(&rgba);
 }
 
 bool config_is_sensor_graph_enabled(const char *sid)
