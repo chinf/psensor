@@ -6,6 +6,8 @@ v1.1.4
 
 * Added tooltip explaining why a setting is not available.
 * Removed support of old AppIndicator library < 3.0.
+* Fixed memory leaks in appindicator support when sensor preferences
+  are changed.
 
 v1.1.3
 ------

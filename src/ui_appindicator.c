@@ -23,13 +23,13 @@
 #include <gtk/gtk.h>
 #include <libappindicator/app-indicator.h>
 
-#include "cfg.h"
-#include "psensor.h"
-#include "ui.h"
-#include "ui_appindicator.h"
-#include "ui_sensorpref.h"
-#include "ui_status.h"
-#include "ui_pref.h"
+#include <cfg.h>
+#include <psensor.h>
+#include <ui.h>
+#include <ui_appindicator.h>
+#include <ui_sensorpref.h>
+#include <ui_status.h>
+#include <ui_pref.h>
 
 static const char *ICON = "psensor_normal";
 static const char *ATTENTION_ICON = "psensor_hot";
@@ -90,19 +90,18 @@ static void update_menu_items(int use_celsius)
 }
 
 static void
-build_sensor_menu_items(const struct ui_psensor *ui, GtkMenu *menu)
+create_sensor_menu_items(const struct ui_psensor *ui, GtkMenu *menu)
 {
 	int i, j, n, celsius;
 	const char *name;
 	struct psensor **sorted_sensors;
 
-	free(menu_items);
-
 	celsius  = ui->config->temperature_unit == CELSIUS;
 
 	sorted_sensors = ui_get_sensors_ordered_by_position(ui);
 	n = psensor_list_size(sorted_sensors);
-	menu_items = malloc(n * sizeof(GtkWidget *));
+	menu_items = malloc((n + 1) * sizeof(GtkWidget *));
+
 	sensors = malloc((n + 1) * sizeof(struct psensor *));
 	for (i = 0, j = 0; i < n; i++) {
 		if (config_is_appindicator_enabled(sorted_sensors[i]->id)) {
@@ -123,11 +122,12 @@ build_sensor_menu_items(const struct ui_psensor *ui, GtkMenu *menu)
 	}
 
 	sensors[j] = NULL;
+	menu_items[j] = NULL;
 
 	free(sorted_sensors);
 }
 
-static GtkWidget *get_menu(struct ui_psensor *ui)
+static GtkMenu *load_menu(struct ui_psensor *ui)
 {
 	GError *error;
 	GtkMenu *menu;
@@ -139,10 +139,7 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	builder = gtk_builder_new();
 
 	error = NULL;
-	ok = gtk_builder_add_from_file
-	(builder,
-	 GLADE_FILE,
-	 &error);
+	ok = gtk_builder_add_from_file(builder, GLADE_FILE, &error);
 
 	if (!ok) {
 		log_err(_("Failed to load glade file %s: %s"),
@@ -153,7 +150,7 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 	}
 
 	menu = GTK_MENU(gtk_builder_get_object(builder, "appindicator_menu"));
-	build_sensor_menu_items(ui, menu);
+	create_sensor_menu_items(ui, menu);
 	gtk_builder_connect_signals(builder, ui);
 
 	g_object_ref(G_OBJECT(menu));
@@ -161,7 +158,7 @@ static GtkWidget *get_menu(struct ui_psensor *ui)
 
 	log_fct_exit();
 
-	return GTK_WIDGET(menu);
+	return menu;
 }
 
 static void update_label(struct ui_psensor *ui)
@@ -233,7 +230,7 @@ void ui_appindicator_update(struct ui_psensor *ui, bool attention)
 
 	if (attention && status == APP_INDICATOR_STATUS_ACTIVE)
 		app_indicator_set_status(indicator,
-					 APP_INDICATOR_STATUS_ATTENTION);
+		APP_INDICATOR_STATUS_ATTENTION);
 
 	update_menu_items(ui->config->temperature_unit == CELSIUS);
 }
@@ -263,14 +260,44 @@ unity_unfallback(AppIndicator *indicator, GtkStatusIcon *status_icon)
 	appindicator_supported = true;
 }
 
+static void remove_sensor_menu_items(GtkMenu *menu)
+{
+	GtkMenuItem **items;
+
+	if (!menu_items)
+		return;
+
+	items = menu_items;
+	while (*items) {
+		gtk_container_remove(GTK_CONTAINER(menu), GTK_WIDGET(*items));
+
+		items++;
+	}
+
+	free(menu_items);
+	free(sensors);
+}
+
 void ui_appindicator_update_menu(struct ui_psensor *ui)
 {
-	GtkWidget *menu;
+	GtkMenu *menu;
 
-	menu = get_menu(ui);
-	app_indicator_set_menu(indicator, GTK_MENU(menu));
+	menu = GTK_MENU(app_indicator_get_menu(indicator));
 
-	gtk_widget_show_all(menu);
+	if (menu) {
+		remove_sensor_menu_items(menu);
+		create_sensor_menu_items(ui, menu);
+	} else {
+		menu = load_menu(ui);
+
+		if (menu) {
+			app_indicator_set_menu(indicator, menu);
+			g_object_unref(G_OBJECT(menu));
+		}
+	}
+
+	if (menu)
+		gtk_widget_show_all(GTK_WIDGET(menu));
 }
 
 void ui_appindicator_init(struct ui_psensor *ui)
