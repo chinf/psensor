@@ -8,6 +8,7 @@ v1.1.4
 * Removed support of old AppIndicator library < 3.0.
 * Fixed memory leaks in appindicator support when sensor preferences
   are changed.
+* Changes of sensors preferences are applied immediately.
 
 v1.1.3
 ------
