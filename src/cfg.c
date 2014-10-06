@@ -663,7 +663,7 @@ void config_set_sensor_color(const char *sid, const GdkRGBA *color)
 	g_free(str);
 }
 
-static char *next_default_color(void)
+static const char *next_default_color(void)
 {
 	/* copied from the default colors of the gtk color color
 	 * chooser. */
@@ -697,7 +697,7 @@ static char *next_default_color(void)
 		"#babdb6"
 	};
 	static int next_idx;
-	char *c;
+	const char *c;
 
 	c = default_colors[next_idx % 27];
 
@@ -882,4 +882,9 @@ void config_set_libatasmart_enable(bool b)
 void config_set_udisks2_enable(bool b)
 {
 	set_bool(KEY_PROVIDER_UDISKS2_ENABLED, b);
+}
+
+int config_get_sensor_unit(void)
+{
+	return get_int(KEY_INTERFACE_TEMPERATURE_UNIT);
 }

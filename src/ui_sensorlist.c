@@ -63,7 +63,7 @@ static void populate(struct ui_psensor *ui)
 	struct psensor **ordered_sensors, **s_cur, *s;
 	unsigned int enabled;
 
-	ordered_sensors = ui_get_sensors_ordered_by_position(ui);
+	ordered_sensors = ui_get_sensors_ordered_by_position(ui->sensors);
 	store = ui->sensors_store;
 
 	gtk_list_store_clear(store);

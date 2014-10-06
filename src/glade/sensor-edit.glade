@@ -87,7 +87,9 @@
                     <property name="reorderable">True</property>
                     <property name="search_column">1</property>
                     <child internal-child="selection">
-                      <object class="GtkTreeSelection" id="treeview-selection"/>
+                      <object class="GtkTreeSelection" id="treeview-selection">
+                        <signal name="changed" handler="ui_sensorpref_tree_selection_changed_cb" swapped="no"/>
+                      </object>
                     </child>
                     <child>
                       <object class="GtkTreeViewColumn" id="sensor_name_col">

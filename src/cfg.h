@@ -146,6 +146,8 @@ void config_set_nvctrl_enable(bool);
 bool config_is_atiadlsdk_enabled(void);
 void config_set_atiadlsdk_enable(bool);
 
+int config_get_sensor_unit(void);
+
 /*
  * Returns the user directory containing psensor data (configuration
  * and log).

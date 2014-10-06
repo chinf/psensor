@@ -32,5 +32,6 @@ void ui_sensorpref_appindicator_label_toggled_cb(GtkToggleButton *, gpointer);
 void ui_sensorpref_color_set_cb(GtkColorButton *, gpointer);
 void ui_sensorpref_alarm_high_threshold_changed_cb(GtkSpinButton *, gpointer);
 void ui_sensorpref_alarm_low_threshold_changed_cb(GtkSpinButton *, gpointer);
+void ui_sensorpref_tree_selection_changed_cb(GtkTreeSelection *, gpointer);
 
 #endif

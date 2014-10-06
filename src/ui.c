@@ -349,11 +349,11 @@ static int cmp_sensors(const void *p1, const void *p2)
 	return pos1 - pos2;
 }
 
-struct psensor **ui_get_sensors_ordered_by_position(const struct ui_psensor *ui)
+struct psensor **ui_get_sensors_ordered_by_position(struct psensor **sensors)
 {
 	struct psensor **result;
 
-	result = psensor_list_copy(ui->sensors);
+	result = psensor_list_copy(sensors);
 	qsort(result,
 	      psensor_list_size(result),
 	      sizeof(struct psensor *),

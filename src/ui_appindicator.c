@@ -98,7 +98,7 @@ create_sensor_menu_items(const struct ui_psensor *ui, GtkMenu *menu)
 
 	celsius  = ui->config->temperature_unit == CELSIUS;
 
-	sorted_sensors = ui_get_sensors_ordered_by_position(ui);
+	sorted_sensors = ui_get_sensors_ordered_by_position(ui->sensors);
 	n = psensor_list_size(sorted_sensors);
 	menu_items = malloc((n + 1) * sizeof(GtkWidget *));
 
@@ -166,7 +166,7 @@ static void update_label(struct ui_psensor *ui)
 	char *label, *str, *tmp, *guide;
 	struct psensor **p;
 
-	p =  ui_get_sensors_ordered_by_position(ui);
+	p =  ui_get_sensors_ordered_by_position(ui->sensors);
 	label = NULL;
 	guide = NULL;
 	while (*p) {
