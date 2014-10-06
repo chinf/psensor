@@ -368,11 +368,22 @@ static void select_sensor(struct psensor *s, struct psensor **sensors)
 		}
 }
 
-static gboolean
-on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
+static void quit(void)
 {
 	gtk_widget_destroy(GTK_WIDGET(w_dialog));
 	w_dialog = NULL;
+}
+
+static gboolean
+on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
+{
+	quit();
+	return TRUE;
+}
+
+void ui_sensorpref_close_clicked_cb(GtkButton *btn, gpointer data)
+{
+	quit();
 	return TRUE;
 }
 

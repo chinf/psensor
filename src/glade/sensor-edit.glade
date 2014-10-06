@@ -49,6 +49,7 @@
                 <property name="can_default">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
+                <signal name="clicked" handler="ui_sensorpref_close_clicked_cb" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
