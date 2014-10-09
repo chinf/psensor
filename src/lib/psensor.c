@@ -45,6 +45,9 @@ struct psensor *psensor_create(char *id,
 	psensor->sess_lowest = UNKNOWN_DBL_VALUE;
 	psensor->sess_highest = UNKNOWN_DBL_VALUE;
 
+	psensor->min = UNKNOWN_DBL_VALUE;
+	psensor->max = UNKNOWN_DBL_VALUE;
+
 	psensor->type = type;
 
 	psensor->values_max_length = values_max_length;

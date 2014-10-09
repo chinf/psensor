@@ -80,6 +80,10 @@ struct psensor {
 	/* see psensor_type */
 	unsigned int type;
 
+	double max;
+
+	double min;
+
 	/* The highest value detected during this session. */
 	double sess_highest;
 

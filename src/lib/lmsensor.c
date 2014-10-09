@@ -211,6 +211,15 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 
 	psensor = psensor_create(id, label, cname, type, values_max_length);
 
+
+	sf = sensors_get_subfeature(chip, feature, SENSORS_SUBFEATURE_TEMP_MAX);
+	if (sf)
+		psensor->max = get_value(chip, sf);
+
+	sf = sensors_get_subfeature(chip, feature, SENSORS_SUBFEATURE_TEMP_MIN);
+	if (sf)
+		psensor->min = get_value(chip, sf);
+
 	lmsensor_data_set(psensor, chip, feature);
 
 	if (feature->type == SENSORS_FEATURE_TEMP

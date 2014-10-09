@@ -38,6 +38,8 @@ static GtkDialog *w_dialog;
 static GtkLabel *w_sensor_id;
 static GtkLabel *w_sensor_type;
 static GtkLabel *w_sensor_chipname;
+static GtkLabel *w_sensor_min;
+static GtkLabel *w_sensor_max;
 static GtkLabel *w_sensor_low_threshold_unit;
 static GtkLabel *w_sensor_high_threshold_unit;
 static GtkEntry *w_sensor_name;
@@ -271,6 +273,7 @@ static void update_pref(struct psensor *s)
 	int use_celsius, threshold;
 	GdkRGBA *color;
 	const char *chip;
+	char *smin, *smax;
 
 	if (!s)
 		return;
@@ -287,6 +290,23 @@ static void update_pref(struct psensor *s)
 		chip = _("Unknown");
 	gtk_label_set_text(w_sensor_chipname, chip);
 
+	use_celsius = config_get_sensor_unit() == CELSIUS ? 1 : 0;
+
+	if (s->min == UNKNOWN_DBL_VALUE)
+		smin = strdup(_("Unknown"));
+	else
+		smin = psensor_value_to_str(s->type, s->min, use_celsius);
+
+	gtk_label_set_text(w_sensor_min, smin);
+	free(smin);
+
+	if (s->max == UNKNOWN_DBL_VALUE)
+		smax = strdup(_("Unknown"));
+	else
+		smax = psensor_value_to_str(s->type, s->max, use_celsius);
+	gtk_label_set_text(w_sensor_max, smax);
+	free(smax);
+
 	gtk_toggle_button_set_active(w_sensor_draw,
 				     config_is_sensor_graph_enabled(s->id));
 
@@ -297,7 +317,6 @@ static void update_pref(struct psensor *s)
 	gtk_color_chooser_set_rgba(GTK_COLOR_CHOOSER(w_sensor_color), color);
 	gdk_rgba_free(color);
 
-	use_celsius = config_get_sensor_unit() == CELSIUS ? 1 : 0;
 	gtk_label_set_text(w_sensor_high_threshold_unit,
 			   psensor_type_to_unit_str(s->type, use_celsius));
 	gtk_label_set_text(w_sensor_low_threshold_unit,
@@ -416,6 +435,10 @@ static GtkBuilder *load_ui(struct ui_psensor *ui)
 		(gtk_builder_get_object(builder, "sensor_name"));
 	w_sensor_chipname = GTK_LABEL
 		(gtk_builder_get_object(builder, "chip_name"));
+	w_sensor_min = GTK_LABEL
+		(gtk_builder_get_object(builder, "sensor_min"));
+	w_sensor_max = GTK_LABEL
+		(gtk_builder_get_object(builder, "sensor_max"));
 	w_sensor_draw = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "sensor_draw"));
 	w_sensor_display = GTK_TOGGLE_BUTTON
