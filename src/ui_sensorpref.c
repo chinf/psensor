@@ -384,7 +384,6 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 void ui_sensorpref_close_clicked_cb(GtkButton *btn, gpointer data)
 {
 	quit();
-	return TRUE;
 }
 
 static GtkBuilder *load_ui(struct ui_psensor *ui)
