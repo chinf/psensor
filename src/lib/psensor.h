@@ -90,8 +90,8 @@ struct psensor {
 	/* The lowest value detected during this session. */
 	double sess_lowest;
 
-	int alarm_high_threshold;
-	int alarm_low_threshold;
+	double alarm_high_threshold;
+	double alarm_low_threshold;
 
 	/* Whether an alarm is raised for this sensor */
 	bool alarm_raised;

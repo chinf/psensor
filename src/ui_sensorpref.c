@@ -341,12 +341,12 @@ static void update_pref(struct psensor *s)
 	gtk_toggle_button_set_active(w_sensor_alarm,
 				     config_get_sensor_alarm_enabled(s->id));
 
-	threshold = config_get_sensor_alarm_high_threshold(s->id);
+	threshold = s->alarm_high_threshold;
 	if (!use_celsius)
 		threshold = celsius_to_fahrenheit(threshold);
 	gtk_spin_button_set_value(w_sensor_high_threshold, threshold);
 
-	threshold = config_get_sensor_alarm_low_threshold(s->id);
+	threshold = s->alarm_low_threshold;
 	if (!use_celsius)
 		threshold = celsius_to_fahrenheit(threshold);
 	gtk_spin_button_set_value(w_sensor_low_threshold, threshold);

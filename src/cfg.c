@@ -608,6 +608,24 @@ static char *sensor_get_str(const char *sid, const char *att)
 	return g_key_file_get_string(kfile, sid, att, NULL);
 }
 
+static bool sensor_get_double(const char *sid, const char *att, double *d)
+{
+	GKeyFile *kfile;
+	GError *err;
+	double v;
+
+	kfile = get_sensor_key_file();
+
+	err = NULL;
+	v = g_key_file_get_double(kfile, sid, att, &err);
+
+	if (err)
+		return false;
+
+	*d = v;
+	return true;
+}
+
 static bool sensor_get_bool(const char *sid, const char *att)
 {
 	GKeyFile *kfile;
@@ -737,9 +755,9 @@ void config_set_sensor_graph_enabled(const char *sid, bool enabled)
 	sensor_set_bool(sid, ATT_SENSOR_GRAPH_ENABLED, enabled);
 }
 
-int config_get_sensor_alarm_high_threshold(const char *sid)
+bool config_get_sensor_alarm_high_threshold(const char *sid, double *v)
 {
-	return sensor_get_int(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD);
+	return sensor_get_double(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD, v);
 }
 
 void config_set_sensor_alarm_high_threshold(const char *sid, int threshold)
@@ -747,9 +765,9 @@ void config_set_sensor_alarm_high_threshold(const char *sid, int threshold)
 	sensor_set_int(sid, ATT_SENSOR_ALARM_HIGH_THRESHOLD, threshold);
 }
 
-int config_get_sensor_alarm_low_threshold(const char *sid)
+bool config_get_sensor_alarm_low_threshold(const char *sid, double *v)
 {
-	return sensor_get_int(sid, ATT_SENSOR_ALARM_LOW_THRESHOLD);
+	return sensor_get_double(sid, ATT_SENSOR_ALARM_LOW_THRESHOLD, v);
 }
 
 void config_set_sensor_alarm_low_threshold(const char *sid, int threshold)
