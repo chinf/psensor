@@ -119,8 +119,12 @@ void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
 		value = psensor_value_to_str(s->type,
 					     psensor_get_current_value(s),
 					     use_celsius);
-		min = psensor_value_to_str(s->type, s->min, use_celsius);
-		max = psensor_value_to_str(s->type, s->max, use_celsius);
+		min = psensor_value_to_str(s->type,
+					   s->sess_lowest,
+					   use_celsius);
+		max = psensor_value_to_str(s->type,
+					   s->sess_highest,
+					   use_celsius);
 
 		gtk_list_store_set(store, &iter,
 				   COL_TEMP, value,

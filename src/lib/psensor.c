@@ -42,8 +42,8 @@ struct psensor *psensor_create(char *id,
 	psensor->id = id;
 	psensor->name = name;
 	psensor->chip = chip;
-	psensor->min = UNKNOWN_DBL_VALUE;
-	psensor->max = UNKNOWN_DBL_VALUE;
+	psensor->sess_lowest = UNKNOWN_DBL_VALUE;
+	psensor->sess_highest = UNKNOWN_DBL_VALUE;
 
 	psensor->type = type;
 
@@ -247,11 +247,11 @@ void psensor_set_current_measure(struct psensor *s, double v, struct timeval tv)
 	s->measures[s->values_max_length - 1].value = v;
 	s->measures[s->values_max_length - 1].time = tv;
 
-	if (s->min == UNKNOWN_DBL_VALUE || v < s->min)
-		s->min = v;
+	if (s->sess_lowest == UNKNOWN_DBL_VALUE || v < s->sess_lowest)
+		s->sess_lowest = v;
 
-	if (s->max == UNKNOWN_DBL_VALUE || v > s->max)
-		s->max = v;
+	if (s->sess_highest == UNKNOWN_DBL_VALUE || v > s->sess_highest)
+		s->sess_highest = v;
 
 	if (v > s->alarm_high_threshold || v < s->alarm_low_threshold) {
 		if (!s->alarm_raised && s->cb_alarm_raised) {

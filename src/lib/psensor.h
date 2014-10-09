@@ -80,11 +80,11 @@ struct psensor {
 	/* see psensor_type */
 	unsigned int type;
 
-	/* The maximum detected value of the sensor */
-	double max;
+	/* The highest value detected during this session. */
+	double sess_highest;
 
-	/* The minimum detected value of the sensor */
-	double min;
+	/* The lowest value detected during this session. */
+	double sess_lowest;
 
 	int alarm_high_threshold;
 	int alarm_low_threshold;

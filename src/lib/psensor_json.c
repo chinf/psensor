@@ -80,9 +80,11 @@ static json_object *sensor_to_json(struct psensor *s)
 	json_object_object_add(obj,
 			       ATT_SENSOR_TYPE, json_object_new_int(s->type));
 	json_object_object_add(obj,
-			       ATT_SENSOR_MIN, json_object_new_double(s->min));
+			       ATT_SENSOR_MIN,
+			       json_object_new_double(s->sess_lowest));
 	json_object_object_add(obj,
-			       ATT_SENSOR_MAX, json_object_new_double(s->max));
+			       ATT_SENSOR_MAX,
+			       json_object_new_double(s->sess_highest));
 	json_object_object_add(obj,
 			       ATT_SENSOR_MEASURES,
 			       measures_to_json_object(s));
