@@ -241,7 +241,7 @@ specification].
 
 [[S_disk]]
 How to monitor the temperature of a disk with +hddtemp+?
------------------------------------------
+--------------------------------------------------------
 
 Until the release 1.1.2, Psensor is using +hddtemp+ by default to
 retrieve the temperature of the disks.
