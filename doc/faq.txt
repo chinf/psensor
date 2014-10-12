@@ -216,7 +216,8 @@ the output of the different commands like +sensors+.
 Anyway, as I received several requests about such feature, since the
 0.7.0.4 release it is implemented in both psensor ( menu preferences >
 sensors > enable log of measures) and psensor-server
-(+--sensor-log-file+ option).
+(+--sensor-log-file+ option). For psensor the log file is
++$HOME/.psensor/sensors.log+.
 
 [[S_NO_GRAPH_DISPLAYED]]
 
