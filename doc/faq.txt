@@ -260,15 +260,14 @@ Depending on the Linux distribution, the installation of the +hddtemp+
 package does not enable the hddtemp daemon automaticaly.
 
 In this case, edit the file +/etc/default/hddtemp+ and set
-+RUN_DAEMON+ to +"true"+ like in the following example:
++RUN_DAEMON+ to +"true"+. After edition, it should contain the
+following line:
 
 ------------------
-# hddtemp network daemon switch. If set to true, hddtemp will listen
-# for incoming connections.
 RUN_DAEMON="true"
 ------------------
 
-For Debian/Ubuntu, you can use
+For Debian/Ubuntu, you can use at root:
 ------------------
 dpkg-reconfigure hddtemp
 ------------------

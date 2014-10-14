@@ -716,14 +716,13 @@ It should output something like:</p></div>
 <div class="paragraph"><p>Depending on the Linux distribution, the installation of the <code>hddtemp</code>
 package does not enable the hddtemp daemon automaticaly.</p></div>
 <div class="paragraph"><p>In this case, edit the file <code>/etc/default/hddtemp</code> and set
-<code>RUN_DAEMON</code> to <code>"true"</code> like in the following example:</p></div>
+<code>RUN_DAEMON</code> to <code>"true"</code>. After edition, it should contain the
+following line:</p></div>
 <div class="listingblock">
 <div class="content">
-<pre><code># hddtemp network daemon switch. If set to true, hddtemp will listen
-# for incoming connections.
-RUN_DAEMON="true"</code></pre>
+<pre><code>RUN_DAEMON="true"</code></pre>
 </div></div>
-<div class="paragraph"><p>For Debian/Ubuntu, you can use</p></div>
+<div class="paragraph"><p>For Debian/Ubuntu, you can use at root:</p></div>
 <div class="listingblock">
 <div class="content">
 <pre><code>dpkg-reconfigure hddtemp</code></pre>
@@ -775,7 +774,7 @@ of sensors.conf(5).</p></div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-12 12:23:53 CEST
+Last updated 2014-10-14 22:59:10 CEST
 </div>
 </div>
 </body>
