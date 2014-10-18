@@ -272,6 +272,7 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	int type;
 	size_t n;
 	struct psensor *s;
+	double v;
 
 	type = SENSOR_TYPE_NVCTRL | subtype;
 
@@ -292,6 +293,13 @@ static struct psensor *create_nvidia_sensor(int id, int subtype, int value_len)
 	s = psensor_create(sid, name, pname, type, value_len);
 	s->provider_data = malloc(sizeof(int));
 	set_nvidia_id(s, id);
+
+	if ((type & SENSOR_TYPE_GPU) && (type & SENSOR_TYPE_TEMP)) {
+		v = get_att(NV_CTRL_TARGET_TYPE_GPU,
+			    id,
+			    NV_CTRL_GPU_CORE_THRESHOLD);
+		s->max = v;
+	}
 
 	free(strnid);
 
