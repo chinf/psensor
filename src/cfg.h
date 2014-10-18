@@ -148,6 +148,8 @@ void config_set_atiadlsdk_enable(bool);
 
 int config_get_sensor_unit(void);
 
+double config_get_default_high_threshold_temperature(void);
+
 /*
  * Returns the user directory containing psensor data (configuration
  * and log).
