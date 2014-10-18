@@ -156,15 +156,20 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 	int type;
 	char *id, *label, *cname;
 	struct psensor *psensor;
-	sensors_subfeature_type fault_subfeature;
+	sensors_subfeature_type fault_subfeature, min_subfeature,
+		max_subfeature;
 
 	if (sensors_snprintf_chip_name(name, 200, chip) < 0)
 		return NULL;
 
 	if (feature->type == SENSORS_FEATURE_TEMP) {
 		fault_subfeature = SENSORS_SUBFEATURE_TEMP_FAULT;
+		max_subfeature = SENSORS_SUBFEATURE_TEMP_MAX;
+		min_subfeature = SENSORS_SUBFEATURE_TEMP_MIN;
 	} else if (feature->type == SENSORS_FEATURE_FAN) {
 		fault_subfeature = SENSORS_SUBFEATURE_FAN_FAULT;
+		max_subfeature = SENSORS_SUBFEATURE_FAN_MAX;
+		min_subfeature = SENSORS_SUBFEATURE_FAN_MIN;
 	} else {
 		log_err(_("%s: Wrong feature type."), PROVIDER_NAME);
 		return NULL;
@@ -211,11 +216,11 @@ lmsensor_psensor_create(const sensors_chip_name *chip,
 
 	psensor = psensor_create(id, label, cname, type, values_max_length);
 
-	sf = sensors_get_subfeature(chip, feature, SENSORS_SUBFEATURE_TEMP_MAX);
+	sf = sensors_get_subfeature(chip, feature, max_subfeature);
 	if (sf)
 		psensor->max = get_value(chip, sf);
 
-	sf = sensors_get_subfeature(chip, feature, SENSORS_SUBFEATURE_TEMP_MIN);
+	sf = sensors_get_subfeature(chip, feature, min_subfeature);
 	if (sf)
 		psensor->min = get_value(chip, sf);
 
