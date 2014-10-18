@@ -157,6 +157,13 @@
       <description>Update interface of the sensor
       values.</description>
     </key>
+    <key name="default-high-threshold-temperature" type="d">
+      <default>60</default>
+      <summary>Default high threshold for the thermal
+      sensors.</summary>
+      <description>Default high threshold for the thermal sensors
+      (celsius).</description>
+    </key>
     <!-- sensors information providers -->
     <key name="provider-lmsensors-enabled" type="b">
       <default>true</default>
