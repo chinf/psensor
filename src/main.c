@@ -227,11 +227,11 @@ static void cb_alarm_raised(struct psensor *sensor, void *data)
 static void
 associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 {
-	struct psensor **sensor_cur = sensors;
 	bool ret;
+	struct psensor *s;
 
-	while (*sensor_cur) {
-		struct psensor *s = *sensor_cur;
+	while (*sensors) {
+		s = *sensors;
 
 		s->cb_alarm_raised = cb_alarm_raised;
 		s->cb_alarm_raised_data = ui;
@@ -248,7 +248,7 @@ associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 		if (!ret && s->min != UNKNOWN_DBL_VALUE)
 			s->alarm_low_threshold = s->min;
 
-		sensor_cur++;
+		sensors++;
 	}
 }
 
