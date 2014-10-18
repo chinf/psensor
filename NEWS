@@ -12,6 +12,7 @@ v1.1.4
 * Avoid multiple sensor preferences dialog at the same time.
 * Support max/min sensor information from providers.
 * Fixed string not translatable. (Closes: #138076).
+* Added a default high threshold for temperature.
 
 v1.1.3
 ------

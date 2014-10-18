@@ -119,6 +119,9 @@ static const char *KEY_PROVIDER_LIBATASMART_ENABLED
 static const char *KEY_PROVIDER_NVCTRL_ENABLED = "provider-nvctrl-enabled";
 static const char *KEY_PROVIDER_UDISKS2_ENABLED = "provider-udisks2-enabled";
 
+static const char *KEY_DEFAULT_HIGH_THRESHOLD_TEMPERATURE
+= "default-high-threshold-temperature";
+
 static GSettings *settings;
 
 static char *user_dir;
@@ -353,6 +356,10 @@ void config_set_smooth_curves_enabled(bool b)
 	set_bool(KEY_GRAPH_SMOOTH_CURVES_ENABLED, b);
 }
 
+double config_get_default_high_threshold_temperature(void)
+{
+	return get_double(KEY_DEFAULT_HIGH_THRESHOLD_TEMPERATURE);
+}
 
 static void init(void)
 {
