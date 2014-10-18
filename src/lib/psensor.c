@@ -45,8 +45,13 @@ struct psensor *psensor_create(char *id,
 	psensor->sess_lowest = UNKNOWN_DBL_VALUE;
 	psensor->sess_highest = UNKNOWN_DBL_VALUE;
 
-	psensor->min = UNKNOWN_DBL_VALUE;
-	psensor->max = UNKNOWN_DBL_VALUE;
+	if (type & SENSOR_TYPE_PERCENT) {
+		psensor->min = 0;
+		psensor->max = 100;
+	} else {
+		psensor->min = UNKNOWN_DBL_VALUE;
+		psensor->max = UNKNOWN_DBL_VALUE;
+	}
 
 	psensor->type = type;
 
