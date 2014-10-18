@@ -9,6 +9,9 @@ v1.1.4
 * Fixed memory leaks in appindicator support when sensor preferences
   are changed.
 * Changes of sensors preferences are applied immediately.
+* Avoid multiple sensor preferences dialog at the same time.
+* Support max/min sensor information from providers.
+* Fixed string not translatable. (Closes: #138076).
 
 v1.1.3
 ------

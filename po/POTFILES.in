@@ -3,6 +3,7 @@ src/glade/psensor.glade
 src/glade/psensor-appindicator.glade
 src/glade/psensor-pref.glade
 src/glade/sensor-edit.glade
+src/graph.c
 src/lib/amd.c
 src/lib/hdd_atasmart.c
 src/lib/hdd_hddtemp.c
