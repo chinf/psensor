@@ -116,7 +116,7 @@ The compilation of +psensor+ requires:
  * lm-sensors
  * library sensors4
  * library gtk3 >=3.4
- * help2man 
+ * help2man (optional, required to produce the manpage)
  * asciidoc (optional, required to produce the html version of the
    faq)
  * cppcheck (optional, static source checker)

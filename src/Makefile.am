@@ -105,9 +105,11 @@ AM_CPPFLAGS += $(CURL_CFLAGS) $(JSON_CFLAGS)
 endif
 endif
 
+if HELP2MAN
 psensor.1: main.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor$(EXEEXT)
 	help2man --include=description.txt -N --name="Temperature monitoring application" --output=psensor.1 ./psensor$(EXEEXT)
+endif
 
 gsettings_SCHEMAS=psensor.gschema.xml
 

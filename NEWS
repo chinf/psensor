@@ -13,6 +13,7 @@ v1.1.4
 * Support max/min sensor information from providers.
 * Fixed string not translatable. (Closes: #138076).
 * Added a default high threshold for temperature.
+* Made help2man optional.
 
 v1.1.3
 ------

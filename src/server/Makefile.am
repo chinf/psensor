@@ -29,8 +29,11 @@ AM_CPPFLAGS += $(ATASMART_CFLAGS)
 LIBS += $(ATASMART_LIBS)
 endif
 
-dist_man_MANS =  psensor-server.1
-EXTRA_DIST = description.txt
+if HELP2MAN
 psensor-server.1: server.c $(top_srcdir)/configure.ac
 	$(MAKE) $(AM_MAKEFLAGS) psensor-server$(EXEEXT)
 	help2man --include=description.txt -N --name="Temperature and system monitoring Web server" --output=psensor-server.1 ./psensor-server$(EXEEXT)
+endif
+
+dist_man_MANS =  psensor-server.1
+EXTRA_DIST = description.txt
