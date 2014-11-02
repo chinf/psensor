@@ -132,7 +132,7 @@ The compilation of +psensor+ requires:
 The specific requirements for +psensor-server+:
 
  * library libmicrohttpd 
- * library json0
+ * library json-c >= 0.11.99
 
 Compilation and Installation Steps
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
