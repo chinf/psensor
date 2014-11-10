@@ -633,8 +633,13 @@ static bool sensor_get_double(const char *sid, const char *att, double *d)
 	err = NULL;
 	v = g_key_file_get_double(kfile, sid, att, &err);
 
-	if (err)
+	if (err) {
+		log_err(err->message);
+
+		g_error_free(err);
+
 		return false;
+	}
 
 	*d = v;
 	return true;
