@@ -14,7 +14,8 @@ v1.1.4
 * Fixed string not translatable. (Closes: #138076).
 * Added a default high threshold for temperature.
 * Made help2man optional.
-* New dconf setting +default-high-threshold-temperature+.
+* New dconf settings +default-high-threshold-temperature+,
+  and +default-sensor-alarm-enabled+.
 
 v1.1.3
 ------

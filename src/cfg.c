@@ -121,6 +121,8 @@ static const char *KEY_PROVIDER_UDISKS2_ENABLED = "provider-udisks2-enabled";
 
 static const char *KEY_DEFAULT_HIGH_THRESHOLD_TEMPERATURE
 = "default-high-threshold-temperature";
+static const char *KEY_DEFAULT_SENSOR_ALARM_ENABLED
+= "default-sensor-alarm-enabled";
 
 static GSettings *settings;
 
@@ -359,6 +361,11 @@ void config_set_smooth_curves_enabled(bool b)
 double config_get_default_high_threshold_temperature(void)
 {
 	return get_double(KEY_DEFAULT_HIGH_THRESHOLD_TEMPERATURE);
+}
+
+static bool config_get_default_sensor_alarm_enabled(void)
+{
+	return get_bool(KEY_DEFAULT_SENSOR_ALARM_ENABLED);
 }
 
 static void init(void)
@@ -633,12 +640,24 @@ static bool sensor_get_double(const char *sid, const char *att, double *d)
 	return true;
 }
 
-static bool sensor_get_bool(const char *sid, const char *att)
+static bool sensor_get_bool(const char *sid, const char *att, bool dft)
 {
 	GKeyFile *kfile;
+	GError *err;
+	bool ret;
 
 	kfile = get_sensor_key_file();
-	return g_key_file_get_boolean(kfile, sid, att, NULL);
+	err = NULL;
+
+	ret = g_key_file_get_boolean(kfile, sid, att, &err);
+
+	if (err && err->code == G_KEY_FILE_ERROR_KEY_NOT_FOUND)
+		ret = dft;
+
+	if (err)
+		g_error_free(err);
+
+	return ret;
 }
 
 static void sensor_set_bool(const char *sid, const char *att, bool enabled)
@@ -754,7 +773,7 @@ GdkRGBA *config_get_sensor_color(const char *sid)
 
 bool config_is_sensor_graph_enabled(const char *sid)
 {
-	return sensor_get_bool(sid, ATT_SENSOR_GRAPH_ENABLED);
+	return sensor_get_bool(sid, ATT_SENSOR_GRAPH_ENABLED, false);
 }
 
 void config_set_sensor_graph_enabled(const char *sid, bool enabled)
@@ -784,7 +803,9 @@ void config_set_sensor_alarm_low_threshold(const char *sid, int threshold)
 
 bool config_is_appindicator_enabled(const char *sid)
 {
-	return !sensor_get_bool(sid, ATT_SENSOR_APPINDICATOR_MENU_DISABLED);
+	return !sensor_get_bool(sid,
+				ATT_SENSOR_APPINDICATOR_MENU_DISABLED,
+				false);
 }
 
 void config_set_appindicator_enabled(const char *sid, bool enabled)
@@ -806,7 +827,7 @@ void config_set_sensor_position(const char *sid, int pos)
 
 bool config_get_sensor_alarm_enabled(const char *sid)
 {
-	return sensor_get_bool(sid, ATT_SENSOR_ALARM_ENABLED);
+	return sensor_get_bool(sid, ATT_SENSOR_ALARM_ENABLED, false);
 }
 
 void config_set_sensor_alarm_enabled(const char *sid, bool enabled)
@@ -816,7 +837,9 @@ void config_set_sensor_alarm_enabled(const char *sid, bool enabled)
 
 bool config_is_sensor_enabled(const char *sid)
 {
-	return !sensor_get_bool(sid, ATT_SENSOR_HIDE);
+	return !sensor_get_bool(sid,
+				ATT_SENSOR_HIDE,
+				config_get_default_sensor_alarm_enabled());
 }
 
 void config_set_sensor_enabled(const char *sid, bool enabled)
@@ -826,7 +849,9 @@ void config_set_sensor_enabled(const char *sid, bool enabled)
 
 bool config_is_appindicator_label_enabled(const char *sid)
 {
-	return sensor_get_bool(sid, ATT_SENSOR_APPINDICATOR_LABEL_ENABLED);
+	return sensor_get_bool(sid,
+			       ATT_SENSOR_APPINDICATOR_LABEL_ENABLED,
+			       false);
 }
 
 void config_set_appindicator_label_enabled(const char *sid, bool enabled)

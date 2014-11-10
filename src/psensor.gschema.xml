@@ -164,6 +164,12 @@
       <description>Default high threshold for the thermal sensors
       (celsius).</description>
     </key>
+    <key name="default-sensor-alarm-enabled" type="b">
+      <default>false</default>
+      <summary>Whether sensor alarm is enabled by default.</summary>
+      <description>Whether sensor alarm is enabled by
+      default.</description>
+    </key>
     <!-- sensors information providers -->
     <key name="provider-lmsensors-enabled" type="b">
       <default>true</default>
