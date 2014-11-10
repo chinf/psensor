@@ -566,10 +566,12 @@ static GKeyFile *get_sensor_key_file(void)
 						| G_KEY_FILE_KEEP_TRANSLATIONS,
 						&err);
 
-		if (!ret)
+		if (!ret) {
 			log_warn(_("Failed to load configuration file %s: %s"),
 				 path,
 				 err->message);
+			g_error_free(err);
+		}
 	}
 
 	return key_file;
@@ -652,8 +654,8 @@ static bool sensor_get_bool(const char *sid, const char *att, bool dft)
 	bool ret;
 
 	kfile = get_sensor_key_file();
-	err = NULL;
 
+	err = NULL;
 	ret = g_key_file_get_boolean(kfile, sid, att, &err);
 
 	if (err) {
