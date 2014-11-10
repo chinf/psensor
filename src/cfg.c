@@ -651,11 +651,14 @@ static bool sensor_get_bool(const char *sid, const char *att, bool dft)
 
 	ret = g_key_file_get_boolean(kfile, sid, att, &err);
 
-	if (err && err->code == G_KEY_FILE_ERROR_KEY_NOT_FOUND)
-		ret = dft;
+	if (err) {
+		if (err->code == G_KEY_FILE_ERROR_KEY_NOT_FOUND)
+			ret = dft;
+		else
+			log_err(err->message);
 
-	if (err)
 		g_error_free(err);
+	}
 
 	return ret;
 }
