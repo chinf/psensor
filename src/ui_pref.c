@@ -19,10 +19,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <hdd.h>
 #include <amd.h>
 #include <cfg.h>
 #include <graph.h>
+#include <hdd.h>
 #include <lmsensor.h>
 #include <nvidia.h>
 #include <pgtop2.h>
