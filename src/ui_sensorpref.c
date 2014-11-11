@@ -53,7 +53,6 @@ static GtkSpinButton *w_sensor_high_threshold;
 static GtkSpinButton *w_sensor_low_threshold;
 static GtkListStore *store;
 
-
 /* 'true' when the notifications of field changes are due to the change
  * of the selected sensor. */
 static bool ignore_changes;
