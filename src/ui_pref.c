@@ -39,6 +39,12 @@ void ui_pref_decoration_toggled_cbk(GtkToggleButton *btn, gpointer data)
 		(!config_is_window_decoration_enabled());
 }
 
+void ui_pref_keep_below_toggled_cbk(GtkToggleButton *btn, gpointer data)
+{
+	config_set_window_keep_below_enabled
+		(!config_is_window_keep_below_enabled());
+}
+
 GdkRGBA color_to_GdkRGBA(struct color *color)
 {
 	GdkRGBA c;
@@ -65,7 +71,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkSpinButton *w_update_interval, *w_monitoring_duration,
 		*w_s_update_interval, *w_slog_interval;
 	GtkComboBox *w_sensorlist_pos;
-	GtkToggleButton *w_hide_window_decoration, *w_keep_window_below,
+	GtkToggleButton
 		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
 		*w_win_restore, *w_slog_enabled, *w_autostart, *w_smooth_curves,
 		*w_atiadlsdk, *w_lmsensors, *w_nvctrl, *w_gtop2, *w_hddtemp,
@@ -133,16 +139,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_sensorlist_pos = GTK_COMBO_BOX
 		(gtk_builder_get_object(builder, "sensors_list_position"));
 	gtk_combo_box_set_active(w_sensorlist_pos, cfg->sensorlist_position);
-
-	w_hide_window_decoration = GTK_TOGGLE_BUTTON
-		(gtk_builder_get_object(builder, "hide_window_decoration"));
-	gtk_toggle_button_set_active(w_hide_window_decoration,
-				     !config_is_window_decoration_enabled());
-
-	w_keep_window_below = GTK_TOGGLE_BUTTON
-		(gtk_builder_get_object(builder, "keep_window_below"));
-	gtk_toggle_button_set_active(w_keep_window_below,
-				     cfg->window_keep_below_enabled);
 
 	w_autostart = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "autostart"));
@@ -318,18 +314,12 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		cfg->sensorlist_position
 			= gtk_combo_box_get_active(w_sensorlist_pos);
 
-		cfg->window_keep_below_enabled
-			= gtk_toggle_button_get_active(w_keep_window_below);
-
 		cfg->menu_bar_disabled
 			= !gtk_toggle_button_get_active(w_enable_menu);
 
 		cfg->unity_launcher_count_disabled
 			= !gtk_toggle_button_get_active
 			(w_enable_launcher_counter);
-
-		gtk_window_set_keep_below(GTK_WINDOW(ui->main_window),
-					  cfg->window_keep_below_enabled);
 
 		cfg->sensor_update_interval
 			= gtk_spin_button_get_value_as_int(w_s_update_interval);

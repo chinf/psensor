@@ -34,10 +34,21 @@ static void set_decoration(GtkWindow *win)
 	gtk_window_set_decorated(win, config_is_window_decoration_enabled());
 }
 
+static void set_keep_below(GtkWindow *win)
+{
+	gtk_window_set_keep_below(win, config_is_window_keep_below_enabled());
+}
+
 static void
 decoration_changed_cbk(GSettings *settings, gchar *key, gpointer data)
 {
 	set_decoration((GtkWindow *)data);
+}
+
+static void
+keep_below_changed_cbk(GSettings *settings, gchar *key, gpointer data)
+{
+	set_keep_below((GtkWindow *)data);
 }
 
 static void connect_cbks(GtkWindow *win)
@@ -47,6 +58,11 @@ static void connect_cbks(GtkWindow *win)
 	g_signal_connect_after(config_get_GSettings(),
 			       "changed::interface-window-decoration-disabled",
 			       G_CALLBACK(decoration_changed_cbk),
+			       win);
+
+	g_signal_connect_after(config_get_GSettings(),
+			       "changed::interface-window-keep-below-enabled",
+			       G_CALLBACK(keep_below_changed_cbk),
 			       win);
 
 	log_fct_exit();
@@ -250,9 +266,7 @@ void ui_window_create(struct ui_psensor *ui)
 			 "delete_event", G_CALLBACK(on_delete_event_cb), ui);
 
 	set_decoration(GTK_WINDOW(window));
-
-	gtk_window_set_keep_below(GTK_WINDOW(window),
-				  cfg->window_keep_below_enabled);
+	set_keep_below(GTK_WINDOW(window));
 
 	ui->menu_bar = GTK_WIDGET(gtk_builder_get_object(builder, "menu_bar"));
 	ui->main_box = GTK_WIDGET(gtk_builder_get_object(builder, "main_box"));

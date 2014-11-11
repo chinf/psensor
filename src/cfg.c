@@ -333,7 +333,7 @@ bool config_is_window_decoration_enabled(void)
 	return !get_bool(KEY_INTERFACE_WINDOW_DECORATION_DISABLED);
 }
 
-static bool is_window_keep_below_enabled(void)
+bool config_is_window_keep_below_enabled(void)
 {
 	return get_bool(KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED);
 }
@@ -343,7 +343,7 @@ void config_set_window_decoration_enabled(bool enabled)
 	set_bool(KEY_INTERFACE_WINDOW_DECORATION_DISABLED, !enabled);
 }
 
-static void set_window_keep_below_enabled(bool enabled)
+void config_set_window_keep_below_enabled(bool enabled)
 {
 	set_bool(KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED, enabled);
 }
@@ -419,7 +419,6 @@ struct config *config_load(void)
 	c->graph_bg_alpha = get_graph_background_alpha();
 	c->alpha_channel_enabled = is_alpha_channel_enabled();
 	c->sensorlist_position = get_sensorlist_position();
-	c->window_keep_below_enabled = is_window_keep_below_enabled();
 	c->slog_enabled = is_slog_enabled();
 	c->slog_interval = config_get_slog_interval();
 
@@ -473,7 +472,6 @@ void config_save(const struct config *c)
 	set_foreground_color(c->graph_fgcolor);
 	set_graph_background_alpha(c->graph_bg_alpha);
 	set_sensorlist_position(c->sensorlist_position);
-	set_window_keep_below_enabled(c->window_keep_below_enabled);
 	set_slog_enabled(c->slog_enabled);
 	set_slog_interval(c->slog_interval);
 
