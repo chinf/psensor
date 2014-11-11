@@ -72,7 +72,7 @@ void ui_unity_launcher_entry_update(struct psensor **sensors,
 		last_visible = show;
 	}
 
-	if (sensors && *sensors) {
+	if (show && sensors && *sensors) {
 		v = get_max_current_value(sensors, SENSOR_TYPE_TEMP);
 
 		if (v != UNKNOWN_DBL_VALUE) {
