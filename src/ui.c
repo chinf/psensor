@@ -28,6 +28,29 @@
 #include "ui_status.h"
 #include "ui_appindicator.h"
 
+static void set_decoration(GtkWindow *win)
+{
+	gtk_window_set_decorated(win, config_is_window_decoration_enabled());
+}
+
+static void
+decoration_changed_cbk(GSettings *settings, gchar *key, gpointer data)
+{
+	set_decoration((GtkWindow *)data);
+}
+
+static void connect_cbks(GtkWindow *win)
+{
+	log_fct_enter();
+
+	g_signal_connect_after(config_get_GSettings(),
+			       "changed::interface-window-decoration-disabled",
+			       G_CALLBACK(decoration_changed_cbk),
+			       win);
+
+	log_fct_exit();
+}
+
 static void save_window_pos(struct ui_psensor *ui)
 {
 	gboolean visible;
@@ -225,8 +248,7 @@ void ui_window_create(struct ui_psensor *ui)
 	g_signal_connect(window,
 			 "delete_event", G_CALLBACK(on_delete_event_cb), ui);
 
-	gtk_window_set_decorated(GTK_WINDOW(window),
-				 cfg->window_decoration_enabled);
+	set_decoration(GTK_WINDOW(window));
 
 	gtk_window_set_keep_below(GTK_WINDOW(window),
 				  cfg->window_keep_below_enabled);
@@ -252,6 +274,8 @@ void ui_window_create(struct ui_psensor *ui)
 				      (builder, "sensors_scrolled_tree"));
 
 	ui_sensorlist_create(ui);
+
+	connect_cbks(GTK_WINDOW(window));
 
 	log_debug("ui_window_create(): show_all");
 	gtk_widget_show_all(ui->main_box);

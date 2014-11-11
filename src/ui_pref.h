@@ -24,4 +24,6 @@
 void ui_pref_dialog_run(struct ui_psensor *);
 GdkRGBA color_to_GdkRGBA(struct color *color);
 
+void ui_pref_decoration_toggled_cbk(GtkToggleButton *, gpointer);
+
 #endif

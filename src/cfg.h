@@ -47,7 +47,6 @@ struct config {
 	/* Position of the sensors list table */
 	enum sensorlist_position sensorlist_position;
 
-	bool window_decoration_enabled;
 	bool window_keep_below_enabled;
 	bool window_restore_enabled;
 	/* Last saved position of the window. */
@@ -149,6 +148,9 @@ void config_set_atiadlsdk_enable(bool);
 int config_get_sensor_unit(void);
 
 double config_get_default_high_threshold_temperature(void);
+
+bool config_is_window_decoration_enabled(void);
+void config_set_window_decoration_enabled(bool);
 
 /*
  * Returns the user directory containing psensor data (configuration

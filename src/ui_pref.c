@@ -33,6 +33,12 @@
 #include <ui_pref.h>
 #include <ui_unity.h>
 
+void ui_pref_decoration_toggled_cbk(GtkToggleButton *btn, gpointer data)
+{
+	config_set_window_decoration_enabled
+		(!config_is_window_decoration_enabled());
+}
+
 GdkRGBA color_to_GdkRGBA(struct color *color)
 {
 	GdkRGBA c;
@@ -131,7 +137,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_hide_window_decoration = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "hide_window_decoration"));
 	gtk_toggle_button_set_active(w_hide_window_decoration,
-				     !cfg->window_decoration_enabled);
+				     !config_is_window_decoration_enabled());
 
 	w_keep_window_below = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "keep_window_below"));
@@ -276,6 +282,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 	gtk_toggle_button_set_active(w_udisks2, config_is_udisks2_enabled());
 
+	gtk_builder_connect_signals(builder, NULL);
+
 	result = gtk_dialog_run(diag);
 
 	if (result == GTK_RESPONSE_ACCEPT) {
@@ -310,9 +318,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		cfg->sensorlist_position
 			= gtk_combo_box_get_active(w_sensorlist_pos);
 
-		cfg->window_decoration_enabled =
-			!gtk_toggle_button_get_active(w_hide_window_decoration);
-
 		cfg->window_keep_below_enabled
 			= gtk_toggle_button_get_active(w_keep_window_below);
 
@@ -322,9 +327,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		cfg->unity_launcher_count_disabled
 			= !gtk_toggle_button_get_active
 			(w_enable_launcher_counter);
-
-		gtk_window_set_decorated(GTK_WINDOW(ui->main_window),
-					 cfg->window_decoration_enabled);
 
 		gtk_window_set_keep_below(GTK_WINDOW(ui->main_window),
 					  cfg->window_keep_below_enabled);
