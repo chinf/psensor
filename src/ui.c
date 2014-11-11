@@ -18,15 +18,16 @@
  */
 #include <stdlib.h>
 
-#include "cfg.h"
-#include "slog.h"
-#include "ui.h"
-#include "ui_graph.h"
-#include "ui_pref.h"
-#include "ui_sensorpref.h"
-#include "ui_sensorlist.h"
-#include "ui_status.h"
-#include "ui_appindicator.h"
+#include <cfg.h>
+#include <slog.h>
+#include <ui.h>
+#include <ui_appindicator.h>
+#include <ui_graph.h>
+#include <ui_pref.h>
+#include <ui_sensorlist.h>
+#include <ui_sensorpref.h>
+#include <ui_status.h>
+
 
 static void set_decoration(GtkWindow *win)
 {
