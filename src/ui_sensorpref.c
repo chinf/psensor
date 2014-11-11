@@ -23,10 +23,10 @@
 #include <cfg.h>
 #include <temperature.h>
 #include <ui_appindicator.h>
+#include <ui_color.h>
 #include <ui_pref.h>
 #include <ui_sensorlist.h>
 #include <ui_sensorpref.h>
-#include <ui_color.h>
 
 enum {
 	COL_NAME = 0,
