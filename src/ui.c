@@ -28,7 +28,6 @@
 #include <ui_sensorpref.h>
 #include <ui_status.h>
 
-
 static void set_decoration(GtkWindow *win)
 {
 	gtk_window_set_decorated(win, config_is_window_decoration_enabled());
