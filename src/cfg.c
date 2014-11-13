@@ -940,7 +940,7 @@ void config_set_udisks2_enable(bool b)
 	set_bool(KEY_PROVIDER_UDISKS2_ENABLED, b);
 }
 
-int config_get_sensor_unit(void)
+enum temperature_unit config_get_temperature_unit(void)
 {
 	return get_int(KEY_INTERFACE_TEMPERATURE_UNIT);
 }

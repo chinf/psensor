@@ -144,7 +144,7 @@ void config_set_nvctrl_enable(bool);
 bool config_is_atiadlsdk_enabled(void);
 void config_set_atiadlsdk_enable(bool);
 
-int config_get_sensor_unit(void);
+enum temperature_unit config_get_temperature_unit(void);
 
 double config_get_default_high_threshold_temperature(void);
 

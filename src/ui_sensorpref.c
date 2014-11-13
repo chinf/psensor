@@ -235,7 +235,7 @@ ui_sensorpref_alarm_high_threshold_changed_cb(GtkSpinButton *btn, gpointer data)
 		return;
 
 	v = gtk_spin_button_get_value(btn);
-	if (config_get_sensor_unit() == FAHRENHEIT)
+	if (config_get_temperature_unit() == FAHRENHEIT)
 		v = fahrenheit_to_celsius(v);
 
 	config_set_sensor_alarm_high_threshold(s->id, v);
@@ -258,7 +258,7 @@ ui_sensorpref_alarm_low_threshold_changed_cb(GtkSpinButton *btn, gpointer data)
 		return;
 
 	v = gtk_spin_button_get_value(btn);
-	if (config_get_sensor_unit() == FAHRENHEIT)
+	if (config_get_temperature_unit() == FAHRENHEIT)
 		v = fahrenheit_to_celsius(v);
 
 	config_set_sensor_alarm_low_threshold(s->id, v);
@@ -289,7 +289,7 @@ static void update_pref(struct psensor *s)
 		chip = _("Unknown");
 	gtk_label_set_text(w_sensor_chipname, chip);
 
-	use_celsius = config_get_sensor_unit() == CELSIUS ? 1 : 0;
+	use_celsius = config_get_temperature_unit() == CELSIUS ? 1 : 0;
 
 	if (s->min == UNKNOWN_DBL_VALUE)
 		smin = strdup(_("Unknown"));
