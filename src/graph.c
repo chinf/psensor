@@ -466,7 +466,7 @@ graph_update(struct psensor **sensors,
 	double min_rpm, max_rpm, mint, maxt, min, max;
 	char *strmin, *strmax;
 	/* horizontal and vertical offset of the graph */
-	int g_xoff, g_yoff, no_graphs;
+	int g_xoff, g_yoff, no_graphs, use_celsius;
 	cairo_surface_t *cst;
 	cairo_t *cr, *cr_pixmap;
 	char *str_btime, *str_etime;
@@ -484,15 +484,16 @@ graph_update(struct psensor **sensors,
 	min_rpm = get_min_rpm(enabled_sensors);
 	max_rpm = get_max_rpm(enabled_sensors);
 
+	if (config_get_temperature_unit() == CELSIUS)
+		use_celsius = 1;
+	else
+		use_celsius = 0;
+
 	mint = get_min_temp(enabled_sensors);
-	strmin = psensor_value_to_str(SENSOR_TYPE_TEMP,
-				      mint,
-				      config->temperature_unit == CELSIUS);
+	strmin = psensor_value_to_str(SENSOR_TYPE_TEMP, mint, use_celsius);
 
 	maxt = get_max_temp(enabled_sensors);
-	strmax = psensor_value_to_str(SENSOR_TYPE_TEMP,
-				      maxt,
-				      config->temperature_unit == CELSIUS);
+	strmax = psensor_value_to_str(SENSOR_TYPE_TEMP, maxt, use_celsius);
 
 	et = get_graph_end_time_s(enabled_sensors);
 	bt = get_graph_begin_time_s(config, et);

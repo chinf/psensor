@@ -110,7 +110,10 @@ void ui_sensorlist_update(struct ui_psensor *ui, bool complete)
 
 	store = ui->sensors_store;
 
-	use_celsius = ui->config->temperature_unit == CELSIUS;
+	if (config_get_temperature_unit() == CELSIUS)
+		use_celsius = 1;
+	else
+		use_celsius = 0;
 
 	valid = gtk_tree_model_get_iter_first(model, &iter);
 	while (valid) {

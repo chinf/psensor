@@ -458,8 +458,6 @@ struct config *config_load(void)
 		c->window_h = 200;
 	}
 
-	c->temperature_unit = get_int(KEY_INTERFACE_TEMPERATURE_UNIT);
-
 	c->sensor_values_max_length = compute_values_max_length(c);
 
 	return c;
@@ -497,8 +495,6 @@ void config_save(const struct config *c)
 	set_int(KEY_INTERFACE_WINDOW_H, c->window_h);
 
 	set_int(KEY_INTERFACE_WINDOW_DIVIDER_POS, c->window_divider_pos);
-
-	set_int(KEY_INTERFACE_TEMPERATURE_UNIT, c->temperature_unit);
 }
 
 const char *get_psensor_user_dir(void)
@@ -943,4 +939,9 @@ void config_set_udisks2_enable(bool b)
 enum temperature_unit config_get_temperature_unit(void)
 {
 	return get_int(KEY_INTERFACE_TEMPERATURE_UNIT);
+}
+
+void config_set_temperature_unit(enum temperature_unit u)
+{
+	set_int(KEY_INTERFACE_TEMPERATURE_UNIT, u);
 }

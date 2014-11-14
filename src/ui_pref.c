@@ -45,6 +45,11 @@ void ui_pref_keep_below_toggled_cbk(GtkToggleButton *btn, gpointer data)
 		(!config_is_window_keep_below_enabled());
 }
 
+void ui_pref_temperature_unit_changed_cbk(GtkComboBox *combo, gpointer data)
+{
+	config_set_temperature_unit(gtk_combo_box_get_active(combo));
+}
+
 GdkRGBA color_to_GdkRGBA(struct color *color)
 {
 	GdkRGBA c;
@@ -71,11 +76,10 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkSpinButton *w_update_interval, *w_monitoring_duration,
 		*w_s_update_interval, *w_slog_interval;
 	GtkComboBox *w_sensorlist_pos;
-	GtkToggleButton
-		*w_enable_menu, *w_enable_launcher_counter, *w_hide_on_startup,
-		*w_win_restore, *w_slog_enabled, *w_autostart, *w_smooth_curves,
-		*w_atiadlsdk, *w_lmsensors, *w_nvctrl, *w_gtop2, *w_hddtemp,
-		*w_libatasmart, *w_udisks2;
+	GtkToggleButton *w_enable_menu, *w_enable_launcher_counter,
+		*w_hide_on_startup, *w_win_restore, *w_slog_enabled,
+		*w_autostart, *w_smooth_curves, *w_atiadlsdk, *w_lmsensors,
+		*w_nvctrl, *w_gtop2, *w_hddtemp, *w_libatasmart, *w_udisks2;
 	GtkComboBoxText *w_temp_unit;
 	GtkEntry *w_notif_script;
 	char *notif_script;
@@ -191,7 +195,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		= GTK_COMBO_BOX_TEXT(gtk_builder_get_object
 				     (builder, "temperature_unit"));
 	gtk_combo_box_set_active(GTK_COMBO_BOX(w_temp_unit),
-				 cfg->temperature_unit);
+				 config_get_temperature_unit());
 
 	/* providers */
 	w_lmsensors
@@ -342,9 +346,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		cfg->slog_interval
 			= gtk_spin_button_get_value_as_int(w_slog_interval);
-
-		cfg->temperature_unit
-			= gtk_combo_box_get_active(GTK_COMBO_BOX(w_temp_unit));
 
 		cfg->sensor_values_max_length = compute_values_max_length(cfg);
 

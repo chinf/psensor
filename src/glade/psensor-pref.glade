@@ -213,6 +213,7 @@
                       <item translatable="yes">Celsius</item>
                       <item translatable="yes">Fahrenheit</item>
                     </items>
+                    <signal name="changed" handler="ui_pref_temperature_unit_changed_cbk" swapped="no"/>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>

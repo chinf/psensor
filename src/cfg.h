@@ -69,8 +69,6 @@ struct config {
 
 	int hide_on_startup;
 
-	enum temperature_unit temperature_unit;
-
 	bool slog_enabled;
 	int slog_interval;
 };
@@ -145,6 +143,7 @@ bool config_is_atiadlsdk_enabled(void);
 void config_set_atiadlsdk_enable(bool);
 
 enum temperature_unit config_get_temperature_unit(void);
+void config_set_temperature_unit(enum temperature_unit);
 
 double config_get_default_high_threshold_temperature(void);
 

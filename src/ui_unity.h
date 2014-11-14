@@ -28,6 +28,8 @@ static inline bool ui_unity_is_supported(void) { return true; }
 
 void ui_unity_launcher_entry_update(struct psensor **, unsigned int, int);
 
+void ui_unity_init(void);
+
 #else
 
 static inline bool ui_unity_is_supported(void) { return false; }
@@ -36,6 +38,8 @@ static inline void
 ui_unity_launcher_entry_update(struct psensor **s,
 			       unsigned int show,
 			       int use_celsius) {}
+
+static inline void ui_unity_init(void) {}
 
 #endif
 

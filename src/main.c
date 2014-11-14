@@ -185,6 +185,7 @@ static gboolean ui_refresh_thread(gpointer data)
 	struct config *cfg;
 	gboolean ret;
 	struct ui_psensor *ui = (struct ui_psensor *)data;
+	int use_celsius;
 
 	ret = TRUE;
 	cfg = ui->config;
@@ -198,9 +199,13 @@ static gboolean ui_refresh_thread(gpointer data)
 	if (is_appindicator_supported() || is_status_supported())
 		indicators_update(ui);
 
+	if (config_get_temperature_unit() == CELSIUS)
+		use_celsius = 1;
+	else
+		use_celsius = 0;
 	ui_unity_launcher_entry_update(ui->sensors,
 				       !cfg->unity_launcher_count_disabled,
-				       cfg->temperature_unit == CELSIUS);
+				       use_celsius);
 
 	if (ui->graph_update_interval != cfg->graph_update_interval) {
 		ui->graph_update_interval = cfg->graph_update_interval;

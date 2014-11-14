@@ -96,7 +96,10 @@ create_sensor_menu_items(const struct ui_psensor *ui, GtkMenu *menu)
 	const char *name;
 	struct psensor **sorted_sensors;
 
-	celsius  = ui->config->temperature_unit == CELSIUS;
+	if (config_get_temperature_unit() == CELSIUS)
+		celsius = 1;
+	else
+		celsius = 0;
 
 	sorted_sensors = ui_get_sensors_ordered_by_position(ui->sensors);
 	n = psensor_list_size(sorted_sensors);
@@ -165,14 +168,20 @@ static void update_label(struct ui_psensor *ui)
 {
 	char *label, *str, *tmp, *guide;
 	struct psensor **p;
+	int use_celsius;
 
 	p =  ui_get_sensors_ordered_by_position(ui->sensors);
 	label = NULL;
 	guide = NULL;
+
+	if (config_get_temperature_unit() == CELSIUS)
+		use_celsius = 1;
+	else
+		use_celsius = 0;
+
 	while (*p) {
 		if (config_is_appindicator_label_enabled((*p)->id)) {
-			str = psensor_current_value_to_str
-				(*p, ui->config->temperature_unit == CELSIUS);
+			str = psensor_current_value_to_str(*p, use_celsius);
 
 			if (label == NULL) {
 				label = str;
@@ -232,7 +241,10 @@ void ui_appindicator_update(struct ui_psensor *ui, bool attention)
 		app_indicator_set_status(indicator,
 		APP_INDICATOR_STATUS_ATTENTION);
 
-	update_menu_items(ui->config->temperature_unit == CELSIUS);
+	if (config_get_temperature_unit() == CELSIUS)
+		update_menu_items(1);
+	else
+		update_menu_items(0);
 }
 
 static GtkStatusIcon *unity_fallback(AppIndicator *indicator)

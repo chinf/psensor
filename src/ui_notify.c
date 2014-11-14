@@ -59,7 +59,7 @@ void ui_notify(struct psensor *sensor, struct ui_psensor *ui)
 		notify_init("psensor");
 
 	if (notify_is_initted() == TRUE) {
-		if (ui->config->temperature_unit == CELSIUS)
+		if (config_get_temperature_unit() == CELSIUS)
 			use_celsius = 1;
 		else
 			use_celsius = 0;
