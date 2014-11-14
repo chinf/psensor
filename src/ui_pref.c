@@ -42,7 +42,7 @@ void ui_pref_decoration_toggled_cbk(GtkToggleButton *btn, gpointer data)
 void ui_pref_keep_below_toggled_cbk(GtkToggleButton *btn, gpointer data)
 {
 	config_set_window_keep_below_enabled
-		(!gtk_toggle_button_get_active(btn));
+		(gtk_toggle_button_get_active(btn));
 }
 
 void ui_pref_temperature_unit_changed_cbk(GtkComboBox *combo, gpointer data)
@@ -79,7 +79,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkToggleButton *w_enable_menu, *w_enable_launcher_counter,
 		*w_hide_on_startup, *w_win_restore, *w_slog_enabled,
 		*w_autostart, *w_smooth_curves, *w_atiadlsdk, *w_lmsensors,
-		*w_nvctrl, *w_gtop2, *w_hddtemp, *w_libatasmart, *w_udisks2;
+		*w_nvctrl, *w_gtop2, *w_hddtemp, *w_libatasmart, *w_udisks2,
+		*w_decoration, *w_keep_below;
 	GtkComboBoxText *w_temp_unit;
 	GtkEntry *w_notif_script;
 	char *notif_script;
@@ -133,6 +134,16 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 				  (builder, "sensor_update_interval"));
 	gtk_spin_button_set_value(w_s_update_interval,
 				  cfg->sensor_update_interval);
+
+	w_decoration = GTK_TOGGLE_BUTTON(gtk_builder_get_object
+					 (builder, "hide_window_decoration"));
+	gtk_toggle_button_set_active(w_decoration,
+				     !config_is_window_decoration_enabled());
+
+	w_keep_below = GTK_TOGGLE_BUTTON(gtk_builder_get_object
+					 (builder, "keep_window_below"));
+	gtk_toggle_button_set_active(w_keep_below,
+				     config_is_window_keep_below_enabled());
 
 	w_monitoring_duration
 		= GTK_SPIN_BUTTON(gtk_builder_get_object
