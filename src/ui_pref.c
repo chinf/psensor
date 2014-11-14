@@ -50,6 +50,11 @@ void ui_pref_temperature_unit_changed_cbk(GtkComboBox *combo, gpointer data)
 	config_set_temperature_unit(gtk_combo_box_get_active(combo));
 }
 
+void ui_pref_menu_toggled_cbk(GtkToggleButton *btn, gpointer data)
+{
+	config_set_menu_bar_enabled(gtk_toggle_button_get_active(btn));
+}
+
 GdkRGBA color_to_GdkRGBA(struct color *color)
 {
 	GdkRGBA c;
@@ -161,7 +166,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 	w_enable_menu = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "enable_menu"));
-	gtk_toggle_button_set_active(w_enable_menu, !cfg->menu_bar_disabled);
+	gtk_toggle_button_set_active(w_enable_menu,
+				     config_is_menu_bar_enabled());
 
 	w_enable_launcher_counter = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "enable_launcher_counter"));
@@ -328,9 +334,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		cfg->sensorlist_position
 			= gtk_combo_box_get_active(w_sensorlist_pos);
-
-		cfg->menu_bar_disabled
-			= !gtk_toggle_button_get_active(w_enable_menu);
 
 		cfg->unity_launcher_count_disabled
 			= !gtk_toggle_button_get_active

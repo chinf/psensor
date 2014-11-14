@@ -63,8 +63,6 @@ struct config {
 	int sensor_values_max_length;
 	int sensor_update_interval;
 
-	bool menu_bar_disabled;
-
 	bool unity_launcher_count_disabled;
 
 	int hide_on_startup;
@@ -152,6 +150,9 @@ void config_set_window_decoration_enabled(bool);
 
 bool config_is_window_keep_below_enabled(void);
 void config_set_window_keep_below_enabled(bool);
+
+bool config_is_menu_bar_enabled(void);
+void config_set_menu_bar_enabled(bool);
 
 /*
  * Returns the user directory containing psensor data (configuration

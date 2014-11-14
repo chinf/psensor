@@ -45,8 +45,6 @@ struct ui_psensor {
 
 	GtkWidget *main_window;
 
-	GtkWidget *menu_bar;
-
 	GtkWidget *popup_menu;
 
 	/*

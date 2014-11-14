@@ -436,8 +436,6 @@ struct config *config_load(void)
 	if (c->graph_monitoring_duration < 1)
 		c->graph_monitoring_duration = 10;
 
-	c->menu_bar_disabled = get_bool(KEY_INTERFACE_MENU_BAR_DISABLED);
-
 	c->unity_launcher_count_disabled
 		= get_bool(KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED);
 
@@ -478,8 +476,6 @@ void config_save(const struct config *c)
 	set_int(KEY_GRAPH_MONITORING_DURATION, c->graph_monitoring_duration);
 
 	set_int(KEY_SENSOR_UPDATE_INTERVAL, c->sensor_update_interval);
-
-	set_bool(KEY_INTERFACE_MENU_BAR_DISABLED, c->menu_bar_disabled);
 
 	set_bool(KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED,
 		 c->unity_launcher_count_disabled);
@@ -944,4 +940,14 @@ enum temperature_unit config_get_temperature_unit(void)
 void config_set_temperature_unit(enum temperature_unit u)
 {
 	set_int(KEY_INTERFACE_TEMPERATURE_UNIT, u);
+}
+
+bool config_is_menu_bar_enabled(void)
+{
+	return !get_bool(KEY_INTERFACE_MENU_BAR_DISABLED);
+}
+
+void config_set_menu_bar_enabled(bool enabled)
+{
+	set_bool(KEY_INTERFACE_MENU_BAR_DISABLED, !enabled);
 }

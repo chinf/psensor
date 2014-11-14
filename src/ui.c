@@ -38,19 +38,33 @@ static void set_keep_below(GtkWindow *win)
 	gtk_window_set_keep_below(win, config_is_window_keep_below_enabled());
 }
 
+static void set_menu_bar_enabled(GtkWidget *bar)
+{
+	if (config_is_menu_bar_enabled())
+		gtk_widget_show(bar);
+	else
+		gtk_widget_hide(bar);
+}
+
 static void
 decoration_changed_cbk(GSettings *settings, gchar *key, gpointer data)
 {
-	set_decoration((GtkWindow *)data);
+	set_decoration(GTK_WINDOW(data));
 }
 
 static void
 keep_below_changed_cbk(GSettings *settings, gchar *key, gpointer data)
 {
-	set_keep_below((GtkWindow *)data);
+	set_keep_below(GTK_WINDOW(data));
 }
 
-static void connect_cbks(GtkWindow *win)
+static void
+menu_bar_changed_cbk(GSettings *settings, gchar *key, gpointer data)
+{
+	set_menu_bar_enabled(GTK_WIDGET(data));
+}
+
+static void connect_cbks(GtkWindow *win, GtkWidget *menu_bar)
 {
 	log_fct_enter();
 
@@ -63,6 +77,11 @@ static void connect_cbks(GtkWindow *win)
 			       "changed::interface-window-keep-below-enabled",
 			       G_CALLBACK(keep_below_changed_cbk),
 			       win);
+
+	g_signal_connect_after(config_get_GSettings(),
+			       "changed::interface-menu-bar-disabled",
+			       G_CALLBACK(menu_bar_changed_cbk),
+			       menu_bar);
 
 	log_fct_exit();
 }
@@ -218,7 +237,7 @@ static void slog_enabled_cbk(void *data)
 
 void ui_window_create(struct ui_psensor *ui)
 {
-	GtkWidget *window;
+	GtkWidget *window, *menu_bar;
 	GdkPixbuf *icon;
 	GtkIconTheme *icon_theme;
 	struct config *cfg;
@@ -267,14 +286,13 @@ void ui_window_create(struct ui_psensor *ui)
 	set_decoration(GTK_WINDOW(window));
 	set_keep_below(GTK_WINDOW(window));
 
-	ui->menu_bar = GTK_WIDGET(gtk_builder_get_object(builder, "menu_bar"));
+	menu_bar = GTK_WIDGET(gtk_builder_get_object(builder, "menu_bar"));
 	ui->main_box = GTK_WIDGET(gtk_builder_get_object(builder, "main_box"));
 	ui->popup_menu = GTK_WIDGET(gtk_builder_get_object(builder,
 							   "popup_menu"));
 	g_object_ref(G_OBJECT(ui->popup_menu));
 	ui->main_window = window;
-	ui->w_graph = GTK_WIDGET(gtk_builder_get_object(builder,
-							"graph"));
+	ui->w_graph = GTK_WIDGET(gtk_builder_get_object(builder, "graph"));
 	ui_graph_create(ui);
 
 	ui->sensor_box = GTK_PANED(gtk_builder_get_object(builder,
@@ -289,22 +307,15 @@ void ui_window_create(struct ui_psensor *ui)
 
 	ui_sensorlist_create(ui);
 
-	connect_cbks(GTK_WINDOW(window));
+	connect_cbks(GTK_WINDOW(window), menu_bar);
 
 	log_debug("ui_window_create(): show_all");
 	gtk_widget_show_all(ui->main_box);
+	set_menu_bar_enabled(menu_bar);
 
 	g_object_unref(G_OBJECT(builder));
 
 	log_debug("ui_window_create() ends");
-}
-
-static void menu_bar_show(unsigned int show, struct ui_psensor *ui)
-{
-	if (show)
-		gtk_widget_show(ui->menu_bar);
-	else
-		gtk_widget_hide(ui->menu_bar);
 }
 
 void ui_window_update(struct ui_psensor *ui)
@@ -359,11 +370,6 @@ void ui_window_update(struct ui_psensor *ui)
 	g_object_unref(GTK_WIDGET(ui->w_graph));
 
 	gtk_widget_show_all(GTK_WIDGET(ui->sensor_box));
-
-	if (cfg->menu_bar_disabled)
-		menu_bar_show(0, ui);
-	else
-		menu_bar_show(1, ui);
 }
 
 void ui_window_show(struct ui_psensor *ui)
