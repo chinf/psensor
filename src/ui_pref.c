@@ -36,13 +36,13 @@
 void ui_pref_decoration_toggled_cbk(GtkToggleButton *btn, gpointer data)
 {
 	config_set_window_decoration_enabled
-		(!config_is_window_decoration_enabled());
+		(!gtk_toggle_button_get_active(btn));
 }
 
 void ui_pref_keep_below_toggled_cbk(GtkToggleButton *btn, gpointer data)
 {
 	config_set_window_keep_below_enabled
-		(!config_is_window_keep_below_enabled());
+		(!gtk_toggle_button_get_active(btn));
 }
 
 void ui_pref_temperature_unit_changed_cbk(GtkComboBox *combo, gpointer data)
