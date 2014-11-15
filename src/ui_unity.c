@@ -22,9 +22,21 @@
 #include <temperature.h>
 #include <ui_unity.h>
 
-static int initialized;
 static UnityLauncherEntry *psensor_entry;
-static unsigned int last_visible = -1;
+static bool count_visible;
+
+static void
+count_visible_changed_cbk(GSettings *settings, gchar *key, gpointer data)
+{
+	count_visible = config_is_count_visible();
+
+	if (count_visible) {
+		unity_launcher_entry_set_count(psensor_entry, 0);
+		unity_launcher_entry_set_count_visible(psensor_entry, TRUE);
+	} else {
+		unity_launcher_entry_set_count_visible(psensor_entry, FALSE);
+	}
+}
 
 static double get_max_current_value(struct psensor **sensors, unsigned int type)
 {
@@ -48,42 +60,39 @@ static double get_max_current_value(struct psensor **sensors, unsigned int type)
 	return m;
 }
 
-void ui_unity_launcher_entry_update(struct psensor **sensors,
-				    unsigned int show,
-				    int use_celsius)
+void ui_unity_launcher_entry_update(struct psensor **sensors)
 {
 	double v;
 
-	if (!initialized) {
-		psensor_entry = unity_launcher_entry_get_for_desktop_file
-			(PSENSOR_DESKTOP_FILE);
+	if (!count_visible || !sensors || !*sensors)
+		return;
 
-		unity_launcher_entry_set_count(psensor_entry, 0);
-		initialized = 1;
-	}
+	v = get_max_current_value(sensors, SENSOR_TYPE_TEMP);
 
-	if (last_visible != show) {
-		if (show)
-			unity_launcher_entry_set_count_visible(psensor_entry,
-							       TRUE);
-		else
-			unity_launcher_entry_set_count_visible(psensor_entry,
-							       FALSE);
-		last_visible = show;
-	}
+	if (v != UNKNOWN_DBL_VALUE) {
+		if (config_get_temperature_unit() == FAHRENHEIT)
+			v = celsius_to_fahrenheit(v);
 
-	if (show && sensors && *sensors) {
-		v = get_max_current_value(sensors, SENSOR_TYPE_TEMP);
-
-		if (v != UNKNOWN_DBL_VALUE) {
-			if (!use_celsius)
-				v = celsius_to_fahrenheit(v);
-
-			unity_launcher_entry_set_count(psensor_entry, v);
-		}
+		unity_launcher_entry_set_count(psensor_entry, v);
 	}
 }
 
 void ui_unity_init(void)
 {
+	psensor_entry = unity_launcher_entry_get_for_desktop_file
+		(PSENSOR_DESKTOP_FILE);
+
+	count_visible = config_is_count_visible();
+
+	if (count_visible) {
+		unity_launcher_entry_set_count(psensor_entry, 0);
+		unity_launcher_entry_set_count_visible(psensor_entry, TRUE);
+	} else {
+		unity_launcher_entry_set_count_visible(psensor_entry, FALSE);
+	}
+
+	g_signal_connect_after(config_get_GSettings(),
+			       "changed::interface-unity-launcher-count-disabled",
+			       G_CALLBACK(count_visible_changed_cbk),
+			       NULL);
 }

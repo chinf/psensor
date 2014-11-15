@@ -203,9 +203,7 @@ static gboolean ui_refresh_thread(gpointer data)
 		use_celsius = 1;
 	else
 		use_celsius = 0;
-	ui_unity_launcher_entry_update(ui->sensors,
-				       !cfg->unity_launcher_count_disabled,
-				       use_celsius);
+	ui_unity_launcher_entry_update(ui->sensors);
 
 	if (ui->graph_update_interval != cfg->graph_update_interval) {
 		ui->graph_update_interval = cfg->graph_update_interval;
@@ -538,6 +536,7 @@ int main(int argc, char **argv)
 	g_timeout_add(1000 * ui.graph_update_interval, ui_refresh_thread, &ui);
 
 	ui_appindicator_init(&ui);
+	ui_unity_init();
 
 	gdk_notify_startup_complete();
 

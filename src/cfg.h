@@ -154,6 +154,9 @@ void config_set_window_keep_below_enabled(bool);
 bool config_is_menu_bar_enabled(void);
 void config_set_menu_bar_enabled(bool);
 
+bool config_is_count_visible(void);
+void config_set_count_visible(bool);
+
 /*
  * Returns the user directory containing psensor data (configuration
  * and log).

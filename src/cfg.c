@@ -951,3 +951,13 @@ void config_set_menu_bar_enabled(bool enabled)
 {
 	set_bool(KEY_INTERFACE_MENU_BAR_DISABLED, !enabled);
 }
+
+bool config_is_count_visible(void)
+{
+	return !get_bool(KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED);
+}
+
+void config_set_count_visible(bool visible)
+{
+	set_bool(KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED, !visible);
+}

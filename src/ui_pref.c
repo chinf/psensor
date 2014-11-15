@@ -55,6 +55,11 @@ void ui_pref_menu_toggled_cbk(GtkToggleButton *btn, gpointer data)
 	config_set_menu_bar_enabled(gtk_toggle_button_get_active(btn));
 }
 
+void ui_pref_count_visible_toggled_cbk(GtkToggleButton *btn, gpointer data)
+{
+	config_set_count_visible(gtk_toggle_button_get_active(btn));
+}
+
 GdkRGBA color_to_GdkRGBA(struct color *color)
 {
 	GdkRGBA c;
