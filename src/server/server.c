@@ -23,6 +23,7 @@
 #include <libintl.h>
 #define _(str) gettext(str)
 
+#include <limits.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -245,15 +246,25 @@ static struct MHD_Response *create_response_file(const char *nurl,
 static struct MHD_Response *
 create_response(const char *nurl, const char *method, unsigned int *rp_code)
 {
-	char *page, *fpath;
+	char *page, *fpath, *rpath;
 	struct MHD_Response *resp = NULL;
+	int n;
 
 	if (!strncmp(nurl, URL_BASE_API_1_1, strlen(URL_BASE_API_1_1))) {
 		resp = create_response_api(nurl, method, rp_code);
 	} else {
 		fpath = get_path(nurl, server_data.www_dir);
 
-		resp = create_response_file(nurl, method, rp_code, fpath);
+		rpath = realpath(fpath, NULL);
+		if (rpath) {
+			n = strlen(server_data.www_dir);
+			if (!strncmp(server_data.www_dir, rpath, n))
+				resp = create_response_file(nurl,
+							    method,
+							    rp_code,
+							    fpath);
+			free(rpath);
+		}
 
 		free(fpath);
 	}
@@ -349,7 +360,7 @@ int main(int argc, char *argv[])
 		switch (optc) {
 		case 'w':
 			if (optarg)
-				server_data.www_dir = strdup(optarg);
+				server_data.www_dir = realpath(optarg, NULL);
 			break;
 		case 'p':
 			if (optarg)
@@ -388,8 +399,14 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
-	if (!server_data.www_dir)
-		server_data.www_dir = strdup(DEFAULT_WWW_DIR);
+	if (!server_data.www_dir) {
+		server_data.www_dir = realpath(DEFAULT_WWW_DIR, NULL);
+		if (!server_data.www_dir) {
+			fprintf(stderr,
+				_("Webserver directory does not exist.\n"));
+			exit(EXIT_FAILURE);
+		}
+	}
 
 	if (!log_file)
 		log_file = strdup(DEFAULT_LOG_FILE);
