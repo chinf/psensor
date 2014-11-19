@@ -44,9 +44,6 @@ struct config {
 
 	bool alpha_channel_enabled;
 
-	/* Position of the sensors list table */
-	enum sensorlist_position sensorlist_position;
-
 	bool window_restore_enabled;
 	/* Last saved position of the window. */
 	int window_x;
@@ -62,8 +59,6 @@ struct config {
 
 	int sensor_values_max_length;
 	int sensor_update_interval;
-
-	bool unity_launcher_count_disabled;
 
 	int hide_on_startup;
 
@@ -156,6 +151,9 @@ void config_set_menu_bar_enabled(bool);
 
 bool config_is_count_visible(void);
 void config_set_count_visible(bool);
+
+enum sensorlist_position config_get_sensorlist_position(void);
+void config_set_sensorlist_position(enum sensorlist_position pos);
 
 /*
  * Returns the user directory containing psensor data (configuration

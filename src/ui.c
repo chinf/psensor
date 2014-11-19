@@ -28,6 +28,58 @@
 #include <ui_sensorpref.h>
 #include <ui_status.h>
 
+static GtkWidget *w_sensors_scrolled_tree;
+static GtkWidget *w_graph;
+static GtkContainer *w_sensor_box;
+static GtkContainer *w_main_box;
+
+static void update_layout(void)
+{
+	enum sensorlist_position sensorlist_pos;
+
+	g_object_ref(w_sensors_scrolled_tree);
+	g_object_ref(w_graph);
+
+	gtk_container_remove(w_sensor_box,
+			     w_sensors_scrolled_tree);
+
+	gtk_container_remove(w_sensor_box, w_graph);
+
+	gtk_container_remove(w_main_box, GTK_WIDGET(w_sensor_box));
+
+	sensorlist_pos = config_get_sensorlist_position();
+	if (sensorlist_pos == SENSORLIST_POSITION_RIGHT
+	    || sensorlist_pos == SENSORLIST_POSITION_LEFT)
+		w_sensor_box
+			= GTK_PANED(gtk_paned_new(GTK_ORIENTATION_HORIZONTAL));
+	else
+		w_sensor_box
+			= GTK_PANED(gtk_paned_new(GTK_ORIENTATION_VERTICAL));
+
+	gtk_box_pack_end(GTK_BOX(w_main_box),
+			 GTK_WIDGET(w_sensor_box), TRUE, TRUE, 2);
+
+	if (sensorlist_pos == SENSORLIST_POSITION_RIGHT
+	    || sensorlist_pos == SENSORLIST_POSITION_BOTTOM) {
+		gtk_paned_pack1(w_sensor_box, w_graph, TRUE, TRUE);
+		gtk_paned_pack2(w_sensor_box,
+				w_sensors_scrolled_tree,
+				FALSE,
+				TRUE);
+	} else {
+		gtk_paned_pack1(w_sensor_box,
+				w_sensors_scrolled_tree,
+				FALSE,
+				TRUE);
+		gtk_paned_pack2(w_sensor_box, w_graph, TRUE, TRUE);
+	}
+
+	g_object_unref(w_sensors_scrolled_tree);
+	g_object_unref(w_graph);
+
+	gtk_widget_show_all(GTK_WIDGET(w_sensor_box));
+}
+
 static void set_decoration(GtkWindow *win)
 {
 	gtk_window_set_decorated(win, config_is_window_decoration_enabled());
@@ -64,6 +116,12 @@ menu_bar_changed_cbk(GSettings *settings, gchar *key, gpointer data)
 	set_menu_bar_enabled(GTK_WIDGET(data));
 }
 
+static void
+sensorlist_position_changed_cbk(GSettings *settings, gchar *key, gpointer data)
+{
+	update_layout();
+}
+
 static void connect_cbks(GtkWindow *win, GtkWidget *menu_bar)
 {
 	log_fct_enter();
@@ -82,6 +140,12 @@ static void connect_cbks(GtkWindow *win, GtkWidget *menu_bar)
 			       "changed::interface-menu-bar-disabled",
 			       G_CALLBACK(menu_bar_changed_cbk),
 			       menu_bar);
+
+	g_signal_connect_after(config_get_GSettings(),
+			       "changed::interface-sensorlist-position",
+			       G_CALLBACK(sensorlist_position_changed_cbk),
+			       menu_bar);
+
 
 	log_fct_exit();
 }
@@ -111,7 +175,7 @@ static void save_window_pos(struct ui_psensor *ui)
 		log_debug("Window size: %d %d", cfg->window_w, cfg->window_h);
 
 		cfg->window_divider_pos
-			= gtk_paned_get_position(GTK_PANED(ui->sensor_box));
+			= gtk_paned_get_position(GTK_PANED(w_sensor_box));
 
 		config_save(cfg);
 	}
@@ -287,21 +351,21 @@ void ui_window_create(struct ui_psensor *ui)
 	set_keep_below(GTK_WINDOW(window));
 
 	menu_bar = GTK_WIDGET(gtk_builder_get_object(builder, "menu_bar"));
-	ui->main_box = GTK_WIDGET(gtk_builder_get_object(builder, "main_box"));
+	w_main_box = GTK_CONTAINER(gtk_builder_get_object(builder, "main_box"));
 	ui->popup_menu = GTK_WIDGET(gtk_builder_get_object(builder,
 							   "popup_menu"));
 	g_object_ref(G_OBJECT(ui->popup_menu));
 	ui->main_window = window;
-	ui->w_graph = GTK_WIDGET(gtk_builder_get_object(builder, "graph"));
+	w_graph = GTK_WIDGET(gtk_builder_get_object(builder, "graph"));
 	ui_graph_create(ui);
 
-	ui->sensor_box = GTK_PANED(gtk_builder_get_object(builder,
-							  "sensor_box"));
+	w_sensor_box = GTK_PANED(gtk_builder_get_object(builder,
+							"sensor_box"));
 	ui->sensors_store = GTK_LIST_STORE(gtk_builder_get_object
 					   (builder, "sensors_store"));
 	ui->sensors_tree = GTK_TREE_VIEW(gtk_builder_get_object
 					 (builder, "sensors_tree"));
-	ui->sensors_scrolled_tree
+	w_sensors_scrolled_tree
 		= GTK_SCROLLED_WINDOW(gtk_builder_get_object
 				      (builder, "sensors_scrolled_tree"));
 
@@ -310,7 +374,8 @@ void ui_window_create(struct ui_psensor *ui)
 	connect_cbks(GTK_WINDOW(window), menu_bar);
 
 	log_debug("ui_window_create(): show_all");
-	gtk_widget_show_all(ui->main_box);
+	update_layout();
+	gtk_widget_show_all(GTK_WIDGET(w_main_box));
 	set_menu_bar_enabled(menu_bar);
 
 	g_object_unref(G_OBJECT(builder));
@@ -321,55 +386,15 @@ void ui_window_create(struct ui_psensor *ui)
 void ui_window_update(struct ui_psensor *ui)
 {
 	struct config *cfg;
+	enum sensorlist_position sensorlist_pos;
 
 	log_debug("ui_window_update()");
 
 	cfg = ui->config;
 
-	g_object_ref(GTK_WIDGET(ui->sensors_scrolled_tree));
-	g_object_ref(GTK_WIDGET(ui->w_graph));
-
-	gtk_container_remove(GTK_CONTAINER(ui->sensor_box),
-			     GTK_WIDGET(ui->sensors_scrolled_tree));
-
-	gtk_container_remove(GTK_CONTAINER(ui->sensor_box), ui->w_graph);
-
-	gtk_container_remove(GTK_CONTAINER(ui->main_box),
-			     GTK_WIDGET(ui->sensor_box));
-
-	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
-	    || cfg->sensorlist_position == SENSORLIST_POSITION_LEFT)
-		ui->sensor_box
-			= GTK_PANED(gtk_paned_new(GTK_ORIENTATION_HORIZONTAL));
-	else
-		ui->sensor_box
-			= GTK_PANED(gtk_paned_new(GTK_ORIENTATION_VERTICAL));
-
-	gtk_box_pack_end(GTK_BOX(ui->main_box),
-			 GTK_WIDGET(ui->sensor_box), TRUE, TRUE, 2);
-
-	if (cfg->sensorlist_position == SENSORLIST_POSITION_RIGHT
-	    || cfg->sensorlist_position == SENSORLIST_POSITION_BOTTOM) {
-		gtk_paned_pack1(ui->sensor_box,
-				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
-		gtk_paned_pack2(ui->sensor_box,
-				GTK_WIDGET(ui->sensors_scrolled_tree),
-				FALSE, TRUE);
-	} else {
-		gtk_paned_pack1(ui->sensor_box,
-				GTK_WIDGET(ui->sensors_scrolled_tree),
-				FALSE, TRUE);
-		gtk_paned_pack2(ui->sensor_box,
-				GTK_WIDGET(ui->w_graph), TRUE, TRUE);
-	}
-
 	if (cfg->window_restore_enabled)
-		gtk_paned_set_position(ui->sensor_box, cfg->window_divider_pos);
+		gtk_paned_set_position(w_sensor_box, cfg->window_divider_pos);
 
-	g_object_unref(GTK_WIDGET(ui->sensors_scrolled_tree));
-	g_object_unref(GTK_WIDGET(ui->w_graph));
-
-	gtk_widget_show_all(GTK_WIDGET(ui->sensor_box));
 }
 
 void ui_window_show(struct ui_psensor *ui)
@@ -404,4 +429,9 @@ struct psensor **ui_get_sensors_ordered_by_position(struct psensor **sensors)
 	      cmp_sensors);
 
 	return result;
+}
+
+GtkWidget *ui_get_graph(void)
+{
+	return w_graph;
 }

@@ -237,12 +237,12 @@ static void set_alpha_channeld_enabled(bool b)
 	set_bool(KEY_ALPHA_CHANNEL_ENABLED, b);
 }
 
-static enum sensorlist_position get_sensorlist_position(void)
+enum sensorlist_position config_get_sensorlist_position(void)
 {
 	return get_int(KEY_INTERFACE_SENSORLIST_POSITION);
 }
 
-static void set_sensorlist_position(enum sensorlist_position pos)
+void config_set_sensorlist_position(enum sensorlist_position pos)
 {
 	set_int(KEY_INTERFACE_SENSORLIST_POSITION, pos);
 }
@@ -418,7 +418,6 @@ struct config *config_load(void)
 	c->graph_fgcolor = get_foreground_color();
 	c->graph_bg_alpha = get_graph_background_alpha();
 	c->alpha_channel_enabled = is_alpha_channel_enabled();
-	c->sensorlist_position = get_sensorlist_position();
 	c->slog_enabled = is_slog_enabled();
 	c->slog_interval = config_get_slog_interval();
 
@@ -435,11 +434,6 @@ struct config *config_load(void)
 
 	if (c->graph_monitoring_duration < 1)
 		c->graph_monitoring_duration = 10;
-
-	c->unity_launcher_count_disabled
-		= get_bool(KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED);
-
-	c->hide_on_startup = get_bool(KEY_INTERFACE_HIDE_ON_STARTUP);
 
 	c->window_restore_enabled
 		= get_bool(KEY_INTERFACE_WINDOW_RESTORE_ENABLED);
@@ -467,7 +461,6 @@ void config_save(const struct config *c)
 	set_background_color(c->graph_bgcolor);
 	set_foreground_color(c->graph_fgcolor);
 	set_graph_background_alpha(c->graph_bg_alpha);
-	set_sensorlist_position(c->sensorlist_position);
 	set_slog_enabled(c->slog_enabled);
 	set_slog_interval(c->slog_interval);
 
@@ -476,9 +469,6 @@ void config_save(const struct config *c)
 	set_int(KEY_GRAPH_MONITORING_DURATION, c->graph_monitoring_duration);
 
 	set_int(KEY_SENSOR_UPDATE_INTERVAL, c->sensor_update_interval);
-
-	set_bool(KEY_INTERFACE_UNITY_LAUNCHER_COUNT_DISABLED,
-		 c->unity_launcher_count_disabled);
 
 	set_bool(KEY_INTERFACE_HIDE_ON_STARTUP, c->hide_on_startup);
 

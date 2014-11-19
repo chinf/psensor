@@ -233,6 +233,7 @@
                     <property name="margin_bottom">4</property>
                     <property name="model">position_list_store</property>
                     <property name="active">0</property>
+                    <signal name="changed" handler="ui_pref_sensorlist_position_changed_cbk" swapped="no"/>
                     <child>
                       <object class="GtkCellRendererText" id="cellrenderertext1"/>
                       <attributes>

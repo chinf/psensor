@@ -192,7 +192,7 @@ static gboolean ui_refresh_thread(gpointer data)
 
 	pmutex_lock(&ui->sensors_mutex);
 
-	graph_update(ui->sensors, ui->w_graph, ui->config, ui->main_window);
+	graph_update(ui->sensors, ui_get_graph(), ui->config, ui->main_window);
 
 	ui_sensorlist_update(ui, 0);
 

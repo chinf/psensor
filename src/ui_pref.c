@@ -60,6 +60,11 @@ void ui_pref_count_visible_toggled_cbk(GtkToggleButton *btn, gpointer data)
 	config_set_count_visible(gtk_toggle_button_get_active(btn));
 }
 
+void ui_pref_sensorlist_position_changed_cbk(GtkComboBox *combo, gpointer data)
+{
+	config_set_sensorlist_position(gtk_combo_box_get_active(combo));
+}
+
 GdkRGBA color_to_GdkRGBA(struct color *color)
 {
 	GdkRGBA c;
@@ -163,7 +168,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 	w_sensorlist_pos = GTK_COMBO_BOX
 		(gtk_builder_get_object(builder, "sensors_list_position"));
-	gtk_combo_box_set_active(w_sensorlist_pos, cfg->sensorlist_position);
+	gtk_combo_box_set_active(w_sensorlist_pos,
+				 config_get_sensorlist_position());
 
 	w_autostart = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "autostart"));
@@ -177,7 +183,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_enable_launcher_counter = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "enable_launcher_counter"));
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
-				     !cfg->unity_launcher_count_disabled);
+				     !config_is_count_visible());
 
 	if (ui_unity_is_supported()) {
 		gtk_widget_set_has_tooltip
@@ -336,13 +342,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 			cfg->alpha_channel_enabled = 0;
 		else
 			cfg->alpha_channel_enabled = 1;
-
-		cfg->sensorlist_position
-			= gtk_combo_box_get_active(w_sensorlist_pos);
-
-		cfg->unity_launcher_count_disabled
-			= !gtk_toggle_button_get_active
-			(w_enable_launcher_counter);
 
 		cfg->sensor_update_interval
 			= gtk_spin_button_get_value_as_int(w_s_update_interval);

@@ -39,29 +39,14 @@ struct ui_psensor {
 	/* mutex which MUST be used for accessing sensors.*/
 	pthread_mutex_t sensors_mutex;
 
-	GtkWidget *w_graph;
-
 	struct config *config;
 
 	GtkWidget *main_window;
 
 	GtkWidget *popup_menu;
 
-	/*
-	 * The main vertical box, top contains the menubar, bottom
-	 * contains the sensor_box.
-	 */
-	GtkWidget *main_box;
-
-	/*
-	 * The box which contains the sensors graph and the sensors
-	 * information list.
-	 */
-	GtkPaned *sensor_box;
-
 	GtkListStore *sensors_store;
 	GtkTreeView *sensors_tree;
-	GtkScrolledWindow *sensors_scrolled_tree;
 
 	int graph_update_interval;
 };
@@ -95,6 +80,8 @@ void ui_cb_preferences(GtkMenuItem *mi, gpointer data);
 void ui_cb_about(GtkMenuItem *mi, gpointer data);
 void ui_cb_menu_quit(GtkMenuItem *mi, gpointer data);
 void ui_cb_sensor_preferences(GtkMenuItem *mi, gpointer data);
+
+GtkWidget *ui_get_graph(void);
 
 struct psensor **ui_get_sensors_ordered_by_position(struct psensor **);
 #endif

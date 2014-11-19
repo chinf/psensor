@@ -38,7 +38,7 @@ on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 	struct ui_psensor *ui_psensor = (struct ui_psensor *)data;
 
 	graph_update(ui_psensor->sensors,
-		     ui_psensor->w_graph,
+		     ui_get_graph(),
 		     ui_psensor->config,
 		     ui_psensor->main_window);
 
@@ -56,7 +56,7 @@ void ui_graph_create(struct ui_psensor *ui)
 
 	log_debug("ui_graph_create()");
 
-	w_graph = ui->w_graph;
+	w_graph = ui_get_graph();
 
 	is_smooth_curves_enabled = config_is_smooth_curves_enabled();
 	g_signal_connect_after(config_get_GSettings(),
