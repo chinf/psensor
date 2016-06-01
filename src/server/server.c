@@ -193,8 +193,9 @@ create_response_api(const char *nurl, const char *method, unsigned int *rp_code)
 	if (page) {
 		*rp_code = MHD_HTTP_OK;
 
-		resp = MHD_create_response_from_data(strlen(page), page,
-						     MHD_YES, MHD_NO);
+		resp = MHD_create_response_from_buffer(strlen(page),
+						       page,
+						       MHD_RESPMEM_MUST_FREE);
 
 		MHD_add_response_header(resp, MHD_HTTP_HEADER_CONTENT_TYPE,
 					"application/json");
@@ -224,8 +225,8 @@ static struct MHD_Response *create_response_file(const char *nurl,
 
 			if (!st.st_size) {
 				fclose(file);
-				return MHD_create_response_from_data
-					(0, NULL, MHD_NO, MHD_NO);
+				return MHD_create_response_from_buffer
+					(0, NULL, 0);
 			}
 
 			return MHD_create_response_from_callback
@@ -275,10 +276,9 @@ create_response(const char *nurl, const char *method, unsigned int *rp_code)
 	page = strdup(PAGE_NOT_FOUND);
 	*rp_code = MHD_HTTP_NOT_FOUND;
 
-	return MHD_create_response_from_data(strlen(page),
-					     page,
-					     MHD_YES,
-					     MHD_NO);
+	return MHD_create_response_from_buffer(strlen(page),
+					       page,
+					       MHD_RESPMEM_MUST_FREE);
 }
 
 static int cbk_http_request(void *cls,

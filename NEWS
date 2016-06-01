@@ -23,6 +23,8 @@ v1.1.4
 
 * psensor-server: avoid to retrieve files which are not under the
   webserver directory.
+* Fixed compilation failure due to MHD_create_response_from_buffer
+  which has been deprecated  
 
 v1.1.3
 ------
