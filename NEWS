@@ -1,7 +1,7 @@
 Psensor NEWS
 ============
 
-v1.1.5
+v1.1.6
 ------
 
 * Added tooltip explaining why a setting is not available.
@@ -17,6 +17,11 @@ v1.1.5
 * New dconf settings +default-high-threshold-temperature+,
   and +default-sensor-alarm-enabled+.
 * Fixed memory leaks due to glib GError.
+
+v1.1.5
+------
+
+* Fixed CPU overuse. (LP: 1582930)
 
 v1.1.4
 ------

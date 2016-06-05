@@ -53,12 +53,25 @@ struct graph_info {
 	int height;
 	/* Width of the drawing canvas */
 	int width;
-
-	/* Background color of the current desktop theme */
-	GdkRGBA theme_bg_color;
-	/* Foreground color of the current desktop theme */
-	GdkRGBA theme_fg_color;
 };
+
+static GtkStyleContext *style;
+/* Foreground color of the current desktop theme */
+static GdkRGBA theme_fg_color;
+/* Background color of the current desktop theme */
+static GdkRGBA theme_bg_color;
+
+static void update_theme(GtkWidget *w)
+{
+	style = gtk_widget_get_style_context(w);
+
+	gtk_style_context_get_background_color(style,
+					       GTK_STATE_FLAG_NORMAL,
+					       &theme_bg_color);
+	gtk_style_context_get_color(style,
+				    GTK_STATE_FLAG_NORMAL,
+				    &theme_fg_color);
+}
 
 static struct psensor **list_filter_graph_enabled(struct psensor **sensors)
 {
@@ -161,9 +174,9 @@ static char *time_to_str(time_t s)
 static void draw_left_region(cairo_t *cr, struct graph_info *info)
 {
 	cairo_set_source_rgb(cr,
-			     info->theme_bg_color.red,
-			     info->theme_bg_color.green,
-			     info->theme_bg_color.blue);
+			     theme_bg_color.red,
+			     theme_bg_color.green,
+			     theme_bg_color.blue);
 
 	cairo_rectangle(cr, 0, 0, info->g_xoff, info->height);
 	cairo_fill(cr);
@@ -172,9 +185,9 @@ static void draw_left_region(cairo_t *cr, struct graph_info *info)
 static void draw_right_region(cairo_t *cr, struct graph_info *info)
 {
 	cairo_set_source_rgb(cr,
-			     info->theme_bg_color.red,
-			     info->theme_bg_color.green,
-			     info->theme_bg_color.blue);
+			     theme_bg_color.red,
+			     theme_bg_color.green,
+			     theme_bg_color.blue);
 
 
 	cairo_rectangle(cr,
@@ -196,15 +209,15 @@ draw_graph_background(cairo_t *cr,
 
 	if (config->alpha_channel_enabled)
 		cairo_set_source_rgba(cr,
-				      info->theme_bg_color.red,
-				      info->theme_bg_color.green,
-				      info->theme_bg_color.blue,
+				      theme_bg_color.red,
+				      theme_bg_color.green,
+				      theme_bg_color.blue,
 				      config->graph_bg_alpha);
 	else
 		cairo_set_source_rgb(cr,
-				     info->theme_bg_color.red,
-				     info->theme_bg_color.green,
-				     info->theme_bg_color.blue);
+				     theme_bg_color.red,
+				     theme_bg_color.green,
+				     theme_bg_color.blue);
 
 	cairo_rectangle(cr, info->g_xoff, 0, info->g_width, info->height);
 	cairo_fill(cr);
@@ -479,6 +492,9 @@ graph_update(struct psensor **sensors,
 	if (!gtk_widget_is_drawable(w_graph))
 		return;
 
+	if (!style)
+		update_theme(window);
+
 	enabled_sensors = list_filter_graph_enabled(sensors);
 
 	min_rpm = get_min_rpm(enabled_sensors);
@@ -540,14 +556,6 @@ graph_update(struct psensor **sensors,
 
 	info.g_xoff = g_xoff;
 
-	style_ctx = gtk_widget_get_style_context(window);
-	gtk_style_context_get_background_color(style_ctx,
-					       GTK_STATE_FLAG_NORMAL,
-					       &info.theme_bg_color);
-	gtk_style_context_get_color(style_ctx,
-				    GTK_STATE_FLAG_NORMAL,
-				    &info.theme_fg_color);
-
 	g_width = width - g_xoff - GRAPH_H_PADDING;
 	info.g_width = g_width;
 
@@ -555,9 +563,9 @@ graph_update(struct psensor **sensors,
 
 	/* Set the color for text drawing */
 	cairo_set_source_rgb(cr,
-			     info.theme_fg_color.red,
-			     info.theme_fg_color.green,
-			     info.theme_fg_color.blue);
+			     theme_fg_color.red,
+			     theme_fg_color.green,
+			     theme_fg_color.blue);
 
 	/* draw graph begin time */
 	cairo_move_to(cr, g_xoff, height - GRAPH_V_PADDING);
@@ -621,9 +629,9 @@ graph_update(struct psensor **sensors,
 
 	/* draw min and max temp */
 	cairo_set_source_rgb(cr,
-			     info.theme_fg_color.red,
-			     info.theme_fg_color.green,
-			     info.theme_fg_color.blue);
+			     theme_fg_color.red,
+			     theme_fg_color.green,
+			     theme_fg_color.blue);
 
 	cairo_move_to(cr, GRAPH_H_PADDING, te_max.height + GRAPH_V_PADDING);
 	cairo_show_text(cr, strmax);
