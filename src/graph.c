@@ -486,7 +486,6 @@ graph_update(struct psensor **sensors,
 	cairo_text_extents_t te_btime, te_etime, te_max, te_min;
 	struct psensor **sensor_cur, **enabled_sensors;
 	GtkAllocation galloc;
-	GtkStyleContext *style_ctx;
 	struct graph_info info;
 
 	if (!gtk_widget_is_drawable(w_graph))
