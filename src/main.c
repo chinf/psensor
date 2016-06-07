@@ -227,7 +227,7 @@ associate_cb_alarm_raised(struct psensor **sensors, struct ui_psensor *ui)
 {
 	bool ret;
 	struct psensor *s;
-	double d, high_temp;
+	double high_temp;
 
 	high_temp = config_get_default_high_threshold_temperature();
 
