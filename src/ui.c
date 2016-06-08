@@ -404,7 +404,6 @@ void ui_window_create(struct ui_psensor *ui)
 void ui_window_update(struct ui_psensor *ui)
 {
 	struct config *cfg;
-	enum sensorlist_position sensorlist_pos;
 
 	log_debug("ui_window_update()");
 
