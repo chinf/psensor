@@ -183,7 +183,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	w_enable_launcher_counter = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "enable_launcher_counter"));
 	gtk_toggle_button_set_active(w_enable_launcher_counter,
-				     !config_is_count_visible());
+				     config_is_count_visible());
 
 	if (ui_unity_is_supported()) {
 		gtk_widget_set_has_tooltip
