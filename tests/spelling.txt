@@ -1,4 +1,5 @@
 # Downloaded from Linux kernel sources
+# https://github.com/torvalds/linux/blob/master/scripts/spelling.txt
 #
 # Originally from Debian's Lintian tool. Various false positives have been
 # removed, and various additions have been made as they've been discovered
