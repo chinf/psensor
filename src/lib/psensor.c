@@ -282,8 +282,8 @@ struct measure *psensor_get_current_measure(struct psensor *sensor)
 }
 
 /*
-  Returns the minimal value of a given 'type' (SENSOR_TYPE_TEMP or
-  SENSOR_TYPE_FAN)
+ * Returns the minimal value of a given 'type' (SENSOR_TYPE_TEMP or
+ * SENSOR_TYPE_FAN)
  */
 static double get_min_value(struct psensor **sensors, int type)
 {
@@ -314,8 +314,8 @@ static double get_min_value(struct psensor **sensors, int type)
 }
 
 /*
-  Returns the maximal value of a given 'type' (SENSOR_TYPE_TEMP or
-  SENSOR_TYPE_FAN)
+ * Returns the maximal value of a given 'type' (SENSOR_TYPE_TEMP or
+ * SENSOR_TYPE_FAN)
  */
 double get_max_value(struct psensor **sensors, int type)
 {

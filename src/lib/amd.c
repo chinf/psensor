@@ -77,7 +77,7 @@ static double get_temp(struct psensor *sensor)
 	v.iSize = sizeof(ADLTemperature);
 	v.iTemperature = -273;
 
-	if (ADL_OK == adl_od5_temperature_get(sensor->amd_id, 0, &v))
+	if (adl_od5_temperature_get(sensor->amd_id, 0, &v) == ADL_OK)
 		return v.iTemperature/1000;
 
 	return UNKNOWN_DBL_VALUE;
@@ -91,7 +91,7 @@ static double get_fanspeed(struct psensor *sensor)
 	v.iSpeedType = ADL_DL_FANCTRL_SPEED_TYPE_RPM;
 	v.iFanSpeed = -1;
 
-	if (ADL_OK == adl_od5_fanspeed_get(sensor->amd_id, 0, &v))
+	if (adl_od5_fanspeed_get(sensor->amd_id, 0, &v) == ADL_OK)
 		return v.iFanSpeed;
 
 	return UNKNOWN_DBL_VALUE;
@@ -103,7 +103,7 @@ static double get_usage(struct psensor *sensor)
 
 	v.iSize = sizeof(ADLPMActivity);
 
-	if (ADL_OK == adl_od5_currentactivity_get(sensor->amd_id, &v))
+	if (adl_od5_currentactivity_get(sensor->amd_id, &v) == ADL_OK)
 		return v.iActivityPercent;
 
 	return UNKNOWN_DBL_VALUE;
@@ -152,10 +152,10 @@ static struct psensor *create_sensor(int id, int type, int values_len)
 }
 
 /*
-  Returns the number of active AMD/ATI GPU adapters
-
-  Return 0 if no AMD/ATI GPUs or cannot get information.
-*/
+ * Returns the number of active AMD/ATI GPU adapters
+ *
+ * Return 0 if no AMD/ATI GPUs or cannot get information.
+ */
 static int init(void)
 {
 	LPAdapterInfo lpadapterinfo;
@@ -200,17 +200,17 @@ static int init(void)
 	}
 
 	/*
-	   1 in 2nd parameter means retrieve adapter information only
-	   for adapters that are physically present and enabled in the
-	   system
+	 * 1 in 2nd parameter means retrieve adapter information only
+	 * for adapters that are physically present and enabled in the
+	 * system
 	 */
-	if (ADL_OK != adl_main_control_create(adl_main_memory_alloc, 1)) {
+	if (adl_main_control_create(adl_main_memory_alloc, 1) != ADL_OK) {
 		log_err(_("AMD: failed to initialize ADL."));
 		return 0;
 	}
 	adl_main_control_done = 1;
 
-	if (ADL_OK != adl_adapter_numberofadapters_get(&inumberadapters)) {
+	if (adl_adapter_numberofadapters_get(&inumberadapters) != ADL_OK) {
 		log_err(_("AMD: cannot get the number of adapters."));
 		return 0;
 	}
@@ -228,7 +228,7 @@ static int init(void)
 
 		iadapterindex = lpadapterinfo[i].iAdapterIndex;
 
-		if (ADL_OK != adl_adapter_active_get(iadapterindex, &lpstatus))
+		if (adl_adapter_active_get(iadapterindex, &lpstatus) != ADL_OK)
 			continue;
 		if (lpstatus != ADL_TRUE)
 			continue;

@@ -19,6 +19,6 @@
 #ifndef _P_ARRAY_H_
 #define _P_ARRAY_H_
 
-#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0])
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 
 #endif

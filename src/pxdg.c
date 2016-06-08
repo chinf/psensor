@@ -180,7 +180,8 @@ void pxdg_set_autostart(unsigned int enable)
 		enable_gnome_autostart(user_desktop);
 	} else {
 		/* because X-GNOME-Autostart-enabled does not turn off
-		 * autostart on all Desktop Envs. */
+		 * autostart on all Desktop Envs.
+		 */
 		remove(user_desktop);
 	}
 

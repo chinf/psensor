@@ -256,7 +256,8 @@ static char *i2str(int i)
 	size_t n;
 
 	/* second +1 to avoid issue about the conversion of a double
-	 * to a lower int */
+	 * to a lower int
+	 */
 	n = 1 + (ceil(log10(INT_MAX)) + 1) + 1;
 
 	str = malloc(n);

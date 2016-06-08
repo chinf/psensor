@@ -28,6 +28,7 @@
 
 #include <cfg.h>
 #include <graph.h>
+#include <parray.h>
 #include <plog.h>
 #include <psensor.h>
 
@@ -247,7 +248,7 @@ static double dashes[] = {
 	1.0,		/* ink */
 	2.0,		/* skip */
 };
-static int ndash = sizeof(dashes) / sizeof(dashes[0]);
+static int ndash = ARRAY_SIZE(dashes);
 
 static void draw_background_lines(cairo_t *cr,
 				  int min, int max,
@@ -331,7 +332,8 @@ static void draw_sensor_smooth_curve(struct psensor *s,
 	/* search the index of the first measure used as a start point
 	 * of a Bezier curve. The start and end points of the Bezier
 	 * curves must be preserved to ensure the same overall shape
-	 * of the graph. */
+	 * of the graph.
+	 */
 	i = 0;
 	if (stimes) {
 		while (i < s->values_max_length) {

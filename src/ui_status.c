@@ -23,7 +23,7 @@ static const char *ICON = "psensor_normal";
 static const char *ATTENTION_ICON = "psensor_hot";
 
 static GtkStatusIcon *status;
-static unsigned status_attention;
+static unsigned int status_attention;
 
 static void cb_activate(GtkStatusIcon *icon,
 			gpointer data)

@@ -698,7 +698,8 @@ void config_set_sensor_color(const char *sid, const GdkRGBA *color)
 static const char *next_default_color(void)
 {
 	/* copied from the default colors of the gtk color color
-	 * chooser. */
+	 * chooser.
+	 */
 	const char *default_colors[27] = {
 		"#ef2929",  /* Scarlet Red */
 		"#fcaf3e",  /* Orange */

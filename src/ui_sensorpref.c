@@ -54,7 +54,8 @@ static GtkSpinButton *w_sensor_low_threshold;
 static GtkListStore *store;
 
 /* 'true' when the notifications of field changes are due to the change
- * of the selected sensor. */
+ * of the selected sensor.
+ */
 static bool ignore_changes;
 
 static struct psensor *get_selected_sensor(void)
