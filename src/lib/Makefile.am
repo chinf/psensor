@@ -8,6 +8,7 @@ libpsensor_a_SOURCES = \
 	lmsensor.h\
 	measure.h measure.c\
 	nvidia.h\
+	parray.h\
 	pgtop2.h\
 	plog.h plog.c\
 	pmutex.h pmutex.c\
