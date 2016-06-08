@@ -72,12 +72,9 @@ void ui_window_create(struct ui_psensor *ui);
 
 void ui_menu_bar_show(unsigned int show, struct ui_psensor *ui);
 
-void ui_show_about_dialog(void);
-
 void ui_enable_alpha_channel(struct ui_psensor *ui);
 
 void ui_cb_preferences(GtkMenuItem *mi, gpointer data);
-void ui_cb_about(GtkMenuItem *mi, gpointer data);
 void ui_cb_menu_quit(GtkMenuItem *mi, gpointer data);
 void ui_cb_sensor_preferences(GtkMenuItem *mi, gpointer data);
 

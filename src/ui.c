@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2014 jeanfi@gmail.com
+ * Copyright (C) 2010-2016 jeanfi@gmail.com
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License as
@@ -198,18 +198,20 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 	return TRUE;
 }
 
-void ui_show_about_dialog(void)
+void ui_show_about_dialog(GtkWidget *parent)
 {
 	static const char *const authors[] = { "jeanfi@gmail.com", NULL };
 
+	log_fct("parent=%p", parent);
+
 	gtk_show_about_dialog
-		(NULL,
+		(parent,
 		 "authors", authors,
 		 "comments",
 		 _("Psensor is a GTK+ application for monitoring hardware "
 		   "sensors"),
 		 "copyright",
-		 _("Copyright(c) 2010-2014 jeanfi@gmail.com"),
+		 _("Copyright(c) 2010-2016 jeanfi@gmail.com"),
 #if GTK_CHECK_VERSION(3, 12, 0)
 		 "license-type", GTK_LICENSE_GPL_2_0,
 #endif
@@ -223,9 +225,21 @@ void ui_show_about_dialog(void)
 		 NULL);
 }
 
-void ui_cb_about(GtkMenuItem *mi, gpointer data)
+void ui_cb_about(GtkAction *a, gpointer data)
 {
-	ui_show_about_dialog();
+	struct ui_psensor *ui;
+	GtkWidget *parent;
+
+	ui = (struct ui_psensor *)data;
+
+	log_fct("ui=%p", ui);
+
+	if (ui)
+		parent = ui->main_window;
+	else
+		parent = NULL;
+
+	ui_show_about_dialog(parent);
 }
 
 void ui_cb_menu_quit(GtkMenuItem *mi, gpointer data)
@@ -308,6 +322,8 @@ void ui_window_create(struct ui_psensor *ui)
 	guint ok;
 	GtkBuilder *builder;
 	GError *error;
+
+	log_fct("ui=%p", ui);
 
 	builder = gtk_builder_new();
 
