@@ -73,8 +73,10 @@ struct psensor {
 	/* Maximum length of 'values' */
 	int values_max_length;
 
-	/* Last registered measures of the sensor.  Index 0 for the
-	 * oldest measure.  */
+	/*
+	 * Last registered measures of the sensor.  Index 0 for the
+	 * oldest measure.
+	 */
 	struct measure *measures;
 
 	/* see psensor_type */
