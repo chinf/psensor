@@ -172,6 +172,9 @@ void atasmart_psensor_list_update(struct psensor **sensors)
 	double c;
 	SkDisk *disk;
 
+	if (!sensors)
+		return;
+
 	cur = sensors;
 	while (*cur) {
 		s = *cur;

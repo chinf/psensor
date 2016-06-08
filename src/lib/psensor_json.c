@@ -119,14 +119,16 @@ char *sensors_to_json_string(struct psensor **sensors)
 	char *str;
 	json_object *obj = json_object_new_array();
 
-	sensors_cur = sensors;
+	if (sensors) {
+		sensors_cur = sensors;
 
-	while (*sensors_cur) {
-		struct psensor *s = *sensors_cur;
+		while (*sensors_cur) {
+			struct psensor *s = *sensors_cur;
 
-		json_object_array_add(obj, sensor_to_json(s));
+			json_object_array_add(obj, sensor_to_json(s));
 
-		sensors_cur++;
+			sensors_cur++;
+		}
 	}
 
 	str = strdup(json_object_to_json_string(obj));

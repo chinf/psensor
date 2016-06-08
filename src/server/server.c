@@ -424,7 +424,7 @@ int main(int argc, char *argv[])
 	server_data.cpu_usage = create_cpu_usage_sensor(600);
 #endif
 
-	if (!*server_data.sensors)
+	if (!server_data.sensors || !*server_data.sensors)
 		log_err(_("No sensors detected."));
 
 	d = MHD_start_daemon(MHD_USE_THREAD_PER_CONNECTION,

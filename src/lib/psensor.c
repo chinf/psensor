@@ -432,7 +432,10 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celsius)
 
 void psensor_log_measures(struct psensor **sensors)
 {
-	if (log_level == LOG_DEBUG)
+	if (log_level == LOG_DEBUG) {
+		if (!sensors)
+			return;
+
 		while (*sensors) {
 			log_debug("Measure: %s %.2f",
 				   (*sensors)->name,
@@ -440,6 +443,7 @@ void psensor_log_measures(struct psensor **sensors)
 
 			sensors++;
 		}
+	}
 }
 
 struct psensor **psensor_list_copy(struct psensor **sensors)
