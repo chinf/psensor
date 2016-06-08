@@ -301,7 +301,8 @@ static int cbk_http_request(void *cls,
 
 	if (&dummy != *ptr) {
 		/* The first time only the headers are valid, do not
-		   respond in the first round... */
+		 * respond in the first round...
+		 */
 		*ptr = &dummy;
 		return MHD_YES;
 	}
