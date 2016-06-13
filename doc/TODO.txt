@@ -1,5 +1,5 @@
-Psensor TODO
-============
+= Psensor TODO
+:docinfo:
 
 The last version of this file is available at
 http://wpitchoune.net/gitweb/?p=psensor.git;a=blob_plain;f=doc/TODO.html;hb=HEAD.
