@@ -17,6 +17,7 @@ v1.2.0
 * New dconf settings +default-high-threshold-temperature+,
   and +default-sensor-alarm-enabled+.
 * Fixed memory leaks due to glib GError.
+* Added Greek translation.
 
 v1.1.5
 ------
