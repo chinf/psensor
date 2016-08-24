@@ -1,0 +1,823 @@
+# Polish translations for psensor package.
+# Copyright (C) 2016 Free Software Foundation, Inc.
+# This file is distributed under the same license as the psensor package.
+# Maintained by Jean-Philippe Orsini <jeanfi@gmail.com>
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: psensor 1.2.0\n"
+"Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
+"POT-Creation-Date: 2016-08-24 23:30+0200\n"
+"PO-Revision-Date: 2016-08-25 00:59+0200\n"
+"Last-Translator: jporsini <jeanfi@gmail.com>\n"
+"Language-Team: Polish\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/cfg.c:501
+#, c-format
+msgid "Failed to create the directory %s: %s"
+msgstr ""
+
+#: src/cfg.c:548
+#, c-format
+msgid "Failed to load configuration file %s: %s"
+msgstr ""
+
+#: src/cfg.c:573
+#, c-format
+msgid "Failed to save configuration file %s."
+msgstr ""
+
+#: src/glade/psensor.glade:6 src/glade/psensor-appindicator.glade:6
+msgid "About"
+msgstr ""
+
+#: src/glade/psensor.glade:10 src/glade/psensor-appindicator.glade:10
+#: src/glade/psensor-appindicator.glade:11
+#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:269
+msgid "Preferences"
+msgstr ""
+
+#: src/glade/psensor.glade:14 src/glade/psensor-appindicator.glade:24
+msgid "Quit"
+msgstr ""
+
+#: src/glade/psensor.glade:18 src/glade/psensor-appindicator.glade:15
+#: src/glade/psensor-appindicator.glade:16
+#: src/glade/psensor-appindicator.glade:28
+msgid "Sensor Preferences"
+msgstr ""
+
+#: src/glade/psensor.glade:99
+msgid "Psensor - Temperature Monitor"
+msgstr ""
+
+#: src/glade/psensor.glade:114
+msgid "_Psensor"
+msgstr ""
+
+#: src/glade/psensor.glade:161
+msgid "_Help"
+msgstr ""
+
+#: src/glade/psensor.glade:225
+msgid "Sensor"
+msgstr ""
+
+#: src/glade/psensor.glade:236
+msgid "Value"
+msgstr ""
+
+#: src/glade/psensor.glade:247
+msgid "Min"
+msgstr ""
+
+#: src/glade/psensor.glade:258
+msgid "Max"
+msgstr ""
+
+#: src/glade/psensor.glade:269
+msgid "Color"
+msgstr ""
+
+#: src/glade/psensor.glade:280 src/glade/psensor-pref.glade:753
+#: src/glade/sensor-edit.glade:480
+msgid "Graph"
+msgstr ""
+
+#: src/glade/psensor-appindicator.glade:84
+msgid "Show"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:24
+msgctxt "psensor"
+msgid "Right"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:27
+msgid "Left"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:30
+msgid "Top"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:33
+msgid "Bottom"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:60
+msgid "Edit Preferences"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:126
+msgid "Hide window decoration"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:146
+msgid "Keep window below"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:166
+msgid "Enable menu"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:186
+msgid "Enable Unity Launcher counter"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:190
+msgid "Psensor has not been build with Unity Launcher support"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:215
+msgid "Celsius"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:216
+msgid "Fahrenheit"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:258
+msgid "Temperature unit:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:275
+msgid "Position of sensors table:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:292
+msgid "Interface"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:308
+msgid "Launch on session startup"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:327
+msgid "Hide window on startup"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:345
+msgid "Restore window position and size"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:374
+msgid "Startup"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:416
+msgid "Foreground:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:432
+msgid "Background:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:464
+msgid "Background opacity:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:480
+msgid "Colors"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:500
+msgid "Monitoring duration:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:516
+msgid "Update interval:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:532
+msgid "Measures"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:558
+msgid "<i>Min</i>"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:585
+msgid "<i>Max</i>"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:636 src/glade/psensor-pref.glade:813
+msgid "second(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:686
+msgid "minute(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:702
+msgid "Smooth curves"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:728
+msgid "Curves"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:780
+msgid "Measure update interval:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:822
+msgid "Enable sensors logging"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:866
+msgid "Sensors logging interval:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:881
+msgid "seconds(s)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:896
+msgid "Script executed when an alarm is raised:"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:934
+msgid "Sensors"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:952
+msgid "Enable support of lm-sensors"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:970
+msgid "Enable support of NVCtrl (NVidia)"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:974
+msgid "Psensor has not been build with NVCtrl support"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:989
+msgid "Enable support of ATI ADL"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:993
+msgid "Psensor has not been build with ATI ADL support"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1008
+msgid "Enable support of gtop2"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1012
+msgid "Psensor has not been build with gtop2 support"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1027
+msgid "Enable support of hddtemp daemon"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1045
+msgid "Enable support of libatasmart"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1049
+msgid "Psensor has not been build with libatasmart support"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1064
+msgid "Enable support of udisks2"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1068
+msgid "Psensor has not been build with udisks2 support"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1090
+msgid "The changes are applied after the restart of psensor."
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1110
+msgid "Hard disk drive"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1131
+msgid "CPU and memory usage"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1152
+msgid "GPU with proprietary driver"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1173
+msgid "Motherboard, CPU and GPU"
+msgstr ""
+
+#: src/glade/psensor-pref.glade:1194
+msgid "Providers"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:29
+msgid "Edit Sensor Preferences"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:97
+msgid "Name"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:164
+msgid "Type:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:183 src/glade/sensor-edit.glade:220
+#: src/glade/sensor-edit.glade:276 src/glade/sensor-edit.glade:575
+#: src/glade/sensor-edit.glade:630 src/lib/psensor.c:430 src/ui_notify.c:81
+msgid "N/A"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:202
+msgid "Chip:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:239
+msgid "Name:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:258
+msgid "Id:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:296
+msgid "Min:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:315
+msgid "Max:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:333 src/glade/sensor-edit.glade:351
+msgid "label"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:370
+msgid "Details"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:388
+msgid "Draw sensor curve"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:417
+msgid "Color:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:448
+msgid "Display sensor in the list of sensors"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:499
+msgid "Activate desktop notifications"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:528
+msgid "High threshold:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:550
+msgid "0"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:604
+msgid "-1"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:656
+msgid "Low threshold:"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:678
+msgid "Alarm"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:697
+msgid "Display sensor in the menu"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:701 src/glade/sensor-edit.glade:723
+msgid "Psensor has not been build with AppIndicator support"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:719
+msgid "Display sensor in the label (experimental)"
+msgstr ""
+
+#: src/glade/sensor-edit.glade:752
+msgid "Application Indicator"
+msgstr ""
+
+#: src/graph.c:460
+msgid "No graphs enabled"
+msgstr ""
+
+#: src/lib/amd.c:171
+msgid "AMD: cannot found ADL library."
+msgstr ""
+
+#: src/lib/amd.c:198
+msgid "AMD: missing ADL's API."
+msgstr ""
+
+#: src/lib/amd.c:208
+msgid "AMD: failed to initialize ADL."
+msgstr ""
+
+#: src/lib/amd.c:214
+msgid "AMD: cannot get the number of adapters."
+msgstr ""
+
+#: src/lib/amd.c:253
+#, c-format
+msgid "Number of AMD/ATI adapters: %d"
+msgstr ""
+
+#: src/lib/amd.c:254
+#, c-format
+msgid "Number of active AMD/ATI adapters: %d"
+msgstr ""
+
+#: src/lib/hdd_atasmart.c:70 src/lib/hdd_hddtemp.c:125
+msgid "Disk"
+msgstr ""
+
+#: src/lib/hdd_atasmart.c:153
+#, c-format
+msgid "%s: sk_disk_open() failure: %s."
+msgstr ""
+
+#: src/lib/hdd_hddtemp.c:62
+#, c-format
+msgid "%s: failed to open socket."
+msgstr ""
+
+#: src/lib/hdd_hddtemp.c:75
+#, c-format
+msgid "%s: failed to open connection."
+msgstr ""
+
+#: src/lib/hdd_hddtemp.c:190 src/lib/hdd_hddtemp.c:270
+#, c-format
+msgid "%s: wrong string: %s."
+msgstr ""
+
+#: src/lib/lmsensor.c:73
+#, c-format
+msgid "%s: Cannot get value of subfeature %s: %s."
+msgstr ""
+
+#: src/lib/lmsensor.c:174
+#, c-format
+msgid "%s: Wrong feature type."
+msgstr ""
+
+#: src/lib/lmsensor.c:203
+msgid "Intel CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:207
+msgid "AMD CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:209
+msgid "NVIDIA GPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:211
+msgid "VIA CPU"
+msgstr ""
+
+#: src/lib/lmsensor.c:213
+msgid "ACPI"
+msgstr ""
+
+#: src/lib/lmsensor.c:245
+#, c-format
+msgid "%s: initialization failure: %s."
+msgstr ""
+
+#: src/lib/pgtop2.c:42
+msgid "CPU usage"
+msgstr ""
+
+#: src/lib/pgtop2.c:47
+msgid "CPU"
+msgstr ""
+
+#: src/lib/pgtop2.c:63
+msgid "free memory"
+msgstr ""
+
+#: src/lib/pgtop2.c:64
+msgid "memory"
+msgstr ""
+
+#: src/lib/plog.c:43
+#, c-format
+msgid "Cannot open log file: %s"
+msgstr ""
+
+#: src/lib/nvidia.c:69
+#, c-format
+msgid "%s: Unknown NVIDIA product name for GPU %d"
+msgstr ""
+
+#: src/lib/nvidia.c:74
+#, c-format
+msgid "%s: Failed to retrieve NVIDIA product name for GPU %d"
+msgstr ""
+
+#: src/lib/nvidia.c:240
+#, c-format
+msgid "%s: Failed to retrieve measure of type %x for NVIDIA GPU %d"
+msgstr ""
+
+#: src/lib/nvidia.c:317
+#, c-format
+msgid "%s: Cannot open connection to X11 server."
+msgstr ""
+
+#: src/lib/nvidia.c:325
+#, c-format
+msgid "%s: Failed to retrieve NVIDIA information."
+msgstr ""
+
+#: src/lib/nvidia.c:394
+#, c-format
+msgid "%s: Failed to retrieve number of fans."
+msgstr ""
+
+#: src/lib/psensor.c:426 tests/test_psensor_type_to_unit_str.c:62
+msgid "RPM"
+msgstr ""
+
+#: src/lib/psensor.c:428
+msgid "%"
+msgstr ""
+
+#: src/lib/slog.c:87
+msgid "HOME variable not set."
+msgstr ""
+
+#: src/lib/slog.c:96
+msgid "Sensor log file already open."
+msgstr ""
+
+#: src/lib/slog.c:105
+#, c-format
+msgid "Cannot open sensor log file: %s."
+msgstr ""
+
+#: src/lib/slog.c:136
+msgid "Sensor log file not open."
+msgstr ""
+
+#: src/lib/slog.c:192
+msgid "Sensor log not open, cannot close."
+msgstr ""
+
+#: src/main.c:61 src/server/server.c:88
+#, c-format
+msgid ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"License GPLv2: GNU GPL version 2 or later <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"This is free software: you are free to change and redistribute it.\n"
+"There is NO WARRANTY, to the extent permitted by law.\n"
+msgstr ""
+
+#: src/main.c:72 src/server/server.c:98
+#, c-format
+msgid "Usage: %s [OPTION]...\n"
+msgstr ""
+
+#: src/main.c:74
+msgid ""
+"Psensor is a GTK+ application for monitoring hardware sensors, including "
+"temperatures and fan speeds."
+msgstr ""
+
+#: src/main.c:78
+msgid "Options:"
+msgstr ""
+
+#: src/main.c:79
+msgid ""
+"  -h, --help          display this help and exit\n"
+"  -v, --version       display version information and exit"
+msgstr ""
+
+#: src/main.c:85
+msgid ""
+"  -u, --url=URL       the URL of the psensor-server,\n"
+"                      example: http://hostname:3131"
+msgstr ""
+
+#: src/main.c:88
+msgid "  -n, --new-instance  force the creation of a new Psensor application"
+msgstr ""
+
+#: src/main.c:91
+msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
+msgstr ""
+
+#: src/main.c:96 src/server/server.c:121
+#, c-format
+msgid "Report bugs to: %s\n"
+msgstr ""
+
+#: src/main.c:98 src/server/server.c:123
+#, c-format
+msgid "%s home page: <%s>\n"
+msgstr ""
+
+#: src/main.c:390
+msgid "Psensor has not been compiled with remote sensor support."
+msgstr ""
+
+#: src/main.c:460
+msgid "Enables debug mode."
+msgstr ""
+
+#: src/main.c:472 src/server/server.c:422
+#, c-format
+msgid "Try `%s --help' for more information.\n"
+msgstr ""
+
+#: src/main.c:485
+msgid "A Psensor instance already exists."
+msgstr ""
+
+#: src/main.c:527
+msgid "Failed to create thread for monitoring sensors"
+msgstr ""
+
+#: src/rsensor.c:115
+#, c-format
+msgid "%s: Fail to connect to: %s"
+msgstr ""
+
+#: src/rsensor.c:152
+#, c-format
+msgid "%s: Invalid content: %s"
+msgstr ""
+
+#: src/rsensor.c:192
+#, c-format
+msgid "%s: Invalid JSON: %s"
+msgstr ""
+
+#: src/server/server.c:58
+msgid "<html><body><p>Server stop requested</p></body></html>"
+msgstr ""
+
+#: src/server/server.c:64
+msgid ""
+"<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
+msgstr ""
+
+#: src/server/server.c:100
+msgid ""
+"psensor-server is an HTTP server for monitoring hardware sensors remotely."
+msgstr ""
+
+#: src/server/server.c:105
+msgid ""
+"  -h, --help\t\tdisplay this help and exit\n"
+"  -v, --version\t\tdisplay version information and exit"
+msgstr ""
+
+#: src/server/server.c:109
+msgid ""
+"  -p,--port=PORT\twebserver port\n"
+"  -w,--wdir=DIR\t\tdirectory containing webserver pages"
+msgstr ""
+
+#: src/server/server.c:113
+msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
+msgstr ""
+
+#: src/server/server.c:115
+msgid "  -l, --log-file=PATH   set the log file to PATH"
+msgstr ""
+
+#: src/server/server.c:116
+msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
+msgstr ""
+
+#: src/server/server.c:117
+msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
+msgstr ""
+
+#: src/server/server.c:262
+#, c-format
+msgid "Resource access refused %s real path is %s"
+msgstr ""
+
+#: src/server/server.c:269
+#, c-format
+msgid "Cannot get real path of %s"
+msgstr ""
+
+#: src/server/server.c:339
+#, c-format
+msgid "HTTP Request: %s"
+msgstr ""
+
+#: src/server/server.c:402
+#, c-format
+msgid "Enables debug mode: %d"
+msgstr ""
+
+#: src/server/server.c:431
+#, c-format
+msgid "Webserver directory does not exist.\n"
+msgstr ""
+
+#: src/server/server.c:452
+msgid "No sensors detected."
+msgstr ""
+
+#: src/server/server.c:459
+msgid "Failed to create Web server."
+msgstr ""
+
+#: src/server/server.c:463
+#, c-format
+msgid "Web server started on port: %d"
+msgstr ""
+
+#: src/server/server.c:464
+#, c-format
+msgid "WWW directory: %s"
+msgstr ""
+
+#: src/server/server.c:465
+#, c-format
+msgid "URL: http://localhost:%d"
+msgstr ""
+
+#: src/server/server.c:475
+msgid "Failed to activate logging of sensors."
+msgstr ""
+
+#: src/ui.c:213
+msgid "Psensor is a GTK+ application for monitoring hardware sensors"
+msgstr ""
+
+#: src/ui.c:216
+msgid "Copyright(c) 2010-2016 jeanfi@gmail.com"
+msgstr ""
+
+#: src/ui.c:222
+msgid "About Psensor"
+msgstr ""
+
+#: src/ui.c:223
+msgid "translator-credits"
+msgstr ""
+
+#: src/ui.c:226
+msgid "Psensor Homepage"
+msgstr ""
+
+#: src/ui.c:363
+msgid "Failed to load Psensor icon."
+msgstr ""
+
+#: src/ui_sensorlist.c:259
+msgid "Hide"
+msgstr ""
+
+#: src/ui_sensorlist.c:303
+msgid "Select sensor color"
+msgstr ""
+
+#: src/ui_appindicator.c:148
+#, c-format
+msgid "Failed to load glade file %s: %s"
+msgstr ""
+
+#: src/ui_notify.c:48
+msgid "gettimeofday failed."
+msgstr ""
+
+#: src/ui_notify.c:77
+msgid "Temperature alert"
+msgstr ""
+
+#: src/ui_notify.c:79
+msgid "Fan speed alert"
+msgstr ""
+
+#: src/ui_sensorpref.c:290 src/ui_sensorpref.c:296 src/ui_sensorpref.c:304
+msgid "Unknown"
+msgstr ""
