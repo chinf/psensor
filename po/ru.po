@@ -4,35 +4,37 @@
 # Maintained by Jean-Philippe Orsini <jeanfi@gmail.com>
 # Translators:
 # Dmitry Serov, 2014
+# Grigorii Chirkov <ridgentsailor TYPE_AT_HERE gmail AND_DOT_HERE com>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: psensor 0.7.0.x\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2016-08-24 23:30+0200\n"
-"PO-Revision-Date: 2014-09-11 21:23+0000\n"
-"Last-Translator: Jean-Philippe Orsini <Unknown>\n"
+"PO-Revision-Date: 2016-02-07 23:08+0300\n"
+"Last-Translator: Grigorii Chirkov <ridgentsailor TYPE_AT_HERE gmail "
+"AND_DOT_HERE com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #: src/cfg.c:501
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to create the directory %s: %s"
-msgstr "Не удалось создать веб-сервер."
+msgstr "Не удалось создать каталог %s: %s"
 
 #: src/cfg.c:548
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to load configuration file %s: %s"
-msgstr "Не удалось включить журналирование датчиков."
+msgstr "Не удалось загрузить файл конфигурации %s: %s"
 
 #: src/cfg.c:573
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to save configuration file %s."
-msgstr "Не удалось включить журналирование датчиков."
+msgstr "Не удалось сохранить файл конфигурации %s."
 
 #: src/glade/psensor.glade:6 src/glade/psensor-appindicator.glade:6
 msgid "About"
@@ -60,7 +62,7 @@ msgstr "Psensor - монитор температуры"
 
 #: src/glade/psensor.glade:114
 msgid "_Psensor"
-msgstr ""
+msgstr "_Psensor"
 
 #: src/glade/psensor.glade:161
 msgid "_Help"
@@ -98,19 +100,19 @@ msgstr "Показать"
 #: src/glade/psensor-pref.glade:24
 msgctxt "psensor"
 msgid "Right"
-msgstr ""
+msgstr "Справа"
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr ""
+msgstr "Слева"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
-msgstr ""
+msgstr "Сверху"
 
 #: src/glade/psensor-pref.glade:33
 msgid "Bottom"
-msgstr ""
+msgstr "Снизу"
 
 #: src/glade/psensor-pref.glade:60
 msgid "Edit Preferences"
@@ -118,11 +120,11 @@ msgstr "Изменить параметры"
 
 #: src/glade/psensor-pref.glade:126
 msgid "Hide window decoration"
-msgstr "Спрятать рамку окна"
+msgstr "Скрывать рамку окна"
 
 #: src/glade/psensor-pref.glade:146
 msgid "Keep window below"
-msgstr "Держать окно позади"
+msgstr "Удерживать окно под другими"
 
 #: src/glade/psensor-pref.glade:166
 msgid "Enable menu"
@@ -130,7 +132,7 @@ msgstr "Включить меню"
 
 #: src/glade/psensor-pref.glade:186
 msgid "Enable Unity Launcher counter"
-msgstr "Включить счётчик в панеле запуска Unity"
+msgstr "Включить счетчик в панели запуска Unity"
 
 #: src/glade/psensor-pref.glade:190
 #, fuzzy
@@ -139,15 +141,15 @@ msgstr "Psensor не был собран с поддержкой удалённ�
 
 #: src/glade/psensor-pref.glade:215
 msgid "Celsius"
-msgstr ""
+msgstr "Цельсия"
 
 #: src/glade/psensor-pref.glade:216
 msgid "Fahrenheit"
-msgstr ""
+msgstr "Фаренгейта"
 
 #: src/glade/psensor-pref.glade:258
 msgid "Temperature unit:"
-msgstr "Единица измерения температуры:"
+msgstr "Единицы измерения температуры:"
 
 #: src/glade/psensor-pref.glade:275
 msgid "Position of sensors table:"
@@ -159,11 +161,11 @@ msgstr "Внешний вид"
 
 #: src/glade/psensor-pref.glade:308
 msgid "Launch on session startup"
-msgstr ""
+msgstr "Запускать автоматически при старте сессии"
 
 #: src/glade/psensor-pref.glade:327
 msgid "Hide window on startup"
-msgstr "Скрыть окно при запуске"
+msgstr "Скрывать окно при запуске"
 
 #: src/glade/psensor-pref.glade:345
 msgid "Restore window position and size"
@@ -171,7 +173,7 @@ msgstr "Восстанавливать положение и размер окн
 
 #: src/glade/psensor-pref.glade:374
 msgid "Startup"
-msgstr ""
+msgstr "Автозапуск"
 
 #: src/glade/psensor-pref.glade:416
 msgid "Foreground:"
@@ -219,11 +221,11 @@ msgstr "мин."
 
 #: src/glade/psensor-pref.glade:702
 msgid "Smooth curves"
-msgstr ""
+msgstr "Сглаживать графики"
 
 #: src/glade/psensor-pref.glade:728
 msgid "Curves"
-msgstr ""
+msgstr "Графики"
 
 #: src/glade/psensor-pref.glade:780
 msgid "Measure update interval:"
@@ -243,7 +245,7 @@ msgstr "секунд(с)"
 
 #: src/glade/psensor-pref.glade:896
 msgid "Script executed when an alarm is raised:"
-msgstr ""
+msgstr "Скрипт, выполняемый при выдаче уведомления:"
 
 #: src/glade/psensor-pref.glade:934
 msgid "Sensors"
@@ -251,11 +253,11 @@ msgstr "Датчики"
 
 #: src/glade/psensor-pref.glade:952
 msgid "Enable support of lm-sensors"
-msgstr ""
+msgstr "Включить поддержку lm-sensors"
 
 #: src/glade/psensor-pref.glade:970
 msgid "Enable support of NVCtrl (NVidia)"
-msgstr ""
+msgstr "Включить поддержку NVCtrl (NVidia)"
 
 #: src/glade/psensor-pref.glade:974
 #, fuzzy
@@ -264,7 +266,7 @@ msgstr "Psensor не был собран с поддержкой удалённ�
 
 #: src/glade/psensor-pref.glade:989
 msgid "Enable support of ATI ADL"
-msgstr ""
+msgstr "Включить поддержку ATI ADL"
 
 #: src/glade/psensor-pref.glade:993
 #, fuzzy
@@ -273,7 +275,7 @@ msgstr "Psensor не был собран с поддержкой удалённ�
 
 #: src/glade/psensor-pref.glade:1008
 msgid "Enable support of gtop2"
-msgstr ""
+msgstr "Включить поддержку gtop2"
 
 #: src/glade/psensor-pref.glade:1012
 #, fuzzy
@@ -282,11 +284,11 @@ msgstr "Psensor не был собран с поддержкой удалённ�
 
 #: src/glade/psensor-pref.glade:1027
 msgid "Enable support of hddtemp daemon"
-msgstr ""
+msgstr "Включить поддержку демона hddtemp"
 
 #: src/glade/psensor-pref.glade:1045
 msgid "Enable support of libatasmart"
-msgstr ""
+msgstr "Включить поддержку libatasmart"
 
 #: src/glade/psensor-pref.glade:1049
 #, fuzzy
@@ -295,7 +297,7 @@ msgstr "Psensor не был собран с поддержкой удалённ�
 
 #: src/glade/psensor-pref.glade:1064
 msgid "Enable support of udisks2"
-msgstr ""
+msgstr "Включить поддержку udisks2"
 
 #: src/glade/psensor-pref.glade:1068
 #, fuzzy
@@ -304,27 +306,27 @@ msgstr "Psensor не был собран с поддержкой удалённ�
 
 #: src/glade/psensor-pref.glade:1090
 msgid "The changes are applied after the restart of psensor."
-msgstr ""
+msgstr "Изменения будут применены после перезапуска psensor."
 
 #: src/glade/psensor-pref.glade:1110
 msgid "Hard disk drive"
-msgstr ""
+msgstr "Жесткий диск"
 
 #: src/glade/psensor-pref.glade:1131
 msgid "CPU and memory usage"
-msgstr ""
+msgstr "Использование ЦП и ОЗУ"
 
 #: src/glade/psensor-pref.glade:1152
 msgid "GPU with proprietary driver"
-msgstr ""
+msgstr "ГП (проприетарный драйвер)"
 
 #: src/glade/psensor-pref.glade:1173
 msgid "Motherboard, CPU and GPU"
-msgstr ""
+msgstr "Материнская плата, ЦП и ГП"
 
 #: src/glade/psensor-pref.glade:1194
 msgid "Providers"
-msgstr ""
+msgstr "Поддержка"
 
 #: src/glade/sensor-edit.glade:29
 msgid "Edit Sensor Preferences"
@@ -370,7 +372,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:370
 msgid "Details"
-msgstr ""
+msgstr "Подробности"
 
 #: src/glade/sensor-edit.glade:388
 msgid "Draw sensor curve"
@@ -381,9 +383,8 @@ msgid "Color:"
 msgstr "Цвет:"
 
 #: src/glade/sensor-edit.glade:448
-#, fuzzy
 msgid "Display sensor in the list of sensors"
-msgstr "Показать датчик в индикаторе меню приложений"
+msgstr "Показать датчик в списке датчиков"
 
 #: src/glade/sensor-edit.glade:499
 msgid "Activate desktop notifications"
@@ -395,15 +396,15 @@ msgstr "Высший порог:"
 
 #: src/glade/sensor-edit.glade:550
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: src/glade/sensor-edit.glade:604
 msgid "-1"
-msgstr ""
+msgstr "-1"
 
 #: src/glade/sensor-edit.glade:656
 msgid "Low threshold:"
-msgstr "Нижний порог:"
+msgstr "Низший порог:"
 
 #: src/glade/sensor-edit.glade:678
 msgid "Alarm"
@@ -420,7 +421,7 @@ msgstr "Psensor не был собран с поддержкой удалённ�
 
 #: src/glade/sensor-edit.glade:719
 msgid "Display sensor in the label (experimental)"
-msgstr ""
+msgstr "Показать датчик в области уведомлений (экспериментально)"
 
 #: src/glade/sensor-edit.glade:752
 msgid "Application Indicator"
@@ -449,21 +450,21 @@ msgstr "AMD: ошибка определения количества адапт
 #: src/lib/amd.c:253
 #, c-format
 msgid "Number of AMD/ATI adapters: %d"
-msgstr ""
+msgstr "Количество адаптеров AMD/ATI: %d"
 
 #: src/lib/amd.c:254
 #, c-format
 msgid "Number of active AMD/ATI adapters: %d"
-msgstr ""
+msgstr "Количество активных адаптеров AMD/ATI: %d"
 
 #: src/lib/hdd_atasmart.c:70 src/lib/hdd_hddtemp.c:125
 msgid "Disk"
-msgstr ""
+msgstr "Диск"
 
 #: src/lib/hdd_atasmart.c:153
-#, fuzzy, c-format
+#, c-format
 msgid "%s: sk_disk_open() failure: %s."
-msgstr "atasmart: ошибка sk_disk_open(): %s."
+msgstr "%s: ошибка sk_disk_open(): %s."
 
 #: src/lib/hdd_hddtemp.c:62
 #, c-format
@@ -483,53 +484,53 @@ msgstr "%s: неправильная строка: %s."
 #: src/lib/lmsensor.c:73
 #, c-format
 msgid "%s: Cannot get value of subfeature %s: %s."
-msgstr ""
+msgstr "%s: Не удалось получить значение подмодуля %s: %s."
 
 #: src/lib/lmsensor.c:174
 #, c-format
 msgid "%s: Wrong feature type."
-msgstr ""
+msgstr "%s: Неверный тип модуля."
 
 #: src/lib/lmsensor.c:203
 msgid "Intel CPU"
-msgstr ""
+msgstr "ЦП Intel"
 
 #: src/lib/lmsensor.c:207
 msgid "AMD CPU"
-msgstr ""
+msgstr "ЦП AMD"
 
 #: src/lib/lmsensor.c:209
 msgid "NVIDIA GPU"
-msgstr ""
+msgstr "ГП NVIDIA"
 
 #: src/lib/lmsensor.c:211
 msgid "VIA CPU"
-msgstr ""
+msgstr "ЦП VIA"
 
 #: src/lib/lmsensor.c:213
 msgid "ACPI"
-msgstr ""
+msgstr "ACPI"
 
 #: src/lib/lmsensor.c:245
-#, fuzzy, c-format
+#, c-format
 msgid "%s: initialization failure: %s."
-msgstr "lmsensor: ошибка инициализации: %s."
+msgstr "%s: ошибка инициализации: %s."
 
 #: src/lib/pgtop2.c:42
 msgid "CPU usage"
-msgstr ""
+msgstr "Загрузка ЦП"
 
 #: src/lib/pgtop2.c:47
 msgid "CPU"
-msgstr ""
+msgstr "ЦП"
 
 #: src/lib/pgtop2.c:63
 msgid "free memory"
-msgstr ""
+msgstr "Использование ОЗУ"
 
 #: src/lib/pgtop2.c:64
 msgid "memory"
-msgstr ""
+msgstr "ОЗУ"
 
 #: src/lib/plog.c:43
 #, c-format
@@ -537,19 +538,19 @@ msgid "Cannot open log file: %s"
 msgstr "Ошибка открытия файла журнала: %s"
 
 #: src/lib/nvidia.c:69
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Unknown NVIDIA product name for GPU %d"
-msgstr "Не удалось получить информацию NVIDIA."
+msgstr "%s: Неизвестное название продукта ГП NVIDIA %d"
 
 #: src/lib/nvidia.c:74
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Failed to retrieve NVIDIA product name for GPU %d"
-msgstr "Не удалось получить информацию NVIDIA."
+msgstr "%s: Не удалось получить информацию о названии продукта ГП NVIDIA %d"
 
 #: src/lib/nvidia.c:240
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Failed to retrieve measure of type %x for NVIDIA GPU %d"
-msgstr "Не удалось получить информацию NVIDIA."
+msgstr "%s: Не удалось получить информацию о типе %x ГП NVIDIA %d"
 
 #: src/lib/nvidia.c:317
 #, c-format
@@ -562,9 +563,9 @@ msgid "%s: Failed to retrieve NVIDIA information."
 msgstr "%s: Не удалось получить информацию NVIDIA."
 
 #: src/lib/nvidia.c:394
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Failed to retrieve number of fans."
-msgstr "Не удалось получить информацию NVIDIA."
+msgstr "%s: Не удалось получить информацию о количестве вентиляторов."
 
 #: src/lib/psensor.c:426 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
@@ -604,6 +605,13 @@ msgid ""
 "This is free software: you are free to change and redistribute it.\n"
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
+"Copyright (C) %s jeanfi@gmail.com\n"
+"Лицензия GPLv2: GNU GPL версии 2 или выше <http://www.gnu.org/licenses/old-"
+"licenses/gpl-2.0.html>\n"
+"Это свободное программное обеспечение, вы можете модифицировать и "
+"распространять его.\n"
+"На него не предоставляется никаких гарантий в мере, предусмотренной "
+"законодательством.\n"
 
 #: src/main.c:72 src/server/server.c:98
 #, c-format
@@ -679,19 +687,19 @@ msgid "Failed to create thread for monitoring sensors"
 msgstr "Не удалось создать веб-сервер."
 
 #: src/rsensor.c:115
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Fail to connect to: %s"
-msgstr "Ошибка подключения к: %s"
+msgstr "%s: Ошибка подключения к: %s"
 
 #: src/rsensor.c:152
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Invalid content: %s"
-msgstr "Неправильное содержимое: %s"
+msgstr "%s: Неправильное содержимое: %s"
 
 #: src/rsensor.c:192
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Invalid JSON: %s"
-msgstr "Неправильный JSON: %s"
+msgstr "%s: Неправильный JSON: %s"
 
 #: src/server/server.c:58
 msgid "<html><body><p>Server stop requested</p></body></html>"
@@ -799,7 +807,7 @@ msgstr "Не удалось включить журналирование дат
 
 #: src/ui.c:213
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
-msgstr "Psensor — это  GTK+ приложения для мониторинга аппаратных сенсоров"
+msgstr "Psensor — это приложение GTK+ для мониторинга аппаратных сенсоров"
 
 #: src/ui.c:216
 msgid "Copyright(c) 2010-2016 jeanfi@gmail.com"
@@ -812,11 +820,12 @@ msgstr "О Psensor"
 #: src/ui.c:223
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
+"Contributions:\n"
 "  Dmitry Serov https://launchpad.net/~dmitri-s93\n"
 "  Eugene Marshal https://launchpad.net/~lowrider\n"
 "  Ilya Volchanetskiy https://launchpad.net/~volchanetskiy\n"
-"  Jean-Philippe Orsini https://launchpad.net/~jfi"
+"  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
+"  Grigorii Chirkov"
 
 #: src/ui.c:226
 msgid "Psensor Homepage"
@@ -828,12 +837,11 @@ msgstr "Не удалось загрузить значок Psensor."
 
 #: src/ui_sensorlist.c:259
 msgid "Hide"
-msgstr ""
+msgstr "Скрыть"
 
 #: src/ui_sensorlist.c:303
-#, fuzzy
 msgid "Select sensor color"
-msgstr "Выберите цвет переднего плана"
+msgstr "Выбор цвета датчика"
 
 #: src/ui_appindicator.c:148
 #, fuzzy, c-format
@@ -849,13 +857,12 @@ msgid "Temperature alert"
 msgstr "Уведомление температуры"
 
 #: src/ui_notify.c:79
-#, fuzzy
 msgid "Fan speed alert"
 msgstr "Уведомление вентилятора"
 
 #: src/ui_sensorpref.c:290 src/ui_sensorpref.c:296 src/ui_sensorpref.c:304
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 #~ msgid "Sensor Information"
 #~ msgstr "Информация датчика"
