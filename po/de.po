@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: psensor 0.7.0.x\n"
+"Project-Id-Version: psensor 1.2.0\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
 "POT-Creation-Date: 2016-08-24 23:30+0200\n"
-"PO-Revision-Date: 2014-09-20 11:25+0000\n"
+"PO-Revision-Date: 2016-08-24 23:30+0200\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -19,19 +19,19 @@ msgstr ""
 "X-Generator: Launchpad (build 17196)\n"
 
 #: src/cfg.c:501
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to create the directory %s: %s"
-msgstr "Erzeugen des Webservers ist gescheitert."
+msgstr "Erzeugen des Ordners %s ist gescheitert: %s"
 
 #: src/cfg.c:548
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to load configuration file %s: %s"
-msgstr "Aktivieren der Sensorenprotokollierung ist gescheitert."
+msgstr "Laden der Konfigurationsdatei %s ist gescheitert: %s"
 
 #: src/cfg.c:573
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to save configuration file %s."
-msgstr "Aktivieren der Sensorenprotokollierung ist gescheitert."
+msgstr "Speichern der Konfigurationsdatei %s ist gescheitert."
 
 #: src/glade/psensor.glade:6 src/glade/psensor-appindicator.glade:6
 msgid "About"
@@ -55,7 +55,7 @@ msgstr "Sensoreinstellungen"
 
 #: src/glade/psensor.glade:99
 msgid "Psensor - Temperature Monitor"
-msgstr "Psensor – Temperaturüberwachung"
+msgstr "Psensor - Temperaturüberwachung"
 
 #: src/glade/psensor.glade:114
 msgid "_Psensor"
@@ -101,7 +101,7 @@ msgstr ""
 
 #: src/glade/psensor-pref.glade:27
 msgid "Left"
-msgstr "links"
+msgstr "Links"
 
 #: src/glade/psensor-pref.glade:30
 msgid "Top"
@@ -129,12 +129,11 @@ msgstr "Menü aktivieren"
 
 #: src/glade/psensor-pref.glade:186
 msgid "Enable Unity Launcher counter"
-msgstr "Wert im Starter von Unity anzeigen"
+msgstr "Wert im Unity Starter anzeigen"
 
 #: src/glade/psensor-pref.glade:190
-#, fuzzy
 msgid "Psensor has not been build with Unity Launcher support"
-msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
+msgstr "Psensor wurde ohne Unterstützung für Unity Starter kompiliert."
 
 #: src/glade/psensor-pref.glade:215
 msgid "Celsius"
@@ -158,7 +157,7 @@ msgstr "Benutzeroberfläche"
 
 #: src/glade/psensor-pref.glade:308
 msgid "Launch on session startup"
-msgstr ""
+msgstr "Bei Benutzeranmeldung starten"
 
 #: src/glade/psensor-pref.glade:327
 msgid "Hide window on startup"
@@ -170,7 +169,7 @@ msgstr "Fensterposition und -größe merken"
 
 #: src/glade/psensor-pref.glade:374
 msgid "Startup"
-msgstr ""
+msgstr "Programmstart"
 
 #: src/glade/psensor-pref.glade:416
 msgid "Foreground:"
@@ -218,11 +217,11 @@ msgstr "Minute(n)"
 
 #: src/glade/psensor-pref.glade:702
 msgid "Smooth curves"
-msgstr ""
+msgstr "Sensorgraphen glätten"
 
 #: src/glade/psensor-pref.glade:728
 msgid "Curves"
-msgstr ""
+msgstr "Sensorgraphen"
 
 #: src/glade/psensor-pref.glade:780
 msgid "Measure update interval:"
@@ -234,7 +233,7 @@ msgstr "Sensorenprotokollierung aktivieren"
 
 #: src/glade/psensor-pref.glade:866
 msgid "Sensors logging interval:"
-msgstr ""
+msgstr "Sensorenprotokollierungsintervall:"
 
 #: src/glade/psensor-pref.glade:881
 msgid "seconds(s)"
@@ -242,7 +241,7 @@ msgstr "Sekunde(n)"
 
 #: src/glade/psensor-pref.glade:896
 msgid "Script executed when an alarm is raised:"
-msgstr ""
+msgstr "Folgendes Script bei einem Alarm ausführen:"
 
 #: src/glade/psensor-pref.glade:934
 msgid "Sensors"
@@ -250,80 +249,77 @@ msgstr "Sensoren"
 
 #: src/glade/psensor-pref.glade:952
 msgid "Enable support of lm-sensors"
-msgstr ""
+msgstr "Unterstützung für lm-sensors aktivieren"
 
 #: src/glade/psensor-pref.glade:970
 msgid "Enable support of NVCtrl (NVidia)"
-msgstr ""
+msgstr "Unterstützung für NVCtrl (NVidia) aktivieren"
 
 #: src/glade/psensor-pref.glade:974
-#, fuzzy
 msgid "Psensor has not been build with NVCtrl support"
-msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
+msgstr "Psensor wurde ohne Unterstützung für NVCtrl kompiliert."
 
 #: src/glade/psensor-pref.glade:989
 msgid "Enable support of ATI ADL"
-msgstr ""
+msgstr "Unterstützung für ATI ADL aktivieren"
 
 #: src/glade/psensor-pref.glade:993
-#, fuzzy
 msgid "Psensor has not been build with ATI ADL support"
-msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
+msgstr "Psensor wurde ohne Unterstützung für ATI ADL kompiliert."
 
 #: src/glade/psensor-pref.glade:1008
 msgid "Enable support of gtop2"
-msgstr ""
+msgstr "Unterstützung für gtop2 aktivieren"
 
 #: src/glade/psensor-pref.glade:1012
-#, fuzzy
 msgid "Psensor has not been build with gtop2 support"
-msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
+msgstr "Psensor wurde ohne Unterstützung für gtop2 kompiliert."
 
 #: src/glade/psensor-pref.glade:1027
 msgid "Enable support of hddtemp daemon"
-msgstr ""
+msgstr "Unterstützung für den hddtemp Daemon aktivieren"
 
 #: src/glade/psensor-pref.glade:1045
 msgid "Enable support of libatasmart"
-msgstr ""
+msgstr "Unterstützung für libatasmart aktivieren"
 
 #: src/glade/psensor-pref.glade:1049
 #, fuzzy
 msgid "Psensor has not been build with libatasmart support"
-msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
+msgstr "Psensor wurde ohne Unterstützung für libatasmart kompiliert."
 
 #: src/glade/psensor-pref.glade:1064
 msgid "Enable support of udisks2"
-msgstr ""
+msgstr "Unterstützung für udisks2 aktivieren"
 
 #: src/glade/psensor-pref.glade:1068
 #, fuzzy
 msgid "Psensor has not been build with udisks2 support"
-msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
+msgstr "Psensor wurde ohne Unterstützung für udisks2 kompiliert."
 
 #: src/glade/psensor-pref.glade:1090
 msgid "The changes are applied after the restart of psensor."
-msgstr ""
+msgstr "Die Änderungen werden erst nach einem Neustart von psensor wirksam."
 
 #: src/glade/psensor-pref.glade:1110
 msgid "Hard disk drive"
-msgstr ""
+msgstr "Festplattenlaufwerk"
 
 #: src/glade/psensor-pref.glade:1131
 msgid "CPU and memory usage"
-msgstr ""
+msgstr "Prozessor- und Arbeitsspeichernutzung"
 
 #: src/glade/psensor-pref.glade:1152
 msgid "GPU with proprietary driver"
-msgstr ""
+msgstr "Grafikkarte mit proprietärem Treiber"
 
 #: src/glade/psensor-pref.glade:1173
 msgid "Motherboard, CPU and GPU"
-msgstr ""
+msgstr "Motherboard, Prozessor und Grafikkarte"
 
 #: src/glade/psensor-pref.glade:1194
 msgid "Providers"
-msgstr ""
+msgstr "Provider"
 
 #: src/glade/sensor-edit.glade:29
 msgid "Edit Sensor Preferences"
@@ -365,7 +361,7 @@ msgstr ""
 
 #: src/glade/sensor-edit.glade:333 src/glade/sensor-edit.glade:351
 msgid "label"
-msgstr ""
+msgstr "Label"
 
 #: src/glade/sensor-edit.glade:370
 msgid "Details"
@@ -381,7 +377,7 @@ msgstr "Farbe:"
 
 #: src/glade/sensor-edit.glade:448
 msgid "Display sensor in the list of sensors"
-msgstr ""
+msgstr "Sensor in der Sensorenliste anzeigen"
 
 #: src/glade/sensor-edit.glade:499
 msgid "Activate desktop notifications"
@@ -409,24 +405,23 @@ msgstr "Alarm"
 
 #: src/glade/sensor-edit.glade:697
 msgid "Display sensor in the menu"
-msgstr ""
+msgstr "Sensor im Menü anzeigen"
 
 #: src/glade/sensor-edit.glade:701 src/glade/sensor-edit.glade:723
-#, fuzzy
 msgid "Psensor has not been build with AppIndicator support"
-msgstr "Psensor wurde ohne Unterstützung für entfernte Sensoren kompiliert."
+msgstr "Psensor wurde ohne Unterstützung für AppIndicator kompiliert."
 
 #: src/glade/sensor-edit.glade:719
 msgid "Display sensor in the label (experimental)"
-msgstr ""
+msgstr "Sensor in der Menüleiste anzeigen (experimentell)"
 
 #: src/glade/sensor-edit.glade:752
 msgid "Application Indicator"
-msgstr ""
+msgstr "Programm-Indikator"
 
 #: src/graph.c:460
 msgid "No graphs enabled"
-msgstr ""
+msgstr "Keine Graphen aktiviert"
 
 #: src/lib/amd.c:171
 msgid "AMD: cannot found ADL library."
@@ -535,19 +530,19 @@ msgid "Cannot open log file: %s"
 msgstr "Protokolldatei kann nicht geöffnet werden: %s"
 
 #: src/lib/nvidia.c:69
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Unknown NVIDIA product name for GPU %d"
-msgstr "Ermittlung der NVIDIA-Informationen gescheitert."
+msgstr "%s: Unbekannter NVIDIA Produktname der GPU %d"
 
 #: src/lib/nvidia.c:74
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Failed to retrieve NVIDIA product name for GPU %d"
-msgstr "Ermittlung der NVIDIA-Informationen gescheitert."
+msgstr "%s: Abrufen des NVIDIA Produktnamens der GPU %d gescheitert"
 
 #: src/lib/nvidia.c:240
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Failed to retrieve measure of type %x for NVIDIA GPU %d"
-msgstr "Ermittlung der NVIDIA-Informationen gescheitert."
+msgstr "%s: Abrufen der Messung vom Typ %x der NVIDIA GPU %d gescheitert"
 
 #: src/lib/nvidia.c:317
 #, c-format
@@ -560,9 +555,9 @@ msgid "%s: Failed to retrieve NVIDIA information."
 msgstr "%s: Ermittlung der NVIDIA-Informationen gescheitert."
 
 #: src/lib/nvidia.c:394
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Failed to retrieve number of fans."
-msgstr "Ermittlung der NVIDIA-Informationen gescheitert."
+msgstr "%s: Abrufen der Lüfteranzahl gescheitert."
 
 #: src/lib/psensor.c:426 tests/test_psensor_type_to_unit_str.c:62
 msgid "RPM"
@@ -614,7 +609,7 @@ msgstr ""
 #: src/main.c:72 src/server/server.c:98
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
-msgstr "Aufruf: %s [OPTION] …\n"
+msgstr "Aufruf: %s [OPTION]...\n"
 
 #: src/main.c:74
 msgid ""
@@ -683,24 +678,23 @@ msgid "A Psensor instance already exists."
 msgstr "Es existiert bereits eine Psensor-Instanz."
 
 #: src/main.c:527
-#, fuzzy
 msgid "Failed to create thread for monitoring sensors"
-msgstr "Erzeugen des Webservers ist gescheitert."
+msgstr "Erzeugung eines Threads zur Sensorenüberwachung fehlgeschlagen."
 
 #: src/rsensor.c:115
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Fail to connect to: %s"
-msgstr "Herstellen der Verbindung gescheitert: %s"
+msgstr "%s: Herstellen der Verbindung mit %s gescheitert"
 
 #: src/rsensor.c:152
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Invalid content: %s"
-msgstr "Ungültiger Inhalt: %s"
+msgstr "%s: Ungültiger Inhalt: %s"
 
 #: src/rsensor.c:192
-#, fuzzy, c-format
+#, c-format
 msgid "%s: Invalid JSON: %s"
-msgstr "Ungültiges JSON: %s"
+msgstr "%s: Ungültiges JSON: %s"
 
 #: src/server/server.c:58
 msgid "<html><body><p>Server stop requested</p></body></html>"
@@ -791,7 +785,7 @@ msgstr "Erzeugen des Webservers ist gescheitert."
 #: src/server/server.c:463
 #, c-format
 msgid "Web server started on port: %d"
-msgstr "Web-Server wurde gestartet auf Port: %d"
+msgstr "Webserver wurde gestartet auf Port: %d"
 
 #: src/server/server.c:464
 #, c-format
@@ -814,7 +808,7 @@ msgstr "Psensor ist eine GTK-Anwendung zur Überwachung von Hardware-Sensoren"
 #: src/ui.c:216
 #, fuzzy
 msgid "Copyright(c) 2010-2016 jeanfi@gmail.com"
-msgstr "Copyright © 2010-2014jeanfi@gmail.com"
+msgstr "Copyright(c) 2010-2016 jeanfi@gmail.com"
 
 #: src/ui.c:222
 msgid "About Psensor"
@@ -823,7 +817,7 @@ msgstr "Info zu Psensor"
 #: src/ui.c:223
 msgid "translator-credits"
 msgstr ""
-"Launchpad Contributions:\n"
+"Contributions:\n"
 "  Daniel Winzen https://launchpad.net/~q-d\n"
 "  Dennis Baudys https://launchpad.net/~thecondordb\n"
 "  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
@@ -840,17 +834,16 @@ msgstr "Laden des Psensor-Symbols ist gescheitert."
 
 #: src/ui_sensorlist.c:259
 msgid "Hide"
-msgstr ""
+msgstr "Verstecken"
 
 #: src/ui_sensorlist.c:303
-#, fuzzy
 msgid "Select sensor color"
-msgstr "Wählen Sie eine Vordergrundfarbe"
+msgstr "Wählen Sie eine Sensorfarbe"
 
 #: src/ui_appindicator.c:148
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to load glade file %s: %s"
-msgstr "Aktivieren der Sensorenprotokollierung ist gescheitert."
+msgstr "Laden der Glade-Datei %s ist gescheitert: %s"
 
 #: src/ui_notify.c:48
 msgid "gettimeofday failed."
@@ -861,9 +854,8 @@ msgid "Temperature alert"
 msgstr "Temperaturalarm"
 
 #: src/ui_notify.c:79
-#, fuzzy
 msgid "Fan speed alert"
-msgstr "Lüfteralarm"
+msgstr "Lüftergeschwindigkeitsalarm"
 
 #: src/ui_sensorpref.c:290 src/ui_sensorpref.c:296 src/ui_sensorpref.c:304
 msgid "Unknown"

@@ -19,6 +19,7 @@ v1.2.0
 * Fixed memory leaks due to glib GError.
 * Added Greek translation.
 * Updated Russian translation (Grigorii Chirkov).
+* Updated German translation (Max).
 
 v1.1.5
 ------
