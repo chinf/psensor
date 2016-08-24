@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-10-18 09:31+0200\n"
+"POT-Creation-Date: 2016-08-24 23:30+0200\n"
 "PO-Revision-Date: 2014-09-11 21:23+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
-#: src/cfg.c:509
+#: src/cfg.c:501
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Не вдалося створити веб-сервер."
 
-#: src/cfg.c:556
+#: src/cfg.c:548
 #, fuzzy, c-format
 msgid "Failed to load configuration file %s: %s"
 msgstr "Не вдалося створити веб-сервер."
 
-#: src/cfg.c:579
+#: src/cfg.c:573
 #, c-format
 msgid "Failed to save configuration file %s."
 msgstr ""
@@ -39,7 +39,7 @@ msgstr "Про програму"
 
 #: src/glade/psensor.glade:10 src/glade/psensor-appindicator.glade:10
 #: src/glade/psensor-appindicator.glade:11
-#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:266
+#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:269
 msgid "Preferences"
 msgstr "Налаштування"
 
@@ -53,40 +53,40 @@ msgstr "Вихід"
 msgid "Sensor Preferences"
 msgstr "Налаштування датчиків"
 
-#: src/glade/psensor.glade:99 src/glade/psensor-appindicator.glade:186
+#: src/glade/psensor.glade:99
 msgid "Psensor - Temperature Monitor"
 msgstr ""
 
-#: src/glade/psensor.glade:114 src/glade/psensor-appindicator.glade:201
+#: src/glade/psensor.glade:114
 msgid "_Psensor"
 msgstr ""
 
-#: src/glade/psensor.glade:161 src/glade/psensor-appindicator.glade:248
+#: src/glade/psensor.glade:161
 msgid "_Help"
 msgstr "_Довдіка"
 
-#: src/glade/psensor.glade:225 src/glade/psensor-appindicator.glade:312
+#: src/glade/psensor.glade:225
 msgid "Sensor"
 msgstr "Датчик"
 
-#: src/glade/psensor.glade:236 src/glade/psensor-appindicator.glade:323
+#: src/glade/psensor.glade:236
 msgid "Value"
 msgstr "Значення"
 
-#: src/glade/psensor.glade:247 src/glade/psensor-appindicator.glade:334
+#: src/glade/psensor.glade:247
 msgid "Min"
 msgstr "Мін."
 
-#: src/glade/psensor.glade:258 src/glade/psensor-appindicator.glade:345
+#: src/glade/psensor.glade:258
 msgid "Max"
 msgstr "Макс."
 
-#: src/glade/psensor.glade:269 src/glade/psensor-appindicator.glade:356
+#: src/glade/psensor.glade:269
 msgid "Color"
 msgstr "Колір"
 
-#: src/glade/psensor.glade:280 src/glade/psensor-appindicator.glade:367
-#: src/glade/psensor-pref.glade:788 src/glade/sensor-edit.glade:480
+#: src/glade/psensor.glade:280 src/glade/psensor-pref.glade:753
+#: src/glade/sensor-edit.glade:480
 msgid "Graph"
 msgstr "Діаграма"
 
@@ -144,184 +144,184 @@ msgstr ""
 msgid "Fahrenheit"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:260
+#: src/glade/psensor-pref.glade:258
 msgid "Temperature unit:"
 msgstr "Одиниця температури:"
 
-#: src/glade/psensor-pref.glade:278
+#: src/glade/psensor-pref.glade:275
 msgid "Position of sensors table:"
 msgstr "Положення таблиці датчиків:"
 
-#: src/glade/psensor-pref.glade:297
+#: src/glade/psensor-pref.glade:292
 msgid "Interface"
 msgstr "Зовнішній вигляд"
 
-#: src/glade/psensor-pref.glade:313
+#: src/glade/psensor-pref.glade:308
 msgid "Launch on session startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:334
+#: src/glade/psensor-pref.glade:327
 msgid "Hide window on startup"
 msgstr "Сховати вікно після запуску"
 
-#: src/glade/psensor-pref.glade:354
+#: src/glade/psensor-pref.glade:345
 msgid "Restore window position and size"
 msgstr "Відновляти позицію і розмір вікна"
 
-#: src/glade/psensor-pref.glade:385
+#: src/glade/psensor-pref.glade:374
 msgid "Startup"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:429
+#: src/glade/psensor-pref.glade:416
 msgid "Foreground:"
 msgstr "Передній план:"
 
-#: src/glade/psensor-pref.glade:447
+#: src/glade/psensor-pref.glade:432
 msgid "Background:"
 msgstr "Тло:"
 
-#: src/glade/psensor-pref.glade:483
+#: src/glade/psensor-pref.glade:464
 msgid "Background opacity:"
 msgstr "Непрозорість тла:"
 
-#: src/glade/psensor-pref.glade:501
+#: src/glade/psensor-pref.glade:480
 msgid "Colors"
 msgstr "Кольори"
 
-#: src/glade/psensor-pref.glade:522
+#: src/glade/psensor-pref.glade:500
 msgid "Monitoring duration:"
 msgstr "Тривалість спостереження"
 
-#: src/glade/psensor-pref.glade:540
+#: src/glade/psensor-pref.glade:516
 msgid "Update interval:"
 msgstr "Інтервал оновлення:"
 
-#: src/glade/psensor-pref.glade:558
+#: src/glade/psensor-pref.glade:532
 msgid "Measures"
 msgstr "Заміри"
 
-#: src/glade/psensor-pref.glade:585
+#: src/glade/psensor-pref.glade:558
 msgid "<i>Min</i>"
 msgstr "<i>Мін.</i>"
 
-#: src/glade/psensor-pref.glade:612
+#: src/glade/psensor-pref.glade:585
 msgid "<i>Max</i>"
 msgstr "<i>Макс.</i>"
 
-#: src/glade/psensor-pref.glade:665 src/glade/psensor-pref.glade:852
+#: src/glade/psensor-pref.glade:636 src/glade/psensor-pref.glade:813
 msgid "second(s)"
 msgstr "сек."
 
-#: src/glade/psensor-pref.glade:717
+#: src/glade/psensor-pref.glade:686
 msgid "minute(s)"
 msgstr "хв."
 
-#: src/glade/psensor-pref.glade:735
+#: src/glade/psensor-pref.glade:702
 msgid "Smooth curves"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:762
+#: src/glade/psensor-pref.glade:728
 msgid "Curves"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:815
+#: src/glade/psensor-pref.glade:780
 msgid "Measure update interval:"
 msgstr "Інтервал оновлення замірів:"
 
-#: src/glade/psensor-pref.glade:863
+#: src/glade/psensor-pref.glade:822
 msgid "Enable sensors logging"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:910
+#: src/glade/psensor-pref.glade:866
 msgid "Sensors logging interval:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:927
+#: src/glade/psensor-pref.glade:881
 msgid "seconds(s)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:944
+#: src/glade/psensor-pref.glade:896
 msgid "Script executed when an alarm is raised:"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:985
+#: src/glade/psensor-pref.glade:934
 msgid "Sensors"
 msgstr "Датчики"
 
-#: src/glade/psensor-pref.glade:1003
+#: src/glade/psensor-pref.glade:952
 msgid "Enable support of lm-sensors"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1023
+#: src/glade/psensor-pref.glade:970
 msgid "Enable support of NVCtrl (NVidia)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1027
+#: src/glade/psensor-pref.glade:974
 #, fuzzy
 msgid "Psensor has not been build with NVCtrl support"
 msgstr "Psensor не був зібраний з підтримкою віддалених датчиків."
 
-#: src/glade/psensor-pref.glade:1044
+#: src/glade/psensor-pref.glade:989
 msgid "Enable support of ATI ADL"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1048
+#: src/glade/psensor-pref.glade:993
 #, fuzzy
 msgid "Psensor has not been build with ATI ADL support"
 msgstr "Psensor не був зібраний з підтримкою віддалених датчиків."
 
-#: src/glade/psensor-pref.glade:1065
+#: src/glade/psensor-pref.glade:1008
 msgid "Enable support of gtop2"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1069
+#: src/glade/psensor-pref.glade:1012
 #, fuzzy
 msgid "Psensor has not been build with gtop2 support"
 msgstr "Psensor не був зібраний з підтримкою віддалених датчиків."
 
-#: src/glade/psensor-pref.glade:1086
+#: src/glade/psensor-pref.glade:1027
 msgid "Enable support of hddtemp daemon"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1106
+#: src/glade/psensor-pref.glade:1045
 msgid "Enable support of libatasmart"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1110
+#: src/glade/psensor-pref.glade:1049
 #, fuzzy
 msgid "Psensor has not been build with libatasmart support"
 msgstr "Psensor не був зібраний з підтримкою віддалених датчиків."
 
-#: src/glade/psensor-pref.glade:1127
+#: src/glade/psensor-pref.glade:1064
 msgid "Enable support of udisks2"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1131
+#: src/glade/psensor-pref.glade:1068
 #, fuzzy
 msgid "Psensor has not been build with udisks2 support"
 msgstr "Psensor не був зібраний з підтримкою віддалених датчиків."
 
-#: src/glade/psensor-pref.glade:1155
+#: src/glade/psensor-pref.glade:1090
 msgid "The changes are applied after the restart of psensor."
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1177
+#: src/glade/psensor-pref.glade:1110
 msgid "Hard disk drive"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1200
+#: src/glade/psensor-pref.glade:1131
 msgid "CPU and memory usage"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1223
+#: src/glade/psensor-pref.glade:1152
 msgid "GPU with proprietary driver"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1246
+#: src/glade/psensor-pref.glade:1173
 msgid "Motherboard, CPU and GPU"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1269
+#: src/glade/psensor-pref.glade:1194
 msgid "Providers"
 msgstr ""
 
@@ -424,7 +424,7 @@ msgstr ""
 msgid "Application Indicator"
 msgstr ""
 
-#: src/graph.c:445
+#: src/graph.c:460
 msgid "No graphs enabled"
 msgstr ""
 
@@ -549,17 +549,17 @@ msgstr "Не вдалося отримати інформацію NVIDIA."
 msgid "%s: Failed to retrieve measure of type %x for NVIDIA GPU %d"
 msgstr "Не вдалося отримати інформацію NVIDIA."
 
-#: src/lib/nvidia.c:316
+#: src/lib/nvidia.c:317
 #, c-format
 msgid "%s: Cannot open connection to X11 server."
 msgstr "%s: Не вдалося встановити з'єднання до сервера X11."
 
-#: src/lib/nvidia.c:324
+#: src/lib/nvidia.c:325
 #, c-format
 msgid "%s: Failed to retrieve NVIDIA information."
 msgstr "%s: Не вдалося отримати інформацію NVIDIA."
 
-#: src/lib/nvidia.c:393
+#: src/lib/nvidia.c:394
 #, fuzzy, c-format
 msgid "%s: Failed to retrieve number of fans."
 msgstr "Не вдалося отримати інформацію NVIDIA."
@@ -593,7 +593,7 @@ msgstr ""
 msgid "Sensor log not open, cannot close."
 msgstr ""
 
-#: src/main.c:61 src/server/server.c:87
+#: src/main.c:61 src/server/server.c:88
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -603,7 +603,7 @@ msgid ""
 "There is NO WARRANTY, to the extent permitted by law.\n"
 msgstr ""
 
-#: src/main.c:72 src/server/server.c:97
+#: src/main.c:72 src/server/server.c:98
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Використання: %s [КЛЮЧ]...\n"
@@ -641,34 +641,34 @@ msgstr "  -n, --new-instance  примусово створювати нову �
 msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr "  -d, --debug=РІВЕНЬ   встановити рівень налагодження, ціле між 0 та 3"
 
-#: src/main.c:96 src/server/server.c:120
+#: src/main.c:96 src/server/server.c:121
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Звітуйте про помилки до: %s\n"
 
-#: src/main.c:98 src/server/server.c:122
+#: src/main.c:98 src/server/server.c:123
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s домашня сторінка: <%s>\n"
 
-#: src/main.c:383
+#: src/main.c:390
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor не був зібраний з підтримкою віддалених датчиків."
 
-#: src/main.c:453
+#: src/main.c:460
 msgid "Enables debug mode."
 msgstr "Включає режим налагодження."
 
-#: src/main.c:465 src/server/server.c:386
+#: src/main.c:472 src/server/server.c:422
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Спробуйте `%s --help' щоб отримати більше інформації.\n"
 
-#: src/main.c:478
+#: src/main.c:485
 msgid "A Psensor instance already exists."
 msgstr ""
 
-#: src/main.c:520
+#: src/main.c:527
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Не вдалося створити веб-сервер."
@@ -688,25 +688,25 @@ msgstr "Неправильний JSON: %s"
 msgid "%s: Invalid JSON: %s"
 msgstr "Неправильний JSON: %s"
 
-#: src/server/server.c:57
+#: src/server/server.c:58
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr ""
 
-#: src/server/server.c:63
+#: src/server/server.c:64
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 "<html><body><p>Сторінка не знайдена - Перейти до <a href='/'>Головної "
 "сторінки</a></p></body>"
 
-#: src/server/server.c:99
+#: src/server/server.c:100
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 "psensor-server ‌— це HTTP-сервер для віддаленого моніторингу апаратних "
 "датчиків."
 
-#: src/server/server.c:104
+#: src/server/server.c:105
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -714,7 +714,7 @@ msgstr ""
 "  -h, --help\t\tпоказати цю довідку і вийти\n"
 "  -v, --version\t\tпоказати версію і вийти"
 
-#: src/server/server.c:108
+#: src/server/server.c:109
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -722,72 +722,87 @@ msgstr ""
 "  -p,--port=PORT\tпорт веб-сервера\n"
 "  -w,--wdir=DIR\t\tдиректорія для сторінок веб-сервера"
 
-#: src/server/server.c:112
+#: src/server/server.c:113
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 
-#: src/server/server.c:114
+#: src/server/server.c:115
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr ""
 
-#: src/server/server.c:115
+#: src/server/server.c:116
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr ""
 
-#: src/server/server.c:116
+#: src/server/server.c:117
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
 
-#: src/server/server.c:303
+#: src/server/server.c:262
+#, c-format
+msgid "Resource access refused %s real path is %s"
+msgstr ""
+
+#: src/server/server.c:269
+#, fuzzy, c-format
+msgid "Cannot get real path of %s"
+msgstr "Не вдалося відкрити лог-файл: %s"
+
+#: src/server/server.c:339
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP запит: %s"
 
-#: src/server/server.c:366
+#: src/server/server.c:402
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr ""
 
-#: src/server/server.c:410
+#: src/server/server.c:431
+#, c-format
+msgid "Webserver directory does not exist.\n"
+msgstr ""
+
+#: src/server/server.c:452
 msgid "No sensors detected."
 msgstr "Датчики не знайдені."
 
-#: src/server/server.c:417
+#: src/server/server.c:459
 msgid "Failed to create Web server."
 msgstr "Не вдалося створити веб-сервер."
 
-#: src/server/server.c:421
+#: src/server/server.c:463
 #, c-format
 msgid "Web server started on port: %d"
 msgstr ""
 
-#: src/server/server.c:422
+#: src/server/server.c:464
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW-директорія: %s"
 
-#: src/server/server.c:423
+#: src/server/server.c:465
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:433
+#: src/server/server.c:475
 msgid "Failed to activate logging of sensors."
 msgstr ""
 
-#: src/ui.c:87
+#: src/ui.c:213
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
 
-#: src/ui.c:90
-msgid "Copyright(c) 2010-2014 jeanfi@gmail.com"
+#: src/ui.c:216
+msgid "Copyright(c) 2010-2016 jeanfi@gmail.com"
 msgstr ""
 
-#: src/ui.c:96
+#: src/ui.c:222
 msgid "About Psensor"
 msgstr "Про Psensor"
 
-#: src/ui.c:97
+#: src/ui.c:223
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -795,24 +810,24 @@ msgstr ""
 "  Jean-Philippe Orsini https://launchpad.net/~jfi\n"
 "  VPIP https://launchpad.net/~tymbood"
 
-#: src/ui.c:100
+#: src/ui.c:226
 msgid "Psensor Homepage"
 msgstr "Домашня сторінка Psensor"
 
-#: src/ui.c:223
+#: src/ui.c:363
 msgid "Failed to load Psensor icon."
 msgstr "Не вдалося завантажити іконку Psensor."
 
-#: src/ui_sensorlist.c:256
+#: src/ui_sensorlist.c:259
 msgid "Hide"
 msgstr ""
 
-#: src/ui_sensorlist.c:300
+#: src/ui_sensorlist.c:303
 #, fuzzy
 msgid "Select sensor color"
 msgstr "Оберіть колір переднього плану"
 
-#: src/ui_appindicator.c:145
+#: src/ui_appindicator.c:148
 #, fuzzy, c-format
 msgid "Failed to load glade file %s: %s"
 msgstr "Не вдалося створити веб-сервер."

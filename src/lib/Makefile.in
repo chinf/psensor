@@ -108,11 +108,7 @@ host_triplet = @host@
 @LIBUDISKS2_TRUE@am__append_18 = $(LIBUDISKS2_CFLAGS)
 subdir = src/lib
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/m4/gettext.m4 \
-	$(top_srcdir)/m4/iconv.m4 $(top_srcdir)/m4/lib-ld.m4 \
-	$(top_srcdir)/m4/lib-link.m4 $(top_srcdir)/m4/lib-prefix.m4 \
-	$(top_srcdir)/m4/nls.m4 $(top_srcdir)/m4/po.m4 \
-	$(top_srcdir)/m4/progtest.m4 $(top_srcdir)/configure.ac
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(am__DIST_COMMON)
@@ -129,11 +125,12 @@ am__v_AR_1 =
 libpsensor_a_AR = $(AR) $(ARFLAGS)
 libpsensor_a_LIBADD =
 am__libpsensor_a_SOURCES_DIST = amd.h bool.h color.h color.c hdd.h \
-	hdd_hddtemp.c lmsensor.h measure.h measure.c nvidia.h pgtop2.h \
-	plog.h plog.c pmutex.h pmutex.c psensor.h psensor.c ptime.h \
-	ptime.c pio.h pio.c pudisks2.h slog.c slog.h temperature.c \
-	temperature.h url.c url.h lmsensor.c hdd_atasmart.c nvidia.c \
-	amd.c pgtop2.c psensor_json.h psensor_json.c pudisks2.c
+	hdd_hddtemp.c lmsensor.h measure.h measure.c nvidia.h parray.h \
+	pgtop2.h plog.h plog.c pmutex.h pmutex.c psensor.h psensor.c \
+	ptime.h ptime.c pio.h pio.c pudisks2.h slog.c slog.h \
+	temperature.c temperature.h url.c url.h lmsensor.c \
+	hdd_atasmart.c nvidia.c amd.c pgtop2.c psensor_json.h \
+	psensor_json.c pudisks2.c
 @SENSORS_TRUE@am__objects_1 = lmsensor.$(OBJEXT)
 @ATASMART_TRUE@am__objects_2 = hdd_atasmart.$(OBJEXT)
 @NVIDIA_TRUE@am__objects_3 = nvidia.$(OBJEXT)
@@ -232,6 +229,7 @@ ECHO_N = @ECHO_N@
 ECHO_T = @ECHO_T@
 EGREP = @EGREP@
 EXEEXT = @EXEEXT@
+GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
 GLIB_COMPILE_SCHEMAS = @GLIB_COMPILE_SCHEMAS@
 GMSGFMT = @GMSGFMT@
 GMSGFMT_015 = @GMSGFMT_015@
@@ -291,6 +289,7 @@ PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
 POSUB = @POSUB@
 PTHREAD_LIBS = @PTHREAD_LIBS@
 RANLIB = @RANLIB@
+SED = @SED@
 SENSORS_LIBS = @SENSORS_LIBS@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
@@ -305,6 +304,7 @@ XEXT_CFLAGS = @XEXT_CFLAGS@
 XEXT_LIBS = @XEXT_LIBS@
 XGETTEXT = @XGETTEXT@
 XGETTEXT_015 = @XGETTEXT_015@
+XGETTEXT_EXTRA_OPTIONS = @XGETTEXT_EXTRA_OPTIONS@
 XMKMF = @XMKMF@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
@@ -361,12 +361,12 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libpsensor.a
 libpsensor_a_SOURCES = amd.h bool.h color.h color.c hdd.h \
-	hdd_hddtemp.c lmsensor.h measure.h measure.c nvidia.h pgtop2.h \
-	plog.h plog.c pmutex.h pmutex.c psensor.h psensor.c ptime.h \
-	ptime.c pio.h pio.c pudisks2.h slog.c slog.h temperature.c \
-	temperature.h url.c url.h $(am__append_1) $(am__append_3) \
-	$(am__append_6) $(am__append_9) $(am__append_10) \
-	$(am__append_13) $(am__append_16)
+	hdd_hddtemp.c lmsensor.h measure.h measure.c nvidia.h parray.h \
+	pgtop2.h plog.h plog.c pmutex.h pmutex.c psensor.h psensor.c \
+	ptime.h ptime.c pio.h pio.c pudisks2.h slog.c slog.h \
+	temperature.c temperature.h url.c url.h $(am__append_1) \
+	$(am__append_3) $(am__append_6) $(am__append_9) \
+	$(am__append_10) $(am__append_13) $(am__append_16)
 AM_CPPFLAGS = -Wall -Werror $(am__append_5) $(am__append_8) \
 	$(am__append_12) $(am__append_15) $(am__append_18)
 EXTRA_DIST = $(libpsensor_a_SOURCES) \

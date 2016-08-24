@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: psensor\n"
 "Report-Msgid-Bugs-To: jeanfi@gmail.com\n"
-"POT-Creation-Date: 2014-10-18 09:31+0200\n"
+"POT-Creation-Date: 2016-08-24 23:30+0200\n"
 "PO-Revision-Date: 2014-09-20 11:27+0000\n"
 "Last-Translator: Jean-Philippe Orsini <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "X-Launchpad-Export-Date: 2014-09-21 08:56+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
-#: src/cfg.c:509
+#: src/cfg.c:501
 #, fuzzy, c-format
 msgid "Failed to create the directory %s: %s"
 msgstr "Web sunucusu oluşturulamadı."
 
-#: src/cfg.c:556
+#: src/cfg.c:548
 #, fuzzy, c-format
 msgid "Failed to load configuration file %s: %s"
 msgstr "Algılayıcıların günlük kaydı etkinleştirilemedi."
 
-#: src/cfg.c:579
+#: src/cfg.c:573
 #, fuzzy, c-format
 msgid "Failed to save configuration file %s."
 msgstr "Algılayıcıların günlük kaydı etkinleştirilemedi."
@@ -39,7 +39,7 @@ msgstr "Hakkında"
 
 #: src/glade/psensor.glade:10 src/glade/psensor-appindicator.glade:10
 #: src/glade/psensor-appindicator.glade:11
-#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:266
+#: src/glade/psensor-appindicator.glade:20 src/ui_sensorlist.c:269
 msgid "Preferences"
 msgstr "Tercihler"
 
@@ -53,40 +53,40 @@ msgstr "Çıkış"
 msgid "Sensor Preferences"
 msgstr "Algılayıcı Tercihleri"
 
-#: src/glade/psensor.glade:99 src/glade/psensor-appindicator.glade:186
+#: src/glade/psensor.glade:99
 msgid "Psensor - Temperature Monitor"
 msgstr "Psensor - Sıcaklık Gözlemleyici"
 
-#: src/glade/psensor.glade:114 src/glade/psensor-appindicator.glade:201
+#: src/glade/psensor.glade:114
 msgid "_Psensor"
 msgstr "_Psensor"
 
-#: src/glade/psensor.glade:161 src/glade/psensor-appindicator.glade:248
+#: src/glade/psensor.glade:161
 msgid "_Help"
 msgstr "_Yardım"
 
-#: src/glade/psensor.glade:225 src/glade/psensor-appindicator.glade:312
+#: src/glade/psensor.glade:225
 msgid "Sensor"
 msgstr "Algılayıcı"
 
-#: src/glade/psensor.glade:236 src/glade/psensor-appindicator.glade:323
+#: src/glade/psensor.glade:236
 msgid "Value"
 msgstr "Değer"
 
-#: src/glade/psensor.glade:247 src/glade/psensor-appindicator.glade:334
+#: src/glade/psensor.glade:247
 msgid "Min"
 msgstr "Asgari"
 
-#: src/glade/psensor.glade:258 src/glade/psensor-appindicator.glade:345
+#: src/glade/psensor.glade:258
 msgid "Max"
 msgstr "Azami"
 
-#: src/glade/psensor.glade:269 src/glade/psensor-appindicator.glade:356
+#: src/glade/psensor.glade:269
 msgid "Color"
 msgstr "Renk"
 
-#: src/glade/psensor.glade:280 src/glade/psensor-appindicator.glade:367
-#: src/glade/psensor-pref.glade:788 src/glade/sensor-edit.glade:480
+#: src/glade/psensor.glade:280 src/glade/psensor-pref.glade:753
+#: src/glade/sensor-edit.glade:480
 msgid "Graph"
 msgstr "Grafik"
 
@@ -144,184 +144,184 @@ msgstr "Celsius"
 msgid "Fahrenheit"
 msgstr "Fahrenhayt"
 
-#: src/glade/psensor-pref.glade:260
+#: src/glade/psensor-pref.glade:258
 msgid "Temperature unit:"
 msgstr "Sıcaklık birimi:"
 
-#: src/glade/psensor-pref.glade:278
+#: src/glade/psensor-pref.glade:275
 msgid "Position of sensors table:"
 msgstr "Gözlemleyici tablosunun konumu:"
 
-#: src/glade/psensor-pref.glade:297
+#: src/glade/psensor-pref.glade:292
 msgid "Interface"
 msgstr "Arayüz"
 
-#: src/glade/psensor-pref.glade:313
+#: src/glade/psensor-pref.glade:308
 msgid "Launch on session startup"
 msgstr "Oturum başlangıcında başlat"
 
-#: src/glade/psensor-pref.glade:334
+#: src/glade/psensor-pref.glade:327
 msgid "Hide window on startup"
 msgstr "Başlangıçta pencereyi gizle"
 
-#: src/glade/psensor-pref.glade:354
+#: src/glade/psensor-pref.glade:345
 msgid "Restore window position and size"
 msgstr "Pencere konumunu ve boyutunu yeniden yükle"
 
-#: src/glade/psensor-pref.glade:385
+#: src/glade/psensor-pref.glade:374
 msgid "Startup"
 msgstr "Başlangıç"
 
-#: src/glade/psensor-pref.glade:429
+#: src/glade/psensor-pref.glade:416
 msgid "Foreground:"
 msgstr "Önplan:"
 
-#: src/glade/psensor-pref.glade:447
+#: src/glade/psensor-pref.glade:432
 msgid "Background:"
 msgstr "Arkaplan:"
 
-#: src/glade/psensor-pref.glade:483
+#: src/glade/psensor-pref.glade:464
 msgid "Background opacity:"
 msgstr "Arkaplan saydamlığı:"
 
-#: src/glade/psensor-pref.glade:501
+#: src/glade/psensor-pref.glade:480
 msgid "Colors"
 msgstr "Renk"
 
-#: src/glade/psensor-pref.glade:522
+#: src/glade/psensor-pref.glade:500
 msgid "Monitoring duration:"
 msgstr "Gözlemleme süresi:"
 
-#: src/glade/psensor-pref.glade:540
+#: src/glade/psensor-pref.glade:516
 msgid "Update interval:"
 msgstr "Güncelleme aralığı:"
 
-#: src/glade/psensor-pref.glade:558
+#: src/glade/psensor-pref.glade:532
 msgid "Measures"
 msgstr "Ölçümler"
 
-#: src/glade/psensor-pref.glade:585
+#: src/glade/psensor-pref.glade:558
 msgid "<i>Min</i>"
 msgstr "<i>Asgari</i>"
 
-#: src/glade/psensor-pref.glade:612
+#: src/glade/psensor-pref.glade:585
 msgid "<i>Max</i>"
 msgstr "<i>Azami</i>"
 
-#: src/glade/psensor-pref.glade:665 src/glade/psensor-pref.glade:852
+#: src/glade/psensor-pref.glade:636 src/glade/psensor-pref.glade:813
 msgid "second(s)"
 msgstr "saniye"
 
-#: src/glade/psensor-pref.glade:717
+#: src/glade/psensor-pref.glade:686
 msgid "minute(s)"
 msgstr "dakika"
 
-#: src/glade/psensor-pref.glade:735
+#: src/glade/psensor-pref.glade:702
 msgid "Smooth curves"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:762
+#: src/glade/psensor-pref.glade:728
 msgid "Curves"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:815
+#: src/glade/psensor-pref.glade:780
 msgid "Measure update interval:"
 msgstr "Ölçüm güncelleştirme aralığı:"
 
-#: src/glade/psensor-pref.glade:863
+#: src/glade/psensor-pref.glade:822
 msgid "Enable sensors logging"
 msgstr "Algılayıcı günlük kaydını etkinleştir"
 
-#: src/glade/psensor-pref.glade:910
+#: src/glade/psensor-pref.glade:866
 msgid "Sensors logging interval:"
 msgstr "Algılayıcı günlük kaydı aralığı:"
 
-#: src/glade/psensor-pref.glade:927
+#: src/glade/psensor-pref.glade:881
 msgid "seconds(s)"
 msgstr "saniye"
 
-#: src/glade/psensor-pref.glade:944
+#: src/glade/psensor-pref.glade:896
 msgid "Script executed when an alarm is raised:"
 msgstr "Alarm çaldığında betik çalıştırılır:"
 
-#: src/glade/psensor-pref.glade:985
+#: src/glade/psensor-pref.glade:934
 msgid "Sensors"
 msgstr "Algılayıcılar"
 
-#: src/glade/psensor-pref.glade:1003
+#: src/glade/psensor-pref.glade:952
 msgid "Enable support of lm-sensors"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1023
+#: src/glade/psensor-pref.glade:970
 msgid "Enable support of NVCtrl (NVidia)"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1027
+#: src/glade/psensor-pref.glade:974
 #, fuzzy
 msgid "Psensor has not been build with NVCtrl support"
 msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
 
-#: src/glade/psensor-pref.glade:1044
+#: src/glade/psensor-pref.glade:989
 msgid "Enable support of ATI ADL"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1048
+#: src/glade/psensor-pref.glade:993
 #, fuzzy
 msgid "Psensor has not been build with ATI ADL support"
 msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
 
-#: src/glade/psensor-pref.glade:1065
+#: src/glade/psensor-pref.glade:1008
 msgid "Enable support of gtop2"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1069
+#: src/glade/psensor-pref.glade:1012
 #, fuzzy
 msgid "Psensor has not been build with gtop2 support"
 msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
 
-#: src/glade/psensor-pref.glade:1086
+#: src/glade/psensor-pref.glade:1027
 msgid "Enable support of hddtemp daemon"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1106
+#: src/glade/psensor-pref.glade:1045
 msgid "Enable support of libatasmart"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1110
+#: src/glade/psensor-pref.glade:1049
 #, fuzzy
 msgid "Psensor has not been build with libatasmart support"
 msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
 
-#: src/glade/psensor-pref.glade:1127
+#: src/glade/psensor-pref.glade:1064
 msgid "Enable support of udisks2"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1131
+#: src/glade/psensor-pref.glade:1068
 #, fuzzy
 msgid "Psensor has not been build with udisks2 support"
 msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
 
-#: src/glade/psensor-pref.glade:1155
+#: src/glade/psensor-pref.glade:1090
 msgid "The changes are applied after the restart of psensor."
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1177
+#: src/glade/psensor-pref.glade:1110
 msgid "Hard disk drive"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1200
+#: src/glade/psensor-pref.glade:1131
 msgid "CPU and memory usage"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1223
+#: src/glade/psensor-pref.glade:1152
 msgid "GPU with proprietary driver"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1246
+#: src/glade/psensor-pref.glade:1173
 msgid "Motherboard, CPU and GPU"
 msgstr ""
 
-#: src/glade/psensor-pref.glade:1269
+#: src/glade/psensor-pref.glade:1194
 msgid "Providers"
 msgstr ""
 
@@ -426,7 +426,7 @@ msgstr "Etikette algılayıcı göster (deneysel)"
 msgid "Application Indicator"
 msgstr "Uygulama Göstergesi"
 
-#: src/graph.c:445
+#: src/graph.c:460
 msgid "No graphs enabled"
 msgstr ""
 
@@ -551,17 +551,17 @@ msgstr "NVIDIA bilgisi alınamıyor."
 msgid "%s: Failed to retrieve measure of type %x for NVIDIA GPU %d"
 msgstr "NVIDIA bilgisi alınamıyor."
 
-#: src/lib/nvidia.c:316
+#: src/lib/nvidia.c:317
 #, c-format
 msgid "%s: Cannot open connection to X11 server."
 msgstr "%s: X11 sunucusu bağlantısı açılamıyor."
 
-#: src/lib/nvidia.c:324
+#: src/lib/nvidia.c:325
 #, c-format
 msgid "%s: Failed to retrieve NVIDIA information."
 msgstr "%s: NVIDIA bilgisi alınamıyor."
 
-#: src/lib/nvidia.c:393
+#: src/lib/nvidia.c:394
 #, fuzzy, c-format
 msgid "%s: Failed to retrieve number of fans."
 msgstr "NVIDIA bilgisi alınamıyor."
@@ -595,7 +595,7 @@ msgstr "Algılayıcı günlük kaydı dosyası açık değil."
 msgid "Sensor log not open, cannot close."
 msgstr "Algılayıcı günlük kaydı açık değil, kapatılamıyor."
 
-#: src/main.c:61 src/server/server.c:87
+#: src/main.c:61 src/server/server.c:88
 #, c-format
 msgid ""
 "Copyright (C) %s jeanfi@gmail.com\n"
@@ -610,7 +610,7 @@ msgstr ""
 "Bu bir özgür yazılımdır: değiştirmekte ve yeniden dağıtmakta özgürsünüz.\n"
 "Yasaların izin verdiği çerçevede hiçbir garantisi YOKTUR.\n"
 
-#: src/main.c:72 src/server/server.c:97
+#: src/main.c:72 src/server/server.c:98
 #, c-format
 msgid "Usage: %s [OPTION]...\n"
 msgstr "Kullanım: %s [SEÇENEK]...\n"
@@ -653,34 +653,34 @@ msgid "  -d, --debug=LEVEL   set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL   hata ayıklama seviyesin ayarla, 0 ve 3 arasında tamsayı"
 
-#: src/main.c:96 src/server/server.c:120
+#: src/main.c:96 src/server/server.c:121
 #, c-format
 msgid "Report bugs to: %s\n"
 msgstr "Hataları rapor et:%s\n"
 
-#: src/main.c:98 src/server/server.c:122
+#: src/main.c:98 src/server/server.c:123
 #, c-format
 msgid "%s home page: <%s>\n"
 msgstr "%s ana sayfa: <%s>\n"
 
-#: src/main.c:383
+#: src/main.c:390
 msgid "Psensor has not been compiled with remote sensor support."
 msgstr "Psensor, uzaktan algılayıcı desteği ile derlenmemiştir."
 
-#: src/main.c:453
+#: src/main.c:460
 msgid "Enables debug mode."
 msgstr "Hata ayıklama modunu etkinleştirir."
 
-#: src/main.c:465 src/server/server.c:386
+#: src/main.c:472 src/server/server.c:422
 #, c-format
 msgid "Try `%s --help' for more information.\n"
 msgstr "Daha fazla bilgi için `%s --help' yazın.\n"
 
-#: src/main.c:478
+#: src/main.c:485
 msgid "A Psensor instance already exists."
 msgstr "Bir Psensor örneği zaten mevcut."
 
-#: src/main.c:520
+#: src/main.c:527
 #, fuzzy
 msgid "Failed to create thread for monitoring sensors"
 msgstr "Web sunucusu oluşturulamadı."
@@ -700,25 +700,25 @@ msgstr "Geçersiz içerik: %s"
 msgid "%s: Invalid JSON: %s"
 msgstr "Geçersiz JSON: %s"
 
-#: src/server/server.c:57
+#: src/server/server.c:58
 msgid "<html><body><p>Server stop requested</p></body></html>"
 msgstr "<html><body><p>Sunucu durdurma istendi</p></body></html>"
 
-#: src/server/server.c:63
+#: src/server/server.c:64
 msgid ""
 "<html><body><p>Page not found - Go to <a href='/'>Main page</a></p></body>"
 msgstr ""
 "<html><body><p>Sayfa bulunamadı - Şuraya gidin <a href='/'>Main page</a></"
 "p></body>"
 
-#: src/server/server.c:99
+#: src/server/server.c:100
 msgid ""
 "psensor-server is an HTTP server for monitoring hardware sensors remotely."
 msgstr ""
 "psensor-sunucusu, donanım algılayıcılarını uzaktan gözlemleme amaçlı bir "
 "HTTP sunucusudur."
 
-#: src/server/server.c:104
+#: src/server/server.c:105
 msgid ""
 "  -h, --help\t\tdisplay this help and exit\n"
 "  -v, --version\t\tdisplay version information and exit"
@@ -726,7 +726,7 @@ msgstr ""
 "  -h, --help\t\tyardımı göster ve çık\n"
 "  -v, --version\t\tsürüm bilgisini göster ve çık"
 
-#: src/server/server.c:108
+#: src/server/server.c:109
 msgid ""
 "  -p,--port=PORT\twebserver port\n"
 "  -w,--wdir=DIR\t\tdirectory containing webserver pages"
@@ -734,78 +734,94 @@ msgstr ""
 "  -p,--port=PORT\twebsunucu bağlantı noktası\n"
 "  -w,--wdir=DIR\t\tdizin websunucusu sayfaları içerir"
 
-#: src/server/server.c:112
+#: src/server/server.c:113
 msgid "  -d, --debug=LEVEL     set the debug level, integer between 0 and 3"
 msgstr ""
 "  -d, --debug=LEVEL     hata ayıklama seviyesini ayarla, 0 ve 3 arasında bir "
 "tamsayı"
 
-#: src/server/server.c:114
+#: src/server/server.c:115
 msgid "  -l, --log-file=PATH   set the log file to PATH"
 msgstr "  -l, --log-file=PATH   günlük kaydı dosyasını PATH olarak ayarla"
 
-#: src/server/server.c:115
+#: src/server/server.c:116
 msgid "  --sensor-log-file=PATH set the sensor log file to PATH"
 msgstr ""
 "  --sensor-log-file=PATH algılayıcı günlük kaydı dosyasını PATH olarak ayarla"
 
-#: src/server/server.c:116
+#: src/server/server.c:117
 msgid "  --sensor-log-interval=S set the sensor log interval to S (seconds)"
 msgstr ""
 "  --sensor-log-interval=S algılayıcı günlük kaydı aralığını S (saniye) "
 "olarak ayarla"
 
-#: src/server/server.c:303
+#: src/server/server.c:262
+#, c-format
+msgid "Resource access refused %s real path is %s"
+msgstr ""
+
+#: src/server/server.c:269
+#, fuzzy, c-format
+msgid "Cannot get real path of %s"
+msgstr "Günlükleme dosyası açılamadı: %s"
+
+#: src/server/server.c:339
 #, c-format
 msgid "HTTP Request: %s"
 msgstr "HTTP İsteği: %s"
 
-#: src/server/server.c:366
+#: src/server/server.c:402
 #, c-format
 msgid "Enables debug mode: %d"
 msgstr "Hata ayıklama modunu etkinleştirir: %d"
 
-#: src/server/server.c:410
+#: src/server/server.c:431
+#, c-format
+msgid "Webserver directory does not exist.\n"
+msgstr ""
+
+#: src/server/server.c:452
 msgid "No sensors detected."
 msgstr "Hiçbir algılayıcı bulunamadı."
 
-#: src/server/server.c:417
+#: src/server/server.c:459
 msgid "Failed to create Web server."
 msgstr "Web sunucusu oluşturulamadı."
 
-#: src/server/server.c:421
+#: src/server/server.c:463
 #, c-format
 msgid "Web server started on port: %d"
 msgstr "Web sunucusu şu noktadan başlatıldı: %d"
 
-#: src/server/server.c:422
+#: src/server/server.c:464
 #, c-format
 msgid "WWW directory: %s"
 msgstr "WWW dizini: %s"
 
-#: src/server/server.c:423
+#: src/server/server.c:465
 #, c-format
 msgid "URL: http://localhost:%d"
 msgstr "URL: http://localhost:%d"
 
-#: src/server/server.c:433
+#: src/server/server.c:475
 msgid "Failed to activate logging of sensors."
 msgstr "Algılayıcıların günlük kaydı etkinleştirilemedi."
 
-#: src/ui.c:87
+#: src/ui.c:213
 msgid "Psensor is a GTK+ application for monitoring hardware sensors"
 msgstr ""
 "Psensor, donanım algılayıcılarının gözlenmesi amaçlı bir GTK+ uygulamasıdır"
 
-#: src/ui.c:90
-msgid "Copyright(c) 2010-2014 jeanfi@gmail.com"
+#: src/ui.c:216
+#, fuzzy
+msgid "Copyright(c) 2010-2016 jeanfi@gmail.com"
 msgstr "Telif Hakkı(c) 2010-2014 jeanfi@gmail.com"
 
-#: src/ui.c:96
+#: src/ui.c:222
 msgid "About Psensor"
 msgstr "Psensor Hakkında"
 
-#: src/ui.c:97
+#: src/ui.c:223
 msgid "translator-credits"
 msgstr ""
 "Launchpad Contributions:\n"
@@ -813,24 +829,24 @@ msgstr ""
 "  zeugma https://launchpad.net/~sunder67\n"
 "  İbrahim Çelik https://launchpad.net/~ibrahimcelik89"
 
-#: src/ui.c:100
+#: src/ui.c:226
 msgid "Psensor Homepage"
 msgstr "Psensor Anasayfası"
 
-#: src/ui.c:223
+#: src/ui.c:363
 msgid "Failed to load Psensor icon."
 msgstr "Psensor simgesi yüklenemedi."
 
-#: src/ui_sensorlist.c:256
+#: src/ui_sensorlist.c:259
 msgid "Hide"
 msgstr ""
 
-#: src/ui_sensorlist.c:300
+#: src/ui_sensorlist.c:303
 #, fuzzy
 msgid "Select sensor color"
 msgstr "Önplan rengini seçin"
 
-#: src/ui_appindicator.c:145
+#: src/ui_appindicator.c:148
 #, fuzzy, c-format
 msgid "Failed to load glade file %s: %s"
 msgstr "Algılayıcıların günlük kaydı etkinleştirilemedi."
