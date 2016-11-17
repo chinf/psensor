@@ -467,6 +467,7 @@ static GtkBuilder *load_ui(struct ui_psensor *ui)
 	store = GTK_LIST_STORE(gtk_builder_get_object(builder,
 						      "sensors_liststore"));
 
+	gtk_window_set_transient_for(w_dialog, ui->main_window);
 	gtk_builder_connect_signals(builder, ui);
 
 	g_signal_connect(w_dialog,
