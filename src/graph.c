@@ -463,7 +463,7 @@ graph_update(struct psensor **sensors,
 	double min_rpm, max_rpm, mint, maxt, min, max;
 	char *strmin, *strmax;
 	/* horizontal and vertical offset of the graph */
-	int g_xoff, g_yoff, no_graphs, use_celsius;
+	int g_xoff, g_yoff, graphs_drawn, use_celsius;
 /*	int g_rmargin; */
 	cairo_surface_t *cst, *plotsurface;
 	cairo_t *cr, *cr_pixmap, *plotarea;
@@ -506,7 +506,6 @@ graph_update(struct psensor **sensors,
 	info.width = galloc.width;
 	height = galloc.height;
 	info.height = height;
-
 
 	cst = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
 	cr = cairo_create(cst);
@@ -551,29 +550,10 @@ graph_update(struct psensor **sensors,
 	plotarea = cairo_create(plotsurface);
 
 	draw_graph_background(cr, config, &info);
-
-	/* Set the color for text drawing */
-	cairo_set_source_rgb(cr,
-			     theme_fg_color.red,
-			     theme_fg_color.green,
-			     theme_fg_color.blue);
-
-	/* draw graph begin time */
-	cairo_move_to(cr, g_xoff, height - GRAPH_V_PADDING);
-	cairo_show_text(cr, str_btime);
-	free(str_btime);
-
-	/* draw graph end time */
-	cairo_move_to(cr,
-		      width - te_etime.width - GRAPH_H_PADDING,
-		      height - GRAPH_V_PADDING);
-	cairo_show_text(cr, str_etime);
-	free(str_etime);
-
 	draw_background_lines(cr, mint, maxt, config, &info);
 
 	/* draw the enabled graphs */
-	no_graphs = 1;
+	graphs_drawn = 0;
 	if (bt && et) {
 		sensor_cur = enabled_sensors;
 
@@ -583,7 +563,7 @@ graph_update(struct psensor **sensors,
 			struct psensor *s = *sensor_cur;
 
 			log_debug("sensor graph enabled: %s",s->name);
-			no_graphs = 0;
+			graphs_drawn = 1;
 			if (s->type & SENSOR_TYPE_RPM) {
 				min = min_rpm;
 				max = max_rpm;
@@ -610,26 +590,39 @@ graph_update(struct psensor **sensors,
 			sensor_cur++;
 		}
 	}
+	free(enabled_sensors);
 
 	/* Set the color for text drawing */
 	cairo_set_source_rgb(cr,
-			 theme_fg_color.red,
-			 theme_fg_color.green,
-			 theme_fg_color.blue);
+			     theme_fg_color.red,
+			     theme_fg_color.green,
+			     theme_fg_color.blue);
 
-	if (no_graphs) {
-		display_no_graphs_warning(cr, &info);
-	} else {
+	if (graphs_drawn) {
+		/* draw graph begin time */
+		cairo_move_to(cr, g_xoff, height - GRAPH_V_PADDING);
+		cairo_show_text(cr, str_btime);
+
+		/* draw graph end time */
+		cairo_move_to(cr,
+				  width - te_etime.width - GRAPH_H_PADDING,
+				  height - GRAPH_V_PADDING);
+		cairo_show_text(cr, str_etime);
+
 		/* draw left-hand y-axis: min and max temp */
 		cairo_move_to(cr, GRAPH_H_PADDING, te_max.height + GRAPH_V_PADDING);
 		cairo_show_text(cr, strmax);
-		free(strmax);
 
 		cairo_move_to(cr,
 				  GRAPH_H_PADDING, height - (te_min.height / 2) - g_yoff);
 		cairo_show_text(cr, strmin);
-		free(strmin);
+	} else {
+		display_no_graphs_warning(cr, &info);
 	}
+	free(str_btime);
+	free(str_etime);
+	free(strmax);
+	free(strmin);
 
 	cr_pixmap = gdk_cairo_create(gtk_widget_get_window(w_graph));
 
@@ -640,8 +633,6 @@ graph_update(struct psensor **sensors,
 		cairo_set_source_surface(cr_pixmap, cst, 0, 0);
 		cairo_paint(cr_pixmap);
 	}
-
-	free(enabled_sensors);
 
 	cairo_destroy(cr_pixmap);
 	cairo_surface_destroy(plotsurface);
