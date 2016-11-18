@@ -324,6 +324,7 @@ void ui_window_create(struct ui_psensor *ui)
 	guint ok;
 	GtkBuilder *builder;
 	GError *error;
+	GdkGeometry hints;
 
 	log_fct("ui=%p", ui);
 
@@ -350,6 +351,15 @@ void ui_window_create(struct ui_psensor *ui)
 				cfg->window_y);
 
 	config_set_slog_enabled_changed_cbk(slog_enabled_cbk, ui);
+
+	hints.min_width = 150;
+	/* height hint to prevent gtk_widget_size_allocate() error from
+	shrinking window too far */
+	hints.min_height = 50;
+	gtk_window_set_geometry_hints(GTK_WINDOW(window),
+					NULL,
+					&hints,
+					GDK_HINT_MIN_SIZE);
 
 	gtk_window_set_default_size(GTK_WINDOW(window),
 				    cfg->window_w,
