@@ -390,13 +390,11 @@ static void draw_sensor_curve(struct psensor *s,
 			      int et,
 			      struct graph_info *info)
 {
-	int first, i, t, t_next, dt, vdt;
-	double v, v_next, x, y;
-	double x_prev, y_prev, x_next, y_next, slope_next, slope_prev;
-	double dx, dy, x_cp1, y_cp1, x_cp2, y_cp2, smoothing_factor;
+	int stage, i, t, dt;
+	double v, x, y, p_x, p_y, pp_x, pp_y;
+	double dx, dy, m, p_m, t_m, curve_factor;
+	double x_cp1, y_cp1, x_cp2, y_cp2;
 	GdkRGBA *color;
-
-	smoothing_factor = 0.4;
 
 	color = config_get_sensor_color(s->id);
 	cairo_set_source_rgb(plotarea,
@@ -406,7 +404,17 @@ static void draw_sensor_curve(struct psensor *s,
 	gdk_rgba_free(color);
 
 	dt = et - bt;
-	first = 1;
+	stage = 0;
+	m = 0;
+	p_m = 0;
+	p_x = 0;
+	p_y = 0;
+	pp_x = 0;
+	pp_y = 0;
+	dx = 0;
+	dy = 0;
+	curve_factor = 0.5; // sensible range: 0.1 to 0.7
+
 	for (i = 0; i < s->values_max_length; i++) {
 		t = s->measures[i].time.tv_sec;
 		v = s->measures[i].value;
@@ -414,113 +422,89 @@ static void draw_sensor_curve(struct psensor *s,
 		if (v == UNKNOWN_DBL_VALUE || !t)
 			continue;
 
-		vdt = t - bt;
-		x = ((double)vdt * info->g_width) / dt;
+		x = ((double)(t - bt) * info->g_width) / dt;
 		y = compute_y(v, min, max, info->g_height, info->g_yoff);
 
-		if ((i+1) == s->values_max_length) {
-			v_next = v;
-		} else {
-			t_next = s->measures[i+1].time.tv_sec;
-			v_next = s->measures[i+1].value;
-			vdt = t_next - bt;
-		}
-		x_next = ((double)vdt * info->g_width) / dt;
-		y_next = compute_y(v_next, min, max, info->g_height, info->g_yoff);
+		switch (stage) {
+			case 0:
+				log_debug("Curve start at point %d, x=%f, y=%f", i, x, y);
+				cairo_move_to(plotarea, x, y);
+				pp_x = x;
+				pp_y = y;
+				stage++;
+				break;
+			case 1:
+				// calculate initial slope
+				if (x > pp_x)
+					p_m = (y - pp_y) / (x - pp_x);
 
-		if (first) {
-			log_debug("begin curve at point %d, x=%f, y=%f", i, x, y);
-			cairo_move_to(plotarea, x, y);
-			first = 0;
-			dy = 0;
-			dx = (x_next - x) * smoothing_factor;
-		} else {
-			/* calculate control point 1 */
-			x_cp1 = x_prev + dx;
-			y_cp1 = y_prev + dy;
-			/* calculate new slope parameters */
-			dx = (x - x_prev) * smoothing_factor;
-			log_debug("point %d: y_prev, y, y_next: %f, %f, %f", i, y_prev, y, y_next);
-			if ((y >= y_prev && y >= y_next) || (y <= y_prev && y <= y_next)) {
-				/* force zero slope  */
-				dy = 0;
-				log_debug("point %d: 0 slope", i);
-			} else {
-				if ((x_next - x) != 0) {
-					slope_next = (y_next - y) / (x_next - x);
-					slope_prev = (y - y_prev) / (x - x_prev);
-					/* use smaller slope to set tangent at the current point */
-					if (fabs(slope_next) < fabs(slope_prev)) {
-						dy = (y_next - y) * smoothing_factor;
-						log_debug("point %d: using next slope, slope_prev=%f, slope_next=%f", i, slope_prev, slope_next);
+				dx = (x - pp_x) * curve_factor;
+				p_x = x;
+				p_y = y;
+				stage++;
+				break;
+			default:
+				// calculate control point 1
+				x_cp1 = pp_x + dx;
+				y_cp1 = pp_y + dy;
+
+				// calculate slope after current point
+				if (x > p_x)
+					m = (y - p_y) / (x - p_x);
+				else
+					m = 0;
+
+				// calculate control point 2
+				log_debug("point %d: pp_y, p_y, y: %f, %f, %f", i, pp_y, p_y, y);
+				if (((p_y > pp_y) && (y > p_y)) || ((p_y < pp_y) && (y < p_y))) {
+					// monotonically strictly decreasing or increasing
+					// use shallower slope to set tangent at the current point
+					if (fabs(m) < fabs(p_m)) {
+						t_m = m;
+						log_debug("point %d: using next slope %f, previous was %f", i, m, p_m);
 					} else {
-						dy = (y - y_prev) * smoothing_factor;
-						log_debug("point %d: using prev slope, slope_prev=%f, slope_next=%f", i, slope_prev, slope_next);
+						t_m = p_m;
+						log_debug("point %d: using prev slope %f, next is %f", i, p_m, m);
 					}
 				} else {
-					dy = 0;
+					t_m = 0;
 				}
-			}
-			log_debug("point %d: dx=%f, dy=%f", i, dx, dy);
-			/* calculate control point 2 */
-			x_cp2 = x - dx;
-			y_cp2 = y - dy;
+				dy = t_m * dx;
+				x_cp2 = p_x - dx;
+				y_cp2 = p_y - dy;
 
-			log_debug("point %d: cp1=%f, %f, cp2=%f, %f, x=%f, y=%f", i, x_cp1, y_cp1, x_cp2, y_cp2, x, y);
-			cairo_curve_to(plotarea, x_cp1, y_cp1, x_cp2, y_cp2, x, y);
+				log_debug("point %d: cp1=%f, %f, cp2=%f, %f, p_x=%f, p_y=%f",
+						  i, x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
+				cairo_curve_to(plotarea, x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
+
+				dx = (x - p_x) * curve_factor;
+				dy = t_m * dx;
+				pp_x = p_x;
+				pp_y = p_y;
+				p_x = x;
+				p_y = y;
+				p_m = m;
+				break;
 		}
-		x_prev = x;
-		y_prev = y;
-	}
+		if (((i+1) >= s->values_max_length) && (stage > 1)) {
+			// plot last segment
+			// calculate control point 1
+			x_cp1 = pp_x + dx;
+			y_cp1 = pp_y + dy;
 
-	cairo_stroke(plotarea);
-}
-/*
-static void draw_sensor_line(struct psensor *s,
-			      cairo_t *plotarea,
-			      double min,
-			      double max,
-			      int bt,
-			      int et,
-			      struct graph_info *info)
-{
-	int first, i, t, dt, vdt;
-	double v, x, y;
-	GdkRGBA *color;
-
-	color = config_get_sensor_color(s->id);
-	cairo_set_source_rgb(plotarea,
-			     color->red,
-			     color->green,
-			     color->blue);
-	gdk_rgba_free(color);
-
-	dt = et - bt;
-	first = 1;
-	for (i = 0; i < s->values_max_length; i++) {
-		t = s->measures[i].time.tv_sec;
-		v = s->measures[i].value;
-
-		if (v == UNKNOWN_DBL_VALUE || !t)
-			continue;
-
-		vdt = t - bt;
-
-		x = ((double)vdt * info->g_width) / dt;
-
-		y = compute_y(v, min, max, info->g_height, info->g_yoff);
-
-		if (first) {
-			cairo_move_to(plotarea, x, y);
-			first = 0;
-		} else {
-			cairo_line_to(plotarea, x, y);
+			// calculate control point 2
+			x_cp2 = p_x - dx;
+			y_cp2 = p_y;
+		
+			log_debug("Last segment: cp1=%f, %f, cp2=%f, %f, p_x=%f, p_y=%f",
+					  x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
+			cairo_curve_to(plotarea, x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
 		}
 	}
 
 	cairo_stroke(plotarea);
 }
-*/
+
 static void
 display_no_graphs_warning(cairo_t *cr,
 		      struct graph_info *info)
@@ -553,12 +537,11 @@ graph_update(struct psensor **sensors,
 	     struct config *config,
 	     GtkWidget *window)
 {
-	int et, bt, width, height, g_width, g_height;
+	int et, bt, width, height, g_width, g_height, g_xoff, g_yoff;
 	double min_rpm, max_rpm, mint, maxt, min, max;
 	char *strmin, *strmax;
-	/* horizontal and vertical offset of the graph */
-	int g_xoff, g_yoff, graphs_drawn, use_celsius;
-/*	int g_rmargin; */
+	int graphs_drawn, use_celsius;
+//	int g_rmargin;
 	cairo_surface_t *cst, *plotsurface;
 	cairo_t *cr, *cr_pixmap, *plotarea;
 	char *str_btime, *str_etime;
@@ -638,7 +621,7 @@ graph_update(struct psensor **sensors,
 
 	plotsurface = cairo_surface_create_for_rectangle(cst,
 													 (double)g_xoff,
-													 0,
+													 (double)0,
 													 (double)g_width,
 													 (double)height);
 	plotarea = cairo_create(plotsurface);
@@ -646,7 +629,7 @@ graph_update(struct psensor **sensors,
 	draw_graph_background(cr, config, &info);
 	draw_background_lines(cr, mint, maxt, config, &info);
 
-	/* draw the enabled graphs */
+	// draw the enabled graphs
 	graphs_drawn = 0;
 	if (bt && et) {
 		sensor_cur = enabled_sensors;
@@ -685,25 +668,27 @@ graph_update(struct psensor **sensors,
 		}
 	}
 	free(enabled_sensors);
+	cairo_destroy(plotarea);
+	cairo_surface_destroy(plotsurface);
 
-	/* Set the color for text drawing */
+	// Set the color for text drawing
 	cairo_set_source_rgb(cr,
 			     theme_fg_color.red,
 			     theme_fg_color.green,
 			     theme_fg_color.blue);
 
 	if (graphs_drawn) {
-		/* draw graph begin time */
+		// draw graph begin time
 		cairo_move_to(cr, g_xoff, height - GRAPH_V_PADDING);
 		cairo_show_text(cr, str_btime);
 
-		/* draw graph end time */
+		// draw graph end time
 		cairo_move_to(cr,
 				  width - te_etime.width - GRAPH_H_PADDING,
 				  height - GRAPH_V_PADDING);
 		cairo_show_text(cr, str_etime);
 
-		/* draw left-hand y-axis: min and max temp */
+		// draw left-hand y-axis: min and max temp
 		cairo_move_to(cr, GRAPH_H_PADDING, te_max.height + GRAPH_V_PADDING);
 		cairo_show_text(cr, strmax);
 
@@ -729,10 +714,8 @@ graph_update(struct psensor **sensors,
 	}
 
 	cairo_destroy(cr_pixmap);
-	cairo_surface_destroy(plotsurface);
-	cairo_destroy(plotarea);
-	cairo_surface_destroy(cst);
 	cairo_destroy(cr);
+	cairo_surface_destroy(cst);
 }
 
 int compute_values_max_length(struct config *c)
