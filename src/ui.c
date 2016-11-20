@@ -354,7 +354,8 @@ void ui_window_create(struct ui_psensor *ui)
 
 	hints.min_width = 150;
 	/* height hint to prevent gtk_widget_size_allocate() error from
-	shrinking window too far */
+	 * shrinking window too far
+	 */
 	hints.min_height = 50;
 	gtk_window_set_geometry_hints(GTK_WINDOW(window),
 					NULL,

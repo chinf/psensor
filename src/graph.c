@@ -99,37 +99,26 @@ static struct psensor **list_filter_graph_enabled(struct psensor **sensors)
 
 /* Return the end time of the graph i.e. the more recent measure.  If
  * no measure are available, return 0.
- * If Bezier curves are used return the measure n-3 to avoid to
- * display a part of the curve outside the graph area.
  */
 static time_t get_graph_end_time_s(struct psensor **sensors)
 {
-	time_t ret, t;
+	time_t end_time, t;
 	struct psensor *s;
 	struct measure *measures;
-	int i, n;
+	int i;
 
-	ret = 0;
+	end_time = 0;
 	while (*sensors) {
 		s = *sensors;
 		measures = s->measures;
 
-		if (is_smooth_curves_enabled)
-			n = 2;
-		else
-			n = 0;
-
-		for (i = s->values_max_length - 1; i >= 0; i--) {
+		for (i = (s->values_max_length - 1); i >= 0; i--) {
 			if (measures[i].value != UNKNOWN_DBL_VALUE) {
-				if (!n) {
-					t = measures[i].time.tv_sec;
+				t = measures[i].time.tv_sec;
 
-					if (t > ret) {
-						ret = t;
-						break;
-					}
-				} else {
-					n--;
+				if (t > end_time) {
+					end_time = t;
+					break;
 				}
 			}
 			i--;
@@ -138,7 +127,7 @@ static time_t get_graph_end_time_s(struct psensor **sensors)
 		sensors++;
 	}
 
-	return ret;
+	return end_time;
 }
 
 static time_t get_graph_begin_time_s(struct config *cfg, time_t etime)
@@ -267,120 +256,6 @@ static void draw_background_lines(cairo_t *cr,
 	/* back to normal line style */
 	cairo_set_dash(cr, NULL, 0, 0);
 }
-/* Keys: sensor identifier.
- *
- * Values: array of time_t. Each time_t is corresponding to a sensor
- * measure which has been used as the start point of a Bezier curve.
- */
-
-static GHashTable *times;
-
-static void draw_sensor_smooth_curve(struct psensor *s,
-				     cairo_t *plotarea,
-				     double min,
-				     double max,
-				     int bt,
-				     int et,
-				     struct graph_info *info)
-{
-	int i, dt, vdt, j, k, found;
-	double x[4], y[4], v;
-	time_t t, t0, *stimes;
-	GdkRGBA *color;
-
-	if (!times)
-		times = g_hash_table_new_full(g_str_hash,
-					      g_str_equal,
-					      free,
-					      free);
-
-	stimes = g_hash_table_lookup(times, s->id);
-
-	color = config_get_sensor_color(s->id);
-
-	cairo_set_source_rgb(plotarea,
-			     color->red,
-			     color->green,
-			     color->blue);
-	gdk_rgba_free(color);
-
-	/* search the index of the first measure used as a start point
-	 * of a Bezier curve. The start and end points of the Bezier
-	 * curves must be preserved to ensure the same overall shape
-	 * of the graph.
-	 */
-	i = 0;
-	if (stimes) {
-		while (i < s->values_max_length) {
-			t = s->measures[i].time.tv_sec;
-			v = s->measures[i].value;
-
-			found = 0;
-			if (v != UNKNOWN_DBL_VALUE && t) {
-				k = 0;
-				while (stimes[k]) {
-					if (t == stimes[k]) {
-						found = 1;
-						break;
-					}
-					k++;
-				}
-			}
-
-			if (found)
-				break;
-
-			i++;
-		}
-	}
-
-	stimes = malloc((s->values_max_length + 1) * sizeof(time_t));
-	memset(stimes, 0, (s->values_max_length + 1) * sizeof(time_t));
-	g_hash_table_insert(times, strdup(s->id), stimes);
-
-	if (i == s->values_max_length)
-		i = 0;
-
-	k = 0;
-	dt = et - bt;
-	while (i < s->values_max_length) {
-		j = 0;
-		t = 0;
-		while (i < s->values_max_length && j < 4) {
-			t = s->measures[i].time.tv_sec;
-			v = s->measures[i].value;
-
-			if (v == UNKNOWN_DBL_VALUE || !t) {
-				i++;
-				continue;
-			}
-
-			vdt = t - bt;
-
-			x[0 + j] = ((double)vdt * info->g_width) / dt;
-			y[0 + j] = compute_y(v,
-					     min,
-					     max,
-					     info->g_height,
-					     info->g_yoff);
-
-			if (j == 0)
-				t0 = t;
-
-			i++;
-			j++;
-		}
-
-		if (j == 4) {
-			cairo_move_to(plotarea, x[0], y[0]);
-			cairo_curve_to(plotarea, x[1], y[1], x[2], y[3], x[3], y[3]);
-			stimes[k++] = t0;
-			i--;
-		}
-	}
-
-	cairo_stroke(plotarea);
-}
 
 static void draw_sensor_curve(struct psensor *s,
 			      cairo_t *plotarea,
@@ -388,13 +263,15 @@ static void draw_sensor_curve(struct psensor *s,
 			      double max,
 			      int bt,
 			      int et,
-			      struct graph_info *info)
+			      struct graph_info *info,
+				  int filter)
 {
-	int stage, i, t, dt;
+	int stage, i, samp, t;
 	double v, x, y, p_x, p_y, pp_x, pp_y;
 	double dx, dy, m, p_m, t_m, curve_factor;
 	double x_cp1, y_cp1, x_cp2, y_cp2;
 	GdkRGBA *color;
+	double rx[s->values_max_length], ry[s->values_max_length], f[3];
 
 	color = config_get_sensor_color(s->id);
 	cairo_set_source_rgb(plotarea,
@@ -403,7 +280,18 @@ static void draw_sensor_curve(struct psensor *s,
 			     color->blue);
 	gdk_rgba_free(color);
 
-	dt = et - bt;
+	samp = 0;
+	for (i = 0; i < s->values_max_length; i++) {
+		t = s->measures[i].time.tv_sec;
+		v = s->measures[i].value;
+		if (v == UNKNOWN_DBL_VALUE || !t)
+			continue;
+
+		rx[samp] = ((double)(t - bt) * info->g_width) / (et - bt);
+		ry[samp] = compute_y(v, min, max, info->g_height, info->g_yoff);
+		samp++;
+	}
+
 	stage = 0;
 	m = 0;
 	p_m = 0;
@@ -413,92 +301,110 @@ static void draw_sensor_curve(struct psensor *s,
 	pp_y = 0;
 	dx = 0;
 	dy = 0;
-	curve_factor = 0.5; // sensible range: 0.1 to 0.7
+	curve_factor = 0.4; /* sensible range: 0.1 to 0.7 */
+	f[0] = 0.25;
+	f[1] = 0.5;
+	f[2] = 0.25;
 
-	for (i = 0; i < s->values_max_length; i++) {
-		t = s->measures[i].time.tv_sec;
-		v = s->measures[i].value;
-
-		if (v == UNKNOWN_DBL_VALUE || !t)
-			continue;
-
-		x = ((double)(t - bt) * info->g_width) / dt;
-		y = compute_y(v, min, max, info->g_height, info->g_yoff);
+	for (i = 0; i < samp; i++) {
+		x = rx[i];
+		if (filter) {
+			if (i == 0) { /* first sample */
+				y = (ry[i] * (f[0] + f[1])) + (ry[i+1] * f[2]);
+			} else if (i >= (samp - 1)) { /* last sample */
+				y = (ry[i-1] * f[0]) + (ry[i] * (f[1] + f[2]));
+			} else {
+				y = (ry[i-1] * f[0]) +
+					(ry[i] * f[1]) +
+					(ry[i+1] * f[2]);
+			}
+		} else {
+			y = ry[i];
+		}
 
 		switch (stage) {
-			case 0:
-				log_debug("Curve start at point %d, x=%f, y=%f", i, x, y);
-				cairo_move_to(plotarea, x, y);
-				pp_x = x;
-				pp_y = y;
-				stage++;
-				break;
-			case 1:
-				// calculate initial slope
-				if (x > pp_x)
-					p_m = (y - pp_y) / (x - pp_x);
+		case 0:
+			log_debug("Curve start: #%d, x=%f, y=%f", i, x, y);
+			cairo_move_to(plotarea, x, y);
+			pp_x = x;
+			pp_y = y;
+			stage++;
+			break;
+		case 1:
+			if (x > pp_x)
+				p_m = (y - pp_y) / (x - pp_x);
 
-				dx = (x - pp_x) * curve_factor;
-				p_x = x;
-				p_y = y;
-				stage++;
-				break;
-			default:
-				// calculate control point 1
-				x_cp1 = pp_x + dx;
-				y_cp1 = pp_y + dy;
+			dx = (x - pp_x) * curve_factor;
+			p_x = x;
+			p_y = y;
+			stage++;
+			break;
+		default:
+			if (x > p_x)
+				m = (y - p_y) / (x - p_x);
+			else
+				m = 0;
 
-				// calculate slope after current point
-				if (x > p_x)
-					m = (y - p_y) / (x - p_x);
-				else
-					m = 0;
-
-				// calculate control point 2
-				log_debug("point %d: pp_y, p_y, y: %f, %f, %f", i, pp_y, p_y, y);
-				if (((p_y > pp_y) && (y > p_y)) || ((p_y < pp_y) && (y < p_y))) {
-					// monotonically strictly decreasing or increasing
-					// use shallower slope to set tangent at the current point
-					if (fabs(m) < fabs(p_m)) {
-						t_m = m;
-						log_debug("point %d: using next slope %f, previous was %f", i, m, p_m);
-					} else {
-						t_m = p_m;
-						log_debug("point %d: using prev slope %f, next is %f", i, p_m, m);
-					}
-				} else {
-					t_m = 0;
-				}
-				dy = t_m * dx;
-				x_cp2 = p_x - dx;
-				y_cp2 = p_y - dy;
-
-				log_debug("point %d: cp1=%f, %f, cp2=%f, %f, p_x=%f, p_y=%f",
-						  i, x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
-				cairo_curve_to(plotarea, x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
-
-				dx = (x - p_x) * curve_factor;
-				dy = t_m * dx;
-				pp_x = p_x;
-				pp_y = p_y;
-				p_x = x;
-				p_y = y;
-				p_m = m;
-				break;
-		}
-		if (((i+1) >= s->values_max_length) && (stage > 1)) {
-			// plot last segment
-			// calculate control point 1
+			/* calculate control point 1 */
 			x_cp1 = pp_x + dx;
 			y_cp1 = pp_y + dy;
 
-			// calculate control point 2
+			/* calculate control point 2 */
+			log_debug("#%d: pp_y, p_y, y: %f, %f, %f",
+					  i, pp_y, p_y, y);
+			if (((p_y > pp_y) && (y > p_y)) ||
+				((p_y < pp_y) && (y < p_y))) {
+				/* local strong monotonicity, so use
+				 * shallower slope for tangent
+				 */
+				if (fabs(m) < fabs(p_m)) {
+					t_m = m;
+					log_debug("#%d: using next slope %f, previous was %f",
+							  i, m, p_m);
+				} else {
+					t_m = p_m;
+					log_debug("#%d: using prev slope %f, next is %f",
+							  i, p_m, m);
+				}
+			} else {
+				t_m = 0;
+			}
+			dy = t_m * dx;
+			x_cp2 = p_x - dx;
+			y_cp2 = p_y - dy;
+
+			log_debug("#%d: cp1=%f, %f, cp2=%f, %f, p_x=%f, p_y=%f",
+					  i,
+					  x_cp1, y_cp1,
+					  x_cp2, y_cp2,
+					  p_x, p_y);
+			cairo_curve_to(plotarea,
+						   x_cp1, y_cp1,
+						   x_cp2, y_cp2,
+						   p_x, p_y);
+
+			dx = (x - p_x) * curve_factor;
+			dy = t_m * dx;
+			pp_x = p_x;
+			pp_y = p_y;
+			p_x = x;
+			p_y = y;
+			p_m = m;
+			break;
+		}
+		if ((i >= (samp - 1)) && (stage > 1)) {
+			x_cp1 = pp_x + dx;
+			y_cp1 = pp_y + dy;
+
 			x_cp2 = p_x - dx;
 			y_cp2 = p_y;
-		
+
 			log_debug("Last segment: cp1=%f, %f, cp2=%f, %f, p_x=%f, p_y=%f",
 					  x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
-			cairo_curve_to(plotarea, x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
+			cairo_curve_to(plotarea,
+						   x_cp1, y_cp1,
+						   x_cp2, y_cp2,
+						   p_x, p_y);
 		}
 	}
 
@@ -541,7 +447,6 @@ graph_update(struct psensor **sensors,
 	double min_rpm, max_rpm, mint, maxt, min, max;
 	char *strmin, *strmax;
 	int graphs_drawn, use_celsius;
-//	int g_rmargin;
 	cairo_surface_t *cst, *plotsurface;
 	cairo_t *cr, *cr_pixmap, *plotarea;
 	char *str_btime, *str_etime;
@@ -620,26 +525,25 @@ graph_update(struct psensor **sensors,
 	info.g_width = g_width;
 
 	plotsurface = cairo_surface_create_for_rectangle(cst,
-													 (double)g_xoff,
-													 (double)0,
-													 (double)g_width,
-													 (double)height);
+						(double)g_xoff,
+						(double)0,
+						(double)g_width,
+						(double)height);
 	plotarea = cairo_create(plotsurface);
 
 	draw_graph_background(cr, config, &info);
 	draw_background_lines(cr, mint, maxt, config, &info);
 
-	// draw the enabled graphs
+	/* draw the enabled graphs */
 	graphs_drawn = 0;
 	if (bt && et) {
 		sensor_cur = enabled_sensors;
 
 		cairo_set_line_join(plotarea, CAIRO_LINE_JOIN_ROUND);
-		cairo_set_line_width(plotarea, 1);
 		while (*sensor_cur) {
 			struct psensor *s = *sensor_cur;
 
-			log_debug("sensor graph enabled: %s",s->name);
+			log_debug("sensor graph enabled: %s", s->name);
 			graphs_drawn = 1;
 			if (s->type & SENSOR_TYPE_RPM) {
 				min = min_rpm;
@@ -653,16 +557,12 @@ graph_update(struct psensor **sensors,
 				max = maxt;
 			}
 
-			if (is_smooth_curves_enabled)
-				draw_sensor_smooth_curve(s, plotarea,
+			cairo_set_line_width(plotarea, 1);
+			draw_sensor_curve(s, plotarea,
 							 min, max,
 							 bt, et,
-							 &info);
-			else
-				draw_sensor_curve(s, plotarea,
-						  min, max,
-						  bt, et,
-						  &info);
+							 &info,
+						     is_smooth_curves_enabled);
 
 			sensor_cur++;
 		}
@@ -671,29 +571,29 @@ graph_update(struct psensor **sensors,
 	cairo_destroy(plotarea);
 	cairo_surface_destroy(plotsurface);
 
-	// Set the color for text drawing
+	/* Set the color for text drawing */
 	cairo_set_source_rgb(cr,
 			     theme_fg_color.red,
 			     theme_fg_color.green,
 			     theme_fg_color.blue);
 
 	if (graphs_drawn) {
-		// draw graph begin time
+		/* draw x-axis: begin and end times */
 		cairo_move_to(cr, g_xoff, height - GRAPH_V_PADDING);
 		cairo_show_text(cr, str_btime);
 
-		// draw graph end time
 		cairo_move_to(cr,
-				  width - te_etime.width - GRAPH_H_PADDING,
-				  height - GRAPH_V_PADDING);
+				width - te_etime.width - GRAPH_H_PADDING,
+				height - GRAPH_V_PADDING);
 		cairo_show_text(cr, str_etime);
 
-		// draw left-hand y-axis: min and max temp
-		cairo_move_to(cr, GRAPH_H_PADDING, te_max.height + GRAPH_V_PADDING);
+		/* draw primary y-axis: min and max temp */
+		cairo_move_to(cr, GRAPH_H_PADDING,
+				te_max.height + GRAPH_V_PADDING);
 		cairo_show_text(cr, strmax);
 
-		cairo_move_to(cr,
-				  GRAPH_H_PADDING, height - (te_min.height / 2) - g_yoff);
+		cairo_move_to(cr, GRAPH_H_PADDING,
+				height - (te_min.height / 2) - g_yoff);
 		cairo_show_text(cr, strmin);
 	} else {
 		display_no_graphs_warning(cr, &info);
