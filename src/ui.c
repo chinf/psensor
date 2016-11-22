@@ -401,20 +401,6 @@ void ui_window_create(struct ui_psensor *ui)
 	log_debug("ui_window_create() ends");
 }
 
-void ui_window_update(struct ui_psensor *ui)
-{
-	struct config *cfg;
-
-	log_debug("ui_window_update()");
-
-	cfg = ui->config;
-
-	if (cfg->window_restore_enabled)
-		gtk_paned_set_position(GTK_PANED(w_sensor_box),
-				       cfg->window_divider_pos);
-
-}
-
 void ui_window_show(struct ui_psensor *ui)
 {
 	struct config *cfg;
@@ -423,10 +409,11 @@ void ui_window_show(struct ui_psensor *ui)
 
 	cfg = ui->config;
 	if (cfg->window_restore_enabled)
+		gtk_paned_set_position(GTK_PANED(w_sensor_box),
+				cfg->window_divider_pos);
 		gtk_window_move(GTK_WINDOW(ui->main_window),
 				cfg->window_x,
 				cfg->window_y);
-	ui_window_update(ui);
 	gtk_window_present(GTK_WINDOW(ui->main_window));
 }
 

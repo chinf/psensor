@@ -396,8 +396,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		pxdg_set_autostart(gtk_toggle_button_get_active(w_autostart));
 
 		pthread_mutex_unlock(&ui->sensors_mutex);
-
-		ui_window_update(ui);
 	}
 	g_object_unref(G_OBJECT(builder));
 	gtk_widget_destroy(GTK_WIDGET(diag));
