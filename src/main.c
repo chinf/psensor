@@ -532,10 +532,10 @@ int main(int argc, char **argv)
 
 	log_debug("hide_on_startup: %d", ui.config->hide_on_startup);
 	if (ui.config->hide_on_startup)
-	/*
-	 * Wait 30s to allow attempt to show status icon or other UI,
-	 * then check whether any UI is accessible. If not, main
-	 * window must be shown, contrary to hide_on_startup.
+	/* Wait 30s to allow attempt to show status icon or other UI,
+	 * then check whether any UI is accessible. If not, then main
+	 * window must be shown despite hide_on_startup preference.
+	 * There may be a cleaner way to deal with this.
 	 */
 		g_timeout_add(30000, (GSourceFunc)check_ui_visible, &ui);
 	else
