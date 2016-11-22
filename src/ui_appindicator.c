@@ -220,6 +220,8 @@ static void update_label(struct ui_psensor *ui)
 	}
 
 	app_indicator_set_label(indicator, label, guide);
+	free(label);
+	free(guide);
 }
 
 void ui_appindicator_update(struct ui_psensor *ui, bool attention)

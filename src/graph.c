@@ -266,12 +266,11 @@ static void draw_sensor_curve(struct psensor *s,
 			      struct graph_info *info,
 				  int filter)
 {
-	int stage, i, samp, t;
-	double v, x, y, p_x, p_y, pp_x, pp_y;
-	double dx, dy, m, p_m, t_m, curve_factor;
-	double x_cp1, y_cp1, x_cp2, y_cp2;
+	int stage, i, samp;
+	double x, y, p_x, p_y, pp_x, pp_y, c1_x, c1_y, c2_x, c2_y, dx, dy;
+	double m, p_m, t_m, curve_factor, a1, b0, b1;
+	double rx[s->values_max_length], ry[s->values_max_length];
 	GdkRGBA *color;
-	double rx[s->values_max_length], ry[s->values_max_length], f[3];
 
 	color = config_get_sensor_color(s->id);
 	cairo_set_source_rgb(plotarea,
@@ -282,13 +281,15 @@ static void draw_sensor_curve(struct psensor *s,
 
 	samp = 0;
 	for (i = 0; i < s->values_max_length; i++) {
-		t = s->measures[i].time.tv_sec;
-		v = s->measures[i].value;
-		if (v == UNKNOWN_DBL_VALUE || !t)
+		if (s->measures[i].value == UNKNOWN_DBL_VALUE ||
+			!s->measures[i].time.tv_sec)
 			continue;
 
-		rx[samp] = ((double)(t - bt) * info->g_width) / (et - bt);
-		ry[samp] = compute_y(v, min, max, info->g_height, info->g_yoff);
+		rx[samp] = ((double)(s->measures[i].time.tv_sec - bt) *
+					info->g_width) / (et - bt);
+		ry[samp] = compute_y(s->measures[i].value,
+							 min, max,
+							 info->g_height, info->g_yoff);
 		samp++;
 	}
 
@@ -302,21 +303,26 @@ static void draw_sensor_curve(struct psensor *s,
 	dx = 0;
 	dy = 0;
 	curve_factor = 0.4; /* sensible range: 0.1 to 0.7 */
-	f[0] = 0.25;
-	f[1] = 0.5;
-	f[2] = 0.25;
+	/* filter coefficients must sum to 1 */
+	if (s->type & SENSOR_TYPE_PERCENT) {
+		a1 = 0.3;
+		b0 = 0.6;
+		b1 = 0.1;
+	} else {
+		a1 = 0.7;
+		b0 = 0.15;
+		b1 = 0.15;
+	}
 
 	for (i = 0; i < samp; i++) {
 		x = rx[i];
-		if (filter) {
-			if (i == 0) { /* first sample */
-				y = (ry[i] * (f[0] + f[1])) + (ry[i+1] * f[2]);
-			} else if (i >= (samp - 1)) { /* last sample */
-				y = (ry[i-1] * f[0]) + (ry[i] * (f[1] + f[2]));
+		if (filter) { /* first order IIR filter */
+			if (i == 0) {
+				y = (b0 * ry[i]) + ((1 - b0) * ry[i + 1]);
 			} else {
-				y = (ry[i-1] * f[0]) +
-					(ry[i] * f[1]) +
-					(ry[i+1] * f[2]);
+				y = (a1 * p_y) +
+					(b0 * ry[i]) +
+					(b1 * ry[i - 1]);
 			}
 		} else {
 			y = ry[i];
@@ -324,13 +330,16 @@ static void draw_sensor_curve(struct psensor *s,
 
 		switch (stage) {
 		case 0:
-			log_debug("Curve start: #%d, x=%f, y=%f", i, x, y);
-			cairo_move_to(plotarea, x, y);
 			pp_x = x;
 			pp_y = y;
+			p_x = x;
+			p_y = y;
 			stage++;
 			break;
 		case 1:
+			log_debug("[%d] curve start: %f,%f", i, p_x, p_y);
+			cairo_move_to(plotarea, p_x, p_y);
+
 			if (x > pp_x)
 				p_m = (y - pp_y) / (x - pp_x);
 
@@ -346,11 +355,11 @@ static void draw_sensor_curve(struct psensor *s,
 				m = 0;
 
 			/* calculate control point 1 */
-			x_cp1 = pp_x + dx;
-			y_cp1 = pp_y + dy;
+			c1_x = pp_x + dx;
+			c1_y = pp_y + dy;
 
 			/* calculate control point 2 */
-			log_debug("#%d: pp_y, p_y, y: %f, %f, %f",
+			log_debug("[%d] pp_y, p_y, y: %f, %f, %f",
 					  i, pp_y, p_y, y);
 			if (((p_y > pp_y) && (y > p_y)) ||
 				((p_y < pp_y) && (y < p_y))) {
@@ -359,28 +368,28 @@ static void draw_sensor_curve(struct psensor *s,
 				 */
 				if (fabs(m) < fabs(p_m)) {
 					t_m = m;
-					log_debug("#%d: using next slope %f, previous was %f",
+					log_debug("[%d] using next slope %f, previous was %f",
 							  i, m, p_m);
 				} else {
 					t_m = p_m;
-					log_debug("#%d: using prev slope %f, next is %f",
+					log_debug("[%d] using prev slope %f, next is %f",
 							  i, p_m, m);
 				}
 			} else {
 				t_m = 0;
 			}
 			dy = t_m * dx;
-			x_cp2 = p_x - dx;
-			y_cp2 = p_y - dy;
+			c2_x = p_x - dx;
+			c2_y = p_y - dy;
 
-			log_debug("#%d: cp1=%f, %f, cp2=%f, %f, p_x=%f, p_y=%f",
+			log_debug("[%d] cp1=%f,%f cp2=%f,%f end=%f,%f",
 					  i,
-					  x_cp1, y_cp1,
-					  x_cp2, y_cp2,
+					  c1_x, c1_y,
+					  c2_x, c2_y,
 					  p_x, p_y);
 			cairo_curve_to(plotarea,
-						   x_cp1, y_cp1,
-						   x_cp2, y_cp2,
+						   c1_x, c1_y,
+						   c2_x, c2_y,
 						   p_x, p_y);
 
 			dx = (x - p_x) * curve_factor;
@@ -393,17 +402,17 @@ static void draw_sensor_curve(struct psensor *s,
 			break;
 		}
 		if ((i >= (samp - 1)) && (stage > 1)) {
-			x_cp1 = pp_x + dx;
-			y_cp1 = pp_y + dy;
+			c1_x = pp_x + dx;
+			c1_y = pp_y + dy;
 
-			x_cp2 = p_x - dx;
-			y_cp2 = p_y;
+			c2_x = p_x - dx;
+			c2_y = p_y;
 
-			log_debug("Last segment: cp1=%f, %f, cp2=%f, %f, p_x=%f, p_y=%f",
-					  x_cp1, y_cp1, x_cp2, y_cp2, p_x, p_y);
+			log_debug("[finish] cp1=%f,%f, cp2=%f,%f, end=%f,%f",
+					  c1_x, c1_y, c2_x, c2_y, p_x, p_y);
 			cairo_curve_to(plotarea,
-						   x_cp1, y_cp1,
-						   x_cp2, y_cp2,
+						   c1_x, c1_y,
+						   c2_x, c2_y,
 						   p_x, p_y);
 		}
 	}
@@ -421,12 +430,7 @@ display_no_graphs_warning(cairo_t *cr,
 
 	msg = strdup(_("No graphs to show"));
 
-	cairo_select_font_face(cr,
-			       "sans-serif",
-			       CAIRO_FONT_SLANT_NORMAL,
-			       CAIRO_FONT_WEIGHT_NORMAL);
 	cairo_set_font_size(cr, 18.0);
-
 	cairo_text_extents(cr, msg, &te_msg);
 	x = (info->width / 2) - (te_msg.width / 2);
 	y = info->height / 2;
@@ -450,6 +454,7 @@ graph_update(struct psensor **sensors,
 	cairo_surface_t *cst, *plotsurface;
 	cairo_t *cr, *cr_pixmap, *plotarea;
 	char *str_btime, *str_etime;
+	cairo_font_face_t *labelfont;
 	cairo_text_extents_t te_btime, te_etime, te_max, te_min;
 	struct psensor **sensor_cur, **enabled_sensors;
 	GtkAllocation galloc;
@@ -492,10 +497,10 @@ graph_update(struct psensor **sensors,
 	cst = cairo_image_surface_create(CAIRO_FORMAT_ARGB32, width, height);
 	cr = cairo_create(cst);
 
-	cairo_select_font_face(cr,
-			       "sans-serif",
+	labelfont = cairo_toy_font_face_create("sans-serif",
 			       CAIRO_FONT_SLANT_NORMAL,
 			       CAIRO_FONT_WEIGHT_NORMAL);
+	cairo_set_font_face(cr, labelfont);
 	cairo_set_font_size(cr, 10.0);
 
 	cairo_text_extents(cr, str_etime, &te_etime);
@@ -602,6 +607,7 @@ graph_update(struct psensor **sensors,
 	free(str_etime);
 	free(strmax);
 	free(strmin);
+	cairo_font_face_destroy(labelfont);
 
 	cr_pixmap = gdk_cairo_create(gtk_widget_get_window(w_graph));
 
