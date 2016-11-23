@@ -128,16 +128,10 @@ struct psensor *psensor_list_get_by_id(struct psensor **sensors,
 
 int is_temp_type(unsigned int type);
 
-double get_min_temp(struct psensor **sensors);
-double get_max_temp(struct psensor **sensors);
-
-double get_min_rpm(struct psensor **sensors);
-double get_max_rpm(struct psensor **sensors);
-
 /*
  * Converts the value of a sensor to a string.
  *
- * parameter 'type' is SENSOR_TYPE_LMSENSOR_TEMP, SENSOR_TYPE_NVIDIA,
+ * parameter 'type' is SENSOR_TYPE_TEMP, SENSOR_TYPE_NVIDIA,
  * or SENSOR_TYPE_LMSENSOR_FAN
  */
 char *psensor_value_to_str(unsigned int type,
@@ -167,6 +161,8 @@ struct measure *psensor_get_current_measure(struct psensor *sensor);
 const char *psensor_type_to_str(unsigned int type);
 
 const char *psensor_type_to_unit_str(unsigned int type, int use_celsius);
+
+double get_min_value(struct psensor **sensors, int type);
 
 double get_max_value(struct psensor **sensors, int type);
 

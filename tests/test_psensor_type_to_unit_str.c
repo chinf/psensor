@@ -59,7 +59,7 @@ static int test(void) {
 	if (!test_fct(SENSOR_TYPE_LMSENSOR | SENSOR_TYPE_TEMP, 0, "\302\260F"))
 		failures++;
 
-	if (!test_fct(SENSOR_TYPE_RPM, 0, _("RPM")))
+	if (!test_fct(SENSOR_TYPE_RPM, 0, _("rpm")))
 		failures++;
 
 	return failures;

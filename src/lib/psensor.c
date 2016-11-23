@@ -214,7 +214,7 @@ psensor_value_to_str(unsigned int type, double value, int use_celsius)
 
 	/*
 	 * should not be possible to exceed 20 characters with temp or
-	 * rpm values the .x part is never displayed
+	 * rpm values as we truncate to integer values only
 	 */
 	str = malloc(20);
 
@@ -285,7 +285,7 @@ struct measure *psensor_get_current_measure(struct psensor *sensor)
  * Returns the minimal value of a given 'type' (SENSOR_TYPE_TEMP or
  * SENSOR_TYPE_FAN)
  */
-static double get_min_value(struct psensor **sensors, int type)
+double get_min_value(struct psensor **sensors, int type)
 {
 	double m = UNKNOWN_DBL_VALUE;
 	struct psensor **s = sensors;
@@ -343,26 +343,6 @@ double get_max_value(struct psensor **sensors, int type)
 	}
 
 	return m;
-}
-
-double get_min_temp(struct psensor **sensors)
-{
-	return get_min_value(sensors, SENSOR_TYPE_TEMP);
-}
-
-double get_min_rpm(struct psensor **sensors)
-{
-	return get_min_value(sensors, SENSOR_TYPE_FAN);
-}
-
-double get_max_rpm(struct psensor **sensors)
-{
-	return get_max_value(sensors, SENSOR_TYPE_FAN);
-}
-
-double get_max_temp(struct psensor **sensors)
-{
-	return get_max_value(sensors, SENSOR_TYPE_TEMP);
 }
 
 const char *psensor_type_to_str(unsigned int type)
@@ -423,7 +403,7 @@ const char *psensor_type_to_unit_str(unsigned int type, int use_celsius)
 			return "\302\260C";
 		return "\302\260F";
 	} else if (type & SENSOR_TYPE_RPM) {
-		return _("RPM");
+		return _("rpm");
 	} else if (type & SENSOR_TYPE_PERCENT) {
 		return _("%");
 	}
