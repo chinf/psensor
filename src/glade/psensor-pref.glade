@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.18.3 -->
 <interface>
-  <requires lib="gtk+" version="3.4"/>
+  <requires lib="gtk+" version="3.6"/>
   <object class="GtkAdjustment" id="mins">
     <property name="lower">1</property>
     <property name="upper">65535</property>
@@ -137,7 +137,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">0</property>
+                    <property name="top_attach">3</property>
                     <property name="width">2</property>
                   </packing>
                 </child>
@@ -157,7 +157,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">1</property>
+                    <property name="top_attach">2</property>
                     <property name="width">2</property>
                   </packing>
                 </child>
@@ -177,28 +177,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">2</property>
-                    <property name="width">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkCheckButton" id="enable_launcher_counter">
-                    <property name="label" translatable="yes">Enable Unity Launcher counter</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="tooltip_text" translatable="yes">Psensor has not been build with Unity Launcher support</property>
-                    <property name="margin_left">4</property>
-                    <property name="margin_right">4</property>
-                    <property name="margin_top">4</property>
-                    <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                    <signal name="toggled" handler="ui_pref_count_visible_toggled_cbk" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">3</property>
+                    <property name="top_attach">4</property>
                     <property name="width">2</property>
                   </packing>
                 </child>
@@ -219,7 +198,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">4</property>
+                    <property name="top_attach">5</property>
                   </packing>
                 </child>
                 <child>
@@ -243,7 +222,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
-                    <property name="top_attach">5</property>
+                    <property name="top_attach">6</property>
                   </packing>
                 </child>
                 <child>
@@ -254,12 +233,12 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Temperature unit:</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">4</property>
+                    <property name="top_attach">5</property>
                     <property name="width">2</property>
                   </packing>
                 </child>
@@ -271,12 +250,52 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Position of sensors table:</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">5</property>
+                    <property name="top_attach">6</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="enable_launcher_counter">
+                    <property name="label" translatable="yes">Enable Unity Launcher counter</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Psensor has not been build with Unity Launcher support</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                    <signal name="toggled" handler="ui_pref_count_visible_toggled_cbk" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="restore_window">
+                    <property name="label" translatable="yes">Keep window position and size</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">2</property>
                   </packing>
                 </child>
               </object>
@@ -340,31 +359,13 @@
                     <property name="top_attach">1</property>
                   </packing>
                 </child>
-                <child>
-                  <object class="GtkCheckButton" id="restore_window">
-                    <property name="label" translatable="yes">Restore window position and size</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
-                    <property name="margin_left">4</property>
-                    <property name="margin_right">4</property>
-                    <property name="margin_top">4</property>
-                    <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
-                    <property name="draw_indicator">True</property>
-                  </object>
-                  <packing>
-                    <property name="left_attach">0</property>
-                    <property name="top_attach">2</property>
-                  </packing>
-                </child>
               </object>
               <packing>
                 <property name="position">1</property>
               </packing>
             </child>
             <child type="tab">
-              <object class="GtkLabel" id="label5">
+              <object class="GtkLabel" id="Startup">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="margin_left">4</property>
@@ -412,8 +413,8 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Foreground:</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -428,8 +429,8 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Background:</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -460,8 +461,8 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Background opacity:</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -476,8 +477,8 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">8</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Colors</property>
+                    <property name="xalign">0</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -496,8 +497,8 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Monitoring duration:</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -512,8 +513,8 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Update interval:</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -528,8 +529,8 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">8</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Measures</property>
+                    <property name="xalign">0</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -554,9 +555,9 @@
                       <object class="GtkLabel" id="label15">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;i&gt;Min&lt;/i&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -581,9 +582,9 @@
                       <object class="GtkLabel" id="label16">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
                         <property name="label" translatable="yes">&lt;i&gt;Max&lt;/i&gt;</property>
                         <property name="use_markup">True</property>
+                        <property name="xalign">0</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -724,9 +725,9 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Curves</property>
                     <property name="ellipsize">start</property>
+                    <property name="xalign">0</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -776,8 +777,8 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">4</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="label" translatable="yes">Measure update interval:</property>
+                    <property name="xalign">0</property>
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
@@ -1105,10 +1106,10 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">8</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="xpad">4</property>
                     <property name="label" translatable="yes">Hard disk drive</property>
                     <property name="angle">0.01</property>
+                    <property name="xalign">0</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -1126,10 +1127,10 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">8</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="xpad">4</property>
                     <property name="label" translatable="yes">CPU and memory usage</property>
                     <property name="angle">0.01</property>
+                    <property name="xalign">0</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -1147,10 +1148,10 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">8</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="xpad">4</property>
                     <property name="label" translatable="yes">GPU with proprietary driver</property>
                     <property name="angle">0.01</property>
+                    <property name="xalign">0</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -1168,10 +1169,10 @@
                     <property name="margin_right">4</property>
                     <property name="margin_top">8</property>
                     <property name="margin_bottom">4</property>
-                    <property name="xalign">0</property>
                     <property name="xpad">4</property>
                     <property name="label" translatable="yes">Motherboard, CPU and GPU</property>
                     <property name="angle">0.01</property>
+                    <property name="xalign">0</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>
                     </attributes>
@@ -1188,10 +1189,10 @@
               </packing>
             </child>
             <child type="tab">
-              <object class="GtkLabel" id="label13">
+              <object class="GtkLabel" id="Data sources">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Providers</property>
+                <property name="label" translatable="yes">Data sources</property>
               </object>
               <packing>
                 <property name="position">4</property>

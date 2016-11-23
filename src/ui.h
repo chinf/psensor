@@ -51,16 +51,6 @@ struct ui_psensor {
 	int graph_update_interval;
 };
 
-/*
- * Update the window according to the configuration.
- *
- * Creates or re-creates the sensor_box according to the position of
- * the list of sensors in the configuration.
- *
- * Show or hide the menu bar.
- */
-void ui_window_update(struct ui_psensor *);
-
 /* Show the main psensor window. */
 void ui_window_show(struct ui_psensor *);
 

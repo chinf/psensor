@@ -188,14 +188,14 @@ on_delete_event_cb(GtkWidget *widget, GdkEvent *event, gpointer data)
 {
 	struct ui_psensor *ui = data;
 
-	save_window_pos(ui);
-
 	log_debug("is_status_supported: %d\n", is_status_supported());
 
-	if (is_appindicator_supported() || is_status_supported())
+	if (is_appindicator_supported() || is_status_supported()) {
+		save_window_pos(ui);
 		gtk_widget_hide(ui->main_window);
-	else
+	} else {
 		ui_psensor_quit(ui);
+	}
 
 	return TRUE;
 }
@@ -412,24 +412,19 @@ void ui_window_create(struct ui_psensor *ui)
 	log_debug("ui_window_create() ends");
 }
 
-void ui_window_update(struct ui_psensor *ui)
+void ui_window_show(struct ui_psensor *ui)
 {
 	struct config *cfg;
 
-	log_debug("ui_window_update()");
+	log_debug("ui_window_show()");
 
 	cfg = ui->config;
-
 	if (cfg->window_restore_enabled)
 		gtk_paned_set_position(GTK_PANED(w_sensor_box),
-				       cfg->window_divider_pos);
-
-}
-
-void ui_window_show(struct ui_psensor *ui)
-{
-	log_debug("ui_window_show()");
-	ui_window_update(ui);
+				cfg->window_divider_pos);
+		gtk_window_move(GTK_WINDOW(ui->main_window),
+				cfg->window_x,
+				cfg->window_y);
 	gtk_window_present(GTK_WINDOW(ui->main_window));
 }
 

@@ -305,24 +305,19 @@ static struct option long_options[] = {
 	{NULL, 0, NULL, 0}
 };
 
-static gboolean initial_window_show(gpointer data)
+static gboolean check_ui_visible(gpointer data)
 {
 	struct ui_psensor *ui;
 
-	log_debug("initial_window_show()");
-
 	ui = (struct ui_psensor *)data;
 
+	log_debug("check_ui_visible()");
 	log_debug("is_status_supported: %d", is_status_supported());
 	log_debug("is_appindicator_supported: %d",
 		   is_appindicator_supported());
-	log_debug("hide_on_startup: %d", ui->config->hide_on_startup);
 
-	if (!ui->config->hide_on_startup
-	    || (!is_appindicator_supported() && !is_status_supported()))
+	if (!is_appindicator_supported() && !is_status_supported())
 		ui_window_show(ui);
-
-	ui_window_update(ui);
 
 	return FALSE;
 }
@@ -535,16 +530,16 @@ int main(int argc, char **argv)
 
 	gdk_notify_startup_complete();
 
-	/*
-	 * hack, did not find a cleaner solution.
-	 * wait 30s to ensure that the status icon is attempted to be
-	 * drawn before determining whether the main window must be
-	 * show.
+	log_debug("hide_on_startup: %d", ui.config->hide_on_startup);
+	if (ui.config->hide_on_startup)
+	/* Wait 30s to allow attempt to show status icon or other UI,
+	 * then check whether any UI is accessible. If not, then main
+	 * window must be shown despite hide_on_startup preference.
+	 * There may be a cleaner way to deal with this.
 	 */
-	if  (ui.config->hide_on_startup)
-		g_timeout_add(30000, (GSourceFunc)initial_window_show, &ui);
+		g_timeout_add(30000, (GSourceFunc)check_ui_visible, &ui);
 	else
-		initial_window_show(&ui);
+		ui_window_show(&ui);
 
 	/* main loop */
 	gtk_main();
