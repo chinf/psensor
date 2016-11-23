@@ -304,30 +304,31 @@ static void draw_sensor_curve(struct psensor *s,
 	curve_factor = 0.4; /* sensible range: 0.1 to 0.7 */
 	/* filter coefficients must sum to 1 */
 	if (s->type & SENSOR_TYPE_PERCENT) {
-		a1 = 0.25;
-		b0 = 0.6;
-		b1 = 0.1;
-		c0 = 0.05;
+		a1 = 0.2;	/* t - 1 feedback */
+		b1 = 0.15;	/* t - 1 */
+		b0 = 0.6;	/* t     */
+		c0 = 0.05;	/* t + 1 */
 	} else {
-		a1 = 0.6;
-		b0 = 0.1;
-		b1 = 0.2;
-		c0 = 0.1;
+		a1 = 0.6;	/* t - 1 feedback */
+		b1 = 0.15;	/* t - 1 */
+		b0 = 0.15;	/* t     */
+		c0 = 0.1;	/* t + 1 */
 	}
 
 	for (i = 0; i < samp; i++) {
 		x = rx[i];
 		if (filter) { /* modified first order IIR filter */
-			if (i == 0) {
-				y = (0.5 * ry[i]) + (0.5 * ry[i + 1]);
-			} else if (i >= (samp - 1)) {
+			if (i == 0) { /* first sample */
+				y = ((b0 + a1) * ry[i]) +
+					((c0 + b1) * ry[i + 1]);
+			} else if (i >= (samp - 1)) { /* last sample */
 				y = (a1 * p_y) +
-					((b0 + c0) * ry[i]) +
-					(b1 * ry[i - 1]);
+					(b1 * ry[i - 1]) +
+					((b0 + c0) * ry[i]);
 			} else {
 				y = (a1 * p_y) +
-					(b0 * ry[i]) +
 					(b1 * ry[i - 1]) +
+					(b0 * ry[i]) +
 					(c0 * ry[i + 1]);
 			}
 		} else {
