@@ -148,7 +148,6 @@ static void connect_cbks(GtkWindow *win, GtkWidget *menu_bar)
 			       G_CALLBACK(sensorlist_position_changed_cbk),
 			       menu_bar);
 
-
 	log_fct_exit();
 }
 
@@ -352,11 +351,8 @@ void ui_window_create(struct ui_psensor *ui)
 
 	config_set_slog_enabled_changed_cbk(slog_enabled_cbk, ui);
 
-	hints.min_width = 150;
-	/* height hint to prevent gtk_widget_size_allocate() error from
-	 * shrinking window too far
-	 */
-	hints.min_height = 50;
+	hints.min_width = 120;
+	hints.min_height = 40;
 	gtk_window_set_geometry_hints(GTK_WINDOW(window),
 					NULL,
 					&hints,

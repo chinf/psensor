@@ -24,7 +24,11 @@
 void ui_pref_dialog_run(struct ui_psensor *);
 GdkRGBA color_to_GdkRGBA(struct color *color);
 
+void ui_pref_smoothing_value_changed_cbk(GtkRange *, gpointer);
 void ui_pref_decoration_toggled_cbk(GtkToggleButton *, gpointer);
 void ui_pref_keep_below_toggled_cbk(GtkToggleButton *, gpointer);
+void ui_pref_yaxis_rightside_toggled_cbk(GtkToggleButton *, gpointer);
+void ui_pref_yaxis_leftside_toggled_cbk(GtkToggleButton *, gpointer);
+void ui_pref_yaxis_tags_toggled_cbk(GtkToggleButton *, gpointer);
 
 #endif

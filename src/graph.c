@@ -37,7 +37,9 @@ static const int GRAPH_H_PADDING = 4;
 /* vertical padding */
 static const int GRAPH_V_PADDING = 4;
 
-bool is_smooth_curves_enabled;
+double smoothing;
+bool is_yaxis_rightside_enabled;
+bool is_yaxis_tags_enabled;
 
 struct graph_info {
 	/* Horizontal position of the plot area (curves) */
@@ -54,6 +56,14 @@ struct graph_info {
 	int height;
 	/* Width of the drawing canvas */
 	int width;
+
+	/* y-axis area left edge */
+	int yaxis_x0;
+	/* y-axis area right edge */
+	int yaxis_x1;
+
+	/* y-axis area bottom edge */
+	int yaxis_y1;
 };
 
 static GtkStyleContext *style;
@@ -257,23 +267,106 @@ static void draw_background_lines(cairo_t *cr,
 	cairo_set_dash(cr, NULL, 0, 0);
 }
 
+static void
+draw_yaxis_tag(struct psensor *s,
+			  cairo_t *cr,
+			  double p_y,
+		      struct graph_info *info)
+{
+	int tag_y, use_celsius;
+	char *tag, *svalue;
+	cairo_text_extents_t tag_te;
+
+	if (config_get_temperature_unit() == CELSIUS)
+		use_celsius = 1;
+	else
+		use_celsius = 0;
+
+	svalue = psensor_measure_to_str(psensor_get_current_measure(s),
+				s->type, use_celsius);
+
+	tag = malloc(strlen(s->name) + 1 + strlen(svalue) + 1);
+	sprintf(tag, "%s %s", svalue, s->name);
+	free(svalue);
+
+	cairo_text_extents(cr, tag, &tag_te);
+
+	/* limit y co-ordinates to avoid clashing with main axis labels */
+	if (p_y < (info->g_yoff + (2 * tag_te.height) + GRAPH_V_PADDING))
+		tag_y = info->g_yoff + (2 * tag_te.height) + GRAPH_V_PADDING;
+	else if (p_y > (info->yaxis_y1 - (2 * tag_te.height) - GRAPH_V_PADDING))
+		tag_y = info->yaxis_y1 - (2 * tag_te.height) - GRAPH_V_PADDING;
+	else
+		tag_y = p_y;
+
+	cairo_move_to(cr, info->yaxis_x0 + GRAPH_H_PADDING, tag_y);
+	cairo_show_text(cr, tag);
+
+	free(tag);
+}
+
+static double filter_sensor_data(double *ry,
+					int i,
+					int end,
+					double p_y,
+					unsigned int type)
+{
+	double a1, b0, b1, c0, y;
+
+	if (type & SENSOR_TYPE_PERCENT) {
+		a1 = 0.35;	/* t - 1 feedback */
+		b1 = 0.18;	/* t - 1 */
+		b0 = 0.40;	/* t     */
+		c0 = 0.07;	/* t + 1 */
+	} else {
+		a1 = 0.81;	/* t - 1 feedback */
+		b1 = 0.10;	/* t - 1 */
+		b0 = 0.01;	/* t     */
+		c0 = 0.08;	/* t + 1 */
+	}
+	a1 *= smoothing;
+	b1 *= smoothing;
+	c0 *= smoothing;
+	b0 = 1 - (a1 + b1 + c0); /* filter coefficients must sum to 1 */
+
+	/* modified first order IIR filter */
+	if (i == 0) { /* first sample */
+		y = ((b0 + a1) * ry[i]) +
+			((c0 + b1) * ry[i + 1]);
+	} else if (i >= end) { /* last sample */
+		y = (a1 * p_y) +
+			(b1 * ry[i - 1]) +
+			((b0 + c0) * ry[i]);
+	} else {
+		y = (a1 * p_y) +
+			(b1 * ry[i - 1]) +
+			(b0 * ry[i]) +
+			(c0 * ry[i + 1]);
+	}
+	return y;
+}
+
 static void draw_sensor_curve(struct psensor *s,
+			      cairo_t *cr,
 			      cairo_t *plotarea,
 			      double min,
 			      double max,
 			      int bt,
 			      int et,
-			      struct graph_info *info,
-				  int filter)
+			      struct graph_info *info)
 {
 	int stage, i, samp;
 	double x, y, p_x, p_y, pp_x, pp_y, c1_x, c1_y, c2_x, c2_y, dx, dy;
-	double m, p_m, t_m, curve_factor, a1, b0, b1, c0;
+	double m, p_m, t_m, curve_factor;
 	double rx[s->values_max_length], ry[s->values_max_length];
 	GdkRGBA *color;
 
 	color = config_get_sensor_color(s->id);
 	cairo_set_source_rgb(plotarea,
+			     color->red,
+			     color->green,
+			     color->blue);
+	cairo_set_source_rgb(cr,
 			     color->red,
 			     color->green,
 			     color->blue);
@@ -302,38 +395,13 @@ static void draw_sensor_curve(struct psensor *s,
 	dx = 0;
 	dy = 0;
 	curve_factor = 0.4; /* sensible range: 0.1 to 0.7 */
-	/* filter coefficients must sum to 1 */
-	if (s->type & SENSOR_TYPE_PERCENT) {
-		a1 = 0.2;	/* t - 1 feedback */
-		b1 = 0.15;	/* t - 1 */
-		b0 = 0.6;	/* t     */
-		c0 = 0.05;	/* t + 1 */
-	} else {
-		a1 = 0.6;	/* t - 1 feedback */
-		b1 = 0.15;	/* t - 1 */
-		b0 = 0.15;	/* t     */
-		c0 = 0.1;	/* t + 1 */
-	}
 
 	for (i = 0; i < samp; i++) {
 		x = rx[i];
-		if (filter) { /* modified first order IIR filter */
-			if (i == 0) { /* first sample */
-				y = ((b0 + a1) * ry[i]) +
-					((c0 + b1) * ry[i + 1]);
-			} else if (i >= (samp - 1)) { /* last sample */
-				y = (a1 * p_y) +
-					(b1 * ry[i - 1]) +
-					((b0 + c0) * ry[i]);
-			} else {
-				y = (a1 * p_y) +
-					(b1 * ry[i - 1]) +
-					(b0 * ry[i]) +
-					(c0 * ry[i + 1]);
-			}
-		} else {
+		if (smoothing > 0)
+			y = filter_sensor_data(ry, i, samp - 1, p_y, s->type);
+		else
 			y = ry[i];
-		}
 
 		switch (stage) {
 		case 0:
@@ -423,8 +491,10 @@ static void draw_sensor_curve(struct psensor *s,
 						   p_x, p_y);
 		}
 	}
-
 	cairo_stroke(plotarea);
+
+	if (is_yaxis_tags_enabled)
+		draw_yaxis_tag(s, cr, p_y, info);
 }
 
 static void
@@ -454,9 +524,8 @@ graph_update(struct psensor **sensors,
 	     struct config *config,
 	     GtkWidget *window)
 {
-	int use_celsius, et, bt, width, height;
-	int yaxis_width, yaxis_tx, yaxis_sx, yaxis_ux, yaxis_y1, yaxis_y0;
-	int t_graphs, s_graphs, u_graphs;
+	int use_celsius, et, bt, width, height, yaxis_off;
+	int yt_width, ys_width, yu_width, t_graphs, s_graphs, u_graphs;
 	double min_t, max_t, min_s, max_s, min_u, max_u, min, max;
 	char *min_t_str, *max_t_str, *min_s_str, *max_s_str;
 	char *min_u_str, *max_u_str, *bt_str, *et_str;
@@ -550,34 +619,33 @@ graph_update(struct psensor **sensors,
 		info.g_height = height - et_te.height - (3 * GRAPH_V_PADDING);
 	else
 		info.g_height = height - et_te.height - (3 * GRAPH_V_PADDING);
-	yaxis_y1 = max_t_te.height + GRAPH_V_PADDING;
-	yaxis_y0 = height - min_t_te.height - GRAPH_V_PADDING;
+	info.yaxis_y1 = height - GRAPH_V_PADDING;
 
 	/* calculate horizontal metrics */
-	info.g_xoff = GRAPH_H_PADDING;
-	yaxis_width = GRAPH_H_PADDING;
-	if (u_graphs) {
-		if (max_u_te.width > min_u_te.width)
-			yaxis_width += GRAPH_H_PADDING + max_u_te.width;
-		else
-			yaxis_width += GRAPH_H_PADDING + min_u_te.width;
-	}
-	yaxis_ux = width - yaxis_width + GRAPH_H_PADDING;
-	if (s_graphs) {
-		if (max_s_te.width > min_s_te.width)
-			yaxis_width += GRAPH_H_PADDING + max_s_te.width;
-		else
-			yaxis_width += GRAPH_H_PADDING + min_s_te.width;
-	}
-	yaxis_sx = width - yaxis_width + GRAPH_H_PADDING;
+	yt_width = 0;
+	ys_width = 0;
+	yu_width = 0;
 	if (t_graphs) {
 		if (max_t_te.width > min_t_te.width)
-			yaxis_width += GRAPH_H_PADDING + max_t_te.width;
+			yt_width = GRAPH_H_PADDING + max_t_te.width;
 		else
-			yaxis_width += GRAPH_H_PADDING + min_t_te.width;
+			yt_width = GRAPH_H_PADDING + min_t_te.width;
 	}
-	yaxis_tx = width - yaxis_width + GRAPH_H_PADDING;
-	info.g_width = width - info.g_xoff - yaxis_width;
+	if (s_graphs)
+		ys_width = GRAPH_H_PADDING + max_s_te.width;
+	if (u_graphs)
+		yu_width = GRAPH_H_PADDING + max_u_te.width;
+	info.g_width = width - (2 * GRAPH_H_PADDING) -
+					(yt_width + ys_width + yu_width);
+	if (is_yaxis_rightside_enabled) {
+		info.g_xoff = GRAPH_H_PADDING;
+		info.yaxis_x0 = info.g_xoff + info.g_width;
+		info.yaxis_x1 = width - GRAPH_H_PADDING;
+	} else {
+		info.g_xoff = width - GRAPH_H_PADDING - info.g_width;
+		info.yaxis_x0 = GRAPH_H_PADDING;
+		info.yaxis_x1 = info.g_xoff;
+	}
 
 	draw_graph_background(cr, config, &info);
 	draw_background_lines(cr, min_t, max_t, config, &info);
@@ -609,11 +677,11 @@ graph_update(struct psensor **sensors,
 				max = max_t;
 			}
 			cairo_set_line_width(plotarea, 1);
-			draw_sensor_curve(s, plotarea,
+			draw_sensor_curve(s, cr, plotarea,
 							 min, max,
 							 bt, et,
-							 &info,
-						     is_smooth_curves_enabled);
+							 &info);
+
 			sensor_cur++;
 		}
 	}
@@ -627,28 +695,34 @@ graph_update(struct psensor **sensors,
 			     theme_fg_color.green,
 			     theme_fg_color.blue);
 
+	if (is_yaxis_rightside_enabled)
+		yaxis_off = info.yaxis_x0 + GRAPH_H_PADDING;
+	else
+		yaxis_off = info.yaxis_x0;
 	if (t_graphs) {
 		/* draw y-axis: max and min temp */
-		cairo_move_to(cr, yaxis_tx, yaxis_y1);
+		cairo_move_to(cr, yaxis_off, info.g_yoff + max_t_te.height);
 		cairo_show_text(cr, max_t_str);
 
-		cairo_move_to(cr, yaxis_tx, yaxis_y0);
+		cairo_move_to(cr, yaxis_off, info.yaxis_y1 - min_t_te.height);
 		cairo_show_text(cr, min_t_str);
+		yaxis_off += yt_width;
 	}
 	if (s_graphs) {
 		/* draw y-axis: max and min speeds */
-		cairo_move_to(cr, yaxis_sx, yaxis_y1);
+		cairo_move_to(cr, yaxis_off, info.g_yoff + max_t_te.height);
 		cairo_show_text(cr, max_s_str);
 
-		cairo_move_to(cr, yaxis_sx, yaxis_y0);
+		cairo_move_to(cr, yaxis_off, info.yaxis_y1 - min_t_te.height);
 		cairo_show_text(cr, min_s_str);
+		yaxis_off += ys_width;
 	}
 	if (u_graphs) {
 		/* draw y-axis: max and min usage */
-		cairo_move_to(cr, yaxis_ux, yaxis_y1);
+		cairo_move_to(cr, yaxis_off, info.g_yoff + max_t_te.height);
 		cairo_show_text(cr, max_u_str);
 
-		cairo_move_to(cr, yaxis_ux, yaxis_y0);
+		cairo_move_to(cr, yaxis_off, info.yaxis_y1 - min_t_te.height);
 		cairo_show_text(cr, min_u_str);
 	}
 	if (t_graphs + s_graphs + u_graphs) {
@@ -657,7 +731,7 @@ graph_update(struct psensor **sensors,
 		cairo_show_text(cr, bt_str);
 
 		cairo_move_to(cr,
-				info.g_width - et_te.width,
+				info.g_xoff + info.g_width - et_te.width,
 				height - GRAPH_V_PADDING);
 		cairo_show_text(cr, et_str);
 	} else {
@@ -695,7 +769,7 @@ int compute_values_max_length(struct config *c)
 	duration = c->graph_monitoring_duration * 60;
 	interval = c->sensor_update_interval;
 
-	n = 3 + ceil((((double)duration) / interval) + 0.5) + 3;
+	n = 4 + ceil((((double)duration) / interval) + 0.5) + 3;
 
 	return n;
 }

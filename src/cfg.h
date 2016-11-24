@@ -102,8 +102,14 @@ void config_set_slog_enabled_changed_cbk(void (*)(void *), void *);
 
 int config_get_slog_interval(void);
 
-bool config_is_smooth_curves_enabled(void);
-void config_set_smooth_curves_enabled(bool);
+double config_get_graph_smoothing(void);
+void config_set_graph_smoothing(double);
+
+bool config_is_yaxis_rightside_enabled(void);
+void config_set_yaxis_rightside_enabled(bool);
+
+bool config_is_yaxis_tags_enabled(void);
+void config_set_yaxis_tags_enabled(bool);
 
 int config_get_sensor_position(const char *);
 void config_set_sensor_position(const char *, int);

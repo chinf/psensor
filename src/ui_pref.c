@@ -33,6 +33,29 @@
 #include <ui_pref.h>
 #include <ui_unity.h>
 
+void ui_pref_smoothing_value_changed_cbk(GtkRange *rng, gpointer data)
+{
+	config_set_graph_smoothing(gtk_range_get_value(rng));
+}
+
+void ui_pref_yaxis_rightside_toggled_cbk(GtkToggleButton *btn, gpointer data)
+{
+	config_set_yaxis_rightside_enabled
+		(gtk_toggle_button_get_active(btn));
+}
+
+void ui_pref_yaxis_leftside_toggled_cbk(GtkToggleButton *btn, gpointer data)
+{
+	config_set_yaxis_rightside_enabled
+		(!gtk_toggle_button_get_active(btn));
+}
+
+void ui_pref_yaxis_tags_toggled_cbk(GtkToggleButton *btn, gpointer data)
+{
+	config_set_yaxis_tags_enabled
+		(gtk_toggle_button_get_active(btn));
+}
+
 void ui_pref_decoration_toggled_cbk(GtkToggleButton *btn, gpointer data)
 {
 	config_set_window_decoration_enabled
@@ -87,15 +110,15 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GError *error = NULL;
 	GdkRGBA color_fg, color_bg;
 	GtkColorChooser *w_color_fg, *w_color_bg;
-	GtkScale *w_bg_opacity;
+	GtkScale *w_bg_opacity, *w_data_smoothing;
 	GtkSpinButton *w_update_interval, *w_monitoring_duration,
 		*w_s_update_interval, *w_slog_interval;
 	GtkComboBox *w_sensorlist_pos;
-	GtkToggleButton *w_enable_menu, *w_enable_launcher_counter,
-		*w_hide_on_startup, *w_win_restore, *w_slog_enabled,
-		*w_autostart, *w_smooth_curves, *w_atiadlsdk, *w_lmsensors,
-		*w_nvctrl, *w_gtop2, *w_hddtemp, *w_libatasmart, *w_udisks2,
-		*w_decoration, *w_keep_below;
+	GtkToggleButton *w_enable_launcher_counter, *w_win_restore,
+		*w_keep_below, *w_decoration, *w_enable_menu, *w_autostart,
+		*w_hide_on_startup, *w_slog_enabled, *w_lmsensors,
+		*w_atiadlsdk, *w_nvctrl, *w_gtop2, *w_hddtemp,
+		*w_libatasmart, *w_udisks2, *w_yaxis_right, *w_yaxis_tags;
 	GtkComboBoxText *w_temp_unit;
 	GtkEntry *w_notif_script;
 	char *notif_script;
@@ -195,10 +218,20 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 			(GTK_WIDGET(w_enable_launcher_counter), TRUE);
 	}
 
-	w_smooth_curves = GTK_TOGGLE_BUTTON
-		(gtk_builder_get_object(builder, "graph_smooth_curves"));
-	gtk_toggle_button_set_active(w_smooth_curves,
-				     config_is_smooth_curves_enabled());
+	w_data_smoothing = GTK_SCALE(gtk_builder_get_object(builder,
+							"data_smoothing"));
+	gtk_range_set_value(GTK_RANGE(w_data_smoothing),
+					 config_get_graph_smoothing());
+
+	w_yaxis_right = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder, "graph_yaxis_right"));
+	gtk_toggle_button_set_active(w_yaxis_right,
+				     config_is_yaxis_rightside_enabled());
+
+	w_yaxis_tags = GTK_TOGGLE_BUTTON
+		(gtk_builder_get_object(builder, "graph_yaxis_tags"));
+	gtk_toggle_button_set_active(w_yaxis_tags,
+				     config_is_yaxis_tags_enabled());
 
 	w_slog_enabled = GTK_TOGGLE_BUTTON
 		(gtk_builder_get_object(builder, "enable_slog"));
@@ -225,7 +258,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	gtk_combo_box_set_active(GTK_COMBO_BOX(w_temp_unit),
 				 config_get_temperature_unit());
 
-	/* providers */
+	/* providers (data sources) */
 	w_lmsensors
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "lmsensors"));
@@ -368,9 +401,6 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 		cfg->sensor_values_max_length = compute_values_max_length(cfg);
 
 		config_save(cfg);
-
-		config_set_smooth_curves_enabled
-			(gtk_toggle_button_get_active(w_smooth_curves));
 
 		config_set_lmsensor_enable
 			(gtk_toggle_button_get_active(w_lmsensors));

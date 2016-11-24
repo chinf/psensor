@@ -41,11 +41,26 @@
       <description>The interval between refreshs of the graph as
       seconds. It must be greater than 1.</description>
     </key>
-    <key name="graph-smooth-curves-enabled" type="b">
+    <key name="graph-smoothing" type="d">
+      <default>0.8</default>
+      <summary>The level of smoothing applied to graph plots</summary>
+      <description>Tunes the filter coefficients of the smoothing
+      algorithm applied to the sensor data for graph plotting. This
+      only affects the graph display and not the table or data logged
+      values. It must be a positive float between 0 and 1. '1' is the
+      maximum smoothing, and '0' will apply no filtering.</description>
+    </key>
+    <key name="graph-yaxis-rightside-enabled" type="b">
       <default>true</default>
-      <summary>Whether smooth curves are enabled</summary>
-      <description>Whether curves are drawn using Bezier algorithm
-      for a smoother visual rendering .</description>
+      <summary>Position the y-axis scale to the right of the graph</summary>
+      <description>Positions the y-axis scale on the right hand side
+      of the graph instead of the left.</description>
+    </key>
+    <key name="graph-yaxis-tags-enabled" type="b">
+      <default>true</default>
+      <summary>Label current data values on the y-axis</summary>
+      <description>Whether labels are added to the y-axis to show
+      the current values for the enabled graphs.</description>
     </key>
     <key name="interface-hide-on-startup" type="b">
       <default>false</default>

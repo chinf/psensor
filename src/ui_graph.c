@@ -45,9 +45,19 @@ on_expose_event(GtkWidget *widget, GdkEventExpose *event, gpointer data)
 	return FALSE;
 }
 
-static void smooth_curves_enabled_changed_cbk(void *data)
+static void smoothing_changed_cbk(void *data)
 {
-	is_smooth_curves_enabled = config_is_smooth_curves_enabled();
+	smoothing = config_get_graph_smoothing();
+}
+
+static void yaxis_rightside_enabled_changed_cbk(void *data)
+{
+	is_yaxis_rightside_enabled = config_is_yaxis_rightside_enabled();
+}
+
+static void yaxis_tags_enabled_changed_cbk(void *data)
+{
+	is_yaxis_tags_enabled = config_is_yaxis_tags_enabled();
 }
 
 void ui_graph_create(struct ui_psensor *ui)
@@ -58,10 +68,22 @@ void ui_graph_create(struct ui_psensor *ui)
 
 	w_graph = ui_get_graph();
 
-	is_smooth_curves_enabled = config_is_smooth_curves_enabled();
+	smoothing = config_get_graph_smoothing();
 	g_signal_connect_after(config_get_GSettings(),
-			       "changed::graph-smooth-curves-enabled",
-			       G_CALLBACK(smooth_curves_enabled_changed_cbk),
+			       "changed::graph-smoothing",
+			       G_CALLBACK(smoothing_changed_cbk),
+			       NULL);
+
+	is_yaxis_rightside_enabled = config_is_yaxis_rightside_enabled();
+	g_signal_connect_after(config_get_GSettings(),
+			       "changed::graph-yaxis-rightside-enabled",
+			       G_CALLBACK(yaxis_rightside_enabled_changed_cbk),
+			       NULL);
+
+	is_yaxis_tags_enabled = config_is_yaxis_tags_enabled();
+	g_signal_connect_after(config_get_GSettings(),
+			       "changed::graph-yaxis-tags-enabled",
+			       G_CALLBACK(yaxis_tags_enabled_changed_cbk),
 			       NULL);
 
 	g_signal_connect(GTK_WIDGET(w_graph),

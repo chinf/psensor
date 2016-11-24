@@ -60,8 +60,11 @@ static const char *DEFAULT_GRAPH_BACKGROUND_COLOR = "#e8f4e8f4a8f5";
 static const char *KEY_GRAPH_BACKGROUND_ALPHA = "graph-background-alpha";
 static const char *KEY_GRAPH_FOREGROUND_COLOR
 = "graph-foreground-color";
-static const char *KEY_GRAPH_SMOOTH_CURVES_ENABLED
-= "graph-smooth-curves-enabled";
+static const char *KEY_GRAPH_SMOOTHING = "graph-smoothing";
+static const char *KEY_GRAPH_YAXIS_RIGHTSIDE_ENABLED
+= "graph-yaxis-rightside-enabled";
+static const char *KEY_GRAPH_YAXIS_TAGS_ENABLED
+= "graph-yaxis-tags-enabled";
 
 static const char *DEFAULT_GRAPH_FOREGROUND_COLOR = "#000000000000";
 
@@ -348,14 +351,34 @@ void config_set_window_keep_below_enabled(bool enabled)
 	set_bool(KEY_INTERFACE_WINDOW_KEEP_BELOW_ENABLED, enabled);
 }
 
-bool config_is_smooth_curves_enabled(void)
+double config_get_graph_smoothing(void)
 {
-	return get_bool(KEY_GRAPH_SMOOTH_CURVES_ENABLED);
+	return get_double(KEY_GRAPH_SMOOTHING);
 }
 
-void config_set_smooth_curves_enabled(bool b)
+void config_set_graph_smoothing(double smoothing)
 {
-	set_bool(KEY_GRAPH_SMOOTH_CURVES_ENABLED, b);
+	set_double(KEY_GRAPH_SMOOTHING, smoothing);
+}
+
+bool config_is_yaxis_rightside_enabled(void)
+{
+	return get_bool(KEY_GRAPH_YAXIS_RIGHTSIDE_ENABLED);
+}
+
+void config_set_yaxis_rightside_enabled(bool enabled)
+{
+	set_bool(KEY_GRAPH_YAXIS_RIGHTSIDE_ENABLED, enabled);
+}
+
+bool config_is_yaxis_tags_enabled(void)
+{
+	return get_bool(KEY_GRAPH_YAXIS_TAGS_ENABLED);
+}
+
+void config_set_yaxis_tags_enabled(bool enabled)
+{
+	set_bool(KEY_GRAPH_YAXIS_TAGS_ENABLED, enabled);
 }
 
 double config_get_default_high_threshold_temperature(void)

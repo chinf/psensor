@@ -24,7 +24,9 @@
 #include <cfg.h>
 #include <psensor.h>
 
-extern bool is_smooth_curves_enabled;
+extern double smoothing;
+extern bool is_yaxis_rightside_enabled;
+extern bool is_yaxis_tags_enabled;
 
 void graph_update(struct psensor **sensors,
 		  GtkWidget *w_graph,
