@@ -458,6 +458,8 @@ struct config *config_load(void)
 	if (c->graph_monitoring_duration < 1)
 		c->graph_monitoring_duration = 10;
 
+	c->hide_on_startup = get_bool(KEY_INTERFACE_HIDE_ON_STARTUP);
+
 	c->window_restore_enabled
 		= get_bool(KEY_INTERFACE_WINDOW_RESTORE_ENABLED);
 
