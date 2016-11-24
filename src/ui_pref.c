@@ -343,6 +343,7 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 	gtk_toggle_button_set_active(w_udisks2, config_is_udisks2_enabled());
 
+	gtk_window_set_transient_for(diag, ui->main_window);
 	gtk_builder_connect_signals(builder, NULL);
 
 	result = gtk_dialog_run(diag);
