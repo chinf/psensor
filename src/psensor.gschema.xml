@@ -17,17 +17,15 @@
     </key>
     <key name="graph-background-color" type="s">
       <default>'#e8f4e8f4a8f5'</default>
-      <summary>The color of the background of the graph
-      canvas</summary>
-      <description>The color of the background of the graph canvas as
-      a #rgb representation.</description>
+      <summary>The color of the background of the graph</summary>
+      <description>The color of the background of the graph in #RGB
+      format.</description>
     </key>
     <key name="graph-foreground-color" type="s">
       <default>'#000000000000'</default>
-      <summary>The color of the foreground of the graph
-      canvas</summary>
-      <description>The color of the foreground of the graph canvas as
-      a #rgb representation.</description>
+      <summary>The color of the graph gridlines and labels</summary>
+      <description>The color of the graph gridlines and axis labels
+      in #RGB format.</description>
     </key>
     <key name="graph-monitoring-duration" type="i">
       <default>20</default>

@@ -536,6 +536,7 @@ graph_update(struct psensor **sensors,
 	cairo_text_extents_t min_s_te, max_s_te, min_u_te, max_u_te;
 	struct psensor **sensor_cur, **enabled_sensors;
 	struct graph_info info;
+	struct color *col;
 	GtkAllocation galloc;
 
 	if (!gtk_widget_is_drawable(w_graph))
@@ -690,10 +691,8 @@ graph_update(struct psensor **sensors,
 	cairo_surface_destroy(plotsurface);
 
 	/* Set the color for text drawing */
-	cairo_set_source_rgb(cr,
-			     theme_fg_color.red,
-			     theme_fg_color.green,
-			     theme_fg_color.blue);
+	col = config->graph_fgcolor;
+	cairo_set_source_rgb(cr, col->red, col->green, col->blue);
 
 	if (is_yaxis_rightside_enabled)
 		yaxis_off = info.yaxis_x0 + GRAPH_H_PADDING;
