@@ -281,7 +281,7 @@
                 </child>
                 <child>
                   <object class="GtkCheckButton" id="restore_window">
-                    <property name="label" translatable="yes">Keep window position and size</property>
+                    <property name="label" translatable="yes">Keep window position</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
